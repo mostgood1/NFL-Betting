@@ -4,11 +4,14 @@ services:
     env: python
     plan: free
     buildCommand: |
-      pip install --upgrade pip
+      python --version
+      pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
     startCommand: bash start.sh
     autoDeploy: true
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: FLASK_ENV
