@@ -6,7 +6,7 @@ services:
     buildCommand: |
       python --version
       pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+      pip install -r requirements-web.txt
     startCommand: bash start.sh
     autoDeploy: true
     envVars:
@@ -16,3 +16,5 @@ services:
         value: "1"
       - key: FLASK_ENV
         value: production
+      - key: RENDER
+        value: "1"

@@ -1207,6 +1207,9 @@ def refresh_data():
       train=true  -> also run training before predicting
     """
     train = request.args.get("train", "false").lower() == "true"
+    # On minimal web deploys (Render), heavy training libs may be absent.
+    if os.environ.get("RENDER", "").lower() in {"1", "true", "yes"}:
+        return {"status": "skipped", "reason": "Refresh disabled on Render minimal deploy. Run locally or add full requirements."}, 200
     py = sys.executable or "python"
     env = os.environ.copy()
     # Ensure repo root is on module path
@@ -1244,6 +1247,9 @@ def refresh_odds():
     Requires ODDS_API_KEY in environment. This will write data/real_betting_lines_YYYY_MM_DD.json
     and then execute the prediction pipeline so UI reflects updated lines.
     """
+    # On minimal web deploys (Render), odds/client deps may be absent.
+    if os.environ.get("RENDER", "").lower() in {"1", "true", "yes"}:
+        return {"status": "skipped", "reason": "Odds refresh disabled on Render minimal deploy. Run locally or enable full requirements."}, 200
     py = sys.executable or "python"
     env = os.environ.copy()
     env["PYTHONPATH"] = str(BASE_DIR)
