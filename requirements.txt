@@ -1,0 +1,19 @@
+# Root requirements for Render; include Flask/gunicorn and reuse package set from nfl_compare
+Flask==2.3.3
+gunicorn==21.2.0
+# Core DS stack used by nfl_compare (we can also reference the nested requirements during build if preferred)
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+scipy==1.11.4
+statsmodels==0.14.2
+xgboost==2.0.3
+pydantic==2.7.4
+matplotlib==3.8.4
+seaborn==0.13.2
+joblib==1.4.2
+requests==2.32.3
+nfl-data-py==0.3.1
+pyarrow==17.0.0
+python-dotenv==1.0.1
+# streamlit is not needed on Render for this app, omit to keep image light

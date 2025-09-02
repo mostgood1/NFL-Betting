@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFL Betting – Cards</title>
+  <style>
+    /* High-contrast tokens (Dark by default) */
+    :root{
+      --bg:#080d1a;            /* darker background for stronger contrast */
+      --card:#0d1426;
+      --card2:#121b31;
+      --text:#f5f7ff;          /* brighter primary text */
+      --muted:#c3cee4;         /* higher-contrast muted text */
+      --chip:#141b2e;
+      --chip-br:#2a3a63;
+      --link:#b8d1ff;
+      --pill-bg:#101a2e;
+      --pill-br:#2a3a63;
+      --badge-bg:#162247;
+      --badge-br:#2a3a63;
+      --input-bg:#121b31;
+      --input-br:#243356;
+      --button-bg:#1b2339;
+      --button-br:#2a3a63;
+      --button-text:#e6edf7;
+    }
+    /* Light theme overrides */
+    body.light{
+      --bg:#ffffff;
+      --card:#f8fafc;
+      --card2:#eef2f7;
+      --text:#0a0f1c;
+      --muted:#475569;
+      --chip:#eef2ff;
+      --chip-br:#cbd5e1;
+      --link:#1e40af;
+      --pill-bg:#f1f5f9;
+      --pill-br:#cbd5e1;
+      --badge-bg:#e2e8f0;
+      --badge-br:#cbd5e1;
+      --input-bg:#ffffff;
+      --input-br:#94a3b8;
+      --button-bg:#f1f5f9;
+      --button-br:#94a3b8;
+      --button-text:#0a0f1c;
+    }
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
+    .container{max-width:1100px;margin:24px auto;padding:0 16px}
+    h1{font-size:22px;margin:0 0 6px}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .nav{margin-bottom:12px}
+    .nav a{color:var(--link);text-decoration:none;margin-right:10px}
+    .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .filters{display:flex;gap:8px;align-items:center;margin:12px 0 16px}
+    .filters input{background:var(--input-bg);border:1px solid var(--input-br);color:var(--text);padding:6px 8px;border-radius:6px;width:120px}
+    .filters button{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    @media(max-width:1100px){.grid{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #243356;border-radius:14px;padding:12px 12px 10px 12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .row{display:flex;justify-content:space-between;align-items:center}
+  .teams{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+    .name{font-weight:700}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:var(--chip);border:1px solid var(--chip-br);font-size:12px;color:var(--text)}
+    .pred{display:flex;justify-content:space-between;align-items:baseline;font-variant-numeric:tabular-nums;margin:6px 0}
+    .score{font-size:18px;font-weight:800}
+    .muted{color:var(--muted);font-size:12px}
+  .pill{display:inline-block;padding:2px 6px;border-radius:6px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:12px;color:var(--text)}
+  .kpi{display:flex;gap:10px;align-items:center;justify-content:flex-start;margin-top:6px}
+  .recs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--badge-br);background:var(--badge-bg);font-size:12px;color:var(--text)}
+  .b-low{box-shadow:inset 0 0 0 1px #375a7f}
+  .b-med{box-shadow:inset 0 0 0 1px #7f7f37}
+  .b-high{box-shadow:inset 0 0 0 1px #2e8b57}
+  .odds{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
+  .odds .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
+  .odds .muted{color:var(--muted)}
+  .venue{color:var(--muted);font-size:12px;margin-top:6px}
+  .status{font-weight:700;font-size:12px;color:var(--text)}
+  .team-block{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
+  .team-name{font-weight:700}
+  .tiny{font-size:11px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+    <h1>NFL Betting – Cards</h1>
+    <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
+    <form class="filters" method="get" action="/">
+      <label>Season: <input type="number" name="season" value="{{ season or '' }}" /></label>
+      <label>Week: <input type="number" name="week" value="{{ week or '' }}" /></label>
+      <label>Sort:
+        <select name="sort">
+          <option value="date" {{ 'selected' if (sort or 'date')=='date' else '' }}>Date/Time</option>
+          <option value="winner" {{ 'selected' if sort=='winner' else '' }}>Winner EV</option>
+          <option value="ats" {{ 'selected' if sort=='ats' else '' }}>ATS Edge</option>
+          <option value="total" {{ 'selected' if sort=='total' else '' }}>Total Edge</option>
+        </select>
+      </label>
+      <button type="submit">Apply</button>
+    <a href="/">Reset</a>
+  <a href="/api/refresh-data" style="margin-left:8px;color:var(--link);" title="Rebuild predictions (server-side)">Refresh Data</a>
+  <a href="/api/refresh-odds" style="margin-left:8px;color:var(--link);" title="Fetch real odds and rebuild">Refresh Odds</a>
+    </form>
+
+    {% if have_data %}
+      <div class="grid">
+        {% for g in cards %}
+          <div class="card">
+            <div class="venue">{{ g.venue_text }}</div>
+            <div class="status">{{ g.status_text }}</div>
+
+            <div class="team-block" style="margin-top:8px;">
+              {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" />{% endif %}
+              <div class="team-name dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_team }}</div>
+              <div style="text-align:right">
+                <div class="score">{{ g.away_score if g.away_score is not none else ( '%.2f' % g.pred_away_points if g.pred_away_points is not none else '-' ) }}</div>
+                {% if g.pred_away_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_away_points }}</div>{% endif %}
+              </div>
+            </div>
+            <div class="tiny" style="text-align:center;margin:2px 0;">@</div>
+            <div class="team-block">
+              {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" />{% endif %}
+              <div class="team-name dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_team }}</div>
+              <div style="text-align:right">
+                <div class="score">{{ g.home_score if g.home_score is not none else ( '%.2f' % g.pred_home_points if g.pred_home_points is not none else '-' ) }}</div>
+                {% if g.pred_home_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_home_points }}</div>{% endif %}
+              </div>
+            </div>
+
+            <div class="pred">
+              <div class="muted">Total (model): {{ '%.2f' % g.pred_total if g.pred_total is not none else '-' }}</div>
+              <div class="muted">Total (actual): {{ '%.2f' % g.actual_total if g.actual_total is not none else '-' }}</div>
+              <div class="muted">Diff: {{ '%.2f' % g.total_diff if g.total_diff is not none else '-' }}</div>
+            </div>
+
+            {% if g.wp_text %}<div class="muted" style="margin-top:4px;">{{ g.wp_text }}</div>{% endif %}
+
+            <div class="kpi">
+              {% if g.pred_winner %}
+                <span class="pill">Winner: {{ g.pred_winner }}{% if g.winner_correct is not none %} {{ 'Correct' if g.winner_correct else 'Wrong' }}{% endif %}</span>
+              {% endif %}
+              {% if g.market_spread_home is not none %}
+                <span class="pill">Spread: {{ g.home_team }} {{ '%+.1f' % g.market_spread_home }} • Model: {{ g.home_team if g.edge_spread is not none and g.edge_spread>=0 else g.away_team if g.edge_spread is not none else '—' }} (Edge {{ '%+.2f' % (g.edge_spread or 0) }})</span>
+              {% endif %}
+            </div>
+            <div class="kpi">
+              {% if g.ats_text %}<span class="pill">{{ g.ats_text }}</span>{% endif %}
+            </div>
+            <div class="kpi">
+              {% if g.ou_text %}<span class="pill">{{ g.ou_text }}</span>{% endif %}
+              {% if g.totals_text %}<span class="pill">{{ g.totals_text }}</span>{% endif %}
+            </div>
+
+            <div class="recs">
+              {% if g.rec_winner_side %}
+                <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.rec_winner_side }}{% if g.rec_winner_ev is not none %} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%) {% endif %}{% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
+              {% endif %}
+              {% if g.rec_spread_side %}
+                <span class="badge {{ 'b-high' if g.rec_spread_conf=='High' else 'b-med' if g.rec_spread_conf=='Medium' else 'b-low' if g.rec_spread_conf=='Low' else '' }}">Spread: {{ g.rec_spread_side }}{% if g.rec_spread_ev is not none %} (EV {{ '%.1f' % (g.rec_spread_ev*100) }}%) {% endif %}{% if g.rec_spread_conf %} • {{ g.rec_spread_conf }}{% endif %}</span>
+              {% endif %}
+              {% if g.rec_total_side %}
+                <span class="badge {{ 'b-high' if g.rec_total_conf=='High' else 'b-med' if g.rec_total_conf=='Medium' else 'b-low' if g.rec_total_conf=='Low' else '' }}">Total: {{ g.rec_total_side }}{% if g.rec_total_ev is not none %} (EV {{ '%.1f' % (g.rec_total_ev*100) }}%) {% endif %}{% if g.rec_total_conf %} • {{ g.rec_total_conf }}{% endif %}</span>
+              {% endif %}
+            </div>
+
+            <div class="chips">
+              {% if g.weather_text %}
+                <span class="chip">{{ g.weather_text }}</span>
+              {% endif %}
+              {% if g.stadium_roof %}
+                <span class="chip">Roof {{ g.stadium_roof }}</span>
+              {% endif %}
+              {% if g.market_total is not none %}
+                <span class="chip">Total {{ '%.2f' % g.market_total }}</span>
+              {% endif %}
+              {% if g.market_spread_home is not none %}
+                <span class="chip">Home {{ '%+.1f' % g.market_spread_home }}</span>
+              {% endif %}
+              <span class="chip odds-toggle" role="button" tabindex="0">Hide Odds</span>
+            </div>
+
+            <div class="odds">
+              <div class="row"><span class="muted">Moneyline (Away / Home)</span><span>
+                {% if g.moneyline_away is not none %}{{ '%+d' % g.moneyline_away }}{% else %}-{% endif %}
+                /
+                {% if g.moneyline_home is not none %}{{ '%+d' % g.moneyline_home }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Implied Win Prob (Away / Home)</span><span>
+                {% if g.implied_away_prob is not none %}{{ '%.1f' % (g.implied_away_prob*100) }}%{% else %}-{% endif %}
+                /
+                {% if g.implied_home_prob is not none %}{{ '%.1f' % (g.implied_home_prob*100) }}%{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Spread (Home)</span><span>
+                {% if g.market_spread_home is not none %}{{ '%+.1f' % g.market_spread_home }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Total</span><span>
+                {% if g.market_total is not none %}{{ '%.1f' % g.market_total }}{% else %}-{% endif %}
+              </span></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No predictions found. Generate predictions locally, then deploy: python -m nfl_compare.src.predict</p>
+    {% endif %}
+
+    <p style="margin-top:16px;font-size:13px;">
+      API: <a href="/api/predictions" style="color:var(--link);">/api/predictions</a> | <a href="/health" style="color:var(--link);">/health</a>
+    </p>
+  </div>
+  <script>
+    (function(){
+      try {
+        // Theme: restore preference and wire toggle
+        var body = document.body;
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') { body.classList.add('light'); }
+        var tbtn = document.getElementById('themeToggle');
+        if (tbtn) {
+          tbtn.addEventListener('click', function(){
+            body.classList.toggle('light');
+            localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+            // Re-evaluate dynamic colors on theme change
+            applyTeamColors();
+          });
+        }
+        function parseColor(str){
+          if(!str) return null;
+          str = (''+str).trim();
+          if(str.startsWith('var(')){
+            // resolve CSS var
+            var name = str.slice(4,-1).trim();
+            var v = getComputedStyle(document.body).getPropertyValue(name).trim();
+            return parseColor(v);
+          }
+          if(str.startsWith('#')){
+            let hex = str.slice(1);
+            if(hex.length===3) hex = hex.split('').map(x=>x+x).join('');
+            var num = parseInt(hex,16);
+            return {r:(num>>16)&255,g:(num>>8)&255,b:num&255};
+          }
+          if(str.startsWith('rgb')){
+            var m = str.match(/rgba?\(([^\)]+)\)/);
+            if(m){
+              var parts = m[1].split(',').map(s=>parseFloat(s.trim()));
+              return {r:parts[0],g:parts[1],b:parts[2]};
+            }
+          }
+          return null;
+        }
+        function relLum(rgb){
+          function srgbToLin(c){ c/=255; return c<=0.03928? c/12.92 : Math.pow((c+0.055)/1.055,2.4); }
+          var r = srgbToLin(rgb.r), g = srgbToLin(rgb.g), b = srgbToLin(rgb.b);
+          return 0.2126*r + 0.7152*g + 0.0722*b;
+        }
+        function contrast(c1,c2){
+          var L1 = relLum(c1), L2 = relLum(c2);
+          var lighter = Math.max(L1,L2), darker = Math.min(L1,L2);
+          return (lighter + 0.05) / (darker + 0.05);
+        }
+        function mix(rgb1, rgb2, t){ // linear mix 0..1
+          return {r:Math.round(rgb1.r*(1-t)+rgb2.r*t), g:Math.round(rgb1.g*(1-t)+rgb2.g*t), b:Math.round(rgb1.b*(1-t)+rgb2.b*t)};
+        }
+        function toHex(rgb){
+          const h = (n)=>('0'+n.toString(16)).slice(-2);
+          return '#'+h(rgb.r)+h(rgb.g)+h(rgb.b);
+        }
+  function applyTeamColors(){
+          var bgVar = getComputedStyle(document.body).getPropertyValue('--card2').trim() || getComputedStyle(document.body).getPropertyValue('--bg').trim();
+          var bg = parseColor(bgVar) || {r:18,g:27,b:49};
+          var themeTextVar = getComputedStyle(document.body).getPropertyValue('--text').trim();
+          var themeText = parseColor(themeTextVar) || {r:245,g:247,b:255};
+          document.querySelectorAll('.dynamic-color').forEach(function(el){
+            var c1s = el.getAttribute('data-color');
+            var c2s = el.getAttribute('data-color2');
+            var c1 = parseColor(c1s);
+            var c2 = parseColor(c2s);
+            var chosen = null;
+            var threshold = 4.5; // WCAG AA for normal text
+            // Try primary
+            if (c1 && contrast(c1,bg) >= threshold) chosen = c1;
+            // Then secondary
+            if (!chosen && c2 && contrast(c2,bg) >= threshold) chosen = c2;
+            // Then theme text
+            if (!chosen && themeText && contrast(themeText,bg) >= threshold) chosen = themeText;
+            // Else blend toward theme text to reach threshold up to 80%
+            if (!chosen && c1){
+              var t=0, step=0.1, cur=c1;
+              while(t<=0.8 && contrast(cur,bg) < threshold){ t+=step; cur = mix(c1, themeText, t); }
+              chosen = cur;
+            }
+            if (!chosen) chosen = themeText;
+            el.style.color = toHex(chosen);
+          });
+        }
+        applyTeamColors();
+        // Odds toggle handlers
+        document.querySelectorAll('.card').forEach(function(card){
+          var toggle = card.querySelector('.odds-toggle');
+          var panel = card.querySelector('.odds');
+          if (toggle && panel){
+            function flip(){
+              var isOpen = panel.style.display === 'block';
+              panel.style.display = isOpen ? 'none' : 'block';
+              toggle.textContent = isOpen ? 'Show Odds' : 'Hide Odds';
+            }
+            toggle.addEventListener('click', flip);
+            toggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
+            // Default to open
+            panel.style.display = 'block';
+            toggle.textContent = 'Hide Odds';
+          }
+        });
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
+</body>
+</html>

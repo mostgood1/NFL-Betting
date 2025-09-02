@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFL Predictions – Table</title>
+  <style>
+    /* Shared theme tokens with cards page */
+    :root{
+      --bg:#080d1a; --text:#f5f7ff; --muted:#c3cee4; --link:#b8d1ff;
+      --input-bg:#121b31; --input-br:#243356; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7;
+      --row1:#0f1629; --row2:#121b31; --th:#0f1629; --table-br:#243356;
+    }
+    body.light{
+      --bg:#ffffff; --text:#0a0f1c; --muted:#475569; --link:#1e40af;
+      --input-bg:#ffffff; --input-br:#94a3b8; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c;
+      --row1:#f8fafc; --row2:#eef2f7; --th:#e2e8f0; --table-br:#cbd5e1;
+    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+    h1 { font-size: 22px; margin: 0 0 16px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border: 1px solid var(--table-br); padding: 8px 10px; text-align: left; }
+    th { background: var(--th); }
+    tr:nth-child(odd) td { background: var(--row1); }
+    tr:nth-child(even) td { background: var(--row2); }
+    .filters { display: flex; gap: 8px; align-items: center; margin: 12px 0 16px; }
+    .filters input { background: var(--input-bg); border: 1px solid var(--input-br); color: var(--text); padding: 6px 8px; border-radius: 6px; width: 120px; }
+    .filters button { background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-br); border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+    .nav { margin-bottom: 10px; }
+    .nav a { color: var(--link); text-decoration: none; margin-right: 10px; }
+    .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+    <h1>NFL Predictions – Table</h1>
+    <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
+    <form class="filters" method="get" action="/table">
+      <label>Season: <input type="number" name="season" value="{{ season or '' }}" /></label>
+      <label>Week: <input type="number" name="week" value="{{ week or '' }}" /></label>
+      <button type="submit">Apply</button>
+      <a href="/table">Reset</a>
+    </form>
+
+    {% if have_data %}
+      <table>
+        <thead>
+          <tr>
+            {% for c in show_cols %}
+              <th>{{ c }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in rows %}
+            <tr>
+              {% for c in show_cols %}
+                <td>{{ r.get(c) }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No data.</p>
+    {% endif %}
+  </div>
+  <script>
+    (function(){
+      try{
+        var body = document.body;
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') { body.classList.add('light'); }
+        var tbtn = document.getElementById('themeToggle');
+        if (tbtn) {
+          tbtn.addEventListener('click', function(){
+            body.classList.toggle('light');
+            localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+          });
+        }
+      } catch(e){}
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFL Betting – Recommendations</title>
+  <style>
+    :root{
+      --bg:#080d1a; --card:#0d1426; --card2:#121b31; --text:#f5f7ff; --muted:#c3cee4; --border:#243356;
+      --link:#b8d1ff; --pill-bg:#101a2e; --pill-br:#2a3a63; --badge-bg:#162247; --badge-br:#2a3a63;
+    }
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
+    .container{max-width:1100px;margin:24px auto;padding:0 16px}
+    a{color:var(--link)}
+    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .muted{color:var(--muted)}
+    table{width:100%;border-collapse:collapse}
+    th, td{padding:8px}
+    thead th{text-align:left;border-bottom:1px solid var(--border)}
+    tbody tr{border-top:1px solid var(--border)}
+  </style>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://a.espncdn.com">
+  <link rel="dns-prefetch" href="https://a.espncdn.com">
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="EV-based betting recommendations for NFL games." />
+</head>
+<body>
+  <div class="container">
+    <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/health" target="_blank">Health</a></div>
+  <h1>NFL Betting – Recommendations</h1>
+  <p class="muted">Sorted by confidence then EV. Odds assumed -110 for spread/total when book odds are not present.</p>
+  {% if week %}<p class="muted">Week {{ week }}</p>{% endif %}
+
+    {% if not have_data %}
+      <div class="card">No recommendations available.</div>
+    {% else %}
+      {% for tier in ["High", "Medium", "Low"] %}
+        {% set items = groups.get(tier, []) %}
+        {% if items and items|length > 0 %}
+          <h2 style="margin-top: 1rem;">{{ tier }} confidence</h2>
+          <div class="table" style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Game</th>
+                  <th>Type</th>
+                  <th>Selection</th>
+                  <th style="text-align:right;">Odds</th>
+                  <th style="text-align:right;">EV</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for r in items %}
+                <tr>
+                  <td>{{ r.away_team }} @ {{ r.home_team }}</td>
+                  <td>{{ r.type }}</td>
+                  <td>{{ r.selection }}</td>
+                  <td style="text-align:right;">{{ r.odds }}</td>
+                  <td style="text-align:right;">{{ '%.1f%%' % r.ev_pct if r.ev_pct is not none }}</td>
+                  <td>{{ r.game_date }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</body>
+</html>

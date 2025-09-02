@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: nfl-betting
+    env: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: bash start.sh
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: FLASK_ENV
+        value: production

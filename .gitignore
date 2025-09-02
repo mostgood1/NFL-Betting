@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.egg-info/
+.eggs/
+.Python
+.venv/
+venv/
+ENV/
+build/
+dist/
+pip-wheel-metadata/
+
+# Environment
+.env
+.env.*
+*.env
+
+# Data & models
+nfl_compare/data/*.csv
+nfl_compare/data/*.parquet
+nfl_compare/data/*.json
+nfl_compare/models/
+logs/
+
+# Notebooks
+*.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
