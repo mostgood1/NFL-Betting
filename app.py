@@ -10,6 +10,7 @@ import subprocess
 import sys
 import json
 import math
+import traceback
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -450,9 +451,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
 
     # Apply global filtering to reduce noise
     try:
-        min_ev_pct = float(os.environ.get('RECS_MIN_EV_PCT', '3.0'))
+        # Default minimum EV raised to 5% to avoid weak edges
+        min_ev_pct = float(os.environ.get('RECS_MIN_EV_PCT', '5.0'))
     except Exception:
-        min_ev_pct = 3.0
+        min_ev_pct = 5.0
     filtered = [r for r in recs if (r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct)]
     # Optional: keep only the single highest-EV recommendation per game
     one_per_game = str(os.environ.get('RECS_ONE_PER_GAME', 'false')).strip().lower() in {'1','true','yes','y'}
@@ -1059,7 +1061,8 @@ def index():
                     winner_side, winner_ev = s, e
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
-            c["rec_winner_conf"] = _combine_confs(_conf_from_ev(winner_ev) if winner_ev is not None else None, c.get("game_confidence"))
+            # Confidence for this market should reflect EV only; do not inherit game-level confidence
+            c["rec_winner_conf"] = _conf_from_ev(winner_ev) if winner_ev is not None else None
 
             # Spread (win margin) EV using actual prices when available (fallback to -110)
             ev_spread_home = ev_spread_away = None
@@ -1095,7 +1098,8 @@ def index():
                     spread_side, spread_ev = s, e
             c["rec_spread_side"] = spread_side
             c["rec_spread_ev"] = spread_ev
-            c["rec_spread_conf"] = _combine_confs(_conf_from_ev(spread_ev) if spread_ev is not None else None, c.get("game_confidence"))
+            # Confidence for this market should reflect EV only; do not inherit game-level confidence
+            c["rec_spread_conf"] = _conf_from_ev(spread_ev) if spread_ev is not None else None
 
             # Total EV using actual prices when available (fallback to -110)
             ev_over = ev_under = None
@@ -1128,7 +1132,8 @@ def index():
                     total_side, total_ev = s, e
             c["rec_total_side"] = total_side
             c["rec_total_ev"] = total_ev
-            c["rec_total_conf"] = _combine_confs(_conf_from_ev(total_ev) if total_ev is not None else None, c.get("game_confidence"))
+            # Confidence for this market should reflect EV only; do not inherit game-level confidence
+            c["rec_total_conf"] = _conf_from_ev(total_ev) if total_ev is not None else None
 
     # Apply sorting
     def _dt_key(card: Dict[str, Any]):
@@ -1302,6 +1307,52 @@ def odds_coverage():
     return jsonify(out)
 
 
+@app.route("/api/eval")
+def api_eval():
+    """Return walk-forward evaluation metrics.
+
+    Behavior:
+    - If running on Render (RENDER env true), try to read a cached JSON at nfl_compare/data/eval_summary.json.
+      If not present, return a 'skipped' status for safety.
+    - Otherwise, execute the evaluator in-process and optionally write/update the cache when write_cache=true.
+    Query params:
+      - min_weeks (int): minimum weeks of prior data to train per season (default env NFL_EVAL_MIN_WEEKS_TRAIN=4)
+      - write_cache (bool): if true, write results to cache file.
+    """
+    cache_path = DATA_DIR / "eval_summary.json"
+    is_render = str(os.environ.get("RENDER", "")).lower() in {"1", "true", "yes"}
+    min_weeks = os.environ.get("NFL_EVAL_MIN_WEEKS_TRAIN", "4")
+    try:
+        if request.args.get("min_weeks"):
+            min_weeks = str(int(request.args.get("min_weeks")))
+    except Exception:
+        pass
+    write_cache = str(request.args.get("write_cache", "false")).lower() in {"1","true","yes","y"}
+
+    if is_render:
+        if cache_path.exists():
+            try:
+                data = json.loads(cache_path.read_text(encoding="utf-8"))
+                return jsonify({"status": "ok", "from_cache": True, "cache_path": str(cache_path), "data": data})
+            except Exception as e:
+                return jsonify({"status": "error", "error": str(e)}), 500
+        return jsonify({"status": "skipped", "reason": "Evaluation disabled on Render; no cache present.", "cache_path": str(cache_path)}), 200
+
+    # Local/full env: run the evaluation in-process
+    try:
+        from nfl_compare.scripts.evaluate_walkforward import walkforward_eval
+        res = walkforward_eval(min_weeks_train=int(min_weeks))
+        if write_cache:
+            try:
+                cache_path.write_text(json.dumps(res, indent=2), encoding="utf-8")
+            except Exception:
+                # Non-fatal
+                pass
+        return jsonify({"status": "ok", "from_cache": False, "data": res})
+    except Exception as e:
+        return jsonify({"status": "error", "error": str(e), "trace": traceback.format_exc()}), 500
+
+
 @app.route("/api/venue-info")
 def venue_info():
     gid = request.args.get('game_id')
@@ -1359,6 +1410,34 @@ def venue_info():
             'override': ovr or {},
         })
     return jsonify({'data': out})
+
+
+@app.route("/api/backfill-close-lines", methods=["POST", "GET"])
+def api_backfill_close_lines():
+    """Run the backfill script to populate close_spread_home/close_total where missing.
+
+    On Render, this is skipped to avoid heavy operations; run locally instead.
+    Returns a brief report including counts updated and the output file path.
+    """
+    if os.environ.get("RENDER", "").lower() in {"1", "true", "yes"}:
+        return jsonify({"status": "skipped", "reason": "Backfill disabled on Render minimal deploy. Run locally."}), 200
+    py = sys.executable or "python"
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(BASE_DIR)
+    cmd = [py, "-m", "nfl_compare.scripts.backfill_close_lines"]
+    try:
+        res = subprocess.run(cmd, cwd=str(BASE_DIR), env=env, capture_output=True, text=True, timeout=600)
+        stdout_tail = res.stdout[-2000:]
+        stderr_tail = res.stderr[-2000:]
+        ok = (res.returncode == 0)
+        return jsonify({
+            "status": "ok" if ok else "error",
+            "returncode": res.returncode,
+            "stdout_tail": stdout_tail,
+            "stderr_tail": stderr_tail,
+        }), (200 if ok else 500)
+    except Exception as e:
+        return jsonify({"status": "error", "error": str(e)}), 500
 
 
 if __name__ == "__main__":
