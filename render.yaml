@@ -18,3 +18,5 @@ services:
         value: production
       - key: RENDER
         value: "1"
+      - key: DISABLE_JSON_ODDS
+        value: "1"

@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+import os
 from typing import Dict, Any, List
 import pandas as pd
 from pathlib import Path
@@ -187,6 +188,9 @@ def _try_load_latest_real_lines() -> pd.DataFrame:
     Looks for files like real_betting_lines_YYYY_MM_DD.json, falling back to real_betting_lines.json
     Returns a normalized DataFrame or empty DataFrame.
     """
+    # Allow disabling JSON odds via env for parity with Render or local debug
+    if os.getenv('DISABLE_JSON_ODDS', '').strip() in ('1','true','True','yes','Y'):
+        return pd.DataFrame(columns=['away_team','home_team','moneyline_home','moneyline_away','spread_home','total'])
     # Prefer today's date file
     candidates = []
     today_us = datetime.now().strftime('%Y_%m_%d')

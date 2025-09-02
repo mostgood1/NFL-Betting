@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import hashlib
 from typing import Optional, Dict, Any, List
 
 import pandas as pd
@@ -67,6 +68,54 @@ def _load_stadium_meta_map() -> Dict[str, Dict[str, Any]]:
     except Exception:
         pass
     return {}
+
+
+def _file_status(fp: Path) -> Dict[str, Any]:
+    try:
+        exists = fp.exists()
+        size = int(fp.stat().st_size) if exists else 0
+        mtime = int(fp.stat().st_mtime) if exists else None
+        sha = None
+        if exists and size <= 5_000_000:  # avoid hashing very large files
+            h = hashlib.sha256()
+            with open(fp, 'rb') as f:
+                while True:
+                    chunk = f.read(8192)
+                    if not chunk:
+                        break
+                    h.update(chunk)
+            sha = h.hexdigest()[:16]
+        return {"path": str(fp), "exists": exists, "size": size, "mtime": mtime, "sha256_16": sha}
+    except Exception:
+        return {"path": str(fp), "exists": False}
+
+
+@app.route('/api/data-status')
+def api_data_status():
+    """Report presence and small hashes of key data files to debug parity between local and Render."""
+    files = {
+        "predictions": PRED_FILE,
+        "lines": DATA_DIR / 'lines.csv',
+        "games": DATA_DIR / 'games.csv',
+        "team_stats": DATA_DIR / 'team_stats.csv',
+        "eval_summary": DATA_DIR / 'eval_summary.json',
+        "assets": ASSETS_FILE,
+        "stadium_meta": STADIUM_META_FILE,
+        "overrides": LOCATION_OVERRIDES_FILE,
+    }
+    status = {k: _file_status(v) for k, v in files.items()}
+    # also list a couple of JSON odds snapshots if present
+    try:
+        candidates = []
+        for pat in ('real_betting_lines_*.json','real_betting_lines.json'):
+            candidates.extend([p for p in DATA_DIR.glob(pat)])
+        status['json_odds'] = [ _file_status(p) for p in sorted(candidates)[:5] ]
+    except Exception:
+        status['json_odds'] = []
+    return jsonify({
+        "env": {"RENDER": os.getenv('RENDER'), "DISABLE_JSON_ODDS": os.getenv('DISABLE_JSON_ODDS')},
+        "data": status
+    })
 
 
 def _load_location_overrides() -> Dict[str, Dict[str, Any]]:
