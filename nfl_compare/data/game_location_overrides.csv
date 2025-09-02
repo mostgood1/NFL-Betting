@@ -1,0 +1,4 @@
+# Optional per-game overrides for venue/location/roof/tz, etc.
+# Columns: game_id,date,home_team,away_team,venue,city,country,tz,lat,lon,roof,surface,neutral_site,note
+# Example neutral-site opener in São Paulo, Brazil (Corinthians Arena)
+2025_01_LAC_KC,2025-09-05,Los Angeles Chargers,Kansas City Chiefs,Neo Química Arena,São Paulo,Brazil,America/Sao_Paulo,-23.5453,-46.4741,open,grass,TRUE,NFL Brazil Game (neutral site)
