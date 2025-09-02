@@ -1,0 +1,12 @@
+{
+  "MAE_margin": 5.488028416069125,
+  "RMSE_margin": 6.620901353277433,
+  "MAE_total": 11.248657488753254,
+  "RMSE_total": 13.187211900184568,
+  "AUC_home_win": 0.9647610057100755,
+  "Brier_home_win": 0.07602543261361787,
+  "AUC_home_win_market": 0.5668965644970109,
+  "Brier_home_win_market": 0.24452791367299787,
+  "predictions_scored": 422,
+  "seasons_evaluated": 4
+}
