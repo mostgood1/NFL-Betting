@@ -212,6 +212,25 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     X = df.reindex(columns=FEATURES, fill_value=0).fillna(0)
     df['pred_margin'] = models.regressors['home_margin'].predict(X)
     df['pred_total'] = models.regressors['total_points'].predict(X)
+    # Optional calibration of game totals toward market with scale/shift and band clamp
+    try:
+        # Defaults tuned to avoid systematic unders while preserving model signal
+        total_scale = float(os.getenv('NFL_TOTAL_SCALE', '1.03'))
+        total_shift = float(os.getenv('NFL_TOTAL_SHIFT', '1.8'))
+        total_blend = float(os.getenv('NFL_MARKET_TOTAL_BLEND', '0.70'))  # 0=no market, 1=all market
+        total_band = float(os.getenv('NFL_TOTAL_MARKET_BAND', '6.5'))     # clamp within +/- points of market (0 to disable)
+    except Exception:
+        total_scale, total_shift, total_blend, total_band = 1.03, 1.8, 0.70, 6.5
+    # Apply scale/shift first
+    df['pred_total'] = (df['pred_total'] * total_scale) + total_shift
+    # Blend toward market total when available
+    if total_blend > 0 and 'total' in df.columns:
+        mt = df['total'].astype(float)
+        base = df['pred_total'].astype(float)
+        df['pred_total'] = ((1 - total_blend) * base) + (total_blend * mt)
+        # Optional clamp to stay within a band of the market
+        if total_band and total_band > 0:
+            df['pred_total'] = np.clip(df['pred_total'], mt - total_band, mt + total_band)
     if models.classifiers.get('home_win') is not None:
         df['prob_home_win'] = models.classifiers['home_win'].predict_proba(X)[:, 1]
     else:

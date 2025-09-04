@@ -55,6 +55,17 @@ This repo includes a Render blueprint (render.yaml). Two options:
   - NFL_TOTAL_SIGMA (default 10.0)
   - RECS_MIN_EV_PCT (default 3.0)
   - RECS_ONE_PER_GAME (true/false, default false)
+  - Totals calibration (optional; helps align model totals to market while keeping signal):
+    - NFL_TOTAL_SCALE (default 1.0) — multiplicative scale applied to model total before blending
+    - NFL_TOTAL_SHIFT (default 0.0) — additive shift (points) applied before blending
+    - NFL_MARKET_TOTAL_BLEND (default 0.60) — 0=no market anchor, 1=fully market total
+    - NFL_TOTAL_MARKET_BAND (default 5.0) — clamp final total within ±band points of market (0 disables clamp)
+
+Typical balanced settings that reduced an “all unders” bias in testing:
+  - NFL_TOTAL_SCALE=1.03
+  - NFL_TOTAL_SHIFT=1.8
+  - NFL_MARKET_TOTAL_BLEND=0.70
+  - NFL_TOTAL_MARKET_BAND=6.5
 
 ### Notes
 
