@@ -165,15 +165,14 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             return view_df
         # Filter features to the rows in view_df (exclude completed/final games to keep historical predictions locked)
         vf = view_df.copy()
-        # Detect finals by presence of scores or a status column
-        is_final = pd.Series(False, index=vf.index)
-        for sc_col in ("home_score","away_score","status"):
-            if sc_col in vf.columns:
-                if sc_col == "status":
-                    is_final = is_final | (vf[sc_col].astype(str).str.upper() == "FINAL")
-                else:
-                    is_final = is_final | vf[sc_col].notna()
-        vf_pred = vf.loc[~is_final].copy()
+        # Determine which rows actually need predictions (any key pred_* missing)
+        need_mask = pd.Series(False, index=vf.index)
+        for col in ("pred_home_points","pred_away_points","pred_total","pred_home_win_prob"):
+            if col in vf.columns:
+                need_mask = need_mask | vf[col].isna()
+            else:
+                need_mask = True  # if a key column missing entirely, we need to predict
+        vf_pred = vf.loc[need_mask].copy()
         if vf_pred.empty:
             return view_df
 
@@ -201,12 +200,12 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             merged_partial = vf_pred.merge(pred_keep, on='game_id', how='left', suffixes=('', '_m'))
         else:
             merged_partial = vf_pred.merge(pred_keep, on=[c for c in ['home_team','away_team'] if c in vf_pred.columns and c in pred_keep.columns], how='left', suffixes=('', '_m'))
-        # Fill nulls from _m columns
+        # Fill nulls from _m columns (do not overwrite existing non-null values)
         for col in ['pred_home_points','pred_away_points','pred_total','pred_margin','pred_q1_total','pred_q2_total','pred_q3_total','pred_q4_total','pred_1h_total','pred_2h_total','prob_home_win','pred_home_win_prob']:
             base = col
             alt = f"{col}_m"
             if base in merged_partial.columns and alt in merged_partial.columns:
-                merged_partial[base] = merged_partial[base].where(merged_partial[base].notna(), merged_partial[alt])
+                merged_partial[base] = merged_partial[base].fillna(merged_partial[alt])
         # Also fill odds/lines/weather fields from features frame for completeness
         line_cols = ['spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price','close_spread_home','close_total',
                      'wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']
@@ -227,10 +226,10 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
         else:
             join_keys = [c for c in ['season','week','home_team','away_team'] if c in out.columns and c in merged2_partial.columns]
             out = out.merge(merged2_partial, on=join_keys, how='left', suffixes=('', '_new'))
-        # For prediction fields, prefer newly computed values only for non-final rows
+        # For prediction fields, fill missing values from newly computed values (keep existing non-null values intact)
         for col in ['pred_home_points','pred_away_points','pred_total','pred_margin','pred_q1_total','pred_q2_total','pred_q3_total','pred_q4_total','pred_1h_total','pred_2h_total','prob_home_win','pred_home_win_prob']:
             if f"{col}_new" in out.columns:
-                out[col] = out[col].where(is_final | out[f"{col}_new"].isna(), out[f"{col}_new"])  # keep finals
+                out[col] = out[col].fillna(out[f"{col}_new"])  # fill only where missing
         # Clean helper columns
         drop_cols3 = [c for c in out.columns if c.endswith('_new')]
         out = out.drop(columns=drop_cols3)
@@ -875,6 +874,14 @@ def api_recommendations():
             week_i = int(week)
         except Exception:
             week_i = None
+    # If week is provided but season missing, infer latest season from games/predictions
+    if week_i is not None and season_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_i = int(src['season'].max())
+        except Exception:
+            pass
     # Default to latest season, Week 1 if no explicit week/date
     if week_i is None and not date:
         try:
@@ -1000,6 +1007,14 @@ def recommendations_page():
             week_i = int(week)
         except Exception:
             week_i = None
+    # If week provided but season missing, infer latest season
+    if week_i is not None and season_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_i = int(src['season'].max())
+        except Exception:
+            season_i = None
     if season_i is None and week_i is None and not date:
         # Latest season from games (fallback to predictions)
         try:
@@ -1963,6 +1978,52 @@ def api_backfill_close_lines():
         }), (200 if ok else 500)
     except Exception as e:
         return jsonify({"status": "error", "error": str(e)}), 500
+
+
+@app.route("/api/debug-week-view")
+def api_debug_week_view():
+    """Debug endpoint: show per-game recommendation counts for a given season/week/date.
+    Query: season, week, date, min_ev
+    """
+    try:
+        pred_df = _load_predictions()
+        games_df = _load_games()
+        season = request.args.get("season")
+        week = request.args.get("week")
+        date = request.args.get("date")
+        season_i = int(season) if season else None
+        week_i = int(week) if week else None
+        view_df = _build_week_view(pred_df, games_df, season_i, week_i)
+        view_df = _attach_model_predictions(view_df)
+        if date and not view_df.empty:
+            if "game_date" in view_df.columns:
+                view_df = view_df[view_df["game_date"].astype(str).str[:10] == str(date)]
+            elif "date" in view_df.columns:
+                view_df = view_df[view_df["date"].astype(str).str[:10] == str(date)]
+        # Optional min_ev override
+        if request.args.get("min_ev"):
+            os.environ['RECS_MIN_EV_PCT'] = str(request.args.get("min_ev"))
+        out = []
+        for _, row in view_df.iterrows():
+            try:
+                recs = _compute_recommendations_for_row(row)
+            except Exception:
+                recs = []
+            out.append({
+                'game_id': row.get('game_id'),
+                'date': row.get('game_date') or row.get('date'),
+                'home_team': row.get('home_team'),
+                'away_team': row.get('away_team'),
+                'recs': len(recs),
+                'has_ml': bool(row.get('moneyline_home') is not None or row.get('moneyline_away') is not None),
+                'has_spread': bool(row.get('close_spread_home') is not None or row.get('market_spread_home') is not None or row.get('spread_home') is not None),
+                'has_total': bool(row.get('close_total') is not None or row.get('market_total') is not None or row.get('total') is not None),
+                'pred_total': row.get('pred_total'),
+                'pred_home_win_prob': row.get('pred_home_win_prob') or row.get('prob_home_win'),
+            })
+        return jsonify({'rows': len(out), 'data': out})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == "__main__":
