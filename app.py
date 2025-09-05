@@ -542,11 +542,11 @@ def _conf_from_ev(ev_units: float) -> Optional[str]:
     except Exception:
         th_low = 4.0
     try:
-    th_med = float(os.environ.get('RECS_EV_THRESH_MED', '7.5'))
+        th_med = float(os.environ.get('RECS_EV_THRESH_MED', '7.5'))
     except Exception:
         th_med = 8.0
     try:
-    th_high = float(os.environ.get('RECS_EV_THRESH_HIGH', '12.5'))
+        th_high = float(os.environ.get('RECS_EV_THRESH_HIGH', '12.5'))
     except Exception:
         th_high = 15.0
     ev_pct = ev_units * 100.0
