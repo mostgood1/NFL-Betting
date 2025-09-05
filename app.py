@@ -213,6 +213,21 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             if csv_fp.exists():
                 try:
                     df_csv_fb = _pd.read_csv(csv_fp)
+                    # Normalize team names in fallback to match app conventions
+                    try:
+                        from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                        if 'home_team' in df_csv_fb.columns:
+                            df_csv_fb['home_team'] = df_csv_fb['home_team'].astype(str).apply(_norm_team)
+                        if 'away_team' in df_csv_fb.columns:
+                            df_csv_fb['away_team'] = df_csv_fb['away_team'].astype(str).apply(_norm_team)
+                    except Exception:
+                        pass
+                    # Align dtypes for season/week if present
+                    for _col in ('season','week'):
+                        if _col in df_csv_fb.columns:
+                            df_csv_fb[_col] = _pd.to_numeric(df_csv_fb[_col], errors='coerce').astype('Int64')
+                        if _col in out_base.columns:
+                            out_base[_col] = _pd.to_numeric(out_base[_col], errors='coerce').astype('Int64')
                     cols_present_fb = [c for c in line_cols if c in df_csv_fb.columns]
                     # Cast game_id to str on both sides when present
                     if 'game_id' in out_base.columns:
