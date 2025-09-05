@@ -980,16 +980,22 @@ def api_recommendations():
                 season_i = int(src['season'].max())
         except Exception:
             pass
-    # Default to latest season, Week 1 if no explicit week/date
+    # Default to the current (season, week) inferred by date when no explicit week/date
     if week_i is None and not date:
         try:
             src = games_df if (games_df is not None and not games_df.empty) else pred_df
-            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
-                if season_i is None:
-                    season_i = int(src['season'].max())
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_i, week_i = int(inferred[0]), int(inferred[1])
+            else:
+                # Fallback: latest season, week 1
+                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    if season_i is None:
+                        season_i = int(src['season'].max())
+                week_i = 1
         except Exception:
-            pass
-        week_i = 1
+            # Last-resort fallback
+            week_i = 1
 
     # Build combined view and enrich with model preds + odds/weather
     view_df = _build_week_view(pred_df, games_df, season_i, week_i)
@@ -1234,15 +1240,20 @@ def index():
     except Exception:
         pass
 
-    # Default to latest season, week 1 when no explicit filters
+    # Default to the current (season, week) inferred by date when no explicit filters
     if season_param is None and week_param is None:
         try:
             src = games_df if (games_df is not None and not games_df.empty) else df
-            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
-                season_param = int(src['season'].max())
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_param, week_param = int(inferred[0]), int(inferred[1])
+            else:
+                # Fallback: latest season, week 1
+                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_param = int(src['season'].max())
+                week_param = 1
         except Exception:
-            season_param = None
-        week_param = 1
+            week_param = 1
 
     # Build combined view from games + predictions for the target week
     view_df = _build_week_view(df, games_df, season_param, week_param)
