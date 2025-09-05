@@ -272,6 +272,50 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         out_base = out_base.drop(columns=drop_fb)
                 except Exception:
                     pass
+            # Last-resort: for any rows still missing odds/close fields, directly lookup in fallback CSV by keys and assign
+            try:
+                if 'df_csv_fb' in locals() and isinstance(df_csv_fb, _pd.DataFrame) and not df_csv_fb.empty:
+                    key_cols_all = ['season','week','home_team','away_team']
+                    # Build quick indices for performance (small data anyway)
+                    df_by_gid = None
+                    if 'game_id' in df_csv_fb.columns:
+                        df_by_gid = df_csv_fb.set_index('game_id')
+                    # Identify rows with all main odds missing
+                    odds_main = ['moneyline_home','moneyline_away','close_spread_home','close_total']
+                    need_fill = out_base.index[out_base[odds_main].isna().all(axis=1)].tolist() if all(c in out_base.columns for c in odds_main) else []
+                    for ridx in need_fill:
+                        row = out_base.loc[ridx]
+                        cand = None
+                        # Try by game_id
+                        gid = str(row.get('game_id')) if 'game_id' in out_base.columns else None
+                        if gid and df_by_gid is not None and gid in df_by_gid.index:
+                            cand = df_by_gid.loc[gid]
+                        # Try by season/week/home/away
+                        if cand is None and all(c in out_base.columns for c in key_cols_all) and all(c in df_csv_fb.columns for c in key_cols_all):
+                            mask = (
+                                (df_csv_fb['season'] == row.get('season')) &
+                                (df_csv_fb['week'] == row.get('week')) &
+                                (df_csv_fb['home_team'] == row.get('home_team')) &
+                                (df_csv_fb['away_team'] == row.get('away_team'))
+                            )
+                            sub = df_csv_fb[mask]
+                            if len(sub) == 1:
+                                cand = sub.iloc[0]
+                        # Try by teams only
+                        if cand is None and {'home_team','away_team'}.issubset(df_csv_fb.columns):
+                            mask = (
+                                (df_csv_fb['home_team'] == row.get('home_team')) &
+                                (df_csv_fb['away_team'] == row.get('away_team'))
+                            )
+                            sub = df_csv_fb[mask]
+                            if len(sub) == 1:
+                                cand = sub.iloc[0]
+                        if cand is not None:
+                            for c in line_cols:
+                                if c in out_base.columns and _pd.isna(out_base.at[ridx, c]) and c in cand.index:
+                                    out_base.at[ridx, c] = cand[c]
+            except Exception:
+                pass
             # Weather/stadium (optional)
             try:
                 games_all = ds_load_games()
