@@ -97,7 +97,35 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     if week is not None and "week" in view.columns:
         view = view[view["week"] == week]
     if view.empty:
-        return view
+        # Try to synthesize rows from lines if schedule is missing
+        try:
+            from nfl_compare.src.data_sources import load_lines as _load_lines_for_view
+            lines_all = _load_lines_for_view()
+        except Exception:
+            lines_all = None
+        if lines_all is not None and not getattr(lines_all, 'empty', True):
+            l = lines_all.copy()
+            if season is not None and 'season' in l.columns:
+                l = l[l['season'] == season]
+            if week is not None and 'week' in l.columns:
+                l = l[l['week'] == week]
+            # Build minimal rows
+            keep_cols = [c for c in ['season','week','game_id','game_date','date','home_team','away_team'] if c in l.columns]
+            if not l.empty and keep_cols:
+                extras = l[keep_cols].drop_duplicates()
+                # Standardize datetime column
+                if 'game_date' not in extras.columns and 'date' in extras.columns:
+                    extras = extras.rename(columns={'date': 'game_date'})
+                # Ensure required columns exist
+                for c in ['season','week','home_team','away_team']:
+                    if c not in extras.columns:
+                        extras[c] = None
+                view = extras
+                # Continue merging predictions below
+            else:
+                return view
+        else:
+            return view
 
     # Prepare predictions to merge
     p = pred_df.copy() if pred_df is not None else pd.DataFrame()
