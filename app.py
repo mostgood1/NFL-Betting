@@ -207,40 +207,34 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 drop_cols = [c for c in out_base.columns if c.endswith('_ln') or c.endswith('_ln2')]
                 if drop_cols:
                     out_base = out_base.drop(columns=drop_cols)
-                # If still no odds across the board, try a raw CSV fallback merge
+            # Always attempt a raw CSV fallback merge to fill any remaining gaps (per-row), even if load_lines() failed
+            import pandas as _pd
+            csv_fp = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
+            if csv_fp.exists():
                 try:
-                    need_fallback = True
-                    for cc in ['moneyline_home','moneyline_away','spread_home','total','close_spread_home','close_total']:
-                        if cc in out_base.columns and out_base[cc].notna().any():
-                            need_fallback = False
-                            break
+                    df_csv_fb = _pd.read_csv(csv_fp)
+                    cols_present_fb = [c for c in line_cols if c in df_csv_fb.columns]
+                    # Cast game_id to str on both sides when present
+                    if 'game_id' in out_base.columns:
+                        out_base['game_id'] = out_base['game_id'].astype(str)
+                    if 'game_id' in df_csv_fb.columns:
+                        df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
+                    if 'game_id' in out_base.columns and 'game_id' in df_csv_fb.columns:
+                        out_base = out_base.merge(df_csv_fb[['game_id'] + cols_present_fb], on='game_id', how='left', suffixes=('', '_lnfb'))
+                    elif {'home_team','away_team'}.issubset(df_csv_fb.columns):
+                        out_base = out_base.merge(df_csv_fb[['home_team','away_team'] + cols_present_fb], on=['home_team','away_team'], how='left', suffixes=('', '_lnfb'))
+                    # Per-column fill from fallback where base is missing
+                    for c in line_cols:
+                        cfb = f"{c}_lnfb"
+                        if c in out_base.columns and cfb in out_base.columns:
+                            out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cfb])
+                        elif cfb in out_base.columns and c not in out_base.columns:
+                            out_base[c] = out_base[cfb]
+                    drop_fb = [c for c in out_base.columns if c.endswith('_lnfb')]
+                    if drop_fb:
+                        out_base = out_base.drop(columns=drop_fb)
                 except Exception:
-                    need_fallback = True
-                if need_fallback:
-                    import pandas as _pd
-                    from pathlib import Path as _Path
-                    csv_fp = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
-                    if csv_fp.exists():
-                        try:
-                            df_csv_fb = _pd.read_csv(csv_fp)
-                            # Try merge by game_id first
-                            cols_present_fb = [c for c in line_cols if c in df_csv_fb.columns]
-                            if 'game_id' in out_base.columns and 'game_id' in df_csv_fb.columns:
-                                out_base = out_base.merge(df_csv_fb[['game_id'] + cols_present_fb], on='game_id', how='left', suffixes=('', '_lnfb'))
-                            else:
-                                if {'home_team','away_team'}.issubset(df_csv_fb.columns):
-                                    out_base = out_base.merge(df_csv_fb[['home_team','away_team'] + cols_present_fb], on=['home_team','away_team'], how='left', suffixes=('', '_lnfb'))
-                            for c in line_cols:
-                                cfb = f"{c}_lnfb"
-                                if c in out_base.columns and cfb in out_base.columns:
-                                    out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cfb])
-                                elif cfb in out_base.columns and c not in out_base.columns:
-                                    out_base[c] = out_base[cfb]
-                            drop_fb = [c for c in out_base.columns if c.endswith('_lnfb')]
-                            if drop_fb:
-                                out_base = out_base.drop(columns=drop_fb)
-                        except Exception:
-                            pass
+                    pass
             # Weather/stadium (optional)
             try:
                 games_all = ds_load_games()
