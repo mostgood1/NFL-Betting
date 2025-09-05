@@ -2170,6 +2170,43 @@ def api_debug_week_view():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route("/api/inspect-game")
+def api_inspect_game():
+    """Inspect a single game's merged fields to debug odds missing issues.
+    Query: game_id or (season, week, home_team, away_team)
+    """
+    try:
+        pred_df = _load_predictions()
+        games_df = _load_games()
+        gid = request.args.get('game_id')
+        season = request.args.get('season')
+        week = request.args.get('week')
+        home = request.args.get('home_team')
+        away = request.args.get('away_team')
+        season_i = int(season) if season else None
+        week_i = int(week) if week else None
+        view_df = _build_week_view(pred_df, games_df, season_i, week_i)
+        view_df = _attach_model_predictions(view_df)
+        if view_df is None or view_df.empty:
+            return jsonify({'rows': 0, 'data': []})
+        df = view_df.copy()
+        if gid and 'game_id' in df.columns:
+            df = df[df['game_id'].astype(str) == str(gid)]
+        if not gid and home and away and {'home_team','away_team'}.issubset(df.columns):
+            df = df[(df['home_team'].astype(str) == str(home)) & (df['away_team'].astype(str) == str(away))]
+        # Return a compact set of fields
+        keep = [c for c in [
+            'game_id','season','week','game_date','date','home_team','away_team',
+            'moneyline_home','moneyline_away','spread_home','total','spread_home_price','spread_away_price','total_over_price','total_under_price',
+            'close_spread_home','close_total',
+            'home_score','away_score'
+        ] if c in df.columns]
+        data = df[keep].to_dict(orient='records') if keep else df.to_dict(orient='records')
+        return jsonify({'rows': len(data), 'data': data})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 if __name__ == "__main__":
     # Local dev: python app.py
     port = int(os.environ.get("PORT", 5055))
