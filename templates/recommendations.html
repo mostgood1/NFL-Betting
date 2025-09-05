@@ -22,6 +22,10 @@
   .res-win{border-color:#2e8b57;color:#9ae6b4}
   .res-loss{border-color:#8b2e2e;color:#fca5a5}
   .res-push{border-color:#2a3a63;color:#c3cee4}
+  .pill{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:12px}
+  .pill-low{color:#fde68a;border-color:#854d0e}
+  .pill-medium{color:#93c5fd;border-color:#1e3a8a}
+  .pill-high{color:#9ae6b4;border-color:#2e8b57}
   </style>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://a.espncdn.com">
@@ -35,8 +39,18 @@
     <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/health" target="_blank">Health</a></div>
   <h1>NFL Betting – Recommendations</h1>
   <p class="muted">Sorted by confidence then EV. Odds assumed -110 for spread/total when book odds are not present.</p>
-  <form method="get" action="/recommendations" style="margin:8px 0;display:flex;gap:8px;align-items:center;">
+  <form method="get" action="/recommendations" style="margin:8px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
     <label>Week: <input type="number" name="week" value="{{ week or '' }}" style="width:80px;" /></label>
+    <label>Sort by: 
+      <select name="sort">
+        <option value="" {% if not sort %}selected{% endif %}>Confidence (default)</option>
+        <option value="time" {% if sort=='time' %}selected{% endif %}>Game time</option>
+        <option value="type" {% if sort=='type' %}selected{% endif %}>Bet type</option>
+        <option value="odds" {% if sort=='odds' %}selected{% endif %}>Odds</option>
+        <option value="ev" {% if sort=='ev' %}selected{% endif %}>EV</option>
+        <option value="level" {% if sort=='level' %}selected{% endif %}>Recommendation level</option>
+      </select>
+    </label>
     <button type="submit">Apply</button>
     <a href="/recommendations" style="margin-left:8px;">Reset</a>
   </form>
@@ -66,7 +80,12 @@
                 <tr>
                   <td>{{ r.away_team }} @ {{ r.home_team }}</td>
                   <td>{{ r.type }}</td>
-                  <td>{{ r.selection }}</td>
+                  <td>
+                    {{ r.selection }}
+                    {% if r.confidence %}
+                      <span class="pill {% if r.confidence=='High' %}pill-high{% elif r.confidence=='Medium' %}pill-medium{% else %}pill-low{% endif %}">{{ r.confidence }}</span>
+                    {% endif %}
+                  </td>
                   <td style="text-align:right;">{{ r.odds }}</td>
                   <td style="text-align:right;">{{ '%.1f%%' % r.ev_pct if r.ev_pct is not none }}</td>
                   <td>
@@ -106,7 +125,12 @@
               <tr>
                 <td>{{ r.away_team }} @ {{ r.home_team }}</td>
                 <td>{{ r.type }}</td>
-                <td>{{ r.selection }}</td>
+                <td>
+                  {{ r.selection }}
+                  {% if r.confidence %}
+                    <span class="pill {% if r.confidence=='High' %}pill-high{% elif r.confidence=='Medium' %}pill-medium{% else %}pill-low{% endif %}">{{ r.confidence }}</span>
+                  {% endif %}
+                </td>
                 <td style="text-align:right;">{{ r.odds }}</td>
                 <td style="text-align:right;">{{ '%.1f%%' % r.ev_pct if r.ev_pct is not none }}</td>
                 <td>

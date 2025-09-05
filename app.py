@@ -786,6 +786,13 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     except Exception:
         min_ev_pct = 2.0
     filtered = [r for r in recs if (r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct)]
+    # Ensure every passing pick has a visible confidence tier; floor to Low when confidence is missing
+    for r in filtered:
+        if (r.get('confidence') is None or r.get('confidence') == '') and r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct:
+            r['confidence'] = 'Low'
+            # refresh weight
+            w_ev = r.get('ev_units') or -999
+            r['sort_weight'] = (_tier_to_num('Low'), w_ev)
     # Optional: keep only the single highest-EV recommendation per game
     one_per_game = str(os.environ.get('RECS_ONE_PER_GAME', 'false')).strip().lower() in {'1','true','yes','y'}
     if one_per_game and filtered:
@@ -921,11 +928,46 @@ def api_recommendations():
                     continue
         except Exception:
             pass
-    # Sort by confidence then EV desc
-    def sort_key(r: Dict[str, Any]):
-        w = r.get("sort_weight") or (0, -999)
-        return (w[0], w[1])
-    all_recs.sort(key=sort_key, reverse=True)
+    # Optional sorting: time | type | odds | ev | level
+    sort_param = (request.args.get("sort") or "").lower()
+    type_order = {"MONEYLINE": 0, "SPREAD": 1, "TOTAL": 2}
+    def sort_key_time(r: Dict[str, Any]):
+        try:
+            return pd.to_datetime(r.get("game_date"), errors='coerce')
+        except Exception:
+            return pd.NaT
+    def sort_key_type(r: Dict[str, Any]):
+        return type_order.get(str(r.get("type")).upper(), 99)
+    def sort_key_odds(r: Dict[str, Any]):
+        o = r.get("odds")
+        try:
+            return float(o) if o is not None and not pd.isna(o) else -9999
+        except Exception:
+            return -9999
+    def sort_key_ev(r: Dict[str, Any]):
+        v = r.get("ev_pct")
+        try:
+            return float(v) if v is not None else -9999
+        except Exception:
+            return -9999
+    def sort_key_level(r: Dict[str, Any]):
+        return _tier_to_num(r.get("confidence"))
+    if sort_param == "time":
+        all_recs.sort(key=sort_key_time)
+    elif sort_param == "type":
+        all_recs.sort(key=sort_key_type)
+    elif sort_param == "odds":
+        all_recs.sort(key=sort_key_odds, reverse=True)
+    elif sort_param == "ev":
+        all_recs.sort(key=sort_key_ev, reverse=True)
+    elif sort_param == "level":
+        all_recs.sort(key=sort_key_level, reverse=True)
+    else:
+        # Default: by confidence then EV desc
+        def sort_key(r: Dict[str, Any]):
+            w = r.get("sort_weight") or (0, -999)
+            return (w[0], w[1])
+        all_recs.sort(key=sort_key, reverse=True)
     for r in all_recs:
         r.pop("sort_weight", None)
     return {"rows": len(all_recs), "data": all_recs}, 200
@@ -1011,10 +1053,45 @@ def recommendations_page():
                     continue
         except Exception:
             pass
-    def sort_key(r: Dict[str, Any]):
-        w = r.get("sort_weight") or (0, -999)
-        return (w[0], w[1])
-    all_recs.sort(key=sort_key, reverse=True)
+    # Sort per query: time | type | odds | ev | level; default confidence->EV
+    sort_param = (request.args.get("sort") or "").lower()
+    type_order = {"MONEYLINE": 0, "SPREAD": 1, "TOTAL": 2}
+    def sort_key_time(r: Dict[str, Any]):
+        try:
+            return pd.to_datetime(r.get("game_date"), errors='coerce')
+        except Exception:
+            return pd.NaT
+    def sort_key_type(r: Dict[str, Any]):
+        return type_order.get(str(r.get("type")).upper(), 99)
+    def sort_key_odds(r: Dict[str, Any]):
+        o = r.get("odds")
+        try:
+            return float(o) if o is not None and not pd.isna(o) else -9999
+        except Exception:
+            return -9999
+    def sort_key_ev(r: Dict[str, Any]):
+        v = r.get("ev_pct")
+        try:
+            return float(v) if v is not None else -9999
+        except Exception:
+            return -9999
+    def sort_key_level(r: Dict[str, Any]):
+        return _tier_to_num(r.get("confidence"))
+    if sort_param == "time":
+        all_recs.sort(key=sort_key_time)
+    elif sort_param == "type":
+        all_recs.sort(key=sort_key_type)
+    elif sort_param == "odds":
+        all_recs.sort(key=sort_key_odds, reverse=True)
+    elif sort_param == "ev":
+        all_recs.sort(key=sort_key_ev, reverse=True)
+    elif sort_param == "level":
+        all_recs.sort(key=sort_key_level, reverse=True)
+    else:
+        def sort_key(r: Dict[str, Any]):
+            w = r.get("sort_weight") or (0, -999)
+            return (w[0], w[1])
+        all_recs.sort(key=sort_key, reverse=True)
     for r in all_recs:
         r.pop("sort_weight", None)
 
@@ -1025,7 +1102,7 @@ def recommendations_page():
             groups[c] = []
         groups[c].append(r)
 
-    return render_template("recommendations.html", recs=all_recs, groups=groups, have_data=len(all_recs) > 0, week=active_week)
+    return render_template("recommendations.html", recs=all_recs, groups=groups, have_data=len(all_recs) > 0, week=active_week, sort=sort_param)
 
 
 @app.route("/")
