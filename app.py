@@ -130,17 +130,116 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
     try:
         if view_df is None or view_df.empty:
             return view_df
-        # Skip on Render/minimal
-        if str(os.environ.get("RENDER", "")).lower() in {"1","true","yes"}:
-            return view_df
-    # If already has predictions broadly, skip
-        needs_pred = False
-        for col in ("pred_home_points","pred_away_points","pred_total","pred_home_win_prob"):
-            if col not in view_df.columns or view_df[col].isna().any():
-                needs_pred = True
-                break
-        if not needs_pred:
-            return view_df
+        # Always start with a shallow enrichment of lines/weather so odds display works even on Render
+        out_base = view_df.copy()
+        try:
+            from nfl_compare.src.data_sources import load_games as ds_load_games, load_lines
+            from nfl_compare.src.weather import load_weather_for_games
+            line_cols = ['spread_home','total','moneyline_home','moneyline_away',
+                         'spread_home_price','spread_away_price','total_over_price','total_under_price',
+                         'close_spread_home','close_total']
+            # Merge lines by game_id (preferred), fallback to team-based
+            try:
+                lines = load_lines()
+            except Exception:
+                lines = None
+            if lines is not None and not getattr(lines, 'empty', True):
+                cols_present = [c for c in line_cols if c in lines.columns]
+                if 'game_id' in out_base.columns and 'game_id' in lines.columns:
+                    out_base = out_base.merge(lines[['game_id'] + cols_present], on='game_id', how='left', suffixes=('', '_ln'))
+                # If many missing, try supplement by (home_team, away_team)
+                need_sup = False
+                try:
+                    need_sup = (('spread_home' in out_base.columns and out_base['spread_home'].isna().mean() > 0.5) or
+                                ('total' in out_base.columns and out_base['total'].isna().mean() > 0.5))
+                except Exception:
+                    need_sup = True
+                if need_sup and {'home_team','away_team'}.issubset(set(lines.columns)):
+                    sup = lines[['home_team','away_team'] + cols_present].copy()
+                    out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
+                # Fill from any suffix variants (and create columns if missing)
+                for c in line_cols:
+                    c1, c2 = f"{c}_ln", f"{c}_ln2"
+                    has_base = c in out_base.columns
+                    v1 = out_base[c1] if c1 in out_base.columns else None
+                    v2 = out_base[c2] if c2 in out_base.columns else None
+                    if has_base:
+                        if v1 is not None:
+                            out_base[c] = out_base[c].where(out_base[c].notna(), v1)
+                        if v2 is not None:
+                            out_base[c] = out_base[c].where(out_base[c].notna(), v2)
+                    else:
+                        # Create the base column from right-hand values when not present
+                        if v1 is not None:
+                            out_base[c] = v1
+                            has_base = True
+                        if (not has_base) and v2 is not None:
+                            out_base[c] = v2
+                # Drop helper suffix columns
+                drop_cols = [c for c in out_base.columns if c.endswith('_ln') or c.endswith('_ln2')]
+                if drop_cols:
+                    out_base = out_base.drop(columns=drop_cols)
+            # Weather/stadium (optional)
+            try:
+                games_all = ds_load_games()
+                wx = load_weather_for_games(games_all)
+            except Exception:
+                wx = None
+            if wx is not None and not getattr(wx, 'empty', True):
+                wx_cols = ['game_id','date','home_team','away_team','wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']
+                keep = [c for c in wx_cols if c in wx.columns]
+                if keep:
+                    out_base = out_base.merge(wx[keep], on=[c for c in ['game_id','date','home_team','away_team'] if c in out_base.columns and c in wx.columns], how='left', suffixes=('', '_wx'))
+                    # Prefer non-null base, then fill from wx
+                    for c in ['wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']:
+                        cwx = f"{c}_wx"
+                        if c in out_base.columns and cwx in out_base.columns:
+                            out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cwx])
+                    drop_wx = [c for c in out_base.columns if c.endswith('_wx')]
+                    if drop_wx:
+                        out_base = out_base.drop(columns=drop_wx)
+        except Exception:
+            pass
+
+        # If running on Render/minimal, skip heavy model predictions but keep enriched odds/weather
+        if str(os.environ.get("RENDER", "").lower()) in {"1","true","yes"}:
+            # Fallback: if finals have close lines but missing moneylines, derive approximate MLs using spread heuristic
+            try:
+                import numpy as np
+                if {'home_score','away_score','moneyline_home','moneyline_away','close_spread_home'}.issubset(out_base.columns):
+                    def _approx_ml_from_spread(sp):
+                        # Simple mapping: convert spread to prob via logistic, then to American odds
+                        try:
+                            sp = float(sp)
+                        except Exception:
+                            return (None, None)
+                        # scale tuned loosely for NFL; avoids extreme numbers
+                        sigma = float(os.environ.get('NFL_SPREAD_PROB_SIGMA', '7.0'))
+                        import math
+                        p_home = 1.0/(1.0+math.exp(-( -sp)/sigma))  # negative spread favors home
+                        p_home = min(max(p_home, 0.05), 0.95)
+                        # Convert prob to fair American odds
+                        def _prob_to_american(p):
+                            if p <= 0 or p >= 1:
+                                return None
+                            if p >= 0.5:
+                                return int(round(-p/(1-p)*100))
+                            else:
+                                return int(round((1-p)/p*100))
+                        return (_prob_to_american(1-p_home), _prob_to_american(p_home))
+                    finals = out_base[(out_base['home_score'].notna()) & (out_base['away_score'].notna())]
+                    for idx, rr in finals.iterrows():
+                        if (pd.isna(rr.get('moneyline_home')) or pd.isna(rr.get('moneyline_away'))):
+                            sp = rr.get('close_spread_home') if pd.notna(rr.get('close_spread_home')) else rr.get('spread_home')
+                            if pd.notna(sp):
+                                ml_away, ml_home = _approx_ml_from_spread(sp)
+                                if pd.isna(rr.get('moneyline_home')) and ml_home is not None:
+                                    out_base.at[idx, 'moneyline_home'] = ml_home
+                                if pd.isna(rr.get('moneyline_away')) and ml_away is not None:
+                                    out_base.at[idx, 'moneyline_away'] = ml_away
+            except Exception:
+                pass
+            return out_base
 
         # Lazy imports from package
         from nfl_compare.src.data_sources import load_games as ds_load_games, load_team_stats, load_lines
@@ -162,9 +261,9 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             wx = None
         feat = merge_features(games, stats, lines, wx)
         if feat is None or feat.empty:
-            return view_df
+            return out_base
         # Filter features to the rows in view_df (exclude completed/final games to keep historical predictions locked)
-        vf = view_df.copy()
+        vf = out_base.copy()
         # Determine which rows actually need predictions (any key pred_* missing)
         need_mask = pd.Series(False, index=vf.index)
         for col in ("pred_home_points","pred_away_points","pred_total","pred_home_win_prob"):
@@ -174,7 +273,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 need_mask = True  # if a key column missing entirely, we need to predict
         vf_pred = vf.loc[need_mask].copy()
         if vf_pred.empty:
-            return view_df
+            return out_base
 
         if 'game_id' in vf_pred.columns and 'game_id' in feat.columns:
             keys = vf_pred['game_id'].dropna().astype(str).unique().tolist()
@@ -187,11 +286,11 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             else:
                 sub = feat
         if sub.empty:
-            return view_df
+            return out_base
         # Run model predictions
         pred = model_predict(models, sub)
         if pred is None or pred.empty:
-            return view_df
+            return out_base
         # Select columns to merge back
         keep_cols = [c for c in pred.columns if c.startswith('pred_') or c.startswith('prob_')] + ['game_id','home_team','away_team']
         pred_keep = pred[[c for c in keep_cols if c in pred.columns]].copy()
@@ -249,7 +348,11 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             pass
         return out
     except Exception:
-        return view_df
+        try:
+            # If enrichment partially succeeded, prefer returning that
+            return out_base  # type: ignore[name-defined]
+        except Exception:
+            return view_df
 
 
 def _load_team_assets() -> Dict[str, Dict[str, str]]:
@@ -435,15 +538,15 @@ def _conf_from_ev(ev_units: float) -> Optional[str]:
         return None
     # Read thresholds in percent with safe fallbacks
     try:
-        th_low = float(os.environ.get('RECS_EV_THRESH_LOW', '4'))
+        th_low = float(os.environ.get('RECS_EV_THRESH_LOW', '3.5'))
     except Exception:
         th_low = 4.0
     try:
-        th_med = float(os.environ.get('RECS_EV_THRESH_MED', '8'))
+    th_med = float(os.environ.get('RECS_EV_THRESH_MED', '7.5'))
     except Exception:
         th_med = 8.0
     try:
-        th_high = float(os.environ.get('RECS_EV_THRESH_HIGH', '15'))
+    th_high = float(os.environ.get('RECS_EV_THRESH_HIGH', '12.5'))
     except Exception:
         th_high = 15.0
     ev_pct = ev_units * 100.0
@@ -599,10 +702,8 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         if cand:
             s, e, o = max(cand, key=lambda t: t[1])
             # Per-market tier by EV
-            ev_conf = _conf_from_ev(e)
-            # Game-level tier if provided
-            game_conf = g("game_confidence")
-            conf = _combine_confs(ev_conf, game_conf)
+            # Confidence is based on this market's EV only
+            conf = _conf_from_ev(e)
             # Grade if final
             result = None
             if is_final and actual_margin is not None:
@@ -680,9 +781,8 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
-                ev_conf = _conf_from_ev(e)
-                game_conf = g("game_confidence")
-                conf = _combine_confs(ev_conf, game_conf)
+                # Confidence is based on this market's EV only
+                conf = _conf_from_ev(e)
                 # Grade if final
                 result = None
                 if is_final and actual_margin is not None and sp is not None:
@@ -744,9 +844,8 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
-                ev_conf = _conf_from_ev(e)
-                game_conf = g("game_confidence")
-                conf = _combine_confs(ev_conf, game_conf)
+                # Confidence is based on this market's EV only
+                conf = _conf_from_ev(e)
                 # Grade if final
                 result = None
                 if is_final and actual_total is not None and m_total is not None and not pd.isna(m_total):
@@ -785,11 +884,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     except Exception:
         min_ev_pct = 2.0
     filtered = [r for r in recs if (r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct)]
-    # Ensure every passing pick has a visible confidence tier; floor to Low when confidence is missing
+    # Ensure every passing pick has a visible confidence tier; only floor when none computed
     for r in filtered:
         if (r.get('confidence') is None or r.get('confidence') == '') and r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct:
             r['confidence'] = 'Low'
-            # refresh weight
             w_ev = r.get('ev_units') or -999
             r['sort_weight'] = (_tier_to_num('Low'), w_ev)
     # Optional: keep only the single highest-EV recommendation per game
@@ -926,7 +1024,7 @@ def api_recommendations():
     # If nothing qualifies and no explicit min_ev was provided, relax threshold once
     if not all_recs and not request.args.get("min_ev"):
         try:
-            os.environ['RECS_MIN_EV_PCT'] = '0.5'
+            os.environ['RECS_MIN_EV_PCT'] = '1.0'
             for _, row in view_df.iterrows():
                 try:
                     recs = _compute_recommendations_for_row(row)
@@ -2015,9 +2113,9 @@ def api_debug_week_view():
                 'home_team': row.get('home_team'),
                 'away_team': row.get('away_team'),
                 'recs': len(recs),
-                'has_ml': bool(row.get('moneyline_home') is not None or row.get('moneyline_away') is not None),
-                'has_spread': bool(row.get('close_spread_home') is not None or row.get('market_spread_home') is not None or row.get('spread_home') is not None),
-                'has_total': bool(row.get('close_total') is not None or row.get('market_total') is not None or row.get('total') is not None),
+                'has_ml': bool(pd.notna(row.get('moneyline_home')) or pd.notna(row.get('moneyline_away'))),
+                'has_spread': bool(pd.notna(row.get('close_spread_home')) or pd.notna(row.get('market_spread_home')) or pd.notna(row.get('spread_home'))),
+                'has_total': bool(pd.notna(row.get('close_total')) or pd.notna(row.get('market_total')) or pd.notna(row.get('total'))),
                 'pred_total': row.get('pred_total'),
                 'pred_home_win_prob': row.get('pred_home_win_prob') or row.get('prob_home_win'),
             })
