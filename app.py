@@ -321,6 +321,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     for ridx in need_fill:
                         row = out_base.loc[ridx]
                         cand = None
+                        swapped = False
                         # Try by game_id
                         gid = str(row.get('game_id')) if 'game_id' in out_base.columns else None
                         if gid and df_by_gid is not None and gid in df_by_gid.index:
@@ -336,6 +337,18 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                             sub = df_csv_fb[mask]
                             if len(sub) == 1:
                                 cand = sub.iloc[0]
+                            # If not found, try swapped home/away (defensive)
+                            if cand is None:
+                                mask_sw = (
+                                    (df_csv_fb['season'] == row.get('season')) &
+                                    (df_csv_fb['week'] == row.get('week')) &
+                                    (df_csv_fb['home_team'] == row.get('away_team')) &
+                                    (df_csv_fb['away_team'] == row.get('home_team'))
+                                )
+                                sub_sw = df_csv_fb[mask_sw]
+                                if len(sub_sw) == 1:
+                                    cand = sub_sw.iloc[0]
+                                    swapped = True
                         # Try by teams only
                         if cand is None and {'home_team','away_team'}.issubset(df_csv_fb.columns):
                             mask = (
@@ -345,10 +358,52 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                             sub = df_csv_fb[mask]
                             if len(sub) == 1:
                                 cand = sub.iloc[0]
+                            if cand is None:
+                                mask_sw = (
+                                    (df_csv_fb['home_team'] == row.get('away_team')) &
+                                    (df_csv_fb['away_team'] == row.get('home_team'))
+                                )
+                                sub_sw = df_csv_fb[mask_sw]
+                                if len(sub_sw) == 1:
+                                    cand = sub_sw.iloc[0]
+                                    swapped = True
                         if cand is not None:
-                            for c in line_cols:
-                                if c in out_base.columns and _pd.isna(out_base.at[ridx, c]) and c in cand.index:
-                                    out_base.at[ridx, c] = cand[c]
+                            # When matched on swapped orientation, swap/signal-correct fields accordingly
+                            if swapped:
+                                # Moneylines swap
+                                if 'moneyline_home' in out_base.columns:
+                                    out_base.at[ridx, 'moneyline_home'] = cand.get('moneyline_away') if _pd.isna(out_base.at[ridx, 'moneyline_home']) else out_base.at[ridx, 'moneyline_home']
+                                if 'moneyline_away' in out_base.columns:
+                                    out_base.at[ridx, 'moneyline_away'] = cand.get('moneyline_home') if _pd.isna(out_base.at[ridx, 'moneyline_away']) else out_base.at[ridx, 'moneyline_away']
+                                # Spread sign flip for home spread
+                                if 'spread_home' in out_base.columns and 'spread_home' in cand.index and _pd.isna(out_base.at[ridx, 'spread_home']):
+                                    try:
+                                        out_base.at[ridx, 'spread_home'] = -float(cand['spread_home']) if cand['spread_home'] is not None and not _pd.isna(cand['spread_home']) else out_base.at[ridx, 'spread_home']
+                                    except Exception:
+                                        pass
+                                if 'close_spread_home' in out_base.columns and 'close_spread_home' in cand.index and _pd.isna(out_base.at[ridx, 'close_spread_home']):
+                                    try:
+                                        out_base.at[ridx, 'close_spread_home'] = -float(cand['close_spread_home']) if 'close_spread_home' in cand.index and cand['close_spread_home'] is not None and not _pd.isna(cand['close_spread_home']) else out_base.at[ridx, 'close_spread_home']
+                                    except Exception:
+                                        pass
+                                # Prices swap
+                                if 'spread_home_price' in out_base.columns and 'spread_away_price' in cand.index and _pd.isna(out_base.at[ridx, 'spread_home_price']):
+                                    out_base.at[ridx, 'spread_home_price'] = cand.get('spread_away_price')
+                                if 'spread_away_price' in out_base.columns and 'spread_home_price' in cand.index and _pd.isna(out_base.at[ridx, 'spread_away_price']):
+                                    out_base.at[ridx, 'spread_away_price'] = cand.get('spread_home_price')
+                                # Totals are symmetric
+                                if 'total' in out_base.columns and 'total' in cand.index and _pd.isna(out_base.at[ridx, 'total']):
+                                    out_base.at[ridx, 'total'] = cand.get('total')
+                                if 'close_total' in out_base.columns and 'close_total' in cand.index and _pd.isna(out_base.at[ridx, 'close_total']):
+                                    out_base.at[ridx, 'close_total'] = cand.get('close_total')
+                                if 'total_over_price' in out_base.columns and 'total_over_price' in cand.index and _pd.isna(out_base.at[ridx, 'total_over_price']):
+                                    out_base.at[ridx, 'total_over_price'] = cand.get('total_over_price')
+                                if 'total_under_price' in out_base.columns and 'total_under_price' in cand.index and _pd.isna(out_base.at[ridx, 'total_under_price']):
+                                    out_base.at[ridx, 'total_under_price'] = cand.get('total_under_price')
+                            else:
+                                for c in line_cols:
+                                    if c in out_base.columns and _pd.isna(out_base.at[ridx, c]) and c in cand.index:
+                                        out_base.at[ridx, c] = cand[c]
             except Exception:
                 pass
             # Weather/stadium (optional)
@@ -2346,7 +2401,61 @@ def api_inspect_game():
             'home_score','away_score'
         ] if c in df.columns]
         data = df[keep].to_dict(orient='records') if keep else df.to_dict(orient='records')
-        return jsonify({'rows': len(data), 'data': data})
+
+        # Add candidate match info from lines.csv to help debug mismatches (best-effort)
+        debug = {}
+        try:
+            import pandas as _pd
+            csv_fp = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
+            if csv_fp.exists():
+                lines_df = _pd.read_csv(csv_fp)
+                # normalize teams
+                try:
+                    from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                    if 'home_team' in lines_df.columns:
+                        lines_df['home_team'] = lines_df['home_team'].astype(str).apply(_norm_team)
+                    if 'away_team' in lines_df.columns:
+                        lines_df['away_team'] = lines_df['away_team'].astype(str).apply(_norm_team)
+                except Exception:
+                    pass
+                # Cast types
+                for _c in ('season','week'):
+                    if _c in lines_df.columns:
+                        lines_df[_c] = _pd.to_numeric(lines_df[_c], errors='coerce').astype('Int64')
+                if 'game_id' in lines_df.columns:
+                    lines_df['game_id'] = lines_df['game_id'].astype(str)
+                if data:
+                    rec = data[0]
+                    gid = str(rec.get('game_id')) if rec.get('game_id') is not None else None
+                    season_v = rec.get('season')
+                    week_v = rec.get('week')
+                    home_v = rec.get('home_team')
+                    away_v = rec.get('away_team')
+                    cand = {}
+                    if gid and 'game_id' in lines_df.columns:
+                        cand['by_game_id'] = lines_df[lines_df['game_id'] == gid].head(1).to_dict(orient='records')
+                    mask = None
+                    if all(k in lines_df.columns for k in ('season','week','home_team','away_team')):
+                        mask = (
+                            (lines_df['season'] == season_v) &
+                            (lines_df['week'] == week_v) &
+                            (lines_df['home_team'] == home_v) &
+                            (lines_df['away_team'] == away_v)
+                        )
+                        cand['by_sw_teams'] = lines_df[mask].head(1).to_dict(orient='records')
+                        mask_sw = (
+                            (lines_df['season'] == season_v) &
+                            (lines_df['week'] == week_v) &
+                            (lines_df['home_team'] == away_v) &
+                            (lines_df['away_team'] == home_v)
+                        )
+                        cand['by_swapped_teams'] = lines_df[mask_sw].head(1).to_dict(orient='records')
+                    cand['keys'] = {'gid': gid, 'season': season_v, 'week': week_v, 'home': home_v, 'away': away_v}
+                    debug['lines_candidates'] = cand
+        except Exception:
+            pass
+
+        return jsonify({'rows': len(data), 'data': data, 'debug': debug})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
