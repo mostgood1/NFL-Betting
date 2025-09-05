@@ -911,7 +911,14 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         min_ev_pct = float(os.environ.get('RECS_MIN_EV_PCT', '2.0'))
     except Exception:
         min_ev_pct = 2.0
-    filtered = [r for r in recs if (r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct)]
+    include_completed = str(os.environ.get('RECS_INCLUDE_COMPLETED', 'true')).strip().lower() in {'1','true','yes','y'}
+    filtered: List[Dict[str, Any]] = []
+    for r in recs:
+        evp = r.get('ev_pct')
+        if evp is not None and evp >= min_ev_pct:
+            filtered.append(r)
+        elif is_final and include_completed:
+            filtered.append(r)
     # Ensure every passing pick has a visible confidence tier; only floor when none computed
     for r in filtered:
         if (r.get('confidence') is None or r.get('confidence') == '') and r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct:
