@@ -210,14 +210,8 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 cols_present = [c for c in line_cols if c in lines.columns]
                 if 'game_id' in out_base.columns and 'game_id' in lines.columns:
                     out_base = out_base.merge(lines[['game_id'] + cols_present], on='game_id', how='left', suffixes=('', '_ln'))
-                # If many missing, try supplement by (home_team, away_team)
-                need_sup = False
-                try:
-                    need_sup = (('spread_home' in out_base.columns and out_base['spread_home'].isna().mean() > 0.5) or
-                                ('total' in out_base.columns and out_base['total'].isna().mean() > 0.5))
-                except Exception:
-                    need_sup = True
-                if need_sup and {'home_team','away_team'}.issubset(set(lines.columns)):
+                # Always try to supplement by (home_team, away_team) to fill any gaps
+                if {'home_team','away_team'}.issubset(set(lines.columns)):
                     sup = lines[['home_team','away_team'] + cols_present].copy()
                     out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
                 # Fill from any suffix variants (and create columns if missing)
@@ -315,9 +309,9 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     df_by_gid = None
                     if 'game_id' in df_csv_fb.columns:
                         df_by_gid = df_csv_fb.set_index('game_id')
-                    # Identify rows with all main odds missing
+                    # Identify rows with any of the main odds missing
                     odds_main = ['moneyline_home','moneyline_away','close_spread_home','close_total']
-                    need_fill = out_base.index[out_base[odds_main].isna().all(axis=1)].tolist() if all(c in out_base.columns for c in odds_main) else []
+                    need_fill = out_base.index[out_base[odds_main].isna().any(axis=1)].tolist() if all(c in out_base.columns for c in odds_main) else []
                     for ridx in need_fill:
                         row = out_base.loc[ridx]
                         cand = None
@@ -326,6 +320,9 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         gid = str(row.get('game_id')) if 'game_id' in out_base.columns else None
                         if gid and df_by_gid is not None and gid in df_by_gid.index:
                             cand = df_by_gid.loc[gid]
+                            # If duplicate game_id rows exist, take the first
+                            if isinstance(cand, _pd.DataFrame):
+                                cand = cand.iloc[0]
                         # Try by season/week/home/away
                         if cand is None and all(c in out_base.columns for c in key_cols_all) and all(c in df_csv_fb.columns for c in key_cols_all):
                             mask = (
@@ -335,9 +332,13 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                 (df_csv_fb['away_team'] == row.get('away_team'))
                             )
                             sub = df_csv_fb[mask]
-                            if len(sub) == 1:
-                                cand = sub.iloc[0]
-                            # If not found, try swapped home/away (defensive)
+                            if len(sub) >= 1:
+                                # pick the row with most non-null among priority fields
+                                priority_cols = ['moneyline_home','moneyline_away','close_spread_home','close_total','spread_home','total']
+                                sub = sub.copy()
+                                sub['_nn'] = sub[ [c for c in priority_cols if c in sub.columns] ].notna().sum(axis=1)
+                                cand = sub.sort_values(['_nn'], ascending=False).iloc[0]
+                            # If not found or ambiguous, try swapped home/away (defensive)
                             if cand is None:
                                 mask_sw = (
                                     (df_csv_fb['season'] == row.get('season')) &
@@ -346,8 +347,11 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                     (df_csv_fb['away_team'] == row.get('home_team'))
                                 )
                                 sub_sw = df_csv_fb[mask_sw]
-                                if len(sub_sw) == 1:
-                                    cand = sub_sw.iloc[0]
+                                if len(sub_sw) >= 1:
+                                    priority_cols = ['moneyline_home','moneyline_away','close_spread_home','close_total','spread_home','total']
+                                    sub_sw = sub_sw.copy()
+                                    sub_sw['_nn'] = sub_sw[ [c for c in priority_cols if c in sub_sw.columns] ].notna().sum(axis=1)
+                                    cand = sub_sw.sort_values(['_nn'], ascending=False).iloc[0]
                                     swapped = True
                         # Try by teams only
                         if cand is None and {'home_team','away_team'}.issubset(df_csv_fb.columns):
@@ -356,18 +360,27 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                 (df_csv_fb['away_team'] == row.get('away_team'))
                             )
                             sub = df_csv_fb[mask]
-                            if len(sub) == 1:
-                                cand = sub.iloc[0]
+                            if len(sub) >= 1:
+                                priority_cols = ['moneyline_home','moneyline_away','close_spread_home','close_total','spread_home','total']
+                                sub = sub.copy()
+                                sub['_nn'] = sub[ [c for c in priority_cols if c in sub.columns] ].notna().sum(axis=1)
+                                cand = sub.sort_values(['_nn'], ascending=False).iloc[0]
                             if cand is None:
                                 mask_sw = (
                                     (df_csv_fb['home_team'] == row.get('away_team')) &
                                     (df_csv_fb['away_team'] == row.get('home_team'))
                                 )
                                 sub_sw = df_csv_fb[mask_sw]
-                                if len(sub_sw) == 1:
-                                    cand = sub_sw.iloc[0]
+                                if len(sub_sw) >= 1:
+                                    priority_cols = ['moneyline_home','moneyline_away','close_spread_home','close_total','spread_home','total']
+                                    sub_sw = sub_sw.copy()
+                                    sub_sw['_nn'] = sub_sw[ [c for c in priority_cols if c in sub_sw.columns] ].notna().sum(axis=1)
+                                    cand = sub_sw.sort_values(['_nn'], ascending=False).iloc[0]
                                     swapped = True
                         if cand is not None:
+                            # If still a DataFrame (edge case), reduce to first row
+                            if isinstance(cand, _pd.DataFrame) and not cand.empty:
+                                cand = cand.iloc[0]
                             # When matched on swapped orientation, swap/signal-correct fields accordingly
                             if swapped:
                                 # Moneylines swap
@@ -404,6 +417,13 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                 for c in line_cols:
                                     if c in out_base.columns and _pd.isna(out_base.at[ridx, c]) and c in cand.index:
                                         out_base.at[ridx, c] = cand[c]
+                                # Also set market_* aliases if base fields missing
+                                if 'spread_home' in cand.index:
+                                    if 'market_spread_home' in out_base.columns and _pd.isna(out_base.at[ridx, 'market_spread_home']):
+                                        out_base.at[ridx, 'market_spread_home'] = cand.get('spread_home')
+                                if 'total' in cand.index:
+                                    if 'market_total' in out_base.columns and _pd.isna(out_base.at[ridx, 'market_total']):
+                                        out_base.at[ridx, 'market_total'] = cand.get('total')
             except Exception:
                 pass
             # Weather/stadium (optional)
