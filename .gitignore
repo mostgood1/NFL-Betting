@@ -27,11 +27,17 @@ logs/
 
 # Keep essential seed data in git for Render runtime
 !nfl_compare/data/predictions.csv
+!nfl_compare/data/predictions_week.csv
 !nfl_compare/data/nfl_team_assets.json
 !nfl_compare/data/stadium_meta.csv
 !nfl_compare/data/game_location_overrides.csv
 !nfl_compare/data/eval_summary.json
 !nfl_compare/data/lines.csv
+!nfl_compare/data/games.csv
+!nfl_compare/data/team_stats.csv
+# Optional but recommended: include per-date weather and odds snapshots used by the app
+!nfl_compare/data/weather_*.csv
+!nfl_compare/data/real_betting_lines_*.json
 
 # Notebooks
 *.ipynb_checkpoints/
