@@ -132,19 +132,39 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     # Core keys we do NOT want to overwrite from games
     core_keys = {"season", "week", "game_id", "game_date", "date", "home_team", "away_team", "home_score", "away_score"}
     if not p.empty:
-        drop_cols = [c for c in p.columns if c in core_keys]
-        p_nokeys = p.drop(columns=drop_cols, errors="ignore")
-        # Merge preference: by game_id if present in both
-        if "game_id" in games_df.columns and "game_id" in pred_df.columns and not pred_df["game_id"].isna().all():
-            merged = view.merge(pred_df[[c for c in pred_df.columns if c not in {"season","week","game_date","date","home_team","away_team","home_score","away_score"}]],
-                                on="game_id", how="left")
-        else:
-            # Fallback join by team pairing within the same season/week slice
-            key_cols = [c for c in ["home_team", "away_team"] if c in view.columns]
-            if key_cols:
-                merged = view.merge(p_nokeys, left_on=key_cols, right_on=[c for c in key_cols if c in p_nokeys.columns], how="left")
-            else:
-                merged = view
+        # Normalize team names in predictions to improve team-based merges
+        try:
+            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+            if 'home_team' in p.columns:
+                p['home_team'] = p['home_team'].astype(str).apply(_norm_team)
+            if 'away_team' in p.columns:
+                p['away_team'] = p['away_team'].astype(str).apply(_norm_team)
+        except Exception:
+            pass
+
+        # Candidate prediction columns (anything not a core game key)
+        pred_cols = [c for c in p.columns if c not in core_keys]
+        merged = view.copy()
+
+        # 1) Merge by game_id when possible
+        if "game_id" in merged.columns and "game_id" in p.columns and not p["game_id"].isna().all():
+            right_gid = p[[c for c in (['game_id'] + pred_cols) if c in p.columns]].copy()
+            merged = merged.merge(right_gid, on="game_id", how="left")
+
+        # 2) For any rows that still lack key prediction fields, try season/week/home/away merge
+        team_keys = [c for c in ['season','week','home_team','away_team'] if c in merged.columns and c in p.columns]
+        if len(team_keys) == 4:
+            # Suffix to avoid overwriting and then fill only missing
+            right_team = p[team_keys + pred_cols].copy()
+            merged_tw = merged.merge(right_team, on=team_keys, how="left", suffixes=("", "_p2"))
+            for c in pred_cols:
+                if c in merged_tw.columns and f"{c}_p2" in merged_tw.columns:
+                    merged_tw[c] = merged_tw[c].where(merged_tw[c].notna(), merged_tw[f"{c}_p2"])
+            drop2 = [c for c in merged_tw.columns if c.endswith('_p2')]
+            if drop2:
+                merged_tw = merged_tw.drop(columns=drop2)
+            merged = merged_tw
+
         return merged
     else:
         return view
