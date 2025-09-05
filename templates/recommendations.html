@@ -18,6 +18,10 @@
     th, td{padding:8px}
     thead th{text-align:left;border-bottom:1px solid var(--border)}
     tbody tr{border-top:1px solid var(--border)}
+  .res{display:inline-block;padding:2px 6px;border-radius:6px;border:1px solid var(--border)}
+  .res-win{border-color:#2e8b57;color:#9ae6b4}
+  .res-loss{border-color:#8b2e2e;color:#fca5a5}
+  .res-push{border-color:#2a3a63;color:#c3cee4}
   </style>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://a.espncdn.com">
@@ -28,15 +32,19 @@
 </head>
 <body>
   <div class="container">
-    <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/health" target="_blank">Health</a></div>
+    <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/health" target="_blank">Health</a></div>
   <h1>NFL Betting – Recommendations</h1>
   <p class="muted">Sorted by confidence then EV. Odds assumed -110 for spread/total when book odds are not present.</p>
-  {% if week %}<p class="muted">Week {{ week }}</p>{% endif %}
+  <form method="get" action="/recommendations" style="margin:8px 0;display:flex;gap:8px;align-items:center;">
+    <label>Week: <input type="number" name="week" value="{{ week or '' }}" style="width:80px;" /></label>
+    <button type="submit">Apply</button>
+    <a href="/recommendations" style="margin-left:8px;">Reset</a>
+  </form>
 
     {% if not have_data %}
       <div class="card">No recommendations available.</div>
     {% else %}
-      {% for tier in ["High", "Medium", "Low"] %}
+  {% for tier in ["High", "Medium", "Low"] %}
         {% set items = groups.get(tier, []) %}
         {% if items and items|length > 0 %}
           <h2 style="margin-top: 1rem;">{{ tier }} confidence</h2>
@@ -49,6 +57,7 @@
                   <th>Selection</th>
                   <th style="text-align:right;">Odds</th>
                   <th style="text-align:right;">EV</th>
+                  <th>Result</th>
                   <th>Date</th>
                 </tr>
               </thead>
@@ -60,6 +69,13 @@
                   <td>{{ r.selection }}</td>
                   <td style="text-align:right;">{{ r.odds }}</td>
                   <td style="text-align:right;">{{ '%.1f%%' % r.ev_pct if r.ev_pct is not none }}</td>
+                  <td>
+                    {% if r.result %}
+                      <span class="res {% if r.result=='Win' %}res-win{% elif r.result=='Loss' %}res-loss{% else %}res-push{% endif %}">{{ r.result }}</span>
+                    {% else %}
+                      —
+                    {% endif %}
+                  </td>
                   <td>{{ r.game_date }}</td>
                 </tr>
                 {% endfor %}
@@ -68,6 +84,45 @@
           </div>
         {% endif %}
       {% endfor %}
+      {# Show untiered items (confidence is None/"") under an 'Other' bucket #}
+      {% set others = groups.get("", []) %}
+      {% if others and others|length > 0 %}
+        <h2 style="margin-top: 1rem;">Other</h2>
+        <div class="table" style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Game</th>
+                <th>Type</th>
+                <th>Selection</th>
+                <th style="text-align:right;">Odds</th>
+                <th style="text-align:right;">EV</th>
+                <th>Result</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in others %}
+              <tr>
+                <td>{{ r.away_team }} @ {{ r.home_team }}</td>
+                <td>{{ r.type }}</td>
+                <td>{{ r.selection }}</td>
+                <td style="text-align:right;">{{ r.odds }}</td>
+                <td style="text-align:right;">{{ '%.1f%%' % r.ev_pct if r.ev_pct is not none }}</td>
+                <td>
+                  {% if r.result %}
+                    <span class="res {% if r.result=='Win' %}res-win{% elif r.result=='Loss' %}res-loss{% else %}res-push{% endif %}">{{ r.result }}</span>
+                  {% else %}
+                    —
+                  {% endif %}
+                </td>
+                <td>{{ r.game_date }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 </body>

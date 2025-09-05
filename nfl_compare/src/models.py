@@ -73,8 +73,12 @@ class TrainedModels:
 def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, pd.Series, pd.DataFrame]:
     df = df.copy()
     df['home_win'] = (df['home_margin'] > 0).astype(int)
-    # Reindex to ensure optional feature columns exist; fill missing with 0
-    X = df.reindex(columns=FEATURES, fill_value=0).fillna(0)
+    # Reindex to ensure optional feature columns exist; coerce to numeric; fill missing with 0
+    X = (
+        df.reindex(columns=FEATURES, fill_value=0)
+        .apply(pd.to_numeric, errors='coerce')
+        .fillna(0)
+    )
     y_margin = df['home_margin']
     y_total = df['total_points']
     y_homewin = df['home_win']
@@ -209,7 +213,12 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
 
 def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     df = df_future.copy()
-    X = df.reindex(columns=FEATURES, fill_value=0).fillna(0)
+    # Ensure numeric features and no NaNs for inference as well
+    X = (
+        df.reindex(columns=FEATURES, fill_value=0)
+        .apply(pd.to_numeric, errors='coerce')
+        .fillna(0)
+    )
     df['pred_margin'] = models.regressors['home_margin'].predict(X)
     df['pred_total'] = models.regressors['total_points'].predict(X)
     # Optional calibration of game totals toward market with scale/shift and band clamp
@@ -223,14 +232,24 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
         total_scale, total_shift, total_blend, total_band = 1.03, 1.8, 0.70, 6.5
     # Apply scale/shift first
     df['pred_total'] = (df['pred_total'] * total_scale) + total_shift
-    # Blend toward market total when available
+    # Blend toward market total when available, but only for rows where market total exists
     if total_blend > 0 and 'total' in df.columns:
-        mt = df['total'].astype(float)
-        base = df['pred_total'].astype(float)
-        df['pred_total'] = ((1 - total_blend) * base) + (total_blend * mt)
-        # Optional clamp to stay within a band of the market
+        mt = pd.to_numeric(df['total'], errors='coerce')
+        base = pd.to_numeric(df['pred_total'], errors='coerce')
+        mask = mt.notna() & np.isfinite(mt)
+        # Start from base everywhere
+        blended = base.copy()
+        blended.loc[mask] = ((1 - total_blend) * base.loc[mask]) + (total_blend * mt.loc[mask])
+        # Optional clamp only where market exists
         if total_band and total_band > 0:
-            df['pred_total'] = np.clip(df['pred_total'], mt - total_band, mt + total_band)
+            low = (mt - total_band).where(mask, np.nan)
+            high = (mt + total_band).where(mask, np.nan)
+            # Use np.clip on valid rows
+            clipped = blended.copy()
+            clipped.loc[mask] = np.clip(blended.loc[mask], low.loc[mask], high.loc[mask])
+            df['pred_total'] = clipped
+        else:
+            df['pred_total'] = blended
     if models.classifiers.get('home_win') is not None:
         df['prob_home_win'] = models.classifiers['home_win'].predict_proba(X)[:, 1]
     else:

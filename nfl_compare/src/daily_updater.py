@@ -29,6 +29,15 @@ from .weather import DATA_DIR
 from .auto_update import update_weather_for_date
 from .odds_api_client import main as fetch_odds_main
 from .predict import main as predict_main
+from joblib import load as joblib_load
+from .data_sources import load_games as ds_load_games, load_team_stats, load_lines
+from .features import merge_features
+from .weather import load_weather_for_games
+from .models import predict as model_predict
+from .data_sources import DATA_DIR as _DATA_DIR
+from .data_sources import _try_load_latest_real_lines as _latest_json  # type: ignore
+from .team_normalizer import normalize_team_name
+from nfl_compare.scripts.backfill_close_lines import backfill_close_fields  # type: ignore
 
 
 def _load_games() -> pd.DataFrame:
@@ -234,11 +243,106 @@ def main() -> None:
     if missing:
         print(f"Warning: missing inputs: {missing}")
 
+    # 4b) Ensure lines.csv has rows for current week games; enrich with latest JSON odds and backfill closing lines
+    try:
+        lines_fp = _DATA_DIR / 'lines.csv'
+        if lines_fp.exists():
+            lines_df = pd.read_csv(lines_fp)
+        else:
+            from .schemas import _field_names, LineRow  # type: ignore
+            lines_df = pd.DataFrame(columns=_field_names(LineRow))
+
+        # Normalize team names in existing lines
+        if 'home_team' in lines_df.columns:
+            lines_df['home_team'] = lines_df['home_team'].astype(str).apply(normalize_team_name)
+        if 'away_team' in lines_df.columns:
+            lines_df['away_team'] = lines_df['away_team'].astype(str).apply(normalize_team_name)
+
+        g_slice = games[(games['season']==season) & (games['week']==cur_week)].copy()
+        g_slice['home_team'] = g_slice['home_team'].astype(str).apply(normalize_team_name)
+        g_slice['away_team'] = g_slice['away_team'].astype(str).apply(normalize_team_name)
+
+        # Prepare new rows for any games not already in lines.csv by game_id
+        have_ids = set(str(x) for x in (lines_df['game_id'].dropna().astype(str).unique() if 'game_id' in lines_df.columns else []))
+        add = []
+        for _, r in g_slice.iterrows():
+            gid = str(r.get('game_id'))
+            if gid and gid not in have_ids:
+                add.append({
+                    'season': int(r.get('season')) if pd.notna(r.get('season')) else None,
+                    'week': int(r.get('week')) if pd.notna(r.get('week')) else None,
+                    'game_id': gid,
+                    'home_team': r.get('home_team'),
+                    'away_team': r.get('away_team'),
+                    'spread_home': pd.NA,
+                    'total': pd.NA,
+                    'moneyline_home': pd.NA,
+                    'moneyline_away': pd.NA,
+                    'close_spread_home': pd.NA,
+                    'close_total': pd.NA,
+                    'date': r.get('date'),
+                })
+        if add:
+            lines_df = pd.concat([lines_df, pd.DataFrame(add)], ignore_index=True)
+
+        # Enrich seeded/current rows with latest JSON odds for current market context
+        try:
+            j = _latest_json()
+            if j is not None and not j.empty:
+                j['home_team'] = j['home_team'].astype(str).apply(normalize_team_name)
+                j['away_team'] = j['away_team'].astype(str).apply(normalize_team_name)
+                key = ['home_team','away_team']
+                cols = ['spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price']
+                lines_df = lines_df.merge(j[key+cols], on=key, how='left', suffixes=('', '_json'))
+                for c in cols:
+                    jc = f'{c}_json'
+                    if jc in lines_df.columns:
+                        lines_df[c] = lines_df[c].where(lines_df[c].notna(), lines_df[jc])
+                drop = [c for c in lines_df.columns if c.endswith('_json')]
+                if drop:
+                    lines_df = lines_df.drop(columns=drop)
+        except Exception as e:
+            print(f"JSON odds enrich skipped: {e}")
+
+        # Backfill closing fields using snapshots and fallbacks
+        lines_df2, report = backfill_close_fields(lines_df)
+        lines_df2.to_csv(lines_fp, index=False)
+        print(f"Seeded/enriched lines.csv for current week — {report}")
+    except Exception as e:
+        print(f"Seeding/backfilling lines.csv failed: {e}")
+
     # 5) Re-run predictions (future games only)
     try:
         predict_main()
     except Exception as e:
         print(f"Prediction run failed: {e}")
+
+    # 6) Also write week-level predictions for the current week (includes finals)
+    try:
+        # Build features for current week and run models
+        games_all = ds_load_games()
+        stats = load_team_stats()
+        lines = load_lines()
+        try:
+            wx_all = load_weather_for_games(games_all)
+        except Exception:
+            wx_all = None
+        feat = merge_features(games_all, stats, lines, wx_all)
+        sub = feat[(feat.get('season').astype('Int64') == int(season)) & (feat.get('week').astype('Int64') == int(cur_week))].copy()
+        if sub is None or sub.empty:
+            print('No feature rows for current week; skipping predictions_week.csv')
+        else:
+            models_path = Path(__file__).resolve().parents[1] / 'models' / 'nfl_models.joblib'
+            if not models_path.exists():
+                print('Model file missing; cannot write predictions_week.csv')
+            else:
+                models = joblib_load(models_path)
+                pred_week = model_predict(models, sub)
+                out_fp = DATA_DIR / 'predictions_week.csv'
+                pred_week.to_csv(out_fp, index=False)
+                print(f'Wrote {out_fp} with {len(pred_week)} rows for season={season}, week={cur_week}')
+    except Exception as e:
+        print(f"Week-level predictions failed: {e}")
 
     print('Daily update complete.')
 

@@ -67,6 +67,8 @@
     .score{font-size:18px;font-weight:800}
     .muted{color:var(--muted);font-size:12px}
   .pill{display:inline-block;padding:2px 6px;border-radius:6px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:12px;color:var(--text)}
+  .pill-ok{border-color:#2e8b57;color:#9ae6b4}
+  .pill-bad{border-color:#8b2e2e;color:#fca5a5}
   .kpi{display:flex;gap:10px;align-items:center;justify-content:flex-start;margin-top:6px}
   .recs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
   .badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--badge-br);background:var(--badge-bg);font-size:12px;color:var(--text)}
@@ -85,7 +87,7 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
     <h1>NFL Betting – Cards</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
     <form class="filters" method="get" action="/">
@@ -136,23 +138,40 @@
               <div class="muted">Diff: {{ '%.2f' % g.total_diff if g.total_diff is not none else '-' }}</div>
             </div>
 
-            {% if g.wp_text %}<div class="muted" style="margin-top:4px;">{{ g.wp_text }}</div>{% endif %}
-
             <div class="kpi">
-              {% if g.pred_winner %}
-                <span class="pill">Winner: {{ g.pred_winner }}{% if g.winner_correct is not none %} {{ 'Correct' if g.winner_correct else 'Wrong' }}{% endif %}</span>
+              {% if g.wp_text or g.pred_winner %}
+                <span class="pill {% if g.winner_correct is not none %}{{ 'pill-ok' if g.winner_correct else 'pill-bad' }}{% endif %}">
+                  {% if g.wp_text %}{{ g.wp_text }}{% endif %}
+                  {% if g.pred_winner %}{% if g.wp_text %} • {% endif %}Winner: {{ g.pred_winner }}{% if g.winner_correct is not none %} {{ 'Correct' if g.winner_correct else 'Wrong' }}{% endif %}{% endif %}
+                </span>
               {% endif %}
+            </div>
+            <div class="kpi">
               {% if g.market_spread_home is not none %}
-                <span class="pill">Spread: {{ g.home_team }} {{ '%+.1f' % g.market_spread_home }} • Model: {{ g.home_team if g.edge_spread is not none and g.edge_spread>=0 else g.away_team if g.edge_spread is not none else '—' }} (Edge {{ '%+.2f' % (g.edge_spread or 0) }})</span>
+                <span class="pill {% if g.ats_correct is not none %}{{ 'pill-ok' if g.ats_correct else 'pill-bad' }}{% endif %}">
+                  Spread: {{ g.home_team }} {{ '%+.1f' % g.market_spread_home }} • Model: {{ g.home_team if g.edge_spread is not none and g.edge_spread>=0 else g.away_team if g.edge_spread is not none else '—' }} (Edge {{ '%+.2f' % (g.edge_spread or 0) }})
+                  {% if g.ats_text %} • {{ g.ats_text }}{% endif %}
+                </span>
               {% endif %}
             </div>
             <div class="kpi">
-              {% if g.ats_text %}<span class="pill">{{ g.ats_text }}</span>{% endif %}
+              {% if g.ou_text or g.totals_text %}
+                <span class="pill {% if g.totals_correct is not none %}{{ 'pill-ok' if g.totals_correct else 'pill-bad' }}{% endif %}">
+                  {% if g.ou_text %}{{ g.ou_text }}{% endif %}
+                  {% if g.totals_text %}{% if g.ou_text %} • {% endif %}{{ g.totals_text }}{% endif %}
+                </span>
+              {% endif %}
             </div>
+
+            {% if g.actual_total is not none %}
             <div class="kpi">
-              {% if g.ou_text %}<span class="pill">{{ g.ou_text }}</span>{% endif %}
-              {% if g.totals_text %}<span class="pill">{{ g.totals_text }}</span>{% endif %}
+              <span class="pill">Accuracy:
+                Winner {{ '✓' if g.winner_correct else '✗' if g.winner_correct is not none else '—' }} ·
+                ATS {{ '✓' if g.ats_correct else '✗' if g.ats_correct is not none else '—' }} ·
+                Total {{ '✓' if g.totals_correct else '✗' if g.totals_correct is not none else '—' }}
+              </span>
             </div>
+            {% endif %}
 
             <div class="recs">
               {% if g.rec_winner_side %}

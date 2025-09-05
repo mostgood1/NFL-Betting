@@ -1,4 +1,5 @@
 import json
+import warnings
 from datetime import datetime
 import os
 from typing import Dict, Any, List
@@ -8,6 +9,13 @@ from .schemas import GameRow, TeamStatRow, LineRow
 from .team_normalizer import normalize_team_name
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+
+# Silence pandas concat FutureWarning about empty/all-NA entries impacting dtype inference
+warnings.filterwarnings(
+    "ignore",
+    message="The behavior of DataFrame concatenation with empty or all-NA entries is deprecated",
+    category=FutureWarning,
+)
 
 def _field_names(model_cls) -> list:
     """Return model field names for Pydantic v1 or v2."""
@@ -280,7 +288,28 @@ def load_lines() -> pd.DataFrame:
                         add_rows[col] = pd.NA
                 # Align columns
                 add_rows = add_rows.reindex(columns=merged.columns, fill_value=pd.NA)
-                merged = pd.concat([merged, add_rows], ignore_index=True)
+                def _valid_df(d: pd.DataFrame) -> bool:
+                    if d is None or d.empty:
+                        return False
+                    try:
+                        return not d.isna().all().all()
+                    except Exception:
+                        return True
+                to_concat = [df for df in (merged, add_rows) if _valid_df(df)]
+                if len(to_concat) == 2:
+                    # Align dtypes to avoid FutureWarning about dtype inference with all-NA cols
+                    try:
+                        for c in merged.columns:
+                            if c in add_rows.columns:
+                                try:
+                                    add_rows[c] = add_rows[c].astype(merged[c].dtype)
+                                except Exception:
+                                    pass
+                    except Exception:
+                        pass
+                    merged = pd.concat([merged, add_rows], ignore_index=True)
+                elif len(to_concat) == 1:
+                    merged = to_concat[0]
         except Exception:
             pass
 

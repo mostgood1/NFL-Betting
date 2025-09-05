@@ -20,12 +20,18 @@ def _load_snapshots() -> Dict[str, pd.DataFrame]:
             blob = json.loads(fp.read_text(encoding="utf-8"))
             # Reuse parser logic from data_sources by importing lazily to avoid heavy deps
             from nfl_compare.src.data_sources import _parse_real_lines_json  # type: ignore
+            from nfl_compare.src.team_normalizer import normalize_team_name  # type: ignore
             df = _parse_real_lines_json(blob)
             if not df.empty:
                 # Normalize float types
                 for c in ["spread_home", "total"]:
                     if c in df.columns:
                         df[c] = pd.to_numeric(df[c], errors="coerce")
+                # Normalize team names for robust matching
+                if 'home_team' in df.columns:
+                    df['home_team'] = df['home_team'].astype(str).apply(normalize_team_name)
+                if 'away_team' in df.columns:
+                    df['away_team'] = df['away_team'].astype(str).apply(normalize_team_name)
                 snaps[date_key] = df
         except Exception:
             continue
@@ -49,16 +55,32 @@ def backfill_close_fields(lines: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, 
         if c not in lines.columns:
             lines[c] = pd.NA
 
-    # Build a simple date key for snapshot lookup
-    date_col = "game_date" if "game_date" in lines.columns else ("date" if "date" in lines.columns else None)
-    if date_col and lines[date_col].notna().any():
-        dates = pd.to_datetime(lines[date_col], errors="coerce").dt.strftime("%Y_%m_%d")
-    else:
-        dates = pd.Series([None] * len(lines), index=lines.index)
+    # Build a per-row date key preferring game_date, falling back to date
+    def _row_date_key(r: pd.Series) -> Any:
+        for c in ("game_date","date"):
+            if c in lines.columns:
+                v = r.get(c)
+                if pd.notna(v):
+                    try:
+                        return pd.to_datetime(v, errors="coerce").strftime("%Y_%m_%d")
+                    except Exception:
+                        return None
+        return None
+    dates = lines.apply(_row_date_key, axis=1)
 
     snaps = _load_snapshots()
     updated_spread = 0
     updated_total = 0
+
+    # Normalize team names in lines for matching
+    try:
+        from nfl_compare.src.team_normalizer import normalize_team_name  # type: ignore
+        if 'home_team' in lines.columns:
+            lines['home_team'] = lines['home_team'].astype(str).apply(normalize_team_name)
+        if 'away_team' in lines.columns:
+            lines['away_team'] = lines['away_team'].astype(str).apply(normalize_team_name)
+    except Exception:
+        pass
 
     for idx, row in lines.iterrows():
         if pd.isna(row.get("close_spread_home")) or pd.isna(row.get("close_total")):
@@ -80,16 +102,24 @@ def backfill_close_fields(lines: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, 
                 )
                 cand = df_snap[mask]
                 if not cand.empty:
+                    row0 = cand.iloc[0]
                     if pd.isna(row.get("close_spread_home")) and "spread_home" in cand.columns:
-                        v = pd.to_numeric(cand.iloc[0]["spread_home"], errors="coerce")
+                        v = pd.to_numeric(row0.get("spread_home"), errors="coerce")
                         if pd.notna(v):
                             lines.at[idx, "close_spread_home"] = float(v)
                             updated_spread += 1
                     if pd.isna(row.get("close_total")) and "total" in cand.columns:
-                        v = pd.to_numeric(cand.iloc[0]["total"], errors="coerce")
+                        v = pd.to_numeric(row0.get("total"), errors="coerce")
                         if pd.notna(v):
                             lines.at[idx, "close_total"] = float(v)
                             updated_total += 1
+                    # Also populate moneylines/prices if missing in CSV
+                    for col in ["moneyline_home","moneyline_away","spread_home_price","spread_away_price","total_over_price","total_under_price"]:
+                        if col in lines.columns and pd.isna(lines.at[idx, col]) and col in row0.index:
+                            try:
+                                lines.at[idx, col] = row0.get(col)
+                            except Exception:
+                                pass
             # Fallback to current row's market fields if still missing
             if pd.isna(lines.at[idx, "close_spread_home"]) and pd.notna(row.get("spread_home")):
                 try:

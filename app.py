@@ -12,11 +12,13 @@ import sys
 import json
 import math
 import traceback
+from joblib import load as joblib_load
 
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "nfl_compare" / "data"
 PRED_FILE = DATA_DIR / "predictions.csv"
+PRED_WEEK_FILE = DATA_DIR / "predictions_week.csv"
 ASSETS_FILE = DATA_DIR / "nfl_team_assets.json"
 STADIUM_META_FILE = DATA_DIR / "stadium_meta.csv"
 LOCATION_OVERRIDES_FILE = DATA_DIR / "game_location_overrides.csv"
@@ -27,10 +29,18 @@ app = Flask(__name__)
 def _load_predictions() -> pd.DataFrame:
     """Load predictions.csv if present; return empty DataFrame if missing."""
     try:
+        dfs = []
         if PRED_FILE.exists():
-            df = pd.read_csv(PRED_FILE)
+            dfs.append(pd.read_csv(PRED_FILE))
+        # Optionally merge week-level predictions that include completed games
+        if PRED_WEEK_FILE.exists():
+            dfs.append(pd.read_csv(PRED_WEEK_FILE))
+        if dfs:
+            df = pd.concat(dfs, ignore_index=True)
+            # Drop duplicate game_ids favoring the last occurrence (week file overrides)
+            if 'game_id' in df.columns:
+                df = df.drop_duplicates(subset=['game_id'], keep='last')
             # Normalize typical columns if present
-            # Ensure week/season numeric for filtering/sorting
             for c in ("week", "season"):
                 if c in df.columns:
                     df[c] = pd.to_numeric(df[c], errors="coerce")
@@ -43,6 +53,204 @@ def _load_predictions() -> pd.DataFrame:
         # Fall through to empty frame
         pass
     return pd.DataFrame()
+
+
+def _load_games() -> pd.DataFrame:
+    """Load games.csv if present; return empty DataFrame if missing."""
+    try:
+        fp = DATA_DIR / "games.csv"
+        if fp.exists():
+            df = pd.read_csv(fp)
+            for c in ("week", "season"):
+                if c in df.columns:
+                    df[c] = pd.to_numeric(df[c], errors="coerce")
+            # Sort for stability
+            sort_cols = [c for c in ["season", "week", "game_date", "date"] if c in df.columns]
+            if sort_cols:
+                df = df.sort_values(sort_cols)
+            return df
+    except Exception:
+        pass
+    return pd.DataFrame()
+
+
+def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Optional[int], week: Optional[int]) -> pd.DataFrame:
+    """Combine games (for finals) with predictions (for upcoming) for a given season/week.
+    - Always start from games for complete coverage of the week.
+    - Left-merge prediction columns onto games by game_id when possible; fallback to team/week match.
+    - Avoid overwriting core game fields from games.csv.
+    """
+    if games_df is None or games_df.empty:
+        # No games file; fall back to predictions filtered by season/week
+        out = pred_df.copy()
+        if not out.empty:
+            if season is not None and "season" in out.columns:
+                out = out[out["season"] == season]
+            if week is not None and "week" in out.columns:
+                out = out[out["week"] == week]
+        return out
+
+    # Filter games to the requested group
+    view = games_df.copy()
+    if season is not None and "season" in view.columns:
+        view = view[view["season"] == season]
+    if week is not None and "week" in view.columns:
+        view = view[view["week"] == week]
+    if view.empty:
+        return view
+
+    # Prepare predictions to merge
+    p = pred_df.copy() if pred_df is not None else pd.DataFrame()
+    # Core keys we do NOT want to overwrite from games
+    core_keys = {"season", "week", "game_id", "game_date", "date", "home_team", "away_team", "home_score", "away_score"}
+    if not p.empty:
+        drop_cols = [c for c in p.columns if c in core_keys]
+        p_nokeys = p.drop(columns=drop_cols, errors="ignore")
+        # Merge preference: by game_id if present in both
+        if "game_id" in games_df.columns and "game_id" in pred_df.columns and not pred_df["game_id"].isna().all():
+            merged = view.merge(pred_df[[c for c in pred_df.columns if c not in {"season","week","game_date","date","home_team","away_team","home_score","away_score"}]],
+                                on="game_id", how="left")
+        else:
+            # Fallback join by team pairing within the same season/week slice
+            key_cols = [c for c in ["home_team", "away_team"] if c in view.columns]
+            if key_cols:
+                merged = view.merge(p_nokeys, left_on=key_cols, right_on=[c for c in key_cols if c in p_nokeys.columns], how="left")
+            else:
+                merged = view
+        return merged
+    else:
+        return view
+
+
+def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
+    """Best-effort: fill missing prediction columns for the given rows using trained models.
+    - Skips when running on Render (RENDER env true).
+    - Uses game_id to align where possible; falls back to (home_team, away_team, game_date/date).
+    """
+    try:
+        if view_df is None or view_df.empty:
+            return view_df
+        # Skip on Render/minimal
+        if str(os.environ.get("RENDER", "")).lower() in {"1","true","yes"}:
+            return view_df
+    # If already has predictions broadly, skip
+        needs_pred = False
+        for col in ("pred_home_points","pred_away_points","pred_total","pred_home_win_prob"):
+            if col not in view_df.columns or view_df[col].isna().any():
+                needs_pred = True
+                break
+        if not needs_pred:
+            return view_df
+
+        # Lazy imports from package
+        from nfl_compare.src.data_sources import load_games as ds_load_games, load_team_stats, load_lines
+        from nfl_compare.src.features import merge_features
+        from nfl_compare.src.weather import load_weather_for_games
+        from nfl_compare.src.models import predict as model_predict
+
+        # Load base data and models
+        games = ds_load_games()
+        stats = load_team_stats()
+        lines = load_lines()
+        try:
+            models = joblib_load(BASE_DIR / 'nfl_compare' / 'models' / 'nfl_models.joblib')
+        except Exception:
+            return view_df  # models not available
+        try:
+            wx = load_weather_for_games(games)
+        except Exception:
+            wx = None
+        feat = merge_features(games, stats, lines, wx)
+        if feat is None or feat.empty:
+            return view_df
+        # Filter features to the rows in view_df (exclude completed/final games to keep historical predictions locked)
+        vf = view_df.copy()
+        # Detect finals by presence of scores or a status column
+        is_final = pd.Series(False, index=vf.index)
+        for sc_col in ("home_score","away_score","status"):
+            if sc_col in vf.columns:
+                if sc_col == "status":
+                    is_final = is_final | (vf[sc_col].astype(str).str.upper() == "FINAL")
+                else:
+                    is_final = is_final | vf[sc_col].notna()
+        vf_pred = vf.loc[~is_final].copy()
+        if vf_pred.empty:
+            return view_df
+
+        if 'game_id' in vf_pred.columns and 'game_id' in feat.columns:
+            keys = vf_pred['game_id'].dropna().astype(str).unique().tolist()
+            sub = feat[feat['game_id'].astype(str).isin(keys)].copy()
+        else:
+            # fallback by match
+            key_cols = [c for c in ['season','week','home_team','away_team'] if c in vf_pred.columns and c in feat.columns]
+            if key_cols:
+                sub = feat.merge(vf_pred[key_cols].drop_duplicates(), on=key_cols, how='inner')
+            else:
+                sub = feat
+        if sub.empty:
+            return view_df
+        # Run model predictions
+        pred = model_predict(models, sub)
+        if pred is None or pred.empty:
+            return view_df
+        # Select columns to merge back
+        keep_cols = [c for c in pred.columns if c.startswith('pred_') or c.startswith('prob_')] + ['game_id','home_team','away_team']
+        pred_keep = pred[[c for c in keep_cols if c in pred.columns]].copy()
+        # Merge back into view_df without overwriting existing non-null prediction values
+        if 'game_id' in vf_pred.columns and 'game_id' in pred_keep.columns and pred_keep['game_id'].notna().any():
+            merged_partial = vf_pred.merge(pred_keep, on='game_id', how='left', suffixes=('', '_m'))
+        else:
+            merged_partial = vf_pred.merge(pred_keep, on=[c for c in ['home_team','away_team'] if c in vf_pred.columns and c in pred_keep.columns], how='left', suffixes=('', '_m'))
+        # Fill nulls from _m columns
+        for col in ['pred_home_points','pred_away_points','pred_total','pred_margin','pred_q1_total','pred_q2_total','pred_q3_total','pred_q4_total','pred_1h_total','pred_2h_total','prob_home_win','pred_home_win_prob']:
+            base = col
+            alt = f"{col}_m"
+            if base in merged_partial.columns and alt in merged_partial.columns:
+                merged_partial[base] = merged_partial[base].where(merged_partial[base].notna(), merged_partial[alt])
+        # Also fill odds/lines/weather fields from features frame for completeness
+        line_cols = ['spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price','close_spread_home','close_total',
+                     'wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']
+        feat_keep = feat[['game_id','home_team','away_team'] + [c for c in line_cols if c in feat.columns]].copy()
+        if 'game_id' in merged_partial.columns and 'game_id' in feat_keep.columns and feat_keep['game_id'].notna().any():
+            merged2_partial = merged_partial.merge(feat_keep, on='game_id', how='left', suffixes=('', '_f'))
+        else:
+            merged2_partial = merged_partial.merge(feat_keep, on=[c for c in ['home_team','away_team'] if c in merged_partial.columns and c in feat_keep.columns], how='left', suffixes=('', '_f'))
+        for col in [c for c in line_cols if c in merged2_partial.columns and f"{c}_f" in merged2_partial.columns]:
+            merged2_partial[col] = merged2_partial[col].where(merged2_partial[col].notna(), merged2_partial[f"{col}_f"]) 
+        # drop helper cols on partial
+        drop_cols2 = [c for c in merged2_partial.columns if c.endswith('_m') or c.endswith('_f')]
+        merged2_partial = merged2_partial.drop(columns=drop_cols2)
+    # Stitch partial predictions back with untouched finals
+        out = vf.copy()
+        if 'game_id' in out.columns and 'game_id' in merged2_partial.columns and merged2_partial['game_id'].notna().any():
+            out = out.merge(merged2_partial, on=[c for c in out.columns if c in merged2_partial.columns and c in ['game_id']], how='left', suffixes=('', '_new'))
+        else:
+            join_keys = [c for c in ['season','week','home_team','away_team'] if c in out.columns and c in merged2_partial.columns]
+            out = out.merge(merged2_partial, on=join_keys, how='left', suffixes=('', '_new'))
+        # For prediction fields, prefer newly computed values only for non-final rows
+        for col in ['pred_home_points','pred_away_points','pred_total','pred_margin','pred_q1_total','pred_q2_total','pred_q3_total','pred_q4_total','pred_1h_total','pred_2h_total','prob_home_win','pred_home_win_prob']:
+            if f"{col}_new" in out.columns:
+                out[col] = out[col].where(is_final | out[f"{col}_new"].isna(), out[f"{col}_new"])  # keep finals
+        # Clean helper columns
+        drop_cols3 = [c for c in out.columns if c.endswith('_new')]
+        out = out.drop(columns=drop_cols3)
+        # Finally, enrich odds/lines/weather for ALL rows (including finals) from features
+        try:
+            feat_keep_all = feat[['game_id','home_team','away_team'] + [c for c in line_cols if c in feat.columns]].drop_duplicates()
+            if 'game_id' in out.columns and 'game_id' in feat_keep_all.columns and feat_keep_all['game_id'].notna().any():
+                out2 = out.merge(feat_keep_all, on='game_id', how='left', suffixes=('', '_f2'))
+            else:
+                join_keys2 = [c for c in ['home_team','away_team'] if c in out.columns and c in feat_keep_all.columns]
+                out2 = out.merge(feat_keep_all, on=join_keys2, how='left', suffixes=('', '_f2'))
+            for col in [c for c in line_cols if c in out2.columns and f"{c}_f2" in out2.columns]:
+                out2[col] = out2[col].where(out2[col].notna(), out2[f"{col}_f2"])  # fill only missing
+            drop_cols4 = [c for c in out2.columns if c.endswith('_f2')]
+            out = out2.drop(columns=drop_cols4)
+        except Exception:
+            pass
+        return out
+    except Exception:
+        return view_df
 
 
 def _load_team_assets() -> Dict[str, Dict[str, str]]:
@@ -340,6 +548,20 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     season = g("season")
     week = g("week")
     game_date = g("game_date", "date")
+    # Actuals for grading
+    actual_home = g("home_score")
+    actual_away = g("away_score")
+    actual_total = None
+    actual_margin = None
+    is_final = False
+    if actual_home is not None and actual_away is not None and not pd.isna(actual_home) and not pd.isna(actual_away):
+        try:
+            ah = float(actual_home); aa = float(actual_away)
+            actual_total = ah + aa
+            actual_margin = ah - aa
+            is_final = True
+        except Exception:
+            pass
 
     # Winner (moneyline)
     wp_home = g("pred_home_win_prob", "prob_home_win")
@@ -356,16 +578,16 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     if p_home is not None:
         mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
         try:
-            beta = float(os.environ.get('RECS_MARKET_BLEND', '0.50'))
+            beta = float(os.environ.get('RECS_MARKET_BLEND', '0.35'))
         except Exception:
-            beta = 0.50
+            beta = 0.35
         p_home_eff = (1.0 - beta) * p_home + beta * mkt_ph if mkt_ph is not None else p_home
-        # Clamp to a band around market to avoid extreme EVs from model noise
+        # Optional clamp to a band around market (disabled by default)
         try:
-            band = float(os.environ.get('RECS_MARKET_BAND', '0.10'))
+            band = float(os.environ.get('RECS_MARKET_BAND', '0.0'))
         except Exception:
-            band = 0.10
-        if mkt_ph is not None:
+            band = 0.0
+        if mkt_ph is not None and band and band > 0:
             p_home_eff = _clamp_prob_to_band(p_home_eff, mkt_ph, band)
         if dec_home:
             ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
@@ -382,6 +604,16 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             # Game-level tier if provided
             game_conf = g("game_confidence")
             conf = _combine_confs(ev_conf, game_conf)
+            # Grade if final
+            result = None
+            if is_final and actual_margin is not None:
+                actual_side = "HOME" if actual_margin > 0 else ("AWAY" if actual_margin < 0 else "PUSH")
+                picked_side = "HOME" if str(s) == str(home) else ("AWAY" if str(s) == str(away) else None)
+                if picked_side:
+                    if actual_side == "PUSH":
+                        result = "Push"
+                    else:
+                        result = "Win" if picked_side == actual_side else "Loss"
             recs.append({
                 "type": "MONEYLINE",
                 "selection": f"{s} ML",
@@ -392,11 +624,17 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 # Weight: confidence first, then EV
                 "sort_weight": (_tier_to_num(conf), e or -999),
                 "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                "result": result,
             })
 
     # Spread (ATS) at -110
     margin = None
-    spread = g("market_spread_home", "spread_home", "open_spread_home")
+    # Prefer close spread for finals; fallback otherwise
+    _hs = g("home_score"); _as = g("away_score")
+    _is_final = (_hs is not None and not pd.isna(_hs)) and (_as is not None and not pd.isna(_as))
+    spread = g("close_spread_home") if _is_final else g("market_spread_home", "spread_home", "open_spread_home")
+    if spread is None or (isinstance(spread, float) and pd.isna(spread)):
+        spread = g("market_spread_home", "spread_home", "open_spread_home")
     try:
         ph = g("pred_home_points", "pred_home_score")
         pa = g("pred_away_points", "pred_away_score")
@@ -406,33 +644,38 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         margin = None
     if margin is not None and spread is not None and not pd.isna(spread):
         try:
-            edge_pts = float(margin) - float(spread)
+            edge_pts = float(margin) + float(spread)
             scale_margin = float(os.environ.get('NFL_ATS_SIGMA', '9.0'))
         except Exception:
             edge_pts, scale_margin = None, 9.0
         if edge_pts is not None:
             p_home_cover = _cover_prob_from_edge(edge_pts, scale_margin)
             try:
-                shrink = float(os.environ.get('RECS_PROB_SHRINK', '0.50'))
+                shrink = float(os.environ.get('RECS_PROB_SHRINK', '0.35'))
             except Exception:
-                shrink = 0.50
+                shrink = 0.35
             p_home_cover = 0.5 + (p_home_cover - 0.5) * (1.0 - shrink)
-            dec_110 = 1.909090909  # ~ -110
-            ev_home = _ev_from_prob_and_decimal(p_home_cover, dec_110)
-            ev_away = _ev_from_prob_and_decimal(1.0 - p_home_cover, dec_110)
+            # Use market prices if available; fallback to -110
+            sh_price = g("spread_home_price")
+            sa_price = g("spread_away_price")
+            dec_home_sp = _american_to_decimal(sh_price) if sh_price is not None and not pd.isna(sh_price) else 1.0 + 100.0/110.0
+            dec_away_sp = _american_to_decimal(sa_price) if sa_price is not None and not pd.isna(sa_price) else 1.0 + 100.0/110.0
+            ev_home = _ev_from_prob_and_decimal(p_home_cover, dec_home_sp)
+            ev_away = _ev_from_prob_and_decimal(1.0 - p_home_cover, dec_away_sp)
             # Build selections
             try:
                 sp = float(spread)
             except Exception:
                 sp = None
-            sh_price = g("spread_home_price")
-            sa_price = g("spread_away_price")
+            # Normalize price display as signed ints if present
+            sh_disp = (int(sh_price) if (sh_price is not None and not pd.isna(sh_price)) else None)
+            sa_disp = (int(sa_price) if (sa_price is not None and not pd.isna(sa_price)) else None)
             if sp is not None:
-                home_sel = f"{home} {sp:+.1f}{(' ('+('%+d' % sh_price)+')') if (sh_price is not None and not pd.isna(sh_price)) else ''}"
-                away_sel = f"{away} {(-sp):+.1f}{(' ('+('%+d' % sa_price)+')') if (sa_price is not None and not pd.isna(sa_price)) else ''}"
+                home_sel = f"{home} {sp:+.1f}{(' ('+('%+d' % sh_disp)+')') if (sh_disp is not None) else ''}"
+                away_sel = f"{away} {(-sp):+.1f}{(' ('+('%+d' % sa_disp)+')') if (sa_disp is not None) else ''}"
             else:
-                home_sel = f"{home} ATS{(' ('+('%+d' % sh_price)+')') if (sh_price is not None and not pd.isna(sh_price)) else ''}"
-                away_sel = f"{away} ATS{(' ('+('%+d' % sa_price)+')') if (sa_price is not None and not pd.isna(sa_price)) else ''}"
+                home_sel = f"{home} ATS{(' ('+('%+d' % sh_disp)+')') if (sh_disp is not None) else ''}"
+                away_sel = f"{away} ATS{(' ('+('%+d' % sa_disp)+')') if (sa_disp is not None) else ''}"
             # Choose best
             cand = [(home_sel, ev_home), (away_sel, ev_away)]
             cand = [(s, e) for s, e in cand if e is not None]
@@ -441,6 +684,17 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 ev_conf = _conf_from_ev(e)
                 game_conf = g("game_confidence")
                 conf = _combine_confs(ev_conf, game_conf)
+                # Grade if final
+                result = None
+                if is_final and actual_margin is not None and sp is not None:
+                    cover_val = actual_margin + float(spread)
+                    actual_side = "HOME" if cover_val > 0 else ("AWAY" if cover_val < 0 else "PUSH")
+                    picked_side = "HOME" if str(s).startswith(str(home)) else ("AWAY" if str(s).startswith(str(away)) else None)
+                    if picked_side:
+                        if actual_side == "PUSH":
+                            result = "Push"
+                        else:
+                            result = "Win" if picked_side == actual_side else "Loss"
                 recs.append({
                     "type": "SPREAD",
                     "selection": s,
@@ -450,11 +704,14 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     "confidence": conf,
                     "sort_weight": (_tier_to_num(conf), e or -999),
                     "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                    "result": result,
                 })
 
     # Total at -110
     total_pred = g("pred_total")
-    m_total = g("market_total", "total", "open_total")
+    m_total = g("close_total") if _is_final else g("market_total", "total", "open_total")
+    if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
+        m_total = g("market_total", "total", "open_total")
     if total_pred is not None and not pd.isna(total_pred) and m_total is not None and not pd.isna(m_total):
         try:
             edge_t = float(total_pred) - float(m_total)
@@ -464,22 +721,26 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         if edge_t is not None:
             p_over = _cover_prob_from_edge(edge_t, scale_total)
             try:
-                shrink = float(os.environ.get('RECS_PROB_SHRINK', '0.50'))
+                shrink = float(os.environ.get('RECS_PROB_SHRINK', '0.35'))
             except Exception:
-                shrink = 0.50
+                shrink = 0.35
             p_over = 0.5 + (p_over - 0.5) * (1.0 - shrink)
-            dec_110 = 1.909090909
-            ev_over = _ev_from_prob_and_decimal(p_over, dec_110)
-            ev_under = _ev_from_prob_and_decimal(1.0 - p_over, dec_110)
+            # Use market prices if available; fallback to -110
+            to_price = g("total_over_price")
+            tu_price = g("total_under_price")
+            dec_over = _american_to_decimal(to_price) if to_price is not None and not pd.isna(to_price) else 1.0 + 100.0/110.0
+            dec_under = _american_to_decimal(tu_price) if tu_price is not None and not pd.isna(tu_price) else 1.0 + 100.0/110.0
+            ev_over = _ev_from_prob_and_decimal(p_over, dec_over)
+            ev_under = _ev_from_prob_and_decimal(1.0 - p_over, dec_under)
             # Choose best
             try:
                 tot = float(m_total)
             except Exception:
                 tot = None
-            to_price = g("total_over_price")
-            tu_price = g("total_under_price")
-            over_sel = (f"Over {tot:.1f}" if tot is not None else "Over") + (f" ({to_price:+d})" if (to_price is not None and not pd.isna(to_price)) else "")
-            under_sel = (f"Under {tot:.1f}" if tot is not None else "Under") + (f" ({tu_price:+d})" if (tu_price is not None and not pd.isna(tu_price)) else "")
+            to_disp = (int(to_price) if (to_price is not None and not pd.isna(to_price)) else None)
+            tu_disp = (int(tu_price) if (tu_price is not None and not pd.isna(tu_price)) else None)
+            over_sel = (f"Over {tot:.1f}" if tot is not None else "Over") + (f" ({to_disp:+d})" if (to_disp is not None) else "")
+            under_sel = (f"Under {tot:.1f}" if tot is not None else "Under") + (f" ({tu_disp:+d})" if (tu_disp is not None) else "")
             cand = [(over_sel, ev_over), (under_sel, ev_under)]
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
@@ -487,6 +748,25 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 ev_conf = _conf_from_ev(e)
                 game_conf = g("game_confidence")
                 conf = _combine_confs(ev_conf, game_conf)
+                # Grade if final
+                result = None
+                if is_final and actual_total is not None and m_total is not None and not pd.isna(m_total):
+                    try:
+                        mt = float(m_total)
+                        if actual_total > mt:
+                            actual_ou = "OVER"
+                        elif actual_total < mt:
+                            actual_ou = "UNDER"
+                        else:
+                            actual_ou = "PUSH"
+                        picked_ou = "OVER" if str(s).startswith("Over") else ("UNDER" if str(s).startswith("Under") else None)
+                        if picked_ou:
+                            if actual_ou == "PUSH":
+                                result = "Push"
+                            else:
+                                result = "Win" if picked_ou == actual_ou else "Loss"
+                    except Exception:
+                        result = None
                 recs.append({
                     "type": "TOTAL",
                     "selection": s,
@@ -496,14 +776,15 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     "confidence": conf,
                     "sort_weight": (_tier_to_num(conf), e or -999),
                     "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                    "result": result,
                 })
 
     # Apply global filtering to reduce noise
     try:
-        # Default minimum EV raised to 5% to avoid weak edges
-        min_ev_pct = float(os.environ.get('RECS_MIN_EV_PCT', '5.0'))
+        # Default minimum EV (2%) so Week 1 isn't empty; can be overridden via query or env
+        min_ev_pct = float(os.environ.get('RECS_MIN_EV_PCT', '2.0'))
     except Exception:
-        min_ev_pct = 5.0
+        min_ev_pct = 2.0
     filtered = [r for r in recs if (r.get('ev_pct') is not None and r.get('ev_pct') >= min_ev_pct)]
     # Optional: keep only the single highest-EV recommendation per game
     one_per_game = str(os.environ.get('RECS_ONE_PER_GAME', 'false')).strip().lower() in {'1','true','yes','y'}
@@ -527,6 +808,16 @@ def api_predictions():
     # Optional filters
     season = request.args.get("season")
     week = request.args.get("week")
+    # Default: latest season, week 1 when no filters provided
+    if not season and not week:
+        try:
+            if "season" in df.columns and not df["season"].isna().all():
+                latest_season = int(df["season"].max())
+                df = df[df["season"] == latest_season]
+        except Exception:
+            pass
+        if "week" in df.columns:
+            df = df[df["week"].astype(str) == "1"]
     if season:
         try:
             season_i = int(season)
@@ -558,41 +849,48 @@ def api_recommendations():
     """Return EV-based betting recommendations aggregated across games.
     Optional query params: season, week, date (YYYY-MM-DD)
     """
-    df = _load_predictions()
-    if df is None or df.empty:
-        return {"rows": 0, "data": []}, 200
+    pred_df = _load_predictions()
+    games_df = _load_games()
 
-    # Filters
+    # Parse filters
     season = request.args.get("season")
     week = request.args.get("week")
     date = request.args.get("date")
-    # Default: only show Week 1 of latest season if no explicit week/date is provided
-    if not week and not date:
+    season_i = None
+    week_i = None
+    if season:
         try:
-            if "season" in df.columns and not df["season"].isna().all():
-                latest_season = int(df["season"].max())
-                df = df[df["season"] == latest_season]
+            season_i = int(season)
+        except Exception:
+            season_i = None
+    if week:
+        try:
+            week_i = int(week)
+        except Exception:
+            week_i = None
+    # Default to latest season, Week 1 if no explicit week/date
+    if week_i is None and not date:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                if season_i is None:
+                    season_i = int(src['season'].max())
         except Exception:
             pass
-        if "week" in df.columns:
-            df = df[df["week"].astype(str) == "1"]
-    try:
-        if season and "season" in df.columns:
-            df = df[df["season"].astype(str) == str(season)]
-    except Exception:
-        pass
-    try:
-        if week and "week" in df.columns:
-            df = df[df["week"].astype(str) == str(week)]
-    except Exception:
-        pass
+        week_i = 1
+
+    # Build combined view and enrich with model preds + odds/weather
+    view_df = _build_week_view(pred_df, games_df, season_i, week_i)
+    view_df = _attach_model_predictions(view_df)
+    if view_df is None or view_df.empty:
+        return {"rows": 0, "data": []}, 200
+    # Optional date filter against combined view
     if date:
-        # Support either game_date or date field
         try:
-            if "game_date" in df.columns:
-                df = df[df["game_date"].astype(str).str[:10] == str(date)]
-            elif "date" in df.columns:
-                df = df[df["date"].astype(str).str[:10] == str(date)]
+            if "game_date" in view_df.columns:
+                view_df = view_df[view_df["game_date"].astype(str).str[:10] == str(date)]
+            elif "date" in view_df.columns:
+                view_df = view_df[view_df["date"].astype(str).str[:10] == str(date)]
         except Exception:
             pass
 
@@ -605,12 +903,24 @@ def api_recommendations():
         os.environ['RECS_ONE_PER_GAME'] = str(one)
     # Build recs
     all_recs: List[Dict[str, Any]] = []
-    for _, row in df.iterrows():
+    for _, row in view_df.iterrows():
         try:
             recs = _compute_recommendations_for_row(row)
             all_recs.extend(recs)
         except Exception:
             continue
+    # If nothing qualifies and no explicit min_ev was provided, relax threshold once
+    if not all_recs and not request.args.get("min_ev"):
+        try:
+            os.environ['RECS_MIN_EV_PCT'] = '0.5'
+            for _, row in view_df.iterrows():
+                try:
+                    recs = _compute_recommendations_for_row(row)
+                    all_recs.extend(recs)
+                except Exception:
+                    continue
+        except Exception:
+            pass
     # Sort by confidence then EV desc
     def sort_key(r: Dict[str, Any]):
         w = r.get("sort_weight") or (0, -999)
@@ -623,50 +933,57 @@ def api_recommendations():
 
 @app.route("/recommendations")
 def recommendations_page():
-    """HTML page for recommendations, sorted and grouped by confidence."""
-    df = _load_predictions()
-    if df is None or df.empty:
-        return render_template("recommendations.html", recs=[], groups={}, have_data=False)
+    """HTML page for recommendations, sorted and grouped by confidence.
+    Build from combined games + predictions view to ensure lines/finals are available.
+    """
+    pred_df = _load_predictions()
+    games_df = _load_games()
 
-    # Optional filters
+    # Parse filters
     season = request.args.get("season")
     week = request.args.get("week")
     date = request.args.get("date")
     active_week = None
-    try:
-        if season and "season" in df.columns:
-            df = df[df["season"].astype(str) == str(season)]
-    except Exception:
-        pass
-    try:
-        if week and "week" in df.columns:
-            df = df[df["week"].astype(str) == str(week)]
-    except Exception:
-        pass
-    if date:
+
+    # Determine default season/week: default to latest season, week 1 when no explicit filters
+    season_i = None
+    week_i = None
+    if season:
         try:
-            if "game_date" in df.columns:
-                df = df[df["game_date"].astype(str).str[:10] == str(date)]
-            elif "date" in df.columns:
-                df = df[df["date"].astype(str).str[:10] == str(date)]
+            season_i = int(season)
         except Exception:
-            pass
-    # Default: Week 1 of latest season when no explicit week/date provided
-    if not week and not date:
+            season_i = None
+    if week:
         try:
-            if "season" in df.columns and not df["season"].isna().all():
-                latest_season = int(df["season"].max())
-                df = df[df["season"] == latest_season]
+            week_i = int(week)
         except Exception:
-            pass
-        if "week" in df.columns:
-            df = df[df["week"].astype(str) == "1"]
-            active_week = 1
+            week_i = None
+    if season_i is None and week_i is None and not date:
+        # Latest season from games (fallback to predictions)
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_i = int(src['season'].max())
+        except Exception:
+            season_i = None
+        week_i = 1
+        active_week = 1
     else:
+        active_week = week_i
+
+    # Build combined view and optionally filter by date
+    view_df = _build_week_view(pred_df, games_df, season_i, week_i)
+    view_df = _attach_model_predictions(view_df)
+    if view_df is None:
+        view_df = pd.DataFrame()
+    if date and not view_df.empty:
         try:
-            active_week = int(week) if week else None
+            if "game_date" in view_df.columns:
+                view_df = view_df[view_df["game_date"].astype(str).str[:10] == str(date)]
+            elif "date" in view_df.columns:
+                view_df = view_df[view_df["date"].astype(str).str[:10] == str(date)]
         except Exception:
-            active_week = None
+            pass
 
     # Global filter overrides (query)
     min_ev = request.args.get("min_ev")
@@ -676,12 +993,24 @@ def recommendations_page():
     if one is not None:
         os.environ['RECS_ONE_PER_GAME'] = str(one)
     all_recs: List[Dict[str, Any]] = []
-    for _, row in df.iterrows():
+    for _, row in (view_df if view_df is not None else pd.DataFrame()).iterrows():
         try:
             recs = _compute_recommendations_for_row(row)
             all_recs.extend(recs)
         except Exception:
             continue
+    # If still empty and no explicit min_ev in query, relax threshold once
+    if not all_recs and not request.args.get("min_ev"):
+        try:
+            os.environ['RECS_MIN_EV_PCT'] = '0.5'
+            for _, row in (view_df if view_df is not None else pd.DataFrame()).iterrows():
+                try:
+                    recs = _compute_recommendations_for_row(row)
+                    all_recs.extend(recs)
+                except Exception:
+                    continue
+        except Exception:
+            pass
     def sort_key(r: Dict[str, Any]):
         w = r.get("sort_weight") or (0, -999)
         return (w[0], w[1])
@@ -702,6 +1031,7 @@ def recommendations_page():
 @app.route("/")
 def index():
     df = _load_predictions()
+    games_df = _load_games()
     # Filters
     season_param: Optional[int] = None
     week_param: Optional[int] = None
@@ -714,17 +1044,22 @@ def index():
     except Exception:
         pass
 
-    view_df = df.copy()
-    if not view_df.empty:
-        # If no explicit filters provided, default to "current" week inferred from dates
-        if season_param is None and week_param is None:
-            inferred = _infer_current_season_week(view_df)
-            if inferred is not None:
-                season_param, week_param = inferred
-        if season_param is not None and "season" in view_df.columns:
-            view_df = view_df[view_df["season"] == season_param]
-        if week_param is not None and "week" in view_df.columns:
-            view_df = view_df[view_df["week"] == week_param]
+    # Default to latest season, week 1 when no explicit filters
+    if season_param is None and week_param is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_param = int(src['season'].max())
+        except Exception:
+            season_param = None
+        week_param = 1
+
+    # Build combined view from games + predictions for the target week
+    view_df = _build_week_view(df, games_df, season_param, week_param)
+    # Attach predictions for completed games if missing (local only)
+    view_df = _attach_model_predictions(view_df)
+    if view_df is None:
+        view_df = pd.DataFrame()
 
     # Build card-friendly rows
     cards: List[Dict[str, Any]] = []
@@ -736,7 +1071,9 @@ def index():
                 for k in (key, *alts):
                     if k in view_df.columns:
                         v = r.get(k)
-                        return v
+                        # prefer first non-null value
+                        if v is not None and not (isinstance(v, float) and pd.isna(v)):
+                            return v
                 return default
 
             # Compute assessments
@@ -746,6 +1083,46 @@ def index():
             margin = None
             winner = None
             total_pred = g("pred_total")
+            # Weather-aware tweak for upcoming outdoor games: small downward adjustment for high precip/wind
+            try:
+                # Only apply to non-final games with a model total
+                is_final_now = False
+                _st = g("status")
+                if _st is not None and str(_st).upper() == 'FINAL':
+                    is_final_now = True
+                if (g("home_score") is not None and not (isinstance(g("home_score"), float) and pd.isna(g("home_score")))) \
+                   and (g("away_score") is not None and not (isinstance(g("away_score"), float) and pd.isna(g("away_score")))):
+                    is_final_now = True
+                if (total_pred is not None) and (not is_final_now):
+                    roof_ctx = g("stadium_roof", "roof")
+                    is_dome_like = False
+                    if roof_ctx is not None and not (isinstance(roof_ctx, float) and pd.isna(roof_ctx)):
+                        srf = str(roof_ctx).strip().lower()
+                        is_dome_like = srf in {"dome","indoor","closed","retractable-closed"}
+                    if not is_dome_like:
+                        precip_ctx = g("wx_precip_pct", "precip_pct")
+                        wind_ctx = g("wx_wind_mph", "wind_mph")
+                        adj = 0.0
+                        try:
+                            if precip_ctx is not None and not (isinstance(precip_ctx, float) and pd.isna(precip_ctx)):
+                                p = float(precip_ctx)
+                                adj += -2.5 * max(0.0, min(p, 100.0)) / 100.0
+                        except Exception:
+                            pass
+                        try:
+                            if wind_ctx is not None and not (isinstance(wind_ctx, float) and pd.isna(wind_ctx)):
+                                w = float(wind_ctx)
+                                over = max(0.0, w - 10.0)
+                                adj += -0.10 * over
+                        except Exception:
+                            pass
+                        try:
+                            tp = float(total_pred)
+                            total_pred = max(0.0, tp + adj)
+                        except Exception:
+                            pass
+            except Exception:
+                pass
             if ph is not None and pa is not None and pd.notna(ph) and pd.notna(pa):
                 try:
                     margin = float(ph) - float(pa)
@@ -759,14 +1136,25 @@ def index():
                     pass
 
             # Normalize market lines
-            m_spread = g("market_spread_home", "spread_home", "open_spread_home")
-            m_total = g("market_total", "total", "open_total")
+            # Prefer closing lines for completed games; else use market/open values
+            _hs = g("home_score"); _as = g("away_score")
+            _is_final = (_hs is not None and not (isinstance(_hs, float) and pd.isna(_hs))) and (_as is not None and not (isinstance(_as, float) and pd.isna(_as)))
+            if _is_final:
+                m_spread = g("close_spread_home")
+                if m_spread is None or (isinstance(m_spread, float) and pd.isna(m_spread)):
+                    m_spread = g("market_spread_home", "spread_home", "open_spread_home")
+                m_total = g("close_total")
+                if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
+                    m_total = g("market_total", "total", "open_total")
+            else:
+                m_spread = g("market_spread_home", "spread_home", "open_spread_home")
+                m_total = g("market_total", "total", "open_total")
             edge_spread = None
             edge_total = None
             try:
                 if margin is not None and m_spread is not None and pd.notna(m_spread):
-                    # Positive edge means model likes home side vs market
-                    edge_spread = float(margin) - float(m_spread)
+                    # Positive edge means model likes home side vs market (home covers if margin + spread > 0)
+                    edge_spread = float(margin) + float(m_spread)
                 if total_pred is not None and m_total is not None and pd.notna(m_total):
                     edge_total = float(total_pred) - float(m_total)
             except Exception:
@@ -860,7 +1248,8 @@ def index():
                 model_team = home if model_side == "Home" else (away if model_side == "Away" else None)
                 # Actual cover
                 if actual_margin is not None:
-                    cover_val = actual_margin - float(m_spread)
+                    # Home covers if actual margin + spread > 0
+                    cover_val = actual_margin + float(m_spread)
                     actual_side = "Home" if cover_val > 0 else ("Away" if cover_val < 0 else "Push")
                     if model_side:
                         ats_correct = (model_side == actual_side) if actual_side != "Push" else None
@@ -868,7 +1257,7 @@ def index():
                             ats_text = "ATS: Push"
                         else:
                             actual_team = home if actual_side == "Home" else away
-                            ats_text = f"ATS: {actual_team} {'Correct' if ats_correct else 'Wrong'}"
+                            ats_text = f"ATS: {actual_team}"
                 # Default text if no actuals
                 if ats_text is None and model_side is not None:
                     if model_team:
@@ -877,6 +1266,7 @@ def index():
             # Totals correctness (O/U)
             ou_text = None
             totals_text = None
+            totals_correct = None
             if m_total is not None and pd.notna(m_total):
                 model_ou = "Over" if (edge_total is not None and edge_total > 0) else ("Under" if edge_total is not None else None)
                 ou_text = f"O/U: {float(m_total):.2f} • Model: {model_ou or '—'} (Edge {edge_total:+.2f})" if edge_total is not None else f"O/U: {float(m_total):.2f}"
@@ -888,7 +1278,8 @@ def index():
                     else:
                         actual_ou = "Push"
                     if model_ou and actual_ou != "Push":
-                        totals_text = f"Totals: {model_ou} {'Correct' if model_ou == actual_ou else 'Wrong'}"
+                        totals_correct = (model_ou == actual_ou)
+                        totals_text = f"Totals: {model_ou}"
                     elif actual_ou == "Push":
                         totals_text = "Totals: Push"
 
@@ -975,6 +1366,7 @@ def index():
             wt_parts: List[str] = []
             temp_v = g("wx_temp_f", "temp_f", "temperature_f")
             wind_v = g("wx_wind_mph", "wind_mph")
+            precip_v = g("wx_precip_pct", "precip_pct")
             if temp_v is not None and pd.notna(temp_v):
                 try:
                     wt_parts.append(f"{float(temp_v):.0f}°F")
@@ -983,6 +1375,11 @@ def index():
             if wind_v is not None and pd.notna(wind_v):
                 try:
                     wt_parts.append(f"{float(wind_v):.0f} mph wind")
+                except Exception:
+                    pass
+            if precip_v is not None and pd.notna(precip_v):
+                try:
+                    wt_parts.append(f"Precip {float(precip_v):.0f}%")
                 except Exception:
                     pass
             # Placeholder for weather delta if available in future
@@ -1047,15 +1444,17 @@ def index():
                 "wp_blended": p_home_disp if 'p_home_disp' in locals() else None,
                 "winner_correct": winner_correct,
                 "ats_text": ats_text,
+                "ats_correct": ats_correct,
                 "ou_text": ou_text,
                 "totals_text": totals_text,
+                "totals_correct": totals_correct,
                 # Venue text
                 "venue_text": venue_text,
                 "weather_text": weather_text,
                 "total_diff": total_diff,
-                # Odds
-                "moneyline_home": g("moneyline_home"),
-                "moneyline_away": g("moneyline_away"),
+                # Odds (sanitize NaN -> None; cast to int for display)
+                "moneyline_home": (int(g("moneyline_home")) if (g("moneyline_home") is not None and not pd.isna(g("moneyline_home"))) else None),
+                "moneyline_away": (int(g("moneyline_away")) if (g("moneyline_away") is not None and not pd.isna(g("moneyline_away"))) else None),
                 "close_spread_home": g("close_spread_home"),
                 "close_total": g("close_total"),
                 # Implied probabilities (computed below when possible)
@@ -1117,9 +1516,9 @@ def index():
             ev_spread_home = ev_spread_away = None
             spread = m_spread
             if margin is not None and spread is not None and pd.notna(spread):
-                # edge_pts = predicted margin - spread for home side
+                # edge_pts = predicted margin + spread for home side (home covers if margin + spread > 0)
                 try:
-                    edge_pts = float(margin) - float(spread)
+                    edge_pts = float(margin) + float(spread)
                     scale_margin = float(os.environ.get('NFL_ATS_SIGMA', '9.0'))
                 except Exception:
                     edge_pts, scale_margin = None, 9.0
