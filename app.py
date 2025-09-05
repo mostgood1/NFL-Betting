@@ -486,6 +486,49 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                     out_base.at[idx, 'moneyline_away'] = ml_away
             except Exception:
                 pass
+            # FINAL SAFETY FILL: direct game_id mapping from lines.csv (after all other fallbacks)
+            try:
+                import pandas as _pd
+                csv_fp = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
+                if csv_fp.exists() and 'game_id' in out_base.columns:
+                    df_final = _pd.read_csv(csv_fp)
+                    # Normalize team names to be consistent (not strictly needed for game_id)
+                    try:
+                        from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                        if 'home_team' in df_final.columns:
+                            df_final['home_team'] = df_final['home_team'].astype(str).apply(_norm_team)
+                        if 'away_team' in df_final.columns:
+                            df_final['away_team'] = df_final['away_team'].astype(str).apply(_norm_team)
+                    except Exception:
+                        pass
+                    if 'game_id' in df_final.columns:
+                        df_final['game_id'] = df_final['game_id'].astype(str)
+                    line_cols_final = ['moneyline_home','moneyline_away','spread_home','total','spread_home_price','spread_away_price','total_over_price','total_under_price','close_spread_home','close_total']
+                    present_line_cols = [c for c in line_cols_final if c in df_final.columns]
+                    # Build quick index by game_id
+                    df_g = df_final.set_index('game_id') if 'game_id' in df_final.columns else None
+                    if df_g is not None:
+                        # Rows needing any fill
+                        need_idx = out_base.index[[any(pd.isna(out_base.at[i, c]) for c in line_cols_final if c in out_base.columns) for i in out_base.index]]
+                        for i in need_idx:
+                            gid = str(out_base.at[i, 'game_id']) if pd.notna(out_base.at[i, 'game_id']) else None
+                            if gid and gid in df_g.index:
+                                cand = df_g.loc[gid]
+                                if isinstance(cand, _pd.DataFrame):
+                                    cand = cand.iloc[0]
+                                for c in present_line_cols:
+                                    if c in out_base.columns and pd.isna(out_base.at[i, c]) and c in cand.index:
+                                        try:
+                                            out_base.at[i, c] = cand[c]
+                                        except Exception:
+                                            pass
+                                # Also set market_* aliases if absent
+                                if 'spread_home' in cand.index and 'market_spread_home' in out_base.columns and pd.isna(out_base.at[i, 'market_spread_home']):
+                                    out_base.at[i, 'market_spread_home'] = cand.get('spread_home')
+                                if 'total' in cand.index and 'market_total' in out_base.columns and pd.isna(out_base.at[i, 'market_total']):
+                                    out_base.at[i, 'market_total'] = cand.get('total')
+            except Exception:
+                pass
             return out_base
 
         # Lazy imports from package
