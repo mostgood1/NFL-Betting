@@ -180,6 +180,21 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             return view_df
         # Always start with a shallow enrichment of lines/weather so odds display works even on Render
         out_base = view_df.copy()
+        # Normalize team names early to improve team-based merges (games.csv may use abbreviations like PHI/DAL)
+        try:
+            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+            for _col in ("home_team", "away_team"):
+                if _col in out_base.columns:
+                    def _safe_norm(v):
+                        try:
+                            if v is None or (isinstance(v, float) and pd.isna(v)):
+                                return v
+                            return _norm_team(str(v))
+                        except Exception:
+                            return v
+                    out_base[_col] = out_base[_col].apply(_safe_norm)
+        except Exception:
+            pass
         try:
             from nfl_compare.src.data_sources import load_games as ds_load_games, load_lines
             from nfl_compare.src.weather import load_weather_for_games
