@@ -4,6 +4,7 @@ import pandas as pd
 from pathlib import Path
 import sys
 from joblib import load
+from datetime import date as _date, timedelta
 
 # Ensure imports work in two ways:
 # - `from src...` (by adding the package dir)
@@ -56,6 +57,49 @@ for k, v in _TUNED_2025.items():
         pass
 
 
+def _infer_current_season_week(games: pd.DataFrame) -> tuple[int, int]:
+    if games is None or games.empty or 'season' not in games.columns or 'week' not in games.columns:
+        return 2025, 1
+    today = _date.today()
+    g = games.copy()
+    try:
+        g['date'] = pd.to_datetime(g.get('date'), errors='coerce').dt.date
+    except Exception:
+        g['date'] = pd.NaT
+    seasons = sorted(pd.to_numeric(g['season'], errors='coerce').dropna().astype(int).unique())
+    if not seasons:
+        return 2025, 1
+    def _season_score(s: int) -> int:
+        sd = g[g['season']==s]['date']
+        sd = sd[sd.notna()]
+        if sd.empty:
+            return 10**6
+        try:
+            return int(min(abs((d - today).days) for d in sd))
+        except Exception:
+            return 10**6
+    season = min(seasons, key=_season_score)
+    gs = g[g['season']==season].copy()
+    if gs.empty:
+        return season, 1
+    wk = (
+        gs.groupby('week')['date']
+          .agg(['min','max'])
+          .dropna()
+          .reset_index()
+          .rename(columns={'min':'start','max':'end'})
+    )
+    wk['start'] = pd.to_datetime(wk['start'], errors='coerce').dt.date
+    wk['end'] = pd.to_datetime(wk['end'], errors='coerce').dt.date
+    cur = wk[(wk['start'] - timedelta(days=1) <= today) & (today <= wk['end'] + timedelta(days=1))]
+    if not cur.empty:
+        week = int(cur['week'].iloc[0])
+    else:
+        upcoming = wk[wk['start'] >= today].sort_values('start')
+        week = int(upcoming['week'].iloc[0]) if not upcoming.empty else int(wk['week'].max())
+    return int(season), int(week)
+
+
 def _fmt_num(x, decimals=1):
     try:
         if x is None or (isinstance(x, float) and pd.isna(x)):
@@ -83,7 +127,7 @@ def _render_game_card(r: dict):
         unsafe_allow_html=True
     )
 
-    # Market and predictions
+    # Market and predictions / finals
     spread = r.get('spread_home')
     total = r.get('total')
     prob = r.get('prob_home_win')
@@ -97,6 +141,10 @@ def _render_game_card(r: dict):
     a2 = r.get('pred_away_2h'); h2h = r.get('pred_home_2h')
     units_spread = r.get('units_spread')
     units_total = r.get('units_total')
+    # Actual finals
+    ah = r.get('home_score')
+    aa = r.get('away_score')
+    is_final = (ah is not None and not pd.isna(ah)) and (aa is not None and not pd.isna(aa))
     # Weather
     temp = r.get(WeatherCols.temp_f, None)
     wind = r.get(WeatherCols.wind_mph, None)
@@ -111,22 +159,39 @@ def _render_game_card(r: dict):
         chips.append(f"<span class='chip'>Total {float(total):.1f}</span>")
     if prob is not None and not pd.isna(prob):
         chips.append(f"<span class='chip'>Home WP {float(prob):.2f}</span>")
+    if is_final:
+        chips.append("<span class='chip edge-pos'>FINAL</span>")
     if chips:
         st.markdown(f"<div class='gc-chips'>{''.join(chips)}</div>", unsafe_allow_html=True)
-
-        if phs is not None and pas is not None and ptotal is not None:
-                st.markdown(
-                        f"""
-                        <div class='gc-pred'>
-                            <div class='score'>{_fmt_num(pas)}</div>
-                            <div style='color:#666'>Projected Total {_fmt_num(ptotal)}</div>
-                            <div class='score'>{_fmt_num(phs)}</div>
-                        </div>
-                        """,
-                        unsafe_allow_html=True,
-                )
-    # Show 1H/2H projected scores (away-home) and totals
-    if (a1 is not None and h1h is not None) or (a2 is not None and h2h is not None):
+        # Score block: show finals if present, else predictions
+        if is_final:
+            try:
+                atot = (float(aa) if aa is not None else 0) + (float(ah) if ah is not None else 0)
+            except Exception:
+                atot = None
+            st.markdown(
+                f"""
+                <div class='gc-pred'>
+                    <div class='score'>{_fmt_num(aa)}</div>
+                    <div style='color:#666'>{'Final Total ' + _fmt_num(atot) if atot is not None else 'Final'}</div>
+                    <div class='score'>{_fmt_num(ah)}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        elif phs is not None and pas is not None and ptotal is not None:
+            st.markdown(
+                f"""
+                <div class='gc-pred'>
+                    <div class='score'>{_fmt_num(pas)}</div>
+                    <div style='color:#666'>Projected Total {_fmt_num(ptotal)}</div>
+                    <div class='score'>{_fmt_num(phs)}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+    # Show 1H/2H projected scores (away-home) and totals (skip if final)
+    if (not is_final) and ((a1 is not None and h1h is not None) or (a2 is not None and h2h is not None)):
         st.markdown(
             f"<div class='gc-meta'>"
             f"1H { _fmt_num(a1) } - { _fmt_num(h1h) } (tot {_fmt_num(h1)}) • "
@@ -148,30 +213,32 @@ def _render_game_card(r: dict):
     if wx_bits:
         st.markdown(f"<div class='gc-meta'>{' | '.join(wx_bits)}</div>", unsafe_allow_html=True)
 
-    # Quick picks summary
-    recs = []
-    if isinstance(units_spread, (int, float)) and not pd.isna(units_spread) and abs(units_spread) >= 0.5:
-        side = f"{home} {spread:+}" if spread is not None and not pd.isna(spread) else f"{home} spread"
-        recs.append(f"Spread: {side} ({_fmt_num(units_spread, 1)}u)")
-    if isinstance(units_total, (int, float)) and not pd.isna(units_total) and abs(units_total) >= 0.5:
-        if ptotal is not None and total is not None and not pd.isna(ptotal) and not pd.isna(total):
-            o_u = 'Over' if float(ptotal) > float(total) else 'Under'
-            recs.append(f"Total: {o_u} {total} ({_fmt_num(units_total, 1)}u)")
-    if recs:
-        cls = 'edge-pos' if ('Over' in ' '.join(recs) or '+' in ' '.join(recs)) else 'edge-neg'
-        st.markdown(f"<div class='gc-chips'><span class='chip {cls}'>{' • '.join(recs)}</span></div>", unsafe_allow_html=True)
+    # Quick picks summary (skip if final)
+    if not is_final:
+        recs = []
+        if isinstance(units_spread, (int, float)) and not pd.isna(units_spread) and abs(units_spread) >= 0.5:
+            side = f"{home} {spread:+}" if spread is not None and not pd.isna(spread) else f"{home} spread"
+            recs.append(f"Spread: {side} ({_fmt_num(units_spread, 1)}u)")
+        if isinstance(units_total, (int, float)) and not pd.isna(units_total) and abs(units_total) >= 0.5:
+            if ptotal is not None and total is not None and not pd.isna(ptotal) and not pd.isna(total):
+                o_u = 'Over' if float(ptotal) > float(total) else 'Under'
+                recs.append(f"Total: {o_u} {total} ({_fmt_num(units_total, 1)}u)")
+        if recs:
+            cls = 'edge-pos' if ('Over' in ' '.join(recs) or '+' in ' '.join(recs)) else 'edge-neg'
+            st.markdown(f"<div class='gc-chips'><span class='chip {cls}'>{' • '.join(recs)}</span></div>", unsafe_allow_html=True)
 
-    # Probability bar
-    try:
-        p = float(prob) if prob is not None and not pd.isna(prob) else 0.5
-        pct = int(round(p * 100))
-        st.markdown(
-            f"<div class='probbar'><div class='home' style='width:{pct}%'></div></div>",
-            unsafe_allow_html=True,
-        )
-        st.markdown(f"<div class='gc-meta'>Home win prob: {pct}%</div>", unsafe_allow_html=True)
-    except Exception:
-        pass
+    # Probability bar (skip if final)
+    if not is_final:
+        try:
+            p = float(prob) if prob is not None and not pd.isna(prob) else 0.5
+            pct = int(round(p * 100))
+            st.markdown(
+                f"<div class='probbar'><div class='home' style='width:{pct}%'></div></div>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(f"<div class='gc-meta'>Home win prob: {pct}%</div>", unsafe_allow_html=True)
+        except Exception:
+            pass
 
     # Pop-out detail (expander)
     with st.expander('Details', expanded=False):
@@ -226,25 +293,35 @@ def load_data():
 def predict_df():
     games, team_stats, lines, wx = load_data()
     df = merge_features(games, team_stats, lines, wx)
-    # If no model file, just display merged data
+    # If no model file, just display merged data (will include finals and future)
     if not (MODELS_DIR / 'nfl_models.joblib').exists():
-        # Join weather for UI-only
         if not df.empty and not (wx is None or wx.empty):
             df = df.merge(wx, on=['game_id','date','home_team','away_team'], how='left')
         return df, None
+
     models = load(MODELS_DIR / 'nfl_models.joblib')
-
-    # Future games: rows without scores
+    # Split into completed and future games
+    df_completed = df[df['home_score'].notna() & df['away_score'].notna()].copy()
     df_future = df[df['home_score'].isna() | df['away_score'].isna()].copy()
-    if df_future.empty:
-        return df, None
 
-    df_pred = model_predict(models, df_future)
-    # Merge weather for UI
-    if not (wx is None or wx.empty):
-        df_pred = df_pred.merge(wx, on=['game_id','date','home_team','away_team'], how='left')
-    df_rec = make_recommendations(df_pred)
-    return df_rec, models
+    out_frames = []
+    if not df_completed.empty:
+        # Attach weather for UI parity
+        if not (wx is None or wx.empty):
+            df_completed = df_completed.merge(wx, on=['game_id','date','home_team','away_team'], how='left')
+        out_frames.append(df_completed)
+
+    if not df_future.empty:
+        df_pred = model_predict(models, df_future)
+        if not (wx is None or wx.empty):
+            df_pred = df_pred.merge(wx, on=['game_id','date','home_team','away_team'], how='left')
+        df_rec = make_recommendations(df_pred)
+        out_frames.append(df_rec)
+
+    if out_frames:
+        return pd.concat(out_frames, ignore_index=True), models
+    else:
+        return df, models
 
 st.title('NFL Compare — Week Picks & Game Models')
 st.markdown("<div class='gc-chips'><span class='chip'>Calibration: 2025 tuned</span></div>", unsafe_allow_html=True)
@@ -252,8 +329,14 @@ inject_css()
 
 with st.sidebar:
     st.header('Filters')
-    season = st.number_input('Season', min_value=2000, max_value=2100, value=2025)
-    week = st.number_input('Week', min_value=1, max_value=22, value=1)
+    # Determine defaults from data
+    try:
+        games, _, _, _ = load_data()
+    except Exception:
+        games = pd.DataFrame()
+    d_season, d_week = _infer_current_season_week(games)
+    season = st.number_input('Season', min_value=2000, max_value=2100, value=int(d_season))
+    week = st.number_input('Week', min_value=1, max_value=22, value=int(d_week))
     st.markdown('Upload or drop CSVs in ./data: games.csv, team_stats.csv, lines.csv')
     if st.button('Refresh data & predictions'):
         # Clear all cached data so file changes are picked up immediately
@@ -294,7 +377,7 @@ if isinstance(df_pred, pd.DataFrame) and not df_pred.empty:
         st.subheader('Predictions — Table')
         if not view.empty:
             show_cols = [
-                'date','away_team','home_team','spread_home','total','moneyline_home','moneyline_away',
+                'date','away_team','home_team','home_score','away_score','spread_home','total','moneyline_home','moneyline_away',
                 'prob_home_win','pred_away_score','pred_home_score','pred_total',
                 'pred_1h_total','pred_2h_total','pred_q1_total','pred_q2_total','pred_q3_total','pred_q4_total',
                 'pred_q1_winner','pred_q2_winner','pred_q3_winner','pred_q4_winner',
