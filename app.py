@@ -234,30 +234,40 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         out_base['game_id'] = out_base['game_id'].astype(str)
                     if 'game_id' in df_csv_fb.columns:
                         df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
+                    # Try all key strategies to maximize fill coverage
                     if 'game_id' in out_base.columns and 'game_id' in df_csv_fb.columns:
-                        out_base = out_base.merge(df_csv_fb[['game_id'] + cols_present_fb], on='game_id', how='left', suffixes=('', '_lnfb'))
-                    elif {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
+                        out_base = out_base.merge(
+                            df_csv_fb[['game_id'] + cols_present_fb],
+                            on='game_id',
+                            how='left',
+                            suffixes=('', '_lnfb')
+                        )
+                    # Also try season/week/home/away even if game_id merge ran
+                    if {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
                         out_base = out_base.merge(
                             df_csv_fb[['season','week','home_team','away_team'] + cols_present_fb],
                             on=['season','week','home_team','away_team'],
                             how='left',
-                            suffixes=('', '_lnfb')
+                            suffixes=('', '_lnfb2')
                         )
-                    elif {'home_team','away_team'}.issubset(df_csv_fb.columns):
+                    # Finally try by teams only
+                    if {'home_team','away_team'}.issubset(df_csv_fb.columns):
                         out_base = out_base.merge(
                             df_csv_fb[['home_team','away_team'] + cols_present_fb],
                             on=['home_team','away_team'],
                             how='left',
-                            suffixes=('', '_lnfb')
+                            suffixes=('', '_lnfb3')
                         )
                     # Per-column fill from fallback where base is missing
                     for c in line_cols:
-                        cfb = f"{c}_lnfb"
-                        if c in out_base.columns and cfb in out_base.columns:
-                            out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cfb])
-                        elif cfb in out_base.columns and c not in out_base.columns:
-                            out_base[c] = out_base[cfb]
-                    drop_fb = [c for c in out_base.columns if c.endswith('_lnfb')]
+                        # Fill priority: _lnfb (game_id), then _lnfb2 (season/week/home/away), then _lnfb3 (teams)
+                        for suf in ('_lnfb', '_lnfb2', '_lnfb3'):
+                            cfb = f"{c}{suf}"
+                            if c in out_base.columns and cfb in out_base.columns:
+                                out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cfb])
+                            elif cfb in out_base.columns and c not in out_base.columns:
+                                out_base[c] = out_base[cfb]
+                    drop_fb = [c for c in out_base.columns if c.endswith('_lnfb') or c.endswith('_lnfb2') or c.endswith('_lnfb3')]
                     if drop_fb:
                         out_base = out_base.drop(columns=drop_fb)
                 except Exception:
