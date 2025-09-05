@@ -55,9 +55,9 @@
     .filters{display:flex;gap:8px;align-items:center;margin:12px 0 16px}
     .filters input{background:var(--input-bg);border:1px solid var(--input-br);color:var(--text);padding:6px 8px;border-radius:6px;width:120px}
     .filters button{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     @media(max-width:1100px){.grid{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #243356;border-radius:14px;padding:12px 12px 10px 12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #1f2a44;border-radius:14px;padding:12px 12px 10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.28)}
     .row{display:flex;justify-content:space-between;align-items:center}
   .teams{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
     .name{font-weight:700}
@@ -198,7 +198,7 @@
               {% if g.market_spread_home is not none %}
                 <span class="chip">Home {{ '%+.1f' % g.market_spread_home }}</span>
               {% endif %}
-              <span class="chip odds-toggle" role="button" tabindex="0">Hide Odds</span>
+              <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
             </div>
 
             <div class="odds">
@@ -328,9 +328,9 @@
             }
             toggle.addEventListener('click', flip);
             toggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
-            // Default to open
-            panel.style.display = 'block';
-            toggle.textContent = 'Hide Odds';
+            // Default to collapsed for a cleaner layout
+            panel.style.display = 'none';
+            toggle.textContent = 'Show Odds';
           }
         });
       } catch (e) { /* no-op */ }
