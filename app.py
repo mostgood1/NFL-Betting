@@ -221,8 +221,20 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
                     if 'game_id' in out_base.columns and 'game_id' in df_csv_fb.columns:
                         out_base = out_base.merge(df_csv_fb[['game_id'] + cols_present_fb], on='game_id', how='left', suffixes=('', '_lnfb'))
+                    elif {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
+                        out_base = out_base.merge(
+                            df_csv_fb[['season','week','home_team','away_team'] + cols_present_fb],
+                            on=['season','week','home_team','away_team'],
+                            how='left',
+                            suffixes=('', '_lnfb')
+                        )
                     elif {'home_team','away_team'}.issubset(df_csv_fb.columns):
-                        out_base = out_base.merge(df_csv_fb[['home_team','away_team'] + cols_present_fb], on=['home_team','away_team'], how='left', suffixes=('', '_lnfb'))
+                        out_base = out_base.merge(
+                            df_csv_fb[['home_team','away_team'] + cols_present_fb],
+                            on=['home_team','away_team'],
+                            how='left',
+                            suffixes=('', '_lnfb')
+                        )
                     # Per-column fill from fallback where base is missing
                     for c in line_cols:
                         cfb = f"{c}_lnfb"
