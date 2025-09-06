@@ -17,7 +17,7 @@ Usage (from repo root or nfl_compare):
 """
 
 import os
-from datetime import date as _date, timedelta
+from datetime import date as _date, timedelta, datetime
 from pathlib import Path
 import shutil
 from typing import Optional, Tuple
@@ -28,7 +28,21 @@ from .config import load_env
 from .weather import DATA_DIR
 from .auto_update import update_weather_for_date
 from .odds_api_client import main as fetch_odds_main
-from .predict import main as predict_main
+try:
+    from .predict import main as predict_main  # normal package context
+except Exception:  # pragma: no cover - fallback when executed from repo root without installation
+    # Inject parent directory so 'nfl_compare' becomes importable
+    import sys
+    here = Path(__file__).resolve().parents[1]
+    if str(here) not in sys.path:
+        sys.path.append(str(here))
+    try:
+        from nfl_compare.src.predict import main as predict_main  # type: ignore
+    except Exception as _e:  # final fallback to relative path import
+        try:
+            from predict import main as predict_main  # type: ignore
+        except Exception:
+            raise ImportError(f"Could not import predict_main: {_e}")
 from joblib import load as joblib_load
 from .data_sources import load_games as ds_load_games, load_team_stats, load_lines
 from .features import merge_features
@@ -37,7 +51,30 @@ from .models import predict as model_predict
 from .data_sources import DATA_DIR as _DATA_DIR
 from .data_sources import _try_load_latest_real_lines as _latest_json  # type: ignore
 from .team_normalizer import normalize_team_name
-from nfl_compare.scripts.backfill_close_lines import backfill_close_fields  # type: ignore
+def _import_backfill():
+    try:
+        from nfl_compare.scripts.backfill_close_lines import backfill_close_fields  # type: ignore
+        return backfill_close_fields
+    except Exception:
+        # Attempt local path injection
+        import sys
+        here = Path(__file__).resolve().parents[1]
+        scripts_dir = here / 'scripts'
+        src_dir = here / 'src'
+        for p in (scripts_dir, src_dir):
+            sp = str(p)
+            if sp not in sys.path:
+                sys.path.append(sp)
+        try:
+            from backfill_close_lines import backfill_close_fields  # type: ignore
+            return backfill_close_fields
+        except Exception as e:
+            raise ImportError(f'Could not import backfill_close_lines: {e}')
+
+backfill_close_fields = _import_backfill()
+
+# Locked predictions file path
+LOCKED_FP = DATA_DIR / 'predictions_locked.csv'
 
 
 def _load_games() -> pd.DataFrame:
@@ -345,6 +382,136 @@ def main() -> None:
         print(f"Week-level predictions failed: {e}")
 
     print('Daily update complete.')
+
+    # 7) Lock predictions for tracking & update finals
+    try:
+        _lock_predictions(season)
+    except Exception as e:
+        print(f"Lock predictions step failed: {e}")
+
+
+def _lock_predictions(current_season: int) -> None:
+    """Maintain a cumulative predictions_locked.csv that:
+    - Stores the first (pre-game) predictions for every game encountered (one row per game_id)
+    - When a game becomes final (scores present in games.csv) fills in final scores & closing lines
+    - Never mutates the originally locked prediction values (pred_*, prob_*)
+    """
+    pred_fp = DATA_DIR / 'predictions.csv'
+    week_fp = DATA_DIR / 'predictions_week.csv'
+    games_fp = DATA_DIR / 'games.csv'
+    lines_fp = DATA_DIR / 'lines.csv'
+
+    if not games_fp.exists():
+        print('Lock: games.csv missing; skipping.')
+        return
+    games = pd.read_csv(games_fp)
+    # Ensure date typed
+    games['date'] = pd.to_datetime(games.get('date'), errors='coerce')
+
+    # Load existing locked file
+    if LOCKED_FP.exists():
+        locked = pd.read_csv(LOCKED_FP)
+    else:
+        locked = pd.DataFrame()
+
+    # Build an index of already locked game_ids
+    have_ids = set(str(x) for x in (locked['game_id'].astype(str).unique() if not locked.empty and 'game_id' in locked.columns else []))
+
+    # Add new future-game predictions (those in predictions.csv) that are not yet locked
+    if pred_fp.exists():
+        try:
+            preds = pd.read_csv(pred_fp)
+        except Exception:
+            preds = pd.DataFrame()
+        if not preds.empty:
+            new_rows = preds[~preds['game_id'].astype(str).isin(have_ids)].copy()
+            if not new_rows.empty:
+                new_rows['locked_at'] = datetime.utcnow().isoformat()
+                locked = pd.concat([locked, new_rows], ignore_index=True) if not locked.empty else new_rows
+                have_ids.update(new_rows['game_id'].astype(str).tolist())
+                print(f"Lock: added {len(new_rows)} new game prediction(s).")
+
+    # If week-level predictions exist, attempt to backfill early lock for games that already started before first lock
+    if week_fp.exists():
+        try:
+            week_pred = pd.read_csv(week_fp)
+        except Exception:
+            week_pred = pd.DataFrame()
+        if not week_pred.empty:
+            need_lock = week_pred[~week_pred['game_id'].astype(str).isin(have_ids)].copy()
+            # Only lock rows that have not yet started (no final scores) — but since week file may include finals we still lock if not already locked
+            if not need_lock.empty:
+                need_lock['locked_at'] = datetime.utcnow().isoformat()
+                locked = pd.concat([locked, need_lock], ignore_index=True) if not locked.empty else need_lock
+                have_ids.update(need_lock['game_id'].astype(str).tolist())
+                print(f"Lock: backfilled {len(need_lock)} week prediction(s).")
+
+    if locked.empty:
+        print('Lock: no predictions to lock.')
+        return
+
+    # Update finals & closing lines for games now completed
+    try:
+        lines = pd.read_csv(lines_fp) if lines_fp.exists() else pd.DataFrame()
+    except Exception:
+        lines = pd.DataFrame()
+    if not lines.empty and 'game_id' in lines.columns:
+        # Ensure we don't duplicate game_id dtype issues
+        lines['game_id'] = lines['game_id'].astype(str)
+        key_cols = ['game_id','close_spread_home','close_total']
+        close_map = lines[key_cols].drop_duplicates(subset=['game_id']) if set(key_cols).issubset(lines.columns) else pd.DataFrame()
+    else:
+        close_map = pd.DataFrame()
+
+    # Identify finals in games
+    finals = games[(games['home_score'].notna()) & (games['away_score'].notna())].copy()
+    finals['game_id'] = finals['game_id'].astype(str)
+    if not finals.empty:
+        locked['game_id'] = locked['game_id'].astype(str)
+        before_updates = 0
+        # Merge finals data
+        locked = locked.merge(finals[['game_id','home_score','away_score']], on='game_id', how='left', suffixes=('', '_final'))
+        # For each score column, fill only if original missing
+        for c in ['home_score','away_score']:
+            fc = f'{c}_final'
+            if fc in locked.columns:
+                needs = locked[c].isna() & locked[fc].notna()
+                if needs.any():
+                    locked.loc[needs, c] = locked.loc[needs, fc]
+                    before_updates += int(needs.sum())
+        # Drop helper columns
+        drop = [c for c in locked.columns if c.endswith('_final')]
+        if drop:
+            locked = locked.drop(columns=drop)
+        if before_updates:
+            print(f"Lock: updated final scores for {before_updates} game(s).")
+
+    # Attach closing lines if available and not already present in locked
+    if not close_map.empty:
+        locked = locked.merge(close_map, on='game_id', how='left', suffixes=('', '_close2'))
+        for c in ['close_spread_home','close_total']:
+            alt = f'{c}_close2'
+            if alt in locked.columns:
+                locked[c] = locked[c].where(locked[c].notna(), locked[alt])
+        drop2 = [c for c in locked.columns if c.endswith('_close2')]
+        if drop2:
+            locked = locked.drop(columns=drop2)
+
+    # Reorder columns lightly: ensure locked_at near front
+    cols = list(locked.columns)
+    if 'locked_at' in cols:
+        # Move locked_at after game_id
+        cols.remove('locked_at')
+        if 'game_id' in cols:
+            gi_idx = cols.index('game_id')
+            cols = cols[:gi_idx+1] + ['locked_at'] + cols[gi_idx+1:]
+        else:
+            cols = ['locked_at'] + cols
+        locked = locked.reindex(columns=cols)
+
+    # Persist
+    locked.to_csv(LOCKED_FP, index=False)
+    print(f"Lock: wrote {len(locked)} rows to {LOCKED_FP.name}.")
 
 
 if __name__ == '__main__':

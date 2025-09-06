@@ -19,8 +19,17 @@ def _load_snapshots() -> Dict[str, pd.DataFrame]:
             date_key = fp.stem.replace("real_betting_lines_", "").replace("-", "_")
             blob = json.loads(fp.read_text(encoding="utf-8"))
             # Reuse parser logic from data_sources by importing lazily to avoid heavy deps
-            from nfl_compare.src.data_sources import _parse_real_lines_json  # type: ignore
-            from nfl_compare.src.team_normalizer import normalize_team_name  # type: ignore
+            try:
+                from nfl_compare.src.data_sources import _parse_real_lines_json  # type: ignore
+                from nfl_compare.src.team_normalizer import normalize_team_name  # type: ignore
+            except Exception:
+                # Fallback relative imports when executed directly from scripts/ without installed package
+                import sys
+                base = Path(__file__).resolve().parents[1] / 'src'
+                if str(base) not in sys.path:
+                    sys.path.append(str(base))
+                from data_sources import _parse_real_lines_json  # type: ignore
+                from team_normalizer import normalize_team_name  # type: ignore
             df = _parse_real_lines_json(blob)
             if not df.empty:
                 # Normalize float types
