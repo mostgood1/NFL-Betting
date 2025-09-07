@@ -1999,16 +1999,27 @@ def index():
             winner_side = None
             winner_ev = None
             if ev_home_ml is not None or ev_away_ml is not None:
-                # Prefer higher EV (even if negative) but only recommend if positive
+                # Prefer higher EV side; require EV >= RECS_ML_MIN_EV (default 0.0)
                 cand = [(home or "Home", ev_home_ml), (away or "Away", ev_away_ml)]
                 cand = [(s, e) for s, e in cand if e is not None]
                 if cand:
                     s, e = max(cand, key=lambda t: t[1])
-                    winner_side, winner_ev = s, e
+                    try:
+                        min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
+                    except Exception:
+                        min_ml_ev = 0.0
+                    if e is not None and e >= min_ml_ev:
+                        winner_side, winner_ev = s, e
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
             c["rec_winner_conf"] = _conf_from_ev(winner_ev) if winner_ev is not None else None
+            # Flag if ML value side differs from model predicted winner
+            try:
+                model_winner = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
+            except Exception:
+                model_winner = None
+            c["rec_winner_differs"] = (winner_side is not None and model_winner is not None and winner_side != model_winner)
 
             # Spread (win margin) EV using actual prices when available (fallback to -110)
             ev_spread_home = ev_spread_away = None

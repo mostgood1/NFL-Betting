@@ -175,7 +175,7 @@
 
             <div class="recs">
               {% if g.rec_winner_side %}
-                <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.rec_winner_side }}{% if g.rec_winner_ev is not none %} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%) {% endif %}{% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
+                <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.rec_winner_side }}{% if g.rec_winner_ev is not none %} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%) {% endif %}{% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}{% if g.rec_winner_differs %} • vs model{% endif %}</span>
               {% endif %}
               {% if g.rec_spread_side %}
                 <span class="badge {{ 'b-high' if g.rec_spread_conf=='High' else 'b-med' if g.rec_spread_conf=='Medium' else 'b-low' if g.rec_spread_conf=='Low' else '' }}">Spread: {{ g.rec_spread_side }}{% if g.rec_spread_ev is not none %} (EV {{ '%.1f' % (g.rec_spread_ev*100) }}%) {% endif %}{% if g.rec_spread_conf %} • {{ g.rec_spread_conf }}{% endif %}</span>
