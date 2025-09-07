@@ -2008,8 +2008,19 @@ def index():
                         min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
                     except Exception:
                         min_ml_ev = 0.0
+                    try:
+                        allow_diff = float(os.environ.get('RECS_ALLOW_DIFF_MIN_EV', '5.0'))
+                    except Exception:
+                        allow_diff = 5.0
+                    model_winner_tmp = None
+                    try:
+                        model_winner_tmp = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
+                    except Exception:
+                        model_winner_tmp = None
                     if e is not None and e >= min_ml_ev:
-                        winner_side, winner_ev = s, e
+                        # Only emit if same as model winner OR EV exceeds allow_diff threshold
+                        if model_winner_tmp is None or s == model_winner_tmp or (e*100.0) >= allow_diff:
+                            winner_side, winner_ev = s, e
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
