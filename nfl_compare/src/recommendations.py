@@ -44,17 +44,21 @@ def make_recommendations(df_pred: pd.DataFrame) -> pd.DataFrame:
     dec_home = df['moneyline_home'].apply(american_to_decimal) if 'moneyline_home' in df else np.nan
     dec_away = df['moneyline_away'].apply(american_to_decimal) if 'moneyline_away' in df else np.nan
 
+    # Fair odds (American) from model probabilities
     df['fair_home_ml'] = df['prob_home_win'].clip(1e-4, 1-1e-4).apply(prob_to_american)
     df['fair_away_ml'] = (1 - df['prob_home_win']).clip(1e-4, 1-1e-4).apply(prob_to_american)
 
-    # Convert fair odds back to decimal for EV calc
-    df['fair_home_dec'] = df['prob_home_win'].apply(lambda p: 1/(1-p) if p>=0.5 else 1/p)
-    df['fair_away_dec'] = (1 - df['prob_home_win']).apply(lambda p: 1/(1-p) if p>=0.5 else 1/p)
+    # Correct fair decimal odds: decimal = 1 / probability
+    # (Old logic incorrectly inverted favorites/underdogs producing nonsensical EV.)
+    df['fair_home_dec'] = 1.0 / df['prob_home_win'].clip(1e-6, 1-1e-6)
+    df['fair_away_dec'] = 1.0 / (1 - df['prob_home_win']).clip(1e-6, 1-1e-6)
 
     # If book odds present, compute edge in pct vs fair
     if isinstance(dec_home, pd.Series):
-        df['edge_home_ml_%'] = (df['fair_home_dec'] - dec_home) / dec_home * 100
-        df['edge_away_ml_%'] = (df['fair_away_dec'] - dec_away) / dec_away * 100
+        # Edge defined as (book_decimal - fair_decimal)/fair_decimal * 100.
+        # Positive edge => book offers a better (higher) payout than model's fair price.
+        df['edge_home_ml_%'] = (dec_home - df['fair_home_dec']) / df['fair_home_dec'] * 100
+        df['edge_away_ml_%'] = (dec_away - df['fair_away_dec']) / df['fair_away_dec'] * 100
     else:
         df['edge_home_ml_%'] = np.nan
         df['edge_away_ml_%'] = np.nan
