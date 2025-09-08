@@ -2015,7 +2015,7 @@ def index():
             if ev_home_ml is not None or ev_away_ml is not None:
                 # Only consider recommending the model's predicted winner side.
                 try:
-                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
+                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))  # units per 1 risked
                 except Exception:
                     min_ml_ev = 0.0
                 model_winner_side = model_winner_tmp
@@ -2024,6 +2024,12 @@ def index():
                     model_winner_ev = ev_home_ml
                 elif model_winner_side == away:
                     model_winner_ev = ev_away_ml
+                # Persist model winner EV regardless of play status
+                c["model_winner_side"] = model_winner_side
+                c["model_winner_ev_units"] = model_winner_ev
+                c["model_winner_ev_pct"] = (model_winner_ev * 100.0) if model_winner_ev is not None else None
+                c["ml_min_ev_units"] = min_ml_ev
+                c["ml_min_ev_pct"] = min_ml_ev * 100.0
                 # Recommend only if EV positive and above threshold
                 if model_winner_ev is not None and model_winner_ev >= min_ml_ev and model_winner_ev > 0:
                     winner_side, winner_ev = model_winner_side, model_winner_ev
