@@ -2013,18 +2013,22 @@ def index():
             except Exception:
                 model_winner_tmp = None
             if ev_home_ml is not None or ev_away_ml is not None:
-                # Override: always choose model winner if defined
-                cand = {home: ev_home_ml, away: ev_away_ml}
-                if model_winner_tmp is not None:
-                    winner_side = model_winner_tmp
-                    winner_ev = cand.get(model_winner_tmp)
+                # Only consider recommending the model's predicted winner side.
+                try:
+                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
+                except Exception:
+                    min_ml_ev = 0.0
+                model_winner_side = model_winner_tmp
+                model_winner_ev = None
+                if model_winner_side == home:
+                    model_winner_ev = ev_home_ml
+                elif model_winner_side == away:
+                    model_winner_ev = ev_away_ml
+                # Recommend only if EV positive and above threshold
+                if model_winner_ev is not None and model_winner_ev >= min_ml_ev and model_winner_ev > 0:
+                    winner_side, winner_ev = model_winner_side, model_winner_ev
                 else:
-                    # fallback if no model winner probability
-                    if ev_home_ml is not None or ev_away_ml is not None:
-                        if (ev_home_ml or float('-inf')) >= (ev_away_ml or float('-inf')):
-                            winner_side, winner_ev = home, ev_home_ml
-                        else:
-                            winner_side, winner_ev = away, ev_away_ml
+                    winner_side, winner_ev = None, None
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
