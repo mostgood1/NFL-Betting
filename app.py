@@ -1960,16 +1960,9 @@ def index():
             c["implied_away_prob"] = float(ipa) if ipa is not None else None
             p_home_eff = None
             if p_home is not None:
-                # Blend model prob with market implied prob to temper confidence
-                mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
-                try:
-                    beta = float(os.environ.get('RECS_MARKET_BLEND', '0.35'))
-                except Exception:
-                    beta = 0.35
-                if mkt_ph is not None:
-                    p_home_eff = (1.0 - beta) * p_home + beta * mkt_ph
-                else:
-                    p_home_eff = p_home
+                # Use RAW model probability for EV (no market blending). We still keep the
+                # variable name p_home_eff for downstream debug consistency.
+                p_home_eff = p_home
                 if dec_home:
                     ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
                 if dec_away:

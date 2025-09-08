@@ -174,10 +174,12 @@
             {% endif %}
 
             <div class="recs">
-              {% if g.rec_winner_side %}
-                <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.rec_winner_side }}{% if g.rec_winner_ev is not none %} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%) {% endif %}{% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
-              {% elif g.model_winner_side %}
-                <span class="badge" style="opacity:.75">Winner: {{ g.model_winner_side }} (EV {{ g.model_winner_ev_pct|default('0.0', true)|round(1) if g.model_winner_ev_pct is not none else '—' }}% <span style="color:var(--muted)">not recommended{% if g.model_winner_ev_units is not none and g.ml_min_ev_units is not none %} (min {{ '%.1f' % (g.ml_min_ev_pct) }}%) {% endif %}</span>)</span>
+              {% if g.model_winner_side %}
+                {% if g.rec_winner_side %}
+                  <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.model_winner_side }} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%){% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
+                {% else %}
+                  <span class="badge" style="opacity:.75">Winner: {{ g.model_winner_side }} (EV {{ g.model_winner_ev_pct|default('0.0', true)|round(1) if g.model_winner_ev_pct is not none else '—' }}% <span style="color:var(--muted)">not recommended{% if g.model_winner_ev_units is not none and g.ml_min_ev_units is not none %} (min {{ '%.1f' % (g.ml_min_ev_pct) }}%) {% endif %}</span>)</span>
+                {% endif %}
               {% endif %}
               {% if g.rec_spread_side %}
                 <span class="badge {{ 'b-high' if g.rec_spread_conf=='High' else 'b-med' if g.rec_spread_conf=='Medium' else 'b-low' if g.rec_spread_conf=='Low' else '' }}">Spread: {{ g.rec_spread_side }}{% if g.rec_spread_ev is not none %} (EV {{ '%.1f' % (g.rec_spread_ev*100) }}%) {% endif %}{% if g.rec_spread_conf %} • {{ g.rec_spread_conf }}{% endif %}</span>
