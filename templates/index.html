@@ -87,7 +87,7 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button></div>
     <h1>NFL Betting – Cards</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
     <form class="filters" method="get" action="/">
@@ -317,6 +317,7 @@
         }
         applyTeamColors();
         // Odds toggle handlers
+        var cards = document.querySelectorAll('.card');
         document.querySelectorAll('.card').forEach(function(card){
           var toggle = card.querySelector('.odds-toggle');
           var panel = card.querySelector('.odds');
@@ -325,6 +326,7 @@
               var isOpen = panel.style.display === 'block';
               panel.style.display = isOpen ? 'none' : 'block';
               toggle.textContent = isOpen ? 'Show Odds' : 'Hide Odds';
+              updateGlobalOddsButton();
             }
             toggle.addEventListener('click', flip);
             toggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
@@ -333,6 +335,43 @@
             toggle.textContent = 'Hide Odds';
           }
         });
+        function allOddsOpen(){
+          return Array.from(document.querySelectorAll('.card .odds')).every(p=>p.style.display==='block');
+        }
+        function anyOddsOpen(){
+          return Array.from(document.querySelectorAll('.card .odds')).some(p=>p.style.display==='block');
+        }
+        function setAllOdds(open){
+          document.querySelectorAll('.card').forEach(function(card){
+            var panel = card.querySelector('.odds');
+            var toggle = card.querySelector('.odds-toggle');
+            if(panel && toggle){
+              panel.style.display = open ? 'block' : 'none';
+              toggle.textContent = open ? 'Hide Odds' : 'Show Odds';
+            }
+          });
+          localStorage.setItem('oddsAllOpen', open ? '1' : '0');
+          updateGlobalOddsButton();
+        }
+        function updateGlobalOddsButton(){
+          var btn = document.getElementById('toggleAllOdds');
+          if(!btn) return;
+          if (allOddsOpen()) btn.textContent = 'Hide All Odds'; else if (anyOddsOpen()) btn.textContent = 'Show All Odds'; else btn.textContent = 'Show All Odds';
+        }
+        var globalBtn = document.getElementById('toggleAllOdds');
+        if(globalBtn){
+          globalBtn.addEventListener('click', function(){
+            var open = !allOddsOpen();
+            setAllOdds(open);
+          });
+          // Restore persisted preference if exists
+          var stored = localStorage.getItem('oddsAllOpen');
+          if(stored === '0'){
+            setAllOdds(false);
+          } else {
+            updateGlobalOddsButton();
+          }
+        }
       } catch (e) { /* no-op */ }
     })();
   </script>
