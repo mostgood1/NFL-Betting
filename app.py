@@ -955,7 +955,7 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         except Exception:
             pass
 
-    # Winner (moneyline)
+    # Winner (moneyline) - force alignment with raw model probability (no blend)
     wp_home = g("pred_home_win_prob", "prob_home_win")
     ml_home = g("moneyline_home")
     ml_away = g("moneyline_away")
@@ -968,54 +968,32 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     except Exception:
         p_home = None
     if p_home is not None:
-        mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
-        try:
-            beta = float(os.environ.get('RECS_MARKET_BLEND', '0.35'))
-        except Exception:
-            beta = 0.35
-        p_home_eff = (1.0 - beta) * p_home + beta * mkt_ph if mkt_ph is not None else p_home
-        # Optional clamp to a band around market (disabled by default)
-        try:
-            band = float(os.environ.get('RECS_MARKET_BAND', '0.0'))
-        except Exception:
-            band = 0.0
-        if mkt_ph is not None and band and band > 0:
-            p_home_eff = _clamp_prob_to_band(p_home_eff, mkt_ph, band)
+        # Use raw model probability directly for EV
+        p_home_eff = p_home
         if dec_home:
             ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
         if dec_away:
             ev_away_ml = _ev_from_prob_and_decimal(1.0 - p_home_eff, dec_away)
-    # Select best ML side
-    if ev_home_ml is not None or ev_away_ml is not None:
-        cand = [(home or "Home", ev_home_ml, ml_home), (away or "Away", ev_away_ml, ml_away)]
-        cand = [(s, e, o) for s, e, o in cand if e is not None and o is not None]
-        if cand:
-            s, e, o = max(cand, key=lambda t: t[1])
-            # Per-market tier by EV
-            # Confidence is based on this market's EV only
-            conf = _conf_from_ev(e)
-            # Grade if final
-            result = None
-            if is_final and actual_margin is not None:
-                actual_side = "HOME" if actual_margin > 0 else ("AWAY" if actual_margin < 0 else "PUSH")
-                picked_side = "HOME" if str(s) == str(home) else ("AWAY" if str(s) == str(away) else None)
-                if picked_side:
-                    if actual_side == "PUSH":
-                        result = "Push"
-                    else:
-                        result = "Win" if picked_side == actual_side else "Loss"
-            recs.append({
-                "type": "MONEYLINE",
-                "selection": f"{s} ML",
-                "odds": int(o) if isinstance(o, (int, float)) and not pd.isna(o) else o,
-                "ev_units": e,
-                "ev_pct": e * 100.0 if e is not None else None,
-                "confidence": conf,
-                # Weight: confidence first, then EV
-                "sort_weight": (_tier_to_num(conf), e or -999),
-                "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-                "result": result,
-            })
+    # ML recommendation strictly model winner only if positive EV
+    if p_home is not None and (ev_home_ml is not None or ev_away_ml is not None):
+        model_winner_side = home if p_home >= 0.5 else away
+        model_winner_ev = ev_home_ml if model_winner_side == home else ev_away_ml
+        # Always include transparency record (even if not recommended)
+        if model_winner_ev is not None:
+            conf = _conf_from_ev(model_winner_ev)
+            recommended = model_winner_ev > 0
+            if recommended:
+                recs.append({
+                    "type": "MONEYLINE",
+                    "selection": f"{model_winner_side} ML",
+                    "odds": int(ml_home if model_winner_side==home else ml_away) if isinstance(ml_home if model_winner_side==home else ml_away, (int,float)) else (ml_home if model_winner_side==home else ml_away),
+                    "ev_units": model_winner_ev,
+                    "ev_pct": model_winner_ev * 100.0,
+                    "confidence": conf,
+                    "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
+                    "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                    "result": None,
+                })
 
     # Spread (ATS) at -110
     margin = None
