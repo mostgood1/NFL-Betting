@@ -2013,32 +2013,24 @@ def index():
             except Exception:
                 model_winner_tmp = None
             if ev_home_ml is not None or ev_away_ml is not None:
+                # Override: always choose model winner if defined
                 cand = {home: ev_home_ml, away: ev_away_ml}
-                # Minimum EV gate
-                try:
-                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
-                except Exception:
-                    min_ml_ev = 0.0
-                if force_align and model_winner_tmp is not None:
-                    mw_ev = cand.get(model_winner_tmp)
-                    if mw_ev is not None and mw_ev >= min_ml_ev:
-                        winner_side, winner_ev = model_winner_tmp, mw_ev
+                if model_winner_tmp is not None:
+                    winner_side = model_winner_tmp
+                    winner_ev = cand.get(model_winner_tmp)
                 else:
-                    # Fallback: pick highest EV side above threshold
-                    best_side = None
-                    best_ev = None
-                    for side_name, side_ev in cand.items():
-                        if side_ev is None:
-                            continue
-                        if side_ev >= min_ml_ev and (best_ev is None or side_ev > best_ev):
-                            best_side, best_ev = side_name, side_ev
-                    winner_side, winner_ev = best_side, best_ev
+                    # fallback if no model winner probability
+                    if ev_home_ml is not None or ev_away_ml is not None:
+                        if (ev_home_ml or float('-inf')) >= (ev_away_ml or float('-inf')):
+                            winner_side, winner_ev = home, ev_home_ml
+                        else:
+                            winner_side, winner_ev = away, ev_away_ml
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
             c["rec_winner_conf"] = _conf_from_ev(winner_ev) if winner_ev is not None else None
             # Difference flag (may be always False if force_align)
-            c["rec_winner_differs"] = False if force_align else (winner_side is not None and model_winner_tmp is not None and winner_side != model_winner_tmp)
+            c["rec_winner_differs"] = False
 
             # Spread (win margin) EV using actual prices when available (fallback to -110)
             ev_spread_home = ev_spread_away = None
