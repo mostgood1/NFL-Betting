@@ -974,15 +974,21 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
         if dec_away:
             ev_away_ml = _ev_from_prob_and_decimal(1.0 - p_home_eff, dec_away)
-    # ML recommendation strictly model winner only if positive EV
+    # ML recommendation strictly model winner only if positive EV; grade result if final
     if p_home is not None and (ev_home_ml is not None or ev_away_ml is not None):
         model_winner_side = home if p_home >= 0.5 else away
         model_winner_ev = ev_home_ml if model_winner_side == home else ev_away_ml
-        # Always include transparency record (even if not recommended)
         if model_winner_ev is not None:
             conf = _conf_from_ev(model_winner_ev)
             recommended = model_winner_ev > 0
             if recommended:
+                ml_result = None
+                if is_final and actual_margin is not None:
+                    if actual_margin == 0:
+                        ml_result = "Push"  # extremely rare tie
+                    else:
+                        actual_winner_team = home if actual_margin > 0 else away
+                        ml_result = "Win" if actual_winner_team == model_winner_side else "Loss"
                 recs.append({
                     "type": "MONEYLINE",
                     "selection": f"{model_winner_side} ML",
@@ -992,7 +998,7 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     "confidence": conf,
                     "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
                     "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-                    "result": None,
+                    "result": ml_result,
                 })
 
     # Spread (ATS) at -110
