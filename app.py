@@ -2003,54 +2003,42 @@ def index():
             c["debug_dec_away"] = dec_away
             c["debug_ev_home_ml"] = ev_home_ml
             c["debug_ev_away_ml"] = ev_away_ml
-            # Choose best side
+            # Choose winner strictly aligned with model unless explicitly disabled
             winner_side = None
             winner_ev = None
+            force_align = os.environ.get('RECS_FORCE_MODEL_WINNER', '1').lower() in {'1','true','yes','y'}
+            model_winner_tmp = None
+            try:
+                model_winner_tmp = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
+            except Exception:
+                model_winner_tmp = None
             if ev_home_ml is not None or ev_away_ml is not None:
-                # Prefer higher EV side; require EV >= RECS_ML_MIN_EV (default 0.0)
-                cand = [(home or "Home", ev_home_ml), (away or "Away", ev_away_ml)]
-                cand = [(s, e) for s, e in cand if e is not None]
-                if cand:
-                    s, e = max(cand, key=lambda t: t[1])
-                    try:
-                        min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
-                    except Exception:
-                        min_ml_ev = 0.0
-                    try:
-                        allow_diff = float(os.environ.get('RECS_ALLOW_DIFF_MIN_EV', '5.0'))
-                    except Exception:
-                        allow_diff = 5.0
-                    model_winner_tmp = None
-                    try:
-                        model_winner_tmp = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
-                    except Exception:
-                        model_winner_tmp = None
-                    # Force pick to model winner if EV advantage is marginal (< allow_diff) and model winner has positive EV
-                    if e is not None and e >= min_ml_ev:
-                        if model_winner_tmp is not None and model_winner_tmp != s:
-                            # Find model winner EV
-                            mw_ev = None
-                            for side_name, side_ev in cand:
-                                if side_name == model_winner_tmp:
-                                    mw_ev = side_ev
-                                    break
-                            if mw_ev is not None and mw_ev > 0 and (e*100.0) < allow_diff:
-                                winner_side, winner_ev = model_winner_tmp, mw_ev
-                            else:
-                                if model_winner_tmp is None or s == model_winner_tmp or (e*100.0) >= allow_diff:
-                                    winner_side, winner_ev = s, e
-                        else:
-                            winner_side, winner_ev = s, e
+                cand = {home: ev_home_ml, away: ev_away_ml}
+                # Minimum EV gate
+                try:
+                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
+                except Exception:
+                    min_ml_ev = 0.0
+                if force_align and model_winner_tmp is not None:
+                    mw_ev = cand.get(model_winner_tmp)
+                    if mw_ev is not None and mw_ev >= min_ml_ev:
+                        winner_side, winner_ev = model_winner_tmp, mw_ev
+                else:
+                    # Fallback: pick highest EV side above threshold
+                    best_side = None
+                    best_ev = None
+                    for side_name, side_ev in cand.items():
+                        if side_ev is None:
+                            continue
+                        if side_ev >= min_ml_ev and (best_ev is None or side_ev > best_ev):
+                            best_side, best_ev = side_name, side_ev
+                    winner_side, winner_ev = best_side, best_ev
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
             c["rec_winner_conf"] = _conf_from_ev(winner_ev) if winner_ev is not None else None
-            # Flag if ML value side differs from model predicted winner
-            try:
-                model_winner = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
-            except Exception:
-                model_winner = None
-            c["rec_winner_differs"] = (winner_side is not None and model_winner is not None and winner_side != model_winner)
+            # Difference flag (may be always False if force_align)
+            c["rec_winner_differs"] = False if force_align else (winner_side is not None and model_winner_tmp is not None and winner_side != model_winner_tmp)
 
             # Spread (win margin) EV using actual prices when available (fallback to -110)
             ev_spread_home = ev_spread_away = None
