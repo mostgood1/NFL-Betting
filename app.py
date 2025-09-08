@@ -1502,7 +1502,84 @@ def recommendations_page():
             groups[c] = []
         groups[c].append(r)
 
-    return render_template("recommendations.html", recs=all_recs, groups=groups, have_data=len(all_recs) > 0, week=active_week, sort=sort_param)
+    # Build accuracy & ROI metrics per tier with weighted stakes
+    stake_map = {'High': 100.0, 'Medium': 50.0, 'Low': 25.0}
+
+    def american_profit(stake: float, odds: Any) -> Optional[float]:
+        try:
+            if odds is None or (isinstance(odds, float) and pd.isna(odds)):
+                odds = -110  # fallback
+            o = float(odds)
+            if o > 0:
+                return stake * (o / 100.0)
+            else:
+                return stake * (100.0 / abs(o))
+        except Exception:
+            return None
+
+    def tier_metrics(tier: str) -> Dict[str, Any]:
+        items = groups.get(tier, [])
+        done = [x for x in items if x.get('result') in {'Win','Loss','Push'}]
+        wins = sum(1 for x in done if x.get('result') == 'Win')
+        losses = sum(1 for x in done if x.get('result') == 'Loss')
+        pushes = sum(1 for x in done if x.get('result') == 'Push')
+        played = wins + losses  # exclude pushes from accuracy denominator
+        acc = (wins / played * 100.0) if played > 0 else None
+        stake_total = 0.0
+        profit_total = 0.0
+        for x in done:
+            stake = stake_map.get(tier, 25.0)
+            res = x.get('result')
+            odds_val = x.get('odds')
+            if res == 'Win':
+                prof = american_profit(stake, odds_val)
+                if prof is None:
+                    prof = stake * (100.0/110.0)  # approx -110
+                profit_total += prof
+                stake_total += stake
+            elif res == 'Loss':
+                profit_total -= stake
+                stake_total += stake
+            elif res == 'Push':
+                # Stake returned; no profit, but should not count toward stake turnover for ROI denominator? Usually stake at risk counts.
+                stake_total += 0.0
+        roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
+        return {
+            'tier': tier,
+            'total': len(items),
+            'resolved': len(done),
+            'wins': wins,
+            'losses': losses,
+            'pushes': pushes,
+            'accuracy_pct': acc,
+            'roi_pct': roi_pct,
+            'stake_total': stake_total,
+            'profit_total': profit_total,
+        }
+
+    accuracy_summary = {t: tier_metrics(t) for t in ['High','Medium','Low']}
+    # Overall metrics (aggregate resolved bets across tiers)
+    overall = {'tier': 'Overall','total':0,'resolved':0,'wins':0,'losses':0,'pushes':0,'accuracy_pct':None,'roi_pct':None,'stake_total':0.0,'profit_total':0.0}
+    for t in ['High','Medium','Low']:
+        m = accuracy_summary.get(t, {})
+        for k in ['total','resolved','wins','losses','pushes','stake_total','profit_total']:
+            overall[k] += m.get(k, 0) or 0
+    played_overall = overall['wins'] + overall['losses']
+    if played_overall > 0:
+        overall['accuracy_pct'] = overall['wins'] / played_overall * 100.0
+    if overall['stake_total'] > 0:
+        overall['roi_pct'] = overall['profit_total'] / overall['stake_total'] * 100.0
+    accuracy_summary['Overall'] = overall
+
+    return render_template(
+        "recommendations.html",
+        recs=all_recs,
+        groups=groups,
+        have_data=len(all_recs) > 0,
+        week=active_week,
+        sort=sort_param,
+        accuracy=accuracy_summary,
+    )
 
 
 @app.route("/")

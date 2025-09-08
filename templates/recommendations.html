@@ -38,6 +38,40 @@
   <div class="container">
     <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/health" target="_blank">Health</a></div>
   <h1>NFL Betting – Recommendations</h1>
+  {% if accuracy %}
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin:12px 0;align-items:stretch;">
+    {% set overall = accuracy.get('Overall') %}
+    {% if overall %}
+      <div class="card" style="flex:1;min-width:240px;padding:10px;background:linear-gradient(180deg,#132a52,#0d1426);">
+        <div style="font-size:14px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);">Overall</div>
+        <div style="margin-top:4px;font-size:20px;font-weight:600;">
+          {% if overall.accuracy_pct is not none %}{{ '%.1f' % overall.accuracy_pct }}% Accuracy{% else %}—{% endif %}
+        </div>
+        <div style="margin-top:2px;font-size:12px;color:var(--muted);">
+          {{ overall.wins }}W-{{ overall.losses }}L{% if overall.pushes %}-{{ overall.pushes }}P{% endif %} / {{ overall.resolved }} settled
+        </div>
+        <div style="margin-top:4px;font-size:12px;">ROI: {% if overall.roi_pct is not none %}{{ '%.1f' % overall.roi_pct }}%{% else %}—{% endif %}</div>
+        <div style="margin-top:4px;font-size:11px;color:var(--muted);">Stake: ${{ '%.0f' % overall.stake_total }} | P/L: ${{ '%.0f' % overall.profit_total }}</div>
+        <div style="margin-top:4px;font-size:11px;color:var(--muted);">Total picks: {{ overall.total }}</div>
+      </div>
+    {% endif %}
+    {% for tier in ['High','Medium','Low'] %}
+      {% set m = accuracy.get(tier) %}
+      <div class="card" style="flex:1;min-width:200px;padding:10px;">
+        <div style="font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);">{{ tier }}</div>
+        <div style="margin-top:4px;font-size:18px;font-weight:600;">
+          {% if m.accuracy_pct is not none %}{{ '%.1f' % m.accuracy_pct }}% Acc{% else %}—{% endif %}
+        </div>
+        <div style="margin-top:2px;font-size:12px;color:var(--muted);">
+          {{ m.wins }}W-{{ m.losses }}L{% if m.pushes %}-{{ m.pushes }}P{% endif %} / {{ m.resolved }}
+        </div>
+        <div style="margin-top:4px;font-size:12px;">ROI: {% if m.roi_pct is not none %}{{ '%.1f' % m.roi_pct }}%{% else %}—{% endif %}</div>
+        <div style="margin-top:4px;font-size:11px;color:var(--muted);">Stake: ${{ '%.0f' % m.stake_total }} | P/L: ${{ '%.0f' % m.profit_total }}</div>
+        <div style="margin-top:4px;font-size:11px;color:var(--muted);">Picks: {{ m.total }}</div>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
   <p class="muted">Sorted by confidence then EV. Odds assumed -110 for spread/total when book odds are not present.</p>
   <form method="get" action="/recommendations" style="margin:8px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
     <label>Week: <input type="number" name="week" value="{{ week or '' }}" style="width:80px;" /></label>
