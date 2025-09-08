@@ -328,9 +328,9 @@
             }
             toggle.addEventListener('click', flip);
             toggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
-            // Default to collapsed for a cleaner layout
-            panel.style.display = 'none';
-            toggle.textContent = 'Show Odds';
+            // Default to expanded (per new requirement)
+            panel.style.display = 'block';
+            toggle.textContent = 'Hide Odds';
           }
         });
       } catch (e) { /* no-op */ }
