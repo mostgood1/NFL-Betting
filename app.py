@@ -1980,6 +1980,7 @@ def index():
             iph, ipa = _implied_probs_from_moneylines(ml_home, ml_away)
             c["implied_home_prob"] = float(iph) if iph is not None else None
             c["implied_away_prob"] = float(ipa) if ipa is not None else None
+            p_home_eff = None
             if p_home is not None:
                 # Blend model prob with market implied prob to temper confidence
                 mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
@@ -1995,6 +1996,13 @@ def index():
                     ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
                 if dec_away:
                     ev_away_ml = _ev_from_prob_and_decimal(1.0 - p_home_eff, dec_away)
+            # Record debug inputs
+            c["debug_p_home_model"] = p_home
+            c["debug_p_home_eff"] = p_home_eff
+            c["debug_dec_home"] = dec_home
+            c["debug_dec_away"] = dec_away
+            c["debug_ev_home_ml"] = ev_home_ml
+            c["debug_ev_away_ml"] = ev_away_ml
             # Choose best side
             winner_side = None
             winner_ev = None
@@ -2017,9 +2025,21 @@ def index():
                         model_winner_tmp = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
                     except Exception:
                         model_winner_tmp = None
+                    # Force pick to model winner if EV advantage is marginal (< allow_diff) and model winner has positive EV
                     if e is not None and e >= min_ml_ev:
-                        # Only emit if same as model winner OR EV exceeds allow_diff threshold
-                        if model_winner_tmp is None or s == model_winner_tmp or (e*100.0) >= allow_diff:
+                        if model_winner_tmp is not None and model_winner_tmp != s:
+                            # Find model winner EV
+                            mw_ev = None
+                            for side_name, side_ev in cand:
+                                if side_name == model_winner_tmp:
+                                    mw_ev = side_ev
+                                    break
+                            if mw_ev is not None and mw_ev > 0 and (e*100.0) < allow_diff:
+                                winner_side, winner_ev = model_winner_tmp, mw_ev
+                            else:
+                                if model_winner_tmp is None or s == model_winner_tmp or (e*100.0) >= allow_diff:
+                                    winner_side, winner_ev = s, e
+                        else:
                             winner_side, winner_ev = s, e
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
