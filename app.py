@@ -1960,12 +1960,54 @@ def index():
             c["implied_away_prob"] = float(ipa) if ipa is not None else None
             p_home_eff = None
             if p_home is not None:
-                # Use RAW model probability for EV (no market blending). We still keep the
-                # variable name p_home_eff for downstream debug consistency.
+                # RAW model probability (no blending)
                 p_home_eff = p_home
-                if dec_home:
+            # Derive model winner strictly from predicted point margin when available
+            # (earlier we computed 'margin' = pred_home_points - pred_away_points when possible)
+            model_winner_by_margin = None
+            try:
+                if margin is not None and pd.notna(margin):
+                    if float(margin) > 0:
+                        model_winner_by_margin = home
+                    elif float(margin) < 0:
+                        model_winner_by_margin = away
+                    else:
+                        model_winner_by_margin = None  # tie
+            except Exception:
+                model_winner_by_margin = None
+
+            # If we have both a margin-based winner and a probability, but they disagree, flip orientation
+            # of the probability so that the probability perspective matches the point-based winner.
+            # This guards against upstream field misalignment.
+            if p_home_eff is not None and model_winner_by_margin is not None:
+                prob_implies_home = (p_home_eff >= 0.5)
+                margin_implies_home = (model_winner_by_margin == home)
+                if prob_implies_home != margin_implies_home:
+                    # Flip perspective
+                    p_home_eff = 1.0 - p_home_eff
+                    c['debug_prob_flipped_to_match_margin'] = True
+                else:
+                    c['debug_prob_flipped_to_match_margin'] = False
+
+            # Compute EV ONLY for the margin-based winner side (if probability present)
+            model_winner_prob = None
+            model_winner_ev_units = None
+            if p_home_eff is not None and model_winner_by_margin is not None:
+                if model_winner_by_margin == home:
+                    model_winner_prob = p_home_eff
+                    if dec_home is not None:
+                        model_winner_ev_units = _ev_from_prob_and_decimal(model_winner_prob, dec_home)
+                elif model_winner_by_margin == away:
+                    # Away win probability = 1 - p_home_eff
+                    model_winner_prob = 1.0 - p_home_eff
+                    if dec_away is not None:
+                        model_winner_ev_units = _ev_from_prob_and_decimal(model_winner_prob, dec_away)
+
+            # For transparency also compute the opposite side EV for debugging (not for recommendation)
+            if p_home_eff is not None:
+                if dec_home is not None:
                     ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
-                if dec_away:
+                if dec_away is not None:
                     ev_away_ml = _ev_from_prob_and_decimal(1.0 - p_home_eff, dec_away)
             # Record debug inputs
             c["debug_p_home_model"] = p_home
@@ -1978,34 +2020,44 @@ def index():
             winner_side = None
             winner_ev = None
             force_align = os.environ.get('RECS_FORCE_MODEL_WINNER', '1').lower() in {'1','true','yes','y'}
-            model_winner_tmp = None
-            try:
-                model_winner_tmp = home if (p_home is not None and p_home >= 0.5) else away if p_home is not None else None
-            except Exception:
-                model_winner_tmp = None
-            if ev_home_ml is not None or ev_away_ml is not None:
-                # Only consider recommending the model's predicted winner side.
+            # Determine recommendation using margin-aligned winner
+            if model_winner_by_margin is not None and model_winner_ev_units is not None:
                 try:
-                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))  # units per 1 risked
+                    min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
                 except Exception:
                     min_ml_ev = 0.0
-                model_winner_side = model_winner_tmp
-                model_winner_ev = None
-                if model_winner_side == home:
-                    model_winner_ev = ev_home_ml
-                elif model_winner_side == away:
-                    model_winner_ev = ev_away_ml
-                # Persist model winner EV regardless of play status
-                c["model_winner_side"] = model_winner_side
-                c["model_winner_ev_units"] = model_winner_ev
-                c["model_winner_ev_pct"] = (model_winner_ev * 100.0) if model_winner_ev is not None else None
+                c["model_winner_side"] = model_winner_by_margin
+                c["model_winner_ev_units"] = model_winner_ev_units
+                c["model_winner_ev_pct"] = model_winner_ev_units * 100.0
                 c["ml_min_ev_units"] = min_ml_ev
                 c["ml_min_ev_pct"] = min_ml_ev * 100.0
-                # Recommend only if EV positive and above threshold
-                if model_winner_ev is not None and model_winner_ev >= min_ml_ev and model_winner_ev > 0:
-                    winner_side, winner_ev = model_winner_side, model_winner_ev
+                if model_winner_ev_units >= min_ml_ev and model_winner_ev_units > 0:
+                    winner_side, winner_ev = model_winner_by_margin, model_winner_ev_units
                 else:
                     winner_side, winner_ev = None, None
+            else:
+                # Fallback: if no margin-based winner, revert to probability threshold logic
+                model_winner_tmp = None
+                try:
+                    model_winner_tmp = home if (p_home_eff is not None and p_home_eff >= 0.5) else away if p_home_eff is not None else None
+                except Exception:
+                    model_winner_tmp = None
+                if model_winner_tmp is not None:
+                    try:
+                        min_ml_ev = float(os.environ.get('RECS_ML_MIN_EV', '0.0'))
+                    except Exception:
+                        min_ml_ev = 0.0
+                    # Use pre-computed ev_home_ml / ev_away_ml
+                    mw_ev = ev_home_ml if model_winner_tmp == home else ev_away_ml
+                    c["model_winner_side"] = model_winner_tmp
+                    c["model_winner_ev_units"] = mw_ev
+                    c["model_winner_ev_pct"] = (mw_ev * 100.0) if mw_ev is not None else None
+                    c["ml_min_ev_units"] = min_ml_ev
+                    c["ml_min_ev_pct"] = min_ml_ev * 100.0
+                    if mw_ev is not None and mw_ev >= min_ml_ev and mw_ev > 0:
+                        winner_side, winner_ev = model_winner_tmp, mw_ev
+                    else:
+                        winner_side, winner_ev = None, None
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
