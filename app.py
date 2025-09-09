@@ -2049,6 +2049,9 @@ def index():
                 "venue_text": venue_text,
                 "weather_text": weather_text,
                 "total_diff": total_diff,
+                # Extended weather (precip type / sky)
+                "wx_precip_type": g("wx_precip_type"),
+                "wx_sky": g("wx_sky"),
                 # Odds (sanitize NaN -> None; cast to int for display)
                 "moneyline_home": (int(g("moneyline_home")) if (g("moneyline_home") is not None and not pd.isna(g("moneyline_home"))) else None),
                 "moneyline_away": (int(g("moneyline_away")) if (g("moneyline_away") is not None and not pd.isna(g("moneyline_away"))) else None),

@@ -193,6 +193,12 @@
               {% if g.weather_text %}
                 <span class="chip">{{ g.weather_text }}</span>
               {% endif %}
+              {% if g.wx_sky %}
+                <span class="chip">Sky {{ g.wx_sky }}</span>
+              {% endif %}
+              {% if g.wx_precip_type %}
+                <span class="chip">Precip {{ g.wx_precip_type }}</span>
+              {% endif %}
               {% if g.stadium_roof %}
                 <span class="chip">Roof {{ g.stadium_roof }}</span>
               {% endif %}

@@ -13,12 +13,14 @@ class WeatherCols:
     temp_f: str = "wx_temp_f"
     wind_mph: str = "wx_wind_mph"
     precip_pct: str = "wx_precip_pct"
+    precip_type: str = "wx_precip_type"  # e.g., rain, snow, none
+    sky: str = "wx_sky"  # e.g., sunny, partly cloudy, overcast
     roof: str = "roof"
     surface: str = "surface"
 
 
 def _ensure_weather_columns(df: pd.DataFrame) -> pd.DataFrame:
-    cols = [WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.roof, WeatherCols.surface]
+    cols = [WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.precip_type, WeatherCols.sky, WeatherCols.roof, WeatherCols.surface]
     for c in cols:
         if c not in df.columns:
             df[c] = pd.NA
@@ -56,7 +58,7 @@ def load_weather_for_date(date_str: str) -> pd.DataFrame:
                 return pd.read_csv(fp)
             except Exception:
                 continue
-    return pd.DataFrame(columns=["date","home_team", WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct])
+    return pd.DataFrame(columns=["date","home_team", WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.precip_type, WeatherCols.sky])
 
 
 def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
@@ -64,7 +66,7 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     Non-destructive: if files are missing, returns a frame with expected columns and NaNs.
     """
     if games is None or games.empty:
-        return pd.DataFrame(columns=["game_id","date","home_team","away_team", WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.roof, WeatherCols.surface])
+        return pd.DataFrame(columns=["game_id","date","home_team","away_team", WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.precip_type, WeatherCols.sky, WeatherCols.roof, WeatherCols.surface])
 
     out_rows = []
     stad = load_stadium_meta()
@@ -88,6 +90,8 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
                 WeatherCols.temp_f: pd.NA,
                 WeatherCols.wind_mph: pd.NA,
                 WeatherCols.precip_pct: pd.NA,
+                WeatherCols.precip_type: pd.NA,
+                WeatherCols.sky: pd.NA,
                 WeatherCols.roof: pd.NA,
                 WeatherCols.surface: pd.NA,
                 "neutral_site": pd.NA,
@@ -99,6 +103,10 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
                     r[WeatherCols.temp_f] = m.iloc[0].get(WeatherCols.temp_f)
                     r[WeatherCols.wind_mph] = m.iloc[0].get(WeatherCols.wind_mph)
                     r[WeatherCols.precip_pct] = m.iloc[0].get(WeatherCols.precip_pct)
+                    if WeatherCols.precip_type in m.columns:
+                        r[WeatherCols.precip_type] = m.iloc[0].get(WeatherCols.precip_type)
+                    if WeatherCols.sky in m.columns:
+                        r[WeatherCols.sky] = m.iloc[0].get(WeatherCols.sky)
                     # Neutral flag if produced by fetcher
                     if 'neutral_site' in m.columns:
                         r["neutral_site"] = m.iloc[0].get('neutral_site')
