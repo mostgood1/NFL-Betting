@@ -955,51 +955,89 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         except Exception:
             pass
 
-    # Winner (moneyline) - force alignment with raw model probability (no blend)
+    # Moneyline recommendation logic unified with card view: derive winner via predicted margin, flip probability orientation if inconsistent.
     wp_home = g("pred_home_win_prob", "prob_home_win")
     ml_home = g("moneyline_home")
     ml_away = g("moneyline_away")
     dec_home = _american_to_decimal(ml_home) if ml_home is not None else None
     dec_away = _american_to_decimal(ml_away) if ml_away is not None else None
-    ev_home_ml = ev_away_ml = None
-    p_home_eff = None
     try:
-        p_home = float(wp_home) if (wp_home is not None and not pd.isna(wp_home)) else None
+        p_home_raw = float(wp_home) if (wp_home is not None and not pd.isna(wp_home)) else None
     except Exception:
-        p_home = None
-    if p_home is not None:
-        # Use raw model probability directly for EV
-        p_home_eff = p_home
-        if dec_home:
-            ev_home_ml = _ev_from_prob_and_decimal(p_home_eff, dec_home)
-        if dec_away:
-            ev_away_ml = _ev_from_prob_and_decimal(1.0 - p_home_eff, dec_away)
-    # ML recommendation strictly model winner only if positive EV; grade result if final
-    if p_home is not None and (ev_home_ml is not None or ev_away_ml is not None):
-        model_winner_side = home if p_home >= 0.5 else away
-        model_winner_ev = ev_home_ml if model_winner_side == home else ev_away_ml
-        if model_winner_ev is not None:
-            conf = _conf_from_ev(model_winner_ev)
-            recommended = model_winner_ev > 0
-            if recommended:
-                ml_result = None
-                if is_final and actual_margin is not None:
-                    if actual_margin == 0:
-                        ml_result = "Push"  # extremely rare tie
-                    else:
-                        actual_winner_team = home if actual_margin > 0 else away
-                        ml_result = "Win" if actual_winner_team == model_winner_side else "Loss"
-                recs.append({
-                    "type": "MONEYLINE",
-                    "selection": f"{model_winner_side} ML",
-                    "odds": int(ml_home if model_winner_side==home else ml_away) if isinstance(ml_home if model_winner_side==home else ml_away, (int,float)) else (ml_home if model_winner_side==home else ml_away),
-                    "ev_units": model_winner_ev,
-                    "ev_pct": model_winner_ev * 100.0,
-                    "confidence": conf,
-                    "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
-                    "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-                    "result": ml_result,
-                })
+        p_home_raw = None
+    # Determine margin-based winner (prefer explicit pred_margin if present else compute from predicted points)
+    margin_pred = None
+    if 'pred_margin' in row.index and not pd.isna(row.get('pred_margin')):
+        try:
+            margin_pred = float(row.get('pred_margin'))
+        except Exception:
+            margin_pred = None
+    if margin_pred is None:
+        ph_tmp = g("pred_home_points", "pred_home_score")
+        pa_tmp = g("pred_away_points", "pred_away_score")
+        try:
+            if ph_tmp is not None and pa_tmp is not None and not pd.isna(ph_tmp) and not pd.isna(pa_tmp):
+                margin_pred = float(ph_tmp) - float(pa_tmp)
+        except Exception:
+            margin_pred = None
+    model_winner_by_margin = None
+    if margin_pred is not None:
+        if margin_pred > 0:
+            model_winner_by_margin = home
+        elif margin_pred < 0:
+            model_winner_by_margin = away
+        else:
+            model_winner_by_margin = None
+    p_home_eff = p_home_raw
+    # Flip probability orientation if it disagrees with margin-derived winner
+    if p_home_eff is not None and model_winner_by_margin is not None:
+        prob_implies_home = (p_home_eff >= 0.5)
+        margin_implies_home = (model_winner_by_margin == home)
+        if prob_implies_home != margin_implies_home:
+            p_home_eff = 1.0 - p_home_eff
+    # Compute EV ONLY for margin-based winner (if available); fallback to probability winner if margin missing
+    rec_model_winner = model_winner_by_margin
+    model_winner_prob = None
+    model_winner_ev = None
+    if rec_model_winner is not None and p_home_eff is not None:
+        if rec_model_winner == home:
+            model_winner_prob = p_home_eff
+            if dec_home is not None:
+                model_winner_ev = _ev_from_prob_and_decimal(model_winner_prob, dec_home)
+        else:
+            model_winner_prob = 1.0 - p_home_eff
+            if dec_away is not None:
+                model_winner_ev = _ev_from_prob_and_decimal(model_winner_prob, dec_away)
+    elif rec_model_winner is None and p_home_eff is not None:
+        # Fallback orientation
+        rec_model_winner = home if p_home_eff >= 0.5 else away
+        if rec_model_winner == home and dec_home is not None:
+            model_winner_prob = p_home_eff
+            model_winner_ev = _ev_from_prob_and_decimal(model_winner_prob, dec_home)
+        elif rec_model_winner == away and dec_away is not None:
+            model_winner_prob = 1.0 - p_home_eff
+            model_winner_ev = _ev_from_prob_and_decimal(model_winner_prob, dec_away)
+    # Grade and append if positive EV
+    if model_winner_ev is not None and model_winner_ev > 0:
+        conf = _conf_from_ev(model_winner_ev)
+        ml_result = None
+        if is_final and actual_margin is not None:
+            if actual_margin == 0:
+                ml_result = "Push"
+            else:
+                actual_winner_team = home if actual_margin > 0 else away
+                ml_result = "Win" if actual_winner_team == rec_model_winner else "Loss"
+        recs.append({
+            "type": "MONEYLINE",
+            "selection": f"{rec_model_winner} ML",
+            "odds": int(ml_home if rec_model_winner==home else ml_away) if isinstance(ml_home if rec_model_winner==home else ml_away, (int,float)) else (ml_home if rec_model_winner==home else ml_away),
+            "ev_units": model_winner_ev,
+            "ev_pct": model_winner_ev * 100.0,
+            "confidence": conf,
+            "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
+            "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+            "result": ml_result,
+        })
 
     # Spread (ATS) at -110
     margin = None
