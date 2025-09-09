@@ -141,6 +141,8 @@ def update_weather_for_date(date_str: str, kickoff_hour_local: int = 16) -> int:
             'wx_temp_f': None if not wx else wx.get('wx_temp_f'),
             'wx_wind_mph': None if not wx else wx.get('wx_wind_mph'),
             'wx_precip_pct': None if not wx else wx.get('wx_precip_pct'),
+            'wx_precip_type': None if not wx else wx.get('wx_precip_type'),
+            'wx_sky': None if not wx else wx.get('wx_sky'),
             'roof': roof,
             'surface': surface,
             'neutral_site': (ovr.get('neutral_site') if ovr and ('neutral_site' in ovr) else None),
