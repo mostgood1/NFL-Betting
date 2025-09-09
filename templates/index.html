@@ -83,6 +83,29 @@
   .team-block{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
   .team-name{font-weight:700}
   .tiny{font-size:11px;color:var(--muted)}
+  /* --- Mobile Enhancements --- */
+  @media (max-width:760px){
+    .container{padding:0 10px;margin:12px auto}
+    h1{font-size:18px;margin-bottom:4px}
+    .nav{font-size:12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+    .nav a, .nav button{display:inline-block;margin-right:6px;padding:4px 8px;font-size:12px}
+    .filters{flex-wrap:wrap;gap:6px}
+    .filters label{font-size:12px}
+    .filters input, .filters select{width:92px;padding:4px 6px;font-size:12px}
+    .filters button{padding:4px 8px;font-size:12px}
+    .grid{grid-template-columns:1fr;gap:12px}
+    .card{padding:10px 10px 8px;border-radius:12px}
+    .team-block img{width:24px;height:24px}
+    .score{font-size:16px}
+    .chip{font-size:11px;padding:3px 6px}
+    .badge{font-size:11px;padding:3px 6px}
+    .pill{font-size:11px}
+    .pred{flex-direction:column;align-items:flex-start;gap:2px;font-size:11px}
+    .kpi{flex-wrap:wrap}
+    .odds .row{font-size:11px}
+    .venue{font-size:11px}
+    .status{font-size:11px}
+  }
   </style>
 </head>
 <body>
@@ -328,6 +351,7 @@
         applyTeamColors();
         // Odds toggle handlers
         var cards = document.querySelectorAll('.card');
+        var isMobile = window.matchMedia('(max-width: 760px)').matches;
         document.querySelectorAll('.card').forEach(function(card){
           var toggle = card.querySelector('.odds-toggle');
           var panel = card.querySelector('.odds');
@@ -340,9 +364,19 @@
             }
             toggle.addEventListener('click', flip);
             toggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
-            // Default to expanded (per new requirement)
-            panel.style.display = 'block';
-            toggle.textContent = 'Hide Odds';
+            // Default collapsed on mobile for space, expanded on desktop (unless user stored preference)
+            var stored = localStorage.getItem('oddsAllOpen');
+            if(stored === null){
+              if(isMobile){
+                panel.style.display = 'none';
+                toggle.textContent = 'Show Odds';
+              } else {
+                panel.style.display = 'block';
+                toggle.textContent = 'Hide Odds';
+              }
+            } else {
+              // will be managed by global restore later
+            }
           }
         });
         function allOddsOpen(){
@@ -379,7 +413,12 @@
           if(stored === '0'){
             setAllOdds(false);
           } else {
-            updateGlobalOddsButton();
+            // If no stored preference and mobile, ensure collapsed; otherwise update
+            if(stored === null && isMobile){
+              setAllOdds(false);
+            } else {
+              updateGlobalOddsButton();
+            }
           }
         }
       } catch (e) { /* no-op */ }
