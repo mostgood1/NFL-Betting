@@ -19,6 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "nfl_compare" / "data"
 PRED_FILE = DATA_DIR / "predictions.csv"
 PRED_WEEK_FILE = DATA_DIR / "predictions_week.csv"
+LOCKED_PRED_FILE = DATA_DIR / "predictions_locked.csv"
 ASSETS_FILE = DATA_DIR / "nfl_team_assets.json"
 STADIUM_META_FILE = DATA_DIR / "stadium_meta.csv"
 LOCATION_OVERRIDES_FILE = DATA_DIR / "game_location_overrides.csv"
@@ -35,6 +36,9 @@ def _load_predictions() -> pd.DataFrame:
         # Optionally merge week-level predictions that include completed games
         if PRED_WEEK_FILE.exists():
             dfs.append(pd.read_csv(PRED_WEEK_FILE))
+        # Include locked historical predictions (first-seen pregame predictions) so past weeks always render
+        if LOCKED_PRED_FILE.exists():
+            dfs.append(pd.read_csv(LOCKED_PRED_FILE))
         if dfs:
             df = pd.concat(dfs, ignore_index=True)
             # Drop duplicate game_ids favoring the last occurrence (week file overrides)
