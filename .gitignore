@@ -28,6 +28,7 @@ logs/
 # Keep essential seed data in git for Render runtime
 !nfl_compare/data/predictions.csv
 !nfl_compare/data/predictions_week.csv
+!nfl_compare/data/predictions_locked.csv
 !nfl_compare/data/nfl_team_assets.json
 !nfl_compare/data/stadium_meta.csv
 !nfl_compare/data/game_location_overrides.csv
