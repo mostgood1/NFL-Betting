@@ -1449,6 +1449,18 @@ def health():
     return {"status": "ok", "have_predictions": PRED_FILE.exists()}, 200
 
 
+@app.route('/favicon.ico')
+def favicon():
+    # Return a 1x1 transparent PNG to avoid 404s from browsers requesting /favicon.ico
+    import base64
+    png_b64 = (
+        b"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Y6r/RwAAAAASUVORK5CYII="
+    )
+    png = base64.b64decode(png_b64)
+    from flask import Response
+    return Response(png, mimetype='image/png')
+
+
 @app.route("/api/predictions")
 def api_predictions():
     df = _load_predictions()

@@ -21,4 +21,10 @@ export FLASK_ENV=production
 export PYTHONUNBUFFERED=1
 
 # Start app (avoid --preload to reduce boot memory/CPU; longer timeout for cold starts)
-exec gunicorn app:app --bind 0.0.0.0:${PORT:-5000} --workers 1 --timeout 180
+exec gunicorn app:app \
+  --bind 0.0.0.0:${PORT:-5000} \
+  --workers ${WEB_CONCURRENCY:-1} \
+  --worker-class gthread \
+  --threads ${WEB_THREADS:-4} \
+  --timeout 180 \
+  --keep-alive 5
