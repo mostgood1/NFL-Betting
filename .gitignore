@@ -18,6 +18,13 @@ pip-wheel-metadata/
 .env.*
 *.env
 
+# Secrets and tokens
+GITHUB_TOKEN
+GH_PAT
+RENDER_GIT_TOKEN
+secrets/
+**/secret*
+
 # Data & models
 nfl_compare/data/*.csv
 nfl_compare/data/*.parquet

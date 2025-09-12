@@ -134,10 +134,52 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
         if _.returncode != 0 or not _.stdout.strip():
             subprocess.run(['git', 'config', 'user.name', os.environ.get('GIT_AUTHOR_NAME', 'Render Bot')], check=False)
 
-        # Stage only data/model artifacts by default to reduce risk
-        add = subprocess.run(['git', 'add', '-A'], capture_output=True, text=True)
-        if add.returncode != 0:
-            return False, f"git add failed: {add.stderr.strip()}"
+        # Stage changes safely: update tracked files and add new allowed data artifacts only
+        # 1) Update tracked files
+        _ = subprocess.run(['git', 'add', '-u'], capture_output=True, text=True)
+        if _.returncode != 0:
+            return False, f"git add -u failed: {_.stderr.strip()}"
+        # 2) Add new allowed files under nfl_compare/data with safe extensions
+        try:
+            from pathlib import Path as _P
+            data_dir = _P('nfl_compare') / 'data'
+            exts = {'.csv', '.json', '.parquet'}
+            to_add = []
+            if data_dir.exists():
+                for p in data_dir.rglob('*'):
+                    if p.is_file() and p.suffix.lower() in exts:
+                        to_add.append(str(p))
+            if to_add:
+                # Add in batches to avoid command length limits
+                batch = []
+                for fp in to_add:
+                    batch.append(fp)
+                    if len(batch) >= 200:
+                        subprocess.run(['git', 'add'] + batch, check=False)
+                        batch = []
+                if batch:
+                    subprocess.run(['git', 'add'] + batch, check=False)
+        except Exception:
+            pass
+
+        # 3) Explicitly unstage suspicious files (potential secrets)
+        try:
+            staged = subprocess.run(['git', 'diff', '--cached', '--name-only'], capture_output=True, text=True)
+            files = (staged.stdout or '').splitlines()
+            suspicious = []
+            block_names = {
+                'GITHUB_TOKEN', 'GH_PAT', 'RENDER_GIT_TOKEN', 'ODDS_API_KEY', '.env', '.env.local', '.env.prod'
+            }
+            for fn in files:
+                base = os.path.basename(fn)
+                if base in block_names or 'secret' in fn.lower() or 'secrets' in fn.lower():
+                    suspicious.append(fn)
+            for fn in suspicious:
+                subprocess.run(['git', 'restore', '--staged', fn], check=False)
+            if suspicious:
+                _append_log(f"Skipped staging suspicious files: {', '.join(suspicious)}")
+        except Exception:
+            pass
 
         # Skip empty commit
         diff = subprocess.run(['git', 'diff', '--cached', '--quiet'], capture_output=True)
@@ -173,6 +215,38 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
         ps = subprocess.run(['git', 'push', push_url_auth, 'HEAD:master'], capture_output=True, text=True)
         if ps.returncode != 0:
             err = (ps.stderr or ps.stdout).strip()
+            # Attempt auto-cleanup if GitHub Push Protection blocks secrets (GH013)
+            if 'GH013' in err and 'Push cannot contain secrets' in err:
+                try:
+                    # Identify suspicious files in the last commit
+                    show = subprocess.run(['git', 'show', '--name-only', '--pretty=', 'HEAD'], capture_output=True, text=True)
+                    files_last = (show.stdout or '').splitlines()
+                    block_names = {
+                        'GITHUB_TOKEN', 'GH_PAT', 'RENDER_GIT_TOKEN', 'ODDS_API_KEY', '.env', '.env.local', '.env.prod'
+                    }
+                    sus = []
+                    for fn in files_last:
+                        base = os.path.basename(fn)
+                        if base in block_names or 'secret' in fn.lower() or 'secrets' in fn.lower():
+                            sus.append(fn)
+                    if sus:
+                        # Undo the last commit but keep changes staged
+                        subprocess.run(['git', 'reset', '--soft', 'HEAD~1'], check=False)
+                        # Unstage and leave suspicious files out of the commit
+                        for fn in sus:
+                            subprocess.run(['git', 'restore', '--staged', fn], check=False)
+                        # Recommit without the suspicious files
+                        cm2 = subprocess.run(['git', 'commit', '-m', f"{commit_message} [redacted secrets]"], capture_output=True, text=True)
+                        if cm2.returncode != 0:
+                            return False, f"git commit (after redaction) failed: {cm2.stderr.strip()}"
+                        # Retry push
+                        ps2 = subprocess.run(['git', 'push', push_url_auth, 'HEAD:master'], capture_output=True, text=True)
+                        if ps2.returncode == 0:
+                            return True, 'Pushed successfully after redacting suspicious files.'
+                        err2 = (ps2.stderr or ps2.stdout).strip()
+                        return False, f"git push failed after redaction: {err2}"
+                except Exception as _:
+                    pass
             return False, f"git push failed: {err}"
         return True, 'Pushed successfully.'
     except Exception as e:
