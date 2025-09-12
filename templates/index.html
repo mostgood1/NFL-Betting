@@ -114,6 +114,7 @@
   <div id="adminPanel" style="display:none;border:1px solid var(--button-br);background:var(--card2);border-radius:10px;padding:10px;margin:10px 0;">
     <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
       <label style="font-size:12px;color:var(--muted)">Key: <input id="adminKeyInput" type="password" style="width:200px;padding:4px 6px;border-radius:6px;background:var(--input-bg);border:1px solid var(--input-br);color:var(--text)" placeholder="ADMIN_KEY" /></label>
+      <label style="font-size:12px;color:var(--muted)"><input id="adminPushToggle" type="checkbox" checked style="vertical-align:middle;margin-right:6px;"/> Push to Git</label>
       <button id="adminStart" class="theme-toggle" style="padding:6px 10px;">Start Update</button>
       <span id="adminState" style="font-size:12px;color:var(--muted)">Idle</span>
     </div>
@@ -501,6 +502,7 @@
           var panel = document.getElementById('adminPanel');
           var keyInput = document.getElementById('adminKeyInput');
           var startBtn = document.getElementById('adminStart');
+          var pushToggle = document.getElementById('adminPushToggle');
           var stateEl = document.getElementById('adminState');
           var logsEl = document.getElementById('adminLogs');
           var polling = false;
@@ -537,11 +539,12 @@
               localStorage.setItem('adminKey', key);
               try{
                 stateEl.textContent = 'Starting…';
-                var res = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key), {method:'POST'});
+                var push = (pushToggle && pushToggle.checked) ? '1' : '0';
+                var res = await fetch('/api/admin/daily-update?push='+ push +'&key='+ encodeURIComponent(key), {method:'POST'});
                 if(res.status===401){ stateEl.textContent = 'Unauthorized (bad key)'; return; }
                 if(res.ok || res.status===202){ stateEl.textContent = 'Started…'; poll(); return; }
                 // fallback to GET in case some environments block POST
-                var res2 = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key));
+                var res2 = await fetch('/api/admin/daily-update?push='+ push +'&key='+ encodeURIComponent(key));
                 if(res2.ok || res2.status===202){ stateEl.textContent = 'Started…'; poll(); return; }
                 stateEl.textContent = 'Failed to start ('+ res.status +')';
               }catch(e){ stateEl.textContent = 'Network error starting job'; }

@@ -181,6 +181,8 @@ def _daily_update_job(do_push: bool) -> None:
             ok2, msg = _git_commit_and_push(f'chore(data): web-triggered daily update {ts}')
             _append_log(msg)
             ok = ok and ok2
+        elif ok and not do_push:
+            _append_log('Push disabled by request; skipping git commit/push.')
         _job_state['ok'] = ok
     except Exception as e:
         _append_log(f'Exception: {e}')
