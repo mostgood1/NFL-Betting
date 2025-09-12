@@ -431,7 +431,7 @@
               if(!key){ return; }
               localStorage.setItem('adminKey', key);
               // Start job
-              let res = await fetch('/api/admin/daily-update?push=1&key=' + encodeURIComponent(key), {method:'POST'});
+              let res = await fetch(window.location.origin + '/api/admin/daily-update?push=1&key=' + encodeURIComponent(key), {method:'POST'});
               if(res.status===401){ alert('Unauthorized. Wrong key.'); return; }
               if(res.ok || res.status===202){
                 alert('Daily update started. A log panel will open.');
@@ -450,9 +450,15 @@
             w.document.write('<html><head><title>Daily Update – Status</title><style>body{font-family:system-ui;background:#0d1426;color:#f5f7ff;margin:0} .hdr{padding:8px 12px;border-bottom:1px solid #243356;background:#121b31} .logs{padding:12px;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:12px} button{background:#1b2339;border:1px solid #2a3a63;border-radius:6px;color:#e6edf7;padding:6px 10px;margin-right:8px;cursor:pointer}</style></head><body><div class="hdr"><button id="refresh">Refresh</button><span id="state">Loading…</span></div><div class="logs" id="logs"></div></body></html>');
             try { w.document.close(); } catch (e) { /* ignore */ }
 
+            // Base origin from opener to avoid about:blank relative URL issues
+            var baseOrigin = (function(){
+              try{ return (window.opener && window.opener.location && window.opener.location.origin) ? window.opener.location.origin : window.location.origin; }catch(e){ return window.location.origin; }
+            })();
+
             async function refresh(){
               try{
-                let res = await fetch('/api/admin/daily-update/status?tail=400&key='+ encodeURIComponent(key));
+                let url = baseOrigin + '/api/admin/daily-update/status?tail=400&key='+ encodeURIComponent(key);
+                let res = await fetch(url);
                 var stateEl = w.document.getElementById('state');
                 var logsEl = w.document.getElementById('logs');
                 if(!stateEl || !logsEl){ setTimeout(refresh, 500); return; }
