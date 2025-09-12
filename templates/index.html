@@ -448,21 +448,36 @@
             var w = window.open('', 'du_status', 'width=720,height=540');
             if(!w){ alert('Allow pop-ups to view status.'); return; }
             w.document.write('<html><head><title>Daily Update – Status</title><style>body{font-family:system-ui;background:#0d1426;color:#f5f7ff;margin:0} .hdr{padding:8px 12px;border-bottom:1px solid #243356;background:#121b31} .logs{padding:12px;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:12px} button{background:#1b2339;border:1px solid #2a3a63;border-radius:6px;color:#e6edf7;padding:6px 10px;margin-right:8px;cursor:pointer}</style></head><body><div class="hdr"><button id="refresh">Refresh</button><span id="state">Loading…</span></div><div class="logs" id="logs"></div></body></html>');
+            try { w.document.close(); } catch (e) { /* ignore */ }
+
             async function refresh(){
               try{
                 let res = await fetch('/api/admin/daily-update/status?tail=400&key='+ encodeURIComponent(key));
-                if(res.status===401){ w.document.getElementById('state').textContent = 'Unauthorized'; return; }
+                var stateEl = w.document.getElementById('state');
+                var logsEl = w.document.getElementById('logs');
+                if(!stateEl || !logsEl){ setTimeout(refresh, 500); return; }
+                if(res.status===401){ stateEl.textContent = 'Unauthorized (bad or missing admin key)'; return; }
+                if(!res.ok){ stateEl.textContent = 'Error '+res.status+': '+(await res.text()).slice(0,200); setTimeout(refresh, 3000); return; }
                 let j = await res.json();
-                w.document.getElementById('state').textContent = (j.running? 'Running' : (j.ok===true?'OK': j.ok===false?'Failed':'Idle')) + (j.started_at? ' • started '+ j.started_at: '') + (j.ended_at? ' • ended '+ j.ended_at : '');
-                w.document.getElementById('logs').textContent = (j.logs||[]).join('\n');
+                stateEl.textContent = (j.running? 'Running' : (j.ok===true?'OK': j.ok===false?'Failed':'Idle')) + (j.started_at? ' • started '+ j.started_at: '') + (j.ended_at? ' • ended '+ j.ended_at : '');
+                logsEl.textContent = (j.logs||[]).join('\n');
                 // Auto-poll while running
                 if(j.running){ setTimeout(refresh, 2500); }
-              }catch(e){ /* no-op */ }
+              }catch(e){
+                try{ w.document.getElementById('state').textContent = 'Error fetching status; retrying…'; }catch(_){/*no-op*/}
+                setTimeout(refresh, 3000);
+              }
             }
-            w.addEventListener('load', function(){
-              w.document.getElementById('refresh').addEventListener('click', refresh);
-              refresh();
-            });
+
+            // Initialize immediately when DOM is ready in the popup
+            (function init(){
+              try{
+                var btn = w.document.getElementById('refresh');
+                if(!btn){ setTimeout(init, 100); return; }
+                btn.addEventListener('click', refresh);
+                refresh();
+              }catch(e){ setTimeout(init, 150); }
+            })();
           }
         }
       } catch (e) { /* no-op */ }
