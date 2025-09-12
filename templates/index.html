@@ -110,7 +110,15 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
+  <div id="adminPanel" style="display:none;border:1px solid var(--button-br);background:var(--card2);border-radius:10px;padding:10px;margin:10px 0;">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+      <label style="font-size:12px;color:var(--muted)">Key: <input id="adminKeyInput" type="password" style="width:200px;padding:4px 6px;border-radius:6px;background:var(--input-bg);border:1px solid var(--input-br);color:var(--text)" placeholder="ADMIN_KEY" /></label>
+      <button id="adminStart" class="theme-toggle" style="padding:6px 10px;">Start Update</button>
+      <span id="adminState" style="font-size:12px;color:var(--muted)">Idle</span>
+    </div>
+    <pre id="adminLogs" style="max-height:260px;overflow:auto;margin:0;background:var(--chip);border:1px solid var(--chip-br);border-radius:8px;padding:8px;color:var(--text);"></pre>
+  </div>
     <h1>NFL Betting – Cards</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
     <form class="filters" method="get" action="/">
@@ -423,7 +431,7 @@
         }
 
         // Admin: run daily update button (prompts for key)
-        var adminBtn = document.getElementById('adminRunDU');
+    var adminBtn = document.getElementById('adminRunDU');
         if (adminBtn){
           adminBtn.addEventListener('click', async function(){
             try{
@@ -431,7 +439,7 @@
               if(!key){ return; }
               localStorage.setItem('adminKey', key);
               // Start job
-              let res = await fetch(window.location.origin + '/api/admin/daily-update?push=1&key=' + encodeURIComponent(key), {method:'POST'});
+      let res = await fetch(window.location.origin + '/api/admin/daily-update?push=1&key=' + encodeURIComponent(key), {method:'POST'});
               if(res.status===401){ alert('Unauthorized. Wrong key.'); return; }
               if(res.ok || res.status===202){
                 alert('Daily update started. A log panel will open.');
@@ -486,6 +494,53 @@
             })();
           }
         }
+
+        // Inline admin panel
+        (function(){
+          var panelBtn = document.getElementById('adminToggle');
+          var panel = document.getElementById('adminPanel');
+          var keyInput = document.getElementById('adminKeyInput');
+          var startBtn = document.getElementById('adminStart');
+          var stateEl = document.getElementById('adminState');
+          var logsEl = document.getElementById('adminLogs');
+          var polling = false;
+          function getKey(){
+            var v = keyInput.value || localStorage.getItem('adminKey') || '';
+            if(!keyInput.value && v){ keyInput.value = v; }
+            return v;
+          }
+          async function poll(){
+            if(!panel || panel.style.display==='none'){ polling=false; return; }
+            try{
+              var key = getKey();
+              if(!key){ stateEl.textContent = 'Enter ADMIN_KEY to view status'; setTimeout(poll, 3000); return; }
+              var res = await fetch('/api/admin/daily-update/status?tail=400&key='+ encodeURIComponent(key));
+              if(res.status===401){ stateEl.textContent = 'Unauthorized (bad or missing key)'; setTimeout(poll, 3000); return; }
+              if(!res.ok){ stateEl.textContent = 'Error '+res.status; setTimeout(poll, 3000); return; }
+              var j = await res.json();
+              stateEl.textContent = (j.running? 'Running' : (j.ok===true?'OK': j.ok===false?'Failed':'Idle')) + (j.started_at? ' • started '+ j.started_at: '') + (j.ended_at? ' • ended '+ j.ended_at : '');
+              logsEl.textContent = (j.logs||[]).join('\n');
+              if(j.running){ setTimeout(poll, 2500); } else { setTimeout(poll, 5000); }
+            }catch(e){ stateEl.textContent = 'Network error; retrying…'; setTimeout(poll, 3000); }
+          }
+          if(panelBtn){
+            panelBtn.addEventListener('click', function(){
+              var open = panel.style.display !== 'none';
+              panel.style.display = open ? 'none' : 'block';
+              if(!open && !polling){ polling = true; setTimeout(poll, 200); }
+            });
+          }
+          if(startBtn){
+            startBtn.addEventListener('click', async function(){
+              var key = getKey();
+              if(!key){ alert('Enter ADMIN_KEY first.'); return; }
+              localStorage.setItem('adminKey', key);
+              var res = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key), {method:'POST'});
+              if(res.status===401){ alert('Unauthorized. Wrong key.'); return; }
+              if(res.ok || res.status===202){ stateEl.textContent = 'Started…'; poll(); } else { alert('Failed to start'); }
+            });
+          }
+        })();
       } catch (e) { /* no-op */ }
     })();
   </script>
