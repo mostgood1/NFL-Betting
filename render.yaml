@@ -6,11 +6,11 @@ services:
     buildCommand: |
       python --version
       pip install --upgrade pip setuptools wheel
-  # Install full app dependencies so server-side updates can run models
-  pip install -r requirements.txt
+      # Install full app dependencies so server-side updates can run models
+      pip install -r requirements.txt
     startCommand: bash start.sh
     autoDeploy: true
-  # Optional: configure a health check in the Render UI to GET /health
+    # Optional: configure a health check in the Render UI to GET /health
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
