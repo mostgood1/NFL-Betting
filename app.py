@@ -163,7 +163,7 @@ def _daily_update_job(do_push: bool) -> None:
         _job_state['ended_at'] = datetime.utcnow().isoformat()
 
 
-@app.route('/api/admin/daily-update', methods=['POST'])
+@app.route('/api/admin/daily-update', methods=['POST','GET'])
 def api_admin_daily_update():
     if not _admin_auth_ok(request):
         return jsonify({'error': 'unauthorized'}), 401
@@ -188,6 +188,13 @@ def api_admin_daily_status():
         'ok': _job_state['ok'],
         'logs': logs,
     })
+
+
+@app.route('/api/admin/ping', methods=['GET'])
+def api_admin_ping():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    return jsonify({'status': 'ok'}), 200
 
 
 

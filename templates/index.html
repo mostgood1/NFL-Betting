@@ -535,9 +535,16 @@
               var key = getKey();
               if(!key){ alert('Enter ADMIN_KEY first.'); return; }
               localStorage.setItem('adminKey', key);
-              var res = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key), {method:'POST'});
-              if(res.status===401){ alert('Unauthorized. Wrong key.'); return; }
-              if(res.ok || res.status===202){ stateEl.textContent = 'Started…'; poll(); } else { alert('Failed to start'); }
+              try{
+                stateEl.textContent = 'Starting…';
+                var res = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key), {method:'POST'});
+                if(res.status===401){ stateEl.textContent = 'Unauthorized (bad key)'; return; }
+                if(res.ok || res.status===202){ stateEl.textContent = 'Started…'; poll(); return; }
+                // fallback to GET in case some environments block POST
+                var res2 = await fetch('/api/admin/daily-update?push=1&key='+ encodeURIComponent(key));
+                if(res2.ok || res2.status===202){ stateEl.textContent = 'Started…'; poll(); return; }
+                stateEl.textContent = 'Failed to start ('+ res.status +')';
+              }catch(e){ stateEl.textContent = 'Network error starting job'; }
             });
           }
         })();
