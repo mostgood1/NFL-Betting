@@ -6,7 +6,8 @@ services:
     buildCommand: |
       python --version
       pip install --upgrade pip setuptools wheel
-      pip install -r requirements-web.txt
+  # Install full app dependencies so server-side updates can run models
+  pip install -r requirements.txt
     startCommand: bash start.sh
     autoDeploy: true
     envVars:
