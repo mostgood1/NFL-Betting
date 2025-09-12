@@ -53,10 +53,19 @@ def _admin_auth_ok(req) -> bool:
 def _append_log(line: str) -> None:
     try:
         ts = datetime.utcnow().isoformat(timespec='seconds')
-        _job_state['logs'].append(f"[{ts}] {line.rstrip()}")
+        msg = f"[{ts}] {line.rstrip()}"
+        _job_state['logs'].append(msg)
         # cap size
         if len(_job_state['logs']) > 1000:
             del _job_state['logs'][:-500]
+        # also mirror into the run's file log if available so UI tail shows admin messages
+        try:
+            lf = _job_state.get('log_file')
+            if lf:
+                with open(lf, 'a', encoding='utf-8', errors='ignore') as f:
+                    f.write(msg + "\n")
+        except Exception:
+            pass
     except Exception:
         pass
 
@@ -217,8 +226,10 @@ def api_admin_daily_status():
             from pathlib import Path as _P
             file_tail = _tail_file(_P(lf), tail)
             if file_tail:
-                # Prefer file tail if present; otherwise show in-memory notes
-                log_lines = file_tail
+                # Merge: file tail first (from updater), then any recent admin messages
+                merged = file_tail + [ln for ln in log_lines if ln not in file_tail]
+                # Keep only the last N lines to avoid growth
+                log_lines = merged[-tail:]
     except Exception:
         pass
     return jsonify({
