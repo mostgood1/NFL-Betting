@@ -120,6 +120,12 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
     Requires env ADMIN_KEY for route access and optionally GITHUB_TOKEN or GH_PAT.
     """
     try:
+        # Load secrets from files if available (supports *_FILE and common mounts)
+        try:
+            from nfl_compare.src.config import load_env as _load_env  # lazy import
+            _load_env()
+        except Exception:
+            pass
         # Ensure git user
         _ = subprocess.run(['git', 'config', 'user.email'], capture_output=True, text=True)
         if _.returncode != 0 or not _.stdout.strip():
@@ -156,11 +162,18 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
             # Insert token; prefer x-access-token for GitHub Apps tokens; PAT also works
             push_url_auth = push_url.replace('https://', f"https://x-access-token:{token}@")
         else:
+            # If no token and URL is GitHub HTTPS without embedded creds, return a clear error
+            if (not token) and push_url.startswith('https://') and 'github.com' in push_url and ('@' not in push_url):
+                return False, (
+                    "No GitHub token configured. Set GITHUB_TOKEN (or GH_PAT / RENDER_GIT_TOKEN) "
+                    "and optionally GIT_REMOTE_URL to your repo HTTPS URL."
+                )
             push_url_auth = push_url
 
         ps = subprocess.run(['git', 'push', push_url_auth, 'HEAD:master'], capture_output=True, text=True)
         if ps.returncode != 0:
-            return False, f"git push failed: {ps.stderr.strip()}"
+            err = (ps.stderr or ps.stdout).strip()
+            return False, f"git push failed: {err}"
         return True, 'Pushed successfully.'
     except Exception as e:
         return False, f"git push exception: {e}"
