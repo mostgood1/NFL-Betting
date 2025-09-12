@@ -25,6 +25,9 @@ nfl_compare/data/*.json
 nfl_compare/models/
 logs/
 
+# Allow committing the trained model artifact for deployment
+!nfl_compare/models/nfl_models.joblib
+
 # Keep essential seed data in git for Render runtime
 !nfl_compare/data/predictions.csv
 !nfl_compare/data/predictions_week.csv
