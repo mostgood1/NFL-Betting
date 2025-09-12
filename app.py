@@ -37,7 +37,8 @@ _job_state = {
     'started_at': None,
     'ended_at': None,
     'ok': None,
-    'logs': []  # list[str]
+    'logs': [],  # list[str] (lightweight annotations from the web process)
+    'log_file': None,  # full path to updater log file (str)
 }
 
 
@@ -59,29 +60,50 @@ def _append_log(line: str) -> None:
     except Exception:
         pass
 
+def _ensure_logs_dir() -> Path:
+    p = BASE_DIR / 'logs'
+    try:
+        p.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        pass
+    return p
 
-def _run_stream(cmd: list[str] | str, cwd: Path | None = None, env: dict | None = None) -> int:
+
+def _tail_file(fp: Path, max_lines: int = 200) -> list[str]:
+    try:
+        if not fp.exists():
+            return []
+        # Simple tail: read and slice last N lines; files are small
+        with fp.open('r', encoding='utf-8', errors='ignore') as f:
+            lines = f.readlines()
+        return [ln.rstrip('\n') for ln in lines[-max_lines:]]
+    except Exception:
+        return []
+
+
+def _run_to_file(cmd: list[str] | str, log_fp: Path, cwd: Path | None = None, env: dict | None = None) -> int:
     if isinstance(cmd, list):
         popen_cmd = cmd
     else:
         popen_cmd = shlex.split(cmd)
-    proc = subprocess.Popen(
-        popen_cmd,
-        cwd=str(cwd) if cwd else None,
-        env={**os.environ, **(env or {})},
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        bufsize=1,
-        universal_newlines=True,
-    )
-    try:
-        assert proc.stdout is not None
-        for line in proc.stdout:
-            _append_log(line)
-    finally:
+    # Open file for append to capture output without blocking the web worker
+    with log_fp.open('a', encoding='utf-8', errors='ignore') as out:
+        out.write(f"[{datetime.utcnow().isoformat(timespec='seconds')}] Starting: {' '.join(popen_cmd)}\n")
+        out.flush()
+        proc = subprocess.Popen(
+            popen_cmd,
+            cwd=str(cwd) if cwd else None,
+            env={**os.environ, **(env or {})},
+            stdout=out,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            universal_newlines=True,
+        )
         proc.wait()
-    return int(proc.returncode or 0)
+        out.write(f"[{datetime.utcnow().isoformat(timespec='seconds')}] Exited with code {proc.returncode}\n")
+        out.flush()
+        return int(proc.returncode or 0)
 
 
 def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
@@ -141,11 +163,16 @@ def _daily_update_job(do_push: bool) -> None:
     _job_state['ended_at'] = None
     _job_state['ok'] = None
     _job_state['logs'] = []
+    # Prepare log file for this run
+    logs_dir = _ensure_logs_dir()
+    stamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+    log_file = logs_dir / f"web_daily_update_{stamp}.log"
+    _job_state['log_file'] = str(log_file)
     try:
         _append_log('Starting daily update...')
         # Prefer light behavior on Render
         env = {'RENDER': os.environ.get('RENDER', 'true')}
-        rc = _run_stream([sys.executable, '-m', 'nfl_compare.src.daily_updater'], cwd=BASE_DIR, env=env)
+        rc = _run_to_file([sys.executable, '-m', 'nfl_compare.src.daily_updater'], log_file, cwd=BASE_DIR, env=env)
         _append_log(f'daily_updater exited with code {rc}')
         ok = (rc == 0)
         if ok and do_push:
@@ -180,13 +207,25 @@ def api_admin_daily_status():
     if not _admin_auth_ok(request):
         return jsonify({'error': 'unauthorized'}), 401
     tail = int(request.args.get('tail', '200'))
-    logs = _job_state['logs'][-tail:]
+    # Combine lightweight web logs with tail of the updater file
+    log_lines = list(_job_state['logs'][-tail:])
+    try:
+        lf = _job_state.get('log_file')
+        if lf:
+            from pathlib import Path as _P
+            file_tail = _tail_file(_P(lf), tail)
+            if file_tail:
+                # Prefer file tail if present; otherwise show in-memory notes
+                log_lines = file_tail
+    except Exception:
+        pass
     return jsonify({
         'running': _job_state['running'],
         'started_at': _job_state['started_at'],
         'ended_at': _job_state['ended_at'],
         'ok': _job_state['ok'],
-        'logs': logs,
+        'logs': log_lines,
+        'log_file': _job_state.get('log_file'),
     })
 
 
