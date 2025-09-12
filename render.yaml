@@ -20,3 +20,14 @@ services:
         value: "1"
       - key: DISABLE_JSON_ODDS
         value: "1"
+      # Admin endpoints: set a strong key to allow triggering daily updates from UI
+      - key: ADMIN_KEY
+        sync: false
+      # Optional: token for pushing commits back to GitHub (Render supports repo connection; otherwise provide token)
+      - key: GITHUB_TOKEN
+        sync: false
+      # Optional: Author identity for commit metadata
+      - key: GIT_AUTHOR_NAME
+        value: "Render Bot"
+      - key: GIT_AUTHOR_EMAIL
+        value: "render-bot@example.com"

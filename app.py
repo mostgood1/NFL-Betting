@@ -13,6 +13,10 @@ import json
 import math
 import traceback
 from joblib import load as joblib_load
+import threading
+import time
+from datetime import datetime
+import shlex
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -25,6 +29,166 @@ STADIUM_META_FILE = DATA_DIR / "stadium_meta.csv"
 LOCATION_OVERRIDES_FILE = DATA_DIR / "game_location_overrides.csv"
 
 app = Flask(__name__)
+
+
+# --- Admin job state (in-memory) ---
+_job_state = {
+    'running': False,
+    'started_at': None,
+    'ended_at': None,
+    'ok': None,
+    'logs': []  # list[str]
+}
+
+
+def _admin_auth_ok(req) -> bool:
+    key = os.environ.get('ADMIN_KEY') or os.environ.get('ADMIN_TOKEN')
+    if not key:
+        return False
+    sent = req.args.get('key') or req.headers.get('X-Admin-Key') or req.headers.get('Authorization', '').replace('Bearer ', '')
+    return bool(sent) and (sent == key)
+
+
+def _append_log(line: str) -> None:
+    try:
+        ts = datetime.utcnow().isoformat(timespec='seconds')
+        _job_state['logs'].append(f"[{ts}] {line.rstrip()}")
+        # cap size
+        if len(_job_state['logs']) > 1000:
+            del _job_state['logs'][:-500]
+    except Exception:
+        pass
+
+
+def _run_stream(cmd: list[str] | str, cwd: Path | None = None, env: dict | None = None) -> int:
+    if isinstance(cmd, list):
+        popen_cmd = cmd
+    else:
+        popen_cmd = shlex.split(cmd)
+    proc = subprocess.Popen(
+        popen_cmd,
+        cwd=str(cwd) if cwd else None,
+        env={**os.environ, **(env or {})},
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1,
+        universal_newlines=True,
+    )
+    try:
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            _append_log(line)
+    finally:
+        proc.wait()
+    return int(proc.returncode or 0)
+
+
+def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
+    """Commit any changes and push to origin using a token if provided.
+    Requires env ADMIN_KEY for route access and optionally GITHUB_TOKEN or GH_PAT.
+    """
+    try:
+        # Ensure git user
+        _ = subprocess.run(['git', 'config', 'user.email'], capture_output=True, text=True)
+        if _.returncode != 0 or not _.stdout.strip():
+            subprocess.run(['git', 'config', 'user.email', os.environ.get('GIT_AUTHOR_EMAIL', 'render-bot@example.com')], check=False)
+        _ = subprocess.run(['git', 'config', 'user.name'], capture_output=True, text=True)
+        if _.returncode != 0 or not _.stdout.strip():
+            subprocess.run(['git', 'config', 'user.name', os.environ.get('GIT_AUTHOR_NAME', 'Render Bot')], check=False)
+
+        # Stage only data/model artifacts by default to reduce risk
+        add = subprocess.run(['git', 'add', '-A'], capture_output=True, text=True)
+        if add.returncode != 0:
+            return False, f"git add failed: {add.stderr.strip()}"
+
+        # Skip empty commit
+        diff = subprocess.run(['git', 'diff', '--cached', '--quiet'], capture_output=True)
+        if diff.returncode == 0:
+            return True, 'No changes to commit.'
+
+        cm = subprocess.run(['git', 'commit', '-m', commit_message], capture_output=True, text=True)
+        if cm.returncode != 0:
+            return False, f"git commit failed: {cm.stderr.strip()}"
+
+        # Determine push URL
+        # Prefer explicit GIT_REMOTE_URL; otherwise derive from origin
+        push_url = os.environ.get('GIT_REMOTE_URL', '').strip()
+        if not push_url:
+            ru = subprocess.run(['git', 'remote', 'get-url', 'origin'], capture_output=True, text=True)
+            if ru.returncode != 0:
+                return False, f"git remote get-url failed: {ru.stderr.strip()}"
+            push_url = ru.stdout.strip()
+
+        token = os.environ.get('GITHUB_TOKEN') or os.environ.get('GH_PAT') or os.environ.get('RENDER_GIT_TOKEN')
+        if token and push_url.startswith('https://') and 'github.com' in push_url:
+            # Insert token; prefer x-access-token for GitHub Apps tokens; PAT also works
+            push_url_auth = push_url.replace('https://', f"https://x-access-token:{token}@")
+        else:
+            push_url_auth = push_url
+
+        ps = subprocess.run(['git', 'push', push_url_auth, 'HEAD:master'], capture_output=True, text=True)
+        if ps.returncode != 0:
+            return False, f"git push failed: {ps.stderr.strip()}"
+        return True, 'Pushed successfully.'
+    except Exception as e:
+        return False, f"git push exception: {e}"
+
+
+def _daily_update_job(do_push: bool) -> None:
+    _job_state['running'] = True
+    _job_state['started_at'] = datetime.utcnow().isoformat()
+    _job_state['ended_at'] = None
+    _job_state['ok'] = None
+    _job_state['logs'] = []
+    try:
+        _append_log('Starting daily update...')
+        # Prefer light behavior on Render
+        env = {'RENDER': os.environ.get('RENDER', 'true')}
+        rc = _run_stream([sys.executable, '-m', 'nfl_compare.src.daily_updater'], cwd=BASE_DIR, env=env)
+        _append_log(f'daily_updater exited with code {rc}')
+        ok = (rc == 0)
+        if ok and do_push:
+            _append_log('Committing and pushing changes to Git...')
+            ts = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%SZ')
+            ok2, msg = _git_commit_and_push(f'chore(data): web-triggered daily update {ts}')
+            _append_log(msg)
+            ok = ok and ok2
+        _job_state['ok'] = ok
+    except Exception as e:
+        _append_log(f'Exception: {e}')
+        _job_state['ok'] = False
+    finally:
+        _job_state['running'] = False
+        _job_state['ended_at'] = datetime.utcnow().isoformat()
+
+
+@app.route('/api/admin/daily-update', methods=['POST'])
+def api_admin_daily_update():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    if _job_state['running']:
+        return jsonify({'status': 'already-running', 'started_at': _job_state['started_at']}), 409
+    do_push = (request.args.get('push', '1') in ('1','true','yes'))
+    t = threading.Thread(target=_daily_update_job, args=(do_push,), daemon=True)
+    t.start()
+    return jsonify({'status': 'started', 'push': do_push, 'started_at': datetime.utcnow().isoformat()}), 202
+
+
+@app.route('/api/admin/daily-update/status', methods=['GET'])
+def api_admin_daily_status():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    tail = int(request.args.get('tail', '200'))
+    logs = _job_state['logs'][-tail:]
+    return jsonify({
+        'running': _job_state['running'],
+        'started_at': _job_state['started_at'],
+        'ended_at': _job_state['ended_at'],
+        'ok': _job_state['ok'],
+        'logs': logs,
+    })
+
 
 
 def _load_predictions() -> pd.DataFrame:
