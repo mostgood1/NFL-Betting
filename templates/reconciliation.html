@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Props Reconciliation</title>
+  <style>
+    :root{ --bg:#080d1a; --text:#f5f7ff; --muted:#c3cee4; --link:#b8d1ff; --input-bg:#121b31; --input-br:#243356; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7; --row1:#0f1629; --row2:#121b31; --th:#0f1629; --table-br:#243356; }
+    body.light{ --bg:#ffffff; --text:#0a0f1c; --muted:#475569; --link:#1e40af; --input-bg:#ffffff; --input-br:#94a3b8; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c; --row1:#f8fafc; --row2:#eef2f7; --th:#e2e8f0; --table-br:#cbd5e1; }
+    body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0; background:var(--bg); color:var(--text); }
+    .container{ max-width: 1200px; margin: 32px auto; padding: 0 16px; }
+    h1{ font-size: 22px; margin: 0 0 16px; }
+    .nav a { color: var(--link); text-decoration: none; margin-right: 10px; }
+    .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .meta{ color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .filters{ display:flex; gap:8px; align-items:center; margin:12px 0 16px; flex-wrap:wrap; }
+    .filters input, .filters select { background: var(--input-bg); border: 1px solid var(--input-br); color: var(--text); padding: 6px 8px; border-radius: 6px; }
+    .filters button, .filters a.btn { background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-br); border-radius: 6px; padding: 6px 10px; cursor:pointer; text-decoration:none; }
+    table{ width:100%; border-collapse:collapse; font-size: 13px; }
+    th,td{ border:1px solid var(--table-br); padding:6px 8px; text-align:left; }
+    th{ background:var(--th); position:sticky; top:0; }
+    tr:nth-child(odd) td{ background:var(--row1); }
+    tr:nth-child(even) td{ background:var(--row2); }
+    .two-col{ display:grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+    @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr; } }
+  /* Over/Under error indicators */
+  .err-over { color: #ef4444; font-weight: 600; }
+  .err-under { color: #10b981; font-weight: 600; }
+  .err-even { color: var(--muted); }
+  .subtle { color: var(--muted); font-weight: 400; }
+  .group-hdr { white-space: nowrap; }
+  .sortable { cursor: pointer; }
+  .sort-ico { color: var(--muted); font-weight: 600; margin-left: 4px; }
+  </style>
+  <script>
+    function initTheme(){ try{ var body=document.body; var saved=localStorage.getItem('theme'); if(saved==='light'){ body.classList.add('light'); }
+      var tbtn=document.getElementById('themeToggle'); if(tbtn){ tbtn.addEventListener('click', function(){ body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light')?'light':'dark'); }); } }catch(e){} }
+  let reconRows = [];
+  let sortCol = 'player'; let sortDir = 'asc';
+  let showMatch = false;
+    function sortBy(col){ if(sortCol===col){ sortDir = (sortDir==='asc'?'desc':'asc'); } else { sortCol = col; sortDir = 'asc'; } renderTable(); }
+    function cmpVals(a,b,key){ let useAbs=false; let k=key; if(typeof key==='string' && key.startsWith('abs|')){ useAbs=true; k=key.slice(4);} const av=a?.[k]; const bv=b?.[k]; const na=(typeof av==='number') || (typeof av==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(av).trim())); const nb=(typeof bv==='number') || (typeof bv==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(bv).trim())); if(na&&nb){ let va=(typeof av==='number')?av:parseFloat(av); let vb=(typeof bv==='number')?vb:parseFloat(bv); if(useAbs){ va=Math.abs(va); vb=Math.abs(vb);} return sortDir==='asc' ? (va-vb) : (vb-va);} const sa=String(av??''); const sb=String(bv??''); return sortDir==='asc' ? sa.localeCompare(sb) : sb.localeCompare(sa); }
+    function fmt(n){
+      if(n===null||n===undefined) return '';
+      // Numbers: always 2 decimals
+      if(typeof n === 'number' && Number.isFinite(n)){
+        let r = Math.round((n + Number.EPSILON) * 100) / 100;
+        if (Object.is(r, -0)) r = 0; // avoid -0
+        return r.toFixed(2);
+      }
+      // Numeric-looking strings
+      if(typeof n === 'string'){
+        const t = n.trim();
+        if(t === '') return '';
+        if(/^[-+]?\d+(?:\.\d+)?$/.test(t)){
+          let v = parseFloat(t);
+          if(Number.isFinite(v)){
+            v = Math.round((v + Number.EPSILON) * 100) / 100;
+            if (Object.is(v, -0)) v = 0;
+            return v.toFixed(2);
+          }
+        }
+        // Non-numeric strings preserved (player names, teams, etc.)
+        return n;
+      }
+      return String(n);
+    }
+    function updateSortIndicators(theadSelector, activeKey, dir){
+      try{
+        const thead=document.querySelector(theadSelector);
+        if(!thead) return;
+        // Remove existing indicators
+        thead.querySelectorAll('.sort-ico').forEach(el=>el.remove());
+        // Add to active key
+        const th = thead.querySelector(`th[data-sort-key="${CSS.escape(activeKey)}"]`);
+        if(th){ const s=document.createElement('span'); s.className='sort-ico'; s.textContent = dir==='asc' ? '▲' : '▼'; th.appendChild(s); }
+      }catch(e){}
+    }
+    function renderTable(){
+      const tb = document.querySelector('#recon tbody');
+      const thead = document.querySelector('#recon thead');
+      tb.innerHTML='';
+      // sort rows by current sort key
+  const rows = reconRows.slice().sort((a,b)=> cmpVals(a,b,sortCol));
+      const code = (s)=>{ if(!s) return ''; const x=String(s); if(x.includes('player_id')) return 'ID'; if(x.includes('team_norm')&&x.includes('_name_norm_loose')) return 'TN+NL'; if(x.includes('team_norm')&&x.includes('_alias_init_last')) return 'TN+AL'; if(x.includes('_name_norm_loose')) return 'NL'; if(x.includes('_alias_init_last')) return 'AL'; if(x.includes('_name_norm')) return 'NM'; return 'Y'; };
+
+      // Determine column groups based on selected position
+      const posSel = (document.getElementById('position')?.value||'').toUpperCase();
+      const groupsAll = {
+        PASS: { label: 'Passing', metrics: ['pass_attempts','pass_yards','pass_tds','interceptions'] },
+        RUSH: { label: 'Rushing', metrics: ['rush_attempts','rush_yards','rush_tds'] },
+        REC:  { label: 'Receiving', metrics: ['targets','receptions','rec_yards','rec_tds'] }
+      };
+      const metricShort = (m)=>({
+        pass_attempts:'Att', pass_yards:'Yds', pass_tds:'TD', interceptions:'INT',
+        rush_attempts:'Att', rush_yards:'Yds', rush_tds:'TD',
+        targets:'Tgt', receptions:'Rec', rec_yards:'Yds', rec_tds:'TD'
+      }[m]||m);
+      let groupOrder;
+      if(posSel==='QB') groupOrder = ['PASS','RUSH'];
+      else if(posSel==='RB') groupOrder = ['RUSH','REC'];
+      else if(posSel==='WR' || posSel==='TE') groupOrder = ['REC','RUSH'];
+      else groupOrder = ['PASS','RUSH','REC']; // All positions -> show everything
+
+      // Build dynamic header
+      if(thead){ thead.innerHTML='';
+        const tr1=document.createElement('tr');
+  const teamTh=document.createElement('th'); teamTh.textContent='Team'; teamTh.className='sortable'; teamTh.dataset.sortKey='team'; teamTh.onclick=()=>sortBy('team'); tr1.appendChild(teamTh);
+  const playerTh=document.createElement('th'); playerTh.textContent='Player'; playerTh.className='sortable'; playerTh.dataset.sortKey='player'; playerTh.onclick=()=>sortBy('player'); tr1.appendChild(playerTh);
+  const posTh=document.createElement('th'); posTh.textContent='Pos'; posTh.className='sortable'; posTh.dataset.sortKey='position'; posTh.onclick=()=>sortBy('position'); tr1.appendChild(posTh);
+  if(showMatch){ const m=document.createElement('th'); m.textContent='Matched?'; m.className='sortable'; m.dataset.sortKey='match_strategy'; m.onclick=()=>sortBy('match_strategy'); tr1.appendChild(m); }
+        for(const g of groupOrder){ const gr=groupsAll[g]; const th=document.createElement('th'); th.className='group-hdr'; th.colSpan = gr.metrics.length * 3; th.textContent = gr.label; tr1.appendChild(th); }
+        thead.appendChild(tr1);
+        const tr2=document.createElement('tr');
+        // empty cells under base columns
+        const emptyCount = 3 + (showMatch?1:0);
+        for(let i=0;i<emptyCount;i++){ const th=document.createElement('th'); th.textContent=''; tr2.appendChild(th); }
+        for(const g of groupOrder){ const gr=groupsAll[g]; for(const m of gr.metrics){
+          const lbl = metricShort(m);
+          const thP=document.createElement('th'); thP.textContent=lbl+' Pred'; thP.className='sortable'; thP.dataset.sortKey=m; thP.onclick=(()=>{ const key=m; return ()=>sortBy(key); })(); tr2.appendChild(thP);
+          const thA=document.createElement('th'); thA.textContent=lbl+' Act'; thA.className='sortable'; thA.dataset.sortKey=m+'_act'; thA.onclick=(()=>{ const key=m+'_act'; return ()=>sortBy(key); })(); tr2.appendChild(thA);
+          const thE=document.createElement('th'); thE.textContent=lbl+' O/U'; thE.title='Sort by absolute error'; thE.className='sortable'; thE.dataset.sortKey='abs|'+m+'_err'; thE.onclick=(()=>{ const key='abs|'+m+'_err'; return ()=>sortBy(key); })(); tr2.appendChild(thE);
+        } }
+        thead.appendChild(tr2);
+        // decorate active sort indicator
+        updateSortIndicators('#recon thead', sortCol, sortDir);
+      }
+
+      // Build rows
+      for(const r of rows){ const tr=document.createElement('tr');
+        // base cols
+        for(const c of ['team','player','position']){ const td=document.createElement('td'); td.textContent = fmt(r[c]); tr.appendChild(td); }
+        if(showMatch){ const td=document.createElement('td'); td.textContent = code(r['match_strategy']); td.title = String(r['match_strategy']||''); tr.appendChild(td); }
+        // stat groups
+        for(const g of groupOrder){ const gr=groupsAll[g];
+          for(const m of gr.metrics){
+            const predKey = m;
+            const actKey = m + '_act';
+            const errKey = m + '_err';
+            // Pred
+            const tdp=document.createElement('td'); tdp.textContent = fmt(r[predKey]); tr.appendChild(tdp);
+            // Act
+            const tda=document.createElement('td'); tda.textContent = fmt(r[actKey]); tr.appendChild(tda);
+            // Over/Under indicator based on error sign
+            const tde=document.createElement('td');
+            const errVal = r[errKey];
+            let cls='err-even', label='='; // default
+            if(typeof errVal === 'number' && Number.isFinite(errVal)){
+              if(errVal > 0){ cls='err-over'; label='Over'; }
+              else if(errVal < 0){ cls='err-under'; label='Under'; }
+            } else if(typeof errVal === 'string' && /^[-+]?\d+(?:\.\d+)?$/.test(errVal.trim())){
+              const v=parseFloat(errVal); if(Number.isFinite(v)){ if(v>0){ cls='err-over'; label='Over'; } else if(v<0){ cls='err-under'; label='Under'; } }
+            }
+            const mag = (typeof r[errKey] === 'number') ? Math.abs(r[errKey]) : (typeof r[errKey] === 'string' ? Math.abs(parseFloat(r[errKey])||0) : 0);
+            const s=document.createElement('span'); s.className=cls; s.textContent = label;
+            const magSpan=document.createElement('span'); magSpan.className='subtle'; magSpan.textContent = ' (' + fmt(mag) + ')';
+            tde.title = 'Model vs actual';
+            tde.appendChild(s); tde.appendChild(magSpan);
+            tr.appendChild(tde);
+          }
+        }
+        tb.appendChild(tr);
+      }
+      const metaEl=document.getElementById('meta'); if(metaEl){ metaEl.textContent = rows.length + ' rows' + (showMatch ? ' (match indicator on)' : ''); }
+    }
+    async function fetchRecon(){ const season=document.getElementById('season').value; const week=document.getElementById('week').value; const pos=document.getElementById('position').value; const team=document.getElementById('team').value; const refresh=document.getElementById('refresh').checked;
+      if(!season||!week){ document.getElementById('meta').textContent='Enter season and week'; return; }
+      const p=new URLSearchParams({season, week}); if(pos) p.set('position', pos); if(team) p.set('team', team); if(refresh) p.set('refresh', '1');
+      document.getElementById('meta').textContent='Loading…';
+      try{ const res=await fetch('/api/player-props-reconciliation?'+p.toString()); const js=await res.json();
+        if(!res.ok){ document.getElementById('meta').textContent = (js && js.error) ? ('Error: '+js.error) : ('Error '+res.status); return; }
+  reconRows = js.data||[]; renderTable(); renderSummary(js.summary||[]);
+  const ch = res.headers.get('X-Recon-Cache'); const meta = document.getElementById('meta'); if(meta){ meta.textContent = `${reconRows.length} rows${ch?` • cache:${ch}`:''}`; }
+      }
+      catch(e){ document.getElementById('meta').textContent='Error'; }
+    }
+    let reconSummary=[]; let sumSortCol='position'; let sumSortDir='asc';
+    function sortSummaryBy(col){ if(sumSortCol===col){ sumSortDir=(sumSortDir==='asc'?'desc':'asc'); } else { sumSortCol=col; sumSortDir='asc'; } renderSummary(); }
+  function renderSummary(summary){
+      if(Array.isArray(summary) && summary.length){ reconSummary = summary; }
+      const data = (reconSummary||[]).slice();
+      const tb=document.querySelector('#summary tbody');
+      const thead=document.querySelector('#summary thead');
+      tb.innerHTML=''; if(!data||data.length===0){ if(thead) thead.innerHTML=''; return; }
+
+      const posSel = (document.getElementById('position')?.value||'').toUpperCase();
+      const groupsAll = {
+        PASS: { label: 'Passing', metrics: ['pass_attempts','pass_yards','pass_tds','interceptions'] },
+        RUSH: { label: 'Rushing', metrics: ['rush_attempts','rush_yards','rush_tds'] },
+        REC:  { label: 'Receiving', metrics: ['targets','receptions','rec_yards','rec_tds'] }
+      };
+      let groupOrder;
+      if(posSel==='QB') groupOrder = ['PASS','RUSH'];
+      else if(posSel==='RB') groupOrder = ['RUSH','REC'];
+      else if(posSel==='WR' || posSel==='TE') groupOrder = ['REC','RUSH'];
+      else groupOrder = ['PASS','RUSH','REC'];
+
+      // Build dynamic header
+      if(thead){ thead.innerHTML='';
+        const tr1=document.createElement('tr');
+        const thPos=document.createElement('th'); thPos.textContent='Pos'; thPos.className='sortable'; thPos.dataset.sortKey='position'; thPos.onclick=()=>sortSummaryBy('position'); tr1.appendChild(thPos);
+        const thN=document.createElement('th'); thN.textContent='n'; thN.className='sortable'; thN.dataset.sortKey='n'; thN.onclick=()=>sortSummaryBy('n'); tr1.appendChild(thN);
+        for(const g of groupOrder){ const gr=groupsAll[g]; const th=document.createElement('th'); th.colSpan = gr.metrics.length * 2; th.textContent = gr.label; tr1.appendChild(th); }
+        thead.appendChild(tr1);
+        const tr2=document.createElement('tr');
+        tr2.appendChild(document.createElement('th'));
+        tr2.appendChild(document.createElement('th'));
+        for(const g of groupOrder){ const gr=groupsAll[g]; for(const m of gr.metrics){
+          const lbl = metricShort(m);
+          const thMae=document.createElement('th'); thMae.textContent=lbl+' MAE'; thMae.className='sortable'; thMae.dataset.sortKey=m+'_MAE'; thMae.onclick=(()=>{ const key=m+'_MAE'; return ()=>sortSummaryBy(key); })(); tr2.appendChild(thMae);
+          const thBias=document.createElement('th'); thBias.textContent=lbl+' Bias'; thBias.className='sortable'; thBias.dataset.sortKey=m+'_bias'; thBias.onclick=(()=>{ const key=m+'_bias'; return ()=>sortSummaryBy(key); })(); tr2.appendChild(thBias);
+        } }
+        thead.appendChild(tr2);
+        // decorate active sort indicator
+        updateSortIndicators('#summary thead', sumSortCol, sumSortDir);
+      }
+      // Sort data
+      data.sort((a,b)=>{
+        const av=a?.[sumSortCol]; const bv=b?.[sumSortCol];
+        const na=(typeof av==='number') || (typeof av==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(av).trim()));
+        const nb=(typeof bv==='number') || (typeof bv==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(bv).trim()));
+        if(na&&nb){ const va=(typeof av==='number')?av:parseFloat(av); const vb=(typeof bv==='number')?bv:parseFloat(bv); return sumSortDir==='asc' ? (va-vb) : (vb-va); }
+        const sa=String(av??''); const sb=String(bv??''); return sumSortDir==='asc' ? sa.localeCompare(sb) : sb.localeCompare(sa);
+      });
+      // Rows
+      for(const r of data){ const tr=document.createElement('tr');
+        const tdPos=document.createElement('td'); tdPos.textContent = fmt(r['position']); tr.appendChild(tdPos);
+        const tdN=document.createElement('td'); tdN.textContent = fmt(r['n']); tr.appendChild(tdN);
+        for(const g of groupOrder){ const gr=groupsAll[g]; for(const m of gr.metrics){ const tdMae=document.createElement('td'); tdMae.textContent = fmt(r[`${m}_MAE`]); tr.appendChild(tdMae); const tdBias=document.createElement('td'); tdBias.textContent = fmt(r[`${m}_bias`]); tr.appendChild(tdBias); } }
+        tb.appendChild(tr);
+      }
+    }
+  async function initDefaults(){
+      try{
+        // If query params provided, use them; else infer current and set prior week
+        const qs = new URLSearchParams(window.location.search);
+        const qsSeason = qs.get('season');
+        const qsWeek = qs.get('week');
+        const sEl = document.getElementById('season');
+        const wEl = document.getElementById('week');
+        if(qsSeason){ sEl.value = qsSeason; }
+        if(qsWeek){ wEl.value = qsWeek; }
+        const res = await fetch('/api/player-props');
+        const js = await res.json();
+        if(js && js.season && js.week){
+          const prevWeek = Math.max(1, (parseInt(js.week,10)||1) - 1);
+          if(!sEl.value){ sEl.value = js.season; }
+          if(!wEl.value){ wEl.value = prevWeek; }
+          // Also set Props nav link to current week
+          try{ const pl=document.getElementById('navProps'); if(pl){ pl.href = `/props?season=${encodeURIComponent(js.season)}&week=${encodeURIComponent(js.week)}`; } }catch(e){}
+          if(sEl.value && wEl.value){ fetchRecon(); }
+        }
+      } catch(e){}
+    }
+    window.addEventListener('DOMContentLoaded', ()=>{ initTheme(); initDefaults();
+      try{ document.querySelectorAll('.filters input, .filters select').forEach(el=>{
+        el.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter'){ ev.preventDefault(); fetchRecon(); } });
+      }); }catch(e){}
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recs</a> | <a id="navProps" href="/props">Props</a> | <a href="/reconciliation">Reconciliation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+    <h1>Props Reconciliation</h1>
+    <div class="filters">
+      <label>Season <input id="season" type="number" placeholder="2025" /></label>
+      <label>Week <input id="week" type="number" placeholder="1" /></label>
+      <label>Position
+        <select id="position">
+          <option value="">All</option>
+          <option>QB</option>
+          <option>RB</option>
+          <option>WR</option>
+          <option>TE</option>
+        </select>
+      </label>
+  <label>Team <input id="team" placeholder="KC" /></label>
+  <label><input id="showMatch" type="checkbox" onchange="showMatch=this.checked; renderTable();" /> Show match indicator</label>
+  <label><input id="refresh" type="checkbox" /> Refresh</label>
+  <button type="button" onclick="fetchRecon()">Load</button>
+  <a class="btn" href="#" onclick="(function(){ const s=document.getElementById('season').value; const w=document.getElementById('week').value; if(!s||!w){return false;} const pos=document.getElementById('position').value; const team=document.getElementById('team').value; const rf=document.getElementById('refresh').checked; const p=new URLSearchParams({season:s,week:w}); if(pos) p.set('position', pos); if(team) p.set('team', team); if(rf) p.set('refresh', '1'); window.location.href='/api/player-props-reconciliation.csv?'+p.toString(); return false; })(); return false;">Download CSV</a>
+    </div>
+
+    <div class="two-col">
+      <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
+        <div class="meta" id="meta"></div>
+        <table id="recon">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+        <div class="meta" style="margin:6px 8px 12px 8px;">
+          <strong>Match codes:</strong>
+          <span title="Merged on existing player_id">ID</span>,
+          <span title="team_norm & _name_norm_loose">TN+NL</span>,
+          <span title="team_norm & _alias_init_last">TN+AL</span>,
+          <span title="_name_norm_loose">NL</span>,
+          <span title="_alias_init_last">AL</span>,
+          <span title="_name_norm">NM</span>
+          <br/>
+          <strong>O/U:</strong>
+          <span class="err-over">Over</span> model higher than actual;
+          <span class="err-under">Under</span> model lower than actual;
+          <span class="err-even">=</span> exact match; value shows absolute delta.
+        </div>
+      </div>
+      <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
+        <h3 style="margin:8px">Summary (MAE & bias)</h3>
+        <table id="summary">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

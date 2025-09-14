@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFL Player Props</title>
+  <style>
+    :root{
+      --bg:#080d1a; --text:#f5f7ff; --muted:#c3cee4; --link:#b8d1ff;
+      --input-bg:#121b31; --input-br:#243356; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7;
+      --row1:#0f1629; --row2:#121b31; --th:#0f1629; --table-br:#243356;
+    }
+    body.light{
+      --bg:#ffffff; --text:#0a0f1c; --muted:#475569; --link:#1e40af;
+      --input-bg:#ffffff; --input-br:#94a3b8; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c;
+      --row1:#f8fafc; --row2:#eef2f7; --th:#e2e8f0; --table-br:#cbd5e1;
+    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
+    .container { max-width: 1200px; margin: 32px auto; padding: 0 16px; }
+    h1 { font-size: 22px; margin: 0 0 16px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid var(--table-br); padding: 6px 8px; text-align: left; }
+  th { background: var(--th); position: sticky; top: 0; }
+    tr:nth-child(odd) td { background: var(--row1); }
+    tr:nth-child(even) td { background: var(--row2); }
+    .filters { display: flex; gap: 8px; align-items: center; margin: 12px 0 16px; flex-wrap: wrap; }
+    .filters input, .filters select { background: var(--input-bg); border: 1px solid var(--input-br); color: var(--text); padding: 6px 8px; border-radius: 6px; }
+    .filters button, .filters a.btn { background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-br); border-radius: 6px; padding: 6px 10px; cursor: pointer; text-decoration: none; }
+    .nav { margin-bottom: 10px; }
+    .nav a { color: var(--link); text-decoration: none; margin-right: 10px; }
+    .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .group-hdr { white-space: nowrap; }
+    .sortable { cursor: pointer; }
+    .sort-ico { color: var(--muted); font-weight: 600; margin-left: 4px; }
+    .subtle { color: var(--muted); font-weight: 400; }
+  </style>
+  <script>
+  let currentData = [];
+  let sortCol = 'player';
+  let sortDir = 'asc';
+  function sortBy(col){ if(sortCol===col){ sortDir=(sortDir==='asc'?'desc':'asc'); } else { sortCol=col; sortDir='asc'; } renderTable(); }
+  function cmpVals(a,b,key){ const av=a?.[key]; const bv=b?.[key]; const na=(typeof av==='number')||(typeof av==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(av).trim())); const nb=(typeof bv==='number')||(typeof bv==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(bv).trim())); if(na&&nb){ const va=(typeof av==='number')?av:parseFloat(av); const vb=(typeof bv==='number')?bv:parseFloat(bv); return sortDir==='asc'?(va-vb):(vb-va);} const sa=String(av??''); const sb=String(bv??''); return sortDir==='asc'?sa.localeCompare(sb):sb.localeCompare(sa); }
+  function fmt(n){ if(n===null||n===undefined) return ''; if(typeof n==='number'&&Number.isFinite(n)){ let r=Math.round((n+Number.EPSILON)*100)/100; if(Object.is(r,-0)) r=0; return r.toFixed(2);} if(typeof n==='string'){ const t=n.trim(); if(t==='') return ''; if(/^[-+]?\d+(?:\.\d+)?$/.test(t)){ let v=parseFloat(t); if(Number.isFinite(v)){ v=Math.round((v+Number.EPSILON)*100)/100; if(Object.is(v,-0)) v=0; return v.toFixed(2);} } return n;} return String(n); }
+  function updateSortIndicators(){ try{ const thead=document.querySelector('#props thead'); if(!thead) return; thead.querySelectorAll('.sort-ico').forEach(el=>el.remove()); const th=thead.querySelector(`th[data-sort-key="${CSS.escape(sortCol)}"]`); if(th){ const s=document.createElement('span'); s.className='sort-ico'; s.textContent = sortDir==='asc'?'▲':'▼'; th.appendChild(s);} }catch(e){} }
+  function renderTable(){
+    const tb=document.querySelector('#props tbody'); const thead=document.querySelector('#props thead');
+    tb.innerHTML='';
+    const rows = (currentData||[]).slice().sort((a,b)=>cmpVals(a,b,sortCol));
+    document.getElementById('meta').textContent = `${rows.length} rows`;
+    // Determine group order by selected position
+    const posSel=(document.getElementById('position')?.value||'').toUpperCase();
+    const groupsAll={ PASS:{label:'Passing',metrics:['pass_attempts','pass_yards','pass_tds','interceptions']}, RUSH:{label:'Rushing',metrics:['rush_attempts','rush_yards','rush_tds']}, REC:{label:'Receiving',metrics:['targets','receptions','rec_yards','rec_tds']} };
+    let groupOrder; if(posSel==='QB') groupOrder=['PASS','RUSH']; else if(posSel==='RB') groupOrder=['RUSH','REC']; else if(posSel==='WR'||posSel==='TE') groupOrder=['REC','RUSH']; else groupOrder=['PASS','RUSH','REC'];
+    const metricShort=(m)=>({pass_attempts:'Att',pass_yards:'Yds',pass_tds:'TD',interceptions:'INT',rush_attempts:'Att',rush_yards:'Yds',rush_tds:'TD',targets:'Tgt',receptions:'Rec',rec_yards:'Yds',rec_tds:'TD'}[m]||m);
+    // Build header
+    if(thead){ thead.innerHTML=''; const tr1=document.createElement('tr');
+      const thTeam=document.createElement('th'); thTeam.textContent='Team'; thTeam.className='sortable'; thTeam.dataset.sortKey='team'; thTeam.onclick=()=>sortBy('team'); tr1.appendChild(thTeam);
+      const thOpp=document.createElement('th'); thOpp.textContent='Opp'; thOpp.className='sortable'; thOpp.dataset.sortKey='opponent'; thOpp.onclick=()=>sortBy('opponent'); tr1.appendChild(thOpp);
+      const thPlayer=document.createElement('th'); thPlayer.textContent='Player'; thPlayer.className='sortable'; thPlayer.dataset.sortKey='player'; thPlayer.onclick=()=>sortBy('player'); tr1.appendChild(thPlayer);
+      const thPos=document.createElement('th'); thPos.textContent='Pos'; thPos.className='sortable'; thPos.dataset.sortKey='position'; thPos.onclick=()=>sortBy('position'); tr1.appendChild(thPos);
+      const thTD=document.createElement('th'); thTD.textContent='AnyTD%'; thTD.className='sortable'; thTD.dataset.sortKey='any_td_prob'; thTD.onclick=()=>sortBy('any_td_prob'); tr1.appendChild(thTD);
+      for(const g of groupOrder){ const gr=groupsAll[g]; const th=document.createElement('th'); th.className='group-hdr'; th.colSpan=gr.metrics.length; th.textContent=gr.label; tr1.appendChild(th);} thead.appendChild(tr1);
+      const tr2=document.createElement('tr'); const baseCols=5; for(let i=0;i<baseCols;i++){ tr2.appendChild(document.createElement('th')); }
+      for(const g of groupOrder){ const gr=groupsAll[g]; for(const m of gr.metrics){ const th=document.createElement('th'); th.textContent=metricShort(m); th.className='sortable'; th.dataset.sortKey=m; th.onclick=(()=>{ const key=m; return ()=>sortBy(key); })(); tr2.appendChild(th);} }
+      thead.appendChild(tr2); updateSortIndicators(); }
+    // Rows
+    for(const r of rows){ const tr=document.createElement('tr');
+      const base=['team','opponent','player','position','any_td_prob'];
+      for(const c of base){ const td=document.createElement('td'); let v=r[c]; if(v===null||v===undefined) v=''; if(typeof v==='number'){ if(c==='any_td_prob'){ v=(v*100).toFixed(1)+'%'; } else { v=fmt(v);} } td.textContent=String(v); tr.appendChild(td); }
+      for(const g of groupOrder){ const gr=groupsAll[g]; for(const m of gr.metrics){ const td=document.createElement('td'); td.textContent=fmt(r[m]); tr.appendChild(td);} }
+      tb.appendChild(tr);
+    }
+  }
+
+  async function fetchProps(force=false) {
+      const season = document.getElementById('season').value;
+      const week = document.getElementById('week').value;
+      const pos = document.getElementById('position').value;
+  const team = document.getElementById('team').value;
+  const offense = document.getElementById('offenseOnly').checked;
+  const primaryQbOnly = document.getElementById('primaryQbOnly') ? document.getElementById('primaryQbOnly').checked : true;
+  const activeOnly = document.getElementById('activeOnly') ? document.getElementById('activeOnly').checked : true;
+      const params = new URLSearchParams();
+      if (season) params.set('season', season);
+      if (week) params.set('week', week);
+      if (pos) params.set('position', pos);
+  if (team) params.set('team', team);
+  params.set('offense', offense ? '1' : '0');
+  params.set('primary_qb_only', primaryQbOnly ? '1' : '0');
+  params.set('active_only', activeOnly ? '1' : '0');
+      if (force) params.set('force','1');
+      try{
+        document.getElementById('meta').textContent = 'Loading…';
+        const res = await fetch('/api/player-props?' + params.toString());
+    const data = await res.json();
+  // Defaults: set inputs to inferred current week; Props page should default to current week
+  let updatedDefaults = false;
+  if (!season && data.season){ document.getElementById('season').value = data.season; updatedDefaults = true; }
+  if (!week && data.week){ document.getElementById('week').value = data.week; updatedDefaults = true; }
+  if (updatedDefaults) { try { await populateTeams(); } catch(e){} }
+        currentData = data.data || [];
+        renderTable();
+      } catch (e){
+        document.getElementById('meta').textContent = 'Error loading props';
+      }
+    }
+    async function populateTeams(){
+      try{
+        const season = document.getElementById('season').value;
+        const week = document.getElementById('week').value;
+        const sel = document.getElementById('team');
+        const qs = new URLSearchParams(); if(season) qs.set('season', season); if(week) qs.set('week', week);
+        const res = await fetch('/api/props/teams' + (qs.toString()?('?' + qs.toString()):''));
+        const data = await res.json();
+        const teams = Array.isArray(data.teams) ? data.teams : [];
+        const cur = sel.value;
+        sel.innerHTML = '<option value="">All</option>' + teams.map(t=>`<option value="${t}">${t}</option>`).join('');
+        if(cur && teams.includes(cur)) sel.value = cur;
+      }catch(e){ /* ignore */ }
+    }
+    function initTheme() {
+      try{
+        var body = document.body;
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') { body.classList.add('light'); }
+        var tbtn = document.getElementById('themeToggle');
+        if (tbtn) {
+          tbtn.addEventListener('click', function(){
+            body.classList.toggle('light');
+            localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+          });
+        }
+      } catch(e){}
+    }
+    window.addEventListener('DOMContentLoaded', async () => {
+      initTheme();
+      // Apply query params if present (before first fetch)
+      try{
+        const qs = new URLSearchParams(window.location.search);
+        const s = qs.get('season'); const w = qs.get('week'); const p = qs.get('position'); const t = qs.get('team');
+        if(s) document.getElementById('season').value = s;
+        if(w) document.getElementById('week').value = w;
+        if(p) document.getElementById('position').value = p;
+        await populateTeams();
+        if(t) document.getElementById('team').value = t;
+      }catch(e){}
+      // keep team list in sync when season/week changes
+      try{
+        document.getElementById('season').addEventListener('change', populateTeams);
+        document.getElementById('week').addEventListener('change', populateTeams);
+      }catch(e){}
+      await fetchProps();
+      // After we know current week, set Reconciliation nav to prior week
+      try{
+        const season = document.getElementById('season').value;
+        const week = parseInt(document.getElementById('week').value||'1',10);
+        const prevWeek = Math.max(1, week-1);
+        const l = document.getElementById('navRecon');
+        if(l && season && prevWeek){ l.href = `/reconciliation?season=${encodeURIComponent(season)}&week=${encodeURIComponent(prevWeek)}`; }
+      }catch(e){}
+    });
+  </script>
+  <script>
+    function setWeek(delta){
+      const w = document.getElementById('week');
+      const v = parseInt(w.value || '1', 10);
+      const nv = Math.max(1, v + delta);
+      w.value = nv;
+  populateTeams();
+  fetchProps();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recs</a> | <a href="/props">Props</a> | <a id="navRecon" href="/reconciliation">Reconciliation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+    <h1>NFL Player Props</h1>
+    <div class="meta" id="meta"></div>
+    <div class="filters">
+      <label>Season <input id="season" type="number" placeholder="2025" /></label>
+      <label>Week <input id="week" type="number" placeholder="1" /></label>
+      <label>Position
+        <select id="position">
+          <option value="">All</option>
+          <option>QB</option>
+          <option>RB</option>
+          <option>WR</option>
+          <option>TE</option>
+          <option>DEF</option>
+        </select>
+      </label>
+  <label>Team
+        <select id="team">
+          <option value="">All</option>
+        </select>
+      </label>
+  <label><input id="offenseOnly" type="checkbox" checked /> Offense only</label>
+  <label><input id="primaryQbOnly" type="checkbox" checked /> Primary QB only</label>
+  <label><input id="activeOnly" type="checkbox" checked /> Active only</label>
+  <button onclick="fetchProps()">Apply</button>
+  <button onclick="fetchProps(true)">Recompute</button>
+      <a class="btn" href="#" onclick="document.getElementById('season').value='';document.getElementById('week').value='';document.getElementById('position').value='';document.getElementById('team').value='';fetchProps();return false;">Reset</a>
+      <button onclick="setWeek(-1)">Prev week</button>
+      <button onclick="setWeek(1)">Next week</button>
+      <a class="btn" id="downloadCsv" href="#" onclick="(function(){
+  const season=document.getElementById('season').value; const week=document.getElementById('week').value; const pos=document.getElementById('position').value; const team=document.getElementById('team').value; const off=document.getElementById('offenseOnly').checked; const pqb=document.getElementById('primaryQbOnly').checked;
+  const p=new URLSearchParams(); if(season) p.set('season',season); if(week) p.set('week',week); if(pos) p.set('position',pos); if(team) p.set('team',team); p.set('offense', off ? '1' : '0'); p.set('primary_qb_only', pqb ? '1' : '0');
+  p.set('active_only', document.getElementById('activeOnly') && document.getElementById('activeOnly').checked ? '1' : '0');
+        const url='/api/player-props.csv'+(p.toString()?('?'+p.toString()):''); window.location.href=url; return false;
+      })(); return false;">Download CSV</a>
+    </div>
+    <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
+      <table id="props">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

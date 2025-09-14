@@ -270,6 +270,17 @@ def main() -> None:
     wx_rows = _update_weather_for_weeks(games, season, weeks)
     print(f"Weather updated: {wx_rows} rows across {len(weeks)} week(s).")
 
+    # 3b) Append current-season play-by-play for archival/analysis
+    try:
+        from .fetch_pbp import append_current as _append_pbp
+        try:
+            out_fp = _append_pbp(int(season))
+            print(f"PBP append: wrote/updated {out_fp.name}.")
+        except Exception as e:
+            print(f"PBP append failed: {e}")
+    except Exception as e:
+        print(f"PBP append skipped (fetch_pbp unavailable): {e}")
+
     # 4) Confirm inputs exist
     must_have = [
         DATA_DIR / 'games.csv',
@@ -380,6 +391,53 @@ def main() -> None:
                 print(f'Wrote {out_fp} with {len(pred_week)} rows for season={season}, week={cur_week}')
     except Exception as e:
         print(f"Week-level predictions failed: {e}")
+
+    # 6b) Compute and save player props for current week
+    try:
+        # Rebuild usage priors from latest rosters/depth charts to keep depth accurate
+        try:
+            from .build_player_usage_priors import build_player_usage_priors as _build_priors
+            priors_df = _build_priors(int(season))
+            if priors_df is not None and not priors_df.empty:
+                priors_fp = DATA_DIR / 'player_usage_priors.csv'
+                priors_df.to_csv(priors_fp, index=False)
+                print(f"Updated {priors_fp.name} with {len(priors_df)} rows.")
+            else:
+                print('Usage priors: no rows built; keeping existing file if present.')
+        except Exception as e:
+            print(f"Usage priors build skipped/failed: {e}")
+
+        # Build player efficiency priors from PBP archives (best effort)
+        try:
+            from .build_player_efficiency_priors import build_player_efficiency_priors as _build_eff
+            # Use last 3 seasons + current if available via files
+            eff_df = _build_eff()
+            if eff_df is not None and not eff_df.empty:
+                eff_fp = DATA_DIR / 'player_efficiency_priors.csv'
+                eff_fp.parent.mkdir(parents=True, exist_ok=True)
+                eff_df.to_csv(eff_fp, index=False)
+                print(f"Updated {eff_fp.name} with {len(eff_df)} rows.")
+            else:
+                print('Efficiency priors: no rows built (missing PBP files?).')
+        except Exception as e:
+            print(f"Efficiency priors build skipped/failed: {e}")
+
+        try:
+            from .player_props import compute_player_props as _compute_player_props
+        except Exception:
+            _compute_player_props = None
+        if _compute_player_props is not None:
+            props_df = _compute_player_props(int(season), int(cur_week))
+            if props_df is not None and not props_df.empty:
+                out_props = DATA_DIR / f"player_props_{season}_wk{cur_week}.csv"
+                props_df.to_csv(out_props, index=False)
+                print(f"Wrote {out_props} with {len(props_df)} rows of player props.")
+            else:
+                print("Player props: no rows computed.")
+        else:
+            print("Player props: module unavailable; skipped.")
+    except Exception as e:
+        print(f"Player props step failed: {e}")
 
     print('Daily update complete.')
 

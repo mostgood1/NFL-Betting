@@ -46,6 +46,9 @@ if (-not $NoTrain) {
 $ExitCode = 0
 try {
   Write-Log 'Running daily updater (python -m nfl_compare.src.daily_updater)'
+  $env:PROPS_JITTER_SCALE = '0.3'
+  $env:PROPS_OBS_BLEND = '0.55'
+  $env:PROPS_EMA_BLEND = '0.6'
   & $Python -m nfl_compare.src.daily_updater | Tee-Object -FilePath $LogFile -Append
   $ExitCode = $LASTEXITCODE
 } catch {

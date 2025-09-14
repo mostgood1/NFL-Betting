@@ -50,3 +50,8 @@ Minimal schemas are in `src/schemas.py`. Extra columns will be ignored.
 - No external APIs are called by default; wire your providers in `src/data_sources.py`.
 - Models saved in `./models/`.
 - A simple baseline ships; swap in more advanced models as data allows.
+
+## Player props additions
+- EMA smoothing: `src/player_props.py` now blends a small EMA of team plays and pass rate (persisted snapshots `data/team_context_ema_<season>_wk<k>.csv`) using env `PROPS_EMA_BLEND` (0..1, default ~0.5).
+- Position-vs-Defense: gentle WR/TE/RB defensive multipliers for target share and YPT are derived from season PBP through prior week and applied within clamps.
+- Stability knobs: `PROPS_JITTER_SCALE`, `PROPS_OBS_BLEND`, and `PROPS_EMA_BLEND` can be tuned; daily_update.ps1 sets reasonable defaults.

@@ -41,6 +41,137 @@ _job_state = {
     'log_file': None,  # full path to updater log file (str)
 }
 
+# --- Simple in-memory cache for reconciliation results (per season/week) ---
+_recon_cache: dict[tuple[int,int], dict[str, Any]] = {}
+
+
+def _recon_cache_get(key: tuple[int, int], force_refresh: bool = False) -> tuple[Optional[pd.DataFrame], bool]:
+    """Return (df, hit) if cache entry is fresh; otherwise (None, False).
+    Freshness is controlled by RECON_CACHE_TTL_SEC (default 1800 seconds).
+    """
+    try:
+        if force_refresh:
+            return None, False
+        entry = _recon_cache.get(key)
+        if not entry:
+            # Try disk cache if enabled
+            df_disk = _recon_cache_load_from_disk(key)
+            if df_disk is not None:
+                # Promote to memory
+                _recon_cache_put(key, df_disk)
+                return df_disk.copy(), True
+            return None, False
+        ttl = int(os.environ.get('RECON_CACHE_TTL_SEC', '1800'))
+        ts = float(entry.get('ts') or 0.0)
+        if ts <= 0:
+            return None, False
+        if (time.time() - ts) > max(0, ttl):
+            # Expired; drop and miss
+            try:
+                _recon_cache.pop(key, None)
+            except Exception:
+                pass
+            # Try disk cache before miss
+            df_disk = _recon_cache_load_from_disk(key)
+            if df_disk is not None:
+                _recon_cache_put(key, df_disk)
+                return df_disk.copy(), True
+            return None, False
+        df = entry.get('df')
+        if isinstance(df, pd.DataFrame):
+            return df.copy(), True
+        return None, False
+    except Exception:
+        return None, False
+
+
+def _recon_cache_put(key: tuple[int,int], df: pd.DataFrame) -> None:
+    try:
+        _recon_cache[key] = {"df": df.copy(), "ts": time.time()}
+        _recon_cache_save_to_disk(key, df)
+    except Exception:
+        pass
+
+
+def _recon_cache_dir() -> Path:
+    try:
+        base = os.environ.get('RECON_CACHE_DIR')
+        if base:
+            p = Path(base)
+        else:
+            p = DATA_DIR / 'recon_cache'
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+    except Exception:
+        return DATA_DIR
+
+
+def _recon_cache_fp(key: tuple[int,int]) -> Path:
+    s, w = key
+    return _recon_cache_dir() / f"recon_{int(s)}_wk{int(w)}.csv"
+
+
+def _recon_cache_load_from_disk(key: tuple[int,int]) -> Optional[pd.DataFrame]:
+    try:
+        fp = _recon_cache_fp(key)
+        if not fp.exists():
+            return None
+        # TTL check against file mtime
+        ttl = int(os.environ.get('RECON_CACHE_TTL_SEC', '1800'))
+        age = max(0, int(time.time() - fp.stat().st_mtime))
+        if age > max(0, ttl):
+            return None
+        df = pd.read_csv(fp)
+        return df
+    except Exception:
+        return None
+
+
+def _recon_cache_save_to_disk(key: tuple[int,int], df: pd.DataFrame) -> None:
+    try:
+        fp = _recon_cache_fp(key)
+        df.to_csv(fp, index=False)
+    except Exception:
+        pass
+
+
+def _load_current_week_override() -> Optional[tuple[int, int]]:
+    """Return (season, week) if override is configured via env or data file.
+
+    Priority:
+      1) Env: CURRENT_SEASON and CURRENT_WEEK (or DEFAULT_SEASON/DEFAULT_WEEK)
+      2) File: nfl_compare/data/current_week.json with {"season": YYYY, "week": N}
+    """
+    try:
+        # Env-based
+        def _get_int(name: str) -> Optional[int]:
+            v = os.environ.get(name)
+            if v is None:
+                return None
+            try:
+                return int(str(v).strip())
+            except Exception:
+                return None
+        season_env = _get_int('CURRENT_SEASON') or _get_int('DEFAULT_SEASON')
+        week_env = _get_int('CURRENT_WEEK') or _get_int('DEFAULT_WEEK')
+        if season_env and week_env:
+            return int(season_env), int(week_env)
+        # File-based
+        fp = DATA_DIR / 'current_week.json'
+        if fp.exists():
+            try:
+                with open(fp, 'r', encoding='utf-8') as f:
+                    obj = json.load(f)
+                s = int(obj.get('season')) if obj.get('season') is not None else None
+                w = int(obj.get('week')) if obj.get('week') is not None else None
+                if s and w:
+                    return s, w
+            except Exception:
+                return None
+    except Exception:
+        return None
+    return None
+
 
 def _admin_auth_ok(req) -> bool:
     key = os.environ.get('ADMIN_KEY') or os.environ.get('ADMIN_TOKEN')
@@ -336,6 +467,18 @@ def api_admin_ping():
     return jsonify({'status': 'ok'}), 200
 
 
+@app.route('/api/admin/recon-cache/clear', methods=['POST','GET'])
+def api_admin_clear_recon_cache():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    try:
+        n = len(_recon_cache)
+        _recon_cache.clear()
+        return jsonify({'status': 'cleared', 'entries': n})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 
 def _load_predictions() -> pd.DataFrame:
     """Load predictions.csv if present; return empty DataFrame if missing."""
@@ -386,6 +529,70 @@ def _load_games() -> pd.DataFrame:
     except Exception:
         pass
     return pd.DataFrame()
+
+
+@app.route('/api/props/teams')
+def api_props_teams():
+    """Return the list of teams with games for the selected season/week.
+
+    Query params:
+      - season (int, optional)
+      - week (int, optional)
+    If missing, defaults to most recent season and inferred current week from games.csv when possible.
+    """
+    try:
+        games_df = _load_games()
+        season = request.args.get('season')
+        week = request.args.get('week')
+        season_i = None
+        week_i = None
+        try:
+            season_i = int(season) if season else None
+        except Exception:
+            season_i = None
+        try:
+            week_i = int(week) if week else None
+        except Exception:
+            week_i = None
+        # Default season/week using stricter current-week inference
+        if (season_i is None) or (week_i is None):
+            try:
+                inferred = _infer_current_season_week(games_df) if (games_df is not None and not games_df.empty) else None
+                if inferred is not None:
+                    if season_i is None:
+                        season_i = int(inferred[0])
+                    if week_i is None:
+                        week_i = int(inferred[1])
+            except Exception:
+                pass
+        # Fallbacks if inference failed
+        if games_df is not None and not games_df.empty:
+            if season_i is None and 'season' in games_df.columns and not games_df['season'].isna().all():
+                season_i = int(games_df['season'].max())
+            if week_i is None and 'week' in games_df.columns:
+                try:
+                    week_i = int(games_df[games_df['season'] == season_i]['week'].max()) if season_i is not None else int(games_df['week'].max())
+                except Exception:
+                    week_i = 1
+        # Filter
+        view = games_df.copy() if (games_df is not None and not games_df.empty) else pd.DataFrame()
+        if season_i is not None and 'season' in view.columns:
+            view = view[view['season'] == season_i]
+        if week_i is not None and 'week' in view.columns:
+            view = view[view['week'] == week_i]
+        teams: list[str] = []
+        if not view.empty:
+            home_col = 'home_team' if 'home_team' in view.columns else None
+            away_col = 'away_team' if 'away_team' in view.columns else None
+            vals = []
+            if home_col:
+                vals.extend(view[home_col].astype(str).tolist())
+            if away_col:
+                vals.extend(view[away_col].astype(str).tolist())
+            teams = sorted(sorted(set(t for t in vals if isinstance(t, str) and t.strip())))
+        return jsonify({'season': season_i, 'week': week_i, 'teams': teams})
+    except Exception as e:
+        return jsonify({'error': f'teams endpoint failed: {e}'}), 500
 
 
 def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Optional[int], week: Optional[int]) -> pd.DataFrame:
@@ -1075,35 +1282,69 @@ def _load_location_overrides() -> Dict[str, Dict[str, Any]]:
 
 
 def _infer_current_season_week(df: pd.DataFrame) -> Optional[tuple[int, int]]:
-    """Infer the current (season, week) to display based on game dates.
-    Strategy: group by season/week and take the group's earliest game datetime.
-    Choose the first group with min_dt >= now; if none, choose the latest past group.
+    """Infer the current (season, week) to display based on game completeness and dates.
+
+    Rules:
+    - Respect explicit override via env or nfl_compare/data/current_week.json.
+    - Use latest season present in the data.
+    - Within that season, pick the earliest week that is not fully completed (any game missing final scores),
+      else if scores are unavailable, pick the earliest week whose latest game datetime (max) is in the future.
+    - If all weeks are completed and in the past, pick the latest past week.
+    This prevents advancing to the next week while the current week still has games remaining.
     """
     try:
+        # Global override (env or data/current_week.json)
+        ovr = _load_current_week_override()
+        if ovr is not None:
+            return ovr
         if df is None or df.empty:
             return None
         if not {'season','week'}.issubset(df.columns):
             return None
-        dt_col = 'game_date' if 'game_date' in df.columns else ('date' if 'date' in df.columns else None)
-        if not dt_col:
+        # Constrain to latest season
+        try:
+            latest_season = int(pd.to_numeric(df['season'], errors='coerce').dropna().max())
+        except Exception:
+            latest_season = None
+        if latest_season is None:
             return None
-        tmp = df[['season','week', dt_col]].copy()
-        tmp[dt_col] = pd.to_datetime(tmp[dt_col], errors='coerce')
-        tmp = tmp.dropna(subset=[dt_col])
-        if tmp.empty:
+        sdf = df[df['season'] == latest_season].copy()
+        if sdf.empty:
             return None
-        grp = tmp.groupby(['season','week'])[dt_col].min().reset_index().rename(columns={dt_col: 'min_dt'})
-        now = pd.Timestamp.now()
-        future = grp[grp['min_dt'] >= now]
-        if not future.empty:
-            row = future.sort_values('min_dt', ascending=True).iloc[0]
-        else:
-            row = grp.sort_values('min_dt', ascending=True).iloc[-1]
-        season_i = int(row['season']) if pd.notna(row['season']) else None
-        week_i = int(row['week']) if pd.notna(row['week']) else None
-        if season_i is None or week_i is None:
+        # Check completion by scores if available
+        has_scores = {'home_score','away_score'}.issubset(sdf.columns)
+        if has_scores:
+            hs = pd.to_numeric(sdf['home_score'], errors='coerce')
+            as_ = pd.to_numeric(sdf['away_score'], errors='coerce')
+            sdf['_done'] = hs.notna() & as_.notna()
+            comp = sdf.groupby('week')['_done'].agg(['sum','count']).reset_index().rename(columns={'sum':'completed','count':'total'})
+            # Earliest week with any not-done rows is the active week
+            active = comp[comp['completed'] < comp['total']]
+            if not active.empty:
+                w = int(pd.to_numeric(active['week'], errors='coerce').dropna().min())
+                return latest_season, w
+        # Fallback to datetime if scores not available or all weeks "complete"
+        dt_col = 'game_date' if 'game_date' in sdf.columns else ('date' if 'date' in sdf.columns else None)
+        if dt_col:
+            sdf[dt_col] = pd.to_datetime(sdf[dt_col], errors='coerce')
+            grp = sdf.groupby('week')[dt_col].agg(['min','max']).reset_index().rename(columns={'min':'min_dt','max':'max_dt'})
+            now = pd.Timestamp.now()
+            pending = grp[grp['max_dt'] >= now]
+            if not pending.empty:
+                w = int(pd.to_numeric(pending['week'], errors='coerce').dropna().min())
+                return latest_season, w
+            # Latest past week
+            try:
+                last = grp.sort_values('max_dt', ascending=True).iloc[-1]
+                return latest_season, int(last['week'])
+            except Exception:
+                pass
+        # Last resort: max week seen in latest season
+        try:
+            wmax = int(pd.to_numeric(sdf['week'], errors='coerce').dropna().max())
+            return latest_season, wmax
+        except Exception:
             return None
-        return season_i, week_i
     except Exception:
         return None
 
@@ -1557,6 +1798,478 @@ def favicon():
     png = base64.b64decode(png_b64)
     from flask import Response
     return Response(png, mimetype='image/png')
+
+
+@app.route("/api/player-props")
+def api_player_props():
+    """Compute and return weekly player prop projections.
+
+    Query params:
+      - season (int): season year; defaults to latest season present in games/predictions.
+      - week (int): week number; defaults to inferred current week (or 1).
+      - position (str): optional filter like QB,RB,WR,TE,DEF
+      - team (str): team abbr/name (normalized).
+    """
+    try:
+        from nfl_compare.src.player_props import compute_player_props  # lazy import
+    except Exception as e:
+        return jsonify({"error": f"player_props unavailable: {e}"}), 500
+
+    pred_df = _load_predictions()
+    games_df = _load_games()
+
+    # Determine season/week defaults similar to other endpoints
+    season = request.args.get("season")
+    week = request.args.get("week")
+    season_i = None
+    week_i = None
+    try:
+        season_i = int(season) if season else None
+    except Exception:
+        season_i = None
+    try:
+        week_i = int(week) if week else None
+    except Exception:
+        week_i = None
+    if week_i is None:
+        # Infer current week from games/predictions
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_i, week_i = int(inferred[0]), int(inferred[1])
+            else:
+                if season_i is None and src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_i = int(src['season'].max())
+                week_i = 1
+        except Exception:
+            week_i = 1
+    if season_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_i = int(src['season'].max())
+        except Exception:
+            season_i = None
+
+    if season_i is None or week_i is None:
+        return jsonify({"rows": 0, "data": [], "note": "season/week could not be determined"})
+
+    # Fast path: use precomputed CSV if available (compute only when missing or forced)
+    force = (request.args.get('force', '0').lower() in {'1','true','yes'})
+    cache_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
+    df = None
+    if not force and cache_fp.exists():
+        try:
+            df = pd.read_csv(cache_fp)
+        except Exception:
+            df = None
+    if df is None or df.empty:
+        try:
+            df = compute_player_props(season_i, week_i)
+            # Persist for subsequent fast loads
+            try:
+                df.to_csv(cache_fp, index=False)
+            except Exception:
+                pass
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    # Sanity check: if cache contained stale/malformed rows (e.g., QB rushing NaN), recompute and refresh cache
+    try:
+        if df is not None and not df.empty and 'position' in df.columns:
+            pos_up = df['position'].astype(str).str.upper()
+            qb_mask = (pos_up == 'QB')
+            needs_fix = False
+            if qb_mask.any():
+                # If any QB has pass_attempts present but missing rush fields, it's likely an old cache
+                if 'pass_attempts' in df.columns and 'rush_attempts' in df.columns and 'rush_yards' in df.columns:
+                    pa_ok = pd.to_numeric(df.loc[qb_mask, 'pass_attempts'], errors='coerce').notna()
+                    ra_nan = pd.to_numeric(df.loc[qb_mask, 'rush_attempts'], errors='coerce').isna()
+                    ry_nan = pd.to_numeric(df.loc[qb_mask, 'rush_yards'], errors='coerce').isna()
+                    if (pa_ok & (ra_nan | ry_nan)).any():
+                        needs_fix = True
+            if needs_fix:
+                try:
+                    fresh = compute_player_props(season_i, week_i)
+                    if fresh is not None and not fresh.empty:
+                        df = fresh
+                        try:
+                            df.to_csv(cache_fp, index=False)
+                        except Exception:
+                            pass
+                except Exception:
+                    # If recompute fails, fall back to existing df
+                    pass
+    except Exception:
+        pass
+    if df is None or df.empty:
+        return jsonify({"rows": 0, "data": []})
+
+    # Optional filters
+    pos = (request.args.get("position") or "").strip().upper()
+    offense_only = (request.args.get('offense', '1').lower() in {'1','true','yes'})
+    primary_qb_only = (request.args.get('primary_qb_only', '1').lower() in {'1','true','yes'})
+    active_only = (request.args.get('active_only', '1').lower() in {'1','true','yes'})
+    team = (request.args.get("team") or "").strip()
+    if pos and 'position' in df.columns:
+        df = df[df['position'].astype(str).str.upper() == pos]
+    elif offense_only and 'position' in df.columns:
+        try:
+            df = df[df['position'].astype(str).str.upper().isin(['QB','RB','WR','TE'])]
+        except Exception:
+            pass
+    # Filter to the single primary QB (the one with pass_attempts assigned) when requested
+    if primary_qb_only and 'position' in df.columns and 'pass_attempts' in df.columns:
+        try:
+            m = (df['position'].astype(str).str.upper() != 'QB') | (pd.to_numeric(df['pass_attempts'], errors='coerce').notna())
+            df = df[m]
+        except Exception:
+            pass
+    if team and 'team' in df.columns:
+        # Normalize simple variants (we don't import normalizer here to keep light)
+        df = df[df['team'].astype(str).str.lower() == team.lower()]
+    # Filter inactives by default if the column exists; if not present and requested, recompute fresh to attach it
+    if active_only:
+        try:
+            if 'is_active' not in df.columns:
+                try:
+                    fresh = compute_player_props(season_i, week_i)
+                    if fresh is not None and not fresh.empty:
+                        df = fresh
+                        try:
+                            df.to_csv(cache_fp, index=False)
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+            if 'is_active' in df.columns:
+                df = df[pd.to_numeric(df['is_active'], errors='coerce').fillna(1).astype(int) == 1]
+        except Exception:
+            pass
+
+    # Round numeric columns to 2 decimals for consistency in API responses
+    try:
+        num_cols = df.select_dtypes(include='number').columns
+        if len(num_cols) > 0:
+            df[num_cols] = df[num_cols].round(2)
+    except Exception:
+        pass
+    # Ensure valid JSON: replace NaN/NaT with None so the response doesn't contain NaN tokens
+    try:
+        df = df.where(pd.notnull(df), None)
+    except Exception:
+        pass
+
+    # Limit columns for API to the key projection fields
+    keep = [c for c in [
+        'season','week','date','game_id','team','opponent','is_home','player','position',
+        'pass_attempts','pass_yards','pass_tds','interceptions',
+        'rush_attempts','rush_yards','rush_tds',
+        'targets','receptions','rec_yards','rec_tds',
+        'tackles','sacks',
+        'any_td_prob',
+    ] if c in df.columns]
+    data = df[keep].to_dict(orient='records') if keep else df.to_dict(orient='records')
+
+    # JSON-safe: recursively replace NaN/Inf with None so fetch().json() doesn't choke in browsers
+    def _json_safe(obj):
+        if isinstance(obj, float):
+            try:
+                if math.isfinite(obj):
+                    return obj
+                return None
+            except Exception:
+                return obj
+        if obj is None:
+            return None
+        if isinstance(obj, dict):
+            return {k: _json_safe(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [_json_safe(x) for x in obj]
+        return obj
+
+    data = _json_safe(data)
+    return jsonify({"rows": len(data), "data": data, "season": season_i, "week": week_i})
+
+
+@app.route("/api/player-props.csv")
+def api_player_props_csv():
+    """Return weekly player prop projections as CSV (downloadable).
+
+    Query params:
+      - season (int)
+      - week (int)
+      - position (str)
+      - team (str)
+    """
+    try:
+        from nfl_compare.src.player_props import compute_player_props  # lazy import
+    except Exception as e:
+        return jsonify({"error": f"player_props unavailable: {e}"}), 500
+
+    pred_df = _load_predictions()
+    games_df = _load_games()
+
+    season = request.args.get("season")
+    week = request.args.get("week")
+    try:
+        season_i = int(season) if season else None
+    except Exception:
+        season_i = None
+    try:
+        week_i = int(week) if week else None
+    except Exception:
+        week_i = None
+    if week_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_i, week_i = int(inferred[0]), int(inferred[1])
+            else:
+                if season_i is None and src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_i = int(src['season'].max())
+                week_i = 1
+        except Exception:
+            week_i = 1
+    if season_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                season_i = int(src['season'].max())
+        except Exception:
+            season_i = None
+
+    if season_i is None or week_i is None:
+        return jsonify({"rows": 0, "data": [], "note": "season/week could not be determined"})
+
+    # Fast path: use precomputed CSV if available (compute only when missing or forced)
+    force = (request.args.get('force', '0').lower() in {'1','true','yes'})
+    cache_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
+    df = None
+    if not force and cache_fp.exists():
+        try:
+            df = pd.read_csv(cache_fp)
+        except Exception:
+            df = None
+    if df is None or df.empty:
+        try:
+            df = compute_player_props(season_i, week_i)
+            try:
+                df.to_csv(cache_fp, index=False)
+            except Exception:
+                pass
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    if df is None or df.empty:
+        return jsonify({"rows": 0, "data": []})
+
+    # Optional filters
+    pos = (request.args.get("position") or "").strip().upper()
+    offense_only = (request.args.get('offense', '1').lower() in {'1','true','yes'})
+    primary_qb_only = (request.args.get('primary_qb_only', '1').lower() in {'1','true','yes'})
+    active_only = (request.args.get('active_only', '1').lower() in {'1','true','yes'})
+    team = (request.args.get("team") or "").strip()
+    if pos and 'position' in df.columns:
+        df = df[df['position'].astype(str).str.upper() == pos]
+    elif offense_only and 'position' in df.columns:
+        try:
+            df = df[df['position'].astype(str).str.upper().isin(['QB','RB','WR','TE'])]
+        except Exception:
+            pass
+    if primary_qb_only and 'position' in df.columns and 'pass_attempts' in df.columns:
+        try:
+            m = (df['position'].astype(str).str.upper() != 'QB') | (pd.to_numeric(df['pass_attempts'], errors='coerce').notna())
+            df = df[m]
+        except Exception:
+            pass
+    if team and 'team' in df.columns:
+        df = df[df['team'].astype(str).str.lower() == team.lower()]
+    # Filter inactives by default
+    if active_only:
+        try:
+            if 'is_active' not in df.columns:
+                try:
+                    fresh = compute_player_props(season_i, week_i)
+                    if fresh is not None and not fresh.empty:
+                        df = fresh
+                        try:
+                            df.to_csv(cache_fp, index=False)
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+            if 'is_active' in df.columns:
+                df = df[pd.to_numeric(df['is_active'], errors='coerce').fillna(1).astype(int) == 1]
+        except Exception:
+            pass
+
+    # Stream CSV
+    try:
+        # Round numeric and format floats with two decimals
+        try:
+            num_cols = df.select_dtypes(include='number').columns
+            if len(num_cols) > 0:
+                df[num_cols] = df[num_cols].astype(float).round(2)
+        except Exception:
+            pass
+        from flask import Response
+        csv_bytes = df.to_csv(index=False, float_format='%.2f')
+        fname = f"player_props_{season_i}_wk{week_i}.csv"
+        headers = {
+            'Content-Disposition': f'attachment; filename="{fname}"'
+        }
+        return Response(csv_bytes, mimetype='text/csv', headers=headers)
+    except Exception as e:
+        return jsonify({"error": f"csv export failed: {e}"}), 500
+
+
+@app.route("/api/player-props-reconciliation")
+def api_player_props_reconciliation():
+    """Return reconciliation of projections vs actuals for a given season/week (JSON).
+
+    Query params:
+      - season (int, required)
+      - week (int, required)
+      - position/team filters as in props endpoints (optional)
+    """
+    try:
+        from nfl_compare.src.reconciliation import reconcile_props, summarize_errors  # lazy import
+    except Exception as e:
+        return jsonify({"error": f"reconciliation unavailable: {e}"}), 500
+
+    # Season/week required to avoid guessing wrong after slate
+    try:
+        season_i = int(request.args.get("season"))
+        week_i = int(request.args.get("week"))
+    except Exception:
+        return jsonify({"error": "season and week are required"}), 400
+    # Cache key and optional refresh control
+    cache_key = (season_i, week_i)
+    force_refresh = str(request.args.get("refresh") or request.args.get("force") or "0").lower() in {"1","true","yes","y"}
+    cache_hit = False
+    try:
+        df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+        if df is None:
+            df = reconcile_props(season_i, week_i)
+            _recon_cache_put(cache_key, df)
+    except FileNotFoundError as e:
+        return jsonify({"error": str(e)}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    if df is None or df.empty:
+        return jsonify({"rows": 0, "data": []})
+
+    # Optional filters
+    pos = (request.args.get("position") or "").strip().upper()
+    team = (request.args.get("team") or "").strip()
+    if pos and 'position' in df.columns:
+        df = df[df['position'].astype(str).str.upper() == pos]
+    if team and 'team' in df.columns:
+        df = df[df['team'].astype(str).str.lower() == team.lower()]
+
+    # Round numeric columns to 2 decimals for consistency in API responses
+    try:
+        num_cols = df.select_dtypes(include='number').columns
+        if len(num_cols) > 0:
+            df[num_cols] = df[num_cols].round(2)
+    except Exception:
+        pass
+    # Clean NaNs for JSON and ensure strict JSON safety (no NaN/Inf)
+    try:
+        df = df.where(pd.notnull(df), None)
+    except Exception:
+        pass
+    data = df.to_dict(orient='records')
+    def _json_safe(obj):
+        try:
+            import math as _m
+            if isinstance(obj, float):
+                return obj if _m.isfinite(obj) else None
+            if obj is None:
+                return None
+            if isinstance(obj, dict):
+                return {k: _json_safe(v) for k, v in obj.items()}
+            if isinstance(obj, list):
+                return [_json_safe(x) for x in obj]
+            return obj
+        except Exception:
+            return obj
+    data = _json_safe(data)
+    # Summary
+    try:
+        summ = summarize_errors(pd.DataFrame(data))
+        summ = summ.where(pd.notnull(summ), None)
+        summary = summ.to_dict(orient='records') if summ is not None and not summ.empty else []
+    except Exception:
+        summary = []
+    summary = _json_safe(summary)
+    from flask import make_response
+    resp = make_response(jsonify({"rows": len(data), "data": data, "summary": summary, "season": season_i, "week": week_i}))
+    try:
+        resp.headers['X-Recon-Cache'] = 'hit' if cache_hit else 'miss'
+    except Exception:
+        pass
+    return resp
+
+
+@app.route("/api/player-props-reconciliation.csv")
+def api_player_props_reconciliation_csv():
+    try:
+        from nfl_compare.src.reconciliation import reconcile_props  # lazy import
+    except Exception as e:
+        return jsonify({"error": f"reconciliation unavailable: {e}"}), 500
+    try:
+        season_i = int(request.args.get("season"))
+        week_i = int(request.args.get("week"))
+    except Exception:
+        return jsonify({"error": "season and week are required"}), 400
+    # Use cache if available
+    cache_key = (season_i, week_i)
+    force_refresh = str(request.args.get("refresh") or request.args.get("force") or "0").lower() in {"1","true","yes","y"}
+    cache_hit = False
+    try:
+        df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+        if df is None:
+            df = reconcile_props(season_i, week_i)
+            _recon_cache_put(cache_key, df)
+    except FileNotFoundError as e:
+        return jsonify({"error": str(e)}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    if df is None or df.empty:
+        return jsonify({"rows": 0, "data": []})
+    # Optional filters (mirror JSON endpoint)
+    pos = (request.args.get("position") or "").strip().upper()
+    team = (request.args.get("team") or "").strip()
+    try:
+        if pos and 'position' in df.columns:
+            df = df[df['position'].astype(str).str.upper() == pos]
+        if team and 'team' in df.columns:
+            df = df[df['team'].astype(str).str.lower() == team.lower()]
+    except Exception:
+        pass
+    try:
+        # Ensure numeric columns are floats and rounded to 2 decimals, then format as %.2f in CSV
+        try:
+            num_cols = df.select_dtypes(include='number').columns
+            if len(num_cols) > 0:
+                df[num_cols] = df[num_cols].astype(float).round(2)
+        except Exception:
+            pass
+        from flask import Response
+        csv_bytes = df.to_csv(index=False, float_format='%.2f')
+        fname = f"player_props_vs_actuals_{season_i}_wk{week_i}.csv"
+        headers = {'Content-Disposition': f'attachment; filename="{fname}"'}
+        from flask import make_response
+        resp = Response(csv_bytes, mimetype='text/csv', headers=headers)
+        try:
+            resp.headers['X-Recon-Cache'] = 'hit' if cache_hit else 'miss'
+        except Exception:
+            pass
+        return resp
+    except Exception as e:
+        return jsonify({"error": f"csv export failed: {e}"}), 500
 
 
 @app.route("/api/predictions")
@@ -3037,6 +3750,16 @@ def api_inspect_game():
         return jsonify({'rows': len(data), 'data': data, 'debug': debug})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route("/props")
+def props_page():
+    return render_template("player_props.html")
+
+
+@app.route("/reconciliation")
+def reconciliation_page():
+    return render_template("reconciliation.html")
 
 
 if __name__ == "__main__":
