@@ -117,15 +117,21 @@ def _team_rows_from_game(row: pd.Series, league_avg_pace: float) -> list[dict]:
     # Weather factors evaluated on same row
     wf = _weather_factor(row)
 
-    # Priors present via merge_features
-    home_epa_prior = row.get("home_off_epa_prior")
-    away_epa_prior = row.get("away_off_epa_prior")
-    home_opp_def_prior = row.get("away_def_epa_prior")
-    away_opp_def_prior = row.get("home_def_epa_prior")
+    # Priors present via merge_features (fall back to non-_prior columns when needed)
+    home_epa_prior = row.get("home_off_epa_prior") if pd.notna(row.get("home_off_epa_prior")) else row.get("home_off_epa")
+    away_epa_prior = row.get("away_off_epa_prior") if pd.notna(row.get("away_off_epa_prior")) else row.get("away_off_epa")
+    home_opp_def_prior = row.get("away_def_epa_prior") if pd.notna(row.get("away_def_epa_prior")) else row.get("away_def_epa")
+    away_opp_def_prior = row.get("home_def_epa_prior") if pd.notna(row.get("home_def_epa_prior")) else row.get("home_def_epa")
 
-    # Pace priors
-    home_pace_prior = row.get("home_pace_prior")
-    away_pace_prior = row.get("away_pace_prior")
+    # Pace priors (seconds per play)
+    home_pace_prior = row.get("home_pace_prior") if pd.notna(row.get("home_pace_prior")) else row.get("home_pace_secs_play")
+    away_pace_prior = row.get("away_pace_prior") if pd.notna(row.get("away_pace_prior")) else row.get("away_pace_secs_play")
+
+    # Pass/rush rate priors
+    home_pass_rate_prior = row.get("home_pass_rate_prior") if pd.notna(row.get("home_pass_rate_prior")) else row.get("home_pass_rate")
+    away_pass_rate_prior = row.get("away_pass_rate_prior") if pd.notna(row.get("away_pass_rate_prior")) else row.get("away_pass_rate")
+    home_rush_rate_prior = row.get("home_rush_rate_prior") if pd.notna(row.get("home_rush_rate_prior")) else row.get("home_rush_rate")
+    away_rush_rate_prior = row.get("away_rush_rate_prior") if pd.notna(row.get("away_rush_rate_prior")) else row.get("away_rush_rate")
 
     # Compute multiplicative factors
     home_factor = _epa_factor(home_epa_prior, home_opp_def_prior) * _pace_factor(home_pace_prior, league_avg_pace) * wf
@@ -154,6 +160,8 @@ def _team_rows_from_game(row: pd.Series, league_avg_pace: float) -> list[dict]:
             "off_epa_prior": home_epa_prior,
             "opp_def_epa_prior": home_opp_def_prior,
             "pace_prior": home_pace_prior,
+            "home_pass_rate_prior": home_pass_rate_prior,
+            "home_rush_rate_prior": home_rush_rate_prior,
         },
         {
             "season": row.get("season"),
@@ -169,6 +177,8 @@ def _team_rows_from_game(row: pd.Series, league_avg_pace: float) -> list[dict]:
             "off_epa_prior": away_epa_prior,
             "opp_def_epa_prior": away_opp_def_prior,
             "pace_prior": away_pace_prior,
+            "away_pass_rate_prior": away_pass_rate_prior,
+            "away_rush_rate_prior": away_rush_rate_prior,
         },
     ]
 
