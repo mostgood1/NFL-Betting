@@ -2123,7 +2123,18 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             tsh = pd.to_numeric(add.get('target_share_obs'), errors='coerce').fillna(0.0)
                             guess = np.where(rsh >= tsh, 'RB', 'WR')
                             add.loc[mpos, 'position'] = guess[mpos]
-                        # Compute floors based on observed shares
+                        # Compute floors based on observed shares and MERGE into existing depth
+                        # to avoid creating duplicate player rows (seen in Week 3).
+                        # Prepare present keys for fast membership checks
+                        if '_nm' not in depth.columns:
+                            try:
+                                depth['_nm'] = depth['player'].astype(str).map(normalize_name_loose)
+                            except Exception:
+                                depth['_nm'] = depth['player'].astype(str).str.lower()
+                        present_nm = set(depth['_nm'].astype(str)) if '_nm' in depth.columns else set()
+                        present_ids = set()
+                        if 'player_id' in depth.columns:
+                            present_ids = set(depth['player_id'].dropna().astype(str))
                         rows_to_add = []
                         for _, rr in add.iterrows():
                             pos_up = str(rr.get('position') or '').upper()
@@ -2132,6 +2143,8 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             nm = rr.get('player')
                             if not nm or pd.isna(nm):
                                 continue
+                            nm_key = normalize_name_loose(str(nm)) if nm else ''
+                            pid_key = str(rr.get('player_id') or '')
                             r_obs = float(pd.to_numeric(rr.get('rush_share_obs'), errors='coerce') or 0.0)
                             t_obs = float(pd.to_numeric(rr.get('target_share_obs'), errors='coerce') or 0.0)
                             r_floor = 0.0; t_floor = 0.0
@@ -2153,24 +2166,42 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                                     t_floor = float(min(base_t, 0.20))
                             if (r_floor <= 0.0) and (t_floor <= 0.0):
                                 continue
-                            rows_to_add.append({
-                                'season': int(tr.get('season')),
-                                'team': team,
-                                'player': nm,
-                                'position': pos_up if pos_up else 'WR',
-                                'rush_share': r_floor,
-                                'target_share': t_floor,
-                                'rz_rush_share': r_floor * 0.8,
-                                'rz_target_share': 0.0
-                            })
+                            # If already present, merge floors into existing row via max()
+                            merged = False
+                            try:
+                                if (nm_key in present_nm) or (pid_key and (pid_key in present_ids)):
+                                    m = (depth['_nm'] == nm_key)
+                                    if pid_key and ('player_id' in depth.columns):
+                                        m = m | (depth['player_id'].astype(str) == pid_key)
+                                    if m.any():
+                                        # Update existing shares to be at least the floor values
+                                        for col, val in [('rush_share', r_floor), ('target_share', t_floor), ('rz_rush_share', r_floor * 0.8)]:
+                                            if col in depth.columns:
+                                                cur = pd.to_numeric(depth.loc[m, col], errors='coerce').fillna(0.0)
+                                                depth.loc[m, col] = np.maximum(cur, float(val))
+                                        merged = True
+                            except Exception:
+                                merged = False
+                            if not merged:
+                                rows_to_add.append({
+                                    'season': int(tr.get('season')),
+                                    'team': team,
+                                    'player': nm,
+                                    'position': pos_up if pos_up else 'WR',
+                                    'rush_share': r_floor,
+                                    'target_share': t_floor,
+                                    'rz_rush_share': r_floor * 0.8,
+                                    'rz_target_share': 0.0
+                                })
                         if rows_to_add:
                             depth = pd.concat([depth, pd.DataFrame(rows_to_add)], ignore_index=True)
-                            depth['pos_up'] = depth['position'].astype(str).str.upper()
-                            depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
-                            depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
-                            depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
-                            depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
-                            _dump_depth(team, '02b_after_wk1_inject', depth)
+                        # Recompute helper fields for later steps
+                        depth['pos_up'] = depth['position'].astype(str).str.upper()
+                        depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
+                        depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                        depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
+                        depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
+                        _dump_depth(team, '02b_after_wk1_inject', depth)
                 except Exception:
                     pass
 
@@ -2250,7 +2281,8 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     use_fallback = str(os.environ.get('PROPS_INCLUDE_ROSTER_FRINGE', '1')).strip().lower() in {'1','true','yes'}
                 except Exception:
                     use_fallback = True
-                if use_fallback:
+                # Only use roster fringe when base depth is empty; otherwise, keep top-of-depth only
+                if use_fallback and (depth is not None) and depth.empty:
                     # Ensure roster_map is available for this team
                     if roster_map is None or roster_map.empty:
                         try:
@@ -3964,6 +3996,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         _rnd(col, 2)
     if "any_td_prob" in out.columns:
         out["any_td_prob"] = pd.to_numeric(out["any_td_prob"], errors="coerce").clip(lower=0.0, upper=1.0).round(4)
+    # Final sanity: drop accidental duplicate rows for the same player on the same team/week
+    try:
+        dedup_keys = [c for c in ["season","week","team","player","position"] if c in out.columns]
+        if dedup_keys:
+            out = out.drop_duplicates(subset=dedup_keys, keep="first").copy()
+    except Exception:
+        pass
     # Order columns
     pref = [
         "season","week","date","game_id","team","opponent","is_home","player","position",
