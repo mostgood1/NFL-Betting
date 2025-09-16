@@ -283,6 +283,139 @@ def _qb_rush_rate_priors(season: int) -> pd.DataFrame:
     return out[['__dummy' if False else '_pid','_nm','rush_att_pg']]
 
 
+def _qb_passing_priors(season: int, seasons_back: int = 2, min_games: int = 6) -> pd.DataFrame:
+    """Build QB passing priors from previous seasons' play-by-play.
+
+    Returns columns: player_id, player, attempts_pg, ypa, td_rate, games, _nm
+    Degrades gracefully to empty DataFrame when data is unavailable.
+    """
+    cols = ["player_id","player","attempts_pg","ypa","td_rate","games","_nm"]
+    try:
+        seasons: list[int] = []
+        for d in range(seasons_back, 0, -1):
+            s = int(season) - d
+            if s >= 1999:
+                seasons.append(s)
+        if not seasons:
+            return pd.DataFrame(columns=cols)
+
+        cache_fp = DATA_DIR / f"qb_passing_priors_{int(season)}_back{int(seasons_back)}.csv"
+        if cache_fp.exists():
+            try:
+                cached = pd.read_csv(cache_fp)
+                # Ensure expected columns
+                for c in cols:
+                    if c not in cached.columns:
+                        cached[c] = None
+                return cached[cols]
+            except Exception:
+                pass
+
+        frames: List[pd.DataFrame] = []
+        for s in seasons:
+            df = None
+            pbp_fp = DATA_DIR / f"pbp_{int(s)}.parquet"
+            if pbp_fp.exists():
+                try:
+                    df = pd.read_parquet(pbp_fp)
+                except Exception:
+                    df = None
+            if df is None:
+                try:
+                    import nfl_data_py as nfl  # type: ignore
+                    df = nfl.import_pbp_data([int(s)])
+                except Exception:
+                    df = None
+            if df is None or df.empty:
+                continue
+
+            d = df.copy()
+            # Identify columns
+            gid_col = None
+            for c in ("game_id","gameId","gameid"):
+                if c in d.columns:
+                    gid_col = c; break
+            if gid_col is None:
+                d["game_id"] = pd.RangeIndex(start=0, stop=len(d)).astype(str)
+                gid_col = "game_id"
+
+            name_cols = ["passer_player_name","passer","passer_name","qb_player_name","qb_name"]
+            id_cols = ["passer_player_id","passer_id","qb_player_id","qb_id"]
+            def _pick(row: pd.Series, keys: List[str]) -> str:
+                for k in keys:
+                    v = row.get(k)
+                    if v is not None and pd.notna(v):
+                        s = str(v).strip()
+                        if s:
+                            return s
+                return ""
+            d["_passer"] = d.apply(lambda r: _pick(r, name_cols), axis=1)
+            d["_pid"] = d.apply(lambda r: _pick(r, id_cols), axis=1)
+
+            # Attempt flag
+            if "pass_attempt" in d.columns:
+                att = pd.to_numeric(d["pass_attempt"], errors="coerce").fillna(0).astype(int)
+            else:
+                base = pd.to_numeric(d.get("pass"), errors="coerce").fillna(0).astype(int)
+                scramble = pd.to_numeric(d.get("qb_scramble"), errors="coerce").fillna(0).astype(int)
+                sack = pd.to_numeric(d.get("sack"), errors="coerce").fillna(0).astype(int)
+                att = (base & (1 - scramble) & (1 - sack)).astype(int)
+
+            # Yards and TDs
+            yds = pd.to_numeric(d.get("passing_yards", d.get("yards_gained")), errors="coerce").fillna(0.0)
+            if "pass_touchdown" in d.columns:
+                td = pd.to_numeric(d["pass_touchdown"], errors="coerce").fillna(0).astype(int)
+            else:
+                td = (pd.to_numeric(d.get("touchdown"), errors="coerce").fillna(0).astype(int) & att).astype(int)
+
+            sub = pd.DataFrame({
+                "game_id": d[gid_col],
+                "passer": d["_passer"],
+                "passer_id": d["_pid"],
+                "att": att,
+                "yds": yds.where(att == 1, 0.0),
+                "ptd": td,
+            })
+            sub = sub[sub["passer"].astype(str).str.len() > 0]
+
+            g = (
+                sub.groupby(["game_id","passer_id","passer"], as_index=False)
+                   .agg(att=("att","sum"), yds=("yds","sum"), ptd=("ptd","sum"))
+            )
+            if not g.empty:
+                g["season"] = int(s)
+                frames.append(g)
+
+        if not frames:
+            return pd.DataFrame(columns=cols)
+
+        allg = pd.concat(frames, ignore_index=True)
+        allg = allg[pd.to_numeric(allg["att"], errors="coerce").fillna(0) > 0]
+        if allg.empty:
+            return pd.DataFrame(columns=cols)
+
+        agg = (
+            allg.groupby(["passer_id","passer"], as_index=False)
+                .agg(games=("game_id","nunique"), att=("att","sum"), yds=("yds","sum"), ptd=("ptd","sum"))
+        )
+        agg["attempts_pg"] = np.where(agg["games"].gt(0), agg["att"] / agg["games"], np.nan)
+        agg["ypa"] = np.where(agg["att"].gt(0), agg["yds"] / agg["att"], np.nan)
+        agg["td_rate"] = np.where(agg["att"].gt(0), agg["ptd"] / agg["att"], np.nan)
+        agg = agg[pd.to_numeric(agg["games"], errors="coerce").fillna(0) >= int(min_games)]
+        agg = agg.rename(columns={"passer_id":"player_id","passer":"player"})
+        agg["_nm"] = agg["player"].astype(str).map(normalize_name_loose)
+
+        try:
+            cache_fp.parent.mkdir(parents=True, exist_ok=True)
+            agg.to_csv(cache_fp, index=False)
+        except Exception:
+            pass
+
+        return agg[["player_id","player","attempts_pg","ypa","td_rate","games","_nm"]]
+    except Exception:
+        return pd.DataFrame(columns=cols)
+
+
 def _safe_float(x, default: float = 0.0) -> float:
     try:
         v = float(x)
@@ -1654,6 +1787,12 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     te_rec_mult = _cfg_float('PROPS_POS_TE_REC', 0.98, 0.80, 1.20)
     qb_py_mult = _cfg_float('PROPS_POS_QB_PASS_YDS', 0.97, 0.70, 1.20)
     qb_ptd_mult = _cfg_float('PROPS_POS_QB_PASS_TDS', 0.95, 0.70, 1.20)
+    # New: QB passing priors blend weight
+    qb_prior_w = _cfg_float('PROPS_QB_PRIOR_WEIGHT', 0.35, 0.0, 0.8)
+    # Load QB passing priors once (for current season context)
+    qb_priors = _qb_passing_priors(int(season))
+    # Load QB rush priors once for Week 1 rush share blending
+    qb_rush_priors = _qb_rush_rate_priors(int(season))
 
     rows: List[Dict] = []
     for _, tr in teams.iterrows():
@@ -1863,6 +2002,113 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     depth.loc[te_mask, 'recv_rank'] = order.values
         except Exception:
             pass
+
+        # Week 1: Blend player efficiency priors into initial target/rush shares for all positions
+        # This sets t_blend/r_blend that downstream steps use as base volume signals.
+        if int(tr.get('week')) == 1:
+            try:
+                # Ensure id/name keys for joining priors
+                if 'player_id' not in depth.columns:
+                    depth['player_id'] = ''
+                if '_nm' not in depth.columns:
+                    depth['_nm'] = depth['player'].astype(str).map(normalize_name_loose)
+                # Prepare priors slices
+                pri = eff_priors.copy() if eff_priors is not None else pd.DataFrame()
+                if pri is None:
+                    pri = pd.DataFrame()
+                # Columns we care about
+                tg_col = 'targets' if (not pri.empty and 'targets' in pri.columns) else None
+                ru_col = 'rush_att' if (not pri.empty and 'rush_att' in pri.columns) else None
+                # Attach player-level priors (prefer id join)
+                dep = depth.copy()
+                if not pri.empty:
+                    if '_pid' not in pri.columns and 'player_id' in pri.columns:
+                        pri['_pid'] = pri['player_id'].astype(str)
+                    if 'player_id' in dep.columns and dep['player_id'].astype(str).notna().any():
+                        dep['player_id'] = dep['player_id'].astype(str)
+                        dep = dep.merge(pri[[c for c in ['_pid','_nm', tg_col, ru_col] if c in pri.columns]].rename(columns={'_pid':'player_id'}),
+                                        on='player_id', how='left', suffixes=(None, '_pri'))
+                    # Fallback: name join
+                    if tg_col and f'{tg_col}_pri' not in dep.columns:
+                        dep = dep.merge(pri[[c for c in ['_nm', tg_col, ru_col] if c in pri.columns]], on='_nm', how='left', suffixes=(None, '_pri'))
+                else:
+                    dep[f'{tg_col}_pri' if tg_col else 'targets_pri'] = np.nan
+                    dep[f'{ru_col}_pri' if ru_col else 'rush_att_pri'] = np.nan
+
+                # Derive per-team prior shares
+                dep['pos_up'] = dep['position'].astype(str).str.upper()
+                # Receiving prior shares among WR/TE/RB only
+                if tg_col and f'{tg_col}_pri' in dep.columns:
+                    rec_mask = dep['pos_up'].isin(['WR','TE','RB'])
+                    tg_vals = pd.to_numeric(dep.loc[rec_mask, f'{tg_col}_pri'], errors='coerce').fillna(0.0)
+                    tg_sum = float(tg_vals.sum())
+                    if tg_sum > 0:
+                        pr_t_share = pd.Series(0.0, index=dep.index)
+                        pr_t_share.loc[rec_mask] = tg_vals / tg_sum
+                    else:
+                        pr_t_share = pd.Series(0.0, index=dep.index)
+                else:
+                    pr_t_share = pd.Series(0.0, index=dep.index)
+
+                # Rushing prior shares among RB and QB
+                if ru_col and f'{ru_col}_pri' in dep.columns:
+                    ru_mask = dep['pos_up'].isin(['RB','QB'])
+                    ru_vals = pd.to_numeric(dep.loc[ru_mask, f'{ru_col}_pri'], errors='coerce').fillna(0.0)
+                else:
+                    ru_mask = dep['pos_up'].isin(['RB','QB'])
+                    ru_vals = pd.Series(0.0, index=dep.index)
+                # Fill QB rush priors when missing
+                try:
+                    if qb_rush_priors is not None and not qb_rush_priors.empty:
+                        # Map by id first
+                        qmap_id = {str(r['_pid']): float(r['rush_att_pg']) for _, r in qb_rush_priors.iterrows() if pd.notna(r.get('_pid'))}
+                        qmap_nm = {str(r['_nm']): float(r['rush_att_pg']) for _, r in qb_rush_priors.iterrows() if pd.notna(r.get('_nm'))}
+                        for idx in dep.index[dep['pos_up'] == 'QB']:
+                            cur = float(pd.to_numeric(ru_vals.get(idx), errors='coerce') if idx in ru_vals.index else 0.0)
+                            if cur <= 0:
+                                pid = str(dep.at[idx, 'player_id']) if 'player_id' in dep.columns else ''
+                                nm = str(dep.at[idx, '_nm']) if '_nm' in dep.columns else ''
+                                val = None
+                                if pid and pid in qmap_id:
+                                    val = qmap_id[pid]
+                                elif nm and nm in qmap_nm:
+                                    val = qmap_nm[nm]
+                                if val is not None:
+                                    ru_vals.at[idx] = float(max(0.0, val))
+                except Exception:
+                    pass
+                ru_sum = float(pd.to_numeric(ru_vals, errors='coerce').fillna(0.0).sum())
+                if ru_sum > 0:
+                    pr_r_share = pd.Series(0.0, index=dep.index)
+                    pr_r_share.loc[ru_mask] = pd.to_numeric(ru_vals, errors='coerce').fillna(0.0) / ru_sum
+                else:
+                    pr_r_share = pd.Series(0.0, index=dep.index)
+
+                # Blend weights (env-tunable)
+                w_t = _cfg_float('PROPS_WK1_PRIOR_T_WEIGHT', 0.50, 0.0, 1.0)
+                w_r = _cfg_float('PROPS_WK1_PRIOR_R_WEIGHT', 0.45, 0.0, 1.0)
+                # Base shares
+                dep['t_base'] = pd.to_numeric(dep.get('target_share'), errors='coerce').fillna(0.0)
+                dep['r_base'] = pd.to_numeric(dep.get('rush_share'), errors='coerce').fillna(0.0)
+                # Apply blend only to the relevant groups
+                t_blend = dep['t_base']
+                r_blend = dep['r_base']
+                try:
+                    t_blend = np.where(dep['pos_up'].isin(['WR','TE','RB']), (1 - w_t) * dep['t_base'] + w_t * pr_t_share, dep['t_base'])
+                except Exception:
+                    t_blend = dep['t_base']
+                try:
+                    r_blend = np.where(dep['pos_up'].isin(['RB','QB']), (1 - w_r) * dep['r_base'] + w_r * pr_r_share, dep['r_base'])
+                except Exception:
+                    r_blend = dep['r_base']
+                depth['t_blend'] = pd.to_numeric(t_blend, errors='coerce').fillna(dep['t_base'])
+                depth['r_blend'] = pd.to_numeric(r_blend, errors='coerce').fillna(dep['r_base'])
+                # Use blended volumes to drive strengths
+                depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_blend'], 0.0)
+                depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_blend'], 0.0)
+            except Exception:
+                # If anything fails, proceed without Week 1 prior-share blending
+                pass
 
         def _rank_mult(pos: str, rank_val) -> float:
             try:
@@ -3819,6 +4065,38 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 py = team_pass_yards
                 ptd = pass_tds
                 pint = team_int
+                # Blend in QB passing priors if available (by id or loose name)
+                try:
+                    pri = None
+                    if qb_priors is not None and not qb_priors.empty:
+                        cand = None
+                        if pl_pid:
+                            cand = qb_priors[qb_priors['player_id'].astype(str) == str(pl_pid)]
+                        if (cand is None or cand.empty) and 'player' in qb_priors.columns:
+                            # fallback by loose name
+                            nm = normalize_name_loose(str(pl_name))
+                            cand = qb_priors[qb_priors.get('_nm').astype(str) == nm]
+                        if cand is not None and not cand.empty:
+                            pri = cand.iloc[0]
+                    if pri is not None:
+                        # Compute priors-derived estimates for current game
+                        att_pg = float(pd.to_numeric(pri.get('attempts_pg'), errors='coerce'))
+                        ypa = float(pd.to_numeric(pri.get('ypa'), errors='coerce'))
+                        td_rate = float(pd.to_numeric(pri.get('td_rate'), errors='coerce'))
+                        # Reasonable clamps to avoid wild priors
+                        att_pg = float(np.clip(att_pg, 22.0, 44.0))
+                        ypa = float(np.clip(ypa, 6.2, 8.2))
+                        td_rate = float(np.clip(td_rate, 0.030, 0.070))  # 3%..7% per attempt
+                        patt_prior = att_pg  # single game expectation
+                        py_prior = patt_prior * ypa
+                        ptd_prior = patt_prior * td_rate
+                        # Blend
+                        w = float(qb_prior_w)
+                        patt = (1.0 - w) * patt + w * patt_prior
+                        py = (1.0 - w) * py + w * py_prior
+                        ptd = (1.0 - w) * ptd + w * ptd_prior
+                except Exception:
+                    pass
                 # Calibrate QB passing toward prior-week QB bias
                 if pos_bias and int(week) > 1 and 'QB' in pos_bias:
                     qb = pos_bias['QB']
@@ -3829,6 +4107,10 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 # Apply small global QB passing tweaks
                 py *= qb_py_mult
                 ptd *= qb_ptd_mult
+                # Final clamps for sanity
+                patt = float(np.clip(patt, 20.0, 48.0))
+                py = float(np.clip(py, 150.0, 370.0))
+                ptd = float(np.clip(ptd, 0.5, 3.2))
                 row.update({
                     "pass_attempts": patt,
                     "pass_yards": py,
