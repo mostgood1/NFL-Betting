@@ -3,7 +3,6 @@ from pathlib import Path
 from joblib import dump
 from .data_sources import load_games, load_team_stats, load_lines
 from .features import merge_features
-from .weather import load_weather_for_games
 from .models import train_models
 
 MODELS_DIR = Path(__file__).resolve().parents[1] / 'models'
@@ -19,12 +18,7 @@ def main():
         print('No games.csv found. Add historical data to train models.')
         return
 
-    # Weather optional
-    try:
-        wx = load_weather_for_games(games)
-    except Exception:
-        wx = None
-    df = merge_features(games, team_stats, lines, wx)
+    df = merge_features(games, team_stats, lines)
     # Filter rows with targets available
     df_train = df.dropna(subset=['home_score','away_score'])
 

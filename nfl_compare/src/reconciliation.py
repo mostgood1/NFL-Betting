@@ -503,6 +503,17 @@ def summarize_errors(df: pd.DataFrame) -> pd.DataFrame:
         'targets','receptions','rec_yards','rec_tds'
     ]
     rows = []
+    # Helper to safely compute nanmean without warnings on empty/all-NaN arrays
+    def _nanmean_safe(arr) -> float:
+        try:
+            a = pd.to_numeric(arr, errors='coerce').to_numpy(dtype=float, copy=False)
+        except Exception:
+            # Fallback for non-numeric
+            return float('nan')
+        valid = ~(np.isnan(a))
+        if a.size == 0 or not valid.any():
+            return float('nan')
+        return float(np.nanmean(a))
     for pos in ['QB','RB','WR','TE']:
         sub = df[df['position'].astype(str).str.upper() == pos].copy()
         if sub.empty:
@@ -513,11 +524,11 @@ def summarize_errors(df: pd.DataFrame) -> pd.DataFrame:
                 pred = pd.to_numeric(sub[c], errors='coerce')
                 act = pd.to_numeric(sub[f"{c}_act"], errors='coerce')
                 err = (pred - act).abs()
-                rec[f"{c}_MAE"] = float(np.nanmean(err)) if len(err) else float('nan')
+                rec[f"{c}_MAE"] = _nanmean_safe(err)
                 # Also include signed bias (mean error)
-                rec[f"{c}_bias"] = float(np.nanmean(pd.to_numeric(sub[c], errors='coerce') - pd.to_numeric(sub[f"{c}_act"], errors='coerce')))
-                rec[f"{c}_act_mean"] = float(np.nanmean(act)) if len(act) else float('nan')
-                rec[f"{c}_pred_mean"] = float(np.nanmean(pred)) if len(pred) else float('nan')
+                rec[f"{c}_bias"] = _nanmean_safe(pd.to_numeric(sub[c], errors='coerce') - pd.to_numeric(sub[f"{c}_act"], errors='coerce'))
+                rec[f"{c}_act_mean"] = _nanmean_safe(act)
+                rec[f"{c}_pred_mean"] = _nanmean_safe(pred)
         rows.append(rec)
     return pd.DataFrame(rows)
 

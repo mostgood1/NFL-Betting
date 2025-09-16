@@ -77,6 +77,39 @@ backfill_close_fields = _import_backfill()
 LOCKED_FP = DATA_DIR / 'predictions_locked.csv'
 
 
+def _week_has_started(season: int, week: int) -> bool:
+    try:
+        g = _load_games()
+        if g is None or g.empty:
+            return False
+        gg = g[(g.get('season').astype('Int64') == int(season)) & (g.get('week').astype('Int64') == int(week))].copy()
+        if gg is None or gg.empty:
+            return False
+        gg['date'] = pd.to_datetime(gg.get('date'), errors='coerce').dt.date
+        today = _date.today()
+        return bool((gg['date'].notna()) & (gg['date'] <= today)).any()
+    except Exception:
+        return False
+
+
+def _lock_props_week(season: int, week: int) -> None:
+    try:
+        csv_fp = DATA_DIR / f"player_props_{int(season)}_wk{int(week)}.csv"
+        lock_fp = DATA_DIR / f"props_lock_{int(season)}_wk{int(week)}.lock"
+        if not lock_fp.exists():
+            lock_fp.write_text('locked')
+        # Write a frozen copy if the source CSV exists
+        if csv_fp.exists():
+            frozen_fp = DATA_DIR / f"player_props_{int(season)}_wk{int(week)}.locked.csv"
+            try:
+                df = pd.read_csv(csv_fp)
+                df.to_csv(frozen_fp, index=False)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+
 def _load_games() -> pd.DataFrame:
     fp = DATA_DIR / 'games.csv'
     if not fp.exists():
@@ -394,6 +427,42 @@ def main() -> None:
 
     # 6b) Compute and save player props for current week
     try:
+        # If games for the current week have started, lock props to prevent changes
+        try:
+            if _week_has_started(int(season), int(cur_week)):
+                _lock_props_week(int(season), int(cur_week))
+                print(f"Props auto-locked for season={season}, week={cur_week} (games started).")
+        except Exception:
+            pass
+
+        # Build ESPN depth chart CSV for current week (for injury-aware depth)
+        try:
+            from .depth_charts import save_depth_chart as _save_depth
+            dc_fp = _DATA_DIR / f"depth_chart_{int(season)}_wk{int(cur_week)}.csv"
+            # Rebuild weekly to capture latest injuries; overwrite silently
+            out_fp = _save_depth_chart(int(season), int(cur_week)) if False else _save_depth(int(season), int(cur_week))
+            if dc_fp.exists():
+                print(f"Depth chart ready: {dc_fp.name}")
+            else:
+                print(f"Depth chart built: {out_fp.name if hasattr(out_fp,'name') else out_fp}")
+        except Exception as e:
+            print(f"Depth chart build skipped/failed: {e}")
+
+        # Build Week 1 central stats once per season (if not present)
+        try:
+            from .week1_central_stats import build_week1_central_stats as _build_central
+            cfp = DATA_DIR / f"week1_central_stats_{int(season)}.csv"
+            if not cfp.exists():
+                df_c = _build_central(int(season))
+                if df_c is not None and not df_c.empty:
+                    print(f"Central Week 1 stats built: {len(df_c)} rows.")
+                else:
+                    print("Central Week 1 stats: no rows (skip).")
+            else:
+                print("Central Week 1 stats already present; skipping rebuild.")
+        except Exception as e:
+            print(f"Central Week 1 stats build skipped/failed: {e}")
+
         # Rebuild usage priors from latest rosters/depth charts to keep depth accurate
         try:
             from .build_player_usage_priors import build_player_usage_priors as _build_priors
@@ -424,18 +493,40 @@ def main() -> None:
 
         try:
             from .player_props import compute_player_props as _compute_player_props
+            from .util import silence_stdout_stderr
         except Exception:
             _compute_player_props = None
+
         if _compute_player_props is not None:
-            props_df = _compute_player_props(int(season), int(cur_week))
-            if props_df is not None and not props_df.empty:
-                out_props = DATA_DIR / f"player_props_{season}_wk{cur_week}.csv"
-                props_df.to_csv(out_props, index=False)
-                print(f"Wrote {out_props} with {len(props_df)} rows of player props.")
+            # Respect per-week props lock
+            lock_marker = DATA_DIR / f"props_lock_{int(season)}_wk{int(cur_week)}.lock"
+            locked_csv = DATA_DIR / f"player_props_{int(season)}_wk{int(cur_week)}.locked.csv"
+            if lock_marker.exists() or locked_csv.exists():
+                print(f"Player props locked for season={season}, week={cur_week}; skipping props regen.")
             else:
-                print("Player props: no rows computed.")
+                with silence_stdout_stderr():
+                    props_df = _compute_player_props(int(season), int(cur_week))
+                if props_df is not None and not props_df.empty:
+                    out_props = DATA_DIR / f"player_props_{season}_wk{cur_week}.csv"
+                    props_df.to_csv(out_props, index=False)
+                    print(f"Wrote {out_props} with {len(props_df)} rows of player props.")
+                else:
+                    print("Player props: no rows computed.")
         else:
             print("Player props: module unavailable; skipped.")
+
+        # Build roster validation report (external check vs nfl_data_py rosters/depth charts)
+        try:
+            from .roster_validation import build_roster_validation as _build_roster_validation
+            det, summ = _build_roster_validation(int(season), int(cur_week))
+            if summ is not None and not summ.empty:
+                print(
+                    f"Roster validation wrote summary and details for season={season}, week={cur_week}"
+                )
+            else:
+                print("Roster validation: no summary produced.")
+        except Exception as e:
+            print(f"Roster validation failed/skipped: {e}")
     except Exception as e:
         print(f"Player props step failed: {e}")
 

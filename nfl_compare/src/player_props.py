@@ -17,6 +17,7 @@ Heuristics are conservative and rely on league-average efficiency with modest ad
 """
 
 import argparse
+import re
 from dataclasses import dataclass
 import hashlib
 from pathlib import Path
@@ -30,7 +31,7 @@ import os
 from .td_likelihood import compute_td_likelihood
 from .team_normalizer import normalize_team_name
 from .reconciliation import reconcile_props, summarize_errors  # calibration inputs
-from .name_normalizer import normalize_name_loose
+from .name_normalizer import normalize_name_loose, normalize_alias_init_last
 
 # Data dir shared with rest of project
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
@@ -38,6 +39,33 @@ DEPTH_OVERRIDES_FP = DATA_DIR / "depth_overrides.csv"  # columns: season, week(o
 EFF_PRIORS_FP = DATA_DIR / "player_efficiency_priors.csv"
 QB_STARTERS_FP_TMPL = DATA_DIR / "qb_starters_{season}_wk1.csv"
 PRED_NOT_ACTIVE_TMPL = DATA_DIR / "predicted_not_active_{season}_wk{week}.csv"
+USAGE_WK1_PBP_TMPL = DATA_DIR / "week1_usage_pbp_{season}.csv"
+USAGE_WK1_CENTRAL_TMPL = DATA_DIR / "week1_central_stats_{season}.csv"
+
+# Optional hard-coded safety net for Week 1 starters by team (normalized names)
+WEEK1_QB_OVERRIDES = {
+    "Minnesota Vikings": "JJ McCarthy",
+    "Chicago Bears": "Caleb Williams",
+}
+
+# Optional explicit TE1 overrides by team (normalized team names)
+# Used to force a specific TE to the top receiving rank when data sources conflict.
+# Matching is done via alias (initial.last) and loose last-name fallback.
+TE1_OVERRIDES = {
+    "Minnesota Vikings": ["T.J. Hockenson", "Thomas Hockenson"],
+}
+
+# Optional explicit WR1 overrides by team (normalized team names)
+# Used to force a specific WR to be the top receiving option.
+WR1_OVERRIDES = {
+    "Minnesota Vikings": ["Justin Jefferson"],
+}
+
+# Optional hard override for primary QB by team (applies to all weeks)
+# Use sparingly when external feeds have alias collisions or misordered depth.
+QB_OVERRIDE_BY_TEAM = {
+    "Chicago Bears": "Caleb Williams",
+}
 
 
 # --- League-average baselines (tunable via env later if needed) ---
@@ -112,6 +140,13 @@ def _calib_weight(env_key: str, default: float) -> float:
     except Exception:
         return default
 
+def _cfg_float(env_key: str, default: float, lo: float, hi: float) -> float:
+    """Generic float config reader with clipping."""
+    try:
+        v = float(os.environ.get(env_key, str(default)))
+        return float(np.clip(v, lo, hi))
+    except Exception:
+        return default
 
 def _load_recon_summary(season: int, prev_week: int) -> pd.DataFrame:
     """Fetch prior week reconciliation and summarize signed bias/MAE by position.
@@ -353,6 +388,14 @@ def _apply_depth_overrides(base: pd.DataFrame, season: int, week: int, team: str
             over = over.merge(base[['player','position']], on='player', how='left')
         except Exception:
             pass
+
+        # Final override: force QB by team when specified (handles alias collisions like "C. Williams")
+        try:
+            forced = QB_OVERRIDE_BY_TEAM.get(team)
+            if forced:
+                qb_name = str(forced)
+        except Exception:
+            pass
     # Renormalize shares to 1.0 per column if any non-zero
     for c in ["rush_share","target_share","rz_rush_share","rz_target_share"]:
         s = float(over[c].sum())
@@ -418,6 +461,35 @@ def _team_depth(usage: pd.DataFrame, season: int, team: str) -> pd.DataFrame:
         s = u[c].sum()
         if s > 0:
             u[c] = u[c] / s
+    # Heuristic quality check: if usage names barely match team roster, prefer roster-based depth.
+    # This guards against placeholder first-name-only priors corrupting team rosters (e.g., ATL).
+    try:
+        rm = _team_roster_ids(int(season), team)
+        if rm is not None and not rm.empty and ('player' in u.columns):
+            # Build alias keys for robust matching
+            try:
+                rm_alias = rm.copy()
+                rm_alias['player_alias'] = rm_alias['player'].astype(str).map(normalize_alias_init_last)
+                u_alias = u.copy()
+                u_alias['player_alias'] = u_alias['player'].astype(str).map(normalize_alias_init_last)
+            except Exception:
+                rm_alias = rm.copy()
+                rm_alias['player_alias'] = rm_alias['player'].astype(str).map(normalize_name_loose)
+                u_alias = u.copy()
+                u_alias['player_alias'] = u_alias['player'].astype(str).map(normalize_name_loose)
+
+            matched = u_alias.merge(rm_alias[['player_alias']].drop_duplicates(), on='player_alias', how='inner')
+            match_frac = 0.0 if len(u_alias) == 0 else (len(matched) / float(len(u_alias)))
+            # Additional signal: many one-token names tend to be placeholders
+            names = u_alias['player'].astype(str).fillna('')
+            one_token_frac = 0.0 if len(names) == 0 else float((names.str.split().map(len) <= 1).sum()) / float(len(names))
+            if (match_frac < 0.5) or (one_token_frac > 0.6 and match_frac < 0.8):
+                rb = _roster_based_depth(season, team)
+                if rb is not None and not rb.empty:
+                    return rb
+    except Exception:
+        # On any failure, keep using provided usage priors (will get corrected later by observed data injection)
+        pass
     return u
 
 
@@ -429,6 +501,51 @@ def _season_rosters(season: int) -> pd.DataFrame:
         return ros if ros is not None else pd.DataFrame()
     except Exception:
         return pd.DataFrame()
+
+
+@lru_cache(maxsize=2)
+def _league_roster_map(season: int) -> pd.DataFrame:
+    """Return league-wide roster mapping: team, player_id, player, position, depth_chart_order.
+    Useful as a fallback when team-scoped roster lookups are incomplete.
+    """
+    ros = _season_rosters(int(season))
+    if ros is None or ros.empty:
+        return pd.DataFrame(columns=['team','player_id','player','position','depth_chart_order'])
+    team_src = 'team' if 'team' in ros.columns else ('recent_team' if 'recent_team' in ros.columns else ('team_abbr' if 'team_abbr' in ros.columns else None))
+    if not team_src:
+        return pd.DataFrame(columns=['team','player_id','player','position','depth_chart_order'])
+    df = ros.copy()
+    df['team'] = df[team_src].astype(str).apply(normalize_team_name)
+    # Build name column
+    name_col = None
+    for c in ['player_display_name','player_name','display_name','full_name','football_name']:
+        if c in df.columns:
+            name_col = c; break
+    if name_col:
+        df['player'] = df[name_col].astype(str)
+    else:
+        fn = df.get('first_name', pd.Series(['']*len(df))).astype(str)
+        ln = df.get('last_name', pd.Series(['']*len(df))).astype(str)
+        df['player'] = (fn + ' ' + ln).str.strip()
+    # IDs and positions
+    id_col = None
+    for c in ['gsis_id','player_id','nfl_id','pfr_id']:
+        if c in df.columns:
+            id_col = c; break
+    pos_col = 'depth_chart_position' if 'depth_chart_position' in df.columns else ('position' if 'position' in df.columns else None)
+    if pos_col:
+        df['position'] = df[pos_col].astype(str).str.upper()
+    else:
+        df['position'] = None
+    dco = df['depth_chart_order'] if 'depth_chart_order' in df.columns else pd.Series([None]*len(df))
+    out = pd.DataFrame({
+        'team': df['team'],
+        'player_id': df[id_col].astype(str) if id_col else pd.Series([None]*len(df), dtype=object),
+        'player': df['player'],
+        'position': df['position'],
+        'depth_chart_order': pd.to_numeric(dco, errors='coerce'),
+    })
+    return out.dropna(subset=['team','player'])
 
 
 @lru_cache(maxsize=4)
@@ -665,10 +782,19 @@ def _active_roster(season: int, week: int) -> pd.DataFrame:
         out['status'] = None
     # Heuristic is_active
     def _is_active(txt: Optional[str]) -> int:
+        """Heuristic mapping from status text to active flag.
+        Treat common inactive-like tokens as inactive (0), otherwise default to active (1).
+        """
         if txt is None or (isinstance(txt, float) and np.isnan(txt)):
             return 1  # assume active if unknown
         t = str(txt).strip().upper()
-        if any(k in t for k in ['RESERVE', 'PRACTICE', 'IR', 'INACTIVE', 'PUP', 'NFI']):
+        # Common inactive indicators from various feeds (abbreviations included)
+        inactive_tokens = [
+            'RESERVE', 'RES', 'IR', 'INACTIVE', 'INA', 'OUT', 'PUP', 'NFI', 'SUSP',
+            'EXEMPT', 'EXE', 'PRACTICE', 'PRAC', 'PS', 'PRACTICE SQUAD', 'WAIVED', 'WAIV',
+            'RELEASED', 'REL', 'CUT', 'COVID', 'DEV'
+        ]
+        if any(tok in t for tok in inactive_tokens):
             return 0
         if 'ACT' in t or 'ACTIVE' in t:
             return 1
@@ -764,6 +890,40 @@ def _roster_based_depth(season: int, team: str) -> pd.DataFrame:
     out = pd.DataFrame(rows)
     if out.empty:
         return out
+    # Final safeguard: drop any nameless or placeholder rows before attaching actives/rounding
+    try:
+        # Identify rows with blank/null player names or placeholder strings
+        pl = out.get('player')
+        if pl is not None:
+            s = pl.astype(str)
+            mask_noname = s.str.strip().eq('') | s.str.lower().isin({'nan', 'none'})
+            if mask_noname.any():
+                # Optional debug snapshot of dropped rows
+                try:
+                    if str(os.environ.get('PROPS_DEBUG_SNAPSHOTS', '0')).strip().lower() in {'1','true','yes'}:
+                        try:
+                            season_i = int(pd.to_numeric(out.get('season'), errors='coerce').dropna().iloc[0]) if 'season' in out.columns else 0
+                        except Exception:
+                            season_i = 0
+                        try:
+                            week_i = int(pd.to_numeric(out.get('week'), errors='coerce').dropna().iloc[0]) if 'week' in out.columns else 0
+                        except Exception:
+                            week_i = 0
+                        name = f"debug_noname_dropped_{season_i}_wk{week_i}.csv" if season_i and week_i else "debug_noname_dropped_latest.csv"
+                        fp = DATA_DIR / name
+                        out.loc[mask_noname].to_csv(fp, index=False)
+                except Exception:
+                    pass
+                out = out[~mask_noname].copy()
+        # Also ensure position is present
+        pos = out.get('position')
+        if pos is not None:
+            s2 = pos.astype(str)
+            mask_bad_pos = s2.str.strip().eq('') | s2.str.lower().isin({'nan', 'none'})
+            if mask_bad_pos.any():
+                out = out[~mask_bad_pos].copy()
+    except Exception:
+        pass
     # Renormalize by column
     for c in ['rush_share','target_share','rz_rush_share','rz_target_share']:
         out[c] = pd.to_numeric(out[c], errors='coerce').fillna(0.0).clip(lower=0.0)
@@ -771,6 +931,172 @@ def _roster_based_depth(season: int, team: str) -> pd.DataFrame:
         if s>0:
             out[c] = out[c] / s
     return out
+
+
+# --- External depth chart integration (ESPN) ---
+@lru_cache(maxsize=4)
+def _load_weekly_depth_chart(season: int, week: int) -> pd.DataFrame:
+    """Load a saved weekly depth chart CSV (built via depth_charts.py) if available.
+    Returns columns at least: season, week, team, position, player, depth_rank, depth_size, status, active
+    """
+    try:
+        from .depth_charts import load_depth_chart_csv  # type: ignore
+    except Exception:
+        return pd.DataFrame()
+    try:
+        df = load_depth_chart_csv(int(season), int(week))
+    except Exception:
+        df = pd.DataFrame()
+    if df is None or df.empty:
+        return pd.DataFrame()
+    d = df.copy()
+    # Normalize team and position
+    if 'team' in d.columns:
+        d['team'] = d['team'].astype(str).apply(normalize_team_name)
+    if 'position' in d.columns:
+        d['position'] = d['position'].astype(str).str.upper()
+    if 'player' in d.columns:
+        d['player'] = d['player'].astype(str)
+    # Ensure depth_rank numeric
+    if 'depth_rank' in d.columns:
+        d['depth_rank'] = pd.to_numeric(d['depth_rank'], errors='coerce').fillna(99).astype(int)
+    return d
+
+
+def _espn_depth_usage(season: int, week: int, team: str) -> pd.DataFrame:
+    """Construct usage shares from external ESPN depth chart for a given team.
+    Mirrors _roster_based_depth weights but uses weekly saved depth ordering.
+    """
+    dc = _load_weekly_depth_chart(int(season), int(week))
+    if dc is None or dc.empty:
+        return pd.DataFrame()
+    d = dc[dc['team'] == team].copy()
+    if d is None or d.empty or 'position' not in d.columns:
+        return pd.DataFrame()
+    # Prefer active players but keep inactives available for backfill if counts are short
+    d_all = d.copy()
+    d_all['__act__'] = d_all.get('active', pd.Series([1]*len(d_all))).astype(bool).astype(int)
+    # Helper to pick top-N by depth_rank for a given position
+    def top_pos(pos: str, take: int) -> pd.DataFrame:
+        sub = d_all[d_all['position'].astype(str).str.upper() == pos].copy()
+        if sub.empty:
+            return pd.DataFrame(columns=d_all.columns)
+        # Sort by active desc, rank asc, player
+        order_cols = ['__act__'] + ([
+            c for c in ['depth_rank'] if c in sub.columns
+        ]) + ['player']
+        sub = sub.sort_values(order_cols, ascending=[False, True, True]).head(take).copy()
+        return sub
+    qb = top_pos('QB', 1)
+    rb = top_pos('RB', 2)
+    # Some teams list FB/HB; include them as RB if present and still short
+    if len(rb) < 2:
+        alt = d_all[d_all['position'].isin(['HB','FB'])].copy()
+        if not alt.empty:
+            alt = alt.sort_values(['__act__','depth_rank','player'], ascending=[False, True, True]).head(2-len(rb))
+            if not alt.empty:
+                alt = alt.assign(position='RB')
+                rb = pd.concat([rb, alt], ignore_index=True)
+    wr = top_pos('WR', 3)
+    te = top_pos('TE', 2)
+
+    # Backfill from roster if ESPN depth provides fewer than required entries
+    try:
+        rm = _team_roster_ids(int(season), team)
+    except Exception:
+        rm = pd.DataFrame()
+    def backfill(group_df: pd.DataFrame, pos: str, need: int) -> pd.DataFrame:
+        cur = group_df.copy()
+        if len(cur) >= need:
+            return cur
+        if rm is None or rm.empty or 'position' not in rm.columns:
+            return cur
+        have = set(cur['player'].astype(str)) if not cur.empty else set()
+        cand = rm[rm['position'].astype(str).str.upper() == pos].copy()
+        if cand.empty:
+            return cur
+        # Prefer ordered roster entries not already selected
+        cand = cand[~cand['player'].astype(str).isin(have)].copy()
+        ord_col = 'depth_chart_order' if 'depth_chart_order' in cand.columns else None
+        if ord_col:
+            cand = cand.sort_values([ord_col,'player'])
+        else:
+            cand = cand.sort_values(['player'])
+        take = max(0, need - len(cur))
+        if take > 0:
+            add = cand.head(take).copy()
+            if not add.empty:
+                # Align columns similar to ESPN depth rows
+                add = add.assign(position=pos)
+                add['__act__'] = 1
+                cur = pd.concat([cur, add[['player','position']].merge(cur.head(0), how='left')], ignore_index=True) if False else pd.concat([cur, add[['player','position']]], ignore_index=True)
+        return cur
+    qb = backfill(qb, 'QB', 1)
+    rb = backfill(rb, 'RB', 2)
+    wr = backfill(wr, 'WR', 3)
+    te = backfill(te, 'TE', 2)
+    # Weight templates (same as _roster_based_depth)
+    def weights(base, n):
+        arr = (base[:n] + [0.0]*max(0, n-len(base))) if n>0 else []
+        s = sum(arr)
+        return [w/s for w in arr] if s>0 else ([1.0/n]*n if n>0 else [])
+    qb_w = weights([0.10], len(qb))
+    rb_w = weights([0.60,0.40], len(rb))
+    wr_w = weights([0.40,0.35,0.25], len(wr))
+    te_w = weights([0.65,0.35], len(te))
+    rb_rz = weights([0.70,0.30], len(rb))
+    wr_rz = weights([0.50,0.35,0.15], len(wr))
+    te_rz = weights([0.70,0.30], len(te))
+    rows = []
+    def push(df: pd.DataFrame, pos: str, w, rz):
+        for i, (_, r) in enumerate(df.iterrows()):
+            rows.append({
+                'season': int(season), 'team': team, 'player': r.get('player'), 'position': pos,
+                'rush_share': (w[i] if pos in {'RB','QB'} else 0.0),
+                'target_share': (w[i] if pos in {'WR','TE','RB'} and pos != 'QB' else 0.0),
+                'rz_rush_share': (rz[i] if pos in {'RB','QB'} else 0.0),
+                'rz_target_share': (rz[i] if pos in {'WR','TE','RB'} and pos != 'QB' else 0.0),
+            })
+    push(qb,'QB',qb_w,qb_w)
+    push(rb,'RB',rb_w,rb_rz)
+    push(wr,'WR',wr_w,wr_rz)
+    push(te,'TE',te_w,te_rz)
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    # Renormalize shares per column to 1.0 to keep consistency
+    for c in ['rush_share','target_share','rz_rush_share','rz_target_share']:
+        out[c] = pd.to_numeric(out[c], errors='coerce').fillna(0.0).clip(lower=0.0)
+        s = float(out[c].sum())
+        if s > 0:
+            out[c] = out[c] / s
+    return out
+
+
+@lru_cache(maxsize=32)
+def _espn_team_active_map(season: int, week: int, team: str) -> pd.DataFrame:
+    """Return a small map of player -> is_active flag from the ESPN depth chart for a team-week.
+    Columns: player, _nm, is_active_espn
+    """
+    try:
+        dc = _load_weekly_depth_chart(int(season), int(week))
+    except Exception:
+        return pd.DataFrame(columns=['player','_nm','is_active_espn'])
+    if dc is None or dc.empty:
+        return pd.DataFrame(columns=['player','_nm','is_active_espn'])
+    d = dc[dc['team'].astype(str).apply(normalize_team_name) == team].copy()
+    if d.empty or 'player' not in d.columns:
+        return pd.DataFrame(columns=['player','_nm','is_active_espn'])
+    d['player'] = d['player'].astype(str)
+    try:
+        d['_nm'] = d['player'].map(normalize_name_loose)
+    except Exception:
+        d['_nm'] = d['player'].astype(str).str.lower()
+    if 'active' in d.columns:
+        d['is_active_espn'] = d['active'].astype(bool).astype(int)
+    else:
+        d['is_active_espn'] = 1
+    return d[['player','_nm','is_active_espn']].drop_duplicates()
 
 
 @lru_cache(maxsize=4)
@@ -885,45 +1211,88 @@ def _week1_qb_starters(season: int) -> pd.DataFrame:
             if not df.empty:
                 if 'team' in df.columns:
                     df['team'] = df['team'].astype(str).apply(normalize_team_name)
-                return df
-        except Exception:
-            pass
-    # Preferred: derive from PBP week 1
-    starters = pd.DataFrame(columns=['team','player','player_id'])
-    try:
-        import nfl_data_py as nfl  # type: ignore
-        pbp = nfl.import_pbp_data([int(season)])
-        if pbp is not None and not pbp.empty and 'week' in pbp.columns:
-            df = pbp.copy()
-            # Filter week 1 regular season passes
-            if 'season_type' in df.columns:
-                df = df[df['season_type'].astype(str).str.upper() == 'REG']
-            df['week'] = pd.to_numeric(df['week'], errors='coerce').fillna(0).astype(int)
-            df = df[(df['week'] == 1) & (df.get('pass', 0) == 1)].copy()
-            # Identify team and passer
-            team_col = 'posteam' if 'posteam' in df.columns else None
-            name_col = None
-            for c in ['passer_player_name','passer','passer_name']:
-                if c in df.columns:
-                    name_col = c; break
-            id_col = None
-            for c in ['passer_player_id','passer_id']:
-                if c in df.columns:
-                    id_col = c; break
-            if team_col and name_col:
-                sub = df[[team_col, name_col] + ([id_col] if id_col else [])].copy()
-                sub = sub.rename(columns={team_col:'team_abbr', name_col:'player', (id_col or 'player'):'player_id'})
-                # Count pass attempts per passer per team
-                sub['_pa'] = 1
-                g = sub.groupby(['team_abbr','player'], as_index=False)['_pa'].sum()
-                # Pick max per team
-                g = g.sort_values(['team_abbr','_pa'], ascending=[True, False])
-                g = g.groupby('team_abbr', as_index=False).first()
-                g['team'] = g['team_abbr'].astype(str).apply(normalize_team_name)
-                starters = g[['team','player']].copy()
-                # Try to attach ids via rosters for season
-                ros = _season_rosters(int(season))
-                if ros is not None and not ros.empty:
+                # If cached names are abbreviated (e.g., "K.Murray"), try to canonicalize to roster display names
+                needs_fix = False
+                try:
+                    if 'player' in df.columns:
+                        s = df['player'].astype(str)
+                        # Heuristic: contains a dot or single-letter first token
+                        needs_fix = bool((s.str.contains('\.').sum() > 0) or (s.str.match(r'^[A-Za-z]\.').sum() > 0))
+                except Exception:
+                    needs_fix = False
+                if needs_fix:
+                    ros = _season_rosters(int(season))
+                    if ros is not None and not ros.empty:
+                        name_map_col = None
+                        for c in ['player_display_name','player_name','display_name','full_name','football_name']:
+                            if c in ros.columns:
+                                name_map_col = c; break
+                        id_map_col = None
+                        for c in ['gsis_id','player_id','nfl_id','pfr_id']:
+                            if c in ros.columns:
+                                id_map_col = c; break
+                        team_src = 'team' if 'team' in ros.columns else ('recent_team' if 'recent_team' in ros.columns else ('team_abbr' if 'team_abbr' in ros.columns else None))
+                        if team_src and name_map_col:
+                            # Build a name/id map scoped to team, and when possible prefer QB rows to avoid alias collisions (e.g., "C. Williams")
+                            keep_cols = [name_map_col, team_src]
+                            if id_map_col:
+                                keep_cols.append(id_map_col)
+                            # Include position columns if present to filter to QBs
+                            pos_cols = []
+                            for cpos in ['depth_chart_position','position']:
+                                if cpos in ros.columns:
+                                    pos_cols.append(cpos)
+                            keep_cols += pos_cols
+                            m_full = ros[keep_cols].copy()
+                            m_full['team'] = m_full[team_src].astype(str).apply(normalize_team_name)
+                            # Prefer rows where roster indicates QB
+                            m_qb = m_full.copy()
+                            if pos_cols:
+                                qb_mask = None
+                                for cpos in pos_cols:
+                                    col = m_qb[cpos].astype(str).str.upper()
+                                    qb_mask = col.eq('QB') if qb_mask is None else (qb_mask | col.eq('QB'))
+                                m_qb = m_qb[qb_mask.fillna(False)].copy()
+                            # Choose QB-filtered map when available; else fall back to all positions
+                            m = m_qb if (m_qb is not None and not m_qb.empty) else m_full
+                            m['_nm'] = m[name_map_col].astype(str).map(normalize_name_loose)
+                            m['_alias'] = m[name_map_col].astype(str).map(normalize_alias_init_last)
+                            s = df.copy()
+                            s['_nm'] = s['player'].astype(str).map(normalize_name_loose)
+                            s['_alias'] = s['player'].astype(str).map(normalize_alias_init_last)
+                            # Try alias match first (handles K.Murray -> kmurray), then loose
+                            s = s.merge(m[['team','_alias', name_map_col] + ([id_map_col] if id_map_col else [])].drop_duplicates(['team','_alias']).rename(columns={name_map_col:'player_full', id_map_col:'player_id'}), on=['team','_alias'], how='left')
+                            missing = s['player_full'].isna()
+                            if missing.any():
+                                s = s.merge(m[['team','_nm', name_map_col] + ([id_map_col] if id_map_col else [])].drop_duplicates(['team','_nm']).rename(columns={name_map_col:'player_full', id_map_col:'player_id'}), on=['team','_nm'], how='left', suffixes=(None,'_nmfix'))
+                                s['player_full'] = s['player_full'].fillna(s.get('player_full_nmfix'))
+                                if 'player_full_nmfix' in s.columns:
+                                    s = s.drop(columns=['player_full_nmfix'])
+                            # Replace when we found a full name
+                            if 'player_full' in s.columns:
+                                s['player'] = s['player_full'].fillna(s['player'])
+                                s = s.drop(columns=['player_full'])
+                            # Clean helper cols
+                            for c in ['_nm','_alias']:
+                                if c in s.columns:
+                                    s = s.drop(columns=[c])
+                            df = s
+                            # Persist fixed cache
+                            try:
+                                df.to_csv(fp, index=False)
+                            except Exception:
+                                pass
+                # Additional safety: if cached player is not a QB in team roster, try to resolve by alias to a QB
+                try:
+                    ros = _season_rosters(int(season))
+                except Exception:
+                    ros = pd.DataFrame()
+                if ros is not None and not ros.empty and 'player' in df.columns:
+                    # Build team-scoped roster with alias and position
+                    team_src = None
+                    for c in ['team','recent_team','team_abbr']:
+                        if c in ros.columns:
+                            team_src = c; break
                     name_map_col = None
                     for c in ['player_display_name','player_name','display_name','full_name','football_name']:
                         if c in ros.columns:
@@ -932,13 +1301,164 @@ def _week1_qb_starters(season: int) -> pd.DataFrame:
                     for c in ['gsis_id','player_id','nfl_id','pfr_id']:
                         if c in ros.columns:
                             id_map_col = c; break
-                    team_src = 'team' if 'team' in ros.columns else ('recent_team' if 'recent_team' in ros.columns else ('team_abbr' if 'team_abbr' in ros.columns else None))
-                    if name_map_col and id_map_col and team_src:
-                        m = ros[[name_map_col, id_map_col, team_src]].copy()
+                    pos_col = 'depth_chart_position' if 'depth_chart_position' in ros.columns else ('position' if 'position' in ros.columns else None)
+                    if team_src and name_map_col:
+                        m = ros[[team_src, name_map_col] + ([id_map_col] if id_map_col else []) + ([pos_col] if pos_col else [])].copy()
                         m['team'] = m[team_src].astype(str).apply(normalize_team_name)
-                        m['_nm'] = m[name_map_col].astype(str).map(normalize_name_loose)
-                        starters['_nm'] = starters['player'].astype(str).map(normalize_name_loose)
-                        starters = starters.merge(m[['team','_nm', id_map_col]].rename(columns={id_map_col:'player_id'}), on=['team','_nm'], how='left').drop(columns=['_nm'])
+                        from .name_normalizer import normalize_alias_init_last
+                        m['_alias'] = m[name_map_col].astype(str).map(normalize_alias_init_last)
+                        # For each df row, if mapped position isn't QB, try to swap to team QB with same alias
+                        s = df.copy()
+                        s['team'] = s['team'].astype(str).apply(normalize_team_name)
+                        s['_alias'] = s['player'].astype(str).map(normalize_alias_init_last)
+                        # Attach roster position for current mapping
+                        cur = s.merge(m[['team', '_alias', pos_col] if pos_col else ['team','_alias']], on=['team','_alias'], how='left')
+                        if pos_col and (cur[pos_col].astype(str).str.upper() != 'QB').any():
+                            not_qb = cur[pos_col].astype(str).str.upper() != 'QB'
+                            to_fix = cur[not_qb].copy()
+                            if not to_fix.empty:
+                                # Find a QB in roster with same alias per team
+                                m_qb = m.copy()
+                                if pos_col:
+                                    m_qb = m_qb[m_qb[pos_col].astype(str).str.upper() == 'QB']
+                                rep = to_fix.merge(m_qb[['team','_alias', name_map_col] + ([id_map_col] if id_map_col else [])].rename(columns={name_map_col:'player_qb', id_map_col:'player_id_qb'}), on=['team','_alias'], how='left')
+                                # Apply replacements where found
+                                for idx, rr in rep.iterrows():
+                                    new_nm = rr.get('player_qb')
+                                    if pd.notna(new_nm) and str(new_nm).strip():
+                                        s.loc[s.index == rr.name, 'player'] = new_nm
+                                        if id_map_col and 'player_id_qb' in rep.columns and pd.notna(rr.get('player_id_qb')):
+                                            s.loc[s.index == rr.name, 'player_id'] = rr.get('player_id_qb')
+                                df = s.drop(columns=['_alias'], errors='ignore')
+                                # Persist corrected cache
+                                try:
+                                    df.to_csv(fp, index=False)
+                                except Exception:
+                                    pass
+                return df
+        except Exception:
+            pass
+    # Preferred: derive from PBP week 1 using dropbacks (pass, sack, scramble)
+    starters = pd.DataFrame(columns=['team','player','player_id'])
+    df = pd.DataFrame()
+    # Try local parquet first (faster, consistent with other funcs)
+    try:
+        pbp_fp = DATA_DIR / f"pbp_{int(season)}.parquet"
+        if pbp_fp.exists():
+            df = pd.read_parquet(pbp_fp)
+    except Exception:
+        df = pd.DataFrame()
+    # Fallback to importing via nfl_data_py
+    if df is None or df.empty:
+        try:
+            import nfl_data_py as nfl  # type: ignore
+            df = nfl.import_pbp_data([int(season)])
+        except Exception:
+            df = pd.DataFrame()
+    try:
+        if df is not None and not df.empty and 'week' in df.columns:
+            pb = df.copy()
+            # Filter week 1 regular season
+            if 'season_type' in pb.columns:
+                pb = pb[pb['season_type'].astype(str).str.upper() == 'REG']
+            elif 'game_type' in pb.columns:
+                pb = pb[pb['game_type'].astype(str).str.upper() == 'REG']
+            pb['week'] = pd.to_numeric(pb['week'], errors='coerce').fillna(0).astype(int)
+            pb = pb[pb['week'] == 1].copy()
+            if not pb.empty:
+                # Dropback mask
+                def _to_int(s):
+                    return pd.to_numeric(s, errors='coerce').fillna(0).astype(int)
+                qb_drop = _to_int(pb['qb_dropback']) if 'qb_dropback' in pb.columns else None
+                pass_flag = _to_int(pb['pass']) if 'pass' in pb.columns else (_to_int(pb['pass_attempt']) if 'pass_attempt' in pb.columns else None)
+                sack = _to_int(pb['sack']) if 'sack' in pb.columns else None
+                scramble = _to_int(pb['qb_scramble']) if 'qb_scramble' in pb.columns else None
+                mask = None
+                for m in [qb_drop, pass_flag, sack, scramble]:
+                    if m is not None:
+                        mask = m if mask is None else (mask | (m == 1))
+                if mask is None:
+                    mask = pd.Series([False] * len(pb), index=pb.index)
+                pb = pb[mask].copy()
+                # Team and QB identity
+                team_col = 'posteam' if 'posteam' in pb.columns else ( 'pos_team' if 'pos_team' in pb.columns else None )
+                qb_name_col = None
+                for c in ['qb_player_name','qb_name','passer_player_name','passer','passer_name']:
+                    if c in pb.columns:
+                        qb_name_col = c; break
+                qb_id_col = None
+                for c in ['qb_player_id','qb_id','passer_player_id','passer_id']:
+                    if c in pb.columns:
+                        qb_id_col = c; break
+                if team_col and qb_name_col:
+                    keep = [team_col, qb_name_col]
+                    if qb_id_col:
+                        keep.append(qb_id_col)
+                    keep_extra = []
+                    # tie-breaker columns if available
+                    for c in ['game_id','play_id','qtr','quarter_seconds_remaining','time']:
+                        if c in pb.columns:
+                            keep_extra.append(c)
+                    sub = pb[keep + keep_extra].copy()
+                    sub = sub.rename(columns={team_col:'team_abbr', qb_name_col:'player', (qb_id_col or 'player'):'player_id'})
+                    sub['team'] = sub['team_abbr'].astype(str).apply(normalize_team_name)
+                    # Count dropbacks per QB per team
+                    sub['_db'] = 1
+                    grp_cols = ['team','player'] + (['player_id'] if 'player_id' in sub.columns else [])
+                    g = sub.groupby(grp_cols, as_index=False)['_db'].sum()
+                    # Pick max dropbacks per team; stable sort by dropbacks desc then name to be deterministic
+                    g = g.sort_values(['team','_db','player'], ascending=[True, False, True])
+                    # For ties, prefer the QB who appeared earlier in the game if we have play ordering
+                    if {'team','player'}.issubset(set(sub.columns)) and any(c in sub.columns for c in ['play_id','qtr','quarter_seconds_remaining']):
+                        # earliest play index proxy
+                        order = sub.copy()
+                        if 'play_id' in order.columns:
+                            order['_ord'] = pd.to_numeric(order['play_id'], errors='coerce')
+                        elif 'quarter_seconds_remaining' in order.columns:
+                            # lower remaining seconds means later in quarter; invert to get early
+                            order['_ord'] = -pd.to_numeric(order['quarter_seconds_remaining'], errors='coerce')
+                        else:
+                            order['_ord'] = 0
+                        firsts = order.sort_values(['team','_ord']).groupby(['team','player'], as_index=False).first()[['team','player','_ord']]
+                        g = g.merge(firsts, on=['team','player'], how='left')
+                        g = g.sort_values(['team','_db','_ord'], ascending=[True, False, True])
+                    top = g.groupby('team', as_index=False).first()
+                    starters = top[['team','player']].copy()
+                    if 'player_id' in top.columns:
+                        starters['player_id'] = top['player_id']
+                    # Attach canonical ids from roster if missing
+                    ros = _season_rosters(int(season))
+                    if ros is not None and not ros.empty:
+                        name_map_col = None
+                        for c in ['player_display_name','player_name','display_name','full_name','football_name']:
+                            if c in ros.columns:
+                                name_map_col = c; break
+                        id_map_col = None
+                        for c in ['gsis_id','player_id','nfl_id','pfr_id']:
+                            if c in ros.columns:
+                                id_map_col = c; break
+                        team_src = 'team' if 'team' in ros.columns else ('recent_team' if 'recent_team' in ros.columns else ('team_abbr' if 'team_abbr' in ros.columns else None))
+                        if team_src and name_map_col and id_map_col:
+                            m = ros[[name_map_col, id_map_col, team_src]].copy()
+                            m['team'] = m[team_src].astype(str).apply(normalize_team_name)
+                            m['_nm'] = m[name_map_col].astype(str).map(normalize_name_loose)
+                            starters['_nm'] = starters['player'].astype(str).map(normalize_name_loose)
+                            starters = starters.merge(
+                                m[['team','_nm', name_map_col, id_map_col]].rename(columns={id_map_col:'player_id', name_map_col:'player_full'}),
+                                on=['team','_nm'], how='left'
+                            ).drop(columns=['_nm'])
+                            # Prefer full roster name when available to avoid abbrev like "K.Murray"
+                            if 'player_full' in starters.columns:
+                                starters['player'] = starters['player_full'].fillna(starters['player'])
+                                starters = starters.drop(columns=['player_full'])
+    except Exception:
+        pass
+    # Week 1 hygiene: remove players flagged inactive (DEV/RES/INA/etc.) from final output to avoid nonsense entries
+    try:
+        wcol = 'week' if 'week' in out.columns else None
+        cur_wk = int(out['week'].iloc[0]) if wcol else None
+        if (cur_wk == 1) and 'is_active' in out.columns:
+            out = out[out['is_active'].astype('Int64').fillna(1) == 1].copy()
     except Exception:
         pass
     # Fallback: weekly stats attempts (REG only)
@@ -975,6 +1495,7 @@ def _week1_qb_starters(season: int) -> pd.DataFrame:
                     sub = sub.rename(columns={team_col:'team_src', name_col:'player', (id_col or 'player'):'player_id', pa_col:'pass_attempts'})
                     sub['team'] = sub['team_src'].astype(str).apply(normalize_team_name)
                     sub['pass_attempts'] = pd.to_numeric(sub['pass_attempts'], errors='coerce').fillna(0)
+                    # No additional filtering; rely on attempts ordering
                     starters = (
                         sub.sort_values(['team','pass_attempts'], ascending=[True, False])
                            .groupby('team', as_index=False)
@@ -982,6 +1503,26 @@ def _week1_qb_starters(season: int) -> pd.DataFrame:
                     )
         except Exception:
             pass
+    # Safety net: apply manual overrides if provided
+    try:
+        if WEEK1_QB_OVERRIDES is not None and len(WEEK1_QB_OVERRIDES) > 0:
+            s = starters.copy() if (starters is not None) else pd.DataFrame(columns=['team','player','player_id'])
+            if s.empty:
+                s = pd.DataFrame(columns=['team','player','player_id'])
+            if 'team' not in s.columns:
+                s['team'] = []
+            if 'player' not in s.columns:
+                s['player'] = []
+            s['team'] = s['team'].astype(str)
+            for t, nm in WEEK1_QB_OVERRIDES.items():
+                t_norm = normalize_team_name(t)
+                if not s[s['team']==t_norm].empty:
+                    s.loc[s['team']==t_norm, 'player'] = nm
+                else:
+                    s = pd.concat([s, pd.DataFrame([{'team': t_norm, 'player': nm}])], ignore_index=True)
+            starters = s
+    except Exception:
+        pass
     # Cache
     try:
         if starters is not None and not starters.empty:
@@ -1073,6 +1614,26 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     if teams is None or teams.empty:
         return pd.DataFrame(columns=["season","week","team","opponent","player","position"])
 
+    # Optional: write per-team depth debug snapshots when investigating issues
+    def _dump_depth(team_name: str, stage: str, df: pd.DataFrame):
+        try:
+            if str(os.environ.get('PROPS_DEBUG_SNAPSHOTS','0')).strip() not in {'1','true','TRUE','yes','YES'}:
+                return
+            slug = re.sub(r"[^a-z0-9]+","_", normalize_team_name(team_name).lower()).strip("_") if team_name else "team"
+            fp = DATA_DIR / f"debug_depth_{int(season)}_wk{int(week)}_{slug}_{stage}.csv"
+            cols = [c for c in ['player','position','player_id','rush_share','target_share','rz_rush_share','rz_target_share','t_blend','r_blend','t_eff','r_eff','recv_rank','rush_rank','is_active'] if c in (df.columns if df is not None else [])]
+            if df is not None and not df.empty and cols:
+                try:
+                    d = df[cols].copy()
+                except Exception:
+                    d = df.copy()
+            else:
+                d = df.copy() if df is not None else pd.DataFrame()
+            fp.parent.mkdir(parents=True, exist_ok=True)
+            d.to_csv(fp, index=False)
+        except Exception:
+            pass
+
     usage = _load_usage_priors()
     # Load efficiency priors once
     eff_priors = _load_efficiency_priors()
@@ -1081,11 +1642,18 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     def_tend_all = _def_pos_tendencies(int(season), max(0, int(week) - 1))
     # Calibration: prior week reconciliation summary by position
     recon_sum = _load_recon_summary(int(season), int(week) - 1)
-    # Env-driven calibration strengths (0..1)
-    alpha_vol = _calib_weight('PROPS_CALIB_ALPHA', 0.25)   # targets / rush attempts volume
-    beta_yards = _calib_weight('PROPS_CALIB_BETA', 0.20)   # yards per volume (ypt/ypc proxy)
+    # Env-driven calibration strengths (0..1) - tuned defaults
+    alpha_vol = _calib_weight('PROPS_CALIB_ALPHA', 0.35)   # targets / rush attempts volume
+    beta_yards = _calib_weight('PROPS_CALIB_BETA', 0.30)   # yards per volume (ypt/ypc proxy)
     gamma_rec = _calib_weight('PROPS_CALIB_GAMMA', 0.25)   # receptions via catch rate
-    qb_pass = _calib_weight('PROPS_CALIB_QB', 0.20)        # QB pass attempts/yards/TD/INT scale
+    qb_pass = _calib_weight('PROPS_CALIB_QB', 0.40)        # QB pass attempts/yards/TD/INT scale
+
+    # Position-level small multipliers (env-tunable) to address residual bias
+    wr_rec_yards_mult = _cfg_float('PROPS_POS_WR_REC_YDS', 1.02, 0.80, 1.20)
+    te_rec_yards_mult = _cfg_float('PROPS_POS_TE_REC_YDS', 0.98, 0.80, 1.20)
+    te_rec_mult = _cfg_float('PROPS_POS_TE_REC', 0.98, 0.80, 1.20)
+    qb_py_mult = _cfg_float('PROPS_POS_QB_PASS_YDS', 0.97, 0.70, 1.20)
+    qb_ptd_mult = _cfg_float('PROPS_POS_QB_PASS_TDS', 0.95, 0.70, 1.20)
 
     rows: List[Dict] = []
     for _, tr in teams.iterrows():
@@ -1098,6 +1666,39 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         split = _split_tds(tr)
         rush_tds = split["rush_tds"]
         pass_tds = split["pass_tds"]
+        # Week 1 top WR/TE from central stats (for dynamic overrides)
+        wk1_wr1_aliases: set = set()
+        wk1_te1_aliases: set = set()
+        wk1_wr1_lnames: set = set()
+        wk1_te1_lnames: set = set()
+        if int(tr.get('week')) == 1:
+            try:
+                top_pos = _week1_top_pos_from_central(int(tr.get('season')))
+                if top_pos is not None and not top_pos.empty:
+                    top_team = top_pos[top_pos['team'] == team]
+                    if not top_team.empty:
+                        wr_row = top_team[top_team['pos_up'] == 'WR']
+                        te_row = top_team[top_team['pos_up'] == 'TE']
+                        if not wr_row.empty:
+                            for _, rr in wr_row.iterrows():
+                                al = str(rr.get('player_alias') or '')
+                                if al:
+                                    wk1_wr1_aliases.add(al)
+                                nm = str(rr.get('player') or '')
+                                parts = nm.split()
+                                if parts:
+                                    wk1_wr1_lnames.add(parts[-1].lower())
+                        if not te_row.empty:
+                            for _, rr in te_row.iterrows():
+                                al = str(rr.get('player_alias') or '')
+                                if al:
+                                    wk1_te1_aliases.add(al)
+                                nm = str(rr.get('player') or '')
+                                parts = nm.split()
+                                if parts:
+                                    wk1_te1_lnames.add(parts[-1].lower())
+            except Exception:
+                pass
         # Team context: base from priors/EPA with EMA smoothing if available
         plays_base = _expected_plays(tr)
         plays = plays_base
@@ -1173,7 +1774,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             except Exception:
                 pos_bias = {}
 
-        depth = _team_depth(usage, int(tr.get("season")), team)
+        # Depth source: ESPN depth chart is primary for all weeks; fallback to priors/roster-based
+        espn_depth = _espn_depth_usage(int(tr.get('season')), int(tr.get('week')), team)
+        if espn_depth is not None and not espn_depth.empty:
+            depth = espn_depth
+        else:
+            depth = _team_depth(usage, int(tr.get("season")), team)
+        _dump_depth(team, '01_base', depth)
         # Apply manual overrides if present
         try:
             depth = _apply_depth_overrides(depth, int(season), int(week), team)
@@ -1184,33 +1791,47 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             if c not in depth.columns:
                 depth[c] = 0.0
             depth[c] = pd.to_numeric(depth[c], errors="coerce").fillna(0.0)
-        # Prepare roster map early (used by blending and QB id)
+        # Prepare roster map early (used by blending, TE/RB ordering, and QB id)
         roster_map = _team_roster_ids(int(tr.get("season")), team)
+        if (roster_map is None) or roster_map.empty:
+            # Fallback: use league map filtered to team
+            try:
+                lm = _league_roster_map(int(tr.get('season')))
+                if lm is not None and not lm.empty:
+                    roster_map = lm[lm['team'] == team].copy()
+            except Exception:
+                pass
         # Normalize pass target shares to typical positional mix
-        desired_group = {"WR": 0.65, "TE": 0.25, "RB": 0.10}
-        desired_group_rz = {"WR": 0.55, "TE": 0.35, "RB": 0.10}
-        pcol = "rz_target_share" if depth["rz_target_share"].sum() > 0 else "target_share"
-        # Softly nudge within groups toward desired totals (blend factor), not hard rescale
-        def _group_sum(pos: str) -> float:
-            m = depth["position"].astype(str).str.upper() == pos
-            return float(depth.loc[m, pcol].sum())
-        alpha = 0.5  # 0=no change, 1=hard rescale
-        for pos in ("WR","TE","RB"):
-            cur = _group_sum(pos)
-            tgt = (desired_group_rz if pcol == "rz_target_share" else desired_group).get(pos, 0.0)
-            if cur > 0 and tgt > 0:
-                hard = tgt / cur
-                fac = (1.0 - alpha) + alpha * hard
+        # Apply for both Week 1 and Week > 1; stronger alpha in Week 1 to avoid TE-heavy leaders
+        if int(tr.get('week')) == 1:
+            desired_group = {"WR": 0.75, "TE": 0.15, "RB": 0.10}
+            desired_group_rz = {"WR": 0.60, "TE": 0.30, "RB": 0.10}
+            alpha = 0.7
+        else:
+            desired_group = {"WR": 0.65, "TE": 0.25, "RB": 0.10}
+            desired_group_rz = {"WR": 0.55, "TE": 0.35, "RB": 0.10}
+            alpha = 0.5
+        for pcol, dist in [("target_share", desired_group), ("rz_target_share", desired_group_rz)]:
+            if pcol not in depth.columns:
+                continue
+            col_sum = float(pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0).sum())
+            if col_sum <= 0:
+                continue
+            for pos in ("WR","TE","RB"):
                 m = depth["position"].astype(str).str.upper() == pos
-                depth.loc[m, pcol] = depth.loc[m, pcol] * fac
-        # Renormalize to 1
-        s = depth[pcol].sum()
-        if s > 0:
-            depth[pcol] = depth[pcol] / s
-
+                cur = float(pd.to_numeric(depth.loc[m, pcol], errors='coerce').fillna(0.0).sum()) / col_sum
+                tgt = dist.get(pos, 0.0)
+                if cur > 0 and tgt > 0:
+                    hard = tgt / cur
+                    fac = (1.0 - alpha) + alpha * hard
+                    depth.loc[m, pcol] = pd.to_numeric(depth.loc[m, pcol], errors='coerce').fillna(0.0) * fac
+            s = float(pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0).sum())
+            if s > 0:
+                depth[pcol] = pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0) / s
         # Compute per-position ranks to vary efficiency within groups
         depth['pos_up'] = depth['position'].astype(str).str.upper()
-        depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0), 0.0)
+        # Use target_share (not RZ) to drive receiving volume strength
+        depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0), 0.0)
         depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0), 0.0)
         try:
             depth['recv_rank'] = depth.groupby('pos_up')['recv_strength'].rank(ascending=False, method='first')
@@ -1218,6 +1839,30 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         except Exception:
             depth['recv_rank'] = 1
             depth['rush_rank'] = 1
+
+        # TE ranking refinement: prefer pass-catching TE (higher prior targets) as TE1 when available
+        try:
+            te_mask = depth['pos_up'].eq('TE')
+            if te_mask.any() and eff_priors is not None and not eff_priors.empty:
+                dep = depth.copy()
+                if '_nm' not in dep.columns:
+                    dep['_nm'] = dep['player'].astype(str).map(normalize_name_loose)
+                pri = eff_priors[['__dummy' if False else '_pid','_nm','targets']].copy()
+                pri = pri.rename(columns={'_pid':'player_id','targets':'prior_targets'})
+                # Use id join when present, else name join
+                if 'player_id' in dep.columns and dep['player_id'].notna().any():
+                    dep['player_id'] = dep['player_id'].astype(str)
+                    dep = dep.merge(pri[['player_id','prior_targets']], on='player_id', how='left')
+                else:
+                    dep = dep.merge(pri, on='_nm', how='left')
+                # Rank TEs by prior targets if any present
+                pt = pd.to_numeric(dep.get('prior_targets'), errors='coerce').fillna(-1.0)
+                if (pt[te_mask].max() > -1.0):
+                    # Higher prior targets => better recv_rank (1 is best)
+                    order = pt[te_mask].rank(ascending=False, method='first')
+                    depth.loc[te_mask, 'recv_rank'] = order.values
+        except Exception:
+            pass
 
         def _rank_mult(pos: str, rank_val) -> float:
             try:
@@ -1254,13 +1899,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 r = int(rank_val)
             except Exception:
                 r = 1
-            # Stronger separation for top options
+            # Softer separation to avoid extreme top-heavy distributions
             if pos == 'WR':
-                arr = [1.25, 1.05, 0.92, 0.88, 0.85]
+                arr = [1.22, 1.05, 0.98, 0.94, 0.90]
             elif pos == 'TE':
-                arr = [1.15, 0.95, 0.90]
+                arr = [1.00, 0.96, 0.90]
             elif pos == 'RB':
-                arr = [1.10, 0.97, 0.92]
+                arr = [1.05, 0.98, 0.95]
             else:
                 arr = [1.0]
             idx = max(1, r) - 1
@@ -1280,19 +1925,449 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             idx = max(1, r) - 1
             return arr[idx] if idx < len(arr) else arr[-1]
 
+        # Harmonize names with roster to enrich depth with ids/positions/depth order
+        try:
+            if roster_map is not None and not roster_map.empty:
+                rm = roster_map.copy()
+                rm['player_nm'] = rm['player'].astype(str).map(normalize_name_loose)
+                try:
+                    from .name_normalizer import normalize_alias_init_last
+                    rm['player_alias'] = rm['player'].astype(str).map(normalize_alias_init_last)
+                except Exception:
+                    rm['player_alias'] = None
+                depth['player_nm'] = depth['player'].astype(str).map(normalize_name_loose)
+                try:
+                    from .name_normalizer import normalize_alias_init_last
+                    depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                except Exception:
+                    depth['player_alias'] = None
+                # Bring over id/position/depth order when missing via normalized name
+                for cols in (
+                    ['player','player_id','position','depth_chart_order'],
+                    ['player','player_id','position']
+                ):
+                    try:
+                        add = rm[[c for c in cols if c in rm.columns] + ['player_nm','player_alias']].copy()
+                        # only merge if we don't already have player_id
+                        if 'player_id' not in depth.columns or depth['player_id'].isna().any():
+                            # merge by alias first
+                            if 'player_alias' in depth.columns and 'player_alias' in add.columns:
+                                depth = depth.merge(add.drop_duplicates(subset=['player_alias']), on='player_alias', how='left', suffixes=(None,'_rm'))
+                            # then by loose name for any remaining
+                            if 'player_id_rm' not in depth.columns or depth['player_id'].isna().any():
+                                depth = depth.merge(add.drop_duplicates(subset=['player_nm']), on='player_nm', how='left', suffixes=(None,'_rm2'))
+                            # Prefer existing values, fill missing from _rm/_rm2
+                            for suf in ('_rm','_rm2'):
+                                pidc = f'player_id{suf}'
+                                posc = f'position{suf}'
+                                dcc = f'depth_chart_order{suf}'
+                                if pidc in depth.columns:
+                                    depth['player_id'] = depth.get('player_id').fillna(depth[pidc])
+                                if posc in depth.columns:
+                                    depth['position'] = depth.get('position').fillna(depth[posc])
+                                if ('depth_chart_order' not in depth.columns) and (dcc in depth.columns):
+                                    depth['depth_chart_order'] = depth[dcc]
+                            # cleanup
+                            depth = depth.drop(columns=[c for c in depth.columns if c.endswith('_rm') or c.endswith('_rm2')], errors='ignore')
+                    except Exception:
+                        pass
+                # Coerce dco numeric if present
+                if 'depth_chart_order' in depth.columns:
+                    depth['depth_chart_order'] = pd.to_numeric(depth['depth_chart_order'], errors='coerce')
+        except Exception:
+            pass
+
+        # Week-specific: remove or down-weight inactive players before allocation by zeroing their shares
+        try:
+            act_map = _active_roster(int(tr.get('season')), int(tr.get('week')))
+            if act_map is not None and not act_map.empty:
+                depth['_nm'] = depth['player'].astype(str).map(normalize_name_loose)
+                # Attach is_active via player_id first, then by normalized name
+                if 'player_id' in depth.columns and 'player_id' in act_map.columns:
+                    depth['player_id'] = depth['player_id'].astype(str)
+                    act_pid = act_map.rename(columns={'_pid':'player_id'})[['team','player_id','is_active']].copy()
+                    act_pid['player_id'] = act_pid['player_id'].astype(str)
+                    depth = depth.merge(act_pid[act_pid['team'] == team][['player_id','is_active']].rename(columns={'is_active':'is_active_pid'}), on='player_id', how='left')
+                if 'is_active_pid' not in depth.columns or depth['is_active_pid'].isna().any():
+                    act_nm = act_map.copy()
+                    act_nm['_nm'] = act_nm['_nm'].astype(str)
+                    depth = depth.merge(act_nm[act_nm['team'] == team][['_nm','is_active']].rename(columns={'is_active':'is_active_nm'}), on='_nm', how='left')
+                # Combine id/name flags conservatively: if either indicates inactive (0), treat as inactive
+                a = pd.to_numeric(depth.get('is_active_pid'), errors='coerce')
+                b = pd.to_numeric(depth.get('is_active_nm'), errors='coerce')
+                # default active (1) when both missing
+                depth['is_active'] = 1
+                if a is not None:
+                    depth['is_active'] = depth['is_active'].where(a.isna(), a)
+                if b is not None:
+                    # take min across available
+                    depth['is_active'] = np.minimum(pd.to_numeric(depth['is_active'], errors='coerce').fillna(1), b.fillna(1)).astype(int)
+                # If ESPN depth chart present, also apply ESPN active flag by name
+                try:
+                    espn_act = _espn_team_active_map(int(tr.get('season')), int(tr.get('week')), team)
+                    if espn_act is not None and not espn_act.empty:
+                        depth = depth.merge(espn_act[['player','is_active_espn','_nm']].rename(columns={'_nm':'_nm_espn'}), on='player', how='left')
+                        # if no direct match by player, try normalized name
+                        need = depth['is_active_espn'].isna()
+                        if need.any():
+                            # Note: the espn_act frame uses column '_nm' (no leading space)
+                            depth = depth.merge(espn_act[['_nm','is_active_espn']].rename(columns={'_nm':'_nm'}), on='_nm', how='left', suffixes=(None,'_nm2'))
+                            depth['is_active_espn'] = depth['is_active_espn'].fillna(depth.get('is_active_espn_nm2'))
+                        depth = depth.drop(columns=[c for c in depth.columns if c.endswith('_nm2') or c=='_nm_espn'], errors='ignore')
+                        c = pd.to_numeric(depth.get('is_active_espn'), errors='coerce')
+                        if c is not None:
+                            depth['is_active'] = np.minimum(pd.to_numeric(depth['is_active'], errors='coerce').fillna(1), c.fillna(1)).astype(int)
+                except Exception:
+                    pass
+                # Week 1 stricter rule: if player not found on this team's weekly roster (both maps NaN), mark inactive
+                try:
+                    if int(tr.get('week')) == 1:
+                        missing_both = a.isna() & b.isna()
+                        if missing_both.any():
+                            depth.loc[missing_both.fillna(False), 'is_active'] = 0
+                except Exception:
+                    pass
+                depth = depth.drop(columns=['is_active_pid','is_active_nm'], errors='ignore')
+                # Zero out shares for inactive rows
+                inactive_mask = depth['is_active'].eq(0)
+                if inactive_mask.any():
+                    for c in ['rush_share','target_share','rz_rush_share','rz_target_share']:
+                        if c in depth.columns:
+                            depth.loc[inactive_mask, c] = 0.0
+                    # Renormalize each share column across the remaining active players
+                    for c in ['rush_share','target_share','rz_rush_share','rz_target_share']:
+                        if c in depth.columns:
+                            s = float(pd.to_numeric(depth[c], errors='coerce').fillna(0.0).sum())
+                            if s > 1e-9:
+                                depth[c] = pd.to_numeric(depth[c], errors='coerce').fillna(0.0) / s
+            _dump_depth(team, '02_after_actives', depth)
+        except Exception:
+            pass
+        # Emit snapshot even when actives not available
+        _dump_depth(team, '02_after_actives', depth)
+
+        # Week 1 coverage injection: if week == 1, inject Week 1 observed players missing from depth (exclude QBs)
+        if int(tr.get('week')) == 1:
+            try:
+                wk1_obs = _week1_usage_from_central(int(tr.get('season')))
+            except Exception:
+                wk1_obs = pd.DataFrame()
+            if (wk1_obs is None) or wk1_obs.empty:
+                try:
+                    wk1_obs = _week1_usage_from_pbp(int(tr.get('season')))
+                except Exception:
+                    wk1_obs = pd.DataFrame()
+            if wk1_obs is not None and not wk1_obs.empty:
+                try:
+                    # Attach roster ids to depth to compare by player_id
+                    if roster_map is None or roster_map.empty:
+                        try:
+                            lm = _league_roster_map(int(tr.get('season')))
+                            roster_map = lm[lm['team'] == team].copy() if lm is not None and not lm.empty else roster_map
+                        except Exception:
+                            pass
+                    if roster_map is not None and not roster_map.empty:
+                        roster_map['player_id'] = roster_map['player_id'].astype(str)
+                    if 'player_id' not in depth.columns:
+                        depth['player_id'] = ''
+                    depth['player_id'] = depth['player_id'].astype(str)
+                    # Consider only this team
+                    obs_team = wk1_obs[wk1_obs['team'] == team][['player_id','player','rush_share_obs','target_share_obs']].copy()
+                    obs_team['player_id'] = obs_team['player_id'].astype(str)
+                    # Identify missing ids
+                    present_ids = set(depth['player_id'].dropna().astype(str).tolist())
+                    cand = obs_team[~obs_team['player_id'].isin(present_ids)].copy()
+                    # Apply small thresholds to avoid clutter: any receiver with a Week 1 target, or RB with modest carries
+                    try:
+                        R_SHARE_THR = float(os.environ.get('PROPS_INJECT_THR_R', '0.05'))
+                    except Exception:
+                        R_SHARE_THR = 0.05
+                    try:
+                        T_SHARE_THR = float(os.environ.get('PROPS_INJECT_THR_T', '0.00'))
+                    except Exception:
+                        T_SHARE_THR = 0.00
+                    R_SHARE_THR = float(np.clip(R_SHARE_THR, 0.0, 1.0))
+                    T_SHARE_THR = float(np.clip(T_SHARE_THR, 0.0, 1.0))
+                    cand = cand[(pd.to_numeric(cand['rush_share_obs'], errors='coerce').fillna(0.0) >= R_SHARE_THR) |
+                                (pd.to_numeric(cand['target_share_obs'], errors='coerce').fillna(0.0) >= T_SHARE_THR)]
+                    if not cand.empty:
+                        rm = roster_map.copy() if roster_map is not None else pd.DataFrame()
+                        if rm is not None and not rm.empty:
+                            rm['player_id'] = rm['player_id'].astype(str)
+                        cand = cand.copy()
+                        cand = cand.rename(columns={'player': 'player_obs'})  # keep observed name
+                        add = cand.merge(
+                            rm[['player_id','player','position']] if rm is not None and not rm.empty else pd.DataFrame(columns=['player_id','player','position']),
+                            on='player_id', how='left', suffixes=('_obs','')
+                        )
+                        # Coalesce player name: roster name > player_y > player_x > observed
+                        name_cols = [c for c in ['player', 'player_y', 'player_x', 'player_obs'] if c in add.columns]
+                        if 'player' not in add.columns and name_cols:
+                            add['player'] = None
+                        if name_cols:
+                            def _pick_name(row):
+                                for cc in name_cols:
+                                    v = row.get(cc)
+                                    if pd.notna(v) and str(v).strip():
+                                        return str(v)
+                                return None
+                            add['player'] = add.apply(_pick_name, axis=1)
+                        # Cleanup possible merge suffix residuals
+                        add = add.drop(columns=[c for c in add.columns if c.endswith('_x') or c.endswith('_y')], errors='ignore')
+                        # If position missing, infer from shares
+                        if 'position' not in add.columns:
+                            add['position'] = None
+                        mpos = add['position'].isna()
+                        if mpos.any():
+                            rsh = pd.to_numeric(add.get('rush_share_obs'), errors='coerce').fillna(0.0)
+                            tsh = pd.to_numeric(add.get('target_share_obs'), errors='coerce').fillna(0.0)
+                            guess = np.where(rsh >= tsh, 'RB', 'WR')
+                            add.loc[mpos, 'position'] = guess[mpos]
+                        # Compute floors based on observed shares
+                        rows_to_add = []
+                        for _, rr in add.iterrows():
+                            pos_up = str(rr.get('position') or '').upper()
+                            if pos_up == 'QB':
+                                continue
+                            nm = rr.get('player')
+                            if not nm or pd.isna(nm):
+                                continue
+                            r_obs = float(pd.to_numeric(rr.get('rush_share_obs'), errors='coerce') or 0.0)
+                            t_obs = float(pd.to_numeric(rr.get('target_share_obs'), errors='coerce') or 0.0)
+                            r_floor = 0.0; t_floor = 0.0
+                            if r_obs > 0:
+                                base = float(np.clip(0.6 * r_obs, 0.015, 0.15))
+                                if pos_up == 'WR':
+                                    r_floor = float(min(base, 0.04))
+                                elif pos_up == 'TE':
+                                    r_floor = float(min(base, 0.02))
+                                else:  # RB
+                                    r_floor = base
+                            if t_obs > 0:
+                                base_t = float(np.clip(0.45 * t_obs, 0.015, 0.20))
+                                if pos_up == 'RB':
+                                    t_floor = float(min(base_t, 0.10))
+                                elif pos_up == 'TE':
+                                    t_floor = float(min(base_t, 0.16))
+                                else:  # WR
+                                    t_floor = float(min(base_t, 0.20))
+                            if (r_floor <= 0.0) and (t_floor <= 0.0):
+                                continue
+                            rows_to_add.append({
+                                'season': int(tr.get('season')),
+                                'team': team,
+                                'player': nm,
+                                'position': pos_up if pos_up else 'WR',
+                                'rush_share': r_floor,
+                                'target_share': t_floor,
+                                'rz_rush_share': r_floor * 0.8,
+                                'rz_target_share': 0.0
+                            })
+                        if rows_to_add:
+                            depth = pd.concat([depth, pd.DataFrame(rows_to_add)], ignore_index=True)
+                            depth['pos_up'] = depth['position'].astype(str).str.upper()
+                            depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
+                            depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                            depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
+                            depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
+                            _dump_depth(team, '02b_after_wk1_inject', depth)
+                except Exception:
+                    pass
+
+        # Include all active players: append any active roster players not in depth with zero shares (QB/RB/WR/TE)
+        try:
+            act_map = _active_roster(int(tr.get('season')), int(tr.get('week')))
+        except Exception:
+            act_map = pd.DataFrame()
+        try:
+            if act_map is not None and not act_map.empty:
+                team_act = act_map[(act_map['team'] == team) & (pd.to_numeric(act_map.get('is_active'), errors='coerce').fillna(0).astype(int) == 1)].copy()
+                if not team_act.empty:
+                    # Present keys
+                    present_ids = set()
+                    if 'player_id' in depth.columns:
+                        present_ids = set(depth['player_id'].dropna().astype(str).tolist())
+                    present_nm = set(depth['player'].astype(str).map(normalize_name_loose))
+                    # Ensure roster_map available with position
+                    if roster_map is None or roster_map.empty:
+                        try:
+                            lm = _league_roster_map(int(tr.get('season')))
+                            roster_map = lm[lm['team'] == team].copy() if lm is not None and not lm.empty else roster_map
+                        except Exception:
+                            roster_map = pd.DataFrame()
+                    rm = roster_map.copy() if roster_map is not None else pd.DataFrame()
+                    if rm is not None and not rm.empty:
+                        rm['player_id'] = rm['player_id'].astype(str)
+                        rm['_nm'] = rm['player'].astype(str).map(normalize_name_loose)
+                        rm['pos_up'] = rm['position'].astype(str).str.upper()
+                    # Merge actives to roster map to get display names and positions
+                    team_act['_pid'] = team_act.get('_pid').astype(str)
+                    cand = team_act.merge(rm[['player_id','player','pos_up']].rename(columns={'player_id':'_pid'}), on='_pid', how='left')
+                    # Fallback by name if id missing
+                    if 'player' not in cand.columns or cand['player'].isna().any():
+                        tmp = team_act.merge(rm[['_nm','player','pos_up']], on='_nm', how='left', suffixes=(None,'_nm'))
+                        cand['player'] = cand.get('player').fillna(tmp.get('player'))
+                        if 'pos_up' in cand.columns:
+                            cand['pos_up'] = cand['pos_up'].fillna(tmp.get('pos_up'))
+                        else:
+                            cand['pos_up'] = tmp.get('pos_up')
+                    # Keep only skill positions
+                    cand['pos_up'] = cand['pos_up'].astype(str).str.upper()
+                    cand = cand[cand['pos_up'].isin(['QB','RB','WR','TE'])].copy()
+                    # Identify those missing from current depth (by id when available else name)
+                    to_add = []
+                    for _, rr in cand.iterrows():
+                        pid = str(rr.get('_pid') or '')
+                        nm = str(rr.get('player') or '').strip()
+                        if not nm:
+                            continue
+                        nm_key = normalize_name_loose(nm)
+                        id_missing = (pid == '') or (pid not in present_ids)
+                        nm_missing = nm_key not in present_nm
+                        if id_missing and nm_missing:
+                            to_add.append({
+                                'season': int(tr.get('season')),
+                                'team': team,
+                                'player': nm,
+                                'position': rr.get('pos_up') or 'WR',
+                                'rush_share': 0.0,
+                                'target_share': 0.0,
+                                'rz_rush_share': 0.0,
+                                'rz_target_share': 0.0,
+                            })
+                    if to_add:
+                        depth = pd.concat([depth, pd.DataFrame(to_add)], ignore_index=True)
+                        # Recompute helper fields for later steps
+                        depth['pos_up'] = depth['position'].astype(str).str.upper()
+                        depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
+                        depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                        depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
+                        depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
+                        _dump_depth(team, '02c_after_add_all_actives', depth)
+            else:
+                # Fallback: when weekly actives are unavailable (e.g., upcoming weeks), optionally append roster fringe
+                try:
+                    use_fallback = str(os.environ.get('PROPS_INCLUDE_ROSTER_FRINGE', '1')).strip().lower() in {'1','true','yes'}
+                except Exception:
+                    use_fallback = True
+                if use_fallback:
+                    # Ensure roster_map is available for this team
+                    if roster_map is None or roster_map.empty:
+                        try:
+                            lm = _league_roster_map(int(tr.get('season')))
+                            roster_map = lm[lm['team'] == team].copy() if lm is not None and not lm.empty else roster_map
+                        except Exception:
+                            roster_map = pd.DataFrame()
+                    rm = roster_map.copy() if roster_map is not None else pd.DataFrame()
+                    if rm is not None and not rm.empty:
+                        rm['player_id'] = rm['player_id'].astype(str)
+                        rm['_nm'] = rm['player'].astype(str).map(normalize_name_loose)
+                        rm['pos_up'] = rm['position'].astype(str).str.upper()
+                        rm = rm[rm['pos_up'].isin(['QB','RB','WR','TE'])].copy()
+                        present_ids = set(depth['player_id'].dropna().astype(str).tolist()) if 'player_id' in depth.columns else set()
+                        present_nm = set(depth['player'].astype(str).map(normalize_name_loose)) if 'player' in depth.columns else set()
+                        add_rows = []
+                        for _, rr in rm.iterrows():
+                            pid = str(rr.get('player_id') or '')
+                            nm = str(rr.get('player') or '').strip()
+                            if not nm:
+                                continue
+                            nm_key = normalize_name_loose(nm)
+                            if (pid in present_ids) or (nm_key in present_nm):
+                                continue
+                            add_rows.append({
+                                'season': int(tr.get('season')),
+                                'team': team,
+                                'player': nm,
+                                'player_id': pid,
+                                'position': rr.get('pos_up') or 'WR',
+                                'rush_share': 0.0,
+                                'target_share': 0.0,
+                                'rz_rush_share': 0.0,
+                                'rz_target_share': 0.0,
+                            })
+                        if add_rows:
+                            depth = pd.concat([depth, pd.DataFrame(add_rows)], ignore_index=True)
+                            depth['pos_up'] = depth['position'].astype(str).str.upper()
+                            depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
+                            depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                            depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
+                            depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
+                            _dump_depth(team, '02c_after_add_roster_fringe', depth)
+        except Exception:
+            pass
+
         # If week > 1, blend in season-to-date observed shares (through week-1)
-        obs = _season_to_date_usage(int(tr.get('season')), max(0, int(tr.get('week')) - 1))
-        if obs is not None and not obs.empty:
+        # Only compute observed blending when week > 1
+        obs = _season_to_date_usage(int(tr.get('season')), max(0, int(tr.get('week')) - 1)) if int(tr.get('week')) > 1 else pd.DataFrame()
+        # Prefer Week 1 central stats (targets/carries) for week 2; fallback to PBP usage
+        wk1_obs = None
+        try:
+            if int(tr.get('week')) == 2:
+                wk1_obs = _week1_usage_from_central(int(tr.get('season')))
+                if wk1_obs is None or wk1_obs.empty:
+                    wk1_obs = _week1_usage_from_pbp(int(tr.get('season')))
+        except Exception:
+            wk1_obs = None
+        # Proceed if we have any observed usage source (season-to-date weekly or Week 1 PBP)
+        if int(tr.get('week')) > 1 and ((obs is not None and not obs.empty) or (wk1_obs is not None and not wk1_obs.empty)):
             # Attach player_id via roster for better matching
             if roster_map is not None and not roster_map.empty and 'player_id' in roster_map.columns:
-                depth = depth.merge(roster_map[['player','player_id','position']], on='player', how='left')
-                depth['player_id'] = depth['player_id'].astype(str)
+                if roster_map is None or roster_map.empty:
+                    # fallback to league map
+                    try:
+                        lm = _league_roster_map(int(tr.get('season')))
+                        roster_map = lm[lm['team'] == team].copy() if lm is not None and not lm.empty else roster_map
+                    except Exception:
+                        pass
+                # Merge roster info, carefully handling existing columns to avoid suffix pitfalls
+                # Avoid joining the roster 'player' column here to prevent accidental overwrite of names
+                rm_cols = [c for c in ['player_id','position'] if c in roster_map.columns]
+                if 'player' in roster_map.columns and len(rm_cols) > 0:
+                    depth = depth.merge(roster_map[['player'] + rm_cols].copy(), on='player', how='left', suffixes=(None, '_rm'))
+                else:
+                    # Fall back to name-based merge using a normalized name key when roster_map lacks 'player'
+                    depth['_nm'] = depth.get('_nm', depth['player'].astype(str).map(normalize_name_loose))
+                    rm = roster_map.copy()
+                    if 'player' in rm.columns:
+                        rm['_nm'] = rm['player'].astype(str).map(normalize_name_loose)
+                    elif 'player_id' in rm.columns:
+                        # If only ids exist, we'll attach by id later; skip now
+                        rm['_nm'] = None
+                    if '_nm' in rm.columns and len(rm_cols) > 0:
+                        depth = depth.merge(rm[['_nm'] + rm_cols].dropna(subset=['_nm']).drop_duplicates('_nm'), on='_nm', how='left', suffixes=(None, '_rm'))
+                # Consolidate player_id
+                if 'player_id' in depth.columns and 'player_id_rm' in depth.columns:
+                    depth['player_id'] = depth['player_id'].fillna(depth['player_id_rm'])
+                elif 'player_id' not in depth.columns and 'player_id_rm' in depth.columns:
+                    depth['player_id'] = depth['player_id_rm']
+                # Consolidate position
+                if 'position' in depth.columns and 'position_rm' in depth.columns:
+                    depth['position'] = depth['position'].fillna(depth['position_rm'])
+                elif 'position' not in depth.columns and 'position_rm' in depth.columns:
+                    depth['position'] = depth['position_rm']
+                # Cleanup suffix columns
+                depth = depth.drop(columns=[c for c in ['player_id_rm','position_rm'] if c in depth.columns], errors='ignore')
+                # Ensure types
+                if 'player_id' in depth.columns:
+                    depth['player_id'] = depth['player_id'].astype(str)
+                else:
+                    # create empty id column to allow downstream merges without KeyError
+                    depth['player_id'] = ''
                 obs['player_id'] = obs['player_id'].astype(str)
-                obs_team = obs[obs['team'] == team][['player_id','rush_share_obs','target_share_obs']]
+                if wk1_obs is not None and not wk1_obs.empty:
+                    # Keep Week 1 names to use as a fallback if roster id join fails
+                    cols = ['player_id','rush_share_obs','target_share_obs']
+                    if 'player' in wk1_obs.columns:
+                        cols = ['player_id','player','rush_share_obs','target_share_obs']
+                    obs_team = wk1_obs[wk1_obs['team'] == team][cols]
+                else:
+                    obs_team = obs[obs['team'] == team][['player_id','rush_share_obs','target_share_obs']]
                 depth = depth.merge(obs_team, on='player_id', how='left')
                 # Blend observed shares into base shares (lightly, to improve stability)
                 beta = _obs_blend_weight(0.45)
-                depth['t_base'] = pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0)
+                # Use target_share as the base for receiving volume blending (not RZ target share)
+                depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
                 depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
                 depth['t_blend'] = np.where(depth['target_share_obs'].notna(), (1-beta)*depth['t_base'] + beta*depth['target_share_obs'], depth['t_base'])
                 depth['r_blend'] = np.where(depth['rush_share_obs'].notna(), (1-beta)*depth['r_base'] + beta*depth['rush_share_obs'], depth['r_base'])
@@ -1305,17 +2380,121 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     # Figure out who is missing
                     present_ids = set(depth['player_id'].dropna().astype(str).tolist())
                     cand = obs_team.copy()
-                    # Thresholds for injection based on observed share
-                    R_SHARE_THR = 0.05  # >=5% of team rush attempts in prev week
-                    T_SHARE_THR = 0.08  # >=8% of team targets in prev week
+                    # Thresholds for injection based on observed share (env-tunable)
+                    try:
+                        R_SHARE_THR = float(os.environ.get('PROPS_INJECT_THR_R', '0.05'))
+                    except Exception:
+                        R_SHARE_THR = 0.05
+                    try:
+                        # Default 0.00 means inject any receiver with a Week 1 target
+                        T_SHARE_THR = float(os.environ.get('PROPS_INJECT_THR_T', '0.00'))
+                    except Exception:
+                        T_SHARE_THR = 0.00
+                    R_SHARE_THR = float(np.clip(R_SHARE_THR, 0.0, 1.0))
+                    T_SHARE_THR = float(np.clip(T_SHARE_THR, 0.0, 1.0))
                     cand = cand[(pd.to_numeric(cand['rush_share_obs'], errors='coerce').fillna(0.0) >= R_SHARE_THR) |
                                 (pd.to_numeric(cand['target_share_obs'], errors='coerce').fillna(0.0) >= T_SHARE_THR)]
                     cand = cand[~cand['player_id'].isin(present_ids)]
                     if not cand.empty:
-                        # Map ids to names and positions from roster
+                        # Map ids to names and positions from roster; keep Week1 name as fallback
                         rm = roster_map.copy()
-                        rm['player_id'] = rm['player_id'].astype(str)
-                        add = cand.merge(rm[['player_id','player','position']], on='player_id', how='left')
+                        if rm is None or rm.empty:
+                            try:
+                                lm = _league_roster_map(int(tr.get('season')))
+                                rm = lm[lm['team'] == team].copy() if lm is not None and not lm.empty else rm
+                            except Exception:
+                                pass
+                        if rm is None:
+                            rm = pd.DataFrame()
+                        if not rm.empty:
+                            rm['player_id'] = rm['player_id'].astype(str)
+                        # preserve wk1 player name if present
+                        has_wk1_name = 'player' in cand.columns
+                        if has_wk1_name:
+                            cand = cand.rename(columns={'player':'player_wk1'})
+                        add = cand.merge(rm[['player_id','player','position']] if not rm.empty else pd.DataFrame(columns=['player_id','player','position']), on='player_id', how='left')
+
+                        # If player missing after id join, try league-wide roster map then name-alias match; else use wk1 name
+                        try:
+                            missing_name = add['player'].isna() if 'player' in add.columns else pd.Series([True]*len(add))
+                            if missing_name.any():
+                                lm = _league_roster_map(int(tr.get('season')))
+                                if lm is not None and not lm.empty:
+                                    lm['player_id'] = lm['player_id'].astype(str)
+                                    add = add.merge(lm[['player_id','player','position']].rename(columns={'player':'player_lm','position':'position_lm'}), on='player_id', how='left')
+                                    # fill from league map
+                                    if 'player_lm' in add.columns:
+                                        add['player'] = add.get('player').fillna(add['player_lm'])
+                                    if 'position_lm' in add.columns:
+                                        add['position'] = add.get('position').fillna(add['position_lm'])
+                                    add = add.drop(columns=[c for c in ['player_lm','position_lm'] if c in add.columns])
+                            # If still missing name, use Week 1 name if available
+                            if has_wk1_name:
+                                add['player'] = add.get('player').fillna(add.get('player_wk1'))
+                        except Exception:
+                            if has_wk1_name:
+                                add['player'] = add.get('player').fillna(add.get('player_wk1'))
+
+                        # If position still missing, try to infer from season rosters by name alias or by shares
+                        try:
+                            need_pos = add['position'].isna() if 'position' in add.columns else pd.Series([True]*len(add))
+                            if need_pos.any():
+                                ros = _season_rosters(int(tr.get('season')))
+                                name_col = None; id_col = None; pos_col = None; team_src = None
+                                if ros is not None and not ros.empty:
+                                    for c in ['player_display_name','player_name','display_name','full_name','football_name']:
+                                        if c in ros.columns:
+                                            name_col = c; break
+                                    for c in ['gsis_id','player_id','nfl_id','pfr_id']:
+                                        if c in ros.columns:
+                                            id_col = c; break
+                                    for c in ['depth_chart_position','position']:
+                                        if c in ros.columns:
+                                            pos_col = c; break
+                                    for c in ['team','recent_team','team_abbr']:
+                                        if c in ros.columns:
+                                            team_src = c; break
+                                if name_col or id_col:
+                                    m = ros[[col for col in [team_src, id_col, name_col, pos_col] if col]].copy()
+                                    if team_src:
+                                        m['team'] = m[team_src].astype(str).apply(normalize_team_name)
+                                        m = m[m['team'] == team]
+                                    if id_col:
+                                        m['_pid'] = m[id_col].astype(str)
+                                    if name_col:
+                                        try:
+                                            from .name_normalizer import normalize_alias_init_last
+                                            m['_alias'] = m[name_col].astype(str).map(normalize_alias_init_last)
+                                        except Exception:
+                                            m['_alias'] = m[name_col].astype(str).map(normalize_name_loose)
+                                    # fill by id where possible
+                                    if 'player_id' in add.columns and id_col:
+                                        add = add.merge(m[['_pid', pos_col]].rename(columns={'_pid':'player_id', pos_col:'pos_from_ros'}), on='player_id', how='left')
+                                    # fill by name alias
+                                    if name_col and 'player' in add.columns:
+                                        try:
+                                            from .name_normalizer import normalize_alias_init_last
+                                            add['_alias'] = add['player'].astype(str).map(normalize_alias_init_last)
+                                        except Exception:
+                                            add['_alias'] = add['player'].astype(str).map(normalize_name_loose)
+                                        add = add.merge(m[['_alias', pos_col]].rename(columns={pos_col:'pos_from_alias'}), on='_alias', how='left')
+                                    # finalize position
+                                    add['position'] = add.get('position').fillna(add.get('pos_from_ros')).fillna(add.get('pos_from_alias'))
+                                    add = add.drop(columns=[c for c in ['_alias','pos_from_ros','pos_from_alias'] if c in add.columns])
+                            # Infer from shares if still missing
+                            if 'position' not in add.columns:
+                                add['position'] = None
+                            mask_missing = add['position'].isna()
+                            if mask_missing.any():
+                                # RB if rush share >= target share, else WR; leave TE to be corrected by overrides later
+                                rsh = pd.to_numeric(add.get('rush_share_obs'), errors='coerce').fillna(0.0)
+                                tsh = pd.to_numeric(add.get('target_share_obs'), errors='coerce').fillna(0.0)
+                                guess = np.where(rsh >= tsh, 'RB', 'WR')
+                                add.loc[mask_missing, 'position'] = guess[mask_missing]
+                        except Exception:
+                            pass
+
+                        # Drop any rows still lacking a player name
                         add = add.dropna(subset=['player'])
                         if not add.empty:
                             rows_to_add = []
@@ -1339,13 +2518,14 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                                     else:  # RB, FB, etc.
                                         r_floor = base
                                 if t_obs > 0:
-                                    base_t = float(np.clip(0.5 * t_obs, 0.025, 0.22))
+                                    # Use a conservative floor from observed share; cap by position
+                                    base_t = float(np.clip(0.45 * t_obs, 0.015, 0.20))
                                     if pos_up == 'RB':
-                                        t_floor = float(min(base_t, 0.12))
+                                        t_floor = float(min(base_t, 0.10))
                                     elif pos_up == 'TE':
-                                        t_floor = float(min(base_t, 0.18))
+                                        t_floor = float(min(base_t, 0.16))
                                     else:  # WR default
-                                        t_floor = float(min(base_t, 0.22))
+                                        t_floor = float(min(base_t, 0.20))
                                 # Skip if both floors are tiny
                                 if (r_floor <= 0.0) and (t_floor <= 0.0):
                                     continue
@@ -1363,19 +2543,502 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                                 depth = pd.concat([depth, pd.DataFrame(rows_to_add)], ignore_index=True)
                                 # Recompute strengths including injected players
                                 depth['pos_up'] = depth['position'].astype(str).str.upper()
-                                depth['t_base'] = pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0)
+                                depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
                                 depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                                # Ensure blended shares exist for new rows
+                                if 't_blend' in depth.columns:
+                                    depth['t_blend'] = pd.to_numeric(depth['t_blend'], errors='coerce')
+                                    depth['t_blend'] = depth['t_blend'].fillna(depth['t_base'])
+                                if 'r_blend' in depth.columns:
+                                    depth['r_blend'] = pd.to_numeric(depth['r_blend'], errors='coerce')
+                                    depth['r_blend'] = depth['r_blend'].fillna(depth['r_base'])
                                 depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth.get('t_blend', depth['t_base']), 0.0)
                                 depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth.get('r_blend', depth['r_base']), 0.0)
                 except Exception:
                     # Fail-safe: ignore injection if anything goes wrong
                     pass
 
+                # Position correction: move known pass-catching TEs (from efficiency priors) into TE group if mis-labeled as WR
+                try:
+                    if eff_priors is not None and not eff_priors.empty:
+                        pri = eff_priors.copy()
+                        pri['_nm'] = pri['_nm'].astype(str)
+                        te_names = set(pri[pri.get('position', '').astype(str).str.upper().eq('TE')]['_nm'].dropna().unique().tolist())
+                        depth['_nm'] = depth['_nm'].astype(str)
+                        wrong_mask = depth['pos_up'].eq('WR') & depth['_nm'].isin(te_names)
+                        if wrong_mask.any():
+                            depth.loc[wrong_mask, 'position'] = 'TE'
+                            depth.loc[wrong_mask, 'pos_up'] = 'TE'
+                except Exception:
+                    pass
+
+                # Backfill missing player names from roster maps (by player_id) or Week 1 name fallback
+                try:
+                    if 'player' in depth.columns and depth['player'].isna().any():
+                        # Prefer team roster map first
+                        name_map = pd.DataFrame()
+                        if roster_map is not None and not roster_map.empty and 'player_id' in roster_map.columns and 'player' in roster_map.columns:
+                            nm = roster_map[['player_id','player']].copy()
+                            nm['player_id'] = nm['player_id'].astype(str)
+                            name_map = nm.dropna(subset=['player'])
+                        # Fallback to league map
+                        if (name_map is None or name_map.empty):
+                            lm = _league_roster_map(int(tr.get('season')))
+                            if lm is not None and not lm.empty:
+                                nm = lm[['player_id','player']].copy()
+                                nm['player_id'] = nm['player_id'].astype(str)
+                                name_map = nm.dropna(subset=['player'])
+                        if name_map is not None and not name_map.empty and 'player_id' in depth.columns:
+                            depth = depth.merge(name_map.rename(columns={'player':'player_from_id'}), on='player_id', how='left')
+                            depth['player'] = depth['player'].fillna(depth.get('player_from_id'))
+                            depth = depth.drop(columns=['player_from_id'], errors='ignore')
+                        # Fallback: if injection preserved a Week 1 name column
+                        if 'player' in depth.columns and 'player_wk1' in depth.columns:
+                            depth['player'] = depth['player'].fillna(depth['player_wk1'])
+                except Exception:
+                    pass
+
+                # Reorder ranks by Week 1 leaders: RB by carries, WR/TE by targets
+                try:
+                    # WR/TE: use target_share_obs to set recv_rank (higher targets => rank 1)
+                    m_rt = depth['pos_up'].isin(['WR','TE'])
+                    if m_rt.any():
+                        sub = depth.loc[m_rt, ['target_share_obs']].copy()
+                        rnk = sub['target_share_obs'].rank(ascending=False, method='first')
+                        # Keep existing rank where no observed data
+                        depth.loc[m_rt, 'recv_rank'] = np.where(rnk.notna(), rnk, depth.loc[m_rt, 'recv_rank'])
+                    # Week 1: dynamically force WR1/TE1 from master CSV to have recv_rank=1 and bump share slightly
+                    if int(tr.get('week')) == 1 and ('player_alias' in depth.columns):
+                        # TE first
+                        te_mask = depth['pos_up'].eq('TE')
+                        if te_mask.any() and len(wk1_te1_aliases) > 0:
+                            m_alias = depth['player_alias'].astype(str).isin(wk1_te1_aliases)
+                            pl = depth['player'].astype(str).str.lower()
+                            m_lname = pl.apply(lambda x: any(ln in x for ln in wk1_te1_lnames)) if wk1_te1_lnames else pd.Series([False]*len(depth), index=depth.index)
+                            m_dyn = te_mask & (m_alias | m_lname)
+                            if m_dyn.any():
+                                depth.loc[m_dyn, 'recv_rank'] = 1
+                                dup_ones = te_mask & (depth['recv_rank'] == 1) & (~m_dyn)
+                                if dup_ones.any():
+                                    depth.loc[dup_ones, 'recv_rank'] = 2
+                                # bump t_blend/base for override slightly above current max in group
+                                base_col = 't_blend' if 't_blend' in depth.columns else 'target_share'
+                                if base_col in depth.columns:
+                                    te_max = float(pd.to_numeric(depth.loc[te_mask, base_col], errors='coerce').fillna(0.0).max())
+                                    cur = pd.to_numeric(depth.loc[m_dyn, base_col], errors='coerce').fillna(0.0)
+                                    bump = max(te_max, float(cur.max()))
+                                    depth.loc[m_dyn, base_col] = float(min(1.0, bump * 1.01))
+                                    if 'recv_strength' in depth.columns:
+                                        if base_col == 't_blend':
+                                            depth.loc[m_dyn, 'recv_strength'] = depth.loc[m_dyn, 't_blend']
+                                        else:
+                                            depth.loc[m_dyn, 'recv_strength'] = pd.to_numeric(depth.loc[m_dyn, base_col], errors='coerce').fillna(0.0)
+                        # WR next
+                        wr_mask = depth['pos_up'].eq('WR')
+                        if wr_mask.any() and len(wk1_wr1_aliases) > 0:
+                            m_alias = depth['player_alias'].astype(str).isin(wk1_wr1_aliases)
+                            pl = depth['player'].astype(str).str.lower()
+                            m_lname = pl.apply(lambda x: any(ln in x for ln in wk1_wr1_lnames)) if wk1_wr1_lnames else pd.Series([False]*len(depth), index=depth.index)
+                            m_dyn = wr_mask & (m_alias | m_lname)
+                            if m_dyn.any():
+                                depth.loc[m_dyn, 'recv_rank'] = 1
+                                dup_ones = wr_mask & (depth['recv_rank'] == 1) & (~m_dyn)
+                                if dup_ones.any():
+                                    depth.loc[dup_ones, 'recv_rank'] = 2
+                                base_col = 't_blend' if 't_blend' in depth.columns else 'target_share'
+                                if base_col in depth.columns:
+                                    wr_max = float(pd.to_numeric(depth.loc[wr_mask, base_col], errors='coerce').fillna(0.0).max())
+                                    cur = pd.to_numeric(depth.loc[m_dyn, base_col], errors='coerce').fillna(0.0)
+                                    bump = max(wr_max, float(cur.max()))
+                                    depth.loc[m_dyn, base_col] = float(min(1.0, bump * 1.01))
+                                    if 'recv_strength' in depth.columns:
+                                        if base_col == 't_blend':
+                                            depth.loc[m_dyn, 'recv_strength'] = depth.loc[m_dyn, 't_blend']
+                                        else:
+                                            depth.loc[m_dyn, 'recv_strength'] = pd.to_numeric(depth.loc[m_dyn, base_col], errors='coerce').fillna(0.0)
+                    # RB: use rush_share_obs to set rush_rank (higher carries => rank 1)
+                    m_rb = depth['pos_up'].eq('RB')
+                    if m_rb.any():
+                        sub2 = depth.loc[m_rb, ['rush_share_obs']].copy()
+                        rnk2 = sub2['rush_share_obs'].rank(ascending=False, method='first')
+                        depth.loc[m_rb, 'rush_rank'] = np.where(rnk2.notna(), rnk2, depth.loc[m_rb, 'rush_rank'])
+                    # TE: enforce TE1 by depth_chart_order (if available) to have top recv rank when active
+                    te_mask = depth['pos_up'].eq('TE')
+                    if te_mask.any() and 'depth_chart_order' in depth.columns:
+                        # find minimal depth order among TEs
+                        te_df = depth.loc[te_mask, ['depth_chart_order']].copy()
+                        if not te_df.empty:
+                            # Select rows with smallest depth_chart_order
+                            min_ord = pd.to_numeric(te_df['depth_chart_order'], errors='coerce').min()
+                            if pd.notna(min_ord):
+                                idxs = depth.index[te_mask & (pd.to_numeric(depth['depth_chart_order'], errors='coerce') == min_ord)]
+                                if len(idxs) > 0:
+                                    # set their recv_rank to 1
+                                    depth.loc[idxs, 'recv_rank'] = 1
+                    # WR: tie-break by depth_chart_order when available
+                    wr_mask = depth['pos_up'].eq('WR')
+                    if wr_mask.any() and 'depth_chart_order' in depth.columns:
+                        wr_df = depth.loc[wr_mask, ['depth_chart_order']].copy()
+                        if not wr_df.empty:
+                            min_ord = pd.to_numeric(wr_df['depth_chart_order'], errors='coerce').min()
+                            if pd.notna(min_ord):
+                                idxs = depth.index[wr_mask & (pd.to_numeric(depth['depth_chart_order'], errors='coerce') == min_ord)]
+                                if len(idxs) > 0:
+                                    depth.loc[idxs, 'recv_rank'] = 1
+
+                    # Team-specific TE1 overrides (e.g., Vikings -> T.J. Hockenson)
+                    try:
+                        if TE1_OVERRIDES and team in TE1_OVERRIDES and te_mask.any():
+                            # Build alias helpers if not present
+                            if 'player_alias' not in depth.columns:
+                                try:
+                                    depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                                except Exception:
+                                    depth['player_alias'] = depth['player'].astype(str)
+                            # Candidate name aliases and last-name fallback
+                            cand_names = TE1_OVERRIDES.get(team) or []
+                            if isinstance(cand_names, str):
+                                cand_names = [cand_names]
+                            cand_alias = set()
+                            cand_lnames = set()
+                            for nm in cand_names:
+                                try:
+                                    cand_alias.add(normalize_alias_init_last(str(nm)))
+                                except Exception:
+                                    pass
+                                parts = str(nm).split()
+                                if parts:
+                                    cand_lnames.add(parts[-1].lower())
+                            m_alias = depth['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(depth), index=depth.index)
+                            # Last-name contains fallback (case-insensitive)
+                            pl = depth['player'].astype(str).str.lower()
+                            m_lname = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(depth), index=depth.index)
+                            m_override = te_mask & (m_alias | m_lname)
+                            if m_override.any():
+                                # Force recv_rank=1 for the override row(s)
+                                depth.loc[m_override, 'recv_rank'] = 1
+                                # If multiple TEs have rank 1 now, demote non-override ones to 2
+                                dup_ones = te_mask & (depth['recv_rank'] == 1) & (~m_override)
+                                if dup_ones.any():
+                                    depth.loc[dup_ones, 'recv_rank'] = 2
+                                # Also ensure t_blend (or base) for override is at least the top TE value to avoid being under-allocated
+                                if 't_blend' in depth.columns:
+                                    te_max = float(pd.to_numeric(depth.loc[te_mask, 't_blend'], errors='coerce').fillna(0.0).max())
+                                    cur = pd.to_numeric(depth.loc[m_override, 't_blend'], errors='coerce').fillna(0.0)
+                                    bump = max(te_max, float(cur.max()))
+                                    # small nudge above max to prefer override if tied
+                                    depth.loc[m_override, 't_blend'] = float(min(1.0, bump * 1.01))
+                                    # Keep recv_strength in sync for ranking consumers
+                                    depth.loc[m_override, 'recv_strength'] = depth.loc[m_override, 't_blend']
+                                else:
+                                    # No blended obs; bump base target share column used for receivers
+                                    base_col = pcol if 'pcol' in locals() else 'target_share'
+                                    if base_col in depth.columns:
+                                        te_max = float(pd.to_numeric(depth.loc[te_mask, base_col], errors='coerce').fillna(0.0).max())
+                                        cur = pd.to_numeric(depth.loc[m_override, base_col], errors='coerce').fillna(0.0)
+                                        bump = max(te_max, float(cur.max()))
+                                        depth.loc[m_override, base_col] = float(min(1.0, bump * 1.01))
+                                        # Keep recv_strength aligned
+                                        if 'recv_strength' in depth.columns:
+                                            depth.loc[m_override, 'recv_strength'] = pd.to_numeric(depth.loc[m_override, base_col], errors='coerce').fillna(0.0)
+                    except Exception:
+                        pass
+
+                    # Team-specific WR1 overrides (e.g., Vikings -> Justin Jefferson)
+                    try:
+                        wr_mask = depth['pos_up'].eq('WR')
+                        if WR1_OVERRIDES and team in WR1_OVERRIDES and wr_mask.any():
+                            if 'player_alias' not in depth.columns:
+                                try:
+                                    depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                                except Exception:
+                                    depth['player_alias'] = depth['player'].astype(str)
+                            cand_names = WR1_OVERRIDES.get(team) or []
+                            if isinstance(cand_names, str):
+                                cand_names = [cand_names]
+                            cand_alias = set(); cand_lnames = set()
+                            for nm in cand_names:
+                                try:
+                                    cand_alias.add(normalize_alias_init_last(str(nm)))
+                                except Exception:
+                                    pass
+                                parts = str(nm).split()
+                                if parts:
+                                    cand_lnames.add(parts[-1].lower())
+                            m_alias = depth['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(depth), index=depth.index)
+                            pl = depth['player'].astype(str).str.lower()
+                            m_lname = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(depth), index=depth.index)
+                            m_override = wr_mask & (m_alias | m_lname)
+                            if m_override.any():
+                                depth.loc[m_override, 'recv_rank'] = 1
+                                dup_ones = wr_mask & (depth['recv_rank'] == 1) & (~m_override)
+                                if dup_ones.any():
+                                    depth.loc[dup_ones, 'recv_rank'] = 2
+                                # Ensure the override has at least the top WR t_blend/base
+                                if 't_blend' in depth.columns:
+                                    wr_max = float(pd.to_numeric(depth.loc[wr_mask, 't_blend'], errors='coerce').fillna(0.0).max())
+                                    cur = pd.to_numeric(depth.loc[m_override, 't_blend'], errors='coerce').fillna(0.0)
+                                    bump = max(wr_max, float(cur.max()))
+                                    depth.loc[m_override, 't_blend'] = float(min(1.0, bump * 1.01))
+                                    depth.loc[m_override, 'recv_strength'] = depth.loc[m_override, 't_blend']
+                                else:
+                                    base_col = pcol if 'pcol' in locals() else 'target_share'
+                                    if base_col in depth.columns:
+                                        wr_max = float(pd.to_numeric(depth.loc[wr_mask, base_col], errors='coerce').fillna(0.0).max())
+                                        cur = pd.to_numeric(depth.loc[m_override, base_col], errors='coerce').fillna(0.0)
+                                        bump = max(wr_max, float(cur.max()))
+                                        depth.loc[m_override, base_col] = float(min(1.0, bump * 1.01))
+                                        if 'recv_strength' in depth.columns:
+                                            depth.loc[m_override, 'recv_strength'] = pd.to_numeric(depth.loc[m_override, base_col], errors='coerce').fillna(0.0)
+                    except Exception:
+                        pass
+
+                    # TE group enforcement: ensure the top TE (override, then central-derived, then priors/depth/base score) gets TE1 share
+                    try:
+                        te_mask = depth['pos_up'].eq('TE')
+                        if te_mask.any():
+                            te_df = depth.loc[te_mask].copy()
+                            te_df['_t_base'] = pd.to_numeric(te_df.get('target_share'), errors='coerce').fillna(0.0)
+                            # Check team override
+                            m_override = pd.Series([False]*len(te_df), index=te_df.index)
+                            try:
+                                if TE1_OVERRIDES and team in TE1_OVERRIDES:
+                                    if 'player_alias' not in te_df.columns:
+                                        try:
+                                            te_df['player_alias'] = te_df['player'].astype(str).map(normalize_alias_init_last)
+                                        except Exception:
+                                            te_df['player_alias'] = te_df['player'].astype(str)
+                                    cand_names = TE1_OVERRIDES.get(team) or []
+                                    if isinstance(cand_names, str):
+                                        cand_names = [cand_names]
+                                    cand_alias = set(); cand_lnames = set()
+                                    for nm in cand_names:
+                                        try:
+                                            cand_alias.add(normalize_alias_init_last(str(nm)))
+                                        except Exception:
+                                            pass
+                                        parts = str(nm).split()
+                                        if parts:
+                                            cand_lnames.add(parts[-1].lower())
+                                    m_a = te_df['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(te_df), index=te_df.index)
+                                    pl = te_df['player'].astype(str).str.lower()
+                                    m_l = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(te_df), index=te_df.index)
+                                    m_override = (m_a | m_l)
+                                # Add Week 1 dynamic TE1 from central stats
+                                if int(tr.get('week')) == 1 and len(wk1_te1_aliases) > 0:
+                                    try:
+                                        if 'player_alias' not in te_df.columns:
+                                            te_df['player_alias'] = te_df['player'].astype(str).map(normalize_alias_init_last)
+                                    except Exception:
+                                        te_df['player_alias'] = te_df['player'].astype(str)
+                                    m_a2 = te_df['player_alias'].astype(str).isin(wk1_te1_aliases)
+                                    pll = te_df['player'].astype(str).str.lower()
+                                    m_l2 = pll.apply(lambda x: any(ln in x for ln in wk1_te1_lnames)) if wk1_te1_lnames else pd.Series([False]*len(te_df), index=te_df.index)
+                                    m_override = m_override | m_a2 | m_l2
+                            except Exception:
+                                pass
+                            te1_idx = None
+                            if m_override.any():
+                                cand = te_df[m_override]
+                                if 'depth_chart_order' in te_df.columns:
+                                    dco = pd.to_numeric(cand['depth_chart_order'], errors='coerce')
+                                    mind = dco.min()
+                                    cand = cand[dco == mind]
+                                cand = cand.sort_values('_t_base', ascending=False)
+                                te1_idx = cand.index[0]
+                            if te1_idx is None:
+                                # Score by priors/depth/base
+                                try:
+                                    pri = eff_priors[['__dummy' if False else '_pid','_nm','targets']].copy().rename(columns={'_pid':'player_id','targets':'prior_targets'})
+                                    te_df = te_df.copy(); te_df['_nm'] = te_df['player'].astype(str).map(normalize_name_loose)
+                                    if 'player_id' in te_df.columns and te_df['player_id'].notna().any():
+                                        te_df['player_id'] = te_df['player_id'].astype(str)
+                                        te_df = te_df.merge(pri[['player_id','prior_targets']], on='player_id', how='left')
+                                    else:
+                                        te_df = te_df.merge(pri, on='_nm', how='left')
+                                except Exception:
+                                    te_df['prior_targets'] = np.nan
+                                pt = pd.to_numeric(te_df.get('prior_targets'), errors='coerce').fillna(0.0)
+                                pt_n = pt / (pt.max() if float(pt.max()) > 0 else 1.0)
+                                dco = pd.to_numeric(te_df.get('depth_chart_order'), errors='coerce')
+                                if dco.notna().any():
+                                    d_norm = (dco.max() - dco) / (dco.max() - dco.min() + 1e-6)
+                                else:
+                                    d_norm = pd.Series([0.5]*len(te_df), index=te_df.index)
+                                b = te_df['_t_base']; b_n = b / (b.max() if float(b.max()) > 0 else 1.0)
+                                score = 0.6*pt_n + 0.3*d_norm + 0.1*b_n
+                                te1_idx = score.sort_values(ascending=False).index[0]
+                            rest = te_df.drop(index=[te1_idx]).sort_values('_t_base', ascending=False)
+                            # Apply 80/20 split to both target_share and rz_target_share (when present)
+                            for col in ['target_share', 'rz_target_share']:
+                                if col in depth.columns:
+                                    te_total_col = float(pd.to_numeric(depth.loc[te_mask, col], errors='coerce').fillna(0.0).sum())
+                                    if te_total_col > 0:
+                                        te1_share = 0.80 * te_total_col
+                                        te2_share = 0.20 * te_total_col if len(rest) > 0 else 0.0
+                                        depth.loc[te1_idx, col] = te1_share
+                                        if len(rest) > 0:
+                                            depth.loc[rest.index[0], col] = te2_share
+                                        if len(rest) > 1:
+                                            depth.loc[rest.index[1:], col] = 0.0
+                                        # Renormalize to 1.0 across all receivers for this column
+                                        tot_all = float(pd.to_numeric(depth[col], errors='coerce').fillna(0.0).sum())
+                                        if tot_all > 0:
+                                            depth[col] = pd.to_numeric(depth[col], errors='coerce').fillna(0.0) / tot_all
+                            # Keep recv_strength aligned with enforced base target_share
+                            if 'recv_strength' in depth.columns and 'target_share' in depth.columns:
+                                depth['recv_strength'] = np.where(depth['pos_up'].eq('TE'), pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0), depth['recv_strength'])
+                    except Exception:
+                        pass
+                except Exception:
+                    pass
+            _dump_depth(team, '03_after_obs', depth)
+
+        # Drop rows without a player name to prevent ghost rows from absorbing shares
+        try:
+            pl_str = depth['player'].astype(str)
+            mask_named = depth['player'].notna() & pl_str.str.strip().ne('') & pl_str.str.strip().str.lower().ne('nan')
+            depth = depth[mask_named].copy()
+        except Exception:
+            pass
+        _dump_depth(team, '04_after_drop_noname', depth)
+
+        # Week 1: apply TE group enforcement (80/20 TE1/TE2; TE3+ zero) on base shares before building t_eff
+        try:
+            if int(tr.get('week')) == 1:
+                te_mask = depth['pos_up'].eq('TE') if 'pos_up' in depth.columns else depth['position'].astype(str).str.upper().eq('TE')
+                if te_mask.any():
+                    # Ensure helper columns
+                    if 'pos_up' not in depth.columns:
+                        depth['pos_up'] = depth['position'].astype(str).str.upper()
+                    te_df = depth.loc[te_mask].copy()
+                    te_df['_t_base'] = pd.to_numeric(te_df.get('target_share'), errors='coerce').fillna(0.0)
+                    # Determine TE1: prefer override match, then Week 1 central-derived TE1; else score by priors (prior_targets), depth order, and base share
+                    m_override = pd.Series([False]*len(te_df), index=te_df.index)
+                    try:
+                        if TE1_OVERRIDES and team in TE1_OVERRIDES:
+                            if 'player_alias' not in te_df.columns:
+                                try:
+                                    te_df['player_alias'] = te_df['player'].astype(str).map(normalize_alias_init_last)
+                                except Exception:
+                                    te_df['player_alias'] = te_df['player'].astype(str)
+                            cand_names = TE1_OVERRIDES.get(team) or []
+                            if isinstance(cand_names, str):
+                                cand_names = [cand_names]
+                            cand_alias = set(); cand_lnames = set()
+                            for nm in cand_names:
+                                try:
+                                    cand_alias.add(normalize_alias_init_last(str(nm)))
+                                except Exception:
+                                    pass
+                                parts = str(nm).split()
+                                if parts:
+                                    cand_lnames.add(parts[-1].lower())
+                            m_a = te_df['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(te_df), index=te_df.index)
+                            pl = te_df['player'].astype(str).str.lower()
+                            m_l = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(te_df), index=te_df.index)
+                            m_override = (m_a | m_l)
+                        # Add Week 1 dynamic TE1 from central stats
+                        if len(wk1_te1_aliases) > 0:
+                            try:
+                                if 'player_alias' not in te_df.columns:
+                                    te_df['player_alias'] = te_df['player'].astype(str).map(normalize_alias_init_last)
+                            except Exception:
+                                te_df['player_alias'] = te_df['player'].astype(str)
+                            m_a2 = te_df['player_alias'].astype(str).isin(wk1_te1_aliases)
+                            pll = te_df['player'].astype(str).str.lower()
+                            m_l2 = pll.apply(lambda x: any(ln in x for ln in wk1_te1_lnames)) if wk1_te1_lnames else pd.Series([False]*len(te_df), index=te_df.index)
+                            m_override = m_override | m_a2 | m_l2
+                    except Exception:
+                        pass
+                    te1_idx = None
+                    if m_override.any():
+                        cand = te_df[m_override]
+                        if 'depth_chart_order' in te_df.columns:
+                            dco = pd.to_numeric(cand['depth_chart_order'], errors='coerce')
+                            mind = dco.min()
+                            cand = cand[dco == mind]
+                        cand = cand.sort_values('_t_base', ascending=False)
+                        te1_idx = cand.index[0]
+                    if te1_idx is None:
+                        # Attach efficiency priors prior_targets to score pass-catching ability
+                        try:
+                            pri = eff_priors[['__dummy' if False else '_pid','_nm','targets']].copy().rename(columns={'_pid':'player_id','targets':'prior_targets'})
+                            te_df = te_df.copy()
+                            te_df['_nm'] = te_df['player'].astype(str).map(normalize_name_loose)
+                            # Try id-merge if player_id present
+                            if 'player_id' in te_df.columns and te_df['player_id'].notna().any():
+                                te_df['player_id'] = te_df['player_id'].astype(str)
+                                te_df = te_df.merge(pri[['player_id','prior_targets']], on='player_id', how='left')
+                            else:
+                                te_df = te_df.merge(pri, on='_nm', how='left')
+                        except Exception:
+                            te_df['prior_targets'] = np.nan
+                        # Normalize components
+                        pt = pd.to_numeric(te_df.get('prior_targets'), errors='coerce').fillna(0.0)
+                        pt_n = pt / (pt.max() if float(pt.max()) > 0 else 1.0)
+                        dco = pd.to_numeric(te_df.get('depth_chart_order'), errors='coerce')
+                        if dco.notna().any():
+                            d_norm = (dco.max() - dco) / (dco.max() - dco.min() + 1e-6)
+                        else:
+                            d_norm = pd.Series([0.5]*len(te_df), index=te_df.index)
+                        b = te_df['_t_base']
+                        b_n = b / (b.max() if float(b.max()) > 0 else 1.0)
+                        # Weights: priors 0.6, depth 0.3, base 0.1
+                        score = 0.6*pt_n + 0.3*d_norm + 0.1*b_n
+                        te1_idx = score.sort_values(ascending=False).index[0]
+                    rest = te_df.drop(index=[te1_idx]).sort_values('_t_base', ascending=False)
+                    # Apply 80/20 split to both target_share and rz_target_share (when present) and renormalize globally
+                    for col in ['target_share', 'rz_target_share']:
+                        if col in depth.columns:
+                            te_total_col = float(pd.to_numeric(depth.loc[te_mask, col], errors='coerce').fillna(0.0).sum())
+                            if te_total_col > 0:
+                                te1_share = 0.80 * te_total_col
+                                te2_share = 0.20 * te_total_col if len(rest) > 0 else 0.0
+                                depth.loc[te1_idx, col] = te1_share
+                                if len(rest) > 0:
+                                    depth.loc[rest.index[0], col] = te2_share
+                                if len(rest) > 1:
+                                    depth.loc[rest.index[1:], col] = 0.0
+                                tot_all = float(pd.to_numeric(depth[col], errors='coerce').fillna(0.0).sum())
+                                if tot_all > 0:
+                                    depth[col] = pd.to_numeric(depth[col], errors='coerce').fillna(0.0) / tot_all
+                    if 'recv_strength' in depth.columns and 'target_share' in depth.columns:
+                        depth['recv_strength'] = np.where(depth['pos_up'].eq('TE'), pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0), depth['recv_strength'])
+        except Exception:
+            pass
+
         # Build effective receiving target shares with rank multipliers and renormalize across receiving positions
         recv_mask = depth['pos_up'].isin(['WR','TE','RB'])
         depth['t_mult'] = depth.apply(lambda r: _rank_mult_targets(str(r['pos_up']), r.get('recv_rank')), axis=1)
-        base_t_share = depth['t_blend'] if 't_blend' in depth.columns else pd.to_numeric(depth[pcol], errors='coerce').fillna(0.0)
+        # Use blended targets when available; fallback to base column if blended is NaN
+        if 't_blend' in depth.columns:
+            base_t_share = pd.to_numeric(depth['t_blend'], errors='coerce')
+            # Fallback to base target_share, not RZ targets, to drive receiving volume
+            if 'target_share' in depth.columns:
+                base_t_share = base_t_share.fillna(pd.to_numeric(depth['target_share'], errors='coerce'))
+            base_t_share = base_t_share.fillna(0.0)
+        else:
+            base_t_share = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
         depth['t_eff'] = np.where(recv_mask, base_t_share * depth['t_mult'], 0.0)
+        # Preserve group totals (WR/TE/RB) from base_t_share by rescaling within each group
+        try:
+            base_group = (
+                pd.DataFrame({'pos_up': depth['pos_up'], 'base': base_t_share})
+                .loc[recv_mask]
+                .groupby('pos_up', as_index=False)['base']
+                .sum()
+            )
+            base_map = dict(zip(base_group['pos_up'].astype(str), pd.to_numeric(base_group['base'], errors='coerce').fillna(0.0)))
+            for pos_k, tgt_sum in base_map.items():
+                m = (depth['pos_up'] == pos_k) & recv_mask
+                if m.any():
+                    cur = float(pd.to_numeric(depth.loc[m, 't_eff'], errors='coerce').fillna(0.0).sum())
+                    if cur > 1e-9:
+                        fac = float(tgt_sum) / cur
+                        depth.loc[m, 't_eff'] = pd.to_numeric(depth.loc[m, 't_eff'], errors='coerce').fillna(0.0) * fac
+        except Exception:
+            pass
         # Calibrate receiving volume by position using prior-week target bias
         if pos_bias and int(week) > 1:
             for posk, key in [('WR','targets'),('TE','targets'),('RB','targets')]:
@@ -1389,6 +3052,260 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         t_sum = float(depth.loc[recv_mask, 't_eff'].sum())
         if t_sum > 0:
             depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / t_sum
+        _dump_depth(team, '05_after_t_eff', depth)
+
+        # Week 1: hard-cap any single TE's t_eff and redistribute excess to WRs proportionally
+        try:
+            if int(tr.get('week')) == 1:
+                te_mask = depth['pos_up'].eq('TE')
+                wr_mask2 = depth['pos_up'].eq('WR')
+                if te_mask.any() and wr_mask2.any():
+                    TE1_EFF_CAP = 0.10  # max share of team targets attributable to a single TE in Week 1
+                    # Identify top TE by t_eff
+                    te_eff = pd.to_numeric(depth.loc[te_mask, 't_eff'], errors='coerce').fillna(0.0)
+                    if not te_eff.empty:
+                        idx_te1 = te_eff.sort_values(ascending=False).index[0]
+                        cur = float(te_eff.loc[idx_te1])
+                        if cur > TE1_EFF_CAP:
+                            excess = cur - TE1_EFF_CAP
+                            # Cap TE1
+                            depth.loc[idx_te1, 't_eff'] = TE1_EFF_CAP
+                            # Redistribute excess to WRs proportionally to current t_eff
+                            wr_eff = pd.to_numeric(depth.loc[wr_mask2, 't_eff'], errors='coerce').fillna(0.0)
+                            wr_sum = float(wr_eff.sum())
+                            if wr_sum > 0 and excess > 0:
+                                scale_add = (wr_eff / wr_sum) * excess
+                                depth.loc[wr_eff.index, 't_eff'] = wr_eff + scale_add
+                            else:
+                                # If WR sum is zero (unlikely), spread evenly among WRs
+                                nwr = int(wr_mask2.sum())
+                                if nwr > 0 and excess > 0:
+                                    depth.loc[wr_mask2, 't_eff'] = pd.to_numeric(depth.loc[wr_mask2, 't_eff'], errors='coerce').fillna(0.0) + (excess / nwr)
+                            # Renormalize t_eff across all receivers to 1.0
+                            t_sum2 = float(pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0).sum())
+                            if t_sum2 > 0:
+                                depth.loc[recv_mask, 't_eff'] = pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0) / t_sum2
+        except Exception:
+            pass
+
+        # Week 1: gate TE2+ to zero unless Week 1 central stats indicate meaningful TE2 usage; redistribute to WRs
+        try:
+            if int(tr.get('week')) == 1:
+                te_mask = depth['pos_up'].eq('TE')
+                wr_mask = depth['pos_up'].eq('WR')
+                if te_mask.any():
+                    allow_te2 = False
+                    try:
+                        # Determine if team meaningfully used two TEs in Week 1 (central stats)
+                        use = _week1_usage_from_central(int(tr.get('season')))
+                        if use is not None and not use.empty:
+                            team_use = use[use['team'] == team].copy()
+                            if not team_use.empty:
+                                # Attach positions via league roster map to identify TEs
+                                rm = _league_roster_map(int(tr.get('season')))
+                                if rm is not None and not rm.empty:
+                                    rm = rm.copy()
+                                    rm['team'] = rm['team'].astype(str).apply(normalize_team_name)
+                                    team_use = team_use.merge(rm[['team','player_id','position']].drop_duplicates(), on=['team','player_id'], how='left')
+                                pos_up = team_use.get('position').astype(str).str.upper()
+                                team_use['_pos_up'] = pos_up
+                                te_usage = team_use[team_use['_pos_up'] == 'TE'].copy()
+                                if not te_usage.empty and 'target_share_obs' in te_usage.columns:
+                                    te_usage = te_usage.sort_values('target_share_obs', ascending=False)
+                                    if len(te_usage) >= 2:
+                                        second_share = float(pd.to_numeric(te_usage.iloc[1]['target_share_obs'], errors='coerce') or 0.0)
+                                        # Threshold: only allow TE2 if second TE had >= 12% of team targets in Week 1
+                                        allow_te2 = second_share >= 0.12
+                    except Exception:
+                        allow_te2 = False
+                    # Apply gating on effective shares t_eff
+                    te_eff = pd.to_numeric(depth.loc[te_mask, 't_eff'], errors='coerce').fillna(0.0)
+                    if not te_eff.empty:
+                        # Keep the top TE; zero out others unless allowed
+                        idx_sorted = te_eff.sort_values(ascending=False).index
+                        idx_top = idx_sorted[0]
+                        idx_rest = idx_sorted[1:]
+                        if len(idx_rest) > 0:
+                            if not allow_te2:
+                                rest_sum = float(pd.to_numeric(depth.loc[idx_rest, 't_eff'], errors='coerce').fillna(0.0).sum())
+                                if rest_sum > 0:
+                                    # Zero TE2+ and give their share to WRs proportionally
+                                    depth.loc[idx_rest, 't_eff'] = 0.0
+                                    wr_eff = pd.to_numeric(depth.loc[wr_mask, 't_eff'], errors='coerce').fillna(0.0)
+                                    wr_sum = float(wr_eff.sum())
+                                    if wr_sum > 0:
+                                        depth.loc[wr_eff.index, 't_eff'] = wr_eff + (wr_eff / wr_sum) * rest_sum
+                                    else:
+                                        # If no WRs (unlikely), add to top TE bounded by cap
+                                        cap = 0.10
+                                        cur_top = float(pd.to_numeric(depth.loc[idx_top, 't_eff'], errors='coerce').fillna(0.0))
+                                        add = max(0.0, min(rest_sum, cap - cur_top))
+                                        depth.loc[idx_top, 't_eff'] = cur_top + add
+                                # Renormalize down if slight numeric drift
+                                t_sum3 = float(pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0).sum())
+                                if t_sum3 > 1.0:
+                                    depth.loc[recv_mask, 't_eff'] = pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0) / t_sum3
+        except Exception:
+            pass
+
+        # Secondary enforcement: if a TE1 override exists for this team, ensure that TE leads TE t_eff while preserving TE group sum
+        try:
+            te_mask = depth['pos_up'].eq('TE')
+            if TE1_OVERRIDES and team in TE1_OVERRIDES and te_mask.any():
+                if 'player_alias' not in depth.columns:
+                    try:
+                        depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                    except Exception:
+                        depth['player_alias'] = depth['player'].astype(str)
+                cand_names = TE1_OVERRIDES.get(team) or []
+                if isinstance(cand_names, str):
+                    cand_names = [cand_names]
+                cand_alias = set(); cand_lnames = set()
+                for nm in cand_names:
+                    try:
+                        cand_alias.add(normalize_alias_init_last(str(nm)))
+                    except Exception:
+                        pass
+                    parts = str(nm).split()
+                    if parts:
+                        cand_lnames.add(parts[-1].lower())
+                m_alias = depth['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(depth), index=depth.index)
+                pl = depth['player'].astype(str).str.lower()
+                m_lname = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(depth), index=depth.index)
+                m_override = te_mask & (m_alias | m_lname)
+                if m_override.any():
+                    te_sub = depth.loc[te_mask, 't_eff'].astype(float).fillna(0.0)
+                    te_sum = float(te_sub.sum())
+                    if te_sum > 0:
+                        te_max = float(te_sub.max())
+                        # bump override slightly above current max and rebalance others
+                        new_override = float(min(1.0, te_max * 1.01))
+                        idx_ovr = depth.index[m_override]
+                        idx_oth = depth.index[te_mask & (~m_override)]
+                        rem = max(te_sum - new_override, 0.0)
+                        if len(idx_oth) > 0:
+                            oth_vals = depth.loc[idx_oth, 't_eff'].astype(float).fillna(0.0)
+                            oth_sum = float(oth_vals.sum())
+                            if oth_sum > 0:
+                                scale = rem / oth_sum
+                                depth.loc[idx_oth, 't_eff'] = oth_vals * scale
+                            else:
+                                depth.loc[idx_oth, 't_eff'] = rem / float(len(idx_oth))
+                        depth.loc[idx_ovr, 't_eff'] = new_override
+                        # Enforce Week 1 TE cap again post-override
+                        try:
+                            if int(tr.get('week')) == 1:
+                                TE1_EFF_CAP = 0.10
+                                cur_val = float(depth.loc[idx_ovr, 't_eff'].astype(float).fillna(0.0).max())
+                                if cur_val > TE1_EFF_CAP:
+                                    excess = cur_val - TE1_EFF_CAP
+                                    depth.loc[idx_ovr, 't_eff'] = TE1_EFF_CAP
+                                    # Give excess to WRs proportionally
+                                    wr_mask3 = depth['pos_up'].eq('WR')
+                                    wr_eff3 = pd.to_numeric(depth.loc[wr_mask3, 't_eff'], errors='coerce').fillna(0.0)
+                                    wr_sum3 = float(wr_eff3.sum())
+                                    if wr_sum3 > 0 and excess > 0:
+                                        depth.loc[wr_eff3.index, 't_eff'] = wr_eff3 + (wr_eff3 / wr_sum3) * excess
+                                    # Renormalize
+                                    t_sum3 = float(pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0).sum())
+                                    if t_sum3 > 0:
+                                        depth.loc[recv_mask, 't_eff'] = pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0) / t_sum3
+                        except Exception:
+                            pass
+                        # keep ranks consistent
+                        depth.loc[idx_ovr, 'recv_rank'] = 1
+                        if len(idx_oth) > 0:
+                            depth.loc[idx_oth, 'recv_rank'] = np.maximum(2, pd.to_numeric(depth.loc[idx_oth, 'recv_rank'], errors='coerce').fillna(2)).astype(int)
+        except Exception:
+            pass
+
+        # Apply per-player target share caps by position to avoid extreme projections, then renormalize across receivers
+        try:
+            caps = {
+                'WR': float(os.environ.get('PROPS_CAP_WR', '0.34')),
+                'TE': float(os.environ.get('PROPS_CAP_TE', '0.22')),
+                'RB': float(os.environ.get('PROPS_CAP_RB', '0.20')),
+            }
+            if recv_mask.any():
+                for _ in range(2):  # up to two passes if scaling causes new breaches
+                    sub = depth.loc[recv_mask, ['pos_up','t_eff']].copy()
+                    cap_vals = sub['pos_up'].map(caps).fillna(0.34)
+                    exceeded = sub['t_eff'] > cap_vals
+                    if not exceeded.any():
+                        break
+                    # Cap exceeded
+                    sub.loc[exceeded, 't_eff'] = cap_vals[exceeded]
+                    # Redistribute remaining to non-exceeded proportionally
+                    remaining = 1.0 - float(sub['t_eff'].sum())
+                    if remaining > 1e-9:
+                        pool_mask = ~exceeded
+                        pool_sum = float(sub.loc[pool_mask, 't_eff'].sum())
+                        if pool_sum > 1e-9:
+                            scale = 1.0 + (remaining / pool_sum)
+                            sub.loc[pool_mask, 't_eff'] = sub.loc[pool_mask, 't_eff'] * scale
+                        else:
+                            # distribute evenly if pool empty
+                            n = int(pool_mask.sum())
+                            if n > 0:
+                                sub.loc[pool_mask, 't_eff'] = remaining / n
+                    depth.loc[recv_mask, 't_eff'] = sub['t_eff'].values
+                # Final clip for safety and renorm
+                depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'].clip(lower=0.0)
+                s2 = float(depth.loc[recv_mask, 't_eff'].sum())
+                # Only renormalize down if the sum exceeds 1.0; if below 1.0, keep as-is to respect caps
+                if s2 > 1.0:
+                    depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / s2
+        except Exception:
+            pass
+
+        # Secondary enforcement: WR1 override ensure top WR t_eff while preserving WR group sum
+        try:
+            wr_mask = depth['pos_up'].eq('WR')
+            if WR1_OVERRIDES and team in WR1_OVERRIDES and wr_mask.any():
+                if 'player_alias' not in depth.columns:
+                    try:
+                        depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                    except Exception:
+                        depth['player_alias'] = depth['player'].astype(str)
+                cand_names = WR1_OVERRIDES.get(team) or []
+                if isinstance(cand_names, str):
+                    cand_names = [cand_names]
+                cand_alias = set(); cand_lnames = set()
+                for nm in cand_names:
+                    try:
+                        cand_alias.add(normalize_alias_init_last(str(nm)))
+                    except Exception:
+                        pass
+                    parts = str(nm).split()
+                    if parts:
+                        cand_lnames.add(parts[-1].lower())
+                m_alias = depth['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(depth), index=depth.index)
+                pl = depth['player'].astype(str).str.lower()
+                m_lname = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(depth), index=depth.index)
+                m_override = wr_mask & (m_alias | m_lname)
+                if m_override.any():
+                    wr_sub = depth.loc[wr_mask, 't_eff'].astype(float).fillna(0.0)
+                    wr_sum = float(wr_sub.sum())
+                    if wr_sum > 0:
+                        wr_max = float(wr_sub.max())
+                        new_override = float(min(1.0, wr_max * 1.01))
+                        idx_ovr = depth.index[m_override]
+                        idx_oth = depth.index[wr_mask & (~m_override)]
+                        rem = max(wr_sum - new_override, 0.0)
+                        if len(idx_oth) > 0:
+                            oth_vals = depth.loc[idx_oth, 't_eff'].astype(float).fillna(0.0)
+                            oth_sum = float(oth_vals.sum())
+                            if oth_sum > 0:
+                                scale = rem / oth_sum
+                                depth.loc[idx_oth, 't_eff'] = oth_vals * scale
+                            else:
+                                depth.loc[idx_oth, 't_eff'] = rem / float(len(idx_oth))
+                        depth.loc[idx_ovr, 't_eff'] = new_override
+                        depth.loc[idx_ovr, 'recv_rank'] = 1
+                        if len(idx_oth) > 0:
+                            depth.loc[idx_oth, 'recv_rank'] = np.maximum(2, pd.to_numeric(depth.loc[idx_oth, 'recv_rank'], errors='coerce').fillna(2)).astype(int)
+        except Exception:
+            pass
 
         # Apply opponent defense position-vs-defense multipliers to receiving target shares, then renormalize
         def_share_mult = {'WR': 1.0, 'TE': 1.0, 'RB': 1.0}
@@ -1413,13 +3330,54 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 depth.loc[m, 't_eff'] = depth.loc[m, 't_eff'] * mult
         # Final renormalize to sum 1 within receivers
         t_sum = float(depth.loc[recv_mask, 't_eff'].sum())
-        if t_sum > 0:
+        # Only renormalize down if sum exceeds 1.0; maintain <=1 sums to preserve caps with small receiver pools
+        if t_sum > 1.0:
             depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / t_sum
+
+        # Final hard cap enforcement after defense multipliers and overrides
+        try:
+            caps_final = {
+                'WR': float(os.environ.get('PROPS_CAP_WR', '0.34')),
+                'TE': float(os.environ.get('PROPS_CAP_TE', '0.22')),
+                'RB': float(os.environ.get('PROPS_CAP_RB', '0.20')),
+            }
+            if recv_mask.any():
+                for _ in range(3):
+                    sub = depth.loc[recv_mask, ['pos_up','t_eff']].copy()
+                    cap_vals = sub['pos_up'].map(caps_final).fillna(0.34)
+                    exceeded = sub['t_eff'] > cap_vals
+                    if not exceeded.any():
+                        break
+                    # Cap exceeded values
+                    sub.loc[exceeded, 't_eff'] = cap_vals[exceeded]
+                    # Redistribute only within headroom to avoid creating new breaches
+                    current_sum = float(sub['t_eff'].sum())
+                    deficit = 1.0 - current_sum
+                    if deficit > 1e-9:
+                        headroom = (cap_vals - sub['t_eff']).clip(lower=0.0)
+                        pool_mask = headroom > 1e-12
+                        hr_sum = float(headroom[pool_mask].sum())
+                        if hr_sum > 1e-9:
+                            add = headroom.copy()
+                            add[:] = 0.0
+                            add.loc[pool_mask] = headroom[pool_mask] * (deficit / hr_sum)
+                            sub['t_eff'] = sub['t_eff'] + add
+                    depth.loc[recv_mask, 't_eff'] = sub['t_eff'].values
+                # Final safety: clip and renormalize down if slightly above 1 due to numeric noise
+                depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'].clip(lower=0.0)
+                s3 = float(depth.loc[recv_mask, 't_eff'].sum())
+                if s3 > 1.0:
+                    depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / s3
+        except Exception:
+            pass
 
         # Build effective rushing shares with rank multipliers and renormalize across RB+QB
         rush_mask = depth['pos_up'].isin(['RB','QB'])
         depth['r_mult'] = depth.apply(lambda r: _rank_mult_carries(str(r['pos_up']), r.get('rush_rank')), axis=1)
-        base_r_share = depth['r_blend'] if 'r_blend' in depth.columns else pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+        if 'r_blend' in depth.columns:
+            base_r_share = pd.to_numeric(depth['r_blend'], errors='coerce').fillna(pd.to_numeric(depth['rush_share'], errors='coerce')).fillna(0.0)
+        else:
+            base_r_share = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
         depth['r_eff'] = np.where(rush_mask, base_r_share * depth['r_mult'], 0.0)
         # Calibrate rushing volume by RB using prior-week rush_attempts bias (QB rush left untouched here)
         if pos_bias and int(week) > 1 and 'RB' in pos_bias:
@@ -1448,18 +3406,34 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
 
         # Identify a primary QB to receive passing stats
         # Preference order:
-        # 1) Week 1 starter (most pass attempts in Week 1 via weekly stats)
-        # 2) Roster depth_chart_order (lowest number)
-        # 3) Highest combined shares proxy from usage depth
+        # 1) ESPN depth chart (active QB1 for that week)
+        # 2) Week 1 PBP starter mapping (for stability across early weeks)
+        # 3) Roster depth_chart_order (lowest number)
+        # 4) Highest combined shares proxy from usage depth
         qb_name = None
+        try:
+            dc = _load_weekly_depth_chart(int(tr.get('season')), int(tr.get('week')))
+            if dc is not None and not dc.empty:
+                sub = dc[(dc['team'] == team) & (dc['position'].astype(str).str.upper() == 'QB')].copy()
+                if not sub.empty:
+                    if 'active' in sub.columns:
+                        sub = sub[sub['active'].astype(bool)]
+                    if 'depth_rank' in sub.columns:
+                        sub = sub.sort_values(['depth_rank','player'])
+                    qb_name = str(sub.iloc[0]['player'])
+        except Exception:
+            pass
         try:
             wk1 = _week1_qb_starters(int(tr.get("season")))
             if wk1 is not None and not wk1.empty:
-                qb_row = wk1[wk1['team'] == team]
-                if not qb_row.empty:
-                    qb_name = str(qb_row.iloc[0]['player'])
+                if not qb_name:
+                    qb_row = wk1[wk1['team'] == team]
+                    if not qb_row.empty:
+                        qb_name = str(qb_row.iloc[0]['player'])
         except Exception:
             pass
+    # Note: trust Week 1 PBP starter even if not present in current roster_map.
+    # This ensures actual Week 1 starter remains primary in Week 2 props.
         if roster_map is not None and not roster_map.empty:
             qbs = roster_map[roster_map.get('position').astype(str).str.upper() == 'QB'].copy()
             if not qbs.empty:
@@ -1477,7 +3451,31 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 )
                 qb_name = str(qb_candidates.sort_values("_score", ascending=False).iloc[0].get("player"))
 
-        # Enforce Week 1 starter as the sole QB row in depth to avoid backups getting passing stats
+        # Safety: if the selected qb_name is not a QB in roster_map (e.g., alias collision), swap to top roster QB
+        try:
+            if qb_name and (roster_map is not None) and not roster_map.empty and ('position' in roster_map.columns):
+                qbs_rm = roster_map[roster_map['position'].astype(str).str.upper() == 'QB'].copy()
+                if not qbs_rm.empty:
+                    # If current qb_name not in roster QB names, replace with top QB by depth order when available
+                    names_qb = set(qbs_rm['player'].astype(str)) if 'player' in qbs_rm.columns else set()
+                    if (qb_name not in names_qb) or (not qb_name.strip()):
+                        if 'depth_chart_order' in qbs_rm.columns:
+                            qbs_rm['_ord'] = pd.to_numeric(qbs_rm['depth_chart_order'], errors='coerce').fillna(99).astype(int)
+                            qb_name = str(qbs_rm.sort_values(['_ord','player']).iloc[0].get('player'))
+                        else:
+                            qb_name = str(qbs_rm.sort_values(['player']).iloc[0].get('player'))
+        except Exception:
+            pass
+
+        # Final override: force a specific QB by team when configured (handles alias collisions like "C. Williams")
+        try:
+            forced = QB_OVERRIDE_BY_TEAM.get(team)
+            if forced:
+                qb_name = str(forced)
+        except Exception:
+            pass
+
+    # Enforce selected starter as the sole QB row in depth to avoid backups getting passing stats
         try:
             if qb_name:
                 qb_mask = depth["position"].astype(str).str.upper() == "QB"
@@ -1577,6 +3575,22 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 depth.loc[rush_mask, 'rrz_eff'] = depth.loc[rush_mask, 'rrz_eff'] / rrz_sum
         except Exception:
             pass
+        # Ensure player names are present: backfill from roster_map by player_id if needed
+        try:
+            if roster_map is not None and not roster_map.empty and ('player_id' in depth.columns):
+                pid2name = {}
+                try:
+                    pid2name = dict(zip(roster_map['player_id'].astype(str), roster_map['player'].astype(str)))
+                except Exception:
+                    pass
+                if 'player' not in depth.columns:
+                    depth['player'] = depth['player_id'].astype(str).map(pid2name)
+                else:
+                    m_missing = depth['player'].isna() | depth['player'].astype(str).str.strip().eq('')
+                    if m_missing.any():
+                        depth.loc[m_missing, 'player'] = depth.loc[missing := m_missing, 'player_id'].astype(str).map(pid2name)
+        except Exception:
+            pass
         # Compute per-player projections for this team
         for _, prw in depth.iterrows():
             pos = str(prw.get("position") or "")
@@ -1590,11 +3604,25 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                         pl_pid = str(m.iloc[0])
             except Exception:
                 pl_pid = None
-            r_share = float(prw.get('r_eff') if prw.get('r_eff') is not None else prw.get('rush_share') or 0.0)
-            t_share = float(prw.get('t_eff') if prw.get('t_eff') is not None else prw.get(pcol) or 0.0)
+            def _get_share(row, primary: str, fallback: str) -> float:
+                v = row.get(primary)
+                try:
+                    v = float(pd.to_numeric(v, errors='coerce'))
+                except Exception:
+                    v = np.nan
+                if not np.isfinite(v):
+                    try:
+                        v2 = float(pd.to_numeric(row.get(fallback), errors='coerce'))
+                    except Exception:
+                        v2 = 0.0
+                    return float(v2 if np.isfinite(v2) else 0.0)
+                return float(v)
+            r_share = _get_share(prw, 'r_eff', 'rush_share')
+            t_share = _get_share(prw, 't_eff', 'target_share')
             # Volumes
             pl_rush_att = rush_att * r_share
-            pl_targets = dropbacks * t_share
+            # Use pass attempts (not dropbacks) to set targets; attempts already excludes sacks
+            pl_targets = attempts * t_share
             # Yards
             # Receiving efficiency varies by position and rank; add small stable jitter and blend with player priors when available
             pos_up = pos.upper()
@@ -1645,6 +3673,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     pass
             pl_rec = pl_targets * cr_eff
             pl_rec_yards = pl_targets * ypt_eff * eff
+
+            # Apply small position-level receiving tweaks
+            if pos_up == 'WR':
+                pl_rec_yards *= wr_rec_yards_mult
+            elif pos_up == 'TE':
+                pl_rec *= te_rec_mult
+                pl_rec_yards *= te_rec_yards_mult
 
             # Rushing efficiency: vary YPC by rank for RB/QB and jitter
             rrank = prw.get('rush_rank')
@@ -1759,6 +3794,9 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     py *= float(np.clip(1.0 - qb_pass * qb.get('pyds_frac', 0.0), 0.85, 1.15))
                     ptd *= float(np.clip(1.0 - qb_pass * qb.get('ptd_frac', 0.0), 0.85, 1.15))
                     pint *= float(np.clip(1.0 - qb_pass * qb.get('int_frac', 0.0), 0.85, 1.15))
+                # Apply small global QB passing tweaks
+                py *= qb_py_mult
+                ptd *= qb_ptd_mult
                 row.update({
                     "pass_attempts": patt,
                     "pass_yards": py,
@@ -1772,6 +3810,65 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     out = pd.DataFrame(rows)
     if out.empty:
         return out
+    # Post-process: enforce team-level QB override names in final output and consolidate to a single QB row
+    try:
+        if QB_OVERRIDE_BY_TEAM and not out.empty:
+            # Load Week 1 starter ids to help map IDs for forced QBs
+            try:
+                wk1_map = _week1_qb_starters(int(season))
+            except Exception:
+                wk1_map = pd.DataFrame()
+            for t, forced_name in QB_OVERRIDE_BY_TEAM.items():
+                sub = out[(out['team'].astype(str) == t) & (out['position'].astype(str).str.upper() == 'QB')].copy()
+                if sub is None or sub.empty:
+                    continue
+                # Combine QB stats conservatively by sum where it makes sense; else take max/first
+                num_cols_sum = ['pass_attempts','pass_yards','pass_tds','interceptions','rush_attempts','rush_yards','rush_tds']
+                combined = sub.iloc[0].copy()
+                for c in num_cols_sum:
+                    if c in sub.columns:
+                        combined[c] = pd.to_numeric(sub[c], errors='coerce').fillna(0).sum()
+                # Keep other team context from the row with max pass_attempts if available
+                if 'pass_attempts' in sub.columns and pd.to_numeric(sub['pass_attempts'], errors='coerce').notna().any():
+                    base = sub.iloc[pd.to_numeric(sub['pass_attempts'], errors='coerce').fillna(0).idxmax()]
+                else:
+                    base = sub.iloc[0]
+                for c in base.index:
+                    if c not in combined.index:
+                        combined[c] = base[c]
+                # Force the name and try to set player_id from Week 1 mapping when present
+                combined['player'] = str(forced_name)
+                if wk1_map is not None and not wk1_map.empty:
+                    row = wk1_map[wk1_map['team'] == t]
+                    if not row.empty and 'player_id' in row.columns and pd.notna(row.iloc[0].get('player_id')):
+                        combined['player_id'] = str(row.iloc[0]['player_id'])
+                # Drop all existing QB rows for team and append the consolidated forced row
+                out = out[~((out['team'].astype(str) == t) & (out['position'].astype(str).str.upper() == 'QB'))].copy()
+                out = pd.concat([out, pd.DataFrame([combined])], ignore_index=True)
+            # Backfill QB passing stats from team context if zero/missing for forced starters
+            for t, _forced_name in QB_OVERRIDE_BY_TEAM.items():
+                mask = (out['team'].astype(str) == t) & (out['position'].astype(str).str.upper() == 'QB')
+                if not mask.any():
+                    continue
+                qb_row = out.loc[mask].iloc[0]
+                # If pass_attempts not set or <= 0, assign team-level passing to QB
+                def _get_num(s, col):
+                    try:
+                        return float(pd.to_numeric(s.get(col), errors='coerce'))
+                    except Exception:
+                        return float('nan')
+                pa = _get_num(qb_row, 'pass_attempts')
+                if (not np.isfinite(pa)) or (pa <= 0.0):
+                    for col_src, col_dst in [
+                        ('team_pass_attempts','pass_attempts'),
+                        ('team_pass_yards','pass_yards'),
+                        ('team_exp_pass_tds','pass_tds'),
+                        ('team_exp_int','interceptions'),
+                    ]:
+                        if (col_src in out.columns) and (col_dst in out.columns):
+                            out.loc[mask, col_dst] = pd.to_numeric(out.loc[mask, col_src], errors='coerce')
+    except Exception:
+        pass
     # Attach is_active from weekly rosters
     try:
         act = _active_roster(int(season), int(week))
@@ -1779,14 +3876,41 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             out['_nm'] = out['player'].astype(str).map(normalize_name_loose)
             out['player_id'] = out['player_id'].astype(str)
             # Prefer id join, fallback to name+team
-            out = out.merge(act.rename(columns={'_pid':'player_id'})[['team','player_id','is_active','status']], on=['team','player_id'], how='left')
+            out = out.merge(act.rename(columns={'_pid':'player_id'})[['team','player_id','is_active','status']].rename(columns={'is_active':'is_active_pid','status':'status_pid'}), on=['team','player_id'], how='left')
             # Fill where id missing via name key
-            if 'is_active' not in out.columns or out['is_active'].isna().any():
-                act2 = act.copy()
-                out = out.merge(act2.rename(columns={'_nm':'_nm_act'})[['team','_nm_act','is_active','status']].rename(columns={'is_active':'is_active_nm','status':'status_nm'}), left_on=['team','_nm'], right_on=['team','_nm_act'], how='left')
-                out['is_active'] = out['is_active'].fillna(out['is_active_nm'])
-                out['status'] = out['status'].fillna(out['status_nm'])
-                out = out.drop(columns=['_nm_act','is_active_nm','status_nm'])
+            act2 = act.copy()
+            out = out.merge(act2.rename(columns={'_nm':'_nm_act'})[['team','_nm_act','is_active','status']].rename(columns={'is_active':'is_active_nm','status':'status_nm'}), left_on=['team','_nm'], right_on=['team','_nm_act'], how='left')
+            # Reconcile flags: prefer name-based when available; otherwise id-based; ensure consistency with status
+            a = pd.to_numeric(out.get('is_active_pid'), errors='coerce')
+            b = pd.to_numeric(out.get('is_active_nm'), errors='coerce')
+            # Start with ones as float to avoid silent downcasting warnings, will cast to Int at end
+            is_active_vals = pd.Series(1.0, index=out.index, dtype='float64')
+            if a is not None:
+                # fill from a where available
+                ain = ~a.isna()
+                if ain.any():
+                    av = a.astype(float)
+                    is_active_vals.loc[ain] = av.loc[ain]
+            if b is not None:
+                # combine with b via minimum, treating NaN as 1.0
+                bv = b.astype(float).fillna(1.0)
+                is_active_vals = np.minimum(is_active_vals.fillna(1.0), bv)
+            out['is_active'] = pd.to_numeric(is_active_vals, errors='coerce').fillna(1.0)
+            # Week 1: be cautious with missing weekly roster coverage. Only mark as inactive
+            # when the team has weekly roster entries and the player is explicitly missing.
+            try:
+                if int(week) == 1 and ('team' in out.columns) and (act is not None) and (not act.empty):
+                    covered_teams = set(str(x) for x in act['team'].dropna().unique())
+                    missing_both = (a.isna() & b.isna()) if (a is not None and b is not None) else pd.Series(False, index=out.index)
+                    has_coverage = out['team'].astype(str).isin(covered_teams)
+                    strict_mask = missing_both & has_coverage
+                    if strict_mask.any():
+                        out.loc[strict_mask.fillna(False), 'is_active'] = 0
+            except Exception:
+                pass
+            # Status: prefer name-based text when present
+            out['status'] = out.get('status').fillna(out.get('status_nm')).fillna(out.get('status_pid'))
+            out = out.drop(columns=['_nm_act','is_active_nm','status_nm','is_active_pid','status_pid'], errors='ignore')
             out['is_active'] = pd.to_numeric(out['is_active'], errors='coerce').fillna(1).astype(int)
             # Persist a quick report of predicted but not active
             try:
@@ -1798,6 +3922,27 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             except Exception:
                 pass
             out = out.drop(columns=['_nm'])
+    except Exception:
+        pass
+    # Week 1 hygiene: ensure each team retains a QB row as active, but do not drop inactives for Week 1.
+    try:
+        if int(week) == 1 and 'is_active' in out.columns and 'position' in out.columns and 'team' in out.columns:
+            # Guarantee at least one active QB per team (force activate the sole QB row if needed)
+            qb_mask_all = out['position'].astype(str).str.upper() == 'QB'
+            if qb_mask_all.any():
+                for t in out.loc[qb_mask_all, 'team'].astype(str).unique():
+                    m = (out['team'].astype(str) == t) & qb_mask_all
+                    if m.any():
+                        if not (out.loc[m, 'is_active'].astype('Int64').fillna(1) == 1).any():
+                            out.loc[m, 'is_active'] = 1
+            # Do NOT drop inactive players for Week 1; keep full roster for calibration and visibility
+    except Exception:
+        pass
+    # Weeks > 1: by default, drop inactive players unless explicitly kept via env flag
+    try:
+        keep_inactive = str(os.environ.get('PROPS_KEEP_INACTIVE', '0')).strip().lower() in {'1','true','yes'}
+        if (not keep_inactive) and ('is_active' in out.columns) and (int(week) > 1):
+            out = out[out['is_active'].astype('Int64').fillna(1) == 1].copy()
     except Exception:
         pass
     # Round some quantities for presentation
@@ -1822,7 +3967,7 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     # Order columns
     pref = [
         "season","week","date","game_id","team","opponent","is_home","player","position",
-    "player_id","is_active","status",
+        "player_id","is_active","status",
         "pass_attempts","pass_yards","pass_tds","interceptions",
         "rush_attempts","rush_yards","rush_tds",
         "targets","receptions","rec_yards","rec_tds",
@@ -1835,23 +3980,227 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     out = out.sort_values(["season","week","game_id","team","position","any_td_prob"], ascending=[True, True, True, True, True, False])
     return out
 
+@lru_cache(maxsize=4)
+def _week1_usage_from_pbp(season: int) -> pd.DataFrame:
+    """Build Week 1 usage shares (targets and rush attempts) per team-player from PBP.
+    Returns columns: team, player_id, player (name when available), rush_share_obs, target_share_obs.
+    Persists a cache CSV for transparency.
+    """
+    fp = USAGE_WK1_PBP_TMPL.with_name(USAGE_WK1_PBP_TMPL.name.format(season=int(season)))
+    # Try cached
+    if fp.exists():
+        try:
+            df = pd.read_csv(fp)
+            if df is not None and not df.empty:
+                df['team'] = df['team'].astype(str).apply(normalize_team_name)
+                # Ensure types
+                for c in ['rush_share_obs','target_share_obs']:
+                    if c in df.columns:
+                        df[c] = pd.to_numeric(df[c], errors='coerce').fillna(0.0)
+                return df[['team','player_id','player','rush_share_obs','target_share_obs']]
+        except Exception:
+            pass
+    # Build from PBP
+    pbp = pd.DataFrame()
+    try:
+        pbp_fp = DATA_DIR / f"pbp_{int(season)}.parquet"
+        if pbp_fp.exists():
+            pbp = pd.read_parquet(pbp_fp)
+    except Exception:
+        pbp = pd.DataFrame()
+    if pbp is None or pbp.empty:
+        try:
+            import nfl_data_py as nfl  # type: ignore
+            pbp = nfl.import_pbp_data([int(season)])
+        except Exception:
+            pbp = pd.DataFrame()
+    if pbp is None or pbp.empty:
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    df = pbp.copy()
+    # Regular season, week 1
+    if 'season_type' in df.columns:
+        df = df[df['season_type'].astype(str).str.upper() == 'REG']
+    elif 'game_type' in df.columns:
+        df = df[df['game_type'].astype(str).str.upper() == 'REG']
+    if 'week' not in df.columns:
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    df['week'] = pd.to_numeric(df['week'], errors='coerce').fillna(0).astype(int)
+    df = df[df['week'] == 1].copy()
+    if df.empty:
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    # Team
+    tcol = 'posteam' if 'posteam' in df.columns else ('pos_team' if 'pos_team' in df.columns else None)
+    if tcol is None:
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    # Targets from pass plays with a receiver identified
+    pass_mask = pd.to_numeric(df.get('pass'), errors='coerce').fillna(0).astype(int).eq(1) if 'pass' in df.columns else None
+    # Some datasets have 'pass_attempt'
+    if pass_mask is None and 'pass_attempt' in df.columns:
+        pass_mask = pd.to_numeric(df['pass_attempt'], errors='coerce').fillna(0).astype(int).eq(1)
+    rec_id_col = 'receiver_player_id' if 'receiver_player_id' in df.columns else ('receiver_id' if 'receiver_id' in df.columns else None)
+    rec_name_col = None
+    for c in ['receiver_player_name','receiver_name','receiver']:
+        if c in df.columns:
+            rec_name_col = c; break
+    rec = pd.DataFrame(columns=[tcol,'player_id','player'])
+    if pass_mask is not None and (rec_id_col or rec_name_col):
+        sub = df[pass_mask].copy()
+        # Only plays where a receiver is captured
+        has_any = None
+        if rec_id_col:
+            has_any = sub[rec_id_col].astype(str).str.len() > 0
+        if rec_name_col:
+            has_name = sub[rec_name_col].astype(str).str.strip().str.len() > 0
+            has_any = has_name if has_any is None else (has_any | has_name)
+        sub = sub[has_any.fillna(False)].copy()
+        cols = [tcol]
+        if rec_id_col:
+            cols.append(rec_id_col)
+        if rec_name_col:
+            cols.append(rec_name_col)
+        sub = sub[cols].copy()
+        sub = sub.rename(columns={tcol:'team_src', (rec_id_col or 'player'):'player_id', (rec_name_col or 'player'):'player'})
+        rec = sub
+    # Rush attempts by rusher
+    rush_id_col = 'rusher_player_id' if 'rusher_player_id' in df.columns else ('rusher_id' if 'rusher_id' in df.columns else None)
+    rush_name_col = None
+    for c in ['rusher_player_name','rusher_name','rusher']:
+        if c in df.columns:
+            rush_name_col = c; break
+    # Heuristic rush mask: rush attempts include scrambles; use rusher id presence
+    ru = pd.DataFrame(columns=[tcol,'player_id','player'])
+    if rush_id_col or rush_name_col:
+        subr = df.copy()
+        has_any = None
+        if rush_id_col:
+            has_any = subr[rush_id_col].astype(str).str.len() > 0
+        if rush_name_col:
+            has_name = subr[rush_name_col].astype(str).str.strip().str.len() > 0
+            has_any = has_name if has_any is None else (has_any | has_name)
+        subr = subr[has_any.fillna(False)].copy()
+        cols = [tcol]
+        if rush_id_col:
+            cols.append(rush_id_col)
+        if rush_name_col:
+            cols.append(rush_name_col)
+        subr = subr[cols].copy()
+        subr = subr.rename(columns={tcol:'team_src', (rush_id_col or 'player'):'player_id', (rush_name_col or 'player'):'player'})
+        ru = subr
+    # Normalize team and compute shares
+    def agg_shares(df_in: pd.DataFrame, count_col: str) -> pd.DataFrame:
+        if df_in is None or df_in.empty:
+            return pd.DataFrame(columns=['team','player_id','player',count_col])
+        d = df_in.copy()
+        d['team'] = d['team_src'].astype(str).apply(normalize_team_name)
+        d['cnt'] = 1
+        g = d.groupby(['team','player_id','player'], as_index=False)['cnt'].sum()
+        tot = g.groupby('team', as_index=False)['cnt'].sum().rename(columns={'cnt':'tot'})
+        out = g.merge(tot, on='team', how='left')
+        out[count_col] = np.where(out['tot']>0, out['cnt']/out['tot'], 0.0)
+        return out[['team','player_id','player',count_col]]
+    tg = agg_shares(rec, 'target_share_obs')
+    ca = agg_shares(ru, 'rush_share_obs')
+    out = tg.merge(ca, on=['team','player_id','player'], how='outer')
+    for c in ['target_share_obs','rush_share_obs']:
+        out[c] = pd.to_numeric(out[c], errors='coerce').fillna(0.0)
+    # Cache
+    try:
+        if out is not None and not out.empty:
+            fp.parent.mkdir(parents=True, exist_ok=True)
+            out.to_csv(fp, index=False)
+    except Exception:
+        pass
+    return out[['team','player_id','player','rush_share_obs','target_share_obs']]
 
-def main(argv: Optional[List[str]] = None) -> None:
-    ap = argparse.ArgumentParser(description="Compute weekly player prop projections.")
-    ap.add_argument("--season", type=int, required=True)
-    ap.add_argument("--week", type=int, required=True)
-    ap.add_argument("--out", type=str, default=None)
-    args = ap.parse_args(argv)
 
-    df = compute_player_props(args.season, args.week)
+@lru_cache(maxsize=4)
+def _week1_usage_from_central(season: int) -> pd.DataFrame:
+    """Build Week 1 observed usage from central stats CSV if present.
+    Returns columns: team, player_id, player, rush_share_obs, target_share_obs
+    """
+    fp = USAGE_WK1_CENTRAL_TMPL.with_name(USAGE_WK1_CENTRAL_TMPL.name.format(season=int(season)))
+    if not fp.exists():
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    try:
+        df = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
     if df is None or df.empty:
-        print("No player props computed.")
-        return
-    out_fp = Path(args.out) if args.out else (DATA_DIR / f"player_props_{args.season}_wk{args.week}.csv")
-    out_fp.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(out_fp, index=False)
-    print(f"Wrote {len(df)} rows to {out_fp}")
+        return pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    # Normalize
+    df['team'] = df['team'].astype(str).apply(normalize_team_name)
+    # Aggregate to shares within team: targets and rush attempts
+    tg = df.groupby(['team','player_id','player'], as_index=False)['targets'].sum(min_count=1)
+    tot_t = tg.groupby('team', as_index=False)['targets'].sum(min_count=1).rename(columns={'targets':'_tot_t'})
+    tg = tg.merge(tot_t, on='team', how='left')
+    tg['target_share_obs'] = np.where(tg['_tot_t']>0, tg['targets']/tg['_tot_t'], 0.0)
+    tg = tg[['team','player_id','player','target_share_obs']]
 
+    ru = df.groupby(['team','player_id','player'], as_index=False)['rush_att'].sum(min_count=1)
+    tot_r = ru.groupby('team', as_index=False)['rush_att'].sum(min_count=1).rename(columns={'rush_att':'_tot_r'})
+    ru = ru.merge(tot_r, on='team', how='left')
+    ru['rush_share_obs'] = np.where(ru['_tot_r']>0, ru['rush_att']/ru['_tot_r'], 0.0)
+    ru = ru[['team','player_id','player','rush_share_obs']]
 
-if __name__ == "__main__":
-    main()
+    out = tg.merge(ru, on=['team','player_id','player'], how='outer')
+    out['rush_share_obs'] = pd.to_numeric(out['rush_share_obs'], errors='coerce').fillna(0.0)
+    out['target_share_obs'] = pd.to_numeric(out['target_share_obs'], errors='coerce').fillna(0.0)
+    return out[['team','player_id','player','rush_share_obs','target_share_obs']]
+
+@lru_cache(maxsize=2)
+def _week1_top_pos_from_central(season: int) -> pd.DataFrame:
+    """Week 1 WR/TE leaders by team from central stats.
+    Columns: team, pos_up, player, player_id, player_alias
+    """
+    try:
+        use = _week1_usage_from_central(int(season))
+    except Exception:
+        use = pd.DataFrame(columns=['team','player_id','player','rush_share_obs','target_share_obs'])
+    if use is None or use.empty:
+        return pd.DataFrame(columns=['team','pos_up','player','player_id','player_alias'])
+    try:
+        rm = _league_roster_map(int(season))
+    except Exception:
+        rm = pd.DataFrame(columns=['team','player','player_id','position'])
+    if rm is None or rm.empty:
+        return pd.DataFrame(columns=['team','pos_up','player','player_id','player_alias'])
+    use = use.copy(); rm = rm.copy()
+    use['team'] = use['team'].astype(str).apply(normalize_team_name)
+    rm['team'] = rm['team'].astype(str).apply(normalize_team_name)
+    try:
+        from .name_normalizer import normalize_alias_init_last
+        use['_alias'] = use['player'].astype(str).map(normalize_alias_init_last)
+        rm['_alias'] = rm['player'].astype(str).map(normalize_alias_init_last)
+    except Exception:
+        use['_alias'] = use['player'].astype(str)
+        rm['_alias'] = rm['player'].astype(str)
+    merged = use.copy()
+    if 'player_id' in use.columns and use['player_id'].notna().any() and 'player_id' in rm.columns:
+        merged = merged.merge(rm[['team','player_id','position']], on=['team','player_id'], how='left')
+    if 'position' not in merged.columns or merged['position'].isna().any():
+        missing = merged['position'].isna() if 'position' in merged.columns else pd.Series([True]*len(merged), index=merged.index)
+        if missing.any():
+            add = rm[['team','_alias','position']].drop_duplicates()
+            merged = merged.merge(add, left_on=['team','_alias'], right_on=['team','_alias'], how='left', suffixes=(None, '_alias'))
+            if 'position' not in merged.columns:
+                merged['position'] = merged.get('position_alias')
+            else:
+                merged['position'] = merged['position'].fillna(merged.get('position_alias'))
+            merged = merged.drop(columns=[c for c in merged.columns if c.endswith('_alias')], errors='ignore')
+    merged['pos_up'] = merged.get('position').astype(str).str.upper()
+    merged['target_share_obs'] = pd.to_numeric(merged.get('target_share_obs'), errors='coerce').fillna(0.0)
+    merged = merged[merged['pos_up'].isin(['WR','TE'])].copy()
+    if merged.empty:
+        return pd.DataFrame(columns=['team','pos_up','player','player_id','player_alias'])
+    merged['_rn'] = merged.groupby(['team','pos_up'])['target_share_obs'].rank(ascending=False, method='first')
+    top = merged[merged['_rn'] == 1].copy()
+    try:
+        from .name_normalizer import normalize_alias_init_last
+        top['player_alias'] = top['player'].astype(str).map(normalize_alias_init_last)
+    except Exception:
+        top['player_alias'] = top['player'].astype(str)
+    cols = ['team','pos_up','player','player_id','player_alias']
+    for c in cols:
+        if c not in top.columns:
+            top[c] = None
+    return top[cols].drop_duplicates()

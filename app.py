@@ -20,7 +20,9 @@ import shlex
 
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "nfl_compare" / "data"
+# Allow environment override for data directory (e.g., to point to a mounted volume in prod)
+_ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
+DATA_DIR = Path(_ENV_DATA_DIR) if _ENV_DATA_DIR else (BASE_DIR / "nfl_compare" / "data")
 PRED_FILE = DATA_DIR / "predictions.csv"
 PRED_WEEK_FILE = DATA_DIR / "predictions_week.csv"
 LOCKED_PRED_FILE = DATA_DIR / "predictions_locked.csv"
@@ -29,6 +31,17 @@ STADIUM_META_FILE = DATA_DIR / "stadium_meta.csv"
 LOCATION_OVERRIDES_FILE = DATA_DIR / "game_location_overrides.csv"
 
 app = Flask(__name__)
+
+# --- Lightweight one-time logger (in-memory) ---
+_log_once_keys: set[str] = set()
+def _log_once(key: str, msg: str):
+    try:
+        if key not in _log_once_keys:
+            _log_once_keys.add(key)
+            # For now just print; could be extended to structured log
+            print(f"[app-log-once] {msg}")
+    except Exception:
+        pass
 
 
 # --- Admin job state (in-memory) ---
@@ -43,6 +56,85 @@ _job_state = {
 
 # --- Simple in-memory cache for reconciliation results (per season/week) ---
 _recon_cache: dict[tuple[int,int], dict[str, Any]] = {}
+
+
+# --- Display aliases for player names (UI/API presentation only) ---
+# Underlying computation can use canonical/legal names (e.g., Thomas Hockenson),
+# but we prefer commonly known display names in responses.
+DISPLAY_ALIASES: dict[str, str] = {
+    # Vikings TE
+    "Thomas Hockenson": "T.J. Hockenson",
+}
+
+
+def _apply_display_aliases(df: pd.DataFrame) -> pd.DataFrame:
+    try:
+        if df is None or df.empty or 'player' not in df.columns:
+            return df
+        # Map exact player names to preferred display names
+        df = df.copy()
+        df['player'] = df['player'].map(lambda x: DISPLAY_ALIASES.get(x, x) if pd.notna(x) else x)
+        return df
+    except Exception:
+        return df
+
+
+# --- Roster validation endpoints (top-level) ---
+@app.route('/api/roster-validation')
+def api_roster_validation():
+    try:
+        season = int(request.args.get('season') or 2025)
+        week = int(request.args.get('week') or 2)
+        summ_fp = DATA_DIR / f"roster_validation_summary_{season}_wk{week}.csv"
+        if not summ_fp.exists():
+            return jsonify({"error": "summary not found", "path": str(summ_fp)}), 404
+        df = pd.read_csv(summ_fp)
+        return jsonify({
+            "season": season,
+            "week": week,
+            "rows": df.to_dict(orient='records')
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/roster-validation/details')
+def api_roster_validation_details():
+    try:
+        season = int(request.args.get('season') or 2025)
+        week = int(request.args.get('week') or 2)
+        det_fp = DATA_DIR / f"roster_validation_details_{season}_wk{week}.csv"
+        if not det_fp.exists():
+            return jsonify({"error": "details not found", "path": str(det_fp)}), 404
+        df = pd.read_csv(det_fp)
+        return jsonify({
+            "season": season,
+            "week": week,
+            "rows": df.to_dict(orient='records')
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/roster-validation')
+def view_roster_validation():
+    try:
+        season = int(request.args.get('season') or 2025)
+        week = int(request.args.get('week') or 2)
+        summ_fp = DATA_DIR / f"roster_validation_summary_{season}_wk{week}.csv"
+        if summ_fp.exists():
+            df = pd.read_csv(summ_fp)
+        else:
+            df = pd.DataFrame()
+        # Simple inline HTML table for quick viewing without new templates
+        if df.empty:
+            html = f"<h3>Roster Validation Summary</h3><p>No data for season {season}, week {week}.</p>"
+        else:
+            tbl = df.to_html(index=False, classes='table table-striped table-sm')
+            html = f"<h3>Roster Validation Summary — Season {season}, Week {week}</h3>" + tbl
+        return html
+    except Exception as e:
+        return f"Error: {e}", 500
 
 
 def _recon_cache_get(key: tuple[int, int], force_refresh: bool = False) -> tuple[Optional[pd.DataFrame], bool]:
@@ -376,10 +468,10 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
                             return True, 'Pushed successfully after redacting suspicious files.'
                         err2 = (ps2.stderr or ps2.stdout).strip()
                         return False, f"git push failed after redaction: {err2}"
-                except Exception as _:
+                except Exception as e:  # noqa: BLE001
+                    _log_once("predictions-exc", f"Failed loading predictions: {e}")
+                    # Fall through to empty frame
                     pass
-            return False, f"git push failed: {err}"
-        return True, 'Pushed successfully.'
     except Exception as e:
         return False, f"git push exception: {e}"
 
@@ -484,19 +576,58 @@ def _load_predictions() -> pd.DataFrame:
     """Load predictions.csv if present; return empty DataFrame if missing."""
     try:
         dfs = []
+        # Load each source with a tag so we can prioritize later
         if PRED_FILE.exists():
-            dfs.append(pd.read_csv(PRED_FILE))
-        # Optionally merge week-level predictions that include completed games
+            try:
+                d0 = pd.read_csv(PRED_FILE)
+                d0['pred_source'] = 'pred'
+                dfs.append(d0)
+            except Exception as e:
+                _log_once('predictions-read-fail', f'predictions.csv read error: {e}')
         if PRED_WEEK_FILE.exists():
-            dfs.append(pd.read_csv(PRED_WEEK_FILE))
-        # Include locked historical predictions (first-seen pregame predictions) so past weeks always render
+            try:
+                d1 = pd.read_csv(PRED_WEEK_FILE)
+                d1['pred_source'] = 'week'
+                dfs.append(d1)
+            except Exception as e:
+                _log_once('predictions-week-read-fail', f'predictions_week.csv read error: {e}')
         if LOCKED_PRED_FILE.exists():
-            dfs.append(pd.read_csv(LOCKED_PRED_FILE))
+            try:
+                d2 = pd.read_csv(LOCKED_PRED_FILE)
+                d2['pred_source'] = 'locked'
+                dfs.append(d2)
+            except Exception as e:
+                _log_once('predictions-locked-read-fail', f'predictions_locked.csv read error: {e}')
+        synth_file = DATA_DIR / 'predictions_synth.csv'
+        if synth_file.exists():
+            try:
+                d3 = pd.read_csv(synth_file)
+                d3['pred_source'] = 'synth'
+                dfs.append(d3)
+            except Exception:
+                _log_once('predictions-synth-load-fail', 'Failed loading predictions_synth.csv')
+
         if dfs:
             df = pd.concat(dfs, ignore_index=True)
-            # Drop duplicate game_ids favoring the last occurrence (week file overrides)
+            # Normalize typical columns if present
+            for c in ("week", "season"):
+                if c in df.columns:
+                    df[c] = pd.to_numeric(df[c], errors="coerce")
+            # Prefer rows with finals and week-level source when deduplicating by game_id
             if 'game_id' in df.columns:
-                df = df.drop_duplicates(subset=['game_id'], keep='last')
+                df['has_finals'] = False
+                try:
+                    if {'home_score','away_score'}.issubset(df.columns):
+                        df['has_finals'] = df['home_score'].notna() & df['away_score'].notna()
+                except Exception:
+                    pass
+                src_rank = {'week': 3, 'pred': 2, 'locked': 1, 'synth': 0}
+                df['src_priority'] = df.get('pred_source').map(lambda s: src_rank.get(str(s), -1))
+                # Sort by finals first, then by source priority; keep first per game_id
+                df = df.sort_values(by=['has_finals','src_priority'], ascending=[False, False])
+                df = df.drop_duplicates(subset=['game_id'], keep='first')
+                # Clean helper columns
+                df = df.drop(columns=[c for c in ['has_finals','src_priority'] if c in df.columns])
             # Normalize typical columns if present
             for c in ("week", "season"):
                 if c in df.columns:
@@ -506,29 +637,109 @@ def _load_predictions() -> pd.DataFrame:
             if sort_cols:
                 df = df.sort_values(sort_cols)
             return df
-    except Exception:
+        else:
+            _log_once("predictions-missing", f"Predictions sources missing or empty under {DATA_DIR}")
+    except Exception as e:  # noqa: BLE001
+        _log_once("predictions-exc", f"Failed loading predictions: {e}")
         # Fall through to empty frame
         pass
     return pd.DataFrame()
 
 
 def _load_games() -> pd.DataFrame:
-    """Load games.csv if present; return empty DataFrame if missing."""
+    """Load games.csv plus union of games_normalized.csv (if present).
+
+    The normalized file extends sparse schedules (e.g., for early weeks) using locked predictions.
+    We avoid duplicate game_id rows by preferring the original games.csv entries.
+    """
     try:
         fp = DATA_DIR / "games.csv"
+        norm_fp = DATA_DIR / "games_normalized.csv"
+        df = pd.DataFrame()
         if fp.exists():
-            df = pd.read_csv(fp)
+            try:
+                df = pd.read_csv(fp)
+            except Exception as e:  # noqa: BLE001
+                _log_once("games-read-fail", f"Failed reading games.csv: {e}")
+        else:
+            _log_once("games-missing", f"games.csv not found under {DATA_DIR}")
+
+        if not df.empty:
             for c in ("week", "season"):
                 if c in df.columns:
                     df[c] = pd.to_numeric(df[c], errors="coerce")
-            # Sort for stability
+
+        # Union normalized games for additional coverage
+        if norm_fp.exists():
+            try:
+                nf = pd.read_csv(norm_fp)
+                for c in ("week","season"):
+                    if c in nf.columns:
+                        nf[c] = pd.to_numeric(nf[c], errors='coerce')
+                if 'game_id' in nf.columns:
+                    if df.empty or 'game_id' not in df.columns:
+                        df = nf
+                    else:
+                        base_ids = set(df['game_id'].dropna().astype(str))
+                        add = nf[~nf['game_id'].astype(str).isin(base_ids)].copy()
+                        if not add.empty:
+                            df = pd.concat([df, add], ignore_index=True)
+            except Exception as e:  # noqa: BLE001
+                _log_once("games-norm-read-fail", f"Failed reading games_normalized.csv: {e}")
+
+        if not df.empty:
             sort_cols = [c for c in ["season", "week", "game_date", "date"] if c in df.columns]
             if sort_cols:
                 df = df.sort_values(sort_cols)
-            return df
-    except Exception:
+        return df
+    except Exception as e:  # noqa: BLE001
+        _log_once("games-exc", f"Failed loading games (union): {e}")
         pass
     return pd.DataFrame()
+
+
+@app.route('/api/health/data')
+def api_health_data():
+    """Lightweight data presence/status report for debugging deployments."""
+    try:
+        status = {}
+        core_files = {
+            'predictions.csv': PRED_FILE,
+            'predictions_week.csv': PRED_WEEK_FILE,
+            'predictions_locked.csv': LOCKED_PRED_FILE,
+            'games.csv': DATA_DIR / 'games.csv',
+            'lines.csv': DATA_DIR / 'lines.csv',
+            'nfl_team_assets.json': ASSETS_FILE,
+        }
+        for name, path in core_files.items():
+            info = {'exists': path.exists()}
+            try:
+                if path.exists() and path.is_file():
+                    info['size_bytes'] = path.stat().st_size
+                    if name.endswith('.csv'):
+                        # Read only header + first row for speed
+                        import csv as _csv
+                        with open(path, 'r', encoding='utf-8') as f:
+                            rdr = _csv.reader(f)
+                            header = next(rdr, [])
+                            first = next(rdr, None)
+                        info['columns'] = header
+                        info['has_rows'] = first is not None
+                status[name] = info
+            except Exception as e:  # noqa: BLE001
+                _log_once("games-exc", f"Failed loading games.csv: {e}")
+                pass
+        # Attempt quick counts (avoid full load if large)
+        games_df = _load_games()
+        preds_df = _load_predictions()
+        status['counts'] = {
+            'games_rows': 0 if games_df is None else len(games_df),
+            'predictions_rows': 0 if preds_df is None else len(preds_df)
+        }
+        status['data_dir'] = str(DATA_DIR)
+        return jsonify(status)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/api/props/teams')
@@ -544,8 +755,8 @@ def api_props_teams():
         games_df = _load_games()
         season = request.args.get('season')
         week = request.args.get('week')
-        season_i = None
-        week_i = None
+        season_i: Optional[int] = None
+        week_i: Optional[int] = None
         try:
             season_i = int(season) if season else None
         except Exception:
@@ -554,7 +765,8 @@ def api_props_teams():
             week_i = int(week) if week else None
         except Exception:
             week_i = None
-        # Default season/week using stricter current-week inference
+
+        # Default season/week using current-week inference (respects overrides via current_week.json / env)
         if (season_i is None) or (week_i is None):
             try:
                 inferred = _infer_current_season_week(games_df) if (games_df is not None and not games_df.empty) else None
@@ -568,127 +780,437 @@ def api_props_teams():
         # Fallbacks if inference failed
         if games_df is not None and not games_df.empty:
             if season_i is None and 'season' in games_df.columns and not games_df['season'].isna().all():
-                season_i = int(games_df['season'].max())
+                try:
+                    season_i = int(pd.to_numeric(games_df['season'], errors='coerce').dropna().max())
+                except Exception:
+                    season_i = None
             if week_i is None and 'week' in games_df.columns:
                 try:
-                    week_i = int(games_df[games_df['season'] == season_i]['week'].max()) if season_i is not None else int(games_df['week'].max())
+                    if season_i is not None:
+                        week_i = int(pd.to_numeric(games_df.loc[games_df['season'] == season_i, 'week'], errors='coerce').dropna().max())
+                    else:
+                        week_i = int(pd.to_numeric(games_df['week'], errors='coerce').dropna().max())
                 except Exception:
                     week_i = 1
-        # Filter
+
+        # Helper to extract team list from a DataFrame with home_team/away_team
+        def _teams_from_match_df(df: pd.DataFrame) -> list[str]:
+            try:
+                if df is None or df.empty:
+                    return []
+                cols = [c for c in ['home_team','away_team'] if c in df.columns]
+                if not cols:
+                    return []
+                vals: list[str] = []
+                for c in cols:
+                    vals.extend(df[c].astype(str).tolist())
+                return sorted(sorted(set(t for t in vals if isinstance(t, str) and t.strip())))
+            except Exception:
+                return []
+
+        # Primary: teams from games.csv for the selected season/week
+        teams: list[str] = []
         view = games_df.copy() if (games_df is not None and not games_df.empty) else pd.DataFrame()
         if season_i is not None and 'season' in view.columns:
             view = view[view['season'] == season_i]
         if week_i is not None and 'week' in view.columns:
             view = view[view['week'] == week_i]
-        teams: list[str] = []
-        if not view.empty:
-            home_col = 'home_team' if 'home_team' in view.columns else None
-            away_col = 'away_team' if 'away_team' in view.columns else None
-            vals = []
-            if home_col:
-                vals.extend(view[home_col].astype(str).tolist())
-            if away_col:
-                vals.extend(view[away_col].astype(str).tolist())
-            teams = sorted(sorted(set(t for t in vals if isinstance(t, str) and t.strip())))
+        teams = _teams_from_match_df(view)
+
+        # Fallback A: if no teams for that week, try betting lines for that week
+        if not teams:
+            try:
+                from nfl_compare.src.data_sources import load_lines as _load_lines_for_teams
+            except Exception:
+                _load_lines_for_teams = None
+            if _load_lines_for_teams is not None:
+                try:
+                    ldf = _load_lines_for_teams()
+                except Exception:
+                    ldf = pd.DataFrame()
+                if ldf is not None and not ldf.empty:
+                    lview = ldf.copy()
+                    if season_i is not None and 'season' in lview.columns:
+                        lview = lview[lview['season'] == season_i]
+                    if week_i is not None and 'week' in lview.columns:
+                        lview = lview[lview['week'] == week_i]
+                    teams = _teams_from_match_df(lview)
+
+        # Fallback B: if still empty, broaden to all teams seen in the season (games.csv then lines.csv)
+        if not teams:
+            season_teams: list[str] = []
+            if games_df is not None and not games_df.empty and season_i is not None:
+                gseason = games_df[games_df['season'] == season_i]
+                season_teams = _teams_from_match_df(gseason)
+            if not season_teams:
+                try:
+                    from nfl_compare.src.data_sources import load_lines as _load_lines_for_teams2
+                except Exception:
+                    _load_lines_for_teams2 = None
+                if _load_lines_for_teams2 is not None:
+                    try:
+                        ldf2 = _load_lines_for_teams2()
+                    except Exception:
+                        ldf2 = pd.DataFrame()
+                    if ldf2 is not None and not ldf2.empty and season_i is not None:
+                        season_teams = _teams_from_match_df(ldf2[ldf2['season'] == season_i])
+            if season_teams:
+                teams = season_teams
+
+        # Fallback C: precomputed props cache for that week, if available
+        if not teams:
+            try:
+                if season_i is not None and week_i is not None:
+                    cache_fp = DATA_DIR / f"player_props_{int(season_i)}_wk{int(week_i)}.csv"
+                    if cache_fp.exists():
+                        try:
+                            dfp = pd.read_csv(cache_fp)
+                            if dfp is not None and not dfp.empty and 'team' in dfp.columns:
+                                vals = dfp['team'].astype(str).tolist()
+                                teams = sorted(sorted(set(t for t in vals if isinstance(t, str) and t.strip())))
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+
+        # Fallback D: all NFL team abbreviations from assets file
+        if not teams:
+            try:
+                if ASSETS_FILE.exists():
+                    with open(ASSETS_FILE, 'r', encoding='utf-8') as f:
+                        assets = json.load(f)  # {FullName: {abbr: "..."}}
+                    abbrs = []
+                    for k, v in (assets or {}).items():
+                        ab = v.get('abbr') if isinstance(v, dict) else None
+                        if ab:
+                            abbrs.append(str(ab))
+                    teams = sorted(sorted(set(abbrs)))
+            except Exception:
+                pass
+
         return jsonify({'season': season_i, 'week': week_i, 'teams': teams})
     except Exception as e:
         return jsonify({'error': f'teams endpoint failed: {e}'}), 500
 
 
 def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Optional[int], week: Optional[int]) -> pd.DataFrame:
-    """Combine games (for finals) with predictions (for upcoming) for a given season/week.
-    - Always start from games for complete coverage of the week.
-    - Left-merge prediction columns onto games by game_id when possible; fallback to team/week match.
-    - Avoid overwriting core game fields from games.csv.
+    """Return the base week view (games + attached model predictions).
+
+    Responsibilities:
+    1. Choose a base set of rows for (season, week): prefer games.csv; else synthesize from lines; else from predictions.
+    2. Attach prediction columns without overwriting core game fields.
+    3. Do NOT derive market-based synthetic prediction values here (handled later in a dedicated helper).
     """
-    if games_df is None or games_df.empty:
-        # No games file; fall back to predictions filtered by season/week
-        out = pred_df.copy()
-        if not out.empty:
-            if season is not None and "season" in out.columns:
-                out = out[out["season"] == season]
-            if week is not None and "week" in out.columns:
-                out = out[out["week"] == week]
+    # Helper to filter by season/week defensively
+    def _filter_sw(df: pd.DataFrame) -> pd.DataFrame:
+        out = df
+        if season is not None and 'season' in out.columns:
+            out = out[out['season'] == season]
+        if week is not None and 'week' in out.columns:
+            out = out[out['week'] == week]
         return out
 
-    # Filter games to the requested group
-    view = games_df.copy()
-    if season is not None and "season" in view.columns:
-        view = view[view["season"] == season]
-    if week is not None and "week" in view.columns:
-        view = view[view["week"] == week]
+    # 1. Establish base view from games if possible
+    view = pd.DataFrame()
+    if games_df is not None and not games_df.empty:
+        try:
+            view = _filter_sw(games_df.copy())
+        except Exception:
+            view = pd.DataFrame()
+
+    # 1b. If games missing, synthesize from lines
     if view.empty:
-        # Try to synthesize rows from lines if schedule is missing
         try:
             from nfl_compare.src.data_sources import load_lines as _load_lines_for_view
             lines_all = _load_lines_for_view()
         except Exception:
             lines_all = None
         if lines_all is not None and not getattr(lines_all, 'empty', True):
-            l = lines_all.copy()
-            if season is not None and 'season' in l.columns:
-                l = l[l['season'] == season]
-            if week is not None and 'week' in l.columns:
-                l = l[l['week'] == week]
-            # Build minimal rows
-            keep_cols = [c for c in ['season','week','game_id','game_date','date','home_team','away_team'] if c in l.columns]
-            if not l.empty and keep_cols:
-                extras = l[keep_cols].drop_duplicates()
-                # Standardize datetime column
-                if 'game_date' not in extras.columns and 'date' in extras.columns:
-                    extras = extras.rename(columns={'date': 'game_date'})
-                # Ensure required columns exist
-                for c in ['season','week','home_team','away_team']:
-                    if c not in extras.columns:
-                        extras[c] = None
-                view = extras
-                # Continue merging predictions below
-            else:
-                return view
-        else:
-            return view
+            try:
+                l = _filter_sw(lines_all.copy())
+                keep_cols = [c for c in ['season','week','game_id','game_date','date','home_team','away_team'] if c in l.columns]
+                if keep_cols and not l.empty:
+                    synth = l[keep_cols].drop_duplicates()
+                    if 'game_date' not in synth.columns and 'date' in synth.columns:
+                        synth = synth.rename(columns={'date': 'game_date'})
+                    for c in ['season','week','home_team','away_team']:
+                        if c not in synth.columns:
+                            synth[c] = None
+                    view = synth
+            except Exception:
+                pass
 
-    # Prepare predictions to merge
-    p = pred_df.copy() if pred_df is not None else pd.DataFrame()
-    # Core keys we do NOT want to overwrite from games
-    core_keys = {"season", "week", "game_id", "game_date", "date", "home_team", "away_team", "home_score", "away_score"}
-    if not p.empty:
-        # Normalize team names in predictions to improve team-based merges
+    # 1c. Fallback to predictions scaffolding
+    if view.empty and pred_df is not None and not pred_df.empty:
         try:
-            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
-            if 'home_team' in p.columns:
-                p['home_team'] = p['home_team'].astype(str).apply(_norm_team)
-            if 'away_team' in p.columns:
-                p['away_team'] = p['away_team'].astype(str).apply(_norm_team)
+            pf = _filter_sw(pred_df.copy())
+            keep_cols = [c for c in ['season','week','game_id','game_date','date','home_team','away_team'] if c in pf.columns]
+            if keep_cols and not pf.empty:
+                core = pf[keep_cols].drop_duplicates()
+                if 'game_date' not in core.columns and 'date' in core.columns:
+                    core = core.rename(columns={'date': 'game_date'})
+                for c in ['season','week','home_team','away_team']:
+                    if c not in core.columns:
+                        core[c] = None
+                view = core
         except Exception:
             pass
 
-        # Candidate prediction columns (anything not a core game key)
-        pred_cols = [c for c in p.columns if c not in core_keys]
-        merged = view.copy()
+    # If still empty, nothing else to do
+    if view.empty:
+        # As a last resort return filtered predictions (raw) for transparency
+        if pred_df is not None and not pred_df.empty:
+            return _filter_sw(pred_df.copy())
+        return view
 
-        # 1) Merge by game_id when possible
-        if "game_id" in merged.columns and "game_id" in p.columns and not p["game_id"].isna().all():
-            right_gid = p[[c for c in (['game_id'] + pred_cols) if c in p.columns]].copy()
-            merged = merged.merge(right_gid, on="game_id", how="left")
+    # 2. Attach predictions (if any) without overwriting core keys
+    if pred_df is None or pred_df.empty:
+        return view
 
-        # 2) For any rows that still lack key prediction fields, try season/week/home/away merge
-        team_keys = [c for c in ['season','week','home_team','away_team'] if c in merged.columns and c in p.columns]
-        if len(team_keys) == 4:
-            # Suffix to avoid overwriting and then fill only missing
-            right_team = p[team_keys + pred_cols].copy()
-            merged_tw = merged.merge(right_team, on=team_keys, how="left", suffixes=("", "_p2"))
+    p = pred_df.copy()
+    try:
+        from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+        for col in ('home_team','away_team'):
+            if col in p.columns:
+                p[col] = p[col].astype(str).apply(_norm_team)
+        for col in ('home_team','away_team'):
+            if col in view.columns:
+                view[col] = view[col].astype(str).apply(_norm_team)
+    except Exception:
+        pass
+
+    core_keys = {'season','week','game_id','game_date','date','home_team','away_team','home_score','away_score'}
+    pred_cols = [c for c in p.columns if c not in core_keys]
+    merged = view.copy()
+
+    # Merge by game_id first
+    if 'game_id' in merged.columns and 'game_id' in p.columns and not p['game_id'].isna().all():
+        try:
+            right_gid = p[['game_id'] + [c for c in pred_cols if c in p.columns]].drop_duplicates()
+            merged = merged.merge(right_gid, on='game_id', how='left')
+        except Exception:
+            pass
+
+    # Secondary merge by (season, week, home, away) to fill gaps
+    team_keys = [c for c in ['season','week','home_team','away_team'] if c in merged.columns and c in p.columns]
+    if len(team_keys) == 4:
+        try:
+            right_team = p[team_keys + pred_cols].drop_duplicates()
+            merged_tw = merged.merge(right_team, on=team_keys, how='left', suffixes=('', '_p2'))
             for c in pred_cols:
-                if c in merged_tw.columns and f"{c}_p2" in merged_tw.columns:
-                    merged_tw[c] = merged_tw[c].where(merged_tw[c].notna(), merged_tw[f"{c}_p2"])
+                if c in merged_tw.columns and f'{c}_p2' in merged_tw.columns:
+                    merged_tw[c] = merged_tw[c].where(merged_tw[c].notna(), merged_tw[f'{c}_p2'])
             drop2 = [c for c in merged_tw.columns if c.endswith('_p2')]
             if drop2:
                 merged_tw = merged_tw.drop(columns=drop2)
             merged = merged_tw
+        except Exception:
+            pass
 
-        return merged
-    else:
-        return view
+    # 2c. Coalesce final scores/status from predictions_week/locked where games rows are missing them
+    try:
+        if not merged.empty and pred_df is not None and not pred_df.empty:
+            p = pred_df.copy()
+            # Only proceed if we have game_id linkage and any score columns
+            if ('game_id' in merged.columns) and ('game_id' in p.columns) and (('home_score' in p.columns) or ('away_score' in p.columns) or ('status' in p.columns)):
+                keep = ['game_id']
+                if 'home_score' in p.columns:
+                    keep.append('home_score')
+                if 'away_score' in p.columns:
+                    keep.append('away_score')
+                if 'status' in p.columns:
+                    keep.append('status')
+                p_scores = p[keep].drop_duplicates()
+                # Avoid overwriting: merge with suffixes and fill only where base is null
+                merged_sc = merged.merge(p_scores, on='game_id', how='left', suffixes=('', '_p'))
+                # Coerce numeric for safe null checks
+                for c in ('home_score','away_score'):
+                    if c in merged_sc.columns:
+                        merged_sc[c] = pd.to_numeric(merged_sc[c], errors='coerce')
+                    if f"{c}_p" in merged_sc.columns:
+                        merged_sc[f"{c}_p"] = pd.to_numeric(merged_sc[f"{c}_p"], errors='coerce')
+                # Ensure score/status columns exist; then fill base only when missing
+                if 'home_score_p' in merged_sc.columns:
+                    if 'home_score' not in merged_sc.columns:
+                        merged_sc['home_score'] = merged_sc['home_score_p']
+                    else:
+                        merged_sc['home_score'] = merged_sc['home_score'].where(merged_sc['home_score'].notna(), merged_sc['home_score_p'])
+                if 'away_score_p' in merged_sc.columns:
+                    if 'away_score' not in merged_sc.columns:
+                        merged_sc['away_score'] = merged_sc['away_score_p']
+                    else:
+                        merged_sc['away_score'] = merged_sc['away_score'].where(merged_sc['away_score'].notna(), merged_sc['away_score_p'])
+                # Status: set if missing, or create if absent
+                if 'status_p' in merged_sc.columns:
+                    if 'status' not in merged_sc.columns:
+                        merged_sc['status'] = merged_sc['status_p']
+                    else:
+                        merged_sc['status'] = merged_sc['status'].where(merged_sc['status'].notna(), merged_sc['status_p'])
+                # Drop helper columns
+                drop_sc = [c for c in merged_sc.columns if c.endswith('_p') and c in ('home_score_p','away_score_p','status_p')]
+                if drop_sc:
+                    merged_sc = merged_sc.drop(columns=drop_sc)
+                merged = merged_sc
+                # If some rows still lack scores/status (possible when game_id mismatches), try a secondary fill by team keys
+                try:
+                    need_scores = None
+                    if {'home_score','away_score'}.issubset(merged.columns):
+                        need_scores = merged['home_score'].isna() | merged['away_score'].isna()
+                    elif ('home_score' in merged.columns) or ('away_score' in merged.columns):
+                        # If only one exists, still consider missing where present is NaN
+                        cols_present = [c for c in ('home_score','away_score') if c in merged.columns]
+                        if cols_present:
+                            need_scores = merged[cols_present].isna().any(axis=1)
+                    # Only proceed if we have team keys on both frames and some rows still need fill
+                    team_keys = [c for c in ['season','week','home_team','away_team'] if c in merged.columns and c in p.columns]
+                    if need_scores is not None and need_scores.any() and len(team_keys) == 4:
+                        keep2 = team_keys.copy()
+                        for c in ('home_score','away_score','status'):
+                            if c in p.columns and c not in keep2:
+                                keep2.append(c)
+                        p_sw = p[keep2].drop_duplicates()
+                        merged_sw = merged.merge(p_sw, on=team_keys, how='left', suffixes=('', '_pt'))
+                        # Coerce numeric for safe null checks
+                        for c in ('home_score','away_score'):
+                            if c in merged_sw.columns:
+                                merged_sw[c] = pd.to_numeric(merged_sw[c], errors='coerce')
+                            if f"{c}_pt" in merged_sw.columns:
+                                merged_sw[f"{c}_pt"] = pd.to_numeric(merged_sw[f"{c}_pt"], errors='coerce')
+                        # Fill only where missing
+                        if 'home_score_pt' in merged_sw.columns:
+                            if 'home_score' not in merged_sw.columns:
+                                merged_sw['home_score'] = merged_sw['home_score_pt']
+                            else:
+                                merged_sw['home_score'] = merged_sw['home_score'].where(merged_sw['home_score'].notna(), merged_sw['home_score_pt'])
+                        if 'away_score_pt' in merged_sw.columns:
+                            if 'away_score' not in merged_sw.columns:
+                                merged_sw['away_score'] = merged_sw['away_score_pt']
+                            else:
+                                merged_sw['away_score'] = merged_sw['away_score'].where(merged_sw['away_score'].notna(), merged_sw['away_score_pt'])
+                        if 'status_pt' in merged_sw.columns:
+                            if 'status' not in merged_sw.columns:
+                                merged_sw['status'] = merged_sw['status_pt']
+                            else:
+                                merged_sw['status'] = merged_sw['status'].where(merged_sw['status'].notna(), merged_sw['status_pt'])
+                        drop_pt = [c for c in merged_sw.columns if c.endswith('_pt') and c in ('home_score_pt','away_score_pt','status_pt')]
+                        if drop_pt:
+                            merged_sw = merged_sw.drop(columns=drop_pt)
+                        merged = merged_sw
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    return merged
+
+
+def _derive_predictions_from_market(df: pd.DataFrame) -> pd.DataFrame:
+    """Derive minimal synthetic prediction columns from available market lines when the
+    primary model prediction columns are completely absent or entirely null.
+
+    Logic:
+    - Only activates if all of (pred_home_points, pred_away_points, pred_total, pred_margin, prob_home_win)
+      are missing or fully null across the frame.
+    - Uses coalesced spread (home) and total columns from any of: close_*, market_*, open_*, base names.
+    - Points: home = total/2 - spread/2  (spread is home - away from market perspective where home favorites negative)
+             away = total - home.
+    - Margin: home_points - away_points.
+    - Home win probability: derived from moneyline_home & moneyline_away odds if both present.
+    Adds columns and sets 'prediction_source' to 'market_synth' where created. If prediction_source already
+    exists it will only fill null entries for rows we synthesize.
+    """
+    if df is None or df.empty:
+        return df
+    need = ["pred_home_points","pred_away_points","pred_total","pred_margin","prob_home_win"]
+    have_any = False
+    for c in need:
+        if c in df.columns and df[c].notna().any():
+            have_any = True
+            break
+    if have_any:
+        return df  # Respect existing model outputs
+
+    work = df.copy()
+
+    def _coalesce(cols: list[str]):
+        existing = [c for c in cols if c in work.columns]
+        if not existing:
+            return pd.Series([None]*len(work), index=work.index)
+        out = None
+        for c in existing:
+            ser = pd.to_numeric(work[c], errors='coerce')
+            if out is None:
+                out = ser
+            else:
+                out = out.where(out.notna(), ser)
+        return out if out is not None else pd.Series([None]*len(work), index=work.index)
+
+    spread = _coalesce(["close_spread_home","market_spread_home","open_spread_home","spread_home"])
+    total = _coalesce(["close_total","market_total","open_total","total"])
+
+    # Derive implied probabilities from moneylines
+    mh = work.get("moneyline_home")
+    ma = work.get("moneyline_away")
+    prob_home = pd.Series([None]*len(work), index=work.index)
+    if mh is not None and ma is not None:
+        def _american_to_decimal(o):
+            try:
+                if o is None or (isinstance(o,float) and pd.isna(o)): return None
+                o = float(o)
+                return (1.0 + 100.0/abs(o)) if o < 0 else (1.0 + o/100.0)
+            except Exception:
+                return None
+        dh = pd.to_numeric(mh, errors='coerce')
+        da = pd.to_numeric(ma, errors='coerce')
+        for i in work.index:
+            h = dh.get(i)
+            a = da.get(i)
+            if pd.notna(h) and pd.notna(a):
+                dec_h = _american_to_decimal(h)
+                dec_a = _american_to_decimal(a)
+                if dec_h and dec_a:
+                    try:
+                        ph = (1.0/dec_h) / (1.0/dec_h + 1.0/dec_a)
+                        prob_home.at[i] = ph
+                    except Exception:
+                        pass
+
+    # Points derivation (only where total exists)
+    total_exists = total.notna()
+    spread_eff = spread.where(spread.notna(), 0.0)
+    try:
+        home_pts = (total/2.0) - (spread_eff/2.0)
+        away_pts = total - home_pts
+        margin = home_pts - away_pts
+    except Exception:
+        home_pts = pd.Series([None]*len(work), index=work.index)
+        away_pts = pd.Series([None]*len(work), index=work.index)
+        margin = pd.Series([None]*len(work), index=work.index)
+
+    # Apply only where we have totals
+    home_pts = home_pts.where(total_exists)
+    away_pts = away_pts.where(total_exists)
+    margin = margin.where(total_exists)
+
+    if 'pred_home_points' not in work.columns:
+        work['pred_home_points'] = home_pts
+    if 'pred_away_points' not in work.columns:
+        work['pred_away_points'] = away_pts
+    if 'pred_total' not in work.columns:
+        work['pred_total'] = total
+    if 'pred_margin' not in work.columns:
+        work['pred_margin'] = margin
+    if 'prob_home_win' not in work.columns:
+        work['prob_home_win'] = prob_home
+
+    # Tag source
+    if 'prediction_source' not in work.columns:
+        work['prediction_source'] = None
+    # Only set where we actually produced a total (proxy for success)
+    synth_mask = total_exists & work['pred_total'].notna()
+    work.loc[synth_mask, 'prediction_source'] = work.loc[synth_mask, 'prediction_source'].fillna('market_synth')
+    work['derived_from_market'] = synth_mask
+    return work
 
 
 def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
@@ -699,18 +1221,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
     try:
         if view_df is None or view_df.empty:
             return view_df
-        # On Render or when disabled, avoid running model inference on request to keep the web
-        # process responsive; rely on CSVs generated by the updater instead.
-        try:
-            disable = os.environ.get('DISABLE_ON_REQUEST_PREDICTIONS')
-            if disable is None:
-                # Default to disabled on Render
-                disable = os.environ.get('RENDER', '0')
-            if str(disable).strip().lower() in {'1','true','yes','y'}:
-                return view_df
-        except Exception:
-            pass
-        # Always start with a shallow enrichment of lines/weather so odds display works even on Render
+        # Always perform odds/weather enrichment FIRST so even disabled prediction inference still yields market data.
         out_base = view_df.copy()
         # Normalize team names early to improve team-based merges (games.csv may use abbreviations like PHI/DAL)
         try:
@@ -727,6 +1238,48 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     out_base[_col] = out_base[_col].apply(_safe_norm)
         except Exception:
             pass
+        # EARLY odds alias setup (may be re-filled later, but ensure columns exist and closers promoted for display)
+        try:
+            import pandas as _pd
+            if 'close_spread_home' in out_base.columns and 'spread_home' in out_base.columns:
+                mask = out_base['spread_home'].isna() & out_base['close_spread_home'].notna()
+                if mask.any():
+                    out_base.loc[mask, 'spread_home'] = out_base.loc[mask, 'close_spread_home']
+            if 'close_total' in out_base.columns and 'total' in out_base.columns:
+                mask = out_base['total'].isna() & out_base['close_total'].notna()
+                if mask.any():
+                    out_base.loc[mask, 'total'] = out_base.loc[mask, 'close_total']
+            if 'market_spread_home' not in out_base.columns:
+                out_base['market_spread_home'] = _pd.NA
+            if 'market_total' not in out_base.columns:
+                out_base['market_total'] = _pd.NA
+            # Fill market_* from base then close
+            msk = out_base['market_spread_home'].isna() if 'market_spread_home' in out_base.columns else None
+            if msk is not None and 'spread_home' in out_base.columns:
+                out_base.loc[msk & out_base['spread_home'].notna(), 'market_spread_home'] = out_base.loc[msk, 'spread_home']
+            if 'market_spread_home' in out_base.columns:
+                msk2 = out_base['market_spread_home'].isna()
+                if 'close_spread_home' in out_base.columns:
+                    out_base.loc[msk2 & out_base['close_spread_home'].notna(), 'market_spread_home'] = out_base.loc[msk2, 'close_spread_home']
+            msk_t = out_base['market_total'].isna() if 'market_total' in out_base.columns else None
+            if msk_t is not None and 'total' in out_base.columns:
+                out_base.loc[msk_t & out_base['total'].notna(), 'market_total'] = out_base.loc[msk_t, 'total']
+            if 'market_total' in out_base.columns:
+                msk_t2 = out_base['market_total'].isna()
+                if 'close_total' in out_base.columns:
+                    out_base.loc[msk_t2 & out_base['close_total'].notna(), 'market_total'] = out_base.loc[msk_t2, 'close_total']
+        except Exception:
+            pass
+        # After enrichment, record disable flag but don't return yet so normalization runs
+        disable_flag = False
+        try:
+            disable = os.environ.get('DISABLE_ON_REQUEST_PREDICTIONS')
+            if disable is None:
+                disable = os.environ.get('RENDER', '0')
+            if str(disable).strip().lower() in {'1','true','yes','y'}:
+                disable_flag = True
+        except Exception:
+            disable_flag = False
         try:
             from nfl_compare.src.data_sources import load_games as ds_load_games, load_lines
             from nfl_compare.src.weather import load_weather_for_games
@@ -1061,6 +1614,77 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                     out_base.at[i, 'market_total'] = cand.get('total')
             except Exception:
                 pass
+            # Post-merge normalization: promote close_* lines into canonical/market fields when only close values exist
+            try:
+                import pandas as _pd
+                # Ensure market alias columns exist for downstream display logic
+                if 'market_spread_home' not in out_base.columns:
+                    try:
+                        out_base['market_spread_home'] = _pd.NA
+                    except Exception:
+                        pass
+                if 'market_total' not in out_base.columns:
+                    try:
+                        out_base['market_total'] = _pd.NA
+                    except Exception:
+                        pass
+                # Promote close_spread_home -> spread_home if base missing
+                if {'spread_home','close_spread_home'}.issubset(out_base.columns):
+                    mask = out_base['spread_home'].isna() & out_base['close_spread_home'].notna()
+                    if mask.any():
+                        out_base.loc[mask, 'spread_home'] = out_base.loc[mask, 'close_spread_home']
+                # Promote close_total -> total if base missing
+                if {'total','close_total'}.issubset(out_base.columns):
+                    mask = out_base['total'].isna() & out_base['close_total'].notna()
+                    if mask.any():
+                        out_base.loc[mask, 'total'] = out_base.loc[mask, 'close_total']
+                # Ensure market_* aliases populated (prefer existing market -> base -> close)
+                if 'market_spread_home' in out_base.columns:
+                    m_mask = out_base['market_spread_home'].isna()
+                    if m_mask.any():
+                        # fill from spread_home first
+                        fill1 = out_base.loc[m_mask, 'spread_home']
+                        out_base.loc[m_mask & fill1.notna(), 'market_spread_home'] = fill1[fill1.notna()]
+                        # then from close_spread_home
+                        m_mask2 = out_base['market_spread_home'].isna()
+                        if 'close_spread_home' in out_base.columns and m_mask2.any():
+                            fill2 = out_base.loc[m_mask2, 'close_spread_home']
+                            out_base.loc[m_mask2 & fill2.notna(), 'market_spread_home'] = fill2[fill2.notna()]
+                if 'market_total' in out_base.columns:
+                    m_mask = out_base['market_total'].isna()
+                    if m_mask.any():
+                        fill1 = out_base.loc[m_mask, 'total'] if 'total' in out_base.columns else None
+                        if fill1 is not None:
+                            out_base.loc[m_mask & fill1.notna(), 'market_total'] = fill1[fill1.notna()]
+                        m_mask2 = out_base['market_total'].isna()
+                        if 'close_total' in out_base.columns and m_mask2.any():
+                            fill2 = out_base.loc[m_mask2, 'close_total']
+                            out_base.loc[m_mask2 & fill2.notna(), 'market_total'] = fill2[fill2.notna()]
+                # One-time log for any games still missing all spread or all total indicators
+                try:
+                    spread_cols = [c for c in ['spread_home','close_spread_home','market_spread_home','open_spread_home'] if c in out_base.columns]
+                    total_cols = [c for c in ['total','close_total','market_total','open_total'] if c in out_base.columns]
+                    missing_spread = []
+                    missing_total = []
+                    if spread_cols:
+                        mask = out_base[spread_cols].isna().all(axis=1)
+                        if mask.any():
+                            missing_spread = out_base.loc[mask, 'game_id'].astype(str).tolist() if 'game_id' in out_base.columns else []
+                    if total_cols:
+                        mask = out_base[total_cols].isna().all(axis=1)
+                        if mask.any():
+                            missing_total = out_base.loc[mask, 'game_id'].astype(str).tolist() if 'game_id' in out_base.columns else []
+                    if missing_spread:
+                        _log_once('missing_market_spread', f"Games missing spread data after normalization: {missing_spread}")
+                    if missing_total:
+                        _log_once('missing_market_total', f"Games missing total data after normalization: {missing_total}")
+                except Exception:
+                    pass
+            except Exception:
+                pass
+            # If predictions disabled, return enriched odds-only frame now
+            if disable_flag:
+                return out_base
             return out_base
 
         # Lazy imports from package
@@ -1947,6 +2571,11 @@ def api_player_props():
         except Exception:
             pass
 
+    # Apply display aliases (presentation only)
+    try:
+        df = _apply_display_aliases(df)
+    except Exception:
+        pass
     # Round numeric columns to 2 decimals for consistency in API responses
     try:
         num_cols = df.select_dtypes(include='number').columns
@@ -2104,6 +2733,11 @@ def api_player_props_csv():
         except Exception:
             pass
 
+    # Apply display aliases for CSV as well
+    try:
+        df = _apply_display_aliases(df)
+    except Exception:
+        pass
     # Stream CSV
     try:
         # Round numeric and format floats with two decimals
@@ -2670,49 +3304,24 @@ def recommendations_page():
     )
 
 
-@app.route("/")
-def index():
-    df = _load_predictions()
-    games_df = _load_games()
-    # Filters
-    season_param: Optional[int] = None
-    week_param: Optional[int] = None
-    sort_param: str = request.args.get("sort") or "date"
-    try:
-        if request.args.get("season"):
-            season_param = int(request.args.get("season"))
-        if request.args.get("week"):
-            week_param = int(request.args.get("week"))
-    except Exception:
-        pass
-
-    # Default to the current (season, week) inferred by date when no explicit filters
-    if season_param is None and week_param is None:
-        try:
-            src = games_df if (games_df is not None and not games_df.empty) else df
-            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
-            if inferred is not None:
-                season_param, week_param = int(inferred[0]), int(inferred[1])
-            else:
-                # Fallback: latest season, week 1
-                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
-                    season_param = int(src['season'].max())
-                week_param = 1
-        except Exception:
-            week_param = 1
-
-    # Build combined view from games + predictions for the target week
-    view_df = _build_week_view(df, games_df, season_param, week_param)
-    # Attach predictions for completed games if missing (local only)
-    view_df = _attach_model_predictions(view_df)
-    if view_df is None:
-        view_df = pd.DataFrame()
-
-    # Build card-friendly rows
+def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
+    """Construct card dictionaries from a weekly view DataFrame.
+    This encapsulates the display and reconciliation logic used by the index view
+    and exposes it for programmatic or API consumption.
+    """
     cards: List[Dict[str, Any]] = []
     assets = _load_team_assets()
     stad_map = _load_stadium_meta_map()
-    if not view_df.empty:
+    if view_df is not None and not view_df.empty:
+        # Backward compatibility mapping: model earlier produced pred_home_score/pred_away_score
+        # but card logic prefers pred_home_points/pred_away_points. Populate points if missing.
+        try:
+            if 'pred_home_points' not in view_df.columns and 'pred_home_score' in view_df.columns:
+                view_df['pred_home_points'] = view_df['pred_home_score']
+            if 'pred_away_points' not in view_df.columns and 'pred_away_score' in view_df.columns:
+                view_df['pred_away_points'] = view_df['pred_away_score']
+        except Exception:
+            pass
         for _, r in view_df.iterrows():
             def g(key: str, *alts: str, default=None):
                 for k in (key, *alts):
@@ -2783,19 +3392,19 @@ def index():
                     pass
 
             # Normalize market lines
-            # Prefer closing lines for completed games; else use market/open values
+            # Final games: prefer closing lines. Upcoming: allow close_* as fallback if market/base missing.
             _hs = g("home_score"); _as = g("away_score")
             _is_final = (_hs is not None and not (isinstance(_hs, float) and pd.isna(_hs))) and (_as is not None and not (isinstance(_as, float) and pd.isna(_as)))
             if _is_final:
-                m_spread = g("close_spread_home")
-                if m_spread is None or (isinstance(m_spread, float) and pd.isna(m_spread)):
-                    m_spread = g("market_spread_home", "spread_home", "open_spread_home")
-                m_total = g("close_total")
-                if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
-                    m_total = g("market_total", "total", "open_total")
+                m_spread = g("close_spread_home", "market_spread_home", "spread_home", "open_spread_home")
+                m_total = g("close_total", "market_total", "total", "open_total")
             else:
-                m_spread = g("market_spread_home", "spread_home", "open_spread_home")
-                m_total = g("market_total", "total", "open_total")
+                m_spread = g("market_spread_home", "spread_home", "open_spread_home", "close_spread_home")
+                if m_spread is None:
+                    m_spread = g("close_spread_home")
+                m_total = g("market_total", "total", "open_total", "close_total")
+                if m_total is None:
+                    m_total = g("close_total")
             edge_spread = None
             edge_total = None
             try:
@@ -3048,14 +3657,18 @@ def index():
                 "season": g("season"),
                 "week": g("week"),
                 "game_date": game_date,
+                "game_id": g("game_id"),
                 "home_team": home,
                 "away_team": away,
                 "pred_home_points": ph,
                 "pred_away_points": pa,
                 "pred_total": total_pred,
                 "pred_home_win_prob": g("pred_home_win_prob", "prob_home_win", default=None),
+                "prediction_source": g("prediction_source"),
                 "market_spread_home": m_spread,
                 "market_total": m_total,
+                "display_spread_home": m_spread,
+                "display_total": m_total,
                 "pred_margin": margin,
                 "pred_winner": winner,
                 # Confidence (overall per-game)
@@ -3309,6 +3922,51 @@ def index():
             c["rec_total_ev"] = total_ev
             # Confidence for this market should reflect EV only; do not inherit game-level confidence
             c["rec_total_conf"] = _conf_from_ev(total_ev) if total_ev is not None else None
+    return cards
+
+
+@app.route("/")
+def index():
+    df = _load_predictions()
+    games_df = _load_games()
+    # Filters
+    season_param: Optional[int] = None
+    week_param: Optional[int] = None
+    sort_param: str = request.args.get("sort") or "date"
+    try:
+        if request.args.get("season"):
+            season_param = int(request.args.get("season"))
+        if request.args.get("week"):
+            week_param = int(request.args.get("week"))
+    except Exception:
+        pass
+
+    # Default to the current (season, week) inferred by date when no explicit filters
+    if season_param is None and week_param is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_param, week_param = int(inferred[0]), int(inferred[1])
+            else:
+                # Fallback: latest season, week 1
+                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_param = int(src['season'].max())
+                week_param = 1
+        except Exception:
+            week_param = 1
+
+    # Build combined view from games + predictions for the target week
+    view_df = _build_week_view(df, games_df, season_param, week_param)
+    # Attach model predictions (best-effort)
+    view_df = _attach_model_predictions(view_df)
+    # Derive synthetic predictions from market if model outputs entirely absent
+    view_df = _derive_predictions_from_market(view_df)
+    if view_df is None:
+        view_df = pd.DataFrame()
+
+    # Build cards via helper
+    cards: List[Dict[str, Any]] = _build_cards(view_df)
 
     # Apply sorting
     def _dt_key(card: Dict[str, Any]):
@@ -3334,6 +3992,63 @@ def index():
         sort=sort_param,
         total_rows=len(cards),
     )
+
+
+@app.route("/api/cards")
+def api_cards():
+    """Return reconciled game cards for a given season/week as JSON.
+    Query params: season, week, sort (date|winner|ats|total)
+    """
+    df = _load_predictions()
+    games_df = _load_games()
+    season_param: Optional[int] = None
+    week_param: Optional[int] = None
+    sort_param: str = request.args.get("sort") or "date"
+    try:
+        if request.args.get("season"):
+            season_param = int(request.args.get("season"))
+        if request.args.get("week"):
+            week_param = int(request.args.get("week"))
+    except Exception:
+        pass
+    # Default inference if not provided
+    if season_param is None or week_param is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                if season_param is None:
+                    season_param = int(inferred[0])
+                if week_param is None:
+                    week_param = int(inferred[1])
+        except Exception:
+            pass
+    view_df = _build_week_view(df, games_df, season_param, week_param)
+    view_df = _attach_model_predictions(view_df)
+    view_df = _derive_predictions_from_market(view_df)
+    if view_df is None:
+        view_df = pd.DataFrame()
+    cards: List[Dict[str, Any]] = _build_cards(view_df)
+    # Sorting
+    def _dt_key(card: Dict[str, Any]):
+        try:
+            return pd.to_datetime(card.get("game_date"), errors='coerce')
+        except Exception:
+            return pd.NaT
+    if sort_param == "date":
+        cards.sort(key=_dt_key)
+    elif sort_param == "winner":
+        cards.sort(key=lambda c: (c.get("rec_winner_ev") if c.get("rec_winner_ev") is not None else float('-inf')), reverse=True)
+    elif sort_param == "ats":
+        cards.sort(key=lambda c: (abs(c.get("edge_spread")) if c.get("edge_spread") is not None else float('-inf')), reverse=True)
+    elif sort_param == "total":
+        cards.sort(key=lambda c: (abs(c.get("edge_total")) if c.get("edge_total") is not None else float('-inf')), reverse=True)
+    return jsonify({
+        "season": season_param,
+        "week": week_param,
+        "total_rows": len(cards),
+        "cards": cards,
+    })
 
 
 @app.route("/table")
@@ -3764,5 +4479,9 @@ def reconciliation_page():
 
 if __name__ == "__main__":
     # Local dev: python app.py
+    # Control debug and reloader via env to avoid churn in some environments (e.g., Windows + heavy deps)
     port = int(os.environ.get("PORT", 5055))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    debug = str(os.environ.get("FLASK_DEBUG", "0")).strip().lower() in {"1","true","yes","y"}
+    use_reloader = str(os.environ.get("FLASK_USE_RELOADER", "0")).strip().lower() in {"1","true","yes","y"}
+    # Threaded improves responsiveness; disable reloader by default (can be re-enabled with FLASK_USE_RELOADER=1)
+    app.run(host="0.0.0.0", port=port, debug=debug, use_reloader=use_reloader, threaded=True)
