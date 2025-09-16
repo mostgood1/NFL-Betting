@@ -4,7 +4,17 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, roc_auc_score
-from xgboost import XGBRegressor, XGBClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LogisticRegression
+
+# Try to import XGBoost; gracefully fall back to sklearn if unavailable or broken
+try:
+    from xgboost import XGBRegressor, XGBClassifier  # type: ignore
+    HAVE_XGB = True
+except Exception:
+    XGBRegressor = None  # type: ignore
+    XGBClassifier = None  # type: ignore
+    HAVE_XGB = False
 
 TARGETS = {
     'home_margin': 'reg',
@@ -20,8 +30,9 @@ FEATURES = [
 
 @dataclass
 class TrainedModels:
-    regressors: Dict[str, XGBRegressor]
-    classifiers: Dict[str, Optional[XGBClassifier]]
+    # Use loose typing so either xgboost or sklearn estimators can be stored
+    regressors: Dict[str, object]
+    classifiers: Dict[str, Optional[object]]
 
 
 def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, pd.Series]:
@@ -41,19 +52,30 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
         X, y_margin, y_total, y_homewin, test_size=0.2, random_state=42
     )
 
-    reg_margin = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)
-    reg_total = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)
-
-    reg_margin.fit(X_train, ym_train)
-    reg_total.fit(X_train, yt_train)
-
-    clf_home: Optional[XGBClassifier] = None
-    if len(np.unique(yh_train)) > 1:
-        clf_home = XGBClassifier(
-            n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9,
-            random_state=42, objective='binary:logistic', eval_metric='logloss'
-        )
-        clf_home.fit(X_train, yh_train)
+    # Choose estimators based on availability
+    if HAVE_XGB:
+        reg_margin = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)  # type: ignore
+        reg_total = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)  # type: ignore
+        reg_margin.fit(X_train, ym_train)
+        reg_total.fit(X_train, yt_train)
+        clf_home: Optional[object] = None
+        if len(np.unique(yh_train)) > 1:
+            clf_home = XGBClassifier(  # type: ignore
+                n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9,
+                random_state=42, objective='binary:logistic', eval_metric='logloss'
+            )
+            clf_home.fit(X_train, yh_train)
+    else:
+        # Sklearn fallbacks: relatively light and available across platforms
+        reg_margin = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=42, n_jobs=-1)
+        reg_total = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=42, n_jobs=-1)
+        reg_margin.fit(X_train, ym_train)
+        reg_total.fit(X_train, yt_train)
+        clf_home = None
+        if len(np.unique(yh_train)) > 1:
+            # Use liblinear for small-ish datasets; ensure probability output
+            clf_home = LogisticRegression(max_iter=1000, solver='lbfgs')
+            clf_home.fit(X_train, yh_train)
 
     # basic metrics (safe)
     ym_pred = reg_margin.predict(X_val)
