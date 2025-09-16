@@ -27,3 +27,16 @@ def load_lines() -> pd.DataFrame:
     df = pd.read_csv(fp)
     return df
 
+def load_predictions() -> pd.DataFrame:
+    """Lightweight reader for predictions.csv used as a fallback source in pipelines.
+    Returns an empty DataFrame if the file is missing.
+    """
+    fp = DATA_DIR / "predictions.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        df = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return df
+

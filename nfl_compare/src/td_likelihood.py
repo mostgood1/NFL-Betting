@@ -7,7 +7,7 @@ from typing import Optional, Tuple
 import numpy as np
 import pandas as pd
 
-from .data_sources import load_games, load_team_stats, load_lines
+from .data_sources import load_games, load_team_stats, load_lines, load_predictions
 from .features import merge_features
 from .weather import load_weather_for_games
 
@@ -181,6 +181,7 @@ def compute_td_likelihood(season: Optional[int] = None, week: Optional[int] = No
     games = load_games()
     team_stats = load_team_stats()
     lines = load_lines()
+    preds = load_predictions()
 
     # Filter games if season/week provided
     if games is None:
@@ -234,7 +235,31 @@ def compute_td_likelihood(season: Optional[int] = None, week: Optional[int] = No
         if synth is not None and not synth.empty:
             games = synth
         else:
-            return pd.DataFrame(columns=["season","week","game_id","team","opponent","is_home","implied_points","expected_tds","td_likelihood"]) 
+            # As a last resort, synthesize minimal schedule rows from predictions
+            if preds is not None and not preds.empty:
+                df = preds.copy()
+                if season is not None:
+                    df = df[df.get("season").astype("Int64") == int(season)]
+                if week is not None:
+                    df = df[df.get("week").astype("Int64") == int(week)]
+                if not df.empty:
+                    base_cols = {c for c in df.columns}
+                    ht = "home_team" if "home_team" in base_cols else None
+                    at = "away_team" if "away_team" in base_cols else None
+                    gid = "game_id" if "game_id" in base_cols else None
+                    dt = "date" if "date" in base_cols else None
+                    games = pd.DataFrame({
+                        "season": df.get("season"),
+                        "week": df.get("week"),
+                        "game_id": df.get(gid) if gid else df.get("game_key", pd.Series([pd.NA]*len(df))),
+                        "date": df.get(dt, pd.Series([pd.NA]*len(df))),
+                        "home_team": df.get(ht),
+                        "away_team": df.get(at),
+                        "home_score": pd.NA,
+                        "away_score": pd.NA,
+                    }).dropna(subset=["home_team","away_team"]).drop_duplicates(subset=["game_id","home_team","away_team"], keep="first")
+            if games is None or games.empty:
+                return pd.DataFrame(columns=["season","week","game_id","team","opponent","is_home","implied_points","expected_tds","td_likelihood"]) 
 
     try:
         wx = load_weather_for_games(games)
