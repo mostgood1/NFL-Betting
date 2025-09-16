@@ -20,6 +20,8 @@ fi
 export FLASK_ENV=production
 export PYTHONUNBUFFERED=1
 
+echo "Using PORT=${PORT:-5000} WEB_CONCURRENCY=${WEB_CONCURRENCY:-1} WEB_THREADS=${WEB_THREADS:-4}"
+
 # Start app (avoid --preload to reduce boot memory/CPU; longer timeout for cold starts)
 exec gunicorn app:app \
   --bind 0.0.0.0:${PORT:-5000} \

@@ -10,6 +10,7 @@ services:
       pip install -r requirements.txt
     startCommand: bash start.sh
     autoDeploy: true
+  healthCheckPath: /api/health/data
     # Optional: configure a health check in the Render UI to GET /health
     envVars:
       - key: PYTHON_VERSION
@@ -19,6 +20,8 @@ services:
       - key: FLASK_ENV
         value: production
       - key: RENDER
+        value: "1"
+      - key: DISABLE_ON_REQUEST_PREDICTIONS
         value: "1"
       - key: DISABLE_JSON_ODDS
         value: "1"
