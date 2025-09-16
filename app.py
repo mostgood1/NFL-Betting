@@ -1,52 +1,50 @@
 from __future__ import annotations
 
-import os
+import os, sys, json, math, time, re, subprocess, hashlib, traceback, shlex, threading
 from pathlib import Path
-import hashlib
 from typing import Optional, Dict, Any, List
 
-import pandas as pd
-from flask import Flask, jsonify, render_template, request
-import subprocess
-import sys
-import json
-import math
-import traceback
-from joblib import load as joblib_load
-import threading
-import time
 from datetime import datetime
-import shlex
-import re
-
+import pandas as pd
+from flask import Flask, jsonify, render_template, request, g
 
 BASE_DIR = Path(__file__).resolve().parent
-# Allow environment override for data directory (e.g., to point to a mounted volume in prod)
 _ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
 DATA_DIR = Path(_ENV_DATA_DIR) if _ENV_DATA_DIR else (BASE_DIR / "nfl_compare" / "data")
 PRED_FILE = DATA_DIR / "predictions.csv"
 PRED_WEEK_FILE = DATA_DIR / "predictions_week.csv"
 LOCKED_PRED_FILE = DATA_DIR / "predictions_locked.csv"
-ASSETS_FILE = DATA_DIR / "nfl_team_assets.json"
 STADIUM_META_FILE = DATA_DIR / "stadium_meta.csv"
 LOCATION_OVERRIDES_FILE = DATA_DIR / "game_location_overrides.csv"
+# Team assets file (logos/colors)
+ASSETS_FILE = DATA_DIR / "nfl_team_assets.json"
 
 app = Flask(__name__)
 
 # --- Lightweight one-time logger (in-memory) ---
 _log_once_keys: set[str] = set()
-def _log_once(key: str, msg: str):
+def _log_once(key: str, msg: str) -> None:
     try:
-        if key not in _log_once_keys:
-            _log_once_keys.add(key)
-            # For now just print; could be extended to structured log
-            print(f"[app-log-once] {msg}")
+        if key in _log_once_keys:
+            return
+        _log_once_keys.add(key)
+        print(msg)
     except Exception:
         pass
 
 
-# --- Admin job state (in-memory) ---
-_job_state = {
+# --- Ultra-light health endpoints (always fast, minimal IO) ---
+@app.route('/api/ping')
+def api_ping():
+    return jsonify({'ok': True, 'ts': int(time.time())})
+
+
+@app.route('/health')
+def health_root():
+    return jsonify({'status': 'ok'})
+
+# --- Background job state (admin refresh, etc.) ---
+_job_state: Dict[str, Any] = {
     'running': False,
     'started_at': None,
     'ended_at': None,
@@ -78,6 +76,27 @@ def _apply_display_aliases(df: pd.DataFrame) -> pd.DataFrame:
         return df
     except Exception:
         return df
+
+
+# --- Request timing logs ---
+@app.before_request
+def _before_request_timer():
+    try:
+        g._t0 = time.time()
+    except Exception:
+        pass
+
+
+@app.after_request
+def _after_request_log(resp):
+    try:
+        t0 = getattr(g, '_t0', None)
+        if t0 is not None:
+            dt = int((time.time() - t0) * 1000)
+            print(f"[req] {request.method} {request.path} -> {resp.status_code} in {dt}ms")
+    except Exception:
+        pass
+    return resp
 
 
 # --- Roster validation endpoints (top-level) ---
@@ -2476,10 +2495,8 @@ def api_player_props():
       - position (str): optional filter like QB,RB,WR,TE,DEF
       - team (str): team abbr/name (normalized).
     """
-    try:
-        from nfl_compare.src.player_props import compute_player_props  # lazy import
-    except Exception as e:
-        return jsonify({"error": f"player_props unavailable: {e}"}), 500
+    # Note: We defer importing compute_player_props until we actually need to compute,
+    # so the endpoint can still serve cached data when heavy dependencies are unavailable.
 
     pred_df = _load_predictions()
     games_df = _load_games()
@@ -2546,6 +2563,7 @@ def api_player_props():
             return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
+            from nfl_compare.src.player_props import compute_player_props  # defer import
             df = compute_player_props(season_i, week_i)
             # Persist for subsequent fast loads
             try:
@@ -2570,6 +2588,7 @@ def api_player_props():
                         needs_fix = True
             if needs_fix:
                 try:
+                    from nfl_compare.src.player_props import compute_player_props  # defer import
                     fresh = compute_player_props(season_i, week_i)
                     if fresh is not None and not fresh.empty:
                         df = fresh
@@ -2674,7 +2693,17 @@ def api_player_props():
         return obj
 
     data = _json_safe(data)
-    return jsonify({"rows": len(data), "data": data, "season": season_i, "week": week_i})
+    resp = {"rows": len(data), "data": data, "season": season_i, "week": week_i}
+    # If we served a fallback cache earlier in the function, include a note.
+    # Note: variable may not exist if path didn't take fallback branch; guard via locals().
+    try:
+        fb = locals().get('fallback')
+        if fb is not None:
+            _, s_fb, w_fb = fb
+            resp["note"] = f"served fallback cache: season={s_fb}, week={w_fb}"
+    except Exception:
+        pass
+    return jsonify(resp)
 
 
 @app.route("/api/player-props.csv")
@@ -2687,10 +2716,7 @@ def api_player_props_csv():
       - position (str)
       - team (str)
     """
-    try:
-        from nfl_compare.src.player_props import compute_player_props  # lazy import
-    except Exception as e:
-        return jsonify({"error": f"player_props unavailable: {e}"}), 500
+    # Defer importing compute_player_props until computation is necessary.
 
     pred_df = _load_predictions()
     games_df = _load_games()
@@ -2758,6 +2784,7 @@ def api_player_props_csv():
                 return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
+            from nfl_compare.src.player_props import compute_player_props  # defer import
             df = compute_player_props(season_i, week_i)
             try:
                 df.to_csv(cache_fp, index=False)
@@ -2794,6 +2821,7 @@ def api_player_props_csv():
         try:
             if 'is_active' not in df.columns:
                 try:
+                    from nfl_compare.src.player_props import compute_player_props  # defer import
                     fresh = compute_player_props(season_i, week_i)
                     if fresh is not None and not fresh.empty:
                         df = fresh
@@ -4008,6 +4036,14 @@ def index():
     season_param: Optional[int] = None
     week_param: Optional[int] = None
     sort_param: str = request.args.get("sort") or "date"
+    # Default fast mode on Render or when on-demand predictions are disabled, unless explicitly overridden via ?fast=
+    fast_qs = request.args.get("fast")
+    on_render = str(os.environ.get("RENDER", "")).strip() != ""
+    disable_on_request = str(os.environ.get("DISABLE_ON_REQUEST_PREDICTIONS", "0")).lower() in {"1","true","yes","y"}
+    if fast_qs is None:
+        fast_mode: bool = (on_render or disable_on_request)
+    else:
+        fast_mode = (fast_qs.lower() in {"1","true","yes","y"})
     try:
         if request.args.get("season"):
             season_param = int(request.args.get("season"))
@@ -4032,11 +4068,23 @@ def index():
             week_param = 1
 
     # Build combined view from games + predictions for the target week
-    view_df = _build_week_view(df, games_df, season_param, week_param)
-    # Attach model predictions (best-effort)
-    view_df = _attach_model_predictions(view_df)
-    # Derive synthetic predictions from market if model outputs entirely absent
-    view_df = _derive_predictions_from_market(view_df)
+    try:
+        view_df = _build_week_view(df, games_df, season_param, week_param)
+        # Attach odds/predictions best-effort (allow fast mode to skip enrichment for stability)
+        if not fast_mode:
+            try:
+                view_df = _attach_model_predictions(view_df)
+            except Exception as e:
+                _log_once('attach-preds-fail', f'_attach_model_predictions failed: {e}')
+        # Derive synthetic predictions from market if model outputs entirely absent (skip in fast mode)
+        if not fast_mode:
+            try:
+                view_df = _derive_predictions_from_market(view_df)
+            except Exception as e:
+                _log_once('derive-from-market-fail', f'_derive_predictions_from_market failed: {e}')
+    except Exception as e:
+        _log_once('index-fast-fallback', f'index pipeline failed early: {e}')
+        view_df = pd.DataFrame()
     if view_df is None:
         view_df = pd.DataFrame()
 
@@ -4066,7 +4114,51 @@ def index():
         week=week_param,
         sort=sort_param,
         total_rows=len(cards),
+        fast_mode=fast_mode,
     )
+
+
+@app.route("/api/health/page")
+def api_health_page():
+    """Profile the main page build steps to help diagnose 502/timeouts."""
+    try:
+        t0 = time.time()
+        df = _load_predictions(); t1 = time.time()
+        games_df = _load_games(); t2 = time.time()
+        # Infer defaults
+        season_param = week_param = None
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_param, week_param = int(inferred[0]), int(inferred[1])
+        except Exception:
+            pass
+        vw = _build_week_view(df, games_df, season_param, week_param); t3 = time.time()
+        vwe = _attach_model_predictions(vw.copy() if vw is not None else vw); t4 = time.time()
+        vwd = _derive_predictions_from_market(vwe.copy() if vwe is not None else vwe); t5 = time.time()
+        cards = _build_cards(vwd if vwd is not None else pd.DataFrame()); t6 = time.time()
+        return jsonify({
+            'timings_ms': {
+                'load_predictions': int((t1-t0)*1000),
+                'load_games': int((t2-t1)*1000),
+                'build_week_view': int((t3-t2)*1000),
+                'attach_predictions': int((t4-t3)*1000),
+                'derive_from_market': int((t5-t4)*1000),
+                'build_cards': int((t6-t5)*1000),
+                'total': int((t6-t0)*1000),
+            },
+            'counts': {
+                'games_rows': 0 if games_df is None else len(games_df),
+                'predictions_rows': 0 if df is None else len(df),
+                'week_rows': 0 if vw is None else (0 if getattr(vw, 'empty', True) else len(vw)),
+                'cards': len(cards)
+            },
+            'season': season_param,
+            'week': week_param,
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route("/api/cards")
@@ -4547,6 +4639,800 @@ def props_page():
     return render_template("player_props.html")
 
 
+@app.route('/api/admin/refresh-props', methods=['POST','GET'])
+def api_admin_refresh_props():
+    """Admin: Fetch Bovada player props and recompute edges for a season/week.
+
+    Query params:
+      - season (int, optional): defaults to inferred current season
+      - week (int, optional): defaults to inferred current week
+    Returns a JSON report with file paths and row counts. Requires ADMIN_KEY/ADMIN_TOKEN.
+    """
+    if not _admin_auth_ok(request):
+        return jsonify({'status': 'forbidden'}), 403
+    # On minimal web deploys (Render), skip heavy network/deps for safety
+    if os.environ.get("RENDER", "").lower() in {"1","true","yes"}:
+        return jsonify({"status": "skipped", "reason": "Disabled on Render minimal deploy."}), 200
+
+    try:
+        season_q = request.args.get("season")
+        week_q = request.args.get("week")
+        season_i = int(season_q) if season_q else None
+        week_i = int(week_q) if week_q else None
+    except Exception:
+        season_i, week_i = None, None
+
+    pred_df = _load_predictions()
+    games_df = _load_games()
+    if season_i is None or week_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                if season_i is None:
+                    season_i = int(inferred[0])
+                if week_i is None:
+                    week_i = int(inferred[1])
+        except Exception:
+            pass
+    if season_i is None or week_i is None:
+        return jsonify({"status": "error", "error": "unable to infer season/week"}), 400
+
+    # Paths
+    bov_csv = DATA_DIR / f"bovada_player_props_{season_i}_wk{week_i}.csv"
+    edges_csv = DATA_DIR / f"edges_player_props_{season_i}_wk{week_i}.csv"
+
+    # 1) Fetch Bovada props via script
+    py = sys.executable or "python"
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(BASE_DIR)
+    fetch_cmd = [py, str(BASE_DIR / 'scripts' / 'fetch_bovada_props.py'), '--season', str(season_i), '--week', str(week_i), '--out', str(bov_csv)]
+    join_cmd = [py, str(BASE_DIR / 'scripts' / 'props_edges_join.py'), '--season', str(season_i), '--week', str(week_i), '--bovada', str(bov_csv), '--out', str(edges_csv), '--data-dir', str(DATA_DIR)]
+    details = []
+    for cmd in (fetch_cmd, join_cmd):
+        try:
+            res = subprocess.run(cmd, cwd=str(BASE_DIR), env=env, capture_output=True, text=True, timeout=600)
+            details.append({
+                'cmd': ' '.join(cmd),
+                'returncode': res.returncode,
+                'stdout_tail': res.stdout[-1000:],
+                'stderr_tail': res.stderr[-1000:],
+            })
+            if res.returncode != 0:
+                return jsonify({'status': 'error', 'step': 'fetch' if cmd is fetch_cmd else 'join', 'details': details}), 500
+        except Exception as e:
+            return jsonify({'status': 'error', 'error': str(e)}), 500
+
+    # Summarize outputs
+    out = {'status': 'ok', 'season': season_i, 'week': week_i, 'bovada_csv': str(bov_csv), 'edges_csv': str(edges_csv), 'details': details}
+    try:
+        import pandas as _pd
+        if bov_csv.exists():
+            out['bovada_rows'] = int(len(_pd.read_csv(bov_csv)))
+        if edges_csv.exists():
+            out['edges_rows'] = int(len(_pd.read_csv(edges_csv)))
+    except Exception:
+        pass
+    return jsonify(out)
+
+
+@app.route("/api/props/recommendations")
+def api_props_recommendations():
+    """Return player props recommendations built from precomputed edges CSV.
+
+    Query params:
+      - season (int, optional): Defaults to inferred current season.
+      - week (int, optional): Defaults to inferred current week.
+      - event (str, optional): Filter to a single Bovada event description.
+      - home_team/away_team (str, optional): Alternative filter to match a game.
+    Response:
+      {
+        season, week,
+        games: [ { event, home_team, away_team }... ],
+        rows: N,
+        data: [
+          {
+            player, position, team, opponent, home_team, away_team, event,
+            projections: {pass_yards, rush_yards, rec_yards, receptions, any_td_prob},
+            plays: [ { market, line, proj, edge, over_price, under_price, side, ev_pct } ... ]
+          }, ...
+        ]
+      }
+    """
+    try:
+        season_q = request.args.get("season")
+        week_q = request.args.get("week")
+        season_i = int(season_q) if season_q else None
+        week_i = int(week_q) if week_q else None
+    except Exception:
+        season_i, week_i = None, None
+    pred_df = _load_predictions()
+    games_df = _load_games()
+    # Infer defaults if missing
+    if season_i is None or week_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                if season_i is None:
+                    season_i = int(inferred[0])
+                if week_i is None:
+                    week_i = int(inferred[1])
+            else:
+                # Fallback: latest season, week 1
+                if season_i is None and src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_i = int(src['season'].max())
+                if week_i is None:
+                    week_i = 1
+        except Exception:
+            if week_i is None:
+                week_i = 1
+
+    # Locate expected CSVs
+    edges_fp = DATA_DIR / f"edges_player_props_{season_i}_wk{week_i}.csv"
+    bovada_fp = DATA_DIR / f"bovada_player_props_{season_i}_wk{week_i}.csv"
+    preds_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
+
+    # Load with graceful fallbacks
+    try:
+        edges_df = pd.read_csv(edges_fp) if edges_fp.exists() else pd.DataFrame()
+    except Exception:
+        edges_df = pd.DataFrame()
+    try:
+        bov_df = pd.read_csv(bovada_fp) if bovada_fp.exists() else pd.DataFrame()
+    except Exception:
+        bov_df = pd.DataFrame()
+    try:
+        preds_df = pd.read_csv(preds_fp) if preds_fp.exists() else pd.DataFrame()
+    except Exception:
+        preds_df = pd.DataFrame()
+
+    # Early exit if no edges
+    if edges_df is None or edges_df.empty:
+        return jsonify({
+            "season": season_i,
+            "week": week_i,
+            "games": [],
+            "rows": 0,
+            "data": [],
+            "note": f"edges CSV not found or empty: {edges_fp}"
+        })
+
+    # Normalize helpers
+    def _norm(s):
+        try:
+            return str(s).strip().lower()
+        except Exception:
+            return None
+
+    # Prefer event/home/away directly from edges CSV; if missing, attach from Bovada
+    try:
+        need_cols = not {"event","home_team","away_team"}.issubset(set(edges_df.columns))
+        if need_cols and not bov_df.empty:
+            join_cols = [c for c in ["player", "team", "market", "line"] if c in edges_df.columns and c in bov_df.columns]
+            if join_cols:
+                edges_df = edges_df.merge(
+                    bov_df[[c for c in [*join_cols, "event", "home_team", "away_team", "game_time", "book"] if c in bov_df.columns]],
+                    on=join_cols,
+                    how="left",
+                )
+    except Exception:
+        pass
+
+    # Compute a basic recommended side per row
+    def _rec_side(row):
+        mk = str(row.get("market_key") or row.get("market") or "").strip().lower()
+        proj = row.get("proj")
+        line = row.get("line")
+        if mk in {"rec_yards","rush_yards","pass_yards","receptions","receiving yards","rushing yards","passing yards","receptions"}:
+            try:
+                if pd.notna(proj) and pd.notna(line):
+                    return "Over" if float(proj) > float(line) else ("Under" if float(proj) < float(line) else None)
+            except Exception:
+                return None
+            return None
+        if mk in {"any_td","anytime td","any time td"}:
+            try:
+                ov = row.get("over_ev")
+                un = row.get("under_ev")
+                if (ov is not None and not pd.isna(ov)) or (un is not None and not pd.isna(un)):
+                    if (ov is not None and not pd.isna(ov)) and (un is not None and not pd.isna(un)):
+                        return "Over" if float(ov) >= float(un) else "Under"
+                    return "Over" if (ov is not None and not pd.isna(ov)) else ("Under" if (un is not None and not pd.isna(un)) else None)
+            except Exception:
+                return None
+            return None
+        return None
+
+    edges_df = edges_df.copy()
+    if "market_key" not in edges_df.columns and "market" in edges_df.columns:
+        # Minimal mapping to internal keys to aid client display
+        mk_map = {
+            "receiving yards": "rec_yards",
+            "receptions": "receptions",
+            "rushing yards": "rush_yards",
+            "passing yards": "pass_yards",
+            "anytime td": "any_td",
+            "any time td": "any_td",
+        }
+        try:
+            edges_df["market_key"] = edges_df["market"].astype(str).str.strip().str.lower().map(mk_map).fillna(edges_df["market"].astype(str).str.strip().str.lower())
+        except Exception:
+            pass
+    # Hide Anytime TD entries with 0% projection before grouping (per requirement)
+    try:
+        if "market_key" in edges_df.columns and "proj" in edges_df.columns:
+            # Ensure numeric comparison is safe
+            proj_num = pd.to_numeric(edges_df["proj"], errors="coerce")
+            mask_zero_atd = (edges_df["market_key"].astype(str).str.lower() == "any_td") & (proj_num.fillna(-1.0) == 0.0)
+            if mask_zero_atd.any():
+                edges_df = edges_df.loc[~mask_zero_atd].copy()
+    except Exception:
+        pass
+    try:
+        edges_df["rec_side"] = edges_df.apply(_rec_side, axis=1)
+    except Exception:
+        edges_df["rec_side"] = None
+
+    # Build games list for dropdown
+    games = []
+    try:
+        if {"home_team","away_team"}.issubset(edges_df.columns):
+            gdf = edges_df[["home_team","away_team","event"]].drop_duplicates()
+            for _, r in gdf.iterrows():
+                games.append({
+                    "event": r.get("event") or (f"{r.get('away_team')} @ {r.get('home_team')}") if (r.get('home_team') and r.get('away_team')) else None,
+                    "home_team": r.get("home_team"),
+                    "away_team": r.get("away_team"),
+                })
+        elif not bov_df.empty and {"home_team","away_team"}.issubset(bov_df.columns):
+            gdf = bov_df[["home_team","away_team","event"]].drop_duplicates()
+            for _, r in gdf.iterrows():
+                games.append({
+                    "event": r.get("event") or (f"{r.get('away_team')} @ {r.get('home_team')}") if (r.get('home_team') and r.get('away_team')) else None,
+                    "home_team": r.get("home_team"),
+                    "away_team": r.get("away_team"),
+                })
+    except Exception:
+        games = []
+
+    # Optional game filter
+    ev_param = request.args.get("event")
+    home_param = request.args.get("home_team")
+    away_param = request.args.get("away_team")
+    try:
+        if ev_param and "event" in edges_df.columns:
+            edges_df = edges_df[edges_df["event"].astype(str) == str(ev_param)]
+        elif home_param and away_param and {"home_team","away_team"}.issubset(edges_df.columns):
+            edges_df = edges_df[(edges_df["home_team"].astype(str) == str(home_param)) & (edges_df["away_team"].astype(str) == str(away_param))]
+    except Exception:
+        pass
+
+    # If no explicit filter, narrow to the first game for a concise default view
+    if not ev_param and not (home_param and away_param):
+        try:
+            if {"home_team","away_team"}.issubset(set(edges_df.columns)) and len(edges_df) > 0:
+                # Prefer earliest game_time if available
+                if "game_time" in edges_df.columns and edges_df["game_time"].notna().any():
+                    try:
+                        tmp = edges_df.copy()
+                        # game_time may be epoch ms; ensure numeric
+                        tmp["__gt"] = pd.to_numeric(tmp["game_time"], errors="coerce")
+                        first_row = tmp.sort_values("__gt").head(1)
+                        if len(first_row) == 1:
+                            ht = first_row.iloc[0].get("home_team")
+                            at = first_row.iloc[0].get("away_team")
+                            if ht is not None and at is not None:
+                                edges_df = edges_df[(edges_df["home_team"] == ht) & (edges_df["away_team"] == at)]
+                    except Exception:
+                        pass
+                # If still many games, just pick the first distinct matchup
+                if {"home_team","away_team"}.issubset(set(edges_df.columns)) and edges_df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
+                    first = edges_df[["home_team","away_team"]].drop_duplicates().head(1)
+                    ht = first.iloc[0]["home_team"]; at = first.iloc[0]["away_team"]
+                    edges_df = edges_df[(edges_df["home_team"] == ht) & (edges_df["away_team"] == at)]
+        except Exception:
+            pass
+
+    # Join minimal player context from predictions (position/team/opponent + projections)
+    player_key = None
+    try:
+        cand_name_cols = [c for c in ["display_name","player","name","player_name"] if c in preds_df.columns]
+        if cand_name_cols:
+            name_col = cand_name_cols[0]
+            preds_df = preds_df.copy()
+            # Build normalized keys using name_normalizer (fallback to simple rules if import fails)
+            try:
+                from nfl_compare.src.name_normalizer import normalize_name_loose as _nm_loose, normalize_alias_init_last as _nm_alias
+            except Exception:
+                def _nm_loose(s):
+                    return "".join(ch for ch in str(s or "").lower() if ch.isalnum())
+                def _nm_alias(s):
+                    s = str(s or "").strip().lower(); parts = [p for p in s.replace("-"," ").replace("."," ").split() if p];
+                    return f"{parts[0][:1]}{''.join(ch for ch in (parts[-1] if parts else '') if ch.isalnum())}" if parts else ""
+            preds_df["__key_player"] = preds_df[name_col].astype(str).str.strip().str.lower()
+            preds_df["__key_player_loose"] = preds_df[name_col].map(_nm_loose)
+            preds_df["__key_player_alias"] = preds_df[name_col].map(_nm_alias)
+            pcols_core = ["__key_player","__key_player_loose","__key_player_alias"]
+            proj_cols = [c for c in [
+                "position","team","opponent",
+                "pass_yards","rush_yards","rec_yards","receptions","any_td_prob"
+            ] if c in preds_df.columns]
+            # Normalize team to shared abbreviation to improve merge specificity
+            try:
+                assets = _load_team_assets()
+                # Map full name -> abbr (upper); and abbr -> abbr
+                full_to_abbr = {str(k): str(v.get("abbr") or k) for k, v in assets.items()} if isinstance(assets, dict) else {}
+                abbr_set = {str(v.get("abbr")).upper() for v in assets.values() if isinstance(v, dict) and v.get("abbr")}
+                def to_abbr(x: Optional[str]) -> Optional[str]:
+                    if x is None or (isinstance(x, float) and pd.isna(x)):
+                        return None
+                    s = str(x).strip()
+                    if not s:
+                        return None
+                    # If already abbr-like and known
+                    if s.upper() in abbr_set:
+                        return s.upper()
+                    # Try full name mapping
+                    ab = full_to_abbr.get(s)
+                    return str(ab).upper() if ab else None
+                if "team" in preds_df.columns:
+                    preds_df["__team_abbr"] = preds_df["team"].map(to_abbr)
+                else:
+                    preds_df["__team_abbr"] = None
+            except Exception:
+                preds_df["__team_abbr"] = None
+            # Build keys on edges side
+            pcol = "player" if "player" in edges_df.columns else edges_df.columns[0]
+            # Strip trailing team tags like (MIA) from player names on edges_df for consistent keys
+            edges_df[pcol] = edges_df[pcol].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
+            edges_df["__key_player"] = edges_df[pcol].astype(str).str.strip().str.lower()
+            edges_df["__key_player_loose"] = edges_df[pcol].map(_nm_loose)
+            edges_df["__key_player_alias"] = edges_df[pcol].map(_nm_alias)
+            try:
+                if "team" in edges_df.columns:
+                    edges_df["__team_abbr"] = edges_df["team"].map(lambda x: str(x).strip().upper() if pd.notna(x) and str(x).strip() else None)
+                else:
+                    edges_df["__team_abbr"] = None
+            except Exception:
+                edges_df["__team_abbr"] = None
+            player_key = "__key_player"
+            # Ensure destination columns exist for context fields before fills
+            for c in ["position","team","opponent","pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+                if c not in edges_df.columns:
+                    edges_df[c] = pd.NA
+            # Strict join
+            try:
+                # Prefer joining with team key when available to avoid name collisions
+                if "__team_abbr" in edges_df.columns and "__team_abbr" in preds_df.columns and edges_df["__team_abbr"].notna().any():
+                    edges_df = edges_df.merge(
+                        preds_df[["__key_player", "__team_abbr", *proj_cols]],
+                        on=["__key_player", "__team_abbr"],
+                        how="left",
+                        suffixes=("", "_p"),
+                    )
+                else:
+                    edges_df = edges_df.merge(
+                        preds_df[["__key_player", *proj_cols]],
+                        on="__key_player",
+                        how="left",
+                        suffixes=("", "_p"),
+                    )
+                # Coalesce merged projection/context columns into base cols and drop suffixed ones
+                for c in proj_cols:
+                    try:
+                        c_p = f"{c}_p"
+                        if c_p in edges_df.columns:
+                            # For context columns, prefer predictions value when available to avoid wrong-team artifacts
+                            if c in {"position","team","opponent"}:
+                                if c in edges_df.columns:
+                                    edges_df[c] = edges_df[c_p].where(edges_df[c_p].notna(), edges_df[c])
+                                else:
+                                    edges_df[c] = edges_df[c_p]
+                                edges_df.drop(columns=[c_p], inplace=True)
+                            else:
+                                # For numeric projections, keep existing if present; fill from predictions when missing
+                                if c in edges_df.columns:
+                                    edges_df[c] = edges_df[c].where(edges_df[c].notna(), edges_df[c_p])
+                                    edges_df.drop(columns=[c_p], inplace=True)
+                                else:
+                                    edges_df.rename(columns={c_p: c}, inplace=True)
+                    except Exception:
+                        pass
+                # Cleanup if an earlier merge created _x/_y columns (defensive)
+                for c in ["position","team","opponent","pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+                    cx, cy = f"{c}_x", f"{c}_y"
+                    if cx in edges_df.columns and cy in edges_df.columns:
+                        try:
+                            edges_df[c] = edges_df[cx].where(edges_df[cx].notna(), edges_df[cy])
+                            edges_df.drop(columns=[cx, cy], inplace=True)
+                        except Exception:
+                            # Best-effort: if base missing, rename one of them
+                            if c not in edges_df.columns:
+                                try:
+                                    edges_df.rename(columns={cx: c}, inplace=True)
+                                    edges_df.drop(columns=[cy], inplace=True)
+                                except Exception:
+                                    pass
+                # Recompute team abbreviation after potential team override
+                try:
+                    if "team" in edges_df.columns:
+                        edges_df["__team_abbr"] = edges_df["team"].map(lambda x: str(x).strip().upper() if pd.notna(x) and str(x).strip() else None)
+                except Exception:
+                    pass
+            except Exception:
+                pass
+            # Loose join fill
+            try:
+                # Trigger fill when numeric projection fields are missing after strict join
+                numeric_targets = [c for c in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob"] if c in preds_df.columns]
+                present_proj_cols = [c for c in numeric_targets if c in edges_df.columns]
+                if present_proj_cols:
+                    missing_mask = ~edges_df[present_proj_cols].notna().any(axis=1)
+                else:
+                    # No projection cols present yet -> attempt fill for all rows
+                    missing_mask = pd.Series([True] * len(edges_df), index=edges_df.index)
+                if missing_mask.any():
+                    if "__team_abbr" in edges_df.columns and "__team_abbr" in preds_df.columns and edges_df["__team_abbr"].notna().any():
+                        fill = preds_df[["__key_player_loose", "__team_abbr", *proj_cols]].rename(columns={"__key_player_loose": "__k2"})
+                        edges_df = edges_df.merge(fill, on=["__team_abbr"], left_on=["__key_player_loose","__team_abbr"], right_on=["__k2","__team_abbr"], how="left", suffixes=("", "_b"))
+                    else:
+                        fill = preds_df[["__key_player_loose", *proj_cols]].rename(columns={"__key_player_loose": "__k2"})
+                        edges_df = edges_df.merge(fill, left_on="__key_player_loose", right_on="__k2", how="left", suffixes=("", "_b"))
+                    for c in proj_cols:
+                        if c in edges_df.columns and f"{c}_b" in edges_df.columns:
+                            edges_df[c] = edges_df[c].where(edges_df[c].notna(), edges_df[f"{c}_b"])
+                    edges_df = edges_df.drop(columns=[c for c in ["__k2", *[f"{c}_b" for c in proj_cols]] if c in edges_df.columns])
+            except Exception:
+                pass
+            # Alias join fill
+            try:
+                if present_proj_cols:
+                    missing_mask = ~edges_df[present_proj_cols].notna().any(axis=1)
+                else:
+                    missing_mask = pd.Series([True] * len(edges_df), index=edges_df.index)
+                if missing_mask.any():
+                    if "__team_abbr" in edges_df.columns and "__team_abbr" in preds_df.columns and edges_df["__team_abbr"].notna().any():
+                        fill = preds_df[["__key_player_alias", "__team_abbr", *proj_cols]].rename(columns={"__key_player_alias": "__k3"})
+                        edges_df = edges_df.merge(fill, on=["__team_abbr"], left_on=["__key_player_alias","__team_abbr"], right_on=["__k3","__team_abbr"], how="left", suffixes=("", "_c"))
+                    else:
+                        fill = preds_df[["__key_player_alias", *proj_cols]].rename(columns={"__key_player_alias": "__k3"})
+                        edges_df = edges_df.merge(fill, left_on="__key_player_alias", right_on="__k3", how="left", suffixes=("", "_c"))
+                    for c in proj_cols:
+                        if c in edges_df.columns and f"{c}_c" in edges_df.columns:
+                            edges_df[c] = edges_df[c].where(edges_df[c].notna(), edges_df[f"{c}_c"])
+                    edges_df = edges_df.drop(columns=[c for c in ["__k3", *[f"{c}_c" for c in proj_cols]] if c in edges_df.columns])
+            except Exception:
+                pass
+            # Ensure core context fields are filled for display grouping and projection selection
+            try:
+                for tgt_col, key_name in [("position","position"),("team","team"),("opponent","opponent")]:
+                    if tgt_col in edges_df.columns and edges_df[tgt_col].isna().any() and key_name in preds_df.columns:
+                        miss = edges_df[tgt_col].isna()
+                        # Strict fill
+                        src1 = preds_df[["__key_player", key_name]].drop_duplicates().rename(columns={"__key_player":"__k1", key_name:"__v1"})
+                        edges_df = edges_df.merge(src1, left_on="__key_player", right_on="__k1", how="left")
+                        edges_df.loc[miss, tgt_col] = edges_df.loc[miss, tgt_col].where(edges_df.loc[miss, tgt_col].notna(), edges_df.loc[miss, "__v1"])
+                        edges_df = edges_df.drop(columns=[c for c in ["__k1","__v1"] if c in edges_df.columns])
+                        # Loose fill
+                        miss = edges_df[tgt_col].isna()
+                        if miss.any():
+                            src2 = preds_df[["__key_player_loose", key_name]].drop_duplicates().rename(columns={"__key_player_loose":"__k2", key_name:"__v2"})
+                            edges_df = edges_df.merge(src2, left_on="__key_player_loose", right_on="__k2", how="left")
+                            edges_df.loc[miss, tgt_col] = edges_df.loc[miss, tgt_col].where(edges_df.loc[miss, tgt_col].notna(), edges_df.loc[miss, "__v2"])
+                            edges_df = edges_df.drop(columns=[c for c in ["__k2","__v2"] if c in edges_df.columns])
+                            miss = edges_df[tgt_col].isna()
+                        # Alias fill
+                        if miss.any():
+                            src3 = preds_df[["__key_player_alias", key_name]].drop_duplicates().rename(columns={"__key_player_alias":"__k3", key_name:"__v3"})
+                            edges_df = edges_df.merge(src3, left_on="__key_player_alias", right_on="__k3", how="left")
+                            edges_df.loc[miss, tgt_col] = edges_df.loc[miss, tgt_col].where(edges_df.loc[miss, tgt_col].notna(), edges_df.loc[miss, "__v3"])
+                            edges_df = edges_df.drop(columns=[c for c in ["__k3","__v3"] if c in edges_df.columns])
+            except Exception:
+                pass
+            # Apply canonical team/position from predictions by player key to correct wrong-team artifacts
+            try:
+                canon = preds_df[["__key_player","team","position"]].dropna(subset=["__key_player"]).drop_duplicates()
+                edges_df = edges_df.merge(canon.rename(columns={"team":"__canon_team","position":"__canon_pos"}), on="__key_player", how="left")
+                if "__canon_team" in edges_df.columns:
+                    edges_df["team"] = edges_df["__canon_team"].where(edges_df["__canon_team"].notna(), edges_df["team"])
+                if "__canon_pos" in edges_df.columns:
+                    edges_df["position"] = edges_df["__canon_pos"].where(edges_df["__canon_pos"].notna(), edges_df["position"])
+                edges_df = edges_df.drop(columns=[c for c in ["__canon_team","__canon_pos"] if c in edges_df.columns])
+                # Recompute team abbr again after canonical override
+                try:
+                    if "team" in edges_df.columns:
+                        edges_df["__team_abbr"] = edges_df["team"].map(lambda x: str(x).strip().upper() if pd.notna(x) and str(x).strip() else None)
+                except Exception:
+                    pass
+            except Exception:
+                pass
+    except Exception:
+        player_key = None
+
+    # Group by player for card output
+    cards = []
+    try:
+        def _row_to_play(r: pd.Series) -> dict:
+            ev_pct = None
+            try:
+                if r.get("market_key") == "any_td":
+                    # Skip ATD plays with 0% projection or missing projection (no EV possible)
+                    try:
+                        proj_val = pd.to_numeric(r.get("proj"), errors="coerce")
+                        if pd.isna(proj_val) or proj_val == 0.0:
+                            return {}
+                    except Exception:
+                        pass
+                    side = r.get("rec_side")
+                    if side == "Over" and r.get("over_ev") is not None and not pd.isna(r.get("over_ev")):
+                        ev_pct = float(r.get("over_ev")) * 100.0
+                    elif side == "Under" and r.get("under_ev") is not None and not pd.isna(r.get("under_ev")):
+                        ev_pct = float(r.get("under_ev")) * 100.0
+                    # If both EVs are missing, treat as non-actionable
+                    if ev_pct is None and (
+                        (r.get("over_ev") is None or pd.isna(r.get("over_ev"))) and
+                        (r.get("under_ev") is None or pd.isna(r.get("under_ev")))
+                    ):
+                        return {}
+            except Exception:
+                ev_pct = None
+            play = {
+                "market": r.get("market") or r.get("market_key"),
+                "line": r.get("line"),
+                "proj": r.get("proj"),
+                "edge": r.get("edge"),
+                "over_price": r.get("over_price"),
+                "under_price": r.get("under_price"),
+                "side": r.get("rec_side"),
+                "ev_pct": ev_pct,
+            }
+            # Skip non-actionable plays: no side, no line, and no prices
+            try:
+                has_side = bool(play.get("side"))
+                has_line = pd.notna(play.get("line")) if play.get("line") is not None else False
+                has_price = (pd.notna(play.get("over_price")) if play.get("over_price") is not None else False) or (pd.notna(play.get("under_price")) if play.get("under_price") is not None else False)
+                if not has_side and not has_line and not has_price:
+                    return {}
+            except Exception:
+                pass
+            return play
+
+        # Determine grouping key: prefer canonical (player, team, position) only to avoid duplicates across event/home/away
+        gcols = [c for c in ["player","team","position"] if c in edges_df.columns]
+        if not gcols:
+            gcols = [c for c in ["player"] if c in edges_df.columns]
+        for _, g in edges_df.groupby(gcols, dropna=False):
+            head = g.iloc[0]
+            plays = []
+            for _, r in g.iterrows():
+                try:
+                    p = _row_to_play(r)
+                    # _row_to_play may return an empty dict to signal skip
+                    if p:
+                        plays.append(p)
+                except Exception:
+                    continue
+            # Deduplicate identical plays to avoid repeated lines (e.g., duplicated ATD entries)
+            try:
+                seen = set()
+                unique = []
+                for p in plays:
+                    def norm(v):
+                        try:
+                            return None if v is None or (isinstance(v, float) and pd.isna(v)) else v
+                        except Exception:
+                            return v
+                    key = (
+                        norm(p.get("market")),
+                        norm(p.get("line")),
+                        norm(p.get("over_price")),
+                        norm(p.get("under_price")),
+                        norm(p.get("side")),
+                        norm(p.get("ev_pct")),
+                    )
+                    if key not in seen:
+                        seen.add(key)
+                        unique.append(p)
+                plays = unique
+            except Exception:
+                pass
+            # Sort plays: EV desc (if available), else abs(edge) desc
+            try:
+                plays.sort(key=lambda x: (x.get("ev_pct") if x.get("ev_pct") is not None else (abs(x.get("edge")) if x.get("edge") is not None else -9999)), reverse=True)
+            except Exception:
+                pass
+            # If no plays remain for this player (e.g., only 0% ATD or non-actionable rows), skip the card
+            if not plays:
+                continue
+            # Projections bundle (best-effort)
+            proj_bundle = {}
+            for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+                if k in edges_df.columns:
+                    try:
+                        v = head.get(k)
+                        proj_bundle[k] = (float(v) if v is not None and not pd.isna(v) else None)
+                    except Exception:
+                        proj_bundle[k] = None
+            # If no actionable plays and no meaningful projections, skip the card
+            try:
+                has_proj = any(
+                    (proj_bundle.get(k) is not None and (proj_bundle.get(k) != 0.0 if k != "any_td_prob" else proj_bundle.get(k) > 0.0))
+                    for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]
+                )
+                if not plays and not has_proj:
+                    continue
+            except Exception:
+                pass
+            cards.append({
+                "player": head.get("player"),
+                "position": head.get("position"),
+                "team": head.get("team"),
+                "opponent": head.get("opponent"),
+                "home_team": head.get("home_team"),
+                "away_team": head.get("away_team"),
+                "event": head.get("event"),
+                "projections": proj_bundle,
+                "plays": plays,
+            })
+    except Exception:
+        cards = []
+
+    # Collapse accidental duplicate cards for the same player when team/position are identical
+    try:
+        if cards:
+            # Canonical team/position mapping from predictions at card level as a final normalization
+            try:
+                # Build map from predictions
+                _canon_map_team = {}
+                _canon_map_pos = {}
+                try:
+                    # preds_df may be out of scope if prior block failed; guard defensively
+                    _preds = preds_df if 'preds_df' in locals() else pd.DataFrame()
+                except Exception:
+                    _preds = pd.DataFrame()
+                if _preds is not None and not _preds.empty and "__key_player" in _preds.columns:
+                    for _, rr in _preds[["__key_player","team","position"]].dropna(subset=["__key_player"]).drop_duplicates().iterrows():
+                        _canon_map_team[str(rr["__key_player"]).strip().lower()] = rr.get("team")
+                        _canon_map_pos[str(rr["__key_player"]).strip().lower()] = rr.get("position")
+                for c in cards:
+                    try:
+                        pk = str(c.get("player") or "").strip().lower()
+                        ct = _canon_map_team.get(pk)
+                        cp = _canon_map_pos.get(pk)
+                        if ct:
+                            c["team"] = ct
+                        if cp:
+                            c["position"] = cp
+                    except Exception:
+                        continue
+            except Exception:
+                pass
+            merged = {}
+            for c in cards:
+                key = (str(c.get("player") or "").lower(), str(c.get("team") or "").upper(), str(c.get("position") or "").upper())
+                if key not in merged:
+                    merged[key] = c
+                else:
+                    # Merge plays, dedup by (market,line,side,price)
+                    exist = merged[key].get("plays", [])
+                    combo = {(p.get("market"), p.get("line"), p.get("side"), p.get("over_price"), p.get("under_price")) for p in exist}
+                    for p in (c.get("plays", []) or []):
+                        k = (p.get("market"), p.get("line"), p.get("side"), p.get("over_price"), p.get("under_price"))
+                        if k not in combo:
+                            exist.append(p); combo.add(k)
+                    merged[key]["plays"] = exist
+                    # Prefer projections with more non-null fields
+                    def proj_score(d):
+                        return sum(1 for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob"] if (d or {}).get(k) is not None)
+                    if proj_score(c.get("projections")) > proj_score(merged[key].get("projections")):
+                        merged[key]["projections"] = c.get("projections")
+                    # If event/home/away missing, fill from the other
+                    for fld in ["event","home_team","away_team","opponent"]:
+                        if not merged[key].get(fld) and c.get(fld):
+                            merged[key][fld] = c.get(fld)
+            cards = list(merged.values())
+    except Exception:
+        pass
+
+    # Attach team assets (logo) when available on server side for convenience
+    try:
+        assets = _load_team_assets()
+        abbr_map = {k: (v.get('abbr') or k) for k, v in assets.items()}
+        def logo_for(team: Optional[str]) -> Optional[str]:
+            if not team:
+                return None
+            a = assets.get(str(team), {})
+            if a.get("logo"):
+                return a.get("logo")
+            ab = a.get("abbr") or str(team)
+            espn_map = {"WAS": "wsh"}
+            code = espn_map.get(ab.upper(), ab.lower())
+            return f"https://a.espncdn.com/i/teamlogos/nfl/500/{code}.png"
+        for c in cards:
+            c["team_logo"] = logo_for(c.get("team"))
+            # If opponent provided, attach opponent logo for symmetry
+            c["opponent_logo"] = logo_for(c.get("opponent"))
+    except Exception:
+        pass
+
+    # JSON clean-up: coerce pandas/NumPy NA/NaT and non-finite numbers to None
+    def _js(obj):
+        try:
+            import numpy as _np  # type: ignore
+            import pandas as _pd  # type: ignore
+        except Exception:
+            _np = None
+            _pd = None
+        try:
+            # None and simple short-circuits
+            if obj is None:
+                return None
+            # Pandas NA/NaT
+            try:
+                if _pd is not None:
+                    if obj is getattr(_pd, 'NA', object()) or obj is getattr(_pd, 'NaT', object()):
+                        return None
+            except Exception:
+                pass
+            # NumPy scalars and NaN/Inf
+            if _np is not None and isinstance(obj, (_np.floating, _np.integer)):
+                val = float(obj) if isinstance(obj, _np.floating) else int(obj)
+                if isinstance(val, float) and not math.isfinite(val):
+                    return None
+                return val
+            # Native floats
+            if isinstance(obj, float):
+                return obj if math.isfinite(obj) else None
+            # Containers
+            if isinstance(obj, dict):
+                return {k: _js(v) for k, v in obj.items()}
+            if isinstance(obj, list):
+                return [_js(x) for x in obj]
+            # Pandas Timestamp -> isoformat
+            if _pd is not None and isinstance(obj, getattr(_pd, 'Timestamp', tuple())):
+                try:
+                    return obj.isoformat()
+                except Exception:
+                    return str(obj)
+            # Other scalars: if pandas NA-like, coerce via pandas.isna
+            try:
+                if _pd is not None and _pd.isna(obj):
+                    return None
+            except Exception:
+                pass
+            return obj
+        except Exception:
+            return None
+
+    _payload = {
+        "season": season_i,
+        "week": week_i,
+        "games": games,
+        "rows": len(cards),
+        "data": cards,
+    }
+    try:
+        _payload = _js(_payload)
+    except Exception:
+        # Best-effort: if sanitization fails, fall back to minimal safe structure
+        _payload = {"season": season_i, "week": week_i, "games": [], "rows": 0, "data": []}
+    return jsonify(_payload)
+
+
+@app.route("/props/recommendations")
+def props_recommendations_page():
+    """Simple UI for props recommendations with week and game filters."""
+    return render_template("props_recommendations.html")
+
+
+# Backward-compat/typo alias: "/props/recomendations" -> "/props/recommendations"
+@app.route("/props/recomendations")
+def props_recommendations_typo():
+    from flask import redirect
+    return redirect("/props/recommendations", code=302)
+
+
 @app.route("/reconciliation")
 def reconciliation_page():
     return render_template("reconciliation.html")
@@ -4555,7 +5441,7 @@ def reconciliation_page():
 if __name__ == "__main__":
     # Local dev: python app.py
     # Control debug and reloader via env to avoid churn in some environments (e.g., Windows + heavy deps)
-    port = int(os.environ.get("PORT", 5055))
+    port = int(os.environ.get("PORT", 5050))
     debug = str(os.environ.get("FLASK_DEBUG", "0")).strip().lower() in {"1","true","yes","y"}
     use_reloader = str(os.environ.get("FLASK_USE_RELOADER", "0")).strip().lower() in {"1","true","yes","y"}
     # Threaded improves responsiveness; disable reloader by default (can be re-enabled with FLASK_USE_RELOADER=1)

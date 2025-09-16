@@ -15,7 +15,7 @@ Requirements: Python 3.11+, pip, virtualenv recommended.
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
-python app.py  # http://localhost:5055
+python app.py  # http://localhost:5050
 ```
 
 Optional data refresh (training + predict):

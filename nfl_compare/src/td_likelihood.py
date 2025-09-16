@@ -19,21 +19,39 @@ def _implied_points(row: pd.Series) -> Tuple[Optional[float], Optional[float]]:
     """Return implied points (home, away) from total and home spread if available.
 
     Uses: home_points = (total + margin) / 2, where margin = -spread_home.
-    Fallbacks to close_* if needed. Returns (None, None) if insufficient info.
+    Robustness:
+    - Treat zero/invalid totals as missing and prefer close_* fallbacks.
+    - If spread missing, assume 0 (pick'em) rather than failing.
+    Returns (None, None) if insufficient info.
     """
-    total = row.get("total")
-    spread_home = row.get("spread_home")
-    # reasonable fallbacks to closing lines
-    if (pd.isna(total) or total is None) and ("close_total" in row):
-        total = row.get("close_total")
-    if (pd.isna(spread_home) or spread_home is None) and ("close_spread_home" in row):
-        spread_home = row.get("close_spread_home")
+    # Prefer posted closing numbers when available; treat non-positive totals as missing.
+    total_candidates = [row.get("total"), row.get("close_total") if "close_total" in row else None]
+    spread_candidates = [row.get("spread_home"), row.get("close_spread_home") if "close_spread_home" in row else None]
 
-    try:
-        total_f = float(total)
-        spread_f = float(spread_home)
-    except Exception:
+    total_f: Optional[float] = None
+    for v in total_candidates:
+        try:
+            f = float(v)
+            if np.isfinite(f) and f > 0.0:
+                total_f = f
+                break
+        except Exception:
+            continue
+
+    spread_f: Optional[float] = None
+    for v in spread_candidates:
+        try:
+            f = float(v)
+            if np.isfinite(f):
+                spread_f = f
+                break
+        except Exception:
+            continue
+
+    if total_f is None:
         return None, None
+    if spread_f is None:
+        spread_f = 0.0
 
     margin = -spread_f  # home expected margin (home - away)
     home_pts = (total_f + margin) / 2.0
@@ -80,11 +98,18 @@ def _weather_factor(row: pd.Series) -> float:
 def _pace_factor(pace_secs_play_prior: Optional[float], league_avg_pace: float) -> float:
     """Convert pace (seconds per play) into a small factor around 1.0.
     Faster than league (lower seconds/play) => >1; slower => <1; clamp to [0.9, 1.1].
+    Treat non-finite values as neutral (1.0).
     """
     try:
         if pace_secs_play_prior is None or pd.isna(pace_secs_play_prior):
             return 1.0
-        f = float(league_avg_pace) / float(pace_secs_play_prior)
+        num = float(league_avg_pace)
+        den = float(pace_secs_play_prior)
+        if not np.isfinite(num) or not np.isfinite(den) or den <= 0:
+            return 1.0
+        f = num / den
+        if not np.isfinite(f):
+            return 1.0
         return float(np.clip(f, 0.9, 1.1))
     except Exception:
         return 1.0
@@ -93,12 +118,22 @@ def _pace_factor(pace_secs_play_prior: Optional[float], league_avg_pace: float) 
 def _epa_factor(off_prior: Optional[float], opp_def_prior: Optional[float], beta: float = 2.0) -> float:
     """Transform (off - opp_def) EPA/play into a multiplicative factor using exp(beta * diff),
     clamped to a modest range [0.7, 1.3] to avoid extreme uncalibrated swings.
+    Non-finite inputs are treated as 0.
     """
     try:
-        o = float(off_prior) if off_prior is not None else 0.0
-        d = float(opp_def_prior) if opp_def_prior is not None else 0.0
+        def _safe(x: Optional[float]) -> float:
+            try:
+                f = float(x) if x is not None else 0.0
+                return f if np.isfinite(f) else 0.0
+            except Exception:
+                return 0.0
+
+        o = _safe(off_prior)
+        d = _safe(opp_def_prior)
         diff = o - d
         val = float(np.exp(beta * diff))
+        if not np.isfinite(val):
+            return 1.0
         return float(np.clip(val, 0.7, 1.3))
     except Exception:
         return 1.0

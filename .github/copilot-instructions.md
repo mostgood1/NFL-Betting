@@ -119,6 +119,40 @@ Checklist:
 | `RENDER` | Deployment flag (truthy on Render) | Used to gate expensive ops |
 | `ADMIN_TOKEN` | Protect admin endpoints | Required for sensitive routes |
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
+| `PROPS_QB_RZ_BASE` | Baseline QB red-zone rush rate for biasing | Default 0.10; affects QB any-time TD via RZ bias |
+| `PROPS_QB_RZ_CAP` | Max QB RZ rush bias multiplier | Default 1.30 (was 1.25 hard-coded) |
+| `PROPS_QB_RZ_SHARE_SCALE` | Scale to convert QB non-RZ rush share to RZ rush share | Default 0.95 (was 0.80 hard-coded) |
+| `PROPS_QB_RZ_SHARE_MIN` | Minimum QB RZ rush share | Default 0.005 |
+| `PROPS_QB_RZ_SHARE_MAX` | Maximum QB RZ rush share | Default 0.20 |
+| `PROPS_ENFORCE_TEAM_USAGE` | Scale per-team targets/rush attempts to match team totals | Default 0 (off) |
+| `PROPS_ENFORCE_TEAM_YARDS` | Scale per-team rec_yards/rush_yards to match team totals | Default 0 (off) |
+| `PROPS_ENFORCE_TEAM_TDS` | Scale per-team rec_tds/rush_tds to match team totals | Default 0 (off) |
+| `PROPS_TEAM_USAGE_SCALE_MIN` | Lower bound for usage scaling factor | Default 0.80 |
+| `PROPS_TEAM_USAGE_SCALE_MAX` | Upper bound for usage scaling factor | Default 1.20 |
+| `PROPS_TEAM_RECV_YDS_SCALE_MIN` | Lower bound for rec_yards scaling | Default 0.60 |
+| `PROPS_TEAM_RECV_YDS_SCALE_MAX` | Upper bound for rec_yards scaling | Default 1.60 |
+| `PROPS_TEAM_RUSH_YDS_SCALE_MIN` | Lower bound for rush_yards scaling | Default 0.60 |
+| `PROPS_TEAM_RUSH_YDS_SCALE_MAX` | Upper bound for rush_yards scaling | Default 1.60 |
+| `PROPS_TEAM_TDS_SCALE_MIN` | Lower bound for TDs scaling | Default 0.80 |
+| `PROPS_TEAM_TDS_SCALE_MAX` | Upper bound for TDs scaling | Default 1.20 |
+| `PROPS_POS_WR_REC_YDS` | Multiplier for WR receiving yards projections | Default 1.02 (range 0.80–1.20) |
+| `PROPS_POS_TE_REC_YDS` | Multiplier for TE receiving yards projections | Default 0.98 (range 0.80–1.20) |
+| `PROPS_POS_TE_REC` | Multiplier for TE receptions projections | Default 0.98 (range 0.80–1.20) |
+| `PROPS_POS_QB_PASS_YDS` | Multiplier for QB passing yards projections | Default 0.97 (range 0.70–1.20) |
+| `PROPS_POS_QB_PASS_TDS` | Multiplier for QB passing TD projections | Default 1.02 (range 0.70–1.20) |
+| `PROPS_QB_TD_RATE_HI` | Upper cap for elite QB per-attempt TD rate prior | Default 0.075 (range 0.05–0.10) |
+| `PROPS_QB_PRIOR_WEIGHT` | Blend weight for QB passing priors | Default 0.35 (range 0.0–0.8) |
+| `PROPS_CALIB_ALPHA` | Calibration weight for volume (targets/rush attempts) from prior-week reconciliation | Default 0.35 (0–1) |
+| `PROPS_CALIB_BETA` | Calibration weight for yards-per-volume (ypt/ypc proxy) | Default 0.30 (0–1) |
+| `PROPS_CALIB_GAMMA` | Calibration weight for receptions via catch rate | Default 0.25 (0–1) |
+| `PROPS_CALIB_QB` | Calibration weight for QB pass attempts/yards/TD/INT | Default 0.40 (0–1) |
+| `PROPS_JITTER_SCALE` | Scale 0–1 to reduce/increase random jitter in outputs | Default 1.0 |
+| `PROPS_OBS_BLEND` | Observed share blend for weeks > 1 (0–1) | Default 0.45 |
+| `PROPS_EMA_BLEND` | EMA blend for team pass rate and plays (0–1) | Default 0.50 |
+| `PROPS_QB_SHARE_MIN` | Lower clamp for QB rush share when deriving from priors | Default 0.015 |
+| `PROPS_QB_SHARE_MAX` | Upper clamp for QB rush share when deriving from priors | Default 0.28 |
+| `PROPS_QB_SHARE_DEFAULT` | Default QB rush share when no priors found | Default 0.07 |
+| `PROPS_QB_OBS_BLEND` | Weight to blend observed SoD QB rush_share into week>1 estimates | Default 0.60 |
 
 When adding new env vars: document them here and in `README.md`.
 

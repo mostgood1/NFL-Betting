@@ -16,9 +16,17 @@ def expected_score(elo_a, elo_b, home_adv=0.0):
 
 
 def update_elo(elo_a, elo_b, score_a, score_b, k=K, home=False):
+    # Handle missing/NaN scores: no update to ELO
+    try:
+        sa = float(score_a)
+        sb = float(score_b)
+        if not (np.isfinite(sa) and np.isfinite(sb)):
+            return elo_a
+    except Exception:
+        return elo_a
     exp_a = expected_score(elo_a, elo_b, HOME_ADV if home else 0.0)
-    result_a = 1.0 if score_a > score_b else (0.5 if score_a == score_b else 0.0)
-    margin = abs(score_a - score_b)
+    result_a = 1.0 if sa > sb else (0.5 if sa == sb else 0.0)
+    margin = abs(sa - sb)
     margin_mult = np.log(max(margin, 1) + 1.0)
     delta = k * margin_mult * (result_a - exp_a)
     return elo_a + delta
@@ -31,22 +39,35 @@ def compute_elo(games: pd.DataFrame) -> pd.DataFrame:
     games_sorted = games.sort_values(['season', 'week'])
     for _, g in games_sorted.iterrows():
         home, away = g['home_team'], g['away_team']
-        hs, as_ = g['home_score'], g['away_score']
+        # Coerce scores to floats and handle missing
+        try:
+            hs = float(pd.to_numeric(g.get('home_score'), errors='coerce'))
+        except Exception:
+            hs = float('nan')
+        try:
+            as_ = float(pd.to_numeric(g.get('away_score'), errors='coerce'))
+        except Exception:
+            as_ = float('nan')
         elo_home, elo_away = elos.get(home, initial_elo()), elos.get(away, initial_elo())
         rows.append({
             'game_id': g['game_id'],
             'elo_home_pre': elo_home,
             'elo_away_pre': elo_away,
         })
-        # update after game
-        new_home = update_elo(elo_home, elo_away, hs, as_, home=True)
-        new_away = update_elo(elo_away, elo_home, as_, hs, home=False)
-        elos[home] = new_home
-        elos[away] = new_away
+        # update after game only if scores are present
+        try:
+            if pd.notna(hs) and pd.notna(as_):
+                new_home = update_elo(elo_home, elo_away, hs, as_, home=True)
+                new_away = update_elo(elo_away, elo_home, as_, hs, home=False)
+                elos[home] = new_home
+                elos[away] = new_away
+        except Exception:
+            # If any issue occurs, keep previous elos and continue
+            pass
     return pd.DataFrame(rows)
 
 
-def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.DataFrame) -> pd.DataFrame:
+def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.DataFrame, weather: pd.DataFrame | None = None) -> pd.DataFrame:
     elo = compute_elo(games)
     df = games.merge(elo, on='game_id', how='left')
 
@@ -67,6 +88,13 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
 
     # lines
     df = df.merge(lines[['game_id', 'spread_home', 'total', 'close_spread_home', 'close_total']], on='game_id', how='left')
+
+    # optional weather join by game_id
+    if weather is not None and not weather.empty:
+        # Accept common weather column names
+        wcols = [c for c in weather.columns if c in ['game_id','wx_temp_f','wx_wind_mph','wx_precip_pct','wx_precip_type','wx_sky','roof','surface','neutral_site']]
+        if 'game_id' in wcols:
+            df = df.merge(weather[wcols], on='game_id', how='left')
 
     # target engineering
     df['home_margin'] = df['home_score'] - df['away_score']

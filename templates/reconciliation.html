@@ -39,7 +39,21 @@
   let sortCol = 'player'; let sortDir = 'asc';
   let showMatch = false;
     function sortBy(col){ if(sortCol===col){ sortDir = (sortDir==='asc'?'desc':'asc'); } else { sortCol = col; sortDir = 'asc'; } renderTable(); }
-    function cmpVals(a,b,key){ let useAbs=false; let k=key; if(typeof key==='string' && key.startsWith('abs|')){ useAbs=true; k=key.slice(4);} const av=a?.[k]; const bv=b?.[k]; const na=(typeof av==='number') || (typeof av==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(av).trim())); const nb=(typeof bv==='number') || (typeof bv==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(bv).trim())); if(na&&nb){ let va=(typeof av==='number')?av:parseFloat(av); let vb=(typeof bv==='number')?vb:parseFloat(bv); if(useAbs){ va=Math.abs(va); vb=Math.abs(vb);} return sortDir==='asc' ? (va-vb) : (vb-va);} const sa=String(av??''); const sb=String(bv??''); return sortDir==='asc' ? sa.localeCompare(sb) : sb.localeCompare(sa); }
+    function cmpVals(a,b,key){
+      let useAbs=false; let k=key;
+      if(typeof key==='string' && key.startsWith('abs|')){ useAbs=true; k=key.slice(4);}
+      const av=a?.[k]; const bv=b?.[k];
+      const na=(typeof av==='number') || (typeof av==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(av).trim()));
+      const nb=(typeof bv==='number') || (typeof bv==='string' && /^[-+]?\d+(?:\.\d+)?$/.test(String(bv).trim()));
+      if(na&&nb){
+        let va=(typeof av==='number')?av:parseFloat(av);
+        let vb=(typeof bv==='number')?bv:parseFloat(bv);
+        if(useAbs){ va=Math.abs(va); vb=Math.abs(vb);} 
+        return sortDir==='asc' ? (va-vb) : (vb-va);
+      }
+      const sa=String(av??''); const sb=String(bv??'');
+      return sortDir==='asc' ? sa.localeCompare(sb) : sb.localeCompare(sa);
+    }
     function fmt(n){
       if(n===null||n===undefined) return '';
       // Numbers: always 2 decimals
@@ -65,6 +79,12 @@
       }
       return String(n);
     }
+      // Shared metric short labels used in both table and summary renders
+      const metricShort = (m)=>({
+        pass_attempts:'Att', pass_yards:'Yds', pass_tds:'TD', interceptions:'INT',
+        rush_attempts:'Att', rush_yards:'Yds', rush_tds:'TD',
+        targets:'Tgt', receptions:'Rec', rec_yards:'Yds', rec_tds:'TD'
+      }[m]||m);
     function updateSortIndicators(theadSelector, activeKey, dir){
       try{
         const thead=document.querySelector(theadSelector);
@@ -86,16 +106,11 @@
 
       // Determine column groups based on selected position
       const posSel = (document.getElementById('position')?.value||'').toUpperCase();
-      const groupsAll = {
+  const groupsAll = {
         PASS: { label: 'Passing', metrics: ['pass_attempts','pass_yards','pass_tds','interceptions'] },
         RUSH: { label: 'Rushing', metrics: ['rush_attempts','rush_yards','rush_tds'] },
         REC:  { label: 'Receiving', metrics: ['targets','receptions','rec_yards','rec_tds'] }
       };
-      const metricShort = (m)=>({
-        pass_attempts:'Att', pass_yards:'Yds', pass_tds:'TD', interceptions:'INT',
-        rush_attempts:'Att', rush_yards:'Yds', rush_tds:'TD',
-        targets:'Tgt', receptions:'Rec', rec_yards:'Yds', rec_tds:'TD'
-      }[m]||m);
       let groupOrder;
       if(posSel==='QB') groupOrder = ['PASS','RUSH'];
       else if(posSel==='RB') groupOrder = ['RUSH','REC'];
@@ -174,6 +189,24 @@
       }
       catch(e){ document.getElementById('meta').textContent='Error'; }
     }
+    async function populateTeams(){
+      try{
+        const season=document.getElementById('season').value; const week=document.getElementById('week').value;
+        const sel=document.getElementById('team'); if(!season||!week||!sel){ return; }
+        // Fetch props for the same slate to enumerate teams quickly
+        const p=new URLSearchParams({season, week});
+        const res = await fetch('/api/player-props?'+p.toString());
+        const js = await res.json();
+        const rows = Array.isArray(js?.data) ? js.data : [];
+        const teams = Array.from(new Set(rows.map(r=>String(r.team||'').trim()).filter(x=>x))).sort((a,b)=>a.localeCompare(b));
+        const current = sel.value;
+        sel.innerHTML='';
+        const optAll = document.createElement('option'); optAll.value=''; optAll.textContent='All teams'; sel.appendChild(optAll);
+        for(const t of teams){ const o=document.createElement('option'); o.value=t; o.textContent=t; sel.appendChild(o); }
+        // preserve selection if still present
+        if(current && teams.includes(current)){ sel.value = current; }
+      }catch(e){ /* ignore; leave existing options */ }
+    }
     let reconSummary=[]; let sumSortCol='position'; let sumSortDir='asc';
     function sortSummaryBy(col){ if(sumSortCol===col){ sumSortDir=(sumSortDir==='asc'?'desc':'asc'); } else { sumSortCol=col; sumSortDir='asc'; } renderSummary(); }
   function renderSummary(summary){
@@ -248,7 +281,7 @@
           if(!wEl.value){ wEl.value = prevWeek; }
           // Also set Props nav link to current week
           try{ const pl=document.getElementById('navProps'); if(pl){ pl.href = `/props?season=${encodeURIComponent(js.season)}&week=${encodeURIComponent(js.week)}`; } }catch(e){}
-          if(sEl.value && wEl.value){ fetchRecon(); }
+      if(sEl.value && wEl.value){ await populateTeams(); fetchRecon(); }
         }
       } catch(e){}
     }
@@ -256,6 +289,8 @@
       try{ document.querySelectorAll('.filters input, .filters select').forEach(el=>{
         el.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter'){ ev.preventDefault(); fetchRecon(); } });
       }); }catch(e){}
+    try{ document.getElementById('season').addEventListener('change', ()=>{ populateTeams(); }); }catch(e){}
+    try{ document.getElementById('week').addEventListener('change', ()=>{ populateTeams(); }); }catch(e){}
     });
   </script>
 </head>
@@ -275,7 +310,11 @@
           <option>TE</option>
         </select>
       </label>
-  <label>Team <input id="team" placeholder="KC" /></label>
+      <label>Team
+        <select id="team">
+          <option value="">All teams</option>
+        </select>
+      </label>
   <label><input id="showMatch" type="checkbox" onchange="showMatch=this.checked; renderTable();" /> Show match indicator</label>
   <label><input id="refresh" type="checkbox" /> Refresh</label>
   <button type="button" onclick="fetchRecon()">Load</button>

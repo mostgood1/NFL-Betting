@@ -1705,23 +1705,29 @@ def _split_tds(team_row: pd.Series) -> Dict[str, float]:
 
 def _expected_plays(team_row: pd.Series) -> float:
     # Use pace prior if present; map seconds/play to plays via baseline 60 minutes * ~ (60 sec/min) / secs_per_play ~= 3600 / spp
-    spp = team_row.get("pace_prior") or team_row.get("home_pace_prior") or team_row.get("away_pace_prior")
-    try:
-        spp = float(spp)
-        if spp > 0:
-            plays = 3600.0 / spp
-            return float(np.clip(plays, 55.0, 72.0))
-    except Exception:
-        pass
+    # Select the first finite pace value among possible columns
+    spp = None
+    for key in ("pace_prior", "home_pace_prior", "away_pace_prior"):
+        if key in team_row.index:
+            try:
+                v = float(team_row.get(key))
+                if np.isfinite(v) and v > 0:
+                    spp = v
+                    break
+            except Exception:
+                continue
+    if spp is not None:
+        plays = 3600.0 / spp
+        return float(np.clip(plays, 55.0, 72.0))
     # Fallback: derive a small adjustment from offensive minus defensive EPA priors
-    try:
-        o = float(team_row.get("off_epa_prior") or 0.0)
-    except Exception:
-        o = 0.0
-    try:
-        d = float(team_row.get("opp_def_epa_prior") or 0.0)
-    except Exception:
-        d = 0.0
+    def _safe0(x) -> float:
+        try:
+            v = float(x)
+            return v if np.isfinite(v) else 0.0
+        except Exception:
+            return 0.0
+    o = _safe0(team_row.get("off_epa_prior"))
+    d = _safe0(team_row.get("opp_def_epa_prior"))
     diff = o - d
     adj = float(np.tanh(3.0 * diff))  # ~[-0.76, 0.76]
     return float(np.clip(LEAGUE_PLAYS_PER_TEAM * (1.0 + 0.05 * adj), 58.0, 70.0))
@@ -1729,17 +1735,22 @@ def _expected_plays(team_row: pd.Series) -> float:
 
 def _efficiency_scaler(team_row: pd.Series) -> float:
     # Convert (off_epa_prior - opp_def_epa_prior) to small multiplier
-    try:
-        o = float(team_row.get("off_epa_prior") or 0.0)
-    except Exception:
-        o = 0.0
-    try:
-        d = float(team_row.get("opp_def_epa_prior") or 0.0)
-    except Exception:
-        d = 0.0
+    def _safe0(x) -> float:
+        try:
+            v = float(x)
+            return v if np.isfinite(v) else 0.0
+        except Exception:
+            return 0.0
+    o = _safe0(team_row.get("off_epa_prior"))
+    d = _safe0(team_row.get("opp_def_epa_prior"))
     diff = o - d
-    val = float(np.exp(2.0 * diff))
-    return float(np.clip(val, 0.85, 1.15))
+    try:
+        val = float(np.exp(2.0 * diff))
+        if not np.isfinite(val):
+            return 1.0
+        return float(np.clip(val, 0.85, 1.15))
+    except Exception:
+        return 1.0
 
 
 def compute_player_props(season: int, week: int) -> pd.DataFrame:
@@ -1786,7 +1797,21 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     te_rec_yards_mult = _cfg_float('PROPS_POS_TE_REC_YDS', 0.98, 0.80, 1.20)
     te_rec_mult = _cfg_float('PROPS_POS_TE_REC', 0.98, 0.80, 1.20)
     qb_py_mult = _cfg_float('PROPS_POS_QB_PASS_YDS', 0.97, 0.70, 1.20)
-    qb_ptd_mult = _cfg_float('PROPS_POS_QB_PASS_TDS', 0.95, 0.70, 1.20)
+    # Slightly higher default multiplier for QB pass TDs; can be tuned via env
+    qb_ptd_mult = _cfg_float('PROPS_POS_QB_PASS_TDS', 1.02, 0.70, 1.20)
+    # Allow an env-configurable upper clamp for elite QB TD rate priors (per-attempt)
+    qb_td_rate_hi = _cfg_float('PROPS_QB_TD_RATE_HI', 0.075, 0.05, 0.10)
+    # QB red-zone rushing tuning
+    qb_rz_base = _cfg_float('PROPS_QB_RZ_BASE', 0.10, 0.05, 0.20)          # baseline RZ rush rate for QB priors biasing
+    qb_rz_cap = _cfg_float('PROPS_QB_RZ_CAP', 1.30, 1.00, 1.60)             # max multiplicative bias for QB RZ rush bias
+    qb_rz_share_scale = _cfg_float('PROPS_QB_RZ_SHARE_SCALE', 0.95, 0.70, 1.30)  # scale applied to QB non-RZ rush share to derive RZ rush share
+    qb_rz_share_min = _cfg_float('PROPS_QB_RZ_SHARE_MIN', 0.005, 0.0, 0.10)
+    qb_rz_share_max = _cfg_float('PROPS_QB_RZ_SHARE_MAX', 0.20, 0.05, 0.35)
+    # New: QB rushing share clamp + blending knobs
+    qb_share_min = _cfg_float('PROPS_QB_SHARE_MIN', 0.015, 0.0, 0.40)
+    qb_share_max = _cfg_float('PROPS_QB_SHARE_MAX', 0.28, 0.05, 0.50)
+    qb_share_default = _cfg_float('PROPS_QB_SHARE_DEFAULT', 0.07, 0.0, 0.30)
+    qb_obs_blend = _cfg_float('PROPS_QB_OBS_BLEND', 0.60, 0.0, 1.0)
     # New: QB passing priors blend weight
     qb_prior_w = _cfg_float('PROPS_QB_PRIOR_WEIGHT', 0.35, 0.0, 0.8)
     # Load QB passing priors once (for current season context)
@@ -1850,41 +1875,51 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     plays = float(np.clip((1.0 - w_ema) * plays_base + w_ema * ema_pl, 58.0, 72.0))
                 except Exception:
                     plays = plays_base
-        # Pass/rush rates for volume
-        pr = None
-        if is_home:
-            pr = tr.get("home_pass_rate_prior")
-        else:
-            pr = tr.get("away_pass_rate_prior")
-        # Prefer provided prior; else derive a pass rate from EPA differential for variety
-        pr_val = _safe_float(pr, float('nan'))
+        # Pass/rush rates for volume (robust to NaNs)
+        pr_raw = tr.get("home_pass_rate_prior") if is_home else tr.get("away_pass_rate_prior")
+        pr_val = _safe_float(pr_raw, float('nan'))
+        def _safe0_num(x) -> float:
+            try:
+                v = float(x)
+                return v if np.isfinite(v) else 0.0
+            except Exception:
+                return 0.0
         if not np.isfinite(pr_val):
-            try:
-                o = float(tr.get("off_epa_prior") or 0.0)
-            except Exception:
-                o = 0.0
-            try:
-                d = float(tr.get("opp_def_epa_prior") or 0.0)
-            except Exception:
-                d = 0.0
+            o = _safe0_num(tr.get("off_epa_prior"))
+            d = _safe0_num(tr.get("opp_def_epa_prior"))
             # Map EPA diff to pass tendency around 0.55 ± 0.1
-            pr_val = 0.55 + 0.10 * float(np.tanh(4.0 * (o - d)))
+            val = 0.55 + 0.10 * float(np.tanh(4.0 * (o - d)))
+            pr_val = val if np.isfinite(val) else LEAGUE_PASS_RATE
         # Blend pass rate with EMA if available
-        pass_rate = float(np.clip(pr_val, 0.45, 0.70))
+        base_pass_rate = float(np.clip(pr_val, 0.45, 0.70)) if np.isfinite(pr_val) else LEAGUE_PASS_RATE
+        pass_rate = base_pass_rate
         if ema_all is not None and not ema_all.empty:
             em = ema_all[ema_all['team'] == team]
             if not em.empty and pd.notna(em.iloc[0].get('pass_rate_ema')):
                 w_ema = _ema_blend_weight(0.5)
                 try:
                     ema_pr = float(em.iloc[0]['pass_rate_ema'])
-                    base_pr = pass_rate
-                    pass_rate = float(np.clip((1.0 - w_ema) * base_pr + w_ema * ema_pr, 0.45, 0.70))
+                    if not np.isfinite(ema_pr):
+                        ema_pr = base_pass_rate
+                    base_pr = base_pass_rate
+                    mixed = (1.0 - w_ema) * base_pr + w_ema * ema_pr
+                    pass_rate = float(np.clip(mixed, 0.45, 0.70))
                 except Exception:
                     pass
-        rush_rate = max(0.0, 1.0 - pass_rate)
+        if not np.isfinite(pass_rate):
+            pass_rate = LEAGUE_PASS_RATE
+        rush_rate = 1.0 - pass_rate
+        if not np.isfinite(rush_rate):
+            rush_rate = max(0.0, 1.0 - LEAGUE_PASS_RATE)
         dropbacks = plays * pass_rate
-        attempts = max(0.0, dropbacks * (1.0 - LEAGUE_SACK_RATE))
+        if not np.isfinite(dropbacks):
+            dropbacks = plays * LEAGUE_PASS_RATE
+        attempts = dropbacks * (1.0 - LEAGUE_SACK_RATE)
+        if not np.isfinite(attempts) or attempts < 0.0:
+            attempts = max(0.0, plays * LEAGUE_PASS_RATE * (1.0 - LEAGUE_SACK_RATE))
         rush_att = plays * rush_rate
+        if not np.isfinite(rush_att) or rush_att < 0.0:
+            rush_att = max(0.0, plays * (1.0 - LEAGUE_PASS_RATE))
         eff = _efficiency_scaler(tr)
         team_pass_yards = attempts * LEAGUE_YPA * eff
         team_rush_yards = rush_att * LEAGUE_YPC * eff
@@ -3181,6 +3216,129 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             pass
         _dump_depth(team, '04_after_drop_noname', depth)
 
+        # If all base shares are zero (no priors/ESPN depth), synthesize a conservative baseline
+        # to avoid zero/NaN projections. Distribute targets across WR/TE/RB and rush across RBs
+        # while respecting any QB rush share already set.
+        try:
+            share_cols = ['rush_share','target_share','rz_rush_share','rz_target_share']
+            for c in share_cols:
+                if c not in depth.columns:
+                    depth[c] = 0.0
+                depth[c] = pd.to_numeric(depth[c], errors='coerce').fillna(0.0)
+            # Consider only active players when allocating baselines
+            act_mask = pd.Series(True, index=depth.index)
+            if 'is_active' in depth.columns:
+                try:
+                    act_mask = depth['is_active'].astype('Int64').fillna(1).eq(1)
+                except Exception:
+                    act_mask = pd.Series(True, index=depth.index)
+            # Receiving groups present in roster
+            depth['pos_up'] = depth['position'].astype(str).str.upper()
+            recv_mask_all = depth['pos_up'].isin(['WR','TE','RB']) & act_mask
+            rush_mask_all = depth['pos_up'].isin(['RB','QB']) & act_mask
+            t_sum0 = float(pd.to_numeric(depth.loc[recv_mask_all, 'target_share'], errors='coerce').fillna(0.0).sum())
+            r_sum0 = float(pd.to_numeric(depth.loc[rush_mask_all, 'rush_share'], errors='coerce').fillna(0.0).sum())
+            if (t_sum0 <= 1e-12) and (r_sum0 <= 1e-12):
+                # Determine present groups for receiving
+                has_wr = bool((depth['pos_up'] == 'WR') & act_mask).any()
+                has_te = bool((depth['pos_up'] == 'TE') & act_mask).any()
+                has_rb = bool((depth['pos_up'] == 'RB') & act_mask).any()
+                # Desired group weights; renormalize to present groups
+                desired_group = {'WR': 0.65, 'TE': 0.25, 'RB': 0.10}
+                present = {k: v for k, v in desired_group.items() if ((k == 'WR' and has_wr) or (k == 'TE' and has_te) or (k == 'RB' and has_rb))}
+                s_present = sum(present.values()) or 1.0
+                present = {k: (v / s_present) for k, v in present.items()}
+                # Helper: pick top N by depth_chart_order if present else stable order
+                def _top_idxs(mask, n, order_col='depth_chart_order'):
+                    idxs = depth.index[mask & act_mask]
+                    if len(idxs) == 0:
+                        return []
+                    df_sub = depth.loc[idxs, [order_col]].copy() if order_col in depth.columns else pd.DataFrame(index=idxs)
+                    if order_col in df_sub.columns:
+                        df_sub['_ord'] = pd.to_numeric(df_sub[order_col], errors='coerce').fillna(99).astype(int)
+                        df_sub = df_sub.sort_values(['_ord'])
+                        return list(df_sub.index[:n])
+                    # fallback: preserve existing order
+                    return list(idxs[:n])
+                # Allocate targets within each group
+                allocs = []
+                if has_wr:
+                    wr_total = present.get('WR', 0.0)
+                    wr_weights = [0.50, 0.30, 0.20]
+                    wr_idx = _top_idxs(depth['pos_up'].eq('WR'), len(wr_weights))
+                    if wr_idx:
+                        wsum = sum(wr_weights[:len(wr_idx)])
+                        for i, idx in enumerate(wr_idx):
+                            allocs.append(('WR', idx, wr_total * (wr_weights[i] / wsum)))
+                if has_te:
+                    te_total = present.get('TE', 0.0)
+                    te_weights = [0.80, 0.20]
+                    te_idx = _top_idxs(depth['pos_up'].eq('TE'), len(te_weights))
+                    if te_idx:
+                        wsum = sum(te_weights[:len(te_idx)])
+                        for i, idx in enumerate(te_idx):
+                            allocs.append(('TE', idx, te_total * (te_weights[i] / wsum)))
+                if has_rb:
+                    rb_total_tgt = present.get('RB', 0.0)
+                    rb_t_weights = [0.70, 0.30]
+                    rb_idx_t = _top_idxs(depth['pos_up'].eq('RB'), len(rb_t_weights))
+                    if rb_idx_t:
+                        wsum = sum(rb_t_weights[:len(rb_idx_t)])
+                        for i, idx in enumerate(rb_idx_t):
+                            allocs.append(('RB_T', idx, rb_total_tgt * (rb_t_weights[i] / wsum)))
+                # Zero current targets then assign
+                depth.loc[recv_mask_all, 'target_share'] = 0.0
+                for grp, idx, val in allocs:
+                    depth.at[idx, 'target_share'] = float(val)
+                # Red-zone target share: WR 0.55, TE 0.35, RB 0.10, same pattern
+                rz_group = {'WR': 0.55, 'TE': 0.35, 'RB': 0.10}
+                present_rz = {k: v for k, v in rz_group.items() if ((k == 'WR' and has_wr) or (k == 'TE' and has_te) or (k == 'RB' and has_rb))}
+                s_rz = sum(present_rz.values()) or 1.0
+                present_rz = {k: (v / s_rz) for k, v in present_rz.items()}
+                # Reuse same indices for simplicity
+                depth.loc[recv_mask_all, 'rz_target_share'] = 0.0
+                for k, v in present_rz.items():
+                    if k == 'WR' and has_wr:
+                        wr_idx = _top_idxs(depth['pos_up'].eq('WR'), 3)
+                        wts = [0.50, 0.30, 0.20]
+                        wsum = sum(wts[:len(wr_idx)]) or 1.0
+                        for i, idx in enumerate(wr_idx):
+                            depth.at[idx, 'rz_target_share'] = float(v * (wts[i] / wsum))
+                    if k == 'TE' and has_te:
+                        te_idx = _top_idxs(depth['pos_up'].eq('TE'), 2)
+                        wts = [0.80, 0.20]
+                        wsum = sum(wts[:len(te_idx)]) or 1.0
+                        for i, idx in enumerate(te_idx):
+                            depth.at[idx, 'rz_target_share'] = float(v * (wts[i] / wsum))
+                    if k == 'RB' and has_rb:
+                        rb_idx = _top_idxs(depth['pos_up'].eq('RB'), 2)
+                        wts = [0.70, 0.30]
+                        wsum = sum(wts[:len(rb_idx)]) or 1.0
+                        for i, idx in enumerate(rb_idx):
+                            depth.at[idx, 'rz_target_share'] = float(v * (wts[i] / wsum))
+                # Rushing: keep any existing QB rush share; give rest to RBs 75/25
+                qb_mask2 = depth['pos_up'].eq('QB') & act_mask
+                qb_r_share = float(pd.to_numeric(depth.loc[qb_mask2, 'rush_share'], errors='coerce').fillna(0.0).sum())
+                remain = max(0.0, 1.0 - qb_r_share)
+                rb_idx_r = _top_idxs(depth['pos_up'].eq('RB'), 2)
+                if rb_idx_r:
+                    r_wts = [0.75, 0.25]
+                    wsum = sum(r_wts[:len(rb_idx_r)]) or 1.0
+                    # Zero current RB rush shares and assign
+                    depth.loc[(depth['pos_up'].eq('RB')) & act_mask, 'rush_share'] = 0.0
+                    for i, idx in enumerate(rb_idx_r):
+                        depth.at[idx, 'rush_share'] = float(remain * (r_wts[i] / wsum))
+                # RZ rush share proportional to rush_share, with a small bias factor toward non-QB
+                try:
+                    depth['rz_rush_share'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                    r_tot = float(depth.loc[rush_mask_all, 'rz_rush_share'].sum())
+                    if r_tot > 0:
+                        depth.loc[rush_mask_all, 'rz_rush_share'] = depth.loc[rush_mask_all, 'rz_rush_share'] / r_tot
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
         # Week 1: apply TE group enforcement (80/20 TE1/TE2; TE3+ zero) on base shares before building t_eff
         try:
             if int(tr.get('week')) == 1:
@@ -3803,7 +3961,7 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             att_pg = float(row.iloc[0]['rush_att_pg'])
                     if np.isfinite(att_pg):
                         # Convert to share of team rush attempts per game (assume ~26 team rush attempts)
-                        qb_share_est = float(np.clip(att_pg / 26.0, 0.01, 0.22))
+                        qb_share_est = float(np.clip(att_pg / 26.0, qb_share_min, qb_share_max))
                 if qb_share_est is None:
                     # Fallback using efficiency priors rush_att if available (~17 games)
                     if eff_priors is not None and not eff_priors.empty:
@@ -3819,15 +3977,33 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                         if not match.empty and 'rush_att' in match.columns:
                             att = float(match['rush_att'].iloc[0])
                         if np.isfinite(att):
-                            qb_share_est = float(np.clip((att / 17.0) / 26.0, 0.01, 0.22))
+                            qb_share_est = float(np.clip((att / 17.0) / 26.0, qb_share_min, qb_share_max))
                 if qb_share_est is None:
                     # Conservative default
-                    qb_share_est = 0.06
+                    qb_share_est = float(qb_share_default)
                 # Assign estimated QB rush share; other shares will be renormalized downstream
                 depth.loc[qb_mask, 'rush_share'] = float(qb_share_est)
-                # Slightly lower QB RZ share baseline relative to non-RZ to reflect scrambles
+                # Derive QB RZ rush share from non-RZ with tunable scaling (higher captures sneak tendency)
                 if 'rz_rush_share' in depth.columns:
-                    depth.loc[qb_mask, 'rz_rush_share'] = float(np.clip(qb_share_est * 0.8, 0.005, 0.18))
+                    depth.loc[qb_mask, 'rz_rush_share'] = float(np.clip(qb_share_est * qb_rz_share_scale, qb_rz_share_min, qb_rz_share_max))
+                # If we have observed SoD usage (week > 1), blend it into QB effective rushing share to increase differentiation
+                try:
+                    if int(tr.get('week')) > 1:
+                        has_obs = ('rush_share_obs' in depth.columns)
+                        if has_obs:
+                            qb_obs = pd.to_numeric(depth.loc[qb_mask, 'rush_share_obs'], errors='coerce').fillna(np.nan)
+                            # If no observed data for this QB, fall back to estimate
+                            qb_obs = qb_obs.where(qb_obs.notna(), float(qb_share_est))
+                            qb_blend = float(np.clip((1.0 - qb_obs_blend) * float(qb_share_est) + qb_obs_blend * float(qb_obs.iloc[0] if not qb_obs.empty else qb_share_est), 0.0, 1.0))
+                            # Initialize r_blend if missing
+                            if 'r_blend' not in depth.columns:
+                                depth['r_blend'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                            depth.loc[qb_mask, 'r_blend'] = qb_blend
+                            # Keep RZ share roughly in line with non-RZ after blending
+                            if 'rz_rush_share' in depth.columns:
+                                depth.loc[qb_mask, 'rz_rush_share'] = float(np.clip(qb_blend * qb_rz_share_scale, qb_rz_share_min, qb_rz_share_max))
+                except Exception:
+                    pass
         except Exception:
             pass
         # After enforcing QB starter, recompute rushing effective shares so RB+QB sum to 1
@@ -4016,8 +4192,8 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             rr_ = float(match['rz_rush_rate'].iloc[0])
                             ra = float(match['rush_att'].iloc[0])
                             w2 = _blend_weight(ra, k=40.0)
-                            base_rr = 0.12 if pos_up == 'RB' else 0.08
-                            rz_r_bias = float(np.clip(1.0 + w2 * (rr_ - base_rr), 0.8, 1.25))
+                            base_rr = 0.12 if pos_up == 'RB' else qb_rz_base
+                            rz_r_bias = float(np.clip(1.0 + w2 * (rr_ - base_rr), 0.8, qb_rz_cap))
                 except Exception:
                     pass
             # Apply biases multiplicatively to within-team shares (will still sum to ~1 across team if biases are modest)
@@ -4086,7 +4262,8 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                         # Reasonable clamps to avoid wild priors
                         att_pg = float(np.clip(att_pg, 22.0, 44.0))
                         ypa = float(np.clip(ypa, 6.2, 8.2))
-                        td_rate = float(np.clip(td_rate, 0.030, 0.070))  # 3%..7% per attempt
+                        # 3%..7% default; allow a small bump for elite ceilings via env (e.g., 7.5%)
+                        td_rate = float(np.clip(td_rate, 0.030, float(qb_td_rate_hi)))  # per attempt
                         patt_prior = att_pg  # single game expectation
                         py_prior = patt_prior * ypa
                         ptd_prior = patt_prior * td_rate
@@ -4259,6 +4436,106 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
             out = out[out['is_active'].astype('Int64').fillna(1) == 1].copy()
     except Exception:
         pass
+    # Optional: enforce per-team consistency by scaling player sums to match team totals
+    try:
+        def _env_bool(name: str, default: str = '0') -> bool:
+            return str(os.environ.get(name, default)).strip().lower() in {'1','true','yes','on'}
+        enforce_usage = _env_bool('PROPS_ENFORCE_TEAM_USAGE', '0')
+        enforce_yards = _env_bool('PROPS_ENFORCE_TEAM_YARDS', '0')
+        enforce_tds = _env_bool('PROPS_ENFORCE_TEAM_TDS', '0')
+        # Scale bounds
+        rec_min = float(os.environ.get('PROPS_TEAM_RECV_YDS_SCALE_MIN', '0.60'))
+        rec_max = float(os.environ.get('PROPS_TEAM_RECV_YDS_SCALE_MAX', '1.60'))
+        rush_min = float(os.environ.get('PROPS_TEAM_RUSH_YDS_SCALE_MIN', '0.60'))
+        rush_max = float(os.environ.get('PROPS_TEAM_RUSH_YDS_SCALE_MAX', '1.60'))
+        use_min = float(os.environ.get('PROPS_TEAM_USAGE_SCALE_MIN', '0.80'))
+        use_max = float(os.environ.get('PROPS_TEAM_USAGE_SCALE_MAX', '1.20'))
+        tds_min = float(os.environ.get('PROPS_TEAM_TDS_SCALE_MIN', '0.80'))
+        tds_max = float(os.environ.get('PROPS_TEAM_TDS_SCALE_MAX', '1.20'))
+        grp_keys = [c for c in ['game_id','team'] if c in out.columns]
+        if grp_keys:
+            def _scale_group(df_g: pd.DataFrame) -> pd.DataFrame:
+                g = df_g.copy()
+                # Work on active players only when scaling so team sums match displayed (active) props
+                try:
+                    if 'is_active' in g.columns:
+                        act_mask = g['is_active'].astype('Int64').fillna(0) == 1
+                    else:
+                        act_mask = pd.Series(True, index=g.index)
+                except Exception:
+                    act_mask = pd.Series(True, index=g.index)
+                # Usage scaling
+                try:
+                    if enforce_usage:
+                        if {'targets','team_pass_attempts'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_pass_attempts'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'targets'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, use_min, use_max))
+                                g.loc[act_mask, 'targets'] = pd.to_numeric(g.loc[act_mask, 'targets'], errors='coerce').fillna(0.0) * f
+                                # Recompute receptions and rec_yards proportionally to targets adjustment
+                                if 'receptions' in g.columns:
+                                    g.loc[act_mask, 'receptions'] = pd.to_numeric(g.loc[act_mask, 'receptions'], errors='coerce').fillna(0.0) * f
+                                if 'rec_yards' in g.columns and not enforce_yards:
+                                    g.loc[act_mask, 'rec_yards'] = pd.to_numeric(g.loc[act_mask, 'rec_yards'], errors='coerce').fillna(0.0) * f
+                        if {'rush_attempts','team_rush_attempts'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_rush_attempts'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'rush_attempts'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, use_min, use_max))
+                                g.loc[act_mask, 'rush_attempts'] = pd.to_numeric(g.loc[act_mask, 'rush_attempts'], errors='coerce').fillna(0.0) * f
+                                if 'rush_yards' in g.columns and not enforce_yards:
+                                    g.loc[act_mask, 'rush_yards'] = pd.to_numeric(g.loc[act_mask, 'rush_yards'], errors='coerce').fillna(0.0) * f
+                except Exception:
+                    pass
+                # Yards scaling
+                try:
+                    if enforce_yards:
+                        if {'rec_yards','team_pass_yards'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_pass_yards'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'rec_yards'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, rec_min, rec_max))
+                                g.loc[act_mask, 'rec_yards'] = pd.to_numeric(g.loc[act_mask, 'rec_yards'], errors='coerce').fillna(0.0) * f
+                        if {'rush_yards','team_rush_yards'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_rush_yards'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'rush_yards'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, rush_min, rush_max))
+                                g.loc[act_mask, 'rush_yards'] = pd.to_numeric(g.loc[act_mask, 'rush_yards'], errors='coerce').fillna(0.0) * f
+                except Exception:
+                    pass
+                # TDs scaling (optional, conservative)
+                try:
+                    if enforce_tds:
+                        if {'rec_tds','team_exp_pass_tds'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_exp_pass_tds'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'rec_tds'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, tds_min, tds_max))
+                                g.loc[act_mask, 'rec_tds'] = pd.to_numeric(g.loc[act_mask, 'rec_tds'], errors='coerce').fillna(0.0) * f
+                        if {'rush_tds','team_exp_rush_tds'}.issubset(g.columns):
+                            tot = float(pd.to_numeric(g['team_exp_rush_tds'], errors='coerce').fillna(0.0).iloc[0])
+                            s = float(pd.to_numeric(g.loc[act_mask, 'rush_tds'], errors='coerce').fillna(0.0).sum())
+                            if s > 0 and tot > 0:
+                                f = float(np.clip(tot / s, tds_min, tds_max))
+                                g.loc[act_mask, 'rush_tds'] = pd.to_numeric(g.loc[act_mask, 'rush_tds'], errors='coerce').fillna(0.0) * f
+                        # Recompute any_td_prob from adjusted expected TDs
+                        if {'rec_tds','rush_tds','any_td_prob'}.issubset(g.columns):
+                            lam = (
+                                pd.to_numeric(g.loc[act_mask, 'rec_tds'], errors='coerce').fillna(0.0)
+                                + pd.to_numeric(g.loc[act_mask, 'rush_tds'], errors='coerce').fillna(0.0)
+                            )
+                            # Only update any_td_prob for active rows
+                            g.loc[act_mask, 'any_td_prob'] = (1.0 - np.exp(-lam)).astype(float)
+                except Exception:
+                    pass
+                return g
+
+            out = out.groupby(grp_keys, group_keys=False).apply(_scale_group)
+    except Exception:
+        pass
+
     # Round some quantities for presentation
     for c in [
         "team_plays","team_pass_attempts","team_rush_attempts","team_pass_yards","team_rush_yards",

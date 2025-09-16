@@ -13,6 +13,17 @@ DATA_DIR = ROOT / 'nfl_compare' / 'data'
 
 
 try:
+    # Prefer using the robust in-package reconciliation utilities,
+    # which include a local PBP parquet fallback for actuals.
+    from nfl_compare.src.reconciliation import (
+        reconcile_props as _recon_from_pkg,
+        summarize_errors as _summ_from_pkg,
+    )
+except Exception:
+    _recon_from_pkg = None  # type: ignore
+    _summ_from_pkg = None  # type: ignore
+
+try:
     from nfl_compare.src.name_normalizer import (
         normalize_name as _norm_name,
         normalize_name_loose as _norm_name_loose,
@@ -21,6 +32,22 @@ try:
 except Exception:
     def _norm_name(s: str) -> str:
         return str(s or '').strip().lower()
+    def _norm_name_loose(s: str) -> str:
+        t = str(s or '').lower()
+        return ''.join(ch for ch in t if ch.isalnum())
+    def _norm_alias_init_last(s: str) -> str:
+        t = str(s or '').strip()
+        if not t:
+            return ''
+        for ch in ['\t', '\n', '\r', '.', ',', '-', '_']:
+            t = t.replace(ch, ' ')
+        parts = [p for p in t.split(' ') if p]
+        if not parts:
+            return ''
+        first = parts[0]
+        last = parts[-1]
+        key = (first[:1] + last).lower()
+        return ''.join(ch for ch in key if ch.isalnum())
 
 
 def load_weekly_actuals(season: int, week: int) -> pd.DataFrame:
@@ -239,13 +266,18 @@ def main(argv: Optional[List[str]] = None) -> None:
     ap.add_argument('--season', type=int, required=True)
     ap.add_argument('--week', type=int, required=True)
     args = ap.parse_args(argv)
-
-    merged = reconcile_props(args.season, args.week)
+    # Prefer package implementation if available (handles local PBP fallback; avoids external 404s)
+    if _recon_from_pkg is not None and _summ_from_pkg is not None:
+        merged = _recon_from_pkg(args.season, args.week)
+        summ = _summ_from_pkg(merged)
+    else:
+        # Fallback: use local implementations
+        merged = reconcile_props(args.season, args.week)
+        summ = summarize_errors(merged)
     out_fp = DATA_DIR / f"player_props_vs_actuals_{args.season}_wk{args.week}.csv"
     out_fp.parent.mkdir(parents=True, exist_ok=True)
     merged.to_csv(out_fp, index=False)
     print(f"Wrote reconciliation CSV -> {out_fp} ({len(merged)} rows)")
-    summ = summarize_errors(merged)
     if not summ.empty:
         print("\nMAE by position (selected stats):")
         print(summ.to_string(index=False))

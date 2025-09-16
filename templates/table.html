@@ -35,7 +35,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
     <h1>NFL Predictions – Table</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
     <form class="filters" method="get" action="/table">
