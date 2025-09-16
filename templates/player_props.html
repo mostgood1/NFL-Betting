@@ -89,11 +89,14 @@
   params.set('offense', offense ? '1' : '0');
   params.set('primary_qb_only', primaryQbOnly ? '1' : '0');
   params.set('active_only', activeOnly ? '1' : '0');
-      if (force) params.set('force','1');
+        if (force) params.set('force', '1');
       try{
         document.getElementById('meta').textContent = 'Loading…';
         const res = await fetch('/api/player-props?' + params.toString());
-    const data = await res.json();
+          const data = await res.json();
+          if (data && data.note) {
+            document.getElementById('meta').textContent = data.note + (data.rows ? ` — ${data.rows} rows` : '');
+          }
   // Defaults: set inputs to inferred current week; Props page should default to current week
   let updatedDefaults = false;
   if (!season && data.season){ document.getElementById('season').value = data.season; updatedDefaults = true; }
@@ -104,6 +107,14 @@
       } catch (e){
         document.getElementById('meta').textContent = 'Error loading props';
       }
+          // Hide recompute if disabled by server env
+          try {
+            const probe = await fetch('/api/player-props');
+            const pj = await probe.json();
+            if (pj && pj.note && /disabled/i.test(pj.note)) {
+              const b = document.getElementById('btnRecompute'); if (b) b.style.display = 'none';
+            }
+          } catch (e) {}
     }
     async function populateTeams(){
       try{
@@ -151,13 +162,15 @@
         document.getElementById('week').addEventListener('change', populateTeams);
       }catch(e){}
       await fetchProps();
-      // After we know current week, set Reconciliation nav to prior week
+      // After we know current week, set Reconciliation nav to prior week and Roster Validation to current
       try{
         const season = document.getElementById('season').value;
         const week = parseInt(document.getElementById('week').value||'1',10);
         const prevWeek = Math.max(1, week-1);
         const l = document.getElementById('navRecon');
         if(l && season && prevWeek){ l.href = `/reconciliation?season=${encodeURIComponent(season)}&week=${encodeURIComponent(prevWeek)}`; }
+        const lr = document.getElementById('navRoster');
+        if(lr && season && week){ lr.href = `/roster-validation?season=${encodeURIComponent(season)}&week=${encodeURIComponent(week)}`; }
       }catch(e){}
     });
   </script>
@@ -174,7 +187,7 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recs</a> | <a href="/props">Props</a> | <a id="navRecon" href="/reconciliation">Reconciliation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/table">Table</a> | <a href="/recommendations">Recs</a> | <a href="/props">Props</a> | <a id="navRecon" href="/reconciliation">Reconciliation</a> | <a id="navRoster" href="/roster-validation" target="_blank">Roster Validation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
     <h1>NFL Player Props</h1>
     <div class="meta" id="meta"></div>
     <div class="filters">
@@ -199,7 +212,7 @@
   <label><input id="primaryQbOnly" type="checkbox" checked /> Primary QB only</label>
   <label><input id="activeOnly" type="checkbox" checked /> Active only</label>
   <button onclick="fetchProps()">Apply</button>
-  <button onclick="fetchProps(true)">Recompute</button>
+  <button id="btnRecompute" onclick="fetchProps(true)">Recompute</button>
       <a class="btn" href="#" onclick="document.getElementById('season').value='';document.getElementById('week').value='';document.getElementById('position').value='';document.getElementById('team').value='';fetchProps();return false;">Reset</a>
       <button onclick="setWeek(-1)">Prev week</button>
       <button onclick="setWeek(1)">Next week</button>

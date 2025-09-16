@@ -2441,6 +2441,8 @@ def api_player_props():
 
     pred_df = _load_predictions()
     games_df = _load_games()
+    # Respect deployment flag to avoid heavy on-request computations (especially on Render free plan)
+    disable_on_request = str(os.environ.get('DISABLE_ON_REQUEST_PREDICTIONS', '1')).strip().lower() in {'1','true','yes','y'}
 
     # Determine season/week defaults similar to other endpoints
     season = request.args.get("season")
@@ -2480,7 +2482,7 @@ def api_player_props():
         return jsonify({"rows": 0, "data": [], "note": "season/week could not be determined"})
 
     # Fast path: use precomputed CSV if available (compute only when missing or forced)
-    force = (request.args.get('force', '0').lower() in {'1','true','yes'})
+    force = (request.args.get('force', '0').lower() in {'1','true','yes'}) and (not disable_on_request)
     cache_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
     df = None
     if not force and cache_fp.exists():
@@ -2488,6 +2490,9 @@ def api_player_props():
             df = pd.read_csv(cache_fp)
         except Exception:
             df = None
+    if (df is None or df.empty) and disable_on_request:
+        # On-demand compute disabled; return empty payload with context
+        return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
             df = compute_player_props(season_i, week_i)
@@ -2638,6 +2643,7 @@ def api_player_props_csv():
 
     pred_df = _load_predictions()
     games_df = _load_games()
+    disable_on_request = str(os.environ.get('DISABLE_ON_REQUEST_PREDICTIONS', '1')).strip().lower() in {'1','true','yes','y'}
 
     season = request.args.get("season")
     week = request.args.get("week")
@@ -2673,7 +2679,7 @@ def api_player_props_csv():
         return jsonify({"rows": 0, "data": [], "note": "season/week could not be determined"})
 
     # Fast path: use precomputed CSV if available (compute only when missing or forced)
-    force = (request.args.get('force', '0').lower() in {'1','true','yes'})
+    force = (request.args.get('force', '0').lower() in {'1','true','yes'}) and (not disable_on_request)
     cache_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
     df = None
     if not force and cache_fp.exists():
@@ -2681,6 +2687,15 @@ def api_player_props_csv():
             df = pd.read_csv(cache_fp)
         except Exception:
             df = None
+    if (df is None or df.empty) and disable_on_request:
+        # On-demand compute disabled; return empty CSV with header only
+        try:
+            from flask import Response
+            empty_csv = "season,week,date,game_id,team,opponent,is_home,player,position,pass_attempts,pass_yards,pass_tds,interceptions,rush_attempts,rush_yards,rush_tds,targets,receptions,rec_yards,rec_tds,tackles,sacks,any_td_prob\n"
+            headers = {'Content-Disposition': f'attachment; filename="player_props_{season_i}_wk{week_i}.csv"'}
+            return Response(empty_csv, mimetype='text/csv', headers=headers)
+        except Exception:
+            return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
             df = compute_player_props(season_i, week_i)
