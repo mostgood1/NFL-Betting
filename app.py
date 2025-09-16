@@ -17,6 +17,7 @@ import threading
 import time
 from datetime import datetime
 import shlex
+import re
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -225,6 +226,47 @@ def _recon_cache_save_to_disk(key: tuple[int,int], df: pd.DataFrame) -> None:
         df.to_csv(fp, index=False)
     except Exception:
         pass
+
+
+def _find_latest_props_cache(prefer_season: Optional[int] = None, prefer_week: Optional[int] = None) -> Optional[tuple[Path, int, int]]:
+    """Find the most suitable player props cache file on disk.
+
+    Preference order:
+    - Exact match for prefer_season and prefer_week
+    - Same season, highest available week
+    - Any season, latest by (season, week) descending
+    Returns (path, season, week) or None if none found.
+    """
+    try:
+        pat = re.compile(r"^player_props_(\d{4})_wk(\d{1,2})\.csv$")
+        candidates: list[tuple[int,int,Path]] = []
+        for p in DATA_DIR.glob('player_props_*_wk*.csv'):
+            m = pat.match(p.name)
+            if not m:
+                continue
+            try:
+                s = int(m.group(1)); w = int(m.group(2))
+                candidates.append((s, w, p))
+            except Exception:
+                continue
+        if not candidates:
+            return None
+        # Exact match
+        if prefer_season is not None and prefer_week is not None:
+            for s, w, p in candidates:
+                if s == prefer_season and w == prefer_week:
+                    return p, s, w
+        # Same season, highest week
+        if prefer_season is not None:
+            same = [(s, w, p) for s, w, p in candidates if s == prefer_season]
+            if same:
+                s, w, p = max(same, key=lambda t: t[1])
+                return p, s, w
+        # Global latest
+        s, w, p = max(candidates, key=lambda t: (t[0], t[1]))
+        return p, s, w
+    except Exception:
+        return None
 
 
 def _load_current_week_override() -> Optional[tuple[int, int]]:
@@ -2491,8 +2533,17 @@ def api_player_props():
         except Exception:
             df = None
     if (df is None or df.empty) and disable_on_request:
-        # On-demand compute disabled; return empty payload with context
-        return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
+        # On-demand compute disabled; attempt to serve the latest available cache instead of empty
+        fallback = _find_latest_props_cache(prefer_season=season_i, prefer_week=week_i)
+        if fallback is not None:
+            fp, s_fb, w_fb = fallback
+            try:
+                df = pd.read_csv(fp)
+                season_i, week_i = s_fb, w_fb
+            except Exception:
+                df = None
+        if df is None or df.empty:
+            return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
             df = compute_player_props(season_i, week_i)
@@ -2688,14 +2739,23 @@ def api_player_props_csv():
         except Exception:
             df = None
     if (df is None or df.empty) and disable_on_request:
-        # On-demand compute disabled; return empty CSV with header only
-        try:
-            from flask import Response
-            empty_csv = "season,week,date,game_id,team,opponent,is_home,player,position,pass_attempts,pass_yards,pass_tds,interceptions,rush_attempts,rush_yards,rush_tds,targets,receptions,rec_yards,rec_tds,tackles,sacks,any_td_prob\n"
-            headers = {'Content-Disposition': f'attachment; filename="player_props_{season_i}_wk{week_i}.csv"'}
-            return Response(empty_csv, mimetype='text/csv', headers=headers)
-        except Exception:
-            return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
+        # On-demand compute disabled; serve latest available cache if possible
+        fallback = _find_latest_props_cache(prefer_season=season_i, prefer_week=week_i)
+        if fallback is not None:
+            fp, s_fb, w_fb = fallback
+            try:
+                df = pd.read_csv(fp)
+                season_i, week_i = s_fb, w_fb
+            except Exception:
+                df = None
+        if df is None or df.empty:
+            try:
+                from flask import Response
+                empty_csv = "season,week,date,game_id,team,opponent,is_home,player,position,pass_attempts,pass_yards,pass_tds,interceptions,rush_attempts,rush_yards,rush_tds,targets,receptions,rec_yards,rec_tds,tackles,sacks,any_td_prob\n"
+                headers = {'Content-Disposition': f'attachment; filename="player_props_{season_i}_wk{week_i}.csv"'}
+                return Response(empty_csv, mimetype='text/csv', headers=headers)
+            except Exception:
+                return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": "on-demand props computation disabled; generate cache offline"})
     if df is None or df.empty:
         try:
             df = compute_player_props(season_i, week_i)
