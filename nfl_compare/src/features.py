@@ -121,8 +121,8 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
         if c not in out.columns:
             # If team column missing, no-op
             return df
-    # Sort left
-    out = out.sort_values(['season', side_team, 'week_for_stats'])
+    # Sort left and right for merge_asof stability
+    out = out.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
     # First, try an exact merge on week_for_stats == ts_week (i.e., prior week exactly)
     exact_cols = ['season', side_team]
     right_keys = exact_cols + (['ts_week'] if 'ts_week' in ts_side.columns else [])
@@ -143,8 +143,8 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
             need_asof = merged['ts_week'].isna()
             if need_asof.any():
                 left_asof = merged.loc[need_asof, :].drop(columns=[c for c in ts_side.columns if c in merged.columns], errors='ignore')
-                left_asof = left_asof.sort_values(['season', side_team, 'week_for_stats'])
-                ts_sorted = ts_side.sort_values([c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns])
+                left_asof = left_asof.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
+                ts_sorted = ts_side.sort_values([c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns], kind='mergesort')
                 asof_part = pd.merge_asof(
                     left_asof,
                     ts_sorted,
