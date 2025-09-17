@@ -98,10 +98,15 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     # Keep only columns present before renaming
     rename_map = {k: v for k, v in rename_map.items() if k in ts.columns}
     ts_side = ts.rename(columns=rename_map).copy()
-    # Ensure types for merge_asof
+    # Ensure types for merge_asof and exact-int join
     for c in ['season', 'ts_week']:
         if c in ts_side.columns:
             ts_side[c] = pd.to_numeric(ts_side[c], errors='coerce')
+    if 'ts_week' in ts_side.columns:
+        try:
+            ts_side['ts_week_int'] = pd.to_numeric(ts_side['ts_week'], errors='coerce').astype('Int64')
+        except Exception:
+            ts_side['ts_week_int'] = pd.to_numeric(ts_side['ts_week'], errors='coerce')
     # Sort for merge_asof
     sort_cols = [c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns]
     if sort_cols:
@@ -113,6 +118,11 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
     # Use float dtype for asof compatibility
     out['week_for_stats'] = pd.to_numeric(out['week_for_stats'], errors='coerce')
+    # Integer copy for exact join
+    try:
+        out['week_for_stats_int'] = pd.to_numeric(out['week_for_stats'], errors='coerce').astype('Int64')
+    except Exception:
+        out['week_for_stats_int'] = pd.to_numeric(out['week_for_stats'], errors='coerce')
     # Ensure season dtype matches right side (numeric) for proper group matching
     if 'season' in out.columns:
         out['season'] = pd.to_numeric(out['season'], errors='coerce')
@@ -125,11 +135,11 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     out = out.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
     # First, try an exact merge on week_for_stats == ts_week (i.e., prior week exactly)
     exact_cols = ['season', side_team]
-    right_keys = exact_cols + (['ts_week'] if 'ts_week' in ts_side.columns else [])
-    if 'ts_week' in ts_side.columns:
+    right_keys = exact_cols + (['ts_week_int'] if 'ts_week_int' in ts_side.columns else [])
+    if 'ts_week_int' in ts_side.columns:
         merged = out.merge(
             ts_side,
-            left_on=exact_cols + ['week_for_stats'],
+            left_on=exact_cols + ['week_for_stats_int'],
             right_on=right_keys,
             how='left'
         )
