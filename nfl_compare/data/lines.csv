@@ -1,6 +1,22 @@
-season,week,game_id,home_team,away_team,spread_home,total,moneyline_home,moneyline_away,close_spread_home,close_total
-2024,18,2024-18-NE-NYJ,NE,NYJ,-3.0,39.0,-150.0,130.0,-2.5,38.5
-2024,18,2024-18-BUF-MIA,BUF,MIA,-2.0,47.0,-130.0,115.0,-1.5,46.5
-2025,1,2025-01-KC-BAL,KC,BAL,-2.5,51.0,-145.0,125.0,,
-2025,1,2025-01-NE-JAX,NE,JAX,-1.0,41.0,-115.0,105.0,,
-2025,1,2025_01_DAL_PHI,Philadelphia Eagles,Dallas Cowboys,,,-410.0,320.0,-8.5,47.5
+season,week,game_id,home_team,away_team,spread_home,total,moneyline_home,moneyline_away,close_spread_home,close_total,date,spread_home_price,spread_away_price,total_over_price,total_under_price,game_date
+2024,18,2024-18-NE-NYJ,New England Patriots,New York Jets,-3.0,39.0,-150.0,130.0,-2.5,38.5,,,,,,
+2024,18,2024-18-BUF-MIA,Buffalo Bills,Miami Dolphins,-2.0,47.0,-130.0,115.0,-1.5,46.5,,,,-112.0,-108.0,
+2025,1,2025-01-KC-BAL,Kansas City Chiefs,Baltimore Ravens,-2.5,51.0,-145.0,125.0,-2.5,51.0,,,,-110.0,-110.0,
+2025,1,2025-01-NE-JAX,New England Patriots,Jacksonville Jaguars,-1.0,41.0,-115.0,105.0,-1.0,41.0,,,,,,
+2025,1,2025_01_DAL_PHI,Philadelphia Eagles,Dallas Cowboys,,,-410.0,320.0,-8.5,47.5,,,,,,
+2025,3,2025_03_MIA_BUF,Buffalo Bills,Miami Dolphins,-12.5,49.5,-750.0,525.0,-12.5,49.5,2025-09-18,,,-112.0,-108.0,
+2025,3,2025_03_ATL_CAR,Carolina Panthers,Atlanta Falcons,5.5,43.5,190.0,-230.0,5.5,43.5,2025-09-21,,,-108.0,-112.0,
+2025,3,2025_03_GB_CLE,Cleveland Browns,Green Bay Packers,8.5,41.5,360.0,-470.0,8.5,41.5,2025-09-21,,,-112.0,-108.0,
+2025,3,2025_03_HOU_JAX,Jacksonville Jaguars,Houston Texans,-1.5,44.5,-122.0,102.0,-1.5,44.5,2025-09-21,,,-105.0,-115.0,
+2025,3,2025_03_CIN_MIN,Minnesota Vikings,Cincinnati Bengals,-3.0,42.5,-170.0,142.0,-3.0,42.5,2025-09-21,,,-110.0,-110.0,
+2025,3,2025_03_PIT_NE,New England Patriots,Pittsburgh Steelers,1.5,44.5,102.0,-122.0,1.5,44.5,2025-09-21,,,-112.0,-108.0,
+2025,3,2025_03_LA_PHI,Philadelphia Eagles,Los Angeles Rams,-3.5,44.5,-185.0,154.0,-3.5,44.5,2025-09-21,,,-105.0,-115.0,
+2025,3,2025_03_NYJ_TB,Tampa Bay Buccaneers,New York Jets,-7.0,43.5,-310.0,250.0,-7.0,43.5,2025-09-21,,,-108.0,-112.0,
+2025,3,2025_03_IND_TEN,Tennessee Titans,Indianapolis Colts,4.5,43.5,160.0,-192.0,4.5,43.5,2025-09-21,,,-110.0,-110.0,
+2025,3,2025_03_LV_WAS,Washington Commanders,Las Vegas Raiders,-3.5,44.5,-192.0,160.0,-3.5,44.5,2025-09-21,,,-110.0,-110.0,
+2025,3,2025_03_DEN_LAC,Los Angeles Chargers,Denver Broncos,-2.5,45.5,-148.0,124.0,-2.5,45.5,2025-09-21,,,-115.0,-105.0,
+2025,3,2025_03_NO_SEA,Seattle Seahawks,New Orleans Saints,-7.5,41.5,-395.0,310.0,-7.5,41.5,2025-09-21,,,-112.0,-108.0,
+2025,3,2025_03_DAL_CHI,Chicago Bears,Dallas Cowboys,0.5,50.5,-105.0,-115.0,0.5,50.5,2025-09-21,,,-115.0,-105.0,
+2025,3,2025_03_ARI_SF,San Francisco 49ers,Arizona Cardinals,-1.5,44.5,-135.0,114.0,-1.5,44.5,2025-09-21,,,-105.0,-115.0,
+2025,3,2025_03_KC_NYG,New York Giants,Kansas City Chiefs,6.0,45.5,245.0,-305.0,6.0,45.5,2025-09-21,,,-108.0,-112.0,
+2025,3,2025_03_DET_BAL,Baltimore Ravens,Detroit Lions,-4.5,52.5,-225.0,185.0,-4.5,52.5,2025-09-22,,,-112.0,-108.0,
