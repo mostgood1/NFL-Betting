@@ -64,6 +64,26 @@ def _std_market(name: str) -> Optional[str]:
     return None
 
 
+def _parse_ladder_threshold(market_desc: Optional[str]) -> Optional[float]:
+    """Extract a numeric threshold from ladder-style markets like:
+    - "To Record 100+ Receiving Yards"
+    - "To Record 6+ Receptions"
+    - "To Record 250+ Passing Yards"
+    Returns the numeric value as float if found; otherwise None.
+    """
+    if not market_desc:
+        return None
+    s = str(market_desc)
+    # Use a permissive regex to capture integers or decimals before a '+'
+    m = re.search(r"to\s+record\s+([0-9]+(?:\.[0-9]+)?)\s*\+", s, flags=re.IGNORECASE)
+    if not m:
+        return None
+    try:
+        return float(m.group(1))
+    except Exception:
+        return None
+
+
 def fetch_json(url: str) -> Any:
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -121,6 +141,7 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
         markets = dg.get("markets") or []
         for m in markets:
             mname = m.get("description") or m.get("marketType") or ""
+            mname_lower = mname.lower()
             std = _std_market(mname)
             if not std:
                 continue  # not a player prop we care about
@@ -129,6 +150,10 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
             outcomes = m.get("outcomes") or []
             # Build per-player container
             bucket: Dict[str, Dict[str, Any]] = {}
+
+            # Detect ladder threshold if this is a ladder market (e.g., "To Record 100+ Receiving Yards")
+            ladder_line = _parse_ladder_threshold(mname)
+            is_ladder_market = (ladder_line is not None) and ("to record" in mname_lower)
 
             # Some Bovada markets are per-player (player name appears in market description)
             # e.g., "Receiving Yards - Dalton Kincaid (BUF)".
@@ -146,23 +171,35 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                     team_from_market = m_team[0].strip()
 
             team_tag_re = re.compile(r"\s*\(([A-Za-z]{2,4})\)\s*$")
+
+            def _pick_outcome_player(oc: Dict[str, Any]) -> Optional[str]:
+                """Choose the most likely player string from outcome fields, ignoring generic market text.
+                We prefer 'participant'/'competitor' then 'name'/'displayName', and avoid strings starting with
+                'To Record' (ladder descriptors) or the words 'Over'/'Under'.
+                """
+                for fld in ("participant", "competitor", "name", "displayName", "description"):
+                    val = oc.get(fld)
+                    s = str(val or "").strip()
+                    if not s:
+                        continue
+                    s_norm = _norm(s)
+                    if s_norm in ("over", "under"):
+                        continue
+                    if s_norm.startswith("to record "):
+                        # This is the ladder market label, not a player name
+                        continue
+                    return s
+                return None
             for oc in outcomes:
                 side = _norm(oc.get("description"))  # 'over'/'under' expected
                 # Participant can be nested in outcome or referenced via 'participant'
-                participant = (
-                    oc.get("participant")
-                    or oc.get("competitor")
-                    or oc.get("name")
-                    or oc.get("displayName")
-                    or oc.get("description")
-                )
-                # Some outcomes have 'description' = Over/Under; ensure we don't use that as player
-                if _norm(participant) in ("over", "under"):
-                    participant = oc.get("participant") or oc.get("name") or oc.get("displayName")
-                    if not participant and player_from_market:
-                        participant = player_from_market
+                participant = _pick_outcome_player(oc)
+                # If still not found, fall back to market-level player (for per-player markets)
+                if not participant and player_from_market:
+                    participant = player_from_market
 
-                player = str(participant or "").strip()
+                raw_participant = str(participant or "").strip()
+                player = raw_participant
                 # Remove trailing team tag from player name like "Tyreek Hill (MIA)"
                 m_tag = team_tag_re.search(player)
                 tag_team = m_tag.group(1) if m_tag else None
@@ -190,10 +227,26 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                     amer = np.nan
 
                 key = player
-                bucket.setdefault(key, {"player": player, "market": std, "line": np.nan, "over_price": np.nan, "under_price": np.nan})
+                # Initialize bucket per player and carry a team hint per player (from tag) to avoid cross-row leakage
+                if key not in bucket:
+                    bucket[key] = {
+                        "player": player,
+                        "market": std,
+                        "line": np.nan,
+                        "over_price": np.nan,
+                        "under_price": np.nan,
+                        "team_hint": tag_team or None,
+                    }
+                else:
+                    # Update team hint if missing and available on this outcome
+                    if not bucket[key].get("team_hint") and tag_team:
+                        bucket[key]["team_hint"] = tag_team
                 # Update line if present
                 if std != "Anytime TD" and not pd.isna(line):
                     bucket[key]["line"] = line
+                # If this is a ladder market and no numeric line was present in price, use the ladder threshold
+                if std != "Anytime TD" and pd.isna(bucket[key]["line"]) and ladder_line is not None:
+                    bucket[key]["line"] = ladder_line
                 # Assign side price
                 if side == "over":
                     bucket[key]["over_price"] = amer
@@ -211,14 +264,17 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                     "home_team": home,
                     "away_team": away,
                 })
+                # Mark ladder markets explicitly for downstream consumers
+                row["is_ladder"] = bool(is_ladder_market)
                 # Try to attach a team based on substring match in event description if not clear
                 # Keep 'team' optional; consumer may ignore or use home/away fields
                 if team_from_market:
                     row.setdefault("team", team_from_market)
                 else:
                     # If player text had a team tag like (MIA), use it if team is missing
-                    if tag_team and (not row.get("team") or pd.isna(row.get("team"))):
-                        row["team"] = tag_team
+                    th = row.get("team_hint")
+                    if th and (not row.get("team") or pd.isna(row.get("team"))):
+                        row["team"] = th
                     else:
                         row.setdefault("team", np.nan)
                 rows.append(row)
@@ -251,7 +307,7 @@ def main() -> int:
     # Reorder/select columns
     cols = [
         "player", "team", "market", "line", "over_price", "under_price",
-        "book", "event", "game_time", "home_team", "away_team",
+        "book", "event", "game_time", "home_team", "away_team", "is_ladder",
     ]
     out_df = df[[c for c in cols if c in df.columns]].copy()
 
