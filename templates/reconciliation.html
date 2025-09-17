@@ -4,6 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Props Reconciliation</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://a.espncdn.com">
+  <link rel="dns-prefetch" href="https://a.espncdn.com">
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta name="color-scheme" content="dark light" />
   <style>
     :root{ --bg:#080d1a; --text:#f5f7ff; --muted:#c3cee4; --link:#b8d1ff; --input-bg:#121b31; --input-br:#243356; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7; --row1:#0f1629; --row2:#121b31; --th:#0f1629; --table-br:#243356; }
     body.light{ --bg:#ffffff; --text:#0a0f1c; --muted:#475569; --link:#1e40af; --input-bg:#ffffff; --input-br:#94a3b8; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c; --row1:#f8fafc; --row2:#eef2f7; --th:#e2e8f0; --table-br:#cbd5e1; }
@@ -12,6 +17,7 @@
     h1{ font-size: 22px; margin: 0 0 16px; }
     .nav a { color: var(--link); text-decoration: none; margin-right: 10px; }
     .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
     .meta{ color: var(--muted); font-size: 13px; margin-bottom: 16px; }
     .filters{ display:flex; gap:8px; align-items:center; margin:12px 0 16px; flex-wrap:wrap; }
     .filters input, .filters select { background: var(--input-bg); border: 1px solid var(--input-br); color: var(--text); padding: 6px 8px; border-radius: 6px; }
@@ -23,6 +29,11 @@
     tr:nth-child(even) td{ background:var(--row2); }
     .two-col{ display:grid; grid-template-columns: 2fr 1fr; gap: 16px; }
     @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr; } }
+    /* Utilities */
+    .table-wrap{ overflow:auto; max-height:70vh; border:1px solid var(--table-br); border-radius:8px }
+    .mt-8{ margin-top:8px }
+    .mx-8{ margin-left:8px; margin-right:8px }
+    .meta-foot{ margin:6px 8px 12px 8px }
   /* Over/Under error indicators */
   .err-over { color: #ef4444; font-weight: 600; }
   .err-under { color: #10b981; font-weight: 600; }
@@ -323,13 +334,13 @@
     </div>
 
     <div class="two-col">
-      <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
+      <div class="table-wrap">
         <div class="meta" id="meta"></div>
         <table id="recon">
           <thead></thead>
           <tbody></tbody>
         </table>
-        <div class="meta" style="margin:6px 8px 12px 8px;">
+        <div class="meta meta-foot">
           <strong>Match codes:</strong>
           <span title="Merged on existing player_id">ID</span>,
           <span title="team_norm & _name_norm_loose">TN+NL</span>,
@@ -344,8 +355,8 @@
           <span class="err-even">=</span> exact match; value shows absolute delta.
         </div>
       </div>
-      <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
-        <h3 style="margin:8px">Summary (MAE & bias)</h3>
+      <div class="table-wrap">
+        <h3 class="mt-8 mx-8">Summary (MAE & bias)</h3>
         <table id="summary">
           <thead></thead>
           <tbody></tbody>
