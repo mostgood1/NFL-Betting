@@ -180,6 +180,44 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
         return df.merge(ts_side.rename(columns={'ts_week': 'week'}), on=['season', 'week', side_team], how='left')
 
 
+def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, side: str) -> pd.DataFrame:
+    """Attach team-week stats using an exact prior-week (week-1) match on season+team.
+
+    This is a stricter fallback than the asof join and is used when we detect that
+    the prior-week attach produced all-NaN values for the target subset (e.g.,
+    when building features for a future week and asof grouping had dtype/sort issues).
+    """
+    if team_stats is None or team_stats.empty:
+        return df
+    side_team = f"{side}_team"
+    if side_team not in df.columns:
+        return df
+    prev = df.copy()
+    prev['prev_week'] = pd.to_numeric(prev.get('week'), errors='coerce') - 1
+    prev = prev[prev['prev_week'] >= 1]
+    right = team_stats.copy()
+    right = right.rename(columns={'team': side_team, 'week': 'prev_week'})
+    # Columns to bring over
+    bring = [c for c in [side_team, 'season', 'prev_week', 'off_epa', 'def_epa', 'pace_secs_play', 'pass_rate', 'rush_rate', 'qb_adj', 'sos'] if c in right.columns]
+    right = right[bring].copy()
+    # Rename metrics to side-specific
+    rename = {
+        'off_epa': f'{side}_off_epa',
+        'def_epa': f'{side}_def_epa',
+        'pace_secs_play': f'{side}_pace_secs_play',
+        'pass_rate': f'{side}_pass_rate',
+        'rush_rate': f'{side}_rush_rate',
+        'qb_adj': f'{side}_qb_adj',
+        'sos': f'{side}_sos',
+    }
+    right = right.rename(columns=rename)
+    merged = df.merge(right, on=['season', side_team, 'prev_week'], how='left')
+    # Drop helper
+    if 'prev_week' in merged.columns:
+        merged = merged.drop(columns=['prev_week'])
+    return merged
+
+
 def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.DataFrame, weather: pd.DataFrame | None = None) -> pd.DataFrame:
     elo = compute_elo(games)
     df = games.merge(elo, on='game_id', how='left')
@@ -223,8 +261,12 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
             need_away = ('away_off_epa' in df.columns) and (df['away_off_epa'].notna().sum() == 0)
             if need_home:
                 df = _attach_team_stats_prior(df, team_stats, 'home')
+                if df['home_off_epa'].notna().sum() == 0:
+                    df = _attach_team_stats_exact_prev(df, team_stats, 'home')
             if need_away:
                 df = _attach_team_stats_prior(df, team_stats, 'away')
+                if df['away_off_epa'].notna().sum() == 0:
+                    df = _attach_team_stats_exact_prev(df, team_stats, 'away')
     except Exception:
         pass
 
