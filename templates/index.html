@@ -61,6 +61,7 @@
     .nav{margin-bottom:12px}
     .nav a{color:var(--link);text-decoration:none;margin-right:10px}
     .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+    .theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
     .filters{display:flex;gap:8px;align-items:center;margin:12px 0 16px}
     .filters input{background:var(--input-bg);border:1px solid var(--input-br);color:var(--text);padding:6px 8px;border-radius:6px;width:120px}
     .filters button{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
@@ -92,11 +93,28 @@
   .team-block{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
   .team-name{font-weight:700}
   .tiny{font-size:11px;color:var(--muted)}
+  /* Admin panel styles */
+  #adminPanel{display:none;border:1px solid var(--button-br);background:var(--card2);border-radius:10px;padding:10px;margin:10px 0}
+  .admin-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+  .label-sm{font-size:12px;color:var(--muted)}
+  #adminKeyInput{width:200px;padding:4px 6px;border-radius:6px;background:var(--input-bg);border:1px solid var(--input-br);color:var(--text)}
+  .align-mid{vertical-align:middle;margin-right:6px}
+  #adminLogs{max-height:260px;overflow:auto;margin:0;background:var(--chip);border:1px solid var(--chip-br);border-radius:8px;padding:8px;color:var(--text)}
+  /* Utilities */
+  .mt-8{margin-top:8px}
+  .mt-16{margin-top:16px}
+  .ml-8{margin-left:8px}
+  .center{text-align:center}
+  .tar{text-align:right}
+  .my-2{margin:2px 0}
+  .op-75{opacity:.75}
+  .fs-13{font-size:13px}
+  .team-logo{width:28px;height:28px;object-fit:contain;border-radius:4px}
   /* --- Mobile Enhancements --- */
   @media (max-width:760px){
     .container{padding:0 10px;margin:12px auto}
     h1{font-size:18px;margin-bottom:4px}
-    .nav{font-size:12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+    .nav{font-size:12px;overflow-x:auto;white-space:nowrap;padding-bottom:4px}
     .nav a, .nav button{display:inline-block;margin-right:6px;padding:4px 8px;font-size:12px}
     .filters{flex-wrap:wrap;gap:6px}
     .filters label{font-size:12px}
@@ -120,14 +138,14 @@
 <body>
   <div class="container">
   <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
-  <div id="adminPanel" style="display:none;border:1px solid var(--button-br);background:var(--card2);border-radius:10px;padding:10px;margin:10px 0;">
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
-      <label style="font-size:12px;color:var(--muted)">Key: <input id="adminKeyInput" type="password" style="width:200px;padding:4px 6px;border-radius:6px;background:var(--input-bg);border:1px solid var(--input-br);color:var(--text)" placeholder="ADMIN_KEY" /></label>
-      <label style="font-size:12px;color:var(--muted)"><input id="adminPushToggle" type="checkbox" checked style="vertical-align:middle;margin-right:6px;"/> Push to Git</label>
-      <button id="adminStart" class="theme-toggle" style="padding:6px 10px;">Start Update</button>
-      <span id="adminState" style="font-size:12px;color:var(--muted)">Idle</span>
+  <div id="adminPanel">
+    <div class="admin-row">
+      <label class="label-sm">Key: <input id="adminKeyInput" type="password" placeholder="ADMIN_KEY" /></label>
+      <label class="label-sm"><input id="adminPushToggle" type="checkbox" checked class="align-mid"/> Push to Git</label>
+      <button id="adminStart" class="theme-toggle">Start Update</button>
+      <span id="adminState" class="label-sm">Idle</span>
     </div>
-    <pre id="adminLogs" style="max-height:260px;overflow:auto;margin:0;background:var(--chip);border:1px solid var(--chip-br);border-radius:8px;padding:8px;color:var(--text);"></pre>
+    <pre id="adminLogs"></pre>
   </div>
     <h1>NFL Betting – Cards</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
@@ -144,8 +162,8 @@
       </label>
       <button type="submit">Apply</button>
     <a href="/">Reset</a>
-  <a href="/api/refresh-data" style="margin-left:8px;color:var(--link);" title="Rebuild predictions (server-side)">Refresh Data</a>
-  <a href="/api/refresh-odds" style="margin-left:8px;color:var(--link);" title="Fetch real odds and rebuild">Refresh Odds</a>
+  <a href="/api/refresh-data" class="ml-8" title="Rebuild predictions (server-side)">Refresh Data</a>
+  <a href="/api/refresh-odds" class="ml-8" title="Fetch real odds and rebuild">Refresh Odds</a>
     </form>
 
     {% if have_data %}
@@ -155,19 +173,19 @@
             <div class="venue">{{ g.venue_text }}</div>
             <div class="status">{{ g.status_text }}</div>
 
-            <div class="team-block" style="margin-top:8px;">
-              {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" />{% endif %}
+            <div class="team-block mt-8">
+              {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" class="team-logo" />{% endif %}
               <div class="team-name dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_team }}</div>
-              <div style="text-align:right">
+              <div class="tar">
                 <div class="score">{{ g.away_score if g.away_score is not none else ( '%.2f' % g.pred_away_points if g.pred_away_points is not none else '-' ) }}</div>
                 {% if g.pred_away_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_away_points }}</div>{% endif %}
               </div>
             </div>
-            <div class="tiny" style="text-align:center;margin:2px 0;">@</div>
+            <div class="tiny center my-2">@</div>
             <div class="team-block">
-              {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" />{% endif %}
+              {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" class="team-logo" />{% endif %}
               <div class="team-name dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_team }}</div>
-              <div style="text-align:right">
+              <div class="tar">
                 <div class="score">{{ g.home_score if g.home_score is not none else ( '%.2f' % g.pred_home_points if g.pred_home_points is not none else '-' ) }}</div>
                 {% if g.pred_home_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_home_points }}</div>{% endif %}
               </div>
@@ -219,7 +237,7 @@
                 {% if g.rec_winner_side %}
                   <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.model_winner_side }} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%){% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
                 {% else %}
-                  <span class="badge" style="opacity:.75">Winner: {{ g.model_winner_side }} (EV {{ g.model_winner_ev_pct|default('0.0', true)|round(1) if g.model_winner_ev_pct is not none else '—' }}% <span style="color:var(--muted)">not recommended{% if g.model_winner_ev_units is not none and g.ml_min_ev_units is not none %} (min {{ '%.1f' % (g.ml_min_ev_pct) }}%) {% endif %}</span>)</span>
+                  <span class="badge op-75">Winner: {{ g.model_winner_side }} (EV {{ g.model_winner_ev_pct|default('0.0', true)|round(1) if g.model_winner_ev_pct is not none else '—' }}% <span class="muted">not recommended{% if g.model_winner_ev_units is not none and g.ml_min_ev_units is not none %} (min {{ '%.1f' % (g.ml_min_ev_pct) }}%) {% endif %}</span>)</span>
                 {% endif %}
               {% endif %}
               {% if g.rec_spread_side %}
@@ -280,8 +298,8 @@
       <p>No predictions found. Generate predictions locally, then deploy: python -m nfl_compare.src.predict</p>
     {% endif %}
 
-    <p style="margin-top:16px;font-size:13px;">
-      API: <a href="/api/predictions" style="color:var(--link);">/api/predictions</a> | <a href="/health" style="color:var(--link);">/health</a>
+    <p class="mt-16 fs-13">
+      API: <a href="/api/predictions">/api/predictions</a> | <a href="/health">/health</a>
     </p>
   </div>
   <script>
