@@ -4772,10 +4772,19 @@ def api_props_recommendations():
     edges_fp = DATA_DIR / f"edges_player_props_{season_i}_wk{week_i}.csv"
     bovada_fp = DATA_DIR / f"bovada_player_props_{season_i}_wk{week_i}.csv"
     preds_fp = DATA_DIR / f"player_props_{season_i}_wk{week_i}.csv"
+    # Fallback for older file naming (props_edges_{season}_wk{week}.csv) if primary not present
+    edges_fp_used = edges_fp
+    try:
+        if not edges_fp.exists():
+            alt_fp = DATA_DIR / f"props_edges_{season_i}_wk{week_i}.csv"
+            if alt_fp.exists():
+                edges_fp_used = alt_fp
+    except Exception:
+        pass
 
     # Load with graceful fallbacks
     try:
-        edges_df = pd.read_csv(edges_fp) if edges_fp.exists() else pd.DataFrame()
+        edges_df = pd.read_csv(edges_fp_used) if edges_fp_used.exists() else pd.DataFrame()
     except Exception:
         edges_df = pd.DataFrame()
     try:
@@ -4795,7 +4804,7 @@ def api_props_recommendations():
             "games": [],
             "rows": 0,
             "data": [],
-            "note": f"edges CSV not found or empty: {edges_fp}"
+            "note": f"edges CSV not found or empty: {edges_fp_used}"
         })
 
     # Normalize helpers
@@ -5411,6 +5420,7 @@ def api_props_recommendations():
         "games": games,
         "rows": len(cards),
         "data": cards,
+        "source": str(edges_fp_used),
     }
     try:
         _payload = _js(_payload)

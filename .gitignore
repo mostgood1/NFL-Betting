@@ -46,9 +46,17 @@ logs/
 !nfl_compare/data/lines.csv
 !nfl_compare/data/games.csv
 !nfl_compare/data/team_stats.csv
+# Props recommendations inputs (precomputed)
+!nfl_compare/data/edges_player_props_*.csv
+!nfl_compare/data/props_edges_*.csv
+!nfl_compare/data/bovada_player_props_*.csv
+!nfl_compare/data/current_week.json
 # Optional but recommended: include per-date weather and odds snapshots used by the app
 !nfl_compare/data/weather_*.csv
 !nfl_compare/data/real_betting_lines_*.json
+
+# Allow committing precomputed player props caches for deployment
+!nfl_compare/data/player_props_*.csv
 
 # Notebooks
 *.ipynb_checkpoints/
