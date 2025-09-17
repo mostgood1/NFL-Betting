@@ -2,8 +2,8 @@
   "lines": {
     "Miami Dolphins @ Buffalo Bills": {
       "moneyline": {
-        "home": -750,
-        "away": 525
+        "home": -850,
+        "away": 575
       },
       "total_runs": {
         "line": 49.5,
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": -750
+              "price": -850
             },
             {
               "name": "Miami Dolphins",
-              "price": 525
+              "price": 575
             }
           ]
         },
@@ -124,7 +124,7 @@
         "away": 142
       },
       "total_runs": {
-        "line": 42.5,
+        "line": 41.5,
         "over": -110,
         "under": -110
       },
@@ -150,12 +150,12 @@
           "outcomes": [
             {
               "name": "Cincinnati Bengals",
-              "price": -102,
+              "price": -105,
               "point": 3.0
             },
             {
               "name": "Minnesota Vikings",
-              "price": -118,
+              "price": -115,
               "point": -3.0
             }
           ]
@@ -166,12 +166,12 @@
             {
               "name": "Over",
               "price": -110,
-              "point": 42.5
+              "point": 41.5
             },
             {
               "name": "Under",
               "price": -110,
-              "point": 42.5
+              "point": 41.5
             }
           ]
         }
@@ -179,8 +179,8 @@
     },
     "Green Bay Packers @ Cleveland Browns": {
       "moneyline": {
-        "home": 360,
-        "away": -470
+        "home": 370,
+        "away": -485
       },
       "total_runs": {
         "line": 41.5,
@@ -196,11 +196,11 @@
           "outcomes": [
             {
               "name": "Cleveland Browns",
-              "price": 360
+              "price": 370
             },
             {
               "name": "Green Bay Packers",
-              "price": -470
+              "price": -485
             }
           ]
         },
@@ -238,8 +238,8 @@
     },
     "Houston Texans @ Jacksonville Jaguars": {
       "moneyline": {
-        "home": -122,
-        "away": 102
+        "home": -125,
+        "away": 105
       },
       "total_runs": {
         "line": 44.5,
@@ -255,11 +255,11 @@
           "outcomes": [
             {
               "name": "Houston Texans",
-              "price": 102
+              "price": 105
             },
             {
               "name": "Jacksonville Jaguars",
-              "price": -122
+              "price": -125
             }
           ]
         },
@@ -268,12 +268,12 @@
           "outcomes": [
             {
               "name": "Houston Texans",
-              "price": -112,
+              "price": -110,
               "point": 1.5
             },
             {
               "name": "Jacksonville Jaguars",
-              "price": -108,
+              "price": -110,
               "point": -1.5
             }
           ]
@@ -297,8 +297,8 @@
     },
     "Las Vegas Raiders @ Washington Commanders": {
       "moneyline": {
-        "home": -192,
-        "away": 160
+        "home": -185,
+        "away": 154
       },
       "total_runs": {
         "line": 44.5,
@@ -314,11 +314,11 @@
           "outcomes": [
             {
               "name": "Las Vegas Raiders",
-              "price": 160
+              "price": 154
             },
             {
               "name": "Washington Commanders",
-              "price": -192
+              "price": -185
             }
           ]
         },
@@ -327,12 +327,12 @@
           "outcomes": [
             {
               "name": "Las Vegas Raiders",
-              "price": -110,
+              "price": -112,
               "point": 3.5
             },
             {
               "name": "Washington Commanders",
-              "price": -110,
+              "price": -108,
               "point": -3.5
             }
           ]
@@ -356,8 +356,8 @@
     },
     "Pittsburgh Steelers @ New England Patriots": {
       "moneyline": {
-        "home": 102,
-        "away": -122
+        "home": 105,
+        "away": -125
       },
       "total_runs": {
         "line": 44.5,
@@ -373,11 +373,11 @@
           "outcomes": [
             {
               "name": "New England Patriots",
-              "price": 102
+              "price": 105
             },
             {
               "name": "Pittsburgh Steelers",
-              "price": -122
+              "price": -125
             }
           ]
         },
@@ -415,13 +415,13 @@
     },
     "New York Jets @ Tampa Bay Buccaneers": {
       "moneyline": {
-        "home": -310,
-        "away": 250
+        "home": -340,
+        "away": 270
       },
       "total_runs": {
         "line": 43.5,
-        "over": -108,
-        "under": -112
+        "over": -110,
+        "under": -110
       },
       "run_line": {
         "home": -7.0
@@ -432,11 +432,11 @@
           "outcomes": [
             {
               "name": "New York Jets",
-              "price": 250
+              "price": 270
             },
             {
               "name": "Tampa Bay Buccaneers",
-              "price": -310
+              "price": -340
             }
           ]
         },
@@ -445,12 +445,12 @@
           "outcomes": [
             {
               "name": "New York Jets",
-              "price": -115,
+              "price": -105,
               "point": 7.0
             },
             {
               "name": "Tampa Bay Buccaneers",
-              "price": -105,
+              "price": -115,
               "point": -7.0
             }
           ]
@@ -460,12 +460,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -108,
+              "price": -110,
               "point": 43.5
             },
             {
               "name": "Under",
-              "price": -112,
+              "price": -110,
               "point": 43.5
             }
           ]
@@ -474,8 +474,8 @@
     },
     "Indianapolis Colts @ Tennessee Titans": {
       "moneyline": {
-        "home": 160,
-        "away": -192
+        "home": 164,
+        "away": -198
       },
       "total_runs": {
         "line": 43.5,
@@ -491,11 +491,11 @@
           "outcomes": [
             {
               "name": "Indianapolis Colts",
-              "price": -192
+              "price": -198
             },
             {
               "name": "Tennessee Titans",
-              "price": 160
+              "price": 164
             }
           ]
         },
@@ -592,8 +592,8 @@
     },
     "Denver Broncos @ Los Angeles Chargers": {
       "moneyline": {
-        "home": -148,
-        "away": 124
+        "home": -155,
+        "away": 130
       },
       "total_runs": {
         "line": 45.5,
@@ -609,11 +609,11 @@
           "outcomes": [
             {
               "name": "Denver Broncos",
-              "price": 124
+              "price": 130
             },
             {
               "name": "Los Angeles Chargers",
-              "price": -148
+              "price": -155
             }
           ]
         },
@@ -622,12 +622,12 @@
           "outcomes": [
             {
               "name": "Denver Broncos",
-              "price": -108,
+              "price": -105,
               "point": 2.5
             },
             {
               "name": "Los Angeles Chargers",
-              "price": -112,
+              "price": -115,
               "point": -2.5
             }
           ]
@@ -651,13 +651,13 @@
     },
     "New Orleans Saints @ Seattle Seahawks": {
       "moneyline": {
-        "home": -395,
-        "away": 310
+        "home": -410,
+        "away": 320
       },
       "total_runs": {
         "line": 41.5,
-        "over": -112,
-        "under": -108
+        "over": -110,
+        "under": -110
       },
       "run_line": {
         "home": -7.5
@@ -668,11 +668,11 @@
           "outcomes": [
             {
               "name": "New Orleans Saints",
-              "price": 310
+              "price": 320
             },
             {
               "name": "Seattle Seahawks",
-              "price": -395
+              "price": -410
             }
           ]
         },
@@ -681,12 +681,12 @@
           "outcomes": [
             {
               "name": "New Orleans Saints",
-              "price": -115,
+              "price": -110,
               "point": 7.5
             },
             {
               "name": "Seattle Seahawks",
-              "price": -105,
+              "price": -110,
               "point": -7.5
             }
           ]
@@ -696,12 +696,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -112,
+              "price": -110,
               "point": 41.5
             },
             {
               "name": "Under",
-              "price": -108,
+              "price": -110,
               "point": 41.5
             }
           ]
@@ -715,11 +715,11 @@
       },
       "total_runs": {
         "line": 50.5,
-        "over": -115,
-        "under": -105
+        "over": -112,
+        "under": -108
       },
       "run_line": {
-        "home": 0.5
+        "home": 1.5
       },
       "markets": [
         {
@@ -740,13 +740,13 @@
           "outcomes": [
             {
               "name": "Chicago Bears",
-              "price": -105,
-              "point": 0.5
+              "price": -118,
+              "point": 1.5
             },
             {
               "name": "Dallas Cowboys",
-              "price": -115,
-              "point": -0.5
+              "price": -102,
+              "point": -1.5
             }
           ]
         },
@@ -755,12 +755,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -115,
+              "price": -112,
               "point": 50.5
             },
             {
               "name": "Under",
-              "price": -105,
+              "price": -108,
               "point": 50.5
             }
           ]
@@ -769,13 +769,13 @@
     },
     "Arizona Cardinals @ San Francisco 49ers": {
       "moneyline": {
-        "home": -135,
-        "away": 114
+        "home": -142,
+        "away": 120
       },
       "total_runs": {
         "line": 44.5,
-        "over": -105,
-        "under": -115
+        "over": -108,
+        "under": -112
       },
       "run_line": {
         "home": -1.5
@@ -786,11 +786,11 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": 114
+              "price": 120
             },
             {
               "name": "San Francisco 49ers",
-              "price": -135
+              "price": -142
             }
           ]
         },
@@ -799,12 +799,12 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": -110,
+              "price": -108,
               "point": 1.5
             },
             {
               "name": "San Francisco 49ers",
-              "price": -110,
+              "price": -112,
               "point": -1.5
             }
           ]
@@ -814,12 +814,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -105,
+              "price": -108,
               "point": 44.5
             },
             {
               "name": "Under",
-              "price": -115,
+              "price": -112,
               "point": 44.5
             }
           ]
@@ -1300,8 +1300,8 @@
     },
     "Tennessee Titans @ Houston Texans": {
       "moneyline": {
-        "home": -325,
-        "away": 260
+        "home": -340,
+        "away": 270
       },
       "total_runs": {
         "line": 41.5,
@@ -1317,11 +1317,11 @@
           "outcomes": [
             {
               "name": "Houston Texans",
-              "price": -325
+              "price": -340
             },
             {
               "name": "Tennessee Titans",
-              "price": 260
+              "price": 270
             }
           ]
         },
@@ -1890,5 +1890,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-09-17T15:58:08.938665+00:00"
+  "fetched_at": "2025-09-17T18:43:37.879510+00:00"
 }

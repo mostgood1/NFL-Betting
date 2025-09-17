@@ -77,6 +77,88 @@ backfill_close_fields = _import_backfill()
 LOCKED_FP = DATA_DIR / 'predictions_locked.csv'
 
 
+def _print_guardrail(message: str) -> None:
+    try:
+        print(message)
+    except Exception:
+        # Fail-safe: avoid crashing updater on logging
+        pass
+
+
+def check_features_guardrail_for_week(season: int, week: int) -> None:
+    """Guardrail: Build features for the given week and warn if per-team stats
+    failed to attach (all-NaN) or if key diff features show near-zero variance.
+
+    This helps catch future-week feature collapse (e.g., missing prior-week team_stats
+    or an attach regression) before running predictions.
+    """
+    try:
+        games = ds_load_games()
+    except Exception as e:
+        _print_guardrail(f"[GUARDRAIL] Skipped — could not load games.csv: {e}")
+        return
+    try:
+        ts = load_team_stats()
+    except Exception:
+        ts = None
+    try:
+        lines = load_lines()
+    except Exception:
+        lines = pd.DataFrame()
+
+    try:
+        g_slice = games[(games.get('season').astype('Int64') == int(season)) & (games.get('week').astype('Int64') == int(week))].copy()
+    except Exception:
+        g_slice = pd.DataFrame(columns=['season','week','game_id','home_team','away_team','date'])
+
+    n_games = len(g_slice)
+    if n_games == 0:
+        _print_guardrail(f"[GUARDRAIL] Season {season} Week {week}: no games found; skipping feature variance check.")
+        return
+
+    try:
+        wx = load_weather_for_games(g_slice)
+    except Exception:
+        wx = pd.DataFrame()
+
+    try:
+        feats = merge_features(g_slice, ts if ts is not None else pd.DataFrame(), lines if lines is not None else pd.DataFrame(), wx)
+    except Exception as e:
+        _print_guardrail(f"[GUARDRAIL] Season {season} Week {week}: feature merge failed: {e}")
+        return
+
+    # Check per-team attach non-null counts
+    home_nonnull = int(feats['home_off_epa'].notna().sum()) if 'home_off_epa' in feats.columns else 0
+    away_nonnull = int(feats['away_off_epa'].notna().sum()) if 'away_off_epa' in feats.columns else 0
+
+    # Compute std for key diffs
+    diff_cols = ['off_epa_diff','def_epa_diff','pace_secs_play_diff','pass_rate_diff','rush_rate_diff','qb_adj_diff','sos_diff']
+    stds = {}
+    for c in diff_cols:
+        if c in feats.columns:
+            try:
+                s = pd.to_numeric(feats[c], errors='coerce')
+                stds[c] = float(s.std(ddof=0)) if len(s) > 0 else float('nan')
+            except Exception:
+                stds[c] = float('nan')
+
+    # Determine warning conditions
+    all_nan_attach = (home_nonnull == 0 and away_nonnull == 0)
+    # Threshold for "near-zero" variance — generous; zero or extremely tiny dispersion is suspicious
+    near_zero_threshold = 1e-6
+    present_stds = [v for v in stds.values() if pd.notna(v)]
+    low_variance_all = (len(present_stds) > 0) and all(abs(v) <= near_zero_threshold for v in present_stds)
+
+    # Always print a concise summary
+    std_summary = ', '.join(f"{k}={v:.6f}" for k, v in stds.items() if pd.notna(v)) or 'no-diffs'
+    _print_guardrail(f"[GUARDRAIL] Season {season} Week {week}: games={n_games}, home_off_epa_nonnull={home_nonnull}, away_off_epa_nonnull={away_nonnull}, stds: {std_summary}")
+
+    if all_nan_attach:
+        _print_guardrail(f"[GUARDRAIL][WARNING] Season {season} Week {week}: prior-week team stats did not attach (all NaN). Check team_stats.csv for week {int(week)-1} and attachment logic.")
+    elif low_variance_all:
+        _print_guardrail(f"[GUARDRAIL][WARNING] Season {season} Week {week}: key diff features show near-zero variance. This may indicate attachment failure or identical inputs.")
+
+
 def _week_has_started(season: int, week: int) -> bool:
     try:
         g = _load_games()
@@ -323,6 +405,14 @@ def main() -> None:
     missing = [str(p) for p in must_have if not p.exists()]
     if missing:
         print(f"Warning: missing inputs: {missing}")
+
+    # 4a) Feature variance/attachment guardrail for current and upcoming week
+    try:
+        check_features_guardrail_for_week(season, cur_week)
+        if up_week is not None:
+            check_features_guardrail_for_week(season, up_week)
+    except Exception as e:
+        print(f"Guardrail checks failed: {e}")
 
     # 4b) Ensure lines.csv has rows for current week games; enrich with latest JSON odds and backfill closing lines
     try:
