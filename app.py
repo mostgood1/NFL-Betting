@@ -2885,17 +2885,46 @@ def api_player_props_reconciliation():
     cache_key = (season_i, week_i)
     force_refresh = str(request.args.get("refresh") or request.args.get("force") or "0").lower() in {"1","true","yes","y"}
     cache_hit = False
+    recon_source = ""
+    # Prefer a precomputed CSV cache if present (helps production where heavy compute is disabled)
     try:
-        df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+        cache_csv_fp = DATA_DIR / f"player_props_vs_actuals_{season_i}_wk{week_i}.csv"
+    except Exception:
+        cache_csv_fp = None  # type: ignore
+    try:
+        df = None
+        if not force_refresh and cache_csv_fp is not None and cache_csv_fp.exists():
+            try:
+                df = pd.read_csv(cache_csv_fp)
+                recon_source = "cache_csv"
+            except Exception:
+                df = None
         if df is None:
+            df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+            if df is not None:
+                recon_source = "cache_mem"
+        if df is None:
+            # Compute via library (may rely on local parquet or nfl-data-py)
             df = reconcile_props(season_i, week_i)
+            recon_source = "computed"
             _recon_cache_put(cache_key, df)
+            # Persist a CSV cache for production servers
+            try:
+                if cache_csv_fp is not None:
+                    df.to_csv(cache_csv_fp, index=False)
+            except Exception:
+                pass
     except FileNotFoundError as e:
-        return jsonify({"error": str(e)}), 404
+        # Missing projections file or similar: prefer empty payload with note
+        return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": str(e)}), 200
+    except RuntimeError as e:
+        # Likely no weekly actuals available in production; return empty set with note instead of 500
+        return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i, "note": str(e)}), 200
     except Exception as e:
+        # Internal unexpected error
         return jsonify({"error": str(e)}), 500
     if df is None or df.empty:
-        return jsonify({"rows": 0, "data": []})
+        return jsonify({"rows": 0, "data": [], "season": season_i, "week": week_i})
 
     # Optional filters
     pos = (request.args.get("position") or "").strip().upper()
@@ -2947,6 +2976,11 @@ def api_player_props_reconciliation():
         resp.headers['X-Recon-Cache'] = 'hit' if cache_hit else 'miss'
     except Exception:
         pass
+    try:
+        if recon_source:
+            resp.headers['X-Recon-Source'] = recon_source
+    except Exception:
+        pass
     return resp
 
 
@@ -2965,17 +2999,64 @@ def api_player_props_reconciliation_csv():
     cache_key = (season_i, week_i)
     force_refresh = str(request.args.get("refresh") or request.args.get("force") or "0").lower() in {"1","true","yes","y"}
     cache_hit = False
+    recon_source = ""
     try:
-        df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+        df = None
+        cache_csv_fp = DATA_DIR / f"player_props_vs_actuals_{season_i}_wk{week_i}.csv"
+        if not force_refresh and cache_csv_fp.exists():
+            try:
+                df = pd.read_csv(cache_csv_fp)
+                recon_source = "cache_csv"
+            except Exception:
+                df = None
+        if df is None:
+            df, cache_hit = _recon_cache_get(cache_key, force_refresh=force_refresh)
+            if df is not None:
+                recon_source = "cache_mem"
         if df is None:
             df = reconcile_props(season_i, week_i)
+            recon_source = "computed"
             _recon_cache_put(cache_key, df)
+            try:
+                cache_csv_fp.to_csv(cache_csv_fp, index=False)  # type: ignore[attr-defined]
+            except Exception:
+                # Fallback correct write
+                try:
+                    df.to_csv(cache_csv_fp, index=False)
+                except Exception:
+                    pass
     except FileNotFoundError as e:
-        return jsonify({"error": str(e)}), 404
+        # Return an empty CSV with a hint header instead of 404 to keep UI happy
+        from flask import Response
+        resp = Response("", mimetype='text/csv')
+        try:
+            resp.headers['X-Recon-Note'] = str(e)
+            resp.headers['X-Recon-Source'] = 'missing'
+        except Exception:
+            pass
+        return resp
+    except RuntimeError as e:
+        # No weekly actuals in production; return empty CSV
+        from flask import Response
+        resp = Response("", mimetype='text/csv')
+        try:
+            resp.headers['X-Recon-Note'] = str(e)
+            resp.headers['X-Recon-Source'] = 'missing'
+        except Exception:
+            pass
+        return resp
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     if df is None or df.empty:
-        return jsonify({"rows": 0, "data": []})
+        from flask import Response
+        # Return a valid but empty CSV
+        resp = Response("", mimetype='text/csv')
+        try:
+            resp.headers['X-Recon-Cache'] = 'hit' if cache_hit else 'miss'
+            resp.headers['X-Recon-Source'] = recon_source or 'unknown'
+        except Exception:
+            pass
+        return resp
     # Optional filters (mirror JSON endpoint)
     pos = (request.args.get("position") or "").strip().upper()
     team = (request.args.get("team") or "").strip()
@@ -3002,6 +3083,11 @@ def api_player_props_reconciliation_csv():
         resp = Response(csv_bytes, mimetype='text/csv', headers=headers)
         try:
             resp.headers['X-Recon-Cache'] = 'hit' if cache_hit else 'miss'
+        except Exception:
+            pass
+        try:
+            if recon_source:
+                resp.headers['X-Recon-Source'] = recon_source
         except Exception:
             pass
         return resp

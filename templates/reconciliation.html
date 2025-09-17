@@ -182,10 +182,11 @@
       if(!season||!week){ document.getElementById('meta').textContent='Enter season and week'; return; }
       const p=new URLSearchParams({season, week}); if(pos) p.set('position', pos); if(team) p.set('team', team); if(refresh) p.set('refresh', '1');
       document.getElementById('meta').textContent='Loading…';
-      try{ const res=await fetch('/api/player-props-reconciliation?'+p.toString()); const js=await res.json();
-        if(!res.ok){ document.getElementById('meta').textContent = (js && js.error) ? ('Error: '+js.error) : ('Error '+res.status); return; }
+  try{ const res=await fetch('/api/player-props-reconciliation?'+p.toString()); const js=await res.json();
+    if(!res.ok){ document.getElementById('meta').textContent = (js && js.error) ? ('Error: '+js.error) : ('Error '+res.status); return; }
   reconRows = js.data||[]; renderTable(); renderSummary(js.summary||[]);
-  const ch = res.headers.get('X-Recon-Cache'); const meta = document.getElementById('meta'); if(meta){ meta.textContent = `${reconRows.length} rows${ch?` • cache:${ch}`:''}`; }
+  const ch = res.headers.get('X-Recon-Cache'); const src = res.headers.get('X-Recon-Source'); const note = js && js.note;
+  const meta = document.getElementById('meta'); if(meta){ meta.textContent = `${reconRows.length} rows${ch?` • cache:${ch}`:''}${src?` • src:${src}`:''}${note?` • ${note}`:''}`; }
       }
       catch(e){ document.getElementById('meta').textContent='Error'; }
     }

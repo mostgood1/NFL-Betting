@@ -57,6 +57,7 @@ logs/
 
 # Allow committing precomputed player props caches for deployment
 !nfl_compare/data/player_props_*.csv
+!nfl_compare/data/player_props_vs_actuals_*.csv
 
 # Notebooks
 *.ipynb_checkpoints/
