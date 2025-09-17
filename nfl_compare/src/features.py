@@ -67,24 +67,85 @@ def compute_elo(games: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: str) -> pd.DataFrame:
+    """Attach team-week stats for the given side using a prior-week fallback.
+
+    For each game row (season, week, {side}_team), join the most recent stats row
+    for that team where stats.week <= (game.week - 1). This avoids using same-week
+    stats (leakage) and provides meaningful features for future weeks.
+
+    If no prior-week stats exist in the same season, the row remains NaN for those
+    fields (downstream code fills with 0 where needed).
+    """
+    if team_stats is None or team_stats.empty:
+        return df
+
+    # Standardize and subset right-hand stats table
+    keep_cols = ['season', 'week', 'team', 'off_epa', 'def_epa', 'off_epa_1h', 'off_epa_2h',
+                 'def_epa_1h', 'def_epa_2h', 'pace_secs_play', 'pass_rate', 'rush_rate', 'qb_adj', 'sos']
+    ts = team_stats[[c for c in keep_cols if c in team_stats.columns]].copy()
+    if ts.empty:
+        return df
+
+    side_team = f"{side}_team"
+    # Prepare right table: rename team to side_team, and week -> ts_week for merge_asof
+    rename_map = {'team': side_team, 'week': 'ts_week',
+                  'off_epa': f'{side}_off_epa', 'def_epa': f'{side}_def_epa',
+                  'off_epa_1h': f'off_epa_1h_{side[0]}', 'off_epa_2h': f'off_epa_2h_{side[0]}',
+                  'def_epa_1h': f'def_epa_1h_{side[0]}', 'def_epa_2h': f'def_epa_2h_{side[0]}',
+                  'pace_secs_play': f'{side}_pace_secs_play', 'pass_rate': f'{side}_pass_rate',
+                  'rush_rate': f'{side}_rush_rate', 'qb_adj': f'{side}_qb_adj', 'sos': f'{side}_sos'}
+    # Keep only columns present before renaming
+    rename_map = {k: v for k, v in rename_map.items() if k in ts.columns}
+    ts_side = ts.rename(columns=rename_map).copy()
+    # Ensure types for merge_asof
+    for c in ['season', 'ts_week']:
+        if c in ts_side.columns:
+            ts_side[c] = pd.to_numeric(ts_side[c], errors='coerce')
+    # Sort for merge_asof
+    sort_cols = [c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns]
+    if sort_cols:
+        ts_side = ts_side.sort_values(sort_cols)
+
+    out = df.copy()
+    # Left keys: season, side_team, and week_for_stats = max(1, week-1)
+    out['week_for_stats'] = pd.to_numeric(out.get('week'), errors='coerce').fillna(0).astype('Int64') - 1
+    out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
+    # Ensure merge keys exist
+    for c in ['season', side_team]:
+        if c not in out.columns:
+            # If team column missing, no-op
+            return df
+    # Sort left
+    out = out.sort_values(['season', side_team, 'week_for_stats'])
+    # Perform asof merge: last stats week <= week_for_stats within season+team
+    try:
+        merged = pd.merge_asof(
+            out,
+            ts_side,
+            left_on='week_for_stats',
+            right_on='ts_week' if 'ts_week' in ts_side.columns else None,
+            by=['season', side_team],
+            direction='backward',
+            allow_exact_matches=True
+        )
+        # Drop helper columns if present
+        drop_cols = [c for c in ['week_for_stats', 'ts_week'] if c in merged.columns]
+        if drop_cols:
+            merged = merged.drop(columns=drop_cols)
+        return merged
+    except Exception:
+        # Fallback: exact merge on current week (original behavior)
+        return df.merge(ts_side.rename(columns={'ts_week': 'week'}), on=['season', 'week', side_team], how='left')
+
+
 def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.DataFrame, weather: pd.DataFrame | None = None) -> pd.DataFrame:
     elo = compute_elo(games)
     df = games.merge(elo, on='game_id', how='left')
 
-    # join team stats for both teams by season/week/team
-    ts_home = team_stats.rename(columns={
-        'team': 'home_team',
-        'off_epa': 'home_off_epa', 'def_epa': 'home_def_epa', 'pace_secs_play': 'home_pace_secs_play',
-        'pass_rate': 'home_pass_rate', 'rush_rate': 'home_rush_rate', 'qb_adj': 'home_qb_adj', 'sos': 'home_sos'
-    })
-    ts_away = team_stats.rename(columns={
-        'team': 'away_team',
-        'off_epa': 'away_off_epa', 'def_epa': 'away_def_epa', 'pace_secs_play': 'away_pace_secs_play',
-        'pass_rate': 'away_pass_rate', 'rush_rate': 'away_rush_rate', 'qb_adj': 'away_qb_adj', 'sos': 'away_sos'
-    })
-
-    df = df.merge(ts_home, on=['season', 'week', 'home_team'], how='left')
-    df = df.merge(ts_away, on=['season', 'week', 'away_team'], how='left')
+    # Attach team stats with prior-week fallback to avoid empty features for future weeks
+    df = _attach_team_stats_prior(df, team_stats, 'home')
+    df = _attach_team_stats_prior(df, team_stats, 'away')
 
     # lines
     df = df.merge(lines[['game_id', 'spread_home', 'total', 'close_spread_home', 'close_total']], on='game_id', how='left')
