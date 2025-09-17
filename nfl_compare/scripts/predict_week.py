@@ -16,7 +16,7 @@ from joblib import load as joblib_load
 import pandas as pd
 
 from nfl_compare.src.data_sources import load_games, load_team_stats, load_lines
-from nfl_compare.src.features import merge_features
+from nfl_compare.src.features import merge_features, _attach_team_stats_prior, _attach_team_stats_exact_prev
 from nfl_compare.src.weather import load_weather_for_games
 from nfl_compare.src.models import predict as model_predict
 
@@ -49,6 +49,21 @@ def main() -> None:
     if sub.empty:
         print('No games found for requested season/week.')
         return
+
+    # Ensure prior-week team stats are populated for this subset (future-week safety)
+    try:
+        need_home = ('home_off_epa' in sub.columns) and (sub['home_off_epa'].notna().sum() == 0)
+        need_away = ('away_off_epa' in sub.columns) and (sub['away_off_epa'].notna().sum() == 0)
+        if need_home:
+            sub = _attach_team_stats_prior(sub, team_stats, 'home')
+            if sub['home_off_epa'].notna().sum() == 0:
+                sub = _attach_team_stats_exact_prev(sub, team_stats, 'home')
+        if need_away:
+            sub = _attach_team_stats_prior(sub, team_stats, 'away')
+            if sub['away_off_epa'].notna().sum() == 0:
+                sub = _attach_team_stats_exact_prev(sub, team_stats, 'away')
+    except Exception:
+        pass
 
     pred = model_predict(models, sub)
     out_dir = Path(__file__).resolve().parents[2] / 'data'
