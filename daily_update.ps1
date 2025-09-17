@@ -49,6 +49,17 @@ try {
   $env:PROPS_JITTER_SCALE = '0.3'
   $env:PROPS_OBS_BLEND = '0.55'
   $env:PROPS_EMA_BLEND = '0.6'
+  # Reconciliation-driven calibration strengths (defaults tuned in code; reinforce here)
+  $env:PROPS_CALIB_ALPHA = '0.35'
+  $env:PROPS_CALIB_BETA  = '0.30'
+  $env:PROPS_CALIB_GAMMA = '0.25'
+  $env:PROPS_CALIB_QB    = '0.40'
+  # Position-level multipliers to reduce residual biases
+  $env:PROPS_POS_WR_REC_YDS   = '1.02'
+  $env:PROPS_POS_TE_REC_YDS   = '0.98'
+  $env:PROPS_POS_TE_REC       = '0.98'
+  $env:PROPS_POS_QB_PASS_YDS  = '0.97'
+  $env:PROPS_POS_QB_PASS_TDS  = '0.95'
   & $Python -m nfl_compare.src.daily_updater | Tee-Object -FilePath $LogFile -Append
   $ExitCode = $LASTEXITCODE
 } catch {

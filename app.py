@@ -2604,6 +2604,48 @@ def api_player_props():
     if df is None or df.empty:
         return jsonify({"rows": 0, "data": []})
 
+    # Defensive sanitation: coerce numeric projections and backfill obvious missing fields
+    fixes_applied = []
+    try:
+        # Coerce common numeric columns to numbers (malformed caches may load as object)
+        num_like = [
+            'pass_attempts','pass_yards','pass_tds','interceptions',
+            'rush_attempts','rush_yards','rush_tds',
+            'targets','receptions','rec_yards','rec_tds',
+            'any_td_prob'
+        ]
+        for c in [c for c in num_like if c in df.columns]:
+            df[c] = pd.to_numeric(df[c], errors='coerce')
+        # Backfill receiving yards/receptions when targets present but yards/receptions missing
+        if {'position','targets'}.issubset(df.columns):
+            pos_up = df['position'].astype(str).str.upper()
+            # Position heuristics (conservative baselines)
+            pos_ypt = {'WR': 8.3, 'TE': 7.6, 'RB': 6.4}
+            pos_cr = {'WR': 0.62, 'TE': 0.66, 'RB': 0.72}
+            # rec_yards
+            if 'rec_yards' in df.columns:
+                m = df['rec_yards'].isna() & df['targets'].notna() & (pos_up.isin(['WR','TE','RB']))
+                if m.any():
+                    est = df.loc[m, 'targets'].astype(float) * df.loc[m, 'position'].astype(str).str.upper().map(pos_ypt).fillna(7.8)
+                    df.loc[m, 'rec_yards'] = est
+                    fixes_applied.append(f"backfilled rec_yards for {int(m.sum())} rows")
+            # receptions
+            if 'receptions' in df.columns:
+                m2 = df['receptions'].isna() & df['targets'].notna() & (pos_up.isin(['WR','TE','RB']))
+                if m2.any():
+                    est2 = df.loc[m2, 'targets'].astype(float) * df.loc[m2, 'position'].astype(str).str.upper().map(pos_cr).fillna(0.64)
+                    df.loc[m2, 'receptions'] = est2
+                    fixes_applied.append(f"backfilled receptions for {int(m2.sum())} rows")
+        # Backfill QB rush_yards if attempts present but yards missing
+        if {'position','rush_attempts','rush_yards'}.issubset(df.columns):
+            qb = df['position'].astype(str).str.upper().eq('QB')
+            m3 = qb & df['rush_yards'].isna() & df['rush_attempts'].notna()
+            if m3.any():
+                df.loc[m3, 'rush_yards'] = df.loc[m3, 'rush_attempts'].astype(float) * 3.5  # conservative YPC
+                fixes_applied.append(f"backfilled QB rush_yards for {int(m3.sum())} rows")
+    except Exception:
+        pass
+
     # Optional filters
     pos = (request.args.get("position") or "").strip().upper()
     offense_only = (request.args.get('offense', '1').lower() in {'1','true','yes'})
@@ -2701,6 +2743,16 @@ def api_player_props():
         if fb is not None:
             _, s_fb, w_fb = fb
             resp["note"] = f"served fallback cache: season={s_fb}, week={w_fb}"
+    except Exception:
+        pass
+    # Attach sanitation note if any fixes were applied
+    try:
+        if fixes_applied:
+            note_str = "; ".join(fixes_applied)
+            if 'note' in resp and resp['note']:
+                resp['note'] = f"{resp['note']} | {note_str}"
+            else:
+                resp['note'] = note_str
     except Exception:
         pass
     return jsonify(resp)
