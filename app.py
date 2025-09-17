@@ -1162,6 +1162,25 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     except Exception:
         pass
 
+    # Final safety: ensure one row per game in the weekly view to avoid duplicate cards.
+    try:
+        if 'game_id' in merged.columns and not merged['game_id'].isna().all():
+            merged = merged.sort_values(['season','week','game_date','date'], axis=0, kind='mergesort') if {
+                'season','week'
+            }.issubset(merged.columns) else merged
+            merged = merged.drop_duplicates(subset=['game_id'], keep='first')
+        else:
+            # Fallback key when game_id missing: (season, week, home_team, away_team, game_date/date)
+            keys = [c for c in ['season','week','home_team','away_team','game_date'] if c in merged.columns]
+            if 'game_date' not in keys and 'date' in merged.columns:
+                keys.append('date')
+            if keys:
+                merged = merged.sort_values(keys, axis=0, kind='mergesort')
+                merged = merged.drop_duplicates(subset=keys, keep='first')
+    except Exception:
+        # Non-fatal: return as-is if dedup hits an unexpected issue
+        pass
+
     return merged
 
 
@@ -1354,12 +1373,36 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 lines = None
             if lines is not None and not getattr(lines, 'empty', True):
                 cols_present = [c for c in line_cols if c in lines.columns]
-                if 'game_id' in out_base.columns and 'game_id' in lines.columns:
-                    out_base = out_base.merge(lines[['game_id'] + cols_present], on='game_id', how='left', suffixes=('', '_ln'))
-                # Always try to supplement by (home_team, away_team) to fill any gaps
+                # Deduplicate right-hand lines by game_id, preferring rows with most filled values
+                if 'game_id' in lines.columns:
+                    _r_gid = lines[['game_id'] + cols_present].copy()
+                    try:
+                        _r_gid['_nn'] = _r_gid[cols_present].notna().sum(axis=1)
+                        _r_gid = _r_gid.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                    except Exception:
+                        _r_gid = _r_gid.drop_duplicates(['game_id'], keep='first')
+                else:
+                    _r_gid = None
+                if 'game_id' in out_base.columns and _r_gid is not None:
+                    out_base = out_base.merge(_r_gid, on='game_id', how='left', suffixes=('', '_ln'))
+                # Supplement by season/week + (home_team, away_team) when possible; else by teams only.
                 if {'home_team','away_team'}.issubset(set(lines.columns)):
-                    sup = lines[['home_team','away_team'] + cols_present].copy()
-                    out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
+                    if {'season','week'}.issubset(set(lines.columns)) and {'season','week'}.issubset(set(out_base.columns)):
+                        sup = lines[['season','week','home_team','away_team'] + cols_present].copy()
+                        try:
+                            sup['_nn'] = sup[cols_present].notna().sum(axis=1)
+                            sup = sup.sort_values(['_nn'], ascending=False).drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
+                        except Exception:
+                            sup = sup.drop_duplicates(['season','week','home_team','away_team'], keep='first')
+                        out_base = out_base.merge(sup, on=['season','week','home_team','away_team'], how='left', suffixes=('', '_ln2'))
+                    else:
+                        sup = lines[['home_team','away_team'] + cols_present].copy()
+                        try:
+                            sup['_nn'] = sup[cols_present].notna().sum(axis=1)
+                            sup = sup.sort_values(['_nn'], ascending=False).drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
+                        except Exception:
+                            sup = sup.drop_duplicates(['home_team','away_team'], keep='first')
+                        out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
                 # Fill from any suffix variants (and create columns if missing)
                 for c in line_cols:
                     c1, c2 = f"{c}_ln", f"{c}_ln2"
@@ -1409,26 +1452,47 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         out_base['game_id'] = out_base['game_id'].astype(str)
                     if 'game_id' in df_csv_fb.columns:
                         df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
-                    # Try all key strategies to maximize fill coverage
-                    if 'game_id' in out_base.columns and 'game_id' in df_csv_fb.columns:
+                    # Prepare de-duplicated right-hand slices with priority by non-null counts
+                    if 'game_id' in df_csv_fb.columns:
+                        _fb_gid = df_csv_fb[['game_id'] + cols_present_fb].copy()
+                        try:
+                            _fb_gid['_nn'] = _fb_gid[cols_present_fb].notna().sum(axis=1)
+                            _fb_gid = _fb_gid.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                        except Exception:
+                            _fb_gid = _fb_gid.drop_duplicates(['game_id'], keep='first')
+                    else:
+                        _fb_gid = None
+                    if 'game_id' in out_base.columns and _fb_gid is not None:
                         out_base = out_base.merge(
-                            df_csv_fb[['game_id'] + cols_present_fb],
+                            _fb_gid,
                             on='game_id',
                             how='left',
                             suffixes=('', '_lnfb')
                         )
                     # Also try season/week/home/away even if game_id merge ran
                     if {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
+                        _fb_sw = df_csv_fb[['season','week','home_team','away_team'] + cols_present_fb].copy()
+                        try:
+                            _fb_sw['_nn'] = _fb_sw[cols_present_fb].notna().sum(axis=1)
+                            _fb_sw = _fb_sw.sort_values(['_nn'], ascending=False).drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
+                        except Exception:
+                            _fb_sw = _fb_sw.drop_duplicates(['season','week','home_team','away_team'], keep='first')
                         out_base = out_base.merge(
-                            df_csv_fb[['season','week','home_team','away_team'] + cols_present_fb],
+                            _fb_sw,
                             on=['season','week','home_team','away_team'],
                             how='left',
                             suffixes=('', '_lnfb2')
                         )
                     # Finally try by teams only
                     if {'home_team','away_team'}.issubset(df_csv_fb.columns):
+                        _fb_h2h = df_csv_fb[['home_team','away_team'] + cols_present_fb].copy()
+                        try:
+                            _fb_h2h['_nn'] = _fb_h2h[cols_present_fb].notna().sum(axis=1)
+                            _fb_h2h = _fb_h2h.sort_values(['_nn'], ascending=False).drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
+                        except Exception:
+                            _fb_h2h = _fb_h2h.drop_duplicates(['home_team','away_team'], keep='first')
                         out_base = out_base.merge(
-                            df_csv_fb[['home_team','away_team'] + cols_present_fb],
+                            _fb_h2h,
                             on=['home_team','away_team'],
                             how='left',
                             suffixes=('', '_lnfb3')
@@ -1570,6 +1634,28 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                 if 'total' in cand.index:
                                     if 'market_total' in out_base.columns and _pd.isna(out_base.at[ridx, 'market_total']):
                                         out_base.at[ridx, 'market_total'] = cand.get('total')
+            except Exception:
+                pass
+            # Final de-duplication: ensure at most one row per game after all enrichments
+            try:
+                line_cols_final = ['moneyline_home','moneyline_away','spread_home','total','spread_home_price','spread_away_price','total_over_price','total_under_price','close_spread_home','close_total','market_spread_home','market_total']
+                keep_keys = [k for k in ['season','week','home_team','away_team'] if k in out_base.columns]
+                if 'game_id' in out_base.columns and out_base['game_id'].notna().any():
+                    tmp = out_base.copy()
+                    try:
+                        tmp['_nn'] = tmp[[c for c in line_cols_final if c in tmp.columns]].notna().sum(axis=1)
+                        tmp = tmp.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                    except Exception:
+                        tmp = tmp.drop_duplicates(['game_id'], keep='first')
+                    out_base = tmp
+                elif len(keep_keys) == 4:
+                    tmp = out_base.copy()
+                    try:
+                        tmp['_nn'] = tmp[[c for c in line_cols_final if c in tmp.columns]].notna().sum(axis=1)
+                        tmp = tmp.sort_values(['_nn'], ascending=False).drop_duplicates(keep_keys, keep='first').drop(columns=['_nn'])
+                    except Exception:
+                        tmp = tmp.drop_duplicates(keep_keys, keep='first')
+                    out_base = tmp
             except Exception:
                 pass
             # Weather/stadium (optional)
