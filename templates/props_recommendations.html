@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NFL – Props Recommendations</title>
   <style>
-    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046 }
+    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7 }
+    body.light{ --bg:#ffffff; --card:#f8fafc; --muted:#475569; --text:#0a0f1c; --br:#cbd5e1; --pill:#eef2f7; --link:#1e40af; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c }
     body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
     .container{max-width:1100px;margin:20px auto;padding:0 16px}
     .nav{font-size:14px;margin-bottom:10px}
-    .nav a{color:#93c5fd}
-    .card{background:linear-gradient(180deg,var(--card),#0c1328);border:1px solid var(--br);border-radius:12px;padding:12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .nav a{color:var(--link);text-decoration:none;margin-right:10px}
+    .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
+  .card{background:linear-gradient(180deg,var(--card),#0c1328);border:1px solid var(--br);border-radius:12px;padding:12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .grid-mt{margin-top:10px}
     .muted{color:var(--muted)}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+  .filters input, .filters select{background:var(--bg);color:var(--text);border:1px solid var(--br);border-radius:6px;padding:6px 8px}
+  #season{width:90px}
+  #week{width:70px}
     .player{display:flex;gap:10px;align-items:center}
     .logo{width:36px;height:36px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
     .plays{margin-top:6px}
@@ -20,20 +27,20 @@
     .badge{font-size:11px;border:1px solid var(--br);border-radius:999px;padding:2px 6px;margin-left:6px}
     .ev{color:#86efac}
     .edge{color:#facc15}
-    @media (max-width:760px){
-      .grid{grid-template-columns:1fr}
-    }
+    @media (max-width:760px){ .grid{grid-template-columns:1fr} }
   </style>
   <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://a.espncdn.com">
+  <link rel="dns-prefetch" href="https://a.espncdn.com">
   <meta name="color-scheme" content="dark light" />
 </head>
 <body>
   <div class="container">
-    <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a></div>
+    <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
     <h1>Props Recommendations</h1>
-    <form id="filters" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px;">
-      <label>Season <input type="number" id="season" style="width:90px" placeholder="YYYY"></label>
-      <label>Week <input type="number" id="week" style="width:70px" placeholder="N"></label>
+    <form id="filters" class="filters">
+      <label>Season <input type="number" id="season" placeholder="YYYY"></label>
+      <label>Week <input type="number" id="week" placeholder="N"></label>
       <label>Game
         <select id="game">
           <option value="">All games</option>
@@ -44,9 +51,13 @@
     </form>
 
     <div id="status" class="muted">Loading…</div>
-    <div id="cards" class="grid" style="margin-top:10px"></div>
+  <div id="cards" class="grid grid-mt"></div>
   </div>
   <script>
+    // Theme toggle
+    (function(){ try{ var body=document.body; var saved=localStorage.getItem('theme'); if(saved==='light'){ body.classList.add('light'); }
+      var tbtn=document.getElementById('themeToggle'); if(tbtn){ tbtn.addEventListener('click', function(){ body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light')?'light':'dark'); }); }
+    }catch(e){} })();
     function qs(name){ const u=new URL(window.location); return u.searchParams.get(name) }
     function fmtPct(x){ if(x==null||isNaN(x)) return ''; return (x).toFixed(1)+'%' }
     function fmtNum(x){ if(x==null||isNaN(x)) return '—'; return Number(x).toFixed(1) }

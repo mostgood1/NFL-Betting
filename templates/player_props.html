@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NFL Player Props</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://a.espncdn.com">
+  <link rel="dns-prefetch" href="https://a.espncdn.com">
+  <meta name="color-scheme" content="dark light" />
   <style>
     :root{
       --bg:#080d1a; --text:#f5f7ff; --muted:#c3cee4; --link:#b8d1ff;
@@ -34,6 +38,7 @@
     .sortable { cursor: pointer; }
     .sort-ico { color: var(--muted); font-weight: 600; margin-left: 4px; }
     .subtle { color: var(--muted); font-weight: 400; }
+    .scroll-table { overflow: auto; max-height: 70vh; border:1px solid var(--table-br); }
   </style>
   <script>
   let currentData = [];
@@ -223,7 +228,7 @@
         const url='/api/player-props.csv'+(p.toString()?('?'+p.toString()):''); window.location.href=url; return false;
       })(); return false;">Download CSV</a>
     </div>
-    <div style="overflow:auto; max-height: 70vh; border:1px solid var(--table-br);">
+    <div class="scroll-table">
       <table id="props">
         <thead></thead>
         <tbody></tbody>
