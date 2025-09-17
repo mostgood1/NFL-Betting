@@ -206,5 +206,16 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     if {'away_q1','away_q2','away_q3','away_q4'}.issubset(df.columns):
         df['away_first_half'] = df[['away_q1','away_q2']].sum(axis=1)
         df['away_second_half'] = df[['away_q3','away_q4']].sum(axis=1)
+    # Defensive: if prior-week stats failed to attach (all-NaN), retry attachment now
+    try:
+        if team_stats is not None and not team_stats.empty:
+            need_home = ('home_off_epa' in df.columns) and (df['home_off_epa'].notna().sum() == 0)
+            need_away = ('away_off_epa' in df.columns) and (df['away_off_epa'].notna().sum() == 0)
+            if need_home:
+                df = _attach_team_stats_prior(df, team_stats, 'home')
+            if need_away:
+                df = _attach_team_stats_prior(df, team_stats, 'away')
+    except Exception:
+        pass
 
     return df
