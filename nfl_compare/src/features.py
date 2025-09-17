@@ -88,96 +88,69 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
         return df
 
     side_team = f"{side}_team"
-    # Prepare right table: rename team to side_team, and week -> ts_week for merge_asof
-    rename_map = {'team': side_team, 'week': 'ts_week',
-                  'off_epa': f'{side}_off_epa', 'def_epa': f'{side}_def_epa',
-                  'off_epa_1h': f'off_epa_1h_{side[0]}', 'off_epa_2h': f'off_epa_2h_{side[0]}',
-                  'def_epa_1h': f'def_epa_1h_{side[0]}', 'def_epa_2h': f'def_epa_2h_{side[0]}',
-                  'pace_secs_play': f'{side}_pace_secs_play', 'pass_rate': f'{side}_pass_rate',
-                  'rush_rate': f'{side}_rush_rate', 'qb_adj': f'{side}_qb_adj', 'sos': f'{side}_sos'}
-    # Keep only columns present before renaming
-    rename_map = {k: v for k, v in rename_map.items() if k in ts.columns}
-    ts_side = ts.rename(columns=rename_map).copy()
-    # Ensure types for merge_asof and exact-int join
-    for c in ['season', 'ts_week']:
-        if c in ts_side.columns:
-            ts_side[c] = pd.to_numeric(ts_side[c], errors='coerce')
-    if 'ts_week' in ts_side.columns:
+    # First perform an exact prior-week join (prev_week = week - 1)
+    prev = df.copy()
+    prev['prev_week'] = pd.to_numeric(prev.get('week'), errors='coerce') - 1
+    prev = prev[prev['prev_week'] >= 1]
+    right_prev = ts.copy()
+    right_prev = right_prev.rename(columns={'team': side_team, 'week': 'prev_week'})
+    # Columns to bring over from team_stats
+    bring = [c for c in [side_team, 'season', 'prev_week', 'off_epa', 'def_epa', 'off_epa_1h', 'off_epa_2h', 'def_epa_1h', 'def_epa_2h', 'pace_secs_play', 'pass_rate', 'rush_rate', 'qb_adj', 'sos'] if c in right_prev.columns]
+    right_prev = right_prev[bring].copy()
+    rename_prev = {
+        'off_epa': f'{side}_off_epa',
+        'def_epa': f'{side}_def_epa',
+        'off_epa_1h': f'off_epa_1h_{side[0]}',
+        'off_epa_2h': f'off_epa_2h_{side[0]}',
+        'def_epa_1h': f'def_epa_1h_{side[0]}',
+        'def_epa_2h': f'def_epa_2h_{side[0]}',
+        'pace_secs_play': f'{side}_pace_secs_play',
+        'pass_rate': f'{side}_pass_rate',
+        'rush_rate': f'{side}_rush_rate',
+        'qb_adj': f'{side}_qb_adj',
+        'sos': f'{side}_sos',
+    }
+    right_prev = right_prev.rename(columns=rename_prev)
+    merged = df.merge(right_prev, on=['season', side_team, 'prev_week'], how='left')
+    if 'prev_week' in merged.columns:
+        merged = merged.drop(columns=['prev_week'])
+
+    # If still missing for some rows, attempt broader asof fallback
+    needs_fallback = False
+    metric_col = f'{side}_off_epa'
+    if metric_col in merged.columns:
+        needs_fallback = merged[metric_col].isna().any()
+    if needs_fallback:
+        # Prepare asof tables
+        ts_side = ts.rename(columns={'team': side_team, 'week': 'ts_week'}).copy()
+        for c in ['season', 'ts_week']:
+            if c in ts_side.columns:
+                ts_side[c] = pd.to_numeric(ts_side[c], errors='coerce')
+        out = merged.copy()
+        out['week_for_stats'] = pd.to_numeric(out.get('week'), errors='coerce').fillna(0) - 1
+        out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
+        if 'season' in out.columns:
+            out['season'] = pd.to_numeric(out['season'], errors='coerce')
+        out = out.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
+        ts_side = ts_side.sort_values([c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns], kind='mergesort')
         try:
-            ts_side['ts_week_int'] = pd.to_numeric(ts_side['ts_week'], errors='coerce').astype('Int64')
+            merged = pd.merge_asof(
+                out,
+                ts_side,
+                left_on='week_for_stats',
+                right_on='ts_week',
+                by=['season', side_team],
+                direction='backward',
+                allow_exact_matches=True
+            )
+            # Drop helper columns if present
+            drop_cols = [c for c in ['week_for_stats', 'ts_week'] if c in merged.columns]
+            if drop_cols:
+                merged = merged.drop(columns=drop_cols)
         except Exception:
-            ts_side['ts_week_int'] = pd.to_numeric(ts_side['ts_week'], errors='coerce')
-    # Sort for merge_asof
-    sort_cols = [c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns]
-    if sort_cols:
-        ts_side = ts_side.sort_values(sort_cols)
+            pass
 
-    out = df.copy()
-    # Left keys: season, side_team, and week_for_stats = max(1, week-1)
-    out['week_for_stats'] = pd.to_numeric(out.get('week'), errors='coerce').fillna(0) - 1
-    out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
-    # Use float dtype for asof compatibility
-    out['week_for_stats'] = pd.to_numeric(out['week_for_stats'], errors='coerce')
-    # Integer copy for exact join
-    try:
-        out['week_for_stats_int'] = pd.to_numeric(out['week_for_stats'], errors='coerce').astype('Int64')
-    except Exception:
-        out['week_for_stats_int'] = pd.to_numeric(out['week_for_stats'], errors='coerce')
-    # Ensure season dtype matches right side (numeric) for proper group matching
-    if 'season' in out.columns:
-        out['season'] = pd.to_numeric(out['season'], errors='coerce')
-    # Ensure merge keys exist
-    for c in ['season', side_team]:
-        if c not in out.columns:
-            # If team column missing, no-op
-            return df
-    # Sort left and right for merge_asof stability
-    out = out.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
-    # First, try an exact merge on week_for_stats == ts_week (i.e., prior week exactly)
-    exact_cols = ['season', side_team]
-    right_keys = exact_cols + (['ts_week_int'] if 'ts_week_int' in ts_side.columns else [])
-    if 'ts_week_int' in ts_side.columns:
-        merged = out.merge(
-            ts_side,
-            left_on=exact_cols + ['week_for_stats_int'],
-            right_on=right_keys,
-            how='left'
-        )
-    else:
-        merged = out.copy()
-
-    # For any rows still missing stats, attempt merge_asof backward within season+team
-    try:
-        if 'ts_week' in ts_side.columns:
-            # Identify rows still without attachment
-            need_asof = merged['ts_week'].isna()
-            if need_asof.any():
-                left_asof = merged.loc[need_asof, :].drop(columns=[c for c in ts_side.columns if c in merged.columns], errors='ignore')
-                left_asof = left_asof.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
-                ts_sorted = ts_side.sort_values([c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns], kind='mergesort')
-                asof_part = pd.merge_asof(
-                    left_asof,
-                    ts_sorted,
-                    left_on='week_for_stats',
-                    right_on='ts_week',
-                    by=['season', side_team],
-                    direction='backward',
-                    allow_exact_matches=True
-                )
-                # Combine back
-                merged = pd.concat([
-                    merged.loc[~need_asof, :],
-                    asof_part
-                ], ignore_index=True).sort_values(['season', side_team, 'week_for_stats'])
-
-        # Drop helper columns if present
-        drop_cols = [c for c in ['week_for_stats', 'ts_week'] if c in merged.columns]
-        if drop_cols:
-            merged = merged.drop(columns=drop_cols)
-        return merged
-    except Exception:
-        # Fallback: exact merge on current week (original behavior)
-        return df.merge(ts_side.rename(columns={'ts_week': 'week'}), on=['season', 'week', side_team], how='left')
+    return merged
 
 
 def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, side: str) -> pd.DataFrame:
