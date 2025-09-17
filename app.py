@@ -1761,7 +1761,8 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
         try:
             models = joblib_load(BASE_DIR / 'nfl_compare' / 'models' / 'nfl_models.joblib')
         except Exception:
-            return view_df  # models not available
+            # Models not available; preserve and return the enriched odds/weather frame
+            return out_base  # models not available
         try:
             wx = load_weather_for_games(games)
         except Exception:

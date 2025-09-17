@@ -35,7 +35,8 @@ def main() -> None:
     except Exception:
         wx = None
 
-    models_path = Path(__file__).resolve().parents[2] / 'models' / 'nfl_models.joblib'
+    # Load trained models from the package models directory (nfl_compare/models)
+    models_path = Path(__file__).resolve().parents[1] / 'models' / 'nfl_models.joblib'
     if not models_path.exists():
         print('Model file not found. Run training first.')
         return
