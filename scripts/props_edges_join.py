@@ -222,6 +222,9 @@ def load_bovada(path: Path) -> pd.DataFrame:
     except Exception:
         # Be forgiving; if collapsing fails, keep original rows
         pass
+    # Ensure is_ladder exists if provided
+    if "is_ladder" not in df.columns:
+        df["is_ladder"] = np.nan
     return df
 
 
@@ -392,6 +395,7 @@ def compute_edges(
         "line",
         "over_price",
         "under_price",
+        "is_ladder",
         "event",
         "home_team",
         "away_team",

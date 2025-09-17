@@ -5411,6 +5411,25 @@ def api_props_recommendations():
                         return {}
             except Exception:
                 ev_pct = None
+            # Derive ladder flag if present in edges CSV
+            is_ladder = None
+            try:
+                v = r.get("is_ladder")
+                # Respect pandas NA
+                if v is not None and not pd.isna(v):
+                    s = str(v).strip().lower()
+                    if s in {"1","true","yes","y"}:
+                        is_ladder = True
+                    elif s in {"0","false","no","n"}:
+                        is_ladder = False
+                    else:
+                        # Fallback: truthiness
+                        try:
+                            is_ladder = bool(int(s))
+                        except Exception:
+                            is_ladder = bool(v)
+            except Exception:
+                is_ladder = None
             play = {
                 "market": r.get("market") or r.get("market_key"),
                 "line": r.get("line"),
@@ -5420,6 +5439,7 @@ def api_props_recommendations():
                 "under_price": r.get("under_price"),
                 "side": r.get("rec_side"),
                 "ev_pct": ev_pct,
+                "is_ladder": is_ladder,
             }
             # Skip non-actionable plays: no side, no line, and no prices
             try:
@@ -5464,6 +5484,7 @@ def api_props_recommendations():
                         norm(p.get("under_price")),
                         norm(p.get("side")),
                         norm(p.get("ev_pct")),
+                        norm(p.get("is_ladder")),
                     )
                     if key not in seen:
                         seen.add(key)

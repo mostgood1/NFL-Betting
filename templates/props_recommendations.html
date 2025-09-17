@@ -46,6 +46,7 @@
           <option value="">All games</option>
         </select>
       </label>
+      <label><input type="checkbox" id="hideLadders"> Hide ladder plays</label>
       <button type="submit">Apply</button>
       <button type="button" id="reset">Reset</button>
     </form>
@@ -135,6 +136,7 @@
     function renderCards(items){
       const root = document.getElementById('cards');
       root.innerHTML = '';
+      const hideLadders = document.getElementById('hideLadders').checked;
       items.forEach(it=>{
         const div = document.createElement('div');
         div.className = 'card';
@@ -157,6 +159,7 @@
         `;
         const plays = div.querySelector('.plays');
         (it.plays||[]).forEach(p=>{
+          if(hideLadders && p.is_ladder===true){ return; }
           const ev = (p.ev_pct!=null)? `<span class="ev">EV ${fmtNum(p.ev_pct)}</span>`: '';
           const edge = (p.edge!=null)? `<span class="edge">Δ ${fmtNum(p.edge)}</span>`: '';
           const price = (p.side==='Over')? p.over_price : (p.side==='Under'? p.under_price : null);
@@ -164,7 +167,7 @@
           const row = document.createElement('div');
           row.className='play';
           row.innerHTML = `
-            <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
+            <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''} ${p.is_ladder? '<span class="badge">Ladder</span>': ''}</div>
             <div>${edge} ${ev} <span class="badge">${price!=null? price: ''}</span></div>
           `;
           plays.appendChild(row);
@@ -174,6 +177,7 @@
     }
 
     document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
+    document.getElementById('hideLadders').addEventListener('change', ()=>{ loadData(); });
     document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; loadData(); });
     window.addEventListener('load', loadData);
   </script>
