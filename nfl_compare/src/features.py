@@ -111,6 +111,9 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     # Left keys: season, side_team, and week_for_stats = max(1, week-1)
     out['week_for_stats'] = pd.to_numeric(out.get('week'), errors='coerce').fillna(0).astype('Int64') - 1
     out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
+    # Ensure season dtype matches right side (numeric) for proper group matching
+    if 'season' in out.columns:
+        out['season'] = pd.to_numeric(out['season'], errors='coerce')
     # Ensure merge keys exist
     for c in ['season', side_team]:
         if c not in out.columns:
