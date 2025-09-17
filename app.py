@@ -4209,12 +4209,12 @@ def index():
     # Build combined view from games + predictions for the target week
     try:
         view_df = _build_week_view(df, games_df, season_param, week_param)
-        # Attach odds/predictions best-effort (allow fast mode to skip enrichment for stability)
-        if not fast_mode:
-            try:
-                view_df = _attach_model_predictions(view_df)
-            except Exception as e:
-                _log_once('attach-preds-fail', f'_attach_model_predictions failed: {e}')
+        # Always attach odds/weather enrichment so markets (ML/spread/total) render in fast mode too.
+        # Heavy model inference is internally skipped inside _attach_model_predictions on Render/disabled envs.
+        try:
+            view_df = _attach_model_predictions(view_df)
+        except Exception as e:
+            _log_once('attach-preds-fail', f'_attach_model_predictions failed: {e}')
         # Derive synthetic predictions from market if model outputs entirely absent (skip in fast mode)
         if not fast_mode:
             try:
