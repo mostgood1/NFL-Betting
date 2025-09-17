@@ -89,16 +89,16 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
 
     side_team = f"{side}_team"
     # First perform an exact prior-week join (prev_week = week - 1)
-    prev = df.copy()
-    prev['prev_week'] = pd.to_numeric(prev.get('week'), errors='coerce') - 1
-    prev = prev[prev['prev_week'] >= 1]
+    # Build left frame with explicit prev_week key
+    left = df.copy()
+    left['prev_week'] = pd.to_numeric(left.get('week'), errors='coerce') - 1
     # Ensure the side team column exists on the left
     side_team = f"{side}_team"
-    if side_team not in prev.columns:
+    if side_team not in left.columns:
         # Try to map from base team columns
         src_col = 'home_team' if side == 'home' else 'away_team'
-        if src_col in prev.columns:
-            prev[side_team] = prev[src_col]
+        if src_col in left.columns:
+            left[side_team] = left[src_col]
     right_prev = ts.copy()
     right_prev = right_prev.rename(columns={'team': side_team, 'week': 'prev_week'})
     # Columns to bring over from team_stats
@@ -118,7 +118,8 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
         'sos': f'{side}_sos',
     }
     right_prev = right_prev.rename(columns=rename_prev)
-    merged = df.merge(right_prev, on=['season', side_team, 'prev_week'], how='left')
+    # Merge using left that contains prev_week and side_team
+    merged = left.merge(right_prev, on=['season', side_team, 'prev_week'], how='left')
     if 'prev_week' in merged.columns:
         merged = merged.drop(columns=['prev_week'])
 
@@ -172,9 +173,9 @@ def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, si
     side_team = f"{side}_team"
     if side_team not in df.columns:
         return df
-    prev = df.copy()
-    prev['prev_week'] = pd.to_numeric(prev.get('week'), errors='coerce') - 1
-    prev = prev[prev['prev_week'] >= 1]
+    # Build left frame with explicit prev_week key
+    left = df.copy()
+    left['prev_week'] = pd.to_numeric(left.get('week'), errors='coerce') - 1
     right = team_stats.copy()
     right = right.rename(columns={'team': side_team, 'week': 'prev_week'})
     # Columns to bring over
@@ -191,12 +192,13 @@ def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, si
         'sos': f'{side}_sos',
     }
     right = right.rename(columns=rename)
-    merged = df.copy()
-    if side_team not in merged.columns:
+    # Ensure left has side team column
+    if side_team not in left.columns:
         src_col = 'home_team' if side == 'home' else 'away_team'
-        if src_col in merged.columns:
-            merged[side_team] = merged[src_col]
-    merged = merged.merge(right, on=['season', side_team, 'prev_week'], how='left')
+        if src_col in left.columns:
+            left[side_team] = left[src_col]
+    # Merge exact prior-week stats
+    merged = left.merge(right, on=['season', side_team, 'prev_week'], how='left')
     # Drop helper
     if 'prev_week' in merged.columns:
         merged = merged.drop(columns=['prev_week'])
