@@ -676,14 +676,18 @@ def _load_predictions() -> pd.DataFrame:
                     df[c] = pd.to_numeric(df[c], errors="coerce")
             # Prefer rows with finals and week-level source when deduplicating by game_id
             if 'game_id' in df.columns:
-                df['has_finals'] = False
+                # Compute helper columns in a single assign to avoid fragmentation
                 try:
                     if {'home_score','away_score'}.issubset(df.columns):
-                        df['has_finals'] = df['home_score'].notna() & df['away_score'].notna()
+                        has_finals = df['home_score'].notna() & df['away_score'].notna()
+                    else:
+                        has_finals = pd.Series(False, index=df.index)
                 except Exception:
-                    pass
+                    has_finals = pd.Series(False, index=df.index)
                 src_rank = {'week': 3, 'pred': 2, 'locked': 1, 'synth': 0}
-                df['src_priority'] = df.get('pred_source').map(lambda s: src_rank.get(str(s), -1))
+                pred_source = df['pred_source'] if 'pred_source' in df.columns else pd.Series(None, index=df.index)
+                src_priority = pred_source.map(lambda s: src_rank.get(str(s), -1))
+                df = df.assign(has_finals=has_finals, src_priority=src_priority)
                 # Sort by finals first, then by source priority; keep first per game_id
                 df = df.sort_values(by=['has_finals','src_priority'], ascending=[False, False])
                 df = df.drop_duplicates(subset=['game_id'], keep='first')
@@ -5468,6 +5472,13 @@ def api_props_recommendations():
     # Group by player for card output
     cards = []
     try:
+        # Local light normalizer (letters+digits, lowercase)
+        def _nm_loose_local(s):
+            try:
+                return "".join(ch for ch in str(s or "").lower() if ch.isalnum())
+            except Exception:
+                return str(s or "").strip().lower()
+
         def _row_to_play(r: pd.Series) -> dict:
             ev_pct = None
             try:
@@ -5533,12 +5544,31 @@ def api_props_recommendations():
                 pass
             return play
 
-        # Determine grouping key: prefer canonical (player, team, position) only to avoid duplicates across event/home/away
-        gcols = [c for c in ["player","team","position"] if c in edges_df.columns]
+        # Determine grouping key: prefer normalized player key and team abbr; avoid including position to prevent split cards
+        gcols = []
+        if "__key_player_loose" in edges_df.columns:
+            gcols.append("__key_player_loose")
+        elif "__key_player" in edges_df.columns:
+            gcols.append("__key_player")
+        elif "player" in edges_df.columns:
+            gcols.append("player")
+        if "__team_abbr" in edges_df.columns:
+            gcols.append("__team_abbr")
+        elif "team" in edges_df.columns:
+            gcols.append("team")
         if not gcols:
             gcols = [c for c in ["player"] if c in edges_df.columns]
         for _, g in edges_df.groupby(gcols, dropna=False):
             head = g.iloc[0]
+            # Choose the most frequent display name within the group as the card title
+            try:
+                if "player" in g.columns and g["player"].notna().any():
+                    name_counts = g["player"].dropna().astype(str).value_counts()
+                    disp_name = name_counts.index[0] if not name_counts.empty else head.get("player")
+                else:
+                    disp_name = head.get("player")
+            except Exception:
+                disp_name = head.get("player")
             plays = []
             for _, r in g.iterrows():
                 try:
@@ -5601,7 +5631,7 @@ def api_props_recommendations():
             except Exception:
                 pass
             cards.append({
-                "player": head.get("player"),
+                "player": disp_name,
                 "position": head.get("position"),
                 "team": head.get("team"),
                 "opponent": head.get("opponent"),
@@ -5622,31 +5652,84 @@ def api_props_recommendations():
                 # Build map from predictions
                 _canon_map_team = {}
                 _canon_map_pos = {}
+                _canon_map_name = {}
                 try:
                     # preds_df may be out of scope if prior block failed; guard defensively
                     _preds = preds_df if 'preds_df' in locals() else pd.DataFrame()
                 except Exception:
                     _preds = pd.DataFrame()
-                if _preds is not None and not _preds.empty and "__key_player" in _preds.columns:
-                    for _, rr in _preds[["__key_player","team","position"]].dropna(subset=["__key_player"]).drop_duplicates().iterrows():
-                        _canon_map_team[str(rr["__key_player"]).strip().lower()] = rr.get("team")
-                        _canon_map_pos[str(rr["__key_player"]).strip().lower()] = rr.get("position")
+                if _preds is not None and not _preds.empty:
+                    # Prefer display name column if present for unification
+                    name_col = None
+                    for nc in ["display_name","player","name","player_name"]:
+                        if nc in _preds.columns:
+                            name_col = nc; break
+                    # Register canonical info under multiple key variants
+                    cols = [c for c in ["__key_player","__key_player_loose","__key_player_alias"] if c in _preds.columns]
+                    if cols:
+                        for _, rr in _preds[[*cols, "team", "position"] + ([name_col] if name_col else [])].dropna(subset=[cols[0]]).drop_duplicates().iterrows():
+                            disp = str(rr.get(name_col) if name_col else "").strip() or None
+                            for kc in cols:
+                                keyv = str(rr.get(kc) or "").strip().lower()
+                                if not keyv:
+                                    continue
+                                if keyv not in _canon_map_team:
+                                    _canon_map_team[keyv] = rr.get("team")
+                                if keyv not in _canon_map_pos:
+                                    _canon_map_pos[keyv] = rr.get("position")
+                                if disp and keyv not in _canon_map_name:
+                                    _canon_map_name[keyv] = disp
                 for c in cards:
                     try:
-                        pk = str(c.get("player") or "").strip().lower()
-                        ct = _canon_map_team.get(pk)
-                        cp = _canon_map_pos.get(pk)
+                        pk_raw = str(c.get("player") or "").strip().lower()
+                        pk_loose = _nm_loose_local(pk_raw)
+                        # Try exact, then loose
+                        ct = _canon_map_team.get(pk_raw)
+                        cp = _canon_map_pos.get(pk_raw)
+                        dn = _canon_map_name.get(pk_raw)
+                        if ct is None and pk_loose:
+                            ct = _canon_map_team.get(pk_loose, ct)
+                        if cp is None and pk_loose:
+                            cp = _canon_map_pos.get(pk_loose, cp)
+                        if not dn and pk_loose:
+                            dn = _canon_map_name.get(pk_loose)
                         if ct:
                             c["team"] = ct
                         if cp:
                             c["position"] = cp
+                        if dn:
+                            c["player"] = dn
                     except Exception:
                         continue
             except Exception:
                 pass
+            # Build team abbr map to create stable merge key
+            try:
+                assets = _load_team_assets()
+                abbr_lookup = {}
+                if isinstance(assets, dict):
+                    for k, v in assets.items():
+                        try:
+                            abbr_lookup[str(k).upper()] = str(v.get("abbr") or k).upper()
+                        except Exception:
+                            continue
+                def to_abbr(team: Optional[str]) -> str:
+                    if team is None:
+                        return ""
+                    s = str(team).strip()
+                    if not s:
+                        return ""
+                    up = s.upper()
+                    return abbr_lookup.get(up, up)
+            except Exception:
+                def to_abbr(team: Optional[str]) -> str:
+                    return str(team or "").strip().upper()
+
             merged = {}
             for c in cards:
-                key = (str(c.get("player") or "").lower(), str(c.get("team") or "").upper(), str(c.get("position") or "").upper())
+                pkey = _nm_loose_local(c.get("player"))
+                tkey = to_abbr(c.get("team"))
+                key = (pkey, tkey)
                 if key not in merged:
                     merged[key] = c
                 else:
