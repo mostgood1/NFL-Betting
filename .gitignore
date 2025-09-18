@@ -50,6 +50,8 @@ logs/
 !nfl_compare/data/edges_player_props_*.csv
 !nfl_compare/data/props_edges_*.csv
 !nfl_compare/data/bovada_player_props_*.csv
+!nfl_compare/data/edges_game_props_*.csv
+!nfl_compare/data/bovada_game_props_*.csv
 !nfl_compare/data/current_week.json
 # Optional but recommended: include per-date weather and odds snapshots used by the app
 !nfl_compare/data/weather_*.csv
