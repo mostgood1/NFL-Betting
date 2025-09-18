@@ -81,16 +81,22 @@
       const parts = [];
       if(pk==='QB' || pk==='UNK'){
         const py=fmtMaybeNum(pr.pass_yards); if(py) parts.push(`pass ${py}`);
+        const pa=fmtMaybeNum(pr.pass_attempts); if(pa) parts.push(`att ${pa}`);
+        const ptd=fmtMaybeNum(pr.pass_tds); if(ptd) parts.push(`TDs ${ptd}`);
+        const ints=fmtMaybeNum(pr.interceptions); if(ints) parts.push(`INT ${ints}`);
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
+        const ra=fmtMaybeNum(pr.rush_attempts); if(ra) parts.push(`ra ${ra}`);
       }
       if(pk==='RB'){
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
+        const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
       }
       if(pk==='WR' || pk==='TE'){
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
+        const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
       }
       // ATD shown for skill positions and QB if present
       if(['QB','RB','WR','TE','UNK'].includes(pk)){

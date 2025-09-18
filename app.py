@@ -5104,7 +5104,25 @@ def api_props_recommendations():
         mk = str(row.get("market_key") or row.get("market") or "").strip().lower()
         proj = row.get("proj")
         line = row.get("line")
-        if mk in {"rec_yards","rush_yards","pass_yards","receptions","receiving yards","rushing yards","passing yards","receptions"}:
+        if mk in {"rec_yards","rush_yards","pass_yards","receptions","pass_attempts","rush_attempts","receiving yards","rushing yards","passing yards","receptions"}:
+            try:
+                if pd.notna(proj) and pd.notna(line):
+                    return "Over" if float(proj) > float(line) else ("Under" if float(proj) < float(line) else None)
+            except Exception:
+                return None
+            return None
+        # Markets with EV from Poisson model (interceptions, pass_tds, multi_tds)
+        if mk in {"interceptions","pass_tds","multi_tds"}:
+            try:
+                ov = row.get("over_ev")
+                un = row.get("under_ev")
+                if (ov is not None and not pd.isna(ov)) or (un is not None and not pd.isna(un)):
+                    if (ov is not None and not pd.isna(ov)) and (un is not None and not pd.isna(un)):
+                        return "Over" if float(ov) >= float(un) else "Under"
+                    return "Over" if (ov is not None and not pd.isna(ov)) else ("Under" if (un is not None and not pd.isna(un)) else None)
+            except Exception:
+                return None
+            # Fallback to proj vs line if EV not available
             try:
                 if pd.notna(proj) and pd.notna(line):
                     return "Over" if float(proj) > float(line) else ("Under" if float(proj) < float(line) else None)
@@ -5132,6 +5150,23 @@ def api_props_recommendations():
             "receptions": "receptions",
             "rushing yards": "rush_yards",
             "passing yards": "pass_yards",
+            "passing tds": "pass_tds",
+            "pass tds": "pass_tds",
+            "pass touchdowns": "pass_tds",
+            "passing attempts": "pass_attempts",
+            "pass attempts": "pass_attempts",
+            "rushing attempts": "rush_attempts",
+            "rush attempts": "rush_attempts",
+            "interceptions": "interceptions",
+            "interceptions thrown": "interceptions",
+            "rush+rec yards": "rush_rec_yards",
+            "rushing + receiving yards": "rush_rec_yards",
+            "rush + rec yards": "rush_rec_yards",
+            "pass+rush yards": "pass_rush_yards",
+            "pass + rush yards": "pass_rush_yards",
+            "passing + rushing yards": "pass_rush_yards",
+            "targets": "targets",
+            "2+ touchdowns": "multi_tds",
             "anytime td": "any_td",
             "any time td": "any_td",
         }
@@ -5548,7 +5583,7 @@ def api_props_recommendations():
                 continue
             # Projections bundle (best-effort)
             proj_bundle = {}
-            for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+            for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob","pass_attempts","interceptions","pass_tds","rush_attempts","targets"]:
                 if k in edges_df.columns:
                     try:
                         v = head.get(k)
