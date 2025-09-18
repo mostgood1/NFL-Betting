@@ -248,7 +248,11 @@ def build_player_usage_priors(season: int) -> pd.DataFrame:
             if s > 0:
                 g[c] = g[c] / s
         return g
-    out = out.groupby(['season','team'], as_index=False).apply(lambda g: _renorm(g, ['rush_share','target_share','rz_rush_share','rz_target_share'])).reset_index(drop=True)
+    # Exclude grouping columns during apply to avoid pandas deprecation; fallback for older pandas
+    try:
+        out = out.groupby(['season','team'], as_index=False).apply(lambda g: _renorm(g, ['rush_share','target_share','rz_rush_share','rz_target_share']), include_groups=False).reset_index(drop=True)
+    except TypeError:
+        out = out.groupby(['season','team'], as_index=False, group_keys=False).apply(lambda g: _renorm(g, ['rush_share','target_share','rz_rush_share','rz_target_share'])).reset_index(drop=True)
     return out
 
 

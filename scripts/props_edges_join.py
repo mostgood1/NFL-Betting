@@ -268,7 +268,11 @@ def load_bovada(path: Path) -> pd.DataFrame:
                 g2 = g.copy()
                 g2["_dist"] = (g2["line"] - med).abs()
                 return g2.sort_values(["_dist", "line"], ascending=[True, True]).head(1)
-            base = base.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_df)
+            # Exclude grouping columns during apply to avoid pandas deprecation; fallback compatible
+            try:
+                base = base.groupby(grp_keys, as_index=False).apply(_pick_df, include_groups=False)
+            except TypeError:
+                base = base.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_df)
             if isinstance(base, pd.Series):
                 base = base.to_frame().T
             try:

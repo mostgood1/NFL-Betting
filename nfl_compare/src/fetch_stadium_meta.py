@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from io import StringIO
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -92,7 +93,8 @@ STATIC_META: Dict[str, Dict[str, object]] = {
 def _extract_table() -> pd.DataFrame:
     # Fetch the page and parse the first stadiums table that includes Teams / Surface / Roof
     html = requests.get(WIKI_URL, timeout=30).text
-    tables = pd.read_html(html, flavor='lxml')
+    # Wrap literal HTML string in StringIO to avoid pandas deprecation
+    tables = pd.read_html(StringIO(html), flavor='lxml')
     # Find table with headers including 'Team' or 'Teams'
     for t in tables:
         cols = [str(c).strip().lower() for c in t.columns]

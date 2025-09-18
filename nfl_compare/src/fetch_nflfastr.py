@@ -394,7 +394,11 @@ def _compute_sos(team_stats: pd.DataFrame, games: pd.DataFrame) -> pd.DataFrame:
         num = (d["opp_strength"] * ww).sum()
         den = ww.sum()
         return float(num / den) if den and pd.notna(num) else float('nan')
-    sos_agg = sos.groupby(["season", "team", "week"]).apply(_wavg).reset_index(name="sos")
+    # Exclude grouping columns during apply to avoid pandas deprecation; fallback for older pandas
+    try:
+        sos_agg = sos.groupby(["season", "team", "week"]).apply(_wavg, include_groups=False).reset_index(name="sos")
+    except TypeError:
+        sos_agg = sos.groupby(["season", "team", "week"], group_keys=False).apply(_wavg).reset_index(name="sos")
 
     # Merge back
     ts = ts.merge(sos_agg, on=["season", "team", "week"], how="left")

@@ -17,6 +17,8 @@ param(
   [int]$TargetWeek = 0,
   [switch]$Commit,
   [switch]$Push,
+  [string]$GitRemote = 'origin',
+  [string]$GitBranch = '' ,
   [switch]$NoRetrain
 )
 
@@ -110,21 +112,33 @@ Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
   & $venvPy -c "from nfl_compare.src.reconciliation import reconcile_props, summarize_errors; import pandas as pd; m=reconcile_props($Season,$PriorWeek); s=summarize_errors(m); fp=f'nfl_compare/data/player_props_vs_actuals_{Season}_wk{PriorWeek}.csv'; m.to_csv(fp, index=False); print(f'Wrote {fp} ({len(m)} rows)'); print(s.to_string(index=False))" | Write-Host
 }
 
-# 6) Stage and optionally commit/push
+# 6) Stage and optionally commit/pull --rebase/push with safety
 Invoke-Step "Stage updated data" {
-  git add nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv | Write-Host
+  git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv | Write-Host
+  if (Test-Path 'nfl_compare/data/predictions.csv') { git add -- nfl_compare/data/predictions.csv | Write-Host }
+  if (Test-Path 'nfl_compare/models/nfl_models.joblib') { git add -- nfl_compare/models/nfl_models.joblib | Write-Host }
 }
 
-if ($Commit.IsPresent) {
+if ($Commit.IsPresent -or $Push.IsPresent) {
   $msg = "weekly: season $Season, prior wk $PriorWeek reconciled; wk $TargetWeek props generated"
-  Invoke-Step "Commit" {
-    git commit -m $msg | Write-Host
+  # Detect if anything is staged to commit
+  $cached = git diff --cached --name-only
+  if ($cached) {
+    Invoke-Step "Commit" { git commit -m $msg | Write-Host }
+  } else {
+    Write-Host "[SKIP] Commit (no staged changes)" -ForegroundColor Yellow
   }
 }
+
 if ($Push.IsPresent) {
-  Invoke-Step "Push" {
-    git push | Write-Host
-  }
+  $branch = $GitBranch
+  if (-not $branch) { $branch = (git rev-parse --abbrev-ref HEAD).Trim(); if (-not $branch) { $branch = 'master' } }
+  # Stash any remaining working changes to avoid pull conflicts
+  $stashOut = git stash push -u --keep-index -m 'weekly_update_autostash'
+  if ($stashOut -and ($stashOut -notmatch 'No local changes to save')) { Write-Host "[INFO] Stashed local changes: $stashOut" -ForegroundColor DarkGray }
+  Invoke-Step "Pull --rebase $GitRemote/$branch" { git pull --rebase $GitRemote $branch | Write-Host }
+  Invoke-Step "Push to $GitRemote/$branch" { git push $GitRemote $branch | Write-Host }
+  if ($stashOut -and ($stashOut -notmatch 'No local changes to save')) { git stash pop | Out-Null }
 }
 
 Write-Host "Weekly update complete." -ForegroundColor Cyan

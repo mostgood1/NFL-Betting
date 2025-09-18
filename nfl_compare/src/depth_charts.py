@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from io import StringIO
 from pathlib import Path
 from typing import Optional
 
@@ -133,7 +134,8 @@ def _scrape_espn_depth_for_team(team_name: str) -> dict[str, list[str]]:
 
     # Extract the offense tiers table via pandas
     try:
-        tables = pd.read_html(resp.text)
+        # Wrap literal HTML string in StringIO to avoid pandas deprecation
+        tables = pd.read_html(StringIO(resp.text))
     except Exception:
         return {}
     df = None
