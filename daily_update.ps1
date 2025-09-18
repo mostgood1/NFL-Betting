@@ -77,4 +77,19 @@ if ($ExitCode -ne 0) {
   exit $ExitCode
 }
 
+# Run props pipeline (fetch Bovada -> edges -> ladders) using current_week.json
+try {
+  Write-Log 'Running props pipeline (scripts/run_props_pipeline.py)'
+  & $Python scripts/run_props_pipeline.py | Tee-Object -FilePath $LogFile -Append
+  $PipelineExit = $LASTEXITCODE
+  Write-Log "props_pipeline exit code: $PipelineExit"
+  if ($PipelineExit -ne 0) {
+    Write-Log 'Props pipeline completed with errors'
+    exit $PipelineExit
+  }
+} catch {
+  Write-Log "props_pipeline failed: $($_.Exception.Message)"
+  exit 1
+}
+
 Write-Log 'Completed successfully'
