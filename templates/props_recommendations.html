@@ -80,22 +80,29 @@
       const pr = it.projections || {}; const pk = posKey(it.position);
       const parts = [];
       if(pk==='QB' || pk==='UNK'){
-        const py=fmtMaybeNum(pr.pass_yards); if(py) parts.push(`pass ${py}`);
         const pa=fmtMaybeNum(pr.pass_attempts); if(pa) parts.push(`att ${pa}`);
-        const ptd=fmtMaybeNum(pr.pass_tds); if(ptd) parts.push(`TDs ${ptd}`);
+        const py=fmtMaybeNum(pr.pass_yards); if(py) parts.push(`pass ${py}`);
+        const ptd=fmtMaybeNum(pr.pass_tds); if(ptd) parts.push(`pTD ${ptd}`);
         const ints=fmtMaybeNum(pr.interceptions); if(ints) parts.push(`INT ${ints}`);
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
         const ra=fmtMaybeNum(pr.rush_attempts); if(ra) parts.push(`ra ${ra}`);
+        const rr=fmtMaybeNum(pr.rush_rec_yards); if(rr) parts.push(`R+R ${rr}`);
+        const pry=fmtMaybeNum(pr.pass_rush_yards); if(pry) parts.push(`P+R ${pry}`);
       }
       if(pk==='RB'){
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
+        const ra=fmtMaybeNum(pr.rush_attempts); if(ra) parts.push(`ra ${ra}`);
+        const rtd=fmtMaybeNum(pr.rush_tds); if(rtd) parts.push(`rTD ${rtd}`);
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
+        const rctd=fmtMaybeNum(pr.rec_tds); if(rctd) parts.push(`recTD ${rctd}`);
         const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
+        const rr=fmtMaybeNum(pr.rush_rec_yards); if(rr) parts.push(`R+R ${rr}`);
       }
       if(pk==='WR' || pk==='TE'){
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
+        const rctd=fmtMaybeNum(pr.rec_tds); if(rctd) parts.push(`recTD ${rctd}`);
         const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
       }
       // ATD shown for skill positions and QB if present

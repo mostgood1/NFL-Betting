@@ -5635,7 +5635,14 @@ def api_props_recommendations():
                 continue
             # Projections bundle (best-effort)
             proj_bundle = {}
-            for k in ["pass_yards","rush_yards","rec_yards","receptions","any_td_prob","pass_attempts","interceptions","pass_tds","rush_attempts","targets"]:
+            for k in [
+                "pass_attempts","pass_yards","pass_tds","interceptions",
+                "rush_attempts","rush_yards","rush_tds",
+                "targets","receptions","rec_yards","rec_tds",
+                "any_td_prob",
+                # Derived sums if present
+                "rush_rec_yards","pass_rush_yards",
+            ]:
                 if k in edges_df.columns:
                     try:
                         v = head.get(k)
