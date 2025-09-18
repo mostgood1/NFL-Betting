@@ -73,7 +73,12 @@
     function qs(name){ const u=new URL(window.location); return u.searchParams.get(name) }
     function fmtPct(x){ if(x==null||isNaN(x)) return ''; return (x).toFixed(1)+'%' }
     function fmtNum(x){ if(x==null||isNaN(x)) return '—'; return Number(x).toFixed(1) }
-    function fmtMaybeNum(x){ if(x==null||isNaN(x)) return null; return Number(x).toFixed(1) }
+    function fmtMaybeNum(x){
+      if(x==null||isNaN(x)) return null;
+      const v = Number(x);
+      if(v===0) return null; // hide zeros
+      return v.toFixed(1);
+    }
 
     function posKey(p){ const u=(p||'').toString().toUpperCase(); if(u.startsWith('QB')) return 'QB'; if(u.startsWith('RB')) return 'RB'; if(u.startsWith('WR')) return 'WR'; if(u.startsWith('TE')) return 'TE'; return 'UNK' }
     function buildProjText(it){
@@ -108,7 +113,7 @@
       // ATD shown for skill positions and QB if present
       if(['QB','RB','WR','TE','UNK'].includes(pk)){
         const atd = pr.any_td_prob!=null && !isNaN(pr.any_td_prob) ? (pr.any_td_prob*100) : null;
-        const atdS = atd!=null && !isNaN(atd) ? atd.toFixed(1)+'%' : null; if(atdS) parts.push(`ATD ${atdS}`);
+        const atdS = (atd!=null && !isNaN(atd) && atd!==0) ? atd.toFixed(1)+'%' : null; if(atdS) parts.push(`ATD ${atdS}`);
       }
       if(!parts.length) return '';
       return 'Proj: ' + parts.join(' • ');
