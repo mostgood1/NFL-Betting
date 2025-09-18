@@ -23,10 +23,21 @@
     .player{display:flex;gap:10px;align-items:center}
     .logo{width:36px;height:36px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
     .plays{margin-top:6px}
-    .play{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--br);border-radius:10px;padding:6px 8px;background:var(--pill);margin-top:6px}
+  .play{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--br);border-radius:10px;padding:8px 10px;background:var(--pill);margin-top:6px}
     .badge{font-size:11px;border:1px solid var(--br);border-radius:999px;padding:2px 6px;margin-left:6px}
     .ev{color:#86efac}
     .edge{color:#facc15}
+  .price{font-size:12px;margin-left:6px}
+  .price .label{opacity:.7;margin-right:3px}
+  .price .val{display:inline-block;border:1px solid var(--br);border-radius:8px;padding:2px 6px}
+  .price .sel{background:#10315a}
+    /* Ladder grouping */
+  details.ladder{border:1px solid var(--br);border-radius:10px;background:var(--pill);margin-top:6px}
+  details.ladder>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:8px 10px}
+    details.ladder[open]>summary{border-bottom:1px solid var(--br)}
+    details.ladder .ladder-rows{display:block}
+  details.ladder .ladder-row{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-top:1px solid var(--br)}
+    summary::-webkit-details-marker{display:none}
     @media (max-width:760px){ .grid{grid-template-columns:1fr} }
   </style>
   <link rel="icon" href="data:,">
@@ -158,20 +169,82 @@
           <div class="plays"></div>
         `;
         const plays = div.querySelector('.plays');
-        (it.plays||[]).forEach(p=>{
-          if(hideLadders && p.is_ladder===true){ return; }
+        const allPlays = (it.plays||[]);
+        // Separate ladder vs non-ladder
+        const basePlays = [];
+        const ladderGroups = new Map(); // market -> plays[]
+        for(const p of allPlays){
+          if(p && p.is_ladder===true){
+            const mk = (p.market||'').toString();
+            if(!ladderGroups.has(mk)) ladderGroups.set(mk, []);
+            ladderGroups.get(mk).push(p);
+          } else {
+            basePlays.push(p);
+          }
+        }
+        // Render non-ladder plays
+        basePlays.forEach(p=>{
           const ev = (p.ev_pct!=null)? `<span class="ev">EV ${fmtNum(p.ev_pct)}</span>`: '';
           const edge = (p.edge!=null)? `<span class="edge">Δ ${fmtNum(p.edge)}</span>`: '';
-          const price = (p.side==='Over')? p.over_price : (p.side==='Under'? p.under_price : null);
+          const o = p.over_price!=null? Number(p.over_price): null;
+          const u = p.under_price!=null? Number(p.under_price): null;
           const line = (p.line!=null? p.line : null);
           const row = document.createElement('div');
           row.className='play';
           row.innerHTML = `
-            <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''} ${p.is_ladder? '<span class="badge">Ladder</span>': ''}</div>
-            <div>${edge} ${ev} <span class="badge">${price!=null? price: ''}</span></div>
+            <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
+            <div>${edge} ${ev}
+              <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
+              <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
+            </div>
           `;
           plays.appendChild(row);
         });
+        // Render ladder groups (skip entirely if hidden)
+        if(!hideLadders){
+          for(const [market, arr] of ladderGroups.entries()){
+            // Sort ladder lines by numeric line asc
+            arr.sort((a,b)=>{
+              const la = (a.line!=null && !isNaN(a.line))? Number(a.line): Number.POSITIVE_INFINITY;
+              const lb = (b.line!=null && !isNaN(b.line))? Number(b.line): Number.POSITIVE_INFINITY;
+              return la - lb;
+            });
+            const count = arr.length;
+            // Compute best edge/ev for summary
+            const bestEdge = arr.reduce((m,p)=> (p.edge!=null && (!isNaN(p.edge)) && (m==null || Math.abs(p.edge)>Math.abs(m))? p.edge: m), null);
+            const anyEv = arr.find(p=> p.ev_pct!=null && !isNaN(p.ev_pct));
+            const evStr = anyEv? `EV ${fmtNum(anyEv.ev_pct)}`: '';
+            const details = document.createElement('details');
+            details.className = 'ladder';
+            const edgeStr = (bestEdge!=null)? `<span class="edge">Δ ${fmtNum(bestEdge)}</span>`: '';
+            details.innerHTML = `
+              <summary>
+                <div>Ladder: ${market} <span class="badge">${count} lines</span></div>
+                <div>${edgeStr} ${evStr}</div>
+              </summary>
+              <div class="ladder-rows"></div>
+            `;
+            const rowsRoot = details.querySelector('.ladder-rows');
+            arr.forEach(p=>{
+              const ev = (p.ev_pct!=null)? `<span class=\"ev\">EV ${fmtNum(p.ev_pct)}</span>`: '';
+              const edge = (p.edge!=null)? `<span class=\"edge\">Δ ${fmtNum(p.edge)}</span>`: '';
+              const o = p.over_price!=null? Number(p.over_price): null;
+              const u = p.under_price!=null? Number(p.under_price): null;
+              const line = (p.line!=null? p.line : null);
+              const row = document.createElement('div');
+              row.className='ladder-row';
+              row.innerHTML = `
+                <div>${p.side||''}${line!=null? ' '+line: ''}</div>
+                <div>${edge} ${ev}
+                  <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
+                  <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
+                </div>
+              `;
+              rowsRoot.appendChild(row);
+            });
+            plays.appendChild(details);
+          }
+        }
         root.appendChild(div);
       });
     }

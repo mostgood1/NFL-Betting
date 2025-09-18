@@ -5021,7 +5021,53 @@ def api_props_recommendations():
     except Exception:
         preds_df = pd.DataFrame()
 
-    # Early exit if no edges
+    # Attempt to load ladder options (explicit or synthesized) and merge into the working frame
+    # so they appear alongside baseline props. Degrade gracefully if file is absent.
+    ladder_fp = DATA_DIR / f"ladder_options_{season_i}_wk{week_i}.csv"
+    lad_df = pd.DataFrame()
+    try:
+        if ladder_fp.exists():
+            lad_df = pd.read_csv(ladder_fp)
+            # Ensure minimal columns exist
+            if not lad_df.empty:
+                if "is_ladder" not in lad_df.columns:
+                    lad_df["is_ladder"] = True
+                # Normalize market_key for downstream side selection
+                if "market_key" not in lad_df.columns and "market" in lad_df.columns:
+                    mk_map = {
+                        "receiving yards": "rec_yards",
+                        "receptions": "receptions",
+                        "rushing yards": "rush_yards",
+                        "passing yards": "pass_yards",
+                        "anytime td": "any_td",
+                        "any time td": "any_td",
+                    }
+                    try:
+                        lad_df["market_key"] = lad_df["market"].astype(str).str.strip().str.lower().map(mk_map).fillna(lad_df["market"].astype(str).str.strip().str.lower())
+                    except Exception:
+                        pass
+                # Coerce numeric line/proj/edge for safety
+                for c in ("line","proj","edge"):
+                    if c in lad_df.columns:
+                        lad_df[c] = pd.to_numeric(lad_df[c], errors="coerce")
+    except Exception:
+        lad_df = pd.DataFrame()
+
+    # If baseline edges are missing but ladders exist, use ladders as the data source
+    try:
+        if (edges_df is None or edges_df.empty) and (lad_df is not None and not lad_df.empty):
+            edges_df = lad_df.copy()
+        elif lad_df is not None and not lad_df.empty:
+            # Append ladders to edges for richer play lists
+            try:
+                edges_df = pd.concat([edges_df, lad_df], ignore_index=True)
+            except Exception:
+                # Fallback: if concat fails, skip appending ladders
+                pass
+    except Exception:
+        pass
+
+    # Early exit if no edges and no ladders
     if edges_df is None or edges_df.empty:
         return jsonify({
             "season": season_i,
@@ -5029,7 +5075,7 @@ def api_props_recommendations():
             "games": [],
             "rows": 0,
             "data": [],
-            "note": f"edges CSV not found or empty: {edges_fp_used}"
+            "note": f"edges/ladder data not found or empty: {edges_fp_used} / {ladder_fp}"
         })
 
     # Normalize helpers

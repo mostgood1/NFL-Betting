@@ -124,6 +124,11 @@ MARKET_MAP: Dict[str, str] = {
     "rush yds": "rush_yards",
     "passing yards": "pass_yards",
     "pass yds": "pass_yards",
+    # QB passing touchdowns
+    "passing touchdowns": "pass_tds",
+    "passing tds": "pass_tds",
+    "pass tds": "pass_tds",
+    "pass touchdowns": "pass_tds",
     "anytime td": "any_td",
     "any time td": "any_td",
 }
@@ -135,6 +140,8 @@ PROJ_COLS: Dict[str, List[str]] = {
     "receptions": ["receptions", "pred_receptions", "expected_receptions"],
     "rush_yards": ["rush_yards", "pred_rush_yards", "expected_rush_yards"],
     "pass_yards": ["pass_yards", "pred_pass_yards", "expected_pass_yards"],
+    # QB passing TD projections
+    "pass_tds": ["pass_tds", "pred_pass_tds", "expected_pass_tds"],
     # For TD, use model probability directly (not a line). We'll read:
     "any_td": ["any_td_prob", "anytime_td_prob", "prob_any_td"],
 }
@@ -198,27 +205,30 @@ def load_bovada(path: Path) -> pd.DataFrame:
     # Choose the line closest to the group's median; if tie, prefer the lower absolute line.
     try:
         df["line"] = pd.to_numeric(df.get("line"), errors="coerce")
-        grp_keys = [k for k in ["key_player", "market_norm", "event"] if k in df.columns]
-        if grp_keys:
+        # Preserve ladder rows exactly as-is; collapse only non-ladder rows
+        is_ladder_mask = df.get("is_ladder").fillna(False) == True
+        base = df.loc[~is_ladder_mask].copy()
+        ladd = df.loc[is_ladder_mask].copy()
+        grp_keys = [k for k in ["key_player", "market_norm", "event"] if k in base.columns]
+        if grp_keys and not base.empty:
             def _pick_df(g: pd.DataFrame) -> pd.DataFrame:
                 if "line" not in g.columns or g["line"].notna().sum() == 0:
                     return g.iloc[:1].copy()
                 med = g["line"].median()
-                # distance to median (absolute); then line ascending as tiebreaker
                 g2 = g.copy()
                 g2["_dist"] = (g2["line"] - med).abs()
                 return g2.sort_values(["_dist", "line"], ascending=[True, True]).head(1)
-            df = df.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_df)
-            # If the result is a Series (older pandas), coerce to DataFrame
-            if isinstance(df, pd.Series):
-                df = df.to_frame().T
-            # Flatten multi-index if created and drop helper column
+            base = base.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_df)
+            if isinstance(base, pd.Series):
+                base = base.to_frame().T
             try:
-                df = df.reset_index(drop=True)
+                base = base.reset_index(drop=True)
             except Exception:
                 pass
-            if "_dist" in df.columns:
-                df = df.drop(columns=["_dist"])  # cleanup helper column
+            if "_dist" in base.columns:
+                base = base.drop(columns=["_dist"])  # cleanup helper column
+        # Recombine
+        df = pd.concat([base, ladd], ignore_index=True)
     except Exception:
         # Be forgiving; if collapsing fails, keep original rows
         pass
@@ -362,8 +372,8 @@ def compute_edges(
     # Edge and EV
     merged["edge"] = np.nan
     if "line" in merged.columns:
-        # Only meaningful for yardage/receptions
-        yard_markets = {"rec_yards", "rush_yards", "pass_yards", "receptions"}
+        # Only meaningful for yardage/receptions/counting stat markets
+        yard_markets = {"rec_yards", "rush_yards", "pass_yards", "receptions", "pass_tds"}
         mask_yard = merged["market_key"].isin(list(yard_markets)) & merged["proj"].notna() & merged["line"].notna()
         merged.loc[mask_yard, "edge"] = merged.loc[mask_yard, "proj"] - merged.loc[mask_yard, "line"]
 

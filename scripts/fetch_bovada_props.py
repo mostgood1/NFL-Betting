@@ -4,7 +4,7 @@ Fetch Bovada NFL player props and write a CSV compatible with props_edges_join.p
 Outputs columns:
   - player (required)
   - team (optional)
-  - market (one of: Receiving Yards, Receptions, Rushing Yards, Passing Yards, Anytime TD)
+    - market (one of: Receiving Yards, Receptions, Rushing Yards, Passing Yards, Passing TDs, Anytime TD)
   - line (numeric, where applicable)
   - over_price (American odds, optional)
   - under_price (American odds, optional)
@@ -46,6 +46,10 @@ MARKET_ALIASES: List[Tuple[str, str]] = [
     ("receptions", "Receptions"),
     ("rushing yards", "Rushing Yards"),
     ("passing yards", "Passing Yards"),
+    ("passing touchdowns", "Passing TDs"),
+    ("pass touchdowns", "Passing TDs"),
+    ("passing tds", "Passing TDs"),
+    ("pass tds", "Passing TDs"),
     ("anytime touchdown", "Anytime TD"),
     ("any time touchdown", "Anytime TD"),
     ("anytime td", "Anytime TD"),
@@ -65,23 +69,34 @@ def _std_market(name: str) -> Optional[str]:
 
 
 def _parse_ladder_threshold(market_desc: Optional[str]) -> Optional[float]:
-    """Extract a numeric threshold from ladder-style markets like:
-    - "To Record 100+ Receiving Yards"
-    - "To Record 6+ Receptions"
-    - "To Record 250+ Passing Yards"
+    """Extract a numeric threshold from ladder-style markets.
+    Examples handled:
+      - "To Record 100+ Receiving Yards"
+      - "To Record 6+ Receptions"
+      - "To Record 250+ Passing Yards"
+      - "100+ Receiving Yards"
+      - "6+ Receptions"
+      - "250+ Passing Yards"
     Returns the numeric value as float if found; otherwise None.
     """
     if not market_desc:
         return None
     s = str(market_desc)
-    # Use a permissive regex to capture integers or decimals before a '+'
+    # Pattern A: explicit "To Record <num>+"
     m = re.search(r"to\s+record\s+([0-9]+(?:\.[0-9]+)?)\s*\+", s, flags=re.IGNORECASE)
-    if not m:
-        return None
-    try:
-        return float(m.group(1))
-    except Exception:
-        return None
+    if m:
+        try:
+            return float(m.group(1))
+        except Exception:
+            return None
+    # Pattern B: generic "<num>+ (Receiving|Rushing|Passing|Receptions)"
+    m2 = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*\+\s*(receiving|rushing|passing|receptions)(?:\s+yards|\s+yds|\b)", s, flags=re.IGNORECASE)
+    if m2:
+        try:
+            return float(m2.group(1))
+        except Exception:
+            return None
+    return None
 
 
 def fetch_json(url: str) -> Any:
@@ -145,15 +160,14 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
             std = _std_market(mname)
             if not std:
                 continue  # not a player prop we care about
+            is_alternate_market = "alternate" in mname_lower
 
             # Outcomes often have Over/Under entries with price.handicap = line and participant (player) info
             outcomes = m.get("outcomes") or []
-            # Build per-player container
-            bucket: Dict[str, Dict[str, Any]] = {}
 
             # Detect ladder threshold if this is a ladder market (e.g., "To Record 100+ Receiving Yards")
             ladder_line = _parse_ladder_threshold(mname)
-            is_ladder_market = (ladder_line is not None) and ("to record" in mname_lower)
+            is_ladder_market = (ladder_line is not None)
 
             # Some Bovada markets are per-player (player name appears in market description)
             # e.g., "Receiving Yards - Dalton Kincaid (BUF)".
@@ -190,44 +204,119 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                         continue
                     return s
                 return None
+            def _parse_outcome_threshold(oc: Dict[str, Any]) -> Optional[float]:
+                texts = []
+                for fld in ("description","name","displayName","market","outcomeDescription"):
+                    v = oc.get(fld)
+                    if v:
+                        texts.append(str(v))
+                combo = " ".join(texts)
+                return _parse_ladder_threshold(combo)
+
+            # Special handling for "Alternate ..." markets: emit one row per (player, line) with both O/U prices
+            if is_alternate_market and std != "Anytime TD":
+                # build {(player, line): {over_price, under_price, team_hint}}
+                alt_bucket: Dict[Tuple[str, float], Dict[str, Any]] = {}
+                for oc in outcomes:
+                    side = _norm(oc.get("description"))  # 'over'/'under' expected for alt yards/rec
+                    participant = _pick_outcome_player(oc) or player_from_market
+                    raw_participant = str(participant or "").strip()
+                    if not raw_participant:
+                        continue
+                    # Strip trailing team tag
+                    m_tag = team_tag_re.search(raw_participant)
+                    tag_team = m_tag.group(1) if m_tag else None
+                    player = team_tag_re.sub("", raw_participant).strip() if m_tag else raw_participant
+                    price = oc.get("price", {}) or {}
+                    line = price.get("handicap")
+                    try:
+                        line = float(line) if line is not None and str(line) != "" else np.nan
+                    except Exception:
+                        line = np.nan
+                    if pd.isna(line):
+                        # Some alt TDs are like "1+" without handicap; try outcome text
+                        oc_thresh = _parse_outcome_threshold(oc)
+                        line = oc_thresh if oc_thresh is not None else np.nan
+                    if pd.isna(line):
+                        # Cannot form a rung without a numeric line
+                        continue
+                    amer = price.get("american")
+                    try:
+                        amer = int(str(amer).replace("+", "")) if amer is not None and str(amer) != "" else np.nan
+                    except Exception:
+                        amer = np.nan
+                    key = (player, float(line))
+                    if key not in alt_bucket:
+                        alt_bucket[key] = {
+                            "player": player,
+                            "market": std,
+                            "line": float(line),
+                            "over_price": np.nan,
+                            "under_price": np.nan,
+                            "team_hint": tag_team or None,
+                        }
+                    else:
+                        if not alt_bucket[key].get("team_hint") and tag_team:
+                            alt_bucket[key]["team_hint"] = tag_team
+                    if side == "over":
+                        alt_bucket[key]["over_price"] = amer
+                    elif side == "under":
+                        alt_bucket[key]["under_price"] = amer
+                    else:
+                        # Single-sided (e.g., "1+")
+                        alt_bucket[key]["over_price"] = amer
+
+                for row in alt_bucket.values():
+                    row.update({
+                        "book": "Bovada",
+                        "event": event_name,
+                        "game_time": start_time,
+                        "home_team": home,
+                        "away_team": away,
+                        "is_ladder": True,  # treat alternate lines as ladder rungs
+                    })
+                    if team_from_market:
+                        row.setdefault("team", team_from_market)
+                    else:
+                        th = row.get("team_hint")
+                        if th and (not row.get("team") or pd.isna(row.get("team"))):
+                            row["team"] = th
+                        else:
+                            row.setdefault("team", np.nan)
+                    rows.append(row)
+                continue  # done with this market
+
+            # Default handling: aggregate per player, one row per player/market
+            bucket: Dict[str, Dict[str, Any]] = {}
             for oc in outcomes:
                 side = _norm(oc.get("description"))  # 'over'/'under' expected
-                # Participant can be nested in outcome or referenced via 'participant'
                 participant = _pick_outcome_player(oc)
-                # If still not found, fall back to market-level player (for per-player markets)
                 if not participant and player_from_market:
                     participant = player_from_market
-
                 raw_participant = str(participant or "").strip()
                 player = raw_participant
-                # Remove trailing team tag from player name like "Tyreek Hill (MIA)"
                 m_tag = team_tag_re.search(player)
                 tag_team = m_tag.group(1) if m_tag else None
                 if m_tag:
                     player = team_tag_re.sub("", player).strip()
                 if not player:
-                    # As a last resort, try market-level player
                     if player_from_market:
                         player = player_from_market
                     else:
-                        # Skip if we cannot identify the player
                         continue
-
                 price = oc.get("price", {}) or {}
                 line = price.get("handicap")
                 try:
                     line = float(line) if line is not None and str(line) != "" else np.nan
                 except Exception:
                     line = np.nan
-
                 amer = price.get("american")
                 try:
                     amer = int(str(amer).replace("+", "")) if amer is not None and str(amer) != "" else np.nan
                 except Exception:
                     amer = np.nan
-
+                oc_thresh = _parse_outcome_threshold(oc)
                 key = player
-                # Initialize bucket per player and carry a team hint per player (from tag) to avoid cross-row leakage
                 if key not in bucket:
                     bucket[key] = {
                         "player": player,
@@ -236,24 +325,25 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "over_price": np.nan,
                         "under_price": np.nan,
                         "team_hint": tag_team or None,
+                        "_is_ladder": False,
                     }
                 else:
-                    # Update team hint if missing and available on this outcome
                     if not bucket[key].get("team_hint") and tag_team:
                         bucket[key]["team_hint"] = tag_team
-                # Update line if present
                 if std != "Anytime TD" and not pd.isna(line):
                     bucket[key]["line"] = line
-                # If this is a ladder market and no numeric line was present in price, use the ladder threshold
-                if std != "Anytime TD" and pd.isna(bucket[key]["line"]) and ladder_line is not None:
-                    bucket[key]["line"] = ladder_line
-                # Assign side price
+                if std != "Anytime TD" and pd.isna(bucket[key]["line"]):
+                    if oc_thresh is not None:
+                        bucket[key]["line"] = oc_thresh
+                        bucket[key]["_is_ladder"] = True
+                    elif ladder_line is not None:
+                        bucket[key]["line"] = ladder_line
+                        bucket[key]["_is_ladder"] = True
                 if side == "over":
                     bucket[key]["over_price"] = amer
                 elif side == "under":
                     bucket[key]["under_price"] = amer
                 else:
-                    # Unknown side; emit as single-sided row by over_price
                     bucket[key]["over_price"] = amer
 
             for row in bucket.values():
@@ -264,19 +354,16 @@ def parse_event_markets(ev: Dict[str, Any]) -> List[Dict[str, Any]]:
                     "home_team": home,
                     "away_team": away,
                 })
-                # Mark ladder markets explicitly for downstream consumers
-                row["is_ladder"] = bool(is_ladder_market)
-                # Try to attach a team based on substring match in event description if not clear
-                # Keep 'team' optional; consumer may ignore or use home/away fields
+                row["is_ladder"] = bool(row.get("_is_ladder") or is_ladder_market)
                 if team_from_market:
                     row.setdefault("team", team_from_market)
                 else:
-                    # If player text had a team tag like (MIA), use it if team is missing
                     th = row.get("team_hint")
                     if th and (not row.get("team") or pd.isna(row.get("team"))):
                         row["team"] = th
                     else:
                         row.setdefault("team", np.nan)
+                row.pop("_is_ladder", None)
                 rows.append(row)
 
     return rows
