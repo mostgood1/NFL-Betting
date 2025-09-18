@@ -6389,6 +6389,14 @@ def api_game_props_recommendations():
     except Exception:
         pass
 
+    # If derivatives_only removed everything (no filters applied), fallback to include core markets globally
+    try:
+        if deriv_flag and (df is None or df.empty) and (df_all is not None and not df_all.empty):
+            df = df_all.copy()
+            fallback_used = True
+    except Exception:
+        pass
+
     # If a specific game is selected and derivatives_only yields no rows, fallback to include core markets for that game
     fallback_used = False
     try:
@@ -6421,11 +6429,14 @@ def api_game_props_recommendations():
     except Exception:
         pass
 
-    # Build games list (canonical labels) AFTER applying derivatives_only filter, so dropdown matches content
+    # Build games list (canonical labels). If filtered set is empty, use full set to ensure dropdown isn't empty.
     games = []
     try:
-        if {"home_team","away_team"}.issubset(df.columns):
-            gdf = df[["home_team","away_team"]].dropna(how='any').drop_duplicates()
+        gsrc = df
+        if (gsrc is None or gsrc.empty) and (df_all is not None and not df_all.empty):
+            gsrc = df_all
+        if gsrc is not None and not gsrc.empty and {"home_team","away_team"}.issubset(gsrc.columns):
+            gdf = gsrc[["home_team","away_team"]].dropna(how='any').drop_duplicates()
             for _, r in gdf.iterrows():
                 ht = str(r.get("home_team") or "").strip()
                 at = str(r.get("away_team") or "").strip()
@@ -6436,8 +6447,13 @@ def api_game_props_recommendations():
         games = []
 
     # Default: restrict to first game for compact output
+    # By default, restrict to first game for compact output unless all=1
     try:
-        if {"home_team","away_team"}.issubset(df.columns) and df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
+        all_flag = str(request.args.get("all", "0")).strip().lower() in {"1","true","yes","y"}
+    except Exception:
+        all_flag = False
+    try:
+        if (not all_flag) and {"home_team","away_team"}.issubset(df.columns) and df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
             first = df[["home_team","away_team"]].drop_duplicates().head(1)
             ht = first.iloc[0]["home_team"]; at = first.iloc[0]["away_team"]
             df = df[(df["home_team"] == ht) & (df["away_team"] == at)]

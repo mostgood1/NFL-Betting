@@ -21,6 +21,12 @@
     .price .label{opacity:.7;margin-right:3px}
     .price .val{display:inline-block;border:1px solid var(--br);border-radius:8px;padding:2px 6px}
     .price .sel{background:#10315a}
+    /* Ladder grouping */
+    details.ladder{border:1px solid var(--br);border-radius:10px;background:var(--pill);margin-top:6px}
+    details.ladder>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:8px 10px}
+    details.ladder[open]>summary{border-bottom:1px solid var(--br)}
+    details.ladder .ladder-rows{display:block}
+    .tag{font-size:12px;opacity:.8;background:#1a2444;border:1px solid var(--br);border-radius:999px;padding:2px 8px;margin-left:8px}
   </style>
 </head>
 <body>
@@ -33,7 +39,9 @@
       <label>Game
         <select id="game"><option value="">All games</option></select>
       </label>
-      <label><input type="checkbox" id="includeCore"> Include core markets</label>
+  <label><input type="checkbox" id="includeCore" checked> Include core markets</label>
+      <label><input type="checkbox" id="asLadders" checked> Show as ladders</label>
+      <label><input type="checkbox" id="hideMoneyline" checked> Hide moneyline</label>
       <button type="submit">Apply</button>
       <button type="button" id="reset">Reset</button>
     </form>
@@ -53,13 +61,15 @@
       if(g){ const [home,away,ev] = g.split('|'); if(ev) params.set('event', ev); else { if(home) params.set('home_team', home); if(away) params.set('away_team', away);} }
       // derivatives_only=1 hides core; set to 0 when includeCore is checked
       params.set('derivatives_only', includeCore ? '0' : '1');
+      params.set('all','1');
       const url = '/api/game-props/recommendations' + (params.toString()? ('?'+params.toString()):'');
       const res = await fetch(url, {cache:'no-store'}); const js = await res.json();
       if(!document.getElementById('season').value && js.season){ document.getElementById('season').value = js.season; }
       if(!document.getElementById('week').value && js.week){ document.getElementById('week').value = js.week; }
       renderGames(js.games||[]);
       renderList(js.data||[]);
-      document.getElementById('status').textContent = js.rows? `${js.rows} markets` : (js.note || 'No game props yet.');
+      const n = Array.isArray(js.data)? js.data.length: 0; const gg = Array.isArray(js.games)? js.games.length: 0;
+      document.getElementById('status').textContent = n? `${n} markets • ${gg} games` : (js.note || 'No game props yet.');
     }
     function renderGames(games){
       const sel = document.getElementById('game'); const cur = sel.value; sel.innerHTML = '<option value="">All games</option>';
@@ -73,28 +83,89 @@
       for(const [key, arr] of groups.entries()){
         const [away, home] = key.split('@');
         const card = document.createElement('div'); card.className='card';
-        card.innerHTML = `<div style="font-weight:600">${away} @ ${home}</div>`;
+        card.innerHTML = `<div style="font-weight:600;display:flex;align-items:center;justify-content:space-between">
+          <div>${away} @ ${home}</div>
+          <div class="muted" style="font-size:12px">${arr.length} rows</div>
+        </div>`;
         const body = document.createElement('div');
-        arr.sort((a,b)=> (String(a.market_key||'').localeCompare(String(b.market_key||''))));
+        const asLadders = document.getElementById('asLadders').checked;
+        const hideMoneyline = document.getElementById('hideMoneyline').checked;
+
+        // Separate markets
+        const ml = []; const totals = []; const spreads = []; const teamTotals = [];
         for(const r of arr){
-          const side = r.side || (r.team_side? r.team_side.toUpperCase(): '')
+          const mk = String(r.market_key||'').toLowerCase();
+          if(mk==='moneyline') ml.push(r);
+          else if(mk==='total' || mk==='alt_total') totals.push(r);
+          else if(mk==='spread' || mk==='alt_spread') spreads.push(r);
+          else if(mk==='team_total') teamTotals.push(r);
+        }
+
+        function addRow(r){
+          const side = r.side || (r.team_side? r.team_side.toUpperCase(): '');
           const prices = [];
           if(r.price_home!=null) prices.push(`<span class=\"price\"><span class=\"label\">H</span><span class=\"val\">${r.price_home}</span></span>`);
           if(r.price_away!=null) prices.push(`<span class=\"price\"><span class=\"label\">A</span><span class=\"val\">${r.price_away}</span></span>`);
           if(r.over_price!=null) prices.push(`<span class=\"price\"><span class=\"label\">O</span><span class=\"val\">${r.over_price}</span></span>`);
           if(r.under_price!=null) prices.push(`<span class=\"price\"><span class=\"label\">U</span><span class=\"val\">${r.under_price}</span></span>`);
+          const evp = (r.ev_pct!=null? r.ev_pct: (r.ev_units!=null? r.ev_units*100: null));
           const row = document.createElement('div'); row.className='row';
-          row.innerHTML = `
-            <div>${r.market_key||''} ${side? '• '+side: ''} ${r.line!=null? '• '+r.line: ''}</div>
-            <div><span class=\"edge\">Δ ${fmtNum(r.edge_pts)}</span> <span class=\"ev\">EV ${fmtNum((r.ev_pct!=null? r.ev_pct: (r.ev_units!=null? r.ev_units*100: null)))}</span> ${prices.join(' ')}</div>
-          `;
-          body.appendChild(row);
+          row.innerHTML = `<div>${r.market_key||''} ${side? '• '+side: ''} ${r.line!=null? '• '+r.line: ''}</div>
+                           <div><span class=\"edge\">Δ ${fmtNum(r.edge_pts)}</span> <span class=\"ev\">EV ${fmtNum(evp)}</span> ${prices.join(' ')}</div>`;
+          return row;
         }
+
+        function groupLadder(rows, makeKey, label){
+          if(!rows.length) return;
+          const by = new Map();
+          for(const r of rows){ const k = makeKey(r); if(!by.has(k)) by.set(k, []); by.get(k).push(r) }
+          for(const [k, rs] of by.entries()){
+            // Sort ladder by line ascending for Over; for Under/away side, sort descending so it "steps"
+            const isUnder = /under|away/i.test(k);
+            rs.sort((a,b)=>{
+              const la = (a.line==null? 0: Number(a.line));
+              const lb = (b.line==null? 0: Number(b.line));
+              return isUnder? (lb-la):(la-lb);
+            });
+            const evBest = rs.reduce((m,r)=>{ const v=(r.ev_pct!=null? r.ev_pct: (r.ev_units!=null? r.ev_units*100: -Infinity)); return Math.max(m, isFinite(v)? v:-Infinity) }, -Infinity);
+            const det = document.createElement('details'); det.className='ladder';
+            det.innerHTML = `<summary><div>${label} <span class=\"tag\">${k}</span></div><div class=\"muted\" style=\"font-size:12px\">${rs.length} rungs • best EV ${fmtNum(evBest)}</div></summary>`;
+            const wrap = document.createElement('div'); wrap.className='ladder-rows';
+            for(const r of rs){ wrap.appendChild(addRow(r)) }
+            det.appendChild(wrap); body.appendChild(det);
+          }
+        }
+
+        if(asLadders){
+          if(!hideMoneyline && ml.length){
+            const det = document.createElement('details'); det.className='ladder';
+            det.innerHTML = `<summary><div>Moneyline</div><div class=\"muted\" style=\"font-size:12px\">${ml.length} options</div></summary>`;
+            const wrap = document.createElement('div'); wrap.className='ladder-rows';
+            // Group ML by side
+            const by = new Map();
+            for(const r of ml){ const k = String(r.side||'').toUpperCase(); if(!by.has(k)) by.set(k, []); by.get(k).push(r) }
+            for(const [k, rs] of by.entries()){ rs.forEach(r=> wrap.appendChild(addRow(r))) }
+            det.appendChild(wrap); body.appendChild(det);
+          }
+          groupLadder(totals, r=> String(r.side||'').toUpperCase(), 'Total');
+          // Spread: group ladders by side (HOME/AWAY)
+          groupLadder(spreads, r=> String(r.side||'').toUpperCase(), 'Spread');
+          // Team Totals: group by team and side (HOME/AWAY + O/U)
+          groupLadder(teamTotals, r=> `${String(r.team_side||'').toUpperCase()}-${String(r.side||'').toUpperCase()}`, 'Team Total');
+        } else {
+          // Flat list fallback
+          const flat = [];
+          if(!hideMoneyline) flat.push(...ml);
+          flat.push(...totals, ...spreads, ...teamTotals);
+          flat.sort((a,b)=> String(a.market_key||'').localeCompare(String(b.market_key||'')) || Number(a.line||0)-Number(b.line||0));
+          for(const r of flat){ body.appendChild(addRow(r)) }
+        }
+
         card.appendChild(body); root.appendChild(card);
       }
     }
     document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
-    document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('includeCore').checked=false; loadData(); });
+    document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('includeCore').checked=true; document.getElementById('asLadders').checked=true; document.getElementById('hideMoneyline').checked=true; loadData(); });
     window.addEventListener('load', loadData);
   </script>
 </body>
