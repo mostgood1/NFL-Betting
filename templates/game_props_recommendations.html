@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFL – Game Props Recommendations</title>
+  <style>
+    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7 }
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
+    .container{max-width:1000px;margin:20px auto;padding:0 16px}
+    .nav{font-size:14px;margin-bottom:10px}
+    .nav a{color:var(--link);text-decoration:none;margin-right:10px}
+    .card{background:linear-gradient(180deg,var(--card),#0c1328);border:1px solid var(--br);border-radius:12px;padding:12px;box-shadow:0 10px 24px rgba(0,0,0,.35);margin-bottom:12px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+    .filters input, .filters select{background:var(--bg);color:var(--text);border:1px solid var(--br);border-radius:6px;padding:6px 8px}
+    .row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--br);border-radius:10px;padding:8px 10px;background:var(--pill);margin-top:6px}
+    .muted{color:var(--muted)}
+    .ev{color:#86efac}
+    .edge{color:#facc15}
+    .price{font-size:12px;margin-left:6px}
+    .price .label{opacity:.7;margin-right:3px}
+    .price .val{display:inline-block;border:1px solid var(--br);border-radius:8px;padding:2px 6px}
+    .price .sel{background:#10315a}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/game-props/recommendations">Game Props Recs</a></div>
+    <h1>Game Props Recommendations</h1>
+    <form id="filters" class="filters">
+      <label>Season <input type="number" id="season" placeholder="YYYY"></label>
+      <label>Week <input type="number" id="week" placeholder="N"></label>
+      <label>Game
+        <select id="game"><option value="">All games</option></select>
+      </label>
+      <label><input type="checkbox" id="includeCore"> Include core markets</label>
+      <button type="submit">Apply</button>
+      <button type="button" id="reset">Reset</button>
+    </form>
+    <div id="status" class="muted">Loading…</div>
+    <div id="list"></div>
+  </div>
+  <script>
+    function qs(name){ const u=new URL(window.location); return u.searchParams.get(name) }
+    function fmtNum(x){ if(x==null||isNaN(x)) return '—'; return Number(x).toFixed(2) }
+    async function loadData(){
+      const params = new URLSearchParams();
+      const s = document.getElementById('season').value || qs('season');
+      const w = document.getElementById('week').value || qs('week');
+      const g = document.getElementById('game').value;
+      const includeCore = document.getElementById('includeCore').checked;
+      if(s) params.set('season', s); if(w) params.set('week', w);
+      if(g){ const [home,away,ev] = g.split('|'); if(ev) params.set('event', ev); else { if(home) params.set('home_team', home); if(away) params.set('away_team', away);} }
+      // derivatives_only=1 hides core; set to 0 when includeCore is checked
+      params.set('derivatives_only', includeCore ? '0' : '1');
+      const url = '/api/game-props/recommendations' + (params.toString()? ('?'+params.toString()):'');
+      const res = await fetch(url, {cache:'no-store'}); const js = await res.json();
+      if(!document.getElementById('season').value && js.season){ document.getElementById('season').value = js.season; }
+      if(!document.getElementById('week').value && js.week){ document.getElementById('week').value = js.week; }
+      renderGames(js.games||[]);
+      renderList(js.data||[]);
+      document.getElementById('status').textContent = js.rows? `${js.rows} markets` : (js.note || 'No game props yet.');
+    }
+    function renderGames(games){
+      const sel = document.getElementById('game'); const cur = sel.value; sel.innerHTML = '<option value="">All games</option>';
+      games.forEach(g=>{ const label = `${g.away_team||'?'} @ ${g.home_team||'?'}`; const val = `${g.home_team||''}|${g.away_team||''}|${g.event||''}`; const opt = document.createElement('option'); opt.value=val; opt.textContent=label; sel.appendChild(opt); });
+      if(cur){ sel.value = cur } else if(sel.options.length>1){ sel.selectedIndex = 1 }
+    }
+    function renderList(items){
+      const root = document.getElementById('list'); root.innerHTML='';
+      const groups = new Map();
+      for(const r of items){ const key = `${r.away_team||''}@${r.home_team||''}`; if(!groups.has(key)) groups.set(key, []); groups.get(key).push(r) }
+      for(const [key, arr] of groups.entries()){
+        const [away, home] = key.split('@');
+        const card = document.createElement('div'); card.className='card';
+        card.innerHTML = `<div style="font-weight:600">${away} @ ${home}</div>`;
+        const body = document.createElement('div');
+        arr.sort((a,b)=> (String(a.market_key||'').localeCompare(String(b.market_key||''))));
+        for(const r of arr){
+          const side = r.side || (r.team_side? r.team_side.toUpperCase(): '')
+          const prices = [];
+          if(r.price_home!=null) prices.push(`<span class=\"price\"><span class=\"label\">H</span><span class=\"val\">${r.price_home}</span></span>`);
+          if(r.price_away!=null) prices.push(`<span class=\"price\"><span class=\"label\">A</span><span class=\"val\">${r.price_away}</span></span>`);
+          if(r.over_price!=null) prices.push(`<span class=\"price\"><span class=\"label\">O</span><span class=\"val\">${r.over_price}</span></span>`);
+          if(r.under_price!=null) prices.push(`<span class=\"price\"><span class=\"label\">U</span><span class=\"val\">${r.under_price}</span></span>`);
+          const row = document.createElement('div'); row.className='row';
+          row.innerHTML = `
+            <div>${r.market_key||''} ${side? '• '+side: ''} ${r.line!=null? '• '+r.line: ''}</div>
+            <div><span class=\"edge\">Δ ${fmtNum(r.edge_pts)}</span> <span class=\"ev\">EV ${fmtNum((r.ev_pct!=null? r.ev_pct: (r.ev_units!=null? r.ev_units*100: null)))}</span> ${prices.join(' ')}</div>
+          `;
+          body.appendChild(row);
+        }
+        card.appendChild(body); root.appendChild(card);
+      }
+    }
+    document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
+    document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('includeCore').checked=false; loadData(); });
+    window.addEventListener('load', loadData);
+  </script>
+</body>
+</html>

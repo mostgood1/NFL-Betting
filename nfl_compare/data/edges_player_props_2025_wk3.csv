@@ -1,11 +1,12 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
+Josh Allen,BUF,Passing Yards,375.0,1600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-164.2,,,,164.2
 Tua Tagovailoa,MIA,Passing Yards,150.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,144.5,,,,144.5
-Josh Allen,BUF,Passing Yards,350.0,1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-139.2,,,,139.2
-Tua Tagovailoa,MIA,Passing Yards,175.0,-600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,119.5,,,,119.5
-Josh Allen,BUF,Passing Yards,325.0,675.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-114.19999999999999,,,,114.19999999999999
-Tua Tagovailoa,MIA,Passing Yards,200.0,-325.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,94.5,,,,94.5
+Josh Allen,BUF,Passing Yards,350.0,1000.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-139.2,,,,139.2
+Tua Tagovailoa,MIA,Passing Yards,175.0,-660.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,119.5,,,,119.5
+Josh Allen,BUF,Passing Yards,325.0,580.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-114.19999999999999,,,,114.19999999999999
+Tua Tagovailoa,MIA,Passing Yards,200.0,-320.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,94.5,,,,94.5
 James Cook,BUF,Rushing Yards,150.0,1300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,-89.8,,,,89.8
-Josh Allen,BUF,Passing Yards,300.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-89.19999999999999,,,,89.19999999999999
+Josh Allen,BUF,Passing Yards,300.0,340.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-89.19999999999999,,,,89.19999999999999
 Tyreek Hill,MIA,Receiving Yards,150.0,1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,-85.9,,,,85.9
 Khalil Shakir,BUF,Receiving Yards,110.0,1300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-81.4,,,,81.4
 Keon Coleman,BUF,Receiving Yards,125.0,1400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,-81.0,,,,81.0
@@ -13,22 +14,22 @@ Tua Tagovailoa,MIA,Passing Yards,375.0,1400.0,,True,Miami Dolphins @ Buffalo Bil
 Jaylen Waddle,MIA,Receiving Yards,125.0,1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-77.5,,,,77.5
 Josh Palmer,BUF,Receiving Yards,110.0,1400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-75.9,,,,75.9
 Khalil Shakir,BUF,Receiving Yards,100.0,1000.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-71.4,,,,71.4
-Tua Tagovailoa,MIA,Passing Yards,225.0,-175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,69.5,,,,69.5
+Tua Tagovailoa,MIA,Passing Yards,225.0,-170.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,69.5,,,,69.5
 Keon Coleman,BUF,Receiving Yards,110.0,950.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,-66.0,,,,66.0
 Josh Palmer,BUF,Receiving Yards,100.0,1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-65.9,,,,65.9
 James Cook,BUF,Rushing Yards,125.0,650.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,-64.8,,,,64.8
-Dalton Kincaid,BUF,Receiving Yards,90.0,1400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-64.4,,,,64.4
-Josh Allen,BUF,Passing Yards,275.0,210.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-64.19999999999999,,,,64.19999999999999
+Dalton Kincaid,BUF,Receiving Yards,90.0,1200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-64.4,,,,64.4
+Josh Allen,BUF,Passing Yards,275.0,200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-64.19999999999999,,,,64.19999999999999
 Jaylen Waddle,MIA,Receiving Yards,110.0,750.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-62.5,,,,62.5
 Khalil Shakir,BUF,Receiving Yards,90.0,775.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-61.4,,,,61.4
 Tyreek Hill,MIA,Receiving Yards,125.0,625.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,-60.900000000000006,,,,60.900000000000006
-Josh Allen,BUF,Passing Yards,150.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,60.80000000000001,,,,60.80000000000001
+Josh Allen,BUF,Passing Yards,150.0,-1750.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,60.80000000000001,,,,60.80000000000001
 Keon Coleman,BUF,Receiving Yards,100.0,725.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,-56.0,,,,56.0
 Josh Palmer,BUF,Receiving Yards,90.0,850.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-55.9,,,,55.9
-Tua Tagovailoa,MIA,Passing Yards,350.0,900.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,-55.5,,,,55.5
-Dalton Kincaid,BUF,Receiving Yards,80.0,1000.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-54.4,,,,54.4
+Tua Tagovailoa,MIA,Passing Yards,350.0,830.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,-55.5,,,,55.5
+Dalton Kincaid,BUF,Receiving Yards,80.0,850.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-54.4,,,,54.4
 Jaylen Waddle,MIA,Receiving Yards,100.0,575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-52.5,,,,52.5
-De'Von Achane,MIA,Receiving Yards,80.0,600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-51.5,,,,51.5
+De'Von Achane,MIA,Receiving Yards,80.0,550.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-51.5,,,,51.5
 Khalil Shakir,BUF,Receiving Yards,80.0,525.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-51.4,,,,51.4
 De'Von Achane,MIA,Rushing Yards,100.0,600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-50.8,,,,50.8
 James Cook,BUF,Rushing Yards,110.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,-49.8,,,,49.8
@@ -37,27 +38,27 @@ Tyreek Hill,MIA,Receiving Yards,110.0,400.0,,True,Miami Dolphins @ Buffalo Bills
 Josh Palmer,BUF,Receiving Yards,80.0,600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-45.9,,,,45.9
 Josh Allen,BUF,Rushing Yards,80.0,1300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,-45.7,,,,45.7
 Ray Davis,BUF,Rushing Yards,80.0,1400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,-45.3,,,,45.3
-Tua Tagovailoa,MIA,Passing Yards,250.0,110.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,44.5,,,,44.5
-Dalton Kincaid,BUF,Receiving Yards,70.0,725.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-44.4,,,,44.4
+Tua Tagovailoa,MIA,Passing Yards,250.0,,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,44.5,,,,44.5
+Dalton Kincaid,BUF,Receiving Yards,70.0,550.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-44.4,,,,44.4
 Jaylen Waddle,MIA,Receiving Yards,90.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-42.5,,,,42.5
-De'Von Achane,MIA,Receiving Yards,70.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-41.5,,,,41.5
+De'Von Achane,MIA,Receiving Yards,70.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-41.5,,,,41.5
 Khalil Shakir,BUF,Receiving Yards,70.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-41.4,,,,41.4
 De'Von Achane,MIA,Rushing Yards,90.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-40.8,,,,40.8
 James Cook,BUF,Rushing Yards,100.0,300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,-39.8,,,,39.8
-Josh Allen,BUF,Passing Yards,250.0,125.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-39.19999999999999,,,,39.19999999999999
+Josh Allen,BUF,Passing Yards,250.0,,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-39.19999999999999,,,,39.19999999999999
 Tyreek Hill,MIA,Receiving Yards,25.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,39.099999999999994,,,,39.099999999999994
 Keon Coleman,BUF,Receiving Yards,80.0,375.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,-36.0,,,,36.0
 Tyreek Hill,MIA,Receiving Yards,100.0,300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,-35.900000000000006,,,,35.900000000000006
 Josh Palmer,BUF,Receiving Yards,70.0,400.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-35.9,,,,35.9
-Josh Allen,BUF,Passing Yards,175.0,-625.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,35.80000000000001,,,,35.80000000000001
+Josh Allen,BUF,Passing Yards,175.0,-770.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,35.80000000000001,,,,35.80000000000001
 Josh Allen,BUF,Rushing Yards,70.0,900.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,-35.7,,,,35.7
 Ray Davis,BUF,Rushing Yards,70.0,1000.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,-35.3,,,,35.3
-Dalton Kincaid,BUF,Receiving Yards,60.0,450.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-34.4,,,,34.4
+Dalton Kincaid,BUF,Receiving Yards,60.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-34.4,,,,34.4
 Tyreek Hill,MIA,Receiving Yards,30.0,-875.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,34.099999999999994,,,,34.099999999999994
 Keon Coleman,BUF,Receiving Yards,10.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,34.0,,,,34.0
 Jaylen Waddle,MIA,Receiving Yards,15.0,-1900.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,32.5,,,,32.5
 Jaylen Waddle,MIA,Receiving Yards,80.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-32.5,,,,32.5
-De'Von Achane,MIA,Receiving Yards,60.0,250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-31.5,,,,31.5
+De'Von Achane,MIA,Receiving Yards,60.0,225.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-31.5,,,,31.5
 Khalil Shakir,BUF,Receiving Yards,60.0,200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-31.4,,,,31.4
 De'Von Achane,MIA,Rushing Yards,80.0,260.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-30.799999999999997,,,,30.799999999999997
 Tua Tagovailoa,MIA,Passing Yards,325.0,575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,-30.5,,,,30.5
@@ -71,22 +72,22 @@ Josh Palmer,BUF,Receiving Yards,60.0,275.0,,True,Miami Dolphins @ Buffalo Bills,
 Josh Allen,BUF,Rushing Yards,60.0,625.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,-25.700000000000003,,,,25.700000000000003
 Ray Davis,BUF,Rushing Yards,60.0,630.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,-25.299999999999997,,,,25.299999999999997
 Ray Davis,BUF,Rushing Yards,10.0,-630.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,24.700000000000003,,,,24.700000000000003
-Dalton Kincaid,BUF,Receiving Yards,50.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-24.4,,,,24.4
+Dalton Kincaid,BUF,Receiving Yards,50.0,200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-24.4,,,,24.4
 Josh Allen,BUF,Rushing Yards,10.0,-925.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,24.299999999999997,,,,24.299999999999997
 De'Von Achane,MIA,Rushing Yards,25.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,24.200000000000003,,,,24.200000000000003
 Josh Palmer,BUF,Receiving Yards,10.0,-1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,24.1,,,,24.1
 Tyreek Hill,MIA,Receiving Yards,40.0,-450.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,24.099999999999994,,,,24.099999999999994
 Keon Coleman,BUF,Receiving Yards,20.0,-490.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,24.0,,,,24.0
-Jaylen Waddle,MIA,Receiving Yards,70.0,190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-22.5,,,,22.5
 Jaylen Waddle,MIA,Receiving Yards,25.0,-600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,22.5,,,,22.5
-De'Von Achane,MIA,Receiving Yards,50.0,150.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-21.5,,,,21.5
+Jaylen Waddle,MIA,Receiving Yards,70.0,190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-22.5,,,,22.5
+De'Von Achane,MIA,Receiving Yards,50.0,130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-21.5,,,,21.5
 Khalil Shakir,BUF,Receiving Yards,50.0,130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-21.4,,,,21.4
 De'Von Achane,MIA,Rushing Yards,70.0,170.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-20.799999999999997,,,,20.799999999999997
 James Cook,BUF,Receiving Yards,40.0,450.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,19.6,-20.4,,,,20.4
 James Cook,BUF,Rushing Yards,40.0,-575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,20.200000000000003,,,,20.200000000000003
 James Cook,BUF,Rushing Yards,80.0,140.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,-19.799999999999997,,,,19.799999999999997
 Ray Davis,BUF,Rushing Yards,15.0,-300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,19.700000000000003,,,,19.700000000000003
-Tua Tagovailoa,MIA,Passing Yards,275.0,175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,19.5,,,,19.5
+Tua Tagovailoa,MIA,Passing Yards,275.0,190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,19.5,,,,19.5
 Josh Allen,BUF,Rushing Yards,15.0,-435.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,19.299999999999997,,,,19.299999999999997
 De'Von Achane,MIA,Rushing Yards,30.0,-775.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,19.200000000000003,,,,19.200000000000003
 Josh Palmer,BUF,Receiving Yards,15.0,-575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,19.1,,,,19.1
@@ -96,23 +97,23 @@ Keon Coleman,BUF,Receiving Yards,60.0,160.0,,True,Miami Dolphins @ Buffalo Bills
 Tyreek Hill,MIA,Receiving Yards,80.0,140.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,-15.900000000000006,,,,15.900000000000006
 Josh Palmer,BUF,Receiving Yards,50.0,175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-15.899999999999999,,,,15.899999999999999
 Josh Allen,BUF,Rushing Yards,50.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,-15.700000000000003,,,,15.700000000000003
-Dalton Kincaid,BUF,Receiving Yards,10.0,-775.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,15.600000000000001,,,,15.600000000000001
+Dalton Kincaid,BUF,Receiving Yards,10.0,-1200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,15.600000000000001,,,,15.600000000000001
 Ray Davis,BUF,Rushing Yards,50.0,420.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,-15.299999999999997,,,,15.299999999999997
 Ray Davis,BUF,Rushing Yards,20.0,-180.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,14.700000000000003,,,,14.700000000000003
-Dalton Kincaid,BUF,Receiving Yards,40.0,150.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-14.399999999999999,,,,14.399999999999999
+Dalton Kincaid,BUF,Receiving Yards,40.0,125.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-14.399999999999999,,,,14.399999999999999
 Josh Allen,BUF,Rushing Yards,20.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,14.299999999999997,,,,14.299999999999997
-Josh Allen,BUF,Passing Yards,225.0,-150.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-14.199999999999989,,,,14.199999999999989
+Josh Allen,BUF,Passing Yards,225.0,-175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,-14.199999999999989,,,,14.199999999999989
 Josh Palmer,BUF,Receiving Yards,20.0,-350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,14.100000000000001,,,,14.100000000000001
 Tyreek Hill,MIA,Receiving Yards,50.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,14.099999999999994,,,,14.099999999999994
 Keon Coleman,BUF,Receiving Yards,30.0,-260.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,14.0,,,,14.0
 Khalil Shakir,BUF,Receiving Yards,15.0,-1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,13.600000000000001,,,,13.600000000000001
-De'Von Achane,MIA,Receiving Yards,15.0,-1100.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,13.5,,,,13.5
+De'Von Achane,MIA,Receiving Yards,15.0,-1250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,13.5,,,,13.5
 Jaylen Waddle,MIA,Receiving Yards,60.0,125.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-12.5,,,,12.5
-De'Von Achane,MIA,Receiving Yards,40.0,-120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-11.5,,,,11.5
+De'Von Achane,MIA,Receiving Yards,40.0,-140.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-11.5,,,,11.5
 Khalil Shakir,BUF,Receiving Yards,40.0,-145.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-11.399999999999999,,,,11.399999999999999
-Josh Allen,BUF,Passing Yards,200.0,-300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,10.800000000000011,,,,10.800000000000011
+Josh Allen,BUF,Passing Yards,200.0,-350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,210.8,10.800000000000011,,,,10.800000000000011
 De'Von Achane,MIA,Rushing Yards,60.0,,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-10.799999999999997,,,,10.799999999999997
-Dalton Kincaid,BUF,Receiving Yards,15.0,-425.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,10.600000000000001,,,,10.600000000000001
+Dalton Kincaid,BUF,Receiving Yards,15.0,-600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,10.600000000000001,,,,10.600000000000001
 James Cook,BUF,Receiving Yards,30.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,19.6,-10.399999999999999,,,,10.399999999999999
 James Cook,BUF,Rushing Yards,50.0,-300.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,10.200000000000003,,,,10.200000000000003
 Malik Washington,MIA,Rushing Yards,10.0,220.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rush_yards,0.0,-10.0,,,,10.0
@@ -123,19 +124,19 @@ Josh Allen,BUF,Rushing Yards,25.0,-160.0,,True,Miami Dolphins @ Buffalo Bills,Bi
 De'Von Achane,MIA,Rushing Yards,40.0,-345.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,9.200000000000003,,,,9.200000000000003
 Josh Palmer,BUF,Receiving Yards,25.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,9.100000000000001,,,,9.100000000000001
 Khalil Shakir,BUF,Receiving Yards,20.0,-575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,8.600000000000001,,,,8.600000000000001
-De'Von Achane,MIA,Receiving Yards,20.0,-550.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,8.5,,,,8.5
+De'Von Achane,MIA,Receiving Yards,20.0,-650.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,8.5,,,,8.5
 Jaylen Waddle,MIA,Receiving Yards,40.0,-225.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,7.5,,,,7.5
 Keon Coleman,BUF,Receiving Yards,50.0,120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,44.0,-6.0,,,,6.0
 Tyreek Hill,MIA,Receiving Yards,70.0,-105.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,-5.900000000000006,,,,5.900000000000006
 Josh Palmer,BUF,Receiving Yards,40.0,105.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,-5.899999999999999,,,,5.899999999999999
 Josh Allen,BUF,Rushing Yards,40.0,200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,-5.700000000000003,,,,5.700000000000003
-Dalton Kincaid,BUF,Receiving Yards,20.0,-275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,5.600000000000001,,,,5.600000000000001
-Tua Tagovailoa,MIA,Passing Yards,300.0,325.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,-5.5,,,,5.5
+Dalton Kincaid,BUF,Receiving Yards,20.0,-350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,5.600000000000001,,,,5.600000000000001
+Tua Tagovailoa,MIA,Passing Yards,300.0,330.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_yards,294.5,-5.5,,,,5.5
 James Cook,BUF,Receiving Yards,25.0,190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,19.6,-5.399999999999999,,,,5.399999999999999
 Ray Davis,BUF,Rushing Yards,40.0,245.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,-5.299999999999997,,,,5.299999999999997
 Ray Davis,BUF,Rushing Yards,30.0,120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,34.7,4.700000000000003,,,,4.700000000000003
 James Cook,BUF,Receiving Yards,15.0,-115.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,19.6,4.600000000000001,,,,4.600000000000001
-Dalton Kincaid,BUF,Receiving Yards,30.0,-120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-4.399999999999999,,,,4.399999999999999
+Dalton Kincaid,BUF,Receiving Yards,30.0,-160.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,-4.399999999999999,,,,4.399999999999999
 Josh Allen,BUF,Rushing Yards,30.0,-105.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,rush_yards,34.3,4.299999999999997,,,,4.299999999999997
 Josh Palmer,BUF,Receiving Yards,30.0,-175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,34.1,4.100000000000001,,,,4.100000000000001
 Tyreek Hill,MIA,Receiving Yards,60.0,-160.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,64.1,4.099999999999994,,,,4.099999999999994
@@ -144,14 +145,15 @@ Keon Coleman,BUF,Receiving Yards,40.0,-150.0,,True,Miami Dolphins @ Buffalo Bill
 Tyreek Hill,MIA,Receptions,3.0,-1500.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,6.97,3.9699999999999998,,,,3.9699999999999998
 De'Von Achane,MIA,Receptions,8.0,220.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,-3.84,,,,3.84
 Josh Palmer,BUF,Receptions,6.0,600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,2.29,-3.71,,,,3.71
+Dalton Kincaid,BUF,Receptions,7.0,700.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-3.66,,,,3.66
 Khalil Shakir,BUF,Receiving Yards,25.0,-350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,3.6000000000000014,,,,3.6000000000000014
-De'Von Achane,MIA,Receiving Yards,25.0,-340.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,3.5,,,,3.5
+De'Von Achane,MIA,Receiving Yards,25.0,-375.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,3.5,,,,3.5
 Khalil Shakir,BUF,Receptions,7.0,425.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.93,-3.07,,,,3.07
 Tyreek Hill,MIA,Receptions,4.0,-525.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,6.97,2.9699999999999998,,,,2.9699999999999998
 Jaylen Waddle,MIA,Receptions,8.0,625.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,-2.88,,,,2.88
 De'Von Achane,MIA,Receptions,7.0,130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,-2.84,,,,2.84
 Josh Palmer,BUF,Receptions,5.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,2.29,-2.71,,,,2.71
-Dalton Kincaid,BUF,Receptions,6.0,550.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-2.66,,,,2.66
+Dalton Kincaid,BUF,Receptions,6.0,375.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-2.66,,,,2.66
 Jaylen Waddle,MIA,Receiving Yards,50.0,-130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,47.5,-2.5,,,,2.5
 Keon Coleman,BUF,Receptions,6.0,525.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.51,-2.49,,,,2.49
 Jaylen Waddle,MIA,Receptions,3.0,-600.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,2.12,,,,2.12
@@ -162,163 +164,163 @@ James Cook,BUF,Receptions,5.0,725.0,,True,Miami Dolphins @ Buffalo Bills,Bills,D
 Jaylen Waddle,MIA,Receptions,7.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,-1.88,,,,1.88
 De'Von Achane,MIA,Receptions,6.0,-130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,-1.8399999999999999,,,,1.8399999999999999
 Josh Palmer,BUF,Receptions,4.0,140.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,2.29,-1.71,,,,1.71
-Dalton Kincaid,BUF,Receptions,5.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-1.6600000000000001,,,,1.6600000000000001
-Josh Allen,BUF,Passing TDs,4.0,825.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,-1.65,-0.17024439476174746,,,1.65
+Dalton Kincaid,BUF,Receptions,5.0,200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-1.6600000000000001,,,,1.6600000000000001
+Josh Allen,BUF,Passing TDs,4.0,800.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,-1.65,-0.19267022193034888,,,1.65
 Keon Coleman,BUF,Receptions,2.0,-700.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.51,1.5099999999999998,,,,1.5099999999999998
-De'Von Achane,MIA,Receiving Yards,30.0,-235.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-1.5,,,,1.5
+De'Von Achane,MIA,Receiving Yards,30.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,28.5,-1.5,,,,1.5
 Keon Coleman,BUF,Receptions,5.0,250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.51,-1.4900000000000002,,,,1.4900000000000002
 Khalil Shakir,BUF,Receiving Yards,30.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,rec_yards,28.6,-1.3999999999999986,,,,1.3999999999999986
 Josh Allen,BUF,Passing TDs,1.0,-1200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,1.35,-0.2627772512072656,,,1.35
-Dalton Kincaid,BUF,Receptions,2.0,-575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,1.3399999999999999,,,,1.3399999999999999
+Dalton Kincaid,BUF,Receptions,2.0,-750.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,1.3399999999999999,,,,1.3399999999999999
 De'Von Achane,MIA,Receptions,3.0,-1700.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,1.1600000000000001,,,,1.1600000000000001
 Jaylen Waddle,MIA,Receptions,4.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,1.12,,,,1.12
 James Cook,BUF,Receptions,2.0,-200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,3.11,1.1099999999999999,,,,1.1099999999999999
-Tua Tagovailoa,MIA,Passing TDs,1.0,-425.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,1.08,-0.24002859558848882,,,1.08
+Tua Tagovailoa,MIA,Passing TDs,1.0,-440.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,1.08,-0.24496347483791425,,,1.08
 Khalil Shakir,BUF,Receptions,5.0,120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.93,-1.0699999999999998,,,,1.0699999999999998
 Tyreek Hill,MIA,Receptions,8.0,275.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,6.97,-1.0300000000000002,,,,1.0300000000000002
 Tyreek Hill,MIA,Receptions,6.0,-120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,6.97,0.9699999999999998,,,,0.9699999999999998
 Khalil Shakir,BUF,Receptions,3.0,-475.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.93,0.9300000000000002,,,,0.9300000000000002
-Tua Tagovailoa,MIA,Passing TDs,3.0,475.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,-0.9199999999999999,-0.09383882909259622,,,0.9199999999999999
+Tua Tagovailoa,MIA,Passing TDs,3.0,440.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,-0.9199999999999999,-0.14899646558261204,,,0.9199999999999999
 James Cook,BUF,Receptions,4.0,350.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,3.11,-0.8900000000000001,,,,0.8900000000000001
 Jaylen Waddle,MIA,Receptions,6.0,190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,-0.8799999999999999,,,,0.8799999999999999
 De'Von Achane,MIA,Receptions,5.0,-260.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,-0.8399999999999999,,,,0.8399999999999999
 De'Von Achane,MIA,Rushing Yards,50.0,-175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,49.2,-0.7999999999999972,,,,0.7999999999999972
 Josh Palmer,BUF,Receptions,3.0,-190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,2.29,-0.71,,,,0.71
-Dalton Kincaid,BUF,Receptions,4.0,130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-0.6600000000000001,,,,0.6600000000000001
+Dalton Kincaid,BUF,Receptions,4.0,,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,-0.6600000000000001,,,,0.6600000000000001
 Josh Allen,BUF,Passing TDs,3.0,220.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,-0.6499999999999999,-0.325140171534289,,,0.6499999999999999
-Dalton Kincaid,BUF,Receiving Yards,25.0,-180.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,0.6000000000000014,,,,0.6000000000000014
+Dalton Kincaid,BUF,Receiving Yards,25.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,rec_yards,25.6,0.6000000000000014,,,,0.6000000000000014
 Keon Coleman,BUF,Receptions,3.0,-225.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.51,0.5099999999999998,,,,0.5099999999999998
 Keon Coleman,BUF,Receptions,4.0,125.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.51,-0.4900000000000002,,,,0.4900000000000002
 James Cook,BUF,Receiving Yards,20.0,120.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rec_yards,19.6,-0.3999999999999986,,,,0.3999999999999986
-Josh Allen,BUF,Passing TDs,2.0,-165.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,0.3500000000000001,-0.3299913335532792,,,0.3500000000000001
-Dalton Kincaid,BUF,Receptions,3.0,-190.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,0.33999999999999986,,,,0.33999999999999986
+Josh Allen,BUF,Passing TDs,2.0,-170.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.35,0.3500000000000001,-0.33742761176023495,,,0.3500000000000001
+Dalton Kincaid,BUF,Receptions,3.0,-250.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,TE,receptions,3.34,0.33999999999999986,,,,0.33999999999999986
 Josh Palmer,BUF,Receptions,2.0,-575.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,2.29,0.29000000000000004,,,,0.29000000000000004
 James Cook,BUF,Rushing Yards,60.0,-175.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,rush_yards,60.2,0.20000000000000284,,,,0.20000000000000284
 De'Von Achane,MIA,Receptions,4.0,-525.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,4.16,0.16000000000000014,,,,0.16000000000000014
 Jaylen Waddle,MIA,Receptions,5.0,-105.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,5.12,0.1200000000000001,,,,0.1200000000000001
 James Cook,BUF,Receptions,3.0,150.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,RB,receptions,3.11,0.10999999999999988,,,,0.10999999999999988
-Tua Tagovailoa,MIA,Passing TDs,2.0,130.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,0.08000000000000007,-0.20657840377909692,,,0.08000000000000007
+Tua Tagovailoa,MIA,Passing TDs,2.0,115.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,QB,pass_tds,2.08,0.08000000000000007,-0.25832329048915575,,,0.08000000000000007
 Khalil Shakir,BUF,Receptions,4.0,-200.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,3.93,-0.06999999999999984,,,,0.06999999999999984
 Tyreek Hill,MIA,Receptions,7.0,150.0,,True,Miami Dolphins @ Buffalo Bills,Bills,Dolphins,1758240900000,Bovada,WR,receptions,6.97,-0.03000000000000025,,,,0.03000000000000025
-Curtis Samuel (BUF) - 1Q,,Anytime TD,,2200.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Passing Yards,233.5,-130.0,,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Rushing Yards,29.5,-120.0,-110.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
-Darren Waller (MIA) & Miami Dolphins,,Anytime TD,,1800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Curtis Samuel (BUF) - 1H,,Anytime TD,,1100.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen (BUF) & Buffalo Bills,,Anytime TD,,-167.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid,BUF,Receiving Yards,29.5,-160.0,120.0,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
-Buffalo Bills Defense,,Anytime TD,,440.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1Q,,Anytime TD,,1800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1H,,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Alec Ingold (MIA) - 1Q,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Alec Ingold (MIA) & Miami Dolphins,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Darren Waller (MIA) & Miami Dolphins,,Anytime TD,,1800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1Q,,Anytime TD,,1800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox,BUF,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
 Josh Allen (BUF) & Miami Dolphins,,Anytime TD,,1700.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Josh Allen (BUF) - 1H,,Anytime TD,,150.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Josh Allen (BUF) - 1Q,,Anytime TD,,375.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid,BUF,Anytime TD,,260.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Kincaid,BUF,Receptions,2.5,-215.0,160.0,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Passing TDs,1.5,-170.0,130.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1H,,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) & Buffalo Bills,,Anytime TD,,-167.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Buffalo Bills Defense,,Anytime TD,,440.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Curtis Samuel (BUF) - 1H,,Anytime TD,,1100.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Dalton Kincaid (BUF) - 1Q,,Anytime TD,,1000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes,BUF,Anytime TD,,1600.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid (BUF) - 1H,,Anytime TD,,475.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Curtis Samuel (BUF) - 1Q,,Anytime TD,,2200.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid (BUF) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Anytime TD,,260.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid (BUF) & Buffalo Bills,,Anytime TD,,275.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Receiving Yards,29.5,-160.0,120.0,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Receptions,3.5,,-130.0,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Darren Waller (MIA) & Buffalo Bills,,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) & Miami Dolphins,,Anytime TD,,5500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Rushing Yards,29.5,-120.0,-110.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
+Dee Eskridge - 1Q,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1H,,Anytime TD,,1900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) & Miami Dolphins,,Anytime TD,,10000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) & Buffalo Bills,,Anytime TD,,1100.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes,BUF,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
 Elijah Moore (BUF) - 1Q,,Anytime TD,,2000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Elijah Moore (BUF) - 1H,,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Elijah Moore,BUF,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Dwayne Eskridge,MIA,Anytime TD,,2500.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Devon Achane (MIA) - 1Q,,Anytime TD,,650.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Devon Achane (MIA) - 1H,,Anytime TD,,275.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dee Eskridge - 1Q,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Dee Eskridge - 1H,,Anytime TD,,4500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Yards,233.5,-135.0,105.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Dee Eskridge (MIA) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Dee Eskridge (MIA) & Buffalo Bills,,Anytime TD,,1400.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 De'Von Achane Total Rush Attempts,,Rushing Attempts,12.5,-120.0,-110.0,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) & Miami Dolphins,,Anytime TD,,10000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 De'Von Achane (MIA) & Miami Dolphins,,Anytime TD,,550.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 De'Von Achane (MIA) & Buffalo Bills,,Anytime TD,,125.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 De'Von Achane,MIA,Rushing Yards,56.5,120.0,-160.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 De'Von Achane,MIA,Receptions,5.5,-110.0,-120.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Receiving Yards,40.5,-115.0,-115.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+De'Von Achane,MIA,Receiving Yards,40.5,-120.0,-110.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 De'Von Achane,MIA,Anytime TD,,,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 Dawson Knox (BUF) - 1Q,,Anytime TD,,1600.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) - 1H,,Anytime TD,,850.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) & Miami Dolphins,,Anytime TD,,5500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Darren Waller (MIA) & Buffalo Bills,,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1Q,,Anytime TD,,2500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Anytime TD,,-190.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+James Cook,BUF,Receiving Yards,11.5,-145.0,110.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+James Cook,BUF,Receptions,1.5,-190.0,145.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 Dawson Knox (BUF) & Buffalo Bills,,Anytime TD,,400.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) & Buffalo Bills,,Anytime TD,,1100.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid (BUF) - 1H,,Anytime TD,,475.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Passing Attempts,29.5,105.0,-135.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
-Jaylen Waddle (MIA) & Buffalo Bills,,Anytime TD,,260.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1H,,Anytime TD,,850.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing TDs,1.5,-145.0,110.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Attempts,29.5,,-130.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Josh Allen,BUF,Interceptions,0.5,130.0,-170.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Josh Allen,BUF,Anytime TD,,-176.0,,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Jeff Wilson Jr. (MIA) - 1Q,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Jeff Wilson Jr. (MIA) - 1H,,Anytime TD,,3000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox,BUF,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Kincaid (BUF) & Buffalo Bills,,Anytime TD,,275.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Jaylen Wright,MIA,Anytime TD,,1000.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-Dalton Kincaid (BUF) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Jaylen Waddle (MIA) - 1Q,,Anytime TD,,1000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Jaylen Waddle (MIA) - 1H,,Anytime TD,,450.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Jaylen Waddle (MIA) & Miami Dolphins,,Anytime TD,,1000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Josh Allen Total Rush Attempts,,Rushing Attempts,6.5,-120.0,-110.0,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) - 1H,,Anytime TD,,1900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Anytime TD,,220.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
-James Cook Total Rush Attempts,,Rushing Attempts,15.5,125.0,-165.0,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Waddle,MIA,Receiving Yards,,350.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylen Waddle,MIA,Anytime TD,,240.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+James Cook Total Rush Attempts,,Rushing Attempts,15.5,145.0,-190.0,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 James Cook (BUF) - 1Q,,Anytime TD,,350.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 James Cook (BUF) - 1H,,Anytime TD,,130.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 James Cook (BUF) & Miami Dolphins,,Anytime TD,,1700.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 James Cook (BUF) & Buffalo Bills,,Anytime TD,,-175.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-James Cook,BUF,Rushing Yards,67.5,-125.0,-105.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-James Cook,BUF,Receptions,1.5,-190.0,145.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-James Cook,BUF,Receiving Yards,11.5,-145.0,110.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-James Cook,BUF,Anytime TD,,-190.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) - 1Q,,Anytime TD,,2500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Receiving Yards,,350.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Interceptions,0.5,-180.0,135.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
+James Cook,BUF,Rushing Yards,67.5,-135.0,105.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Waddle (MIA) & Buffalo Bills,,Anytime TD,,260.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Passing Attempts,34.5,-125.0,-105.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Josh Palmer,BUF,Anytime TD,,275.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Ray Davis (BUF) - 1Q,,Anytime TD,,1400.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,BUF,Receiving Yards,4.5,-115.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Under - 1Q,MIA,Rushing Yards,14.5,-120.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Interceptions,0.5,-180.0,135.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Tua Tagovailoa,MIA,Anytime TD,,2200.0,,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Tanner Conner (MIA) - 1Q,,Anytime TD,,2000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tanner Conner (MIA) - 1H,,Anytime TD,,1700.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner,MIA,Anytime TD,,700.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Tanner Conner,MIA,Anytime TD,,725.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
 Reggie Gilliam (BUF) - 1Q,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Reggie Gilliam (BUF) - 1H,,Anytime TD,,3000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ray Davis (BUF) - 1H,,Anytime TD,,700.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Josh Palmer,BUF,Receiving Yards,34.5,-125.0,-105.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Ray Davis (BUF) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ray Davis (BUF) & Buffalo Bills,,Anytime TD,,320.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Ray Davis,BAL,Rushing Yards,22.5,-115.0,-115.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+Ray Davis,BUF,Rushing Yards,24.5,-115.0,-115.0,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 Ray Davis,BUF,Anytime TD,,400.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 Over - 1Q,MIA,Rushing Yards,14.5,-110.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Over - 1Q,BUF,Receiving Yards,4.5,-115.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Over - 1Q,MIA,Passing Yards,45.5,-115.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Alec Ingold (MIA) & Buffalo Bills,,Anytime TD,,1700.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,BUF,Receiving Yards,4.5,-115.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Under - 1Q,MIA,Passing Yards,45.5,-115.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tyrell Shavers (BUF) - 1Q,,Anytime TD,,3000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tyrell Shavers (BUF) - 1H,,Anytime TD,,1900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tyrell Shavers (BUF) & Buffalo Bills,,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Passing TDs,1.5,130.0,-170.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Tua Tagovailoa,MIA,Passing Yards,237.5,-130.0,,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Tua Tagovailoa (MIA) & Buffalo Bills,,Anytime TD,,1400.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tua Tagovailoa (MIA) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tua Tagovailoa (MIA) - 1Q,,Anytime TD,,5000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson,BUF,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
+Ty Johnson,BUF,Anytime TD,,525.0,,False,,Bills,Dolphins,1758240900000,Bovada,RB,,,,,,unsupported_market,0.0
 Ty Johnson (BUF) & Buffalo Bills,,Anytime TD,,500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ty Johnson (BUF) & Miami Dolphins,,Anytime TD,,7000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ty Johnson (BUF) - 1H,,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ty Johnson (BUF) - 1Q,,Anytime TD,,1600.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill,MIA,Anytime TD,,160.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyreek Hill,MIA,Anytime TD,,150.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Tyreek Hill,MIA,Receiving Yards,,170.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Tyreek Hill (MIA) & Buffalo Bills,,Anytime TD,,210.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tyreek Hill (MIA) & Miami Dolphins,,Anytime TD,,800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tyreek Hill (MIA) - 1H,,Anytime TD,,425.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Tyreek Hill (MIA) - 1Q,,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tyrell Shavers,BUF,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyrell Shavers,BUF,Anytime TD,,1400.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyrell Shavers (BUF) & Buffalo Bills,,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ollie Gordon II (MIA) - 1Q,,Anytime TD,,2500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ollie Gordon II (MIA) - 1H,,Anytime TD,,1800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ollie Gordon II (MIA) & Miami Dolphins,,Anytime TD,,2000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir,BUF,Receptions,4.5,130.0,-170.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
-Khalil Shakir,BUF,Anytime TD,,190.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Receptions,4.5,110.0,-145.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Anytime TD,,165.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Keon Coleman (BUF) - 1Q,,Anytime TD,,750.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Keon Coleman (BUF) - 1H,,Anytime TD,,300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Keon Coleman (BUF) & Miami Dolphins,,Anytime TD,,3300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
@@ -328,13 +330,13 @@ Keon Coleman,BUF,Receiving Yards,43.5,-130.0,,False,,Bills,Dolphins,175824090000
 Keon Coleman,BUF,Anytime TD,,180.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Julian Hill (MIA) - 1Q,,Anytime TD,,2000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Julian Hill (MIA) - 1H,,Anytime TD,,1300.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Julian Hill,MIA,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
+Julian Hill,MIA,Anytime TD,,1000.0,,False,,Bills,Dolphins,1758240900000,Bovada,TE,,,,,,unsupported_market,0.0
 Joshua Palmer (BUF) & Miami Dolphins,,Anytime TD,,4000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Joshua Palmer (BUF) & Buffalo Bills,,Anytime TD,,250.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Josh Palmer (BUF) - 1Q,,Anytime TD,,1500.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Passing Attempts,34.5,-125.0,-105.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Passing TDs,1.5,130.0,-170.0,False,,Bills,Dolphins,1758240900000,Bovada,QB,,,,,,unsupported_market,0.0
 Josh Palmer (BUF) - 1H,,Anytime TD,,475.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Palmer,BUF,Receptions,2.5,-150.0,115.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Palmer,BUF,Receptions,2.5,-135.0,105.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Khalil Shakir,BUF,Receiving Yards,42.5,-115.0,-115.0,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Khalil Shakir (BUF) & Buffalo Bills,,Anytime TD,,240.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Ollie Gordon II (MIA) & Buffalo Bills,,Anytime TD,,600.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
@@ -344,7 +346,7 @@ Nick Westbrook-Ikhine (MIA) - 1Q,,Anytime TD,,2800.0,,False,,Bills,Dolphins,1758
 Nick Westbrook-Ikhine (MIA) - 1H,,Anytime TD,,1900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Nick Westbrook-Ikhine (MIA) & Miami Dolphins,,Anytime TD,,2000.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 Nick Westbrook-Ikhine (MIA) & Buffalo Bills,,Anytime TD,,600.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine,MIA,Anytime TD,,800.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
+Nick Westbrook-Ikhine,MIA,Anytime TD,,700.0,,False,,Bills,Dolphins,1758240900000,Bovada,WR,,,,,,unsupported_market,0.0
 Miami Dolphins Defense,,Anytime TD,,800.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 MIA Dolphins D/ST - 1Q,,Anytime TD,,1600.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0
 MIA Dolphins D/ST - 1H,,Anytime TD,,900.0,,False,,Bills,Dolphins,1758240900000,Bovada,,,,,,,unsupported_market,0.0

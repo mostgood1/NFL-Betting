@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NFL – Props Recommendations</title>
   <style>
-    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7 }
-    body.light{ --bg:#ffffff; --card:#f8fafc; --muted:#475569; --text:#0a0f1c; --br:#cbd5e1; --pill:#eef2f7; --link:#1e40af; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c }
+    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7; --evbg:#113a34; --evfg:#a7f3d0 }
+    body.light{ --bg:#ffffff; --card:#f8fafc; --muted:#475569; --text:#0a0f1c; --br:#cbd5e1; --pill:#eef2f7; --link:#1e40af; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c; --evbg:#dcfce7; --evfg:#065f46 }
     body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
     .container{max-width:1100px;margin:20px auto;padding:0 16px}
     .nav{font-size:14px;margin-bottom:10px}
     .nav a{color:var(--link);text-decoration:none;margin-right:10px}
     .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
   .card{background:linear-gradient(180deg,var(--card),#0c1328);border:1px solid var(--br);border-radius:12px;padding:12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .card-header{position:relative;display:flex;gap:10px;align-items:center}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .grid-mt{margin-top:10px}
     .muted{color:var(--muted)}
@@ -20,12 +21,14 @@
   .filters input, .filters select{background:var(--bg);color:var(--text);border:1px solid var(--br);border-radius:6px;padding:6px 8px}
   #season{width:90px}
   #week{width:70px}
-    .player{display:flex;gap:10px;align-items:center}
-    .logo{width:36px;height:36px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
+  .player{display:flex;gap:10px;align-items:center}
+  .logo{width:36px;height:36px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
+  .player-photo{width:48px;height:48px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
+  .team-logo-top{position:absolute;right:8px;top:8px;width:32px;height:32px;border-radius:50%;background:#111;border:1px solid var(--br);object-fit:cover}
     .plays{margin-top:6px}
   .play{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--br);border-radius:10px;padding:8px 10px;background:var(--pill);margin-top:6px}
-    .badge{font-size:11px;border:1px solid var(--br);border-radius:999px;padding:2px 6px;margin-left:6px}
-    .ev{color:#86efac}
+  .badge{font-size:11px;border:1px solid var(--br);border-radius:999px;padding:2px 6px;margin-left:6px}
+  .ev{display:inline-block;background:var(--evbg);color:var(--evfg);border:1px solid rgba(12, 148, 106, .35);border-radius:999px;padding:2px 6px;font-weight:600}
     .edge{color:#facc15}
   .price{font-size:12px;margin-left:6px}
   .price .label{opacity:.7;margin-right:3px}
@@ -47,7 +50,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/game-props/recommendations">Game Props Recs</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button></div>
     <h1>Props Recommendations</h1>
     <form id="filters" class="filters">
       <label>Season <input type="number" id="season" placeholder="YYYY"></label>
@@ -87,7 +90,7 @@
       if(pk==='QB' || pk==='UNK'){
         const pa=fmtMaybeNum(pr.pass_attempts); if(pa) parts.push(`att ${pa}`);
         const py=fmtMaybeNum(pr.pass_yards); if(py) parts.push(`pass ${py}`);
-        const ptd=fmtMaybeNum(pr.pass_tds); if(ptd) parts.push(`pTD ${ptd}`);
+        const ptd=fmtMaybeNum(pr.pass_tds); if(ptd) parts.push(`Passing TDs ${ptd}`);
         const ints=fmtMaybeNum(pr.interceptions); if(ints) parts.push(`INT ${ints}`);
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
         const ra=fmtMaybeNum(pr.rush_attempts); if(ra) parts.push(`ra ${ra}`);
@@ -97,17 +100,14 @@
       if(pk==='RB'){
         const ry=fmtMaybeNum(pr.rush_yards); if(ry) parts.push(`rush ${ry}`);
         const ra=fmtMaybeNum(pr.rush_attempts); if(ra) parts.push(`ra ${ra}`);
-        const rtd=fmtMaybeNum(pr.rush_tds); if(rtd) parts.push(`rTD ${rtd}`);
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
-        const rctd=fmtMaybeNum(pr.rec_tds); if(rctd) parts.push(`recTD ${rctd}`);
         const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
         const rr=fmtMaybeNum(pr.rush_rec_yards); if(rr) parts.push(`R+R ${rr}`);
       }
       if(pk==='WR' || pk==='TE'){
         const recy=fmtMaybeNum(pr.rec_yards); if(recy) parts.push(`rec ${recy}`);
         const recs=fmtMaybeNum(pr.receptions); if(recs) parts.push(`recs ${recs}`);
-        const rctd=fmtMaybeNum(pr.rec_tds); if(rctd) parts.push(`recTD ${rctd}`);
         const t=fmtMaybeNum(pr.targets); if(t) parts.push(`tgt ${t}`);
       }
       // ATD shown for skill positions and QB if present
@@ -118,6 +118,47 @@
       if(!parts.length) return '';
       return 'Proj: ' + parts.join(' • ');
     }
+
+    // Team logo helpers: derive ESPN logo URL when backend didn't attach team_logo
+    const TEAM_ABBR_MAP = (function(){
+      const m = new Map();
+      function a(keys, abbr){ keys.forEach(k=> m.set(String(k).toUpperCase(), abbr)); }
+      a(['Arizona Cardinals','Cardinals','ARI'], 'ARI');
+      a(['Atlanta Falcons','Falcons','ATL'], 'ATL');
+      a(['Baltimore Ravens','Ravens','BAL'], 'BAL');
+      a(['Buffalo Bills','Bills','BUF'], 'BUF');
+      a(['Carolina Panthers','Panthers','CAR'], 'CAR');
+      a(['Chicago Bears','Bears','CHI'], 'CHI');
+      a(['Cincinnati Bengals','Bengals','CIN'], 'CIN');
+      a(['Cleveland Browns','Browns','CLE'], 'CLE');
+      a(['Dallas Cowboys','Cowboys','DAL'], 'DAL');
+      a(['Denver Broncos','Broncos','DEN'], 'DEN');
+      a(['Detroit Lions','Lions','DET'], 'DET');
+      a(['Green Bay Packers','Packers','GB','GBP','GNB'], 'GB');
+      a(['Houston Texans','Texans','HOU'], 'HOU');
+      a(['Indianapolis Colts','Colts','IND'], 'IND');
+      a(['Jacksonville Jaguars','Jaguars','JAX','JAC'], 'JAX');
+      a(['Kansas City Chiefs','Chiefs','KC','KCC'], 'KC');
+      a(['Las Vegas Raiders','Raiders','LV','LVR','OAK'], 'LV');
+      a(['Los Angeles Chargers','Chargers','LAC','SD'], 'LAC');
+      a(['Los Angeles Rams','Rams','LAR','STL'], 'LAR');
+      a(['Miami Dolphins','Dolphins','MIA'], 'MIA');
+      a(['Minnesota Vikings','Vikings','MIN'], 'MIN');
+      a(['New England Patriots','Patriots','NE','NWE'], 'NE');
+      a(['New Orleans Saints','Saints','NO','NOR'], 'NO');
+      a(['New York Giants','Giants','NYG'], 'NYG');
+      a(['New York Jets','Jets','NYJ'], 'NYJ');
+      a(['Philadelphia Eagles','Eagles','PHI'], 'PHI');
+      a(['Pittsburgh Steelers','Steelers','PIT'], 'PIT');
+      a(['Seattle Seahawks','Seahawks','SEA'], 'SEA');
+      a(['San Francisco 49ers','49ers','SF','SFO','SFN'], 'SF');
+      a(['Tampa Bay Buccaneers','Buccaneers','Bucs','TB','TAM'], 'TB');
+      a(['Tennessee Titans','Titans','TEN'], 'TEN');
+      a(['Washington Commanders','Commanders','WAS','WSH'], 'WAS');
+      return m;
+    })();
+    function teamAbbr(team){ if(!team) return null; const key=String(team).toUpperCase().trim(); return TEAM_ABBR_MAP.get(key) || key; }
+    function espnTeamLogo(abbr){ if(!abbr) return null; const up=String(abbr).toUpperCase(); const espnMap={ 'WAS':'wsh' }; const code=(espnMap[up]||up).toLowerCase(); return `https://a.espncdn.com/i/teamlogos/nfl/500/${code}.png`; }
 
     async function loadData(){
       const params = new URLSearchParams();
@@ -149,7 +190,8 @@
       const cur = sel.value;
       sel.innerHTML = '<option value="">All games</option>';
       games.forEach(g=>{
-        const label = g.event || `${g.away_team||'?'} @ ${g.home_team||'?'}`;
+        // Canonical label: Away @ Home to avoid duplicate variants
+        const label = `${g.away_team||'?'} @ ${g.home_team||'?'}`;
         const val = `${g.home_team||''}|${g.away_team||''}|${g.event||''}`;
         const opt = document.createElement('option');
         opt.value = val; opt.textContent = label; sel.appendChild(opt);
@@ -169,20 +211,28 @@
       items.forEach(it=>{
         const div = document.createElement('div');
         div.className = 'card';
-        const teamLogo = it.team_logo? `<img class="logo" src="${it.team_logo}" alt="">` : '';
+        const derivedLogo = (!it.team_logo && it.team) ? espnTeamLogo(teamAbbr(it.team)) : null;
+        const teamLogoUrl = it.team_logo || derivedLogo || '';
+        const teamLogoTop = teamLogoUrl ? `<img class=\"team-logo-top\" src=\"${teamLogoUrl}\" alt=\"\" onerror=\"this.style.display='none'\">` : '';
         const projText = buildProjText(it);
   const away = it.away_team||'';
   const home = it.home_team||'';
-  // Prefer the book event string when present to avoid duplicate labels
-  const matchup = it.event || ((away&&home)? `${away} @ ${home}` : (away||home||''));
+  // Canonical label: always render as Away @ Home
+  const matchup = (away&&home)? `${away} @ ${home}` : (away||home||'');
+        const playerName = it.player || 'Player';
+        const playerPhoto = it.player_photo || '';
+        const photoUrl = playerPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(playerName)}&background=0b1225&color=fff&size=96&format=png`;
         div.innerHTML = `
-          <div class="player">
-            ${teamLogo}
-            <div>
-              <div style="font-weight:600">${it.player||''} <span class="muted" style="font-weight:400">${(it.position&&it.team)? `${it.position} • ${it.team}` : ((it.position||it.team)||'')}</span></div>
-              <div class="muted" style="font-size:12px">${matchup}</div>
-              ${projText? `<div class=\"muted\" style=\"font-size:12px;margin-top:2px\">${projText}</div>` : ''}
-            </div>
+          <div class=\"card-header\"> 
+            <img class=\"player-photo\" src=\"${photoUrl}\" alt=\"\" onerror=\"this.style.display='none'\"> 
+            <div class=\"player\"> 
+              <div> 
+                <div style=\"font-weight:600\">${it.player||''} <span class=\"muted\" style=\"font-weight:400\">${(it.position&&it.team)? `${it.position} • ${it.team}` : ((it.position||it.team)||'')}</span></div> 
+                <div class=\"muted\" style=\"font-size:12px\">${matchup}</div> 
+                ${projText? `<div class=\\\"muted\\\" style=\\\"font-size:12px;margin-top:2px\\\">${projText}</div>` : ''} 
+              </div> 
+            </div> 
+            ${teamLogoTop}
           </div>
           <div class="plays"></div>
         `;
@@ -211,7 +261,7 @@
           row.className='play';
           row.innerHTML = `
             <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
-            <div>${edge} ${ev}
+            <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
               <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
               <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
             </div>
@@ -238,7 +288,7 @@
             details.innerHTML = `
               <summary>
                 <div>Ladder: ${market} <span class="badge">${count} lines</span></div>
-                <div>${edgeStr} ${evStr}</div>
+                <div>${edgeStr} ${evStr? `<span class=\"ev\">${evStr}</span>`: ''}</div>
               </summary>
               <div class="ladder-rows"></div>
             `;
@@ -253,7 +303,7 @@
               row.className='ladder-row';
               row.innerHTML = `
                 <div>${p.side||''}${line!=null? ' '+line: ''}</div>
-                <div>${edge} ${ev}
+                <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
                   <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
                   <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
                 </div>

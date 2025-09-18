@@ -34,9 +34,13 @@ def main() -> int:
     cw = json.loads(cw_path.read_text())
     season = int(cw.get("season"))
     week = int(cw.get("week"))
+    # Player props artifacts
     bov_csv = DATA_DIR / f"bovada_player_props_{season}_wk{week}.csv"
     edges_csv = DATA_DIR / f"edges_player_props_{season}_wk{week}.csv"
     ladders_csv = DATA_DIR / f"ladder_options_{season}_wk{week}.csv"
+    # Game props artifacts
+    game_bov_csv = DATA_DIR / f"bovada_game_props_{season}_wk{week}.csv"
+    game_edges_csv = DATA_DIR / f"edges_game_props_{season}_wk{week}.csv"
 
     # 1) Fetch Bovada
     rc = run([
@@ -77,10 +81,35 @@ def main() -> int:
     if rc != 0:
         return rc
 
+    # 4) Fetch Bovada GAME props
+    rc = run([
+        sys.executable,
+        "scripts/fetch_bovada_game_props.py",
+        "--season", str(season),
+        "--week", str(week),
+        "--out", str(game_bov_csv),
+    ])
+    if rc != 0:
+        return rc
+
+    # 5) Compute GAME props edges
+    rc = run([
+        sys.executable,
+        "scripts/game_props_edges_join.py",
+        "--season", str(season),
+        "--week", str(week),
+        "--game-csv", str(game_bov_csv),
+        "--out", str(game_edges_csv),
+    ])
+    if rc != 0:
+        return rc
+
     print("Pipeline complete:")
     print(" -", bov_csv)
     print(" -", edges_csv)
     print(" -", ladders_csv)
+    print(" -", game_bov_csv)
+    print(" -", game_edges_csv)
     return 0
 
 

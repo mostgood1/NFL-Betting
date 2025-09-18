@@ -5193,25 +5193,56 @@ def api_props_recommendations():
     except Exception:
         edges_df["rec_side"] = None
 
-    # Build games list for dropdown
+    # Build games list for dropdown (canonicalize labels to avoid duplicates)
     games = []
     try:
-        if {"home_team","away_team"}.issubset(edges_df.columns):
-            gdf = edges_df[["home_team","away_team","event"]].drop_duplicates()
-            for _, r in gdf.iterrows():
-                games.append({
-                    "event": r.get("event") or (f"{r.get('away_team')} @ {r.get('home_team')}") if (r.get('home_team') and r.get('away_team')) else None,
-                    "home_team": r.get("home_team"),
-                    "away_team": r.get("away_team"),
+        # Team normalization helpers
+        try:
+            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+        except Exception:
+            def _norm_team(x):
+                return str(x or "").strip()
+        # Build abbr mapping from assets for stable comparison
+        try:
+            assets = _load_team_assets()
+            abbr_map = {}
+            if isinstance(assets, dict):
+                for k, v in assets.items():
+                    try:
+                        abbr_map[str(k).strip().upper()] = str(v.get("abbr") or k).strip().upper()
+                    except Exception:
+                        continue
+            def to_abbr(t):
+                s = str(t or "").strip()
+                return abbr_map.get(s.upper(), s.upper()) if s else ""
+        except Exception:
+            def to_abbr(t):
+                return str(t or "").strip().upper()
+
+        def iter_games(df_src):
+            seen = set()
+            if df_src is None or df_src.empty:
+                return []
+            rows = []
+            for _, r in df_src[["home_team","away_team"]].dropna(how="any").drop_duplicates().iterrows():
+                ht_raw = r.get("home_team"); at_raw = r.get("away_team")
+                ht = _norm_team(ht_raw); at = _norm_team(at_raw)
+                # Canonical key for dedup
+                key = (to_abbr(ht), to_abbr(at))
+                if not key[0] or not key[1] or key in seen:
+                    continue
+                seen.add(key)
+                rows.append({
+                    "event": f"{at} @ {ht}",
+                    "home_team": ht,
+                    "away_team": at,
                 })
+            return rows
+
+        if {"home_team","away_team"}.issubset(edges_df.columns) and not edges_df.empty:
+            games = iter_games(edges_df)
         elif not bov_df.empty and {"home_team","away_team"}.issubset(bov_df.columns):
-            gdf = bov_df[["home_team","away_team","event"]].drop_duplicates()
-            for _, r in gdf.iterrows():
-                games.append({
-                    "event": r.get("event") or (f"{r.get('away_team')} @ {r.get('home_team')}") if (r.get('home_team') and r.get('away_team')) else None,
-                    "home_team": r.get("home_team"),
-                    "away_team": r.get("away_team"),
-                })
+            games = iter_games(bov_df)
     except Exception:
         games = []
 
@@ -5224,6 +5255,58 @@ def api_props_recommendations():
             edges_df = edges_df[edges_df["event"].astype(str) == str(ev_param)]
         elif home_param and away_param and {"home_team","away_team"}.issubset(edges_df.columns):
             edges_df = edges_df[(edges_df["home_team"].astype(str) == str(home_param)) & (edges_df["away_team"].astype(str) == str(away_param))]
+    except Exception:
+        pass
+
+    # Enforce team-to-game alignment: keep rows where player's team matches either game team
+    try:
+        if {"home_team","away_team","team"}.issubset(edges_df.columns) and len(edges_df) > 0:
+            try:
+                assets = _load_team_assets()
+                abbr_map = {}
+                nick_to_abbr = {}
+                if isinstance(assets, dict):
+                    for full, meta in assets.items():
+                        try:
+                            ab = str((meta.get('abbr') if isinstance(meta, dict) else None) or full).strip().upper()
+                            full_up = str(full).strip().upper()
+                            abbr_map[full_up] = ab
+                            abbr_map[ab] = ab
+                            parts = [p for p in str(full).strip().split() if p]
+                            if parts:
+                                nick = parts[-1].upper()
+                                if nick not in nick_to_abbr:
+                                    nick_to_abbr[nick] = ab
+                        except Exception:
+                            continue
+                def to_abbr(t):
+                    s = str(t or "").strip()
+                    if not s:
+                        return ""
+                    u = s.upper()
+                    # Direct abbr or full name
+                    if u in abbr_map:
+                        return abbr_map[u]
+                    # Nickname mapping (e.g., BILLS -> BUF)
+                    parts = [p for p in u.split() if p]
+                    if parts:
+                        nick = parts[-1]
+                        if nick in nick_to_abbr:
+                            return nick_to_abbr[nick]
+                    return u
+            except Exception:
+                def to_abbr(t):
+                    return str(t or "").strip().upper()
+            # Compute comparison keys
+            ht_abbr = edges_df["home_team"].map(to_abbr)
+            at_abbr = edges_df["away_team"].map(to_abbr)
+            tm_abbr = edges_df["team"].map(to_abbr)
+            mask_keep = (
+                tm_abbr.isna() | ht_abbr.isna() | at_abbr.isna() |
+                (tm_abbr.eq(ht_abbr)) | (tm_abbr.eq(at_abbr))
+            )
+            if mask_keep.notna().any():
+                edges_df = edges_df[mask_keep.fillna(True)]
     except Exception:
         pass
 
@@ -5275,7 +5358,13 @@ def api_props_recommendations():
             pcols_core = ["__key_player","__key_player_loose","__key_player_alias"]
             proj_cols = [c for c in [
                 "position","team","opponent",
-                "pass_yards","rush_yards","rec_yards","receptions","any_td_prob"
+                # QB
+                "pass_attempts","pass_yards","pass_tds","interceptions",
+                # RB/WR/TE
+                "rush_attempts","rush_yards","rush_tds",
+                "targets","receptions","rec_yards","rec_tds",
+                # Combos / probabilities (best-effort)
+                "rush_rec_yards","pass_rush_yards","any_td_prob",
             ] if c in preds_df.columns]
             # Normalize team to shared abbreviation to improve merge specificity
             try:
@@ -5326,9 +5415,42 @@ def api_props_recommendations():
                     edges_df["__team_abbr"] = None
             except Exception:
                 edges_df["__team_abbr"] = None
+            # Filter out non-player rows (e.g., quarter/team markets like "1Q BUF/MIA ...")
+            try:
+                def _looks_like_player_name(s: str) -> bool:
+                    t = str(s or "").strip()
+                    if not t:
+                        return False
+                    # Exclude obvious non-player patterns
+                    if any(ch.isdigit() for ch in t):
+                        return False
+                    if ("/" in t) or ("@" in t):
+                        return False
+                    lt = t.lower()
+                    if any(x in lt for x in ["1q","2q","3q","4q","quarter","first quarter","second quarter","first half","second half","1h","2h"]):
+                        return False
+                    parts = [p for p in t.replace(".", "").replace("'", "").replace("-", " ").split() if p]
+                    if len(parts) < 2:
+                        return False
+                    if parts[0].lower() in {"over","under"}:
+                        return False
+                    return True
+                pcol = "player" if "player" in edges_df.columns else edges_df.columns[0]
+                if pcol in edges_df.columns and len(edges_df) > 0:
+                    _mask_players = edges_df[pcol].map(_looks_like_player_name)
+                    if getattr(_mask_players, 'any', lambda: False)() and (~_mask_players).sum() > 0:
+                        edges_df = edges_df[_mask_players].copy()
+            except Exception:
+                pass
             player_key = "__key_player"
             # Ensure destination columns exist for context fields before fills
-            for c in ["position","team","opponent","pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+            for c in [
+                "position","team","opponent",
+                "pass_attempts","pass_yards","pass_tds","interceptions",
+                "rush_attempts","rush_yards","rush_tds",
+                "targets","receptions","rec_yards","rec_tds",
+                "rush_rec_yards","pass_rush_yards","any_td_prob",
+            ]:
                 if c not in edges_df.columns:
                     edges_df[c] = pd.NA
             # Strict join
@@ -5370,7 +5492,13 @@ def api_props_recommendations():
                     except Exception:
                         pass
                 # Cleanup if an earlier merge created _x/_y columns (defensive)
-                for c in ["position","team","opponent","pass_yards","rush_yards","rec_yards","receptions","any_td_prob"]:
+                for c in [
+                    "position","team","opponent",
+                    "pass_attempts","pass_yards","pass_tds","interceptions",
+                    "rush_attempts","rush_yards","rush_tds",
+                    "targets","receptions","rec_yards","rec_tds",
+                    "rush_rec_yards","pass_rush_yards","any_td_prob",
+                ]:
                     cx, cy = f"{c}_x", f"{c}_y"
                     if cx in edges_df.columns and cy in edges_df.columns:
                         try:
@@ -5492,26 +5620,33 @@ def api_props_recommendations():
 
         def _row_to_play(r: pd.Series) -> dict:
             ev_pct = None
+            # Compute EV% generically when available, keyed off selected side
             try:
-                if r.get("market_key") == "any_td":
-                    # Skip ATD plays with 0% projection or missing projection (no EV possible)
+                side = r.get("rec_side")
+                ov = r.get("over_ev"); un = r.get("under_ev")
+                ov_ok = (ov is not None and not pd.isna(ov))
+                un_ok = (un is not None and not pd.isna(un))
+                # Special case: ATD with 0% projection -> skip entirely
+                if (r.get("market_key") == "any_td"):
                     try:
                         proj_val = pd.to_numeric(r.get("proj"), errors="coerce")
-                        if pd.isna(proj_val) or proj_val == 0.0:
+                        if pd.isna(proj_val) or float(proj_val) == 0.0:
                             return {}
                     except Exception:
                         pass
-                    side = r.get("rec_side")
-                    if side == "Over" and r.get("over_ev") is not None and not pd.isna(r.get("over_ev")):
-                        ev_pct = float(r.get("over_ev")) * 100.0
-                    elif side == "Under" and r.get("under_ev") is not None and not pd.isna(r.get("under_ev")):
-                        ev_pct = float(r.get("under_ev")) * 100.0
-                    # If both EVs are missing, treat as non-actionable
-                    if ev_pct is None and (
-                        (r.get("over_ev") is None or pd.isna(r.get("over_ev"))) and
-                        (r.get("under_ev") is None or pd.isna(r.get("under_ev")))
-                    ):
-                        return {}
+                if side == "Over" and ov_ok:
+                    ev_pct = float(ov) * 100.0
+                elif side == "Under" and un_ok:
+                    ev_pct = float(un) * 100.0
+                # If side not chosen but only one EV exists, show that EV
+                elif side is None:
+                    if ov_ok and not un_ok:
+                        ev_pct = float(ov) * 100.0
+                    elif un_ok and not ov_ok:
+                        ev_pct = float(un) * 100.0
+                # If no EV data at all for this row and it's ATD, skip (non-actionable)
+                if r.get("market_key") == "any_td" and (not ov_ok and not un_ok):
+                    return {}
             except Exception:
                 ev_pct = None
             # Derive ladder flag if present in edges CSV
@@ -5546,7 +5681,40 @@ def api_props_recommendations():
             }
             # Skip non-actionable/invalid plays
             try:
-                mk = str(r.get("market_key") or r.get("market") or "").strip().lower()
+                # Normalize to internal key for validation checks
+                raw_mk = r.get("market_key")
+                mk = None
+                if raw_mk is not None and not (isinstance(raw_mk, float) and pd.isna(raw_mk)):
+                    mk = str(raw_mk).strip().lower()
+                if not mk:
+                    # Map display market -> internal key
+                    mk_map_local = {
+                        "receiving yards": "rec_yards",
+                        "receptions": "receptions",
+                        "rushing yards": "rush_yards",
+                        "passing yards": "pass_yards",
+                        "passing tds": "pass_tds",
+                        "pass tds": "pass_tds",
+                        "pass touchdowns": "pass_tds",
+                        "passing attempts": "pass_attempts",
+                        "pass attempts": "pass_attempts",
+                        "rushing attempts": "rush_attempts",
+                        "rush attempts": "rush_attempts",
+                        "interceptions": "interceptions",
+                        "interceptions thrown": "interceptions",
+                        "rush+rec yards": "rush_rec_yards",
+                        "rushing + receiving yards": "rush_rec_yards",
+                        "rush + rec yards": "rush_rec_yards",
+                        "pass+rush yards": "pass_rush_yards",
+                        "pass + rush yards": "pass_rush_yards",
+                        "passing + rushing yards": "pass_rush_yards",
+                        "targets": "targets",
+                        "2+ touchdowns": "multi_tds",
+                        "anytime td": "any_td",
+                        "any time td": "any_td",
+                    }
+                    disp = str(r.get("market") or "").strip().lower()
+                    mk = mk_map_local.get(disp, disp)
                 has_side = bool(play.get("side"))
                 has_line = pd.notna(play.get("line")) if play.get("line") is not None else False
                 has_price = (pd.notna(play.get("over_price")) if play.get("over_price") is not None else False) or (pd.notna(play.get("under_price")) if play.get("under_price") is not None else False)
@@ -5639,9 +5807,10 @@ def api_props_recommendations():
                 "pass_attempts","pass_yards","pass_tds","interceptions",
                 "rush_attempts","rush_yards","rush_tds",
                 "targets","receptions","rec_yards","rec_tds",
-                "any_td_prob",
-                # Derived sums if present
+                # Combos and derived
                 "rush_rec_yards","pass_rush_yards",
+                # Probabilities last
+                "any_td_prob",
             ]:
                 if k in edges_df.columns:
                     try:
@@ -5659,6 +5828,22 @@ def api_props_recommendations():
                     continue
             except Exception:
                 pass
+            # Canonical event label for consistent UI
+            try:
+                # Prefer normalized team names when present
+                _home = head.get("home_team")
+                _away = head.get("away_team")
+                try:
+                    from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                except Exception:
+                    def _norm_team(x):
+                        return str(x or "").strip()
+                ev_lbl = None
+                if _home and _away:
+                    ev_lbl = f"{_norm_team(_away)} @ {_norm_team(_home)}"
+            except Exception:
+                ev_lbl = head.get("event")
+
             cards.append({
                 "player": disp_name,
                 "position": head.get("position"),
@@ -5666,7 +5851,7 @@ def api_props_recommendations():
                 "opponent": head.get("opponent"),
                 "home_team": head.get("home_team"),
                 "away_team": head.get("away_team"),
-                "event": head.get("event"),
+                "event": ev_lbl or head.get("event"),
                 "projections": proj_bundle,
                 "plays": plays,
             })
@@ -5804,6 +5989,190 @@ def api_props_recommendations():
     except Exception:
         pass
 
+    # Attach player headshots using nfl_data_py rosters -> ESPN headshot URL (best-effort)
+    try:
+        # Simple cache keyed by season to avoid repeated loads
+        try:
+            _HEADSHOT_CACHE  # type: ignore  # noqa: F401
+        except Exception:
+            _HEADSHOT_CACHE = {}  # type: ignore
+        maps = None
+        try:
+            maps = _HEADSHOT_CACHE.get(season_i)  # type: ignore
+        except Exception:
+            maps = None
+        if maps is None:
+            maps = {"by_key": {}, "by_name": {}, "by_alias_key": {}, "by_alias": {}}
+            try:
+                import nfl_data_py as _nfl  # type: ignore
+                ros = _nfl.import_seasonal_rosters([int(season_i)])
+            except Exception:
+                ros = None
+            if ros is not None and not ros.empty:
+                # Column picks
+                # Prefer 'player_name' for matching (most stable with props names), fallback to other roster labels
+                name_col = next((c for c in [
+                    "player_name","full_name","display_name","player_display_name","name","gsis_name","football_name"
+                ] if c in ros.columns), None)
+                team_col = next((c for c in [
+                    "team","recent_team","team_abbr","club_code"
+                ] if c in ros.columns), None)
+                headshot_col = "headshot_url" if "headshot_url" in ros.columns else None
+                espn_col = "espn_id" if "espn_id" in ros.columns else ("esb_id" if "esb_id" in ros.columns else None)
+                pfr_col = "pfr_id" if "pfr_id" in ros.columns else None
+                if name_col:
+                    # Team abbr helper from assets
+                    try:
+                        assets = _load_team_assets()
+                        abbr_lookup = {k: (v.get('abbr') or k) for k, v in assets.items()} if isinstance(assets, dict) else {}
+                        def to_abbr(team: Optional[str]) -> str:
+                            if not team:
+                                return ""
+                            s = str(team).strip(); up = s.upper()
+                            return str(abbr_lookup.get(up, up)).upper()
+                    except Exception:
+                        def to_abbr(team: Optional[str]) -> str:
+                            return str(team or "").strip().upper()
+                    # Name normalization
+                    try:
+                        from nfl_compare.src.name_normalizer import normalize_name_loose as _nm_loose
+                    except Exception:
+                        def _nm_loose(s):
+                            return "" if s is None else "".join(ch for ch in str(s).lower() if ch.isalnum())
+                    # Alias normalization (first-initial + last)
+                    try:
+                        from nfl_compare.src.name_normalizer import normalize_alias_init_last as _nm_alias
+                    except Exception:
+                        def _nm_alias(s):
+                            s = str(s or "").strip().lower()
+                            parts = [p for p in s.replace("-"," ").replace("."," ").split() if p]
+                            return (parts[0][:1] + ''.join(ch for ch in (parts[-1] if parts else '') if ch.isalnum())) if parts else ""
+                    for _, rr in ros.iterrows():
+                        try:
+                            nm = _nm_loose(rr.get(name_col));
+                            if not nm:
+                                continue
+                            ab = to_abbr(rr.get(team_col)) if team_col else ""
+                            al = _nm_alias(rr.get(name_col))
+                            url = None
+                            if headshot_col:
+                                u = rr.get(headshot_col)
+                                if isinstance(u, str) and u.strip():
+                                    url = u.strip()
+                            if url is None and espn_col:
+                                eid = rr.get(espn_col)
+                                eid_str = str(eid).strip() if eid is not None else ""
+                                if eid_str and eid_str.lower() != 'nan':
+                                    url = f"https://a.espncdn.com/i/headshots/nfl/players/full/{eid_str}.png"
+                            if not url and pfr_col:
+                                pid = rr.get(pfr_col)
+                                pid_str = str(pid).strip() if pid is not None else ""
+                                if pid_str and pid_str.lower() != 'nan':
+                                    url = f"https://www.pro-football-reference.com/req/2017/images/headshots/{pid_str}.jpg"
+                            if not url:
+                                continue
+                            key = (nm, str(ab).upper())
+                            if key not in maps["by_key"]:
+                                maps["by_key"][key] = url
+                            if nm not in maps["by_name"]:
+                                maps["by_name"][nm] = url
+                            if al:
+                                ak = (al, str(ab).upper())
+                                if ak not in maps["by_alias_key"]:
+                                    maps["by_alias_key"][ak] = url
+                                if al not in maps["by_alias"]:
+                                    maps["by_alias"][al] = url
+                        except Exception:
+                            continue
+            try:
+                _HEADSHOT_CACHE[season_i] = maps  # type: ignore
+            except Exception:
+                pass
+        if maps and cards:
+            # Normalizer and team abbr helper
+            try:
+                from nfl_compare.src.name_normalizer import normalize_name_loose as _nm_loose
+            except Exception:
+                def _nm_loose(s):
+                    return "" if s is None else "".join(ch for ch in str(s).lower() if ch.isalnum())
+            try:
+                from nfl_compare.src.name_normalizer import normalize_alias_init_last as _nm_alias
+            except Exception:
+                def _nm_alias(s):
+                    s = str(s or "").strip().lower()
+                    parts = [p for p in s.replace("-"," ").replace("."," ").split() if p]
+                    return (parts[0][:1] + ''.join(ch for ch in (parts[-1] if parts else '') if ch.isalnum())) if parts else ""
+            try:
+                assets = _load_team_assets()
+                abbr_lookup = {k: (v.get('abbr') or k) for k, v in assets.items()} if isinstance(assets, dict) else {}
+                def to_abbr(team: Optional[str]) -> str:
+                    if not team:
+                        return ""
+                    s = str(team).strip(); up = s.upper()
+                    return str(abbr_lookup.get(up, up)).upper()
+            except Exception:
+                def to_abbr(team: Optional[str]) -> str:
+                    return str(team or "").strip().upper()
+            for c in cards:
+                try:
+                    if c.get("player_photo"):
+                        continue
+                    pk = _nm_loose(c.get("player"))
+                    ak = _nm_alias(c.get("player"))
+                    tb = to_abbr(c.get("team"))
+                    url = (
+                        maps.get("by_key", {}).get((pk, tb)) or
+                        maps.get("by_name", {}).get(pk) or
+                        (maps.get("by_alias_key", {}).get((ak, tb)) if ak else None) or
+                        (maps.get("by_alias", {}).get(ak) if ak else None)
+                    )
+                    # As a final fallback: try a roster last-name search (team-scoped first)
+                    if not url:
+                        try:
+                            import nfl_data_py as _nfl  # type: ignore
+                            ros = _nfl.import_seasonal_rosters([int(season_i)])
+                            if ros is not None and not ros.empty:
+                                name_col = next((cc for cc in [
+                                    "player_name","full_name","display_name","player_display_name","name","gsis_name","football_name"
+                                ] if cc in ros.columns), None)
+                                team_col = next((cc for cc in ["team","recent_team","team_abbr","club_code"] if cc in ros.columns), None)
+                                headshot_col = "headshot_url" if "headshot_url" in ros.columns else None
+                                espn_col = "espn_id" if "espn_id" in ros.columns else ("esb_id" if "esb_id" in ros.columns else None)
+                                pfr_col = "pfr_id" if "pfr_id" in ros.columns else None
+                                pl = str(c.get("player") or "").strip()
+                                last = pl.split(" ")[-1] if pl else ""
+                                cand = ros
+                                if team_col and tb:
+                                    cand = cand[cand[team_col].astype(str).str.upper() == tb]
+                                if name_col and last:
+                                    cand = cand[cand[name_col].astype(str).str.contains(last, case=False, na=False)]
+                                if cand is not None and not cand.empty:
+                                    rr = cand.iloc[0]
+                                    u = None
+                                    if headshot_col:
+                                        v = rr.get(headshot_col)
+                                        if isinstance(v, str) and v.strip():
+                                            u = v.strip()
+                                    if u is None and espn_col:
+                                        eid = rr.get(espn_col)
+                                        eid_str = str(eid).strip() if eid is not None else ""
+                                        if eid_str and eid_str.lower() != 'nan':
+                                            u = f"https://a.espncdn.com/i/headshots/nfl/players/full/{eid_str}.png"
+                                    if u is None and pfr_col:
+                                        pid = rr.get(pfr_col)
+                                        pid_str = str(pid).strip() if pid is not None else ""
+                                        if pid_str and pid_str.lower() != 'nan':
+                                            u = f"https://www.pro-football-reference.com/req/2017/images/headshots/{pid_str}.jpg"
+                                    url = u
+                        except Exception:
+                            pass
+                    if url:
+                        c["player_photo"] = url
+                except Exception:
+                    continue
+    except Exception:
+        pass
+
     # JSON clean-up: coerce pandas/NumPy NA/NaT and non-finite numbers to None
     def _js(obj):
         try:
@@ -5885,6 +6254,232 @@ def props_recommendations_typo():
 @app.route("/reconciliation")
 def reconciliation_page():
     return render_template("reconciliation.html")
+
+@app.route("/game-props/recommendations")
+def game_props_recommendations_page():
+    return render_template("game_props_recommendations.html")
+
+
+@app.route("/api/game-props/recommendations")
+def api_game_props_recommendations():
+    """Return game-level props recommendations from precomputed edges CSV.
+
+    Query params:
+      - season, week (optional; inferred if omitted)
+      - home_team, away_team, event (optional filters)
+    Response:
+      {
+        season, week,
+        games: [{event, home_team, away_team}],
+        rows: N,
+        data: [
+          { event, home_team, away_team, market_key, team_side, line, side, ev_units, price_home, price_away, over_price, under_price }
+        ]
+      }
+    """
+    try:
+        season_q = request.args.get("season")
+        week_q = request.args.get("week")
+        season_i = int(season_q) if season_q else None
+        week_i = int(week_q) if week_q else None
+    except Exception:
+        season_i, week_i = None, None
+    pred_df = _load_predictions()
+    games_df = _load_games()
+    if season_i is None or week_i is None:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                if season_i is None:
+                    season_i = int(inferred[0])
+                if week_i is None:
+                    week_i = int(inferred[1])
+            else:
+                if season_i is None and src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    season_i = int(src['season'].max())
+                if week_i is None:
+                    week_i = 1
+        except Exception:
+            if week_i is None:
+                week_i = 1
+
+    # Load edges CSV
+    edges_fp = DATA_DIR / f"edges_game_props_{season_i}_wk{week_i}.csv"
+    try:
+        df = pd.read_csv(edges_fp) if edges_fp.exists() else pd.DataFrame()
+    except Exception:
+        df = pd.DataFrame()
+
+    if df is None or df.empty:
+        return jsonify({"season": season_i, "week": week_i, "games": [], "rows": 0, "data": [], "note": f"No edges file: {edges_fp}"})
+
+    # Optional filters
+    ev_param = request.args.get("event")
+    home_param = request.args.get("home_team")
+    away_param = request.args.get("away_team")
+    # Hide core markets (ML, spread, total) by default to avoid duplication with main cards
+    deriv_flag = str(request.args.get("derivatives_only", "1")).strip().lower() in {"1","true","yes","y"}
+    # Keep a copy for fallback when derivatives-only makes a selected game empty
+    df_all = df.copy()
+
+    # Normalize team names to abbreviations to make filtering resilient (handles 'Bills' vs 'Buffalo Bills')
+    try:
+        assets = _load_team_assets()
+        abbr_map = {}
+        nick_to_abbr = {}
+        if isinstance(assets, dict):
+            for full, meta in assets.items():
+                try:
+                    ab = str(meta.get('abbr') or full).strip().upper()
+                    full_up = str(full).strip().upper()
+                    abbr_map[full_up] = ab
+                    abbr_map[ab] = ab
+                    # Also map nickname (last token) if unique
+                    parts = [p for p in str(full).strip().split() if p]
+                    if parts:
+                        nick = parts[-1].upper()
+                        # If not set or same, map
+                        if nick not in nick_to_abbr:
+                            nick_to_abbr[nick] = ab
+                except Exception:
+                    continue
+        def to_abbr_any(x: object) -> str:
+            s = str(x or '').strip()
+            if not s:
+                return ''
+            u = s.upper()
+            # Direct abbr or full name
+            if u in abbr_map:
+                return abbr_map[u]
+            # Try nickname
+            parts = [p for p in u.split() if p]
+            if parts:
+                nick = parts[-1]
+                if nick in nick_to_abbr:
+                    return nick_to_abbr[nick]
+            return u
+        if not df.empty and {'home_team','away_team'}.issubset(df.columns):
+            df['__home_abbr'] = df['home_team'].map(to_abbr_any)
+            df['__away_abbr'] = df['away_team'].map(to_abbr_any)
+            df_all['__home_abbr'] = df_all['home_team'].map(to_abbr_any)
+            df_all['__away_abbr'] = df_all['away_team'].map(to_abbr_any)
+    except Exception:
+        pass
+
+    try:
+        if deriv_flag and "market_key" in df.columns:
+            core = {"moneyline","spread","total"}
+            df = df[~df["market_key"].astype(str).str.lower().isin(core)]
+        if ev_param and {"__home_abbr","__away_abbr"}.issubset(df.columns):
+            # Parse canonical label "Away @ Home" and filter via abbreviations
+            if "@" in ev_param:
+                parts = [p.strip() for p in ev_param.split("@", 1)]
+                if len(parts) == 2:
+                    at, ht = parts[0], parts[1]
+                    at_ab = to_abbr_any(at)
+                    ht_ab = to_abbr_any(ht)
+                    df = df[(df["__home_abbr"].astype(str) == ht_ab) & (df["__away_abbr"].astype(str) == at_ab)]
+        elif home_param and away_param:
+            # Filter via abbreviations when possible
+            if {'__home_abbr','__away_abbr'}.issubset(df.columns):
+                df = df[(df["__home_abbr"].astype(str) == to_abbr_any(home_param)) & (df["__away_abbr"].astype(str) == to_abbr_any(away_param))]
+            else:
+                df = df[(df["home_team"].astype(str) == str(home_param)) & (df["away_team"].astype(str) == str(away_param))]
+    except Exception:
+        pass
+
+    # If a specific game is selected and derivatives_only yields no rows, fallback to include core markets for that game
+    fallback_used = False
+    try:
+        want_specific = False
+        tgt_home = tgt_away = None
+        if ev_param and "@" in str(ev_param):
+            parts = [p.strip() for p in str(ev_param).split("@", 1)]
+            if len(parts) == 2:
+                tgt_away, tgt_home = parts[0], parts[1]
+                want_specific = True
+        elif home_param and away_param:
+            tgt_home, tgt_away = str(home_param), str(away_param)
+            want_specific = True
+        if want_specific and (df is None or df.empty) and not (df_all is None or df_all.empty):
+            # Try robust match using abbreviations first
+            cand = pd.DataFrame()
+            try:
+                if {'__home_abbr','__away_abbr'}.issubset(df_all.columns):
+                    ht_ab = to_abbr_any(tgt_home)
+                    at_ab = to_abbr_any(tgt_away)
+                    cand = df_all[(df_all['__home_abbr'].astype(str) == ht_ab) & (df_all['__away_abbr'].astype(str) == at_ab)]
+            except Exception:
+                cand = pd.DataFrame()
+            # Fallback to exact string match if abbr not available
+            if cand is None or cand.empty:
+                cand = df_all[(df_all["home_team"].astype(str) == str(tgt_home)) & (df_all["away_team"].astype(str) == str(tgt_away))]
+            if not cand.empty:
+                df = cand
+                fallback_used = True
+    except Exception:
+        pass
+
+    # Build games list (canonical labels) AFTER applying derivatives_only filter, so dropdown matches content
+    games = []
+    try:
+        if {"home_team","away_team"}.issubset(df.columns):
+            gdf = df[["home_team","away_team"]].dropna(how='any').drop_duplicates()
+            for _, r in gdf.iterrows():
+                ht = str(r.get("home_team") or "").strip()
+                at = str(r.get("away_team") or "").strip()
+                if not ht or not at:
+                    continue
+                games.append({"event": f"{at} @ {ht}", "home_team": ht, "away_team": at})
+    except Exception:
+        games = []
+
+    # Default: restrict to first game for compact output
+    try:
+        if {"home_team","away_team"}.issubset(df.columns) and df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
+            first = df[["home_team","away_team"]].drop_duplicates().head(1)
+            ht = first.iloc[0]["home_team"]; at = first.iloc[0]["away_team"]
+            df = df[(df["home_team"] == ht) & (df["away_team"] == at)]
+    except Exception:
+        pass
+
+    # Prepare output records
+    records = []
+    try:
+        keep = [c for c in [
+            "event","game_time","home_team","away_team","market_key","team_side","line","side","ev_units",
+            "price_home","price_away","over_price","under_price","edge_pts","is_alternate"
+        ] if c in df.columns]
+        if keep:
+            for _, r in df[keep].iterrows():
+                rec = {k: (None if (pd.isna(r.get(k)) if k in r else False) else r.get(k)) for k in keep}
+                # Canonical event label
+                try:
+                    ht = r.get("home_team"); at = r.get("away_team")
+                    if ht and at:
+                        rec["event"] = f"{at} @ {ht}"
+                except Exception:
+                    pass
+                # EV percent helper
+                try:
+                    if rec.get("ev_units") is not None:
+                        rec["ev_pct"] = float(rec["ev_units"]) * 100.0
+                except Exception:
+                    rec["ev_pct"] = None
+                records.append(rec)
+    except Exception:
+        records = []
+
+    return jsonify({
+        "season": season_i,
+        "week": week_i,
+        "games": games,
+        "rows": len(records),
+        "data": records,
+        "source": str(edges_fp),
+        "fallback_core_markets": fallback_used,
+    })
 
 
 if __name__ == "__main__":
