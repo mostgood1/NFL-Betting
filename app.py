@@ -5303,8 +5303,19 @@ def api_props_recommendations():
                 preds_df["__team_abbr"] = None
             # Build keys on edges side
             pcol = "player" if "player" in edges_df.columns else edges_df.columns[0]
-            # Strip trailing team tags like (MIA) from player names on edges_df for consistent keys
-            edges_df[pcol] = edges_df[pcol].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
+            # Sanitize player names: strip trailing team tags like (MIA) and any trailing "Total ..." labels
+            try:
+                def _clean_player_name(s: str) -> str:
+                    t = str(s or "")
+                    # Remove trailing (TEAM)
+                    t = pd.Series([t]).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).iloc[0]
+                    # Remove trailing "Total ..." descriptors often present in some book exports
+                    t = pd.Series([t]).str.replace(r"\s+total\b.*$", "", regex=True, case=False).iloc[0]
+                    return str(t).strip()
+                edges_df[pcol] = edges_df[pcol].astype(str).map(_clean_player_name)
+            except Exception:
+                # Fallback: basic strip
+                edges_df[pcol] = edges_df[pcol].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
             edges_df["__key_player"] = edges_df[pcol].astype(str).str.strip().str.lower()
             edges_df["__key_player_loose"] = edges_df[pcol].map(_nm_loose)
             edges_df["__key_player_alias"] = edges_df[pcol].map(_nm_alias)
@@ -5533,11 +5544,22 @@ def api_props_recommendations():
                 "ev_pct": ev_pct,
                 "is_ladder": is_ladder,
             }
-            # Skip non-actionable plays: no side, no line, and no prices
+            # Skip non-actionable/invalid plays
             try:
+                mk = str(r.get("market_key") or r.get("market") or "").strip().lower()
                 has_side = bool(play.get("side"))
                 has_line = pd.notna(play.get("line")) if play.get("line") is not None else False
                 has_price = (pd.notna(play.get("over_price")) if play.get("over_price") is not None else False) or (pd.notna(play.get("under_price")) if play.get("under_price") is not None else False)
+                # Markets that require a numeric line to be meaningful (yardage, receptions, attempts, combos, targets)
+                line_required = {
+                    "rec_yards","rush_yards","pass_yards","receptions",
+                    "pass_attempts","rush_attempts","rush_rec_yards","pass_rush_yards","targets"
+                }
+                # EV-driven markets can omit a line
+                ev_allowed = {"any_td","interceptions","pass_tds","multi_tds"}
+                if mk in line_required and not has_line:
+                    return {}
+                # If no side, no line, and only prices exist, skip (price-only without target)
                 if not has_side and not has_line and not has_price:
                     return {}
             except Exception:
