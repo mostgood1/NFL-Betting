@@ -115,6 +115,29 @@ def ev_from_prob_and_american(prob: Optional[float], odds: Optional[float | int 
     return float(prob) * (d - 1.0) - (1.0 - float(prob))
 
 
+def _poisson_pmf(k: int, lam: float) -> float:
+    if k < 0:
+        return 0.0
+    try:
+        return math.exp(-lam) * (lam ** k) / math.factorial(k)
+    except Exception:
+        return 0.0
+
+
+def _poisson_cdf(k: int, lam: float, max_k: int = 30) -> float:
+    """Return P(X <= k) for X~Poisson(lam). For numerical safety, cap summation."""
+    if lam < 0 or k < 0:
+        return 0.0
+    k = int(k)
+    # Cap max k to avoid long loops; interceptions/TDs means are small so this is fine
+    k_cap = min(max_k, k)
+    s = 0.0
+    for i in range(0, k_cap + 1):
+        s += _poisson_pmf(i, lam)
+    # If k exceeds cap, approximate tail is ~0 for small lam; acceptable here
+    return min(max(s, 0.0), 1.0)
+
+
 # Map inbound market strings to internal projection keys
 MARKET_MAP: Dict[str, str] = {
     "receiving yards": "rec_yards",
@@ -129,8 +152,25 @@ MARKET_MAP: Dict[str, str] = {
     "passing tds": "pass_tds",
     "pass tds": "pass_tds",
     "pass touchdowns": "pass_tds",
+    # QB/Player counting markets
+    "passing attempts": "pass_attempts",
+    "pass attempts": "pass_attempts",
+    "rushing attempts": "rush_attempts",
+    "rush attempts": "rush_attempts",
+    "interceptions": "interceptions",
+    "interceptions thrown": "interceptions",
     "anytime td": "any_td",
     "any time td": "any_td",
+    # Combined yards and volume
+    "rush+rec yards": "rush_rec_yards",
+    "rushing + receiving yards": "rush_rec_yards",
+    "rush + rec yards": "rush_rec_yards",
+    "pass+rush yards": "pass_rush_yards",
+    "pass + rush yards": "pass_rush_yards",
+    "passing + rushing yards": "pass_rush_yards",
+    "targets": "targets",
+    # Multi-TD (2+ touchdowns)
+    "2+ touchdowns": "multi_tds",
 }
 
 
@@ -142,8 +182,18 @@ PROJ_COLS: Dict[str, List[str]] = {
     "pass_yards": ["pass_yards", "pred_pass_yards", "expected_pass_yards"],
     # QB passing TD projections
     "pass_tds": ["pass_tds", "pred_pass_tds", "expected_pass_tds"],
+    # QB/Player counting projections
+    "pass_attempts": ["pass_attempts", "pred_pass_attempts", "expected_pass_attempts"],
+    "rush_attempts": ["rush_attempts", "pred_rush_attempts", "expected_rush_attempts"],
+    "interceptions": ["interceptions", "pred_interceptions", "expected_interceptions", "ints", "pred_ints"],
     # For TD, use model probability directly (not a line). We'll read:
     "any_td": ["any_td_prob", "anytime_td_prob", "prob_any_td"],
+    # Derived/volume
+    "rush_rec_yards": ["rush_yards", "rec_yards"],
+    "pass_rush_yards": ["pass_yards", "rush_yards"],
+    "targets": ["targets", "pred_targets", "expected_targets"],
+    # Multi-TD uses combined rushing+receiving TD mean
+    "multi_tds": ["rush_tds", "rec_tds"],
 }
 
 
@@ -353,6 +403,21 @@ def compute_edges(
             proj_vals.append(np.nan)
             notes.append("unsupported_market")
             continue
+        # Derived sums
+        if key in {"rush_rec_yards", "pass_rush_yards"}:
+            parts = PROJ_COLS.get(key, [])
+            vals = []
+            for c in parts:
+                v = row.get(c)
+                vals.append(float(v)) if (v is not None and not pd.isna(v)) else None
+            if all(v is not None for v in vals) and len(vals) == 2:
+                proj_vals.append(float(vals[0]) + float(vals[1]))
+                notes.append("")
+            else:
+                proj_vals.append(np.nan)
+                notes.append("projection_missing")
+            continue
+        # Direct columns
         pcol = choose_proj_col(merged, key)
         if not pcol or pcol not in merged.columns:
             proj_vals.append(np.nan)
@@ -363,6 +428,21 @@ def compute_edges(
             proj_vals.append(np.nan)
             notes.append("projection_missing")
             continue
+        # Multi-TD: sum rush_tds + rec_tds to get λ
+        if key == "multi_tds":
+            try:
+                lam = 0.0
+                for c in ["rush_tds", "rec_tds"]:
+                    vc = row.get(c)
+                    if vc is not None and not pd.isna(vc):
+                        lam += float(vc)
+                proj_vals.append(lam if lam > 0 else np.nan)
+                notes.append("")
+                continue
+            except Exception:
+                proj_vals.append(np.nan)
+                notes.append("projection_missing")
+                continue
         proj_vals.append(float(val))
         notes.append("")
 
@@ -373,7 +453,7 @@ def compute_edges(
     merged["edge"] = np.nan
     if "line" in merged.columns:
         # Only meaningful for yardage/receptions/counting stat markets
-        yard_markets = {"rec_yards", "rush_yards", "pass_yards", "receptions", "pass_tds"}
+        yard_markets = {"rec_yards", "rush_yards", "pass_yards", "receptions", "pass_tds", "pass_attempts", "rush_attempts", "interceptions", "rush_rec_yards", "pass_rush_yards", "targets"}
         mask_yard = merged["market_key"].isin(list(yard_markets)) & merged["proj"].notna() & merged["line"].notna()
         merged.loc[mask_yard, "edge"] = merged.loc[mask_yard, "proj"] - merged.loc[mask_yard, "line"]
 
@@ -394,6 +474,56 @@ def compute_edges(
             under_vals.append(np.nan if une is None else float(une))
         merged.loc[mask_td, "over_ev"] = over_vals
         merged.loc[mask_td, "under_ev"] = under_vals
+
+    # EV for Interceptions and Passing TDs via Poisson model
+    for mkey in ["interceptions", "pass_tds"]:
+        mask = (merged["market_key"] == mkey) & merged["proj"].notna() & merged["line"].notna()
+        if mask.any():
+            mu = merged.loc[mask, "proj"].astype(float)
+            line_vals = merged.loc[mask, "line"].astype(float)
+            over_odds = merged.loc[mask, "over_price"] if "over_price" in merged.columns else pd.Series(index=merged.index, dtype=float)
+            under_odds = merged.loc[mask, "under_price"] if "under_price" in merged.columns else pd.Series(index=merged.index, dtype=float)
+            over_list: List[float] = []
+            under_list: List[float] = []
+            for lam, L, oi, ui in zip(mu, line_vals, over_odds, under_odds):
+                try:
+                    # Over threshold: X >= floor(L) + 1 for typical .5 lines; general case works too
+                    k_over = int(math.floor(L) + 1)
+                    p_over = 1.0 - _poisson_cdf(k_over - 1, float(lam))
+                    p_under = 1.0 - p_over
+                    ove = ev_from_prob_and_american(p_over, oi)
+                    une = ev_from_prob_and_american(p_under, ui)
+                except Exception:
+                    ove = None; une = None
+                over_list.append(np.nan if ove is None else float(ove))
+                under_list.append(np.nan if une is None else float(une))
+            merged.loc[mask, "over_ev"] = over_list
+            merged.loc[mask, "under_ev"] = under_list
+
+    # EV for Multi-TD (2+ Touchdowns) via Poisson model (usually single-sided Yes price)
+    mask_mt = (merged["market_key"] == "multi_tds") & merged["proj"].notna()
+    if mask_mt.any():
+        mu = merged.loc[mask_mt, "proj"].astype(float)
+        # If a numeric line is present (e.g., 2), use it; else default to 2
+        line_vals = merged.loc[mask_mt, "line"] if "line" in merged.columns else pd.Series(index=merged.index, dtype=float)
+        over_odds = merged.loc[mask_mt, "over_price"] if "over_price" in merged.columns else pd.Series(index=merged.index, dtype=float)
+        under_odds = merged.loc[mask_mt, "under_price"] if "under_price" in merged.columns else pd.Series(index=merged.index, dtype=float)
+        over_list: List[float] = []
+        under_list: List[float] = []
+        for lam, L, oi, ui in zip(mu, line_vals, over_odds, under_odds):
+            try:
+                thr = 2.0 if (L is None or (isinstance(L, float) and math.isnan(L))) else float(L)
+                k_over = int(math.floor(thr))
+                p_over = 1.0 - _poisson_cdf(k_over - 1, float(lam))
+                p_under = 1.0 - p_over
+                ove = ev_from_prob_and_american(p_over, oi)
+                une = ev_from_prob_and_american(p_under, ui)
+            except Exception:
+                ove = None; une = None
+            over_list.append(np.nan if ove is None else float(ove))
+            under_list.append(np.nan if une is None else float(une))
+        merged.loc[mask_mt, "over_ev"] = over_list
+        merged.loc[mask_mt, "under_ev"] = under_list
 
     # Output selection
     out_cols = []
@@ -435,7 +565,7 @@ def compute_edges(
     if "over_ev" in out_df.columns:
         out_df.loc[is_td & out_df["over_ev"].notna(), "rank_score"] = out_df.loc[is_td & out_df["over_ev"].notna(), "over_ev"].astype(float)
     # For yardage/receptions, use absolute edge
-    is_yard = out_df["market_key"].isin(["rec_yards", "rush_yards", "pass_yards", "receptions"]) & out_df["edge"].notna()
+    is_yard = out_df["market_key"].isin(["rec_yards", "rush_yards", "pass_yards", "receptions", "pass_attempts", "rush_attempts", "interceptions", "pass_tds", "rush_rec_yards", "pass_rush_yards", "targets"]) & out_df["edge"].notna()
     out_df.loc[is_yard, "rank_score"] = out_df.loc[is_yard, "edge"].abs().astype(float)
 
     # Sort descending by rank_score

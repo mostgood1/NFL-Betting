@@ -50,9 +50,30 @@ MARKET_ALIASES: List[Tuple[str, str]] = [
     ("pass touchdowns", "Passing TDs"),
     ("passing tds", "Passing TDs"),
     ("pass tds", "Passing TDs"),
+    # QB counting/volume markets
+    ("passing attempts", "Passing Attempts"),
+    ("pass attempts", "Passing Attempts"),
+    ("rushing attempts", "Rushing Attempts"),
+    ("rush attempts", "Rushing Attempts"),
+    ("interceptions thrown", "Interceptions"),
+    ("interceptions", "Interceptions"),
     ("anytime touchdown", "Anytime TD"),
     ("any time touchdown", "Anytime TD"),
     ("anytime td", "Anytime TD"),
+    # Combined markets
+    ("rushing + receiving yards", "Rush+Rec Yards"),
+    ("rush + rec yards", "Rush+Rec Yards"),
+    ("rush+rec yards", "Rush+Rec Yards"),
+    ("rushing and receiving yards", "Rush+Rec Yards"),
+    ("pass + rush yards", "Pass+Rush Yards"),
+    ("pass+rush yards", "Pass+Rush Yards"),
+    ("passing + rushing yards", "Pass+Rush Yards"),
+    # Volume
+    ("targets", "Targets"),
+    # Multi-TD
+    ("to score 2+ touchdowns", "2+ Touchdowns"),
+    ("to record 2+ touchdowns", "2+ Touchdowns"),
+    ("2+ touchdowns", "2+ Touchdowns"),
 ]
 
 
@@ -89,8 +110,8 @@ def _parse_ladder_threshold(market_desc: Optional[str]) -> Optional[float]:
             return float(m.group(1))
         except Exception:
             return None
-    # Pattern B: generic "<num>+ (Receiving|Rushing|Passing|Receptions)"
-    m2 = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*\+\s*(receiving|rushing|passing|receptions)(?:\s+yards|\s+yds|\b)", s, flags=re.IGNORECASE)
+    # Pattern B: generic "<num>+ (Receiving|Rushing|Passing|Receptions|Targets|Touchdowns) ..."
+    m2 = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*\+\s*(receiving|rushing|passing|receptions|targets|touchdowns)(?:\s+yards|\s+yds|\b)", s, flags=re.IGNORECASE)
     if m2:
         try:
             return float(m2.group(1))
