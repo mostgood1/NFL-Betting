@@ -199,6 +199,8 @@ def main() -> int:
                         merged[c] = merged[c].where(merged[c].notna(), merged2[c_sw])
             df = merged
 
+    # Keep all periods (G/1H/2H/quarters) to support extended markets; downstream consumers can filter.
+
     # Compute EVs per row
     def _safe_float(v: Optional[float]) -> Optional[float]:
         try:
@@ -225,6 +227,8 @@ def main() -> int:
             "home_team": home,
             "away_team": away,
             "market_key": r.get("market_key"),
+            "market_name": r.get("market_name"),
+            "period": r.get("period"),
             "team_side": r.get("team_side"),
             "line": line,
             "price_home": r.get("price_home"),
@@ -232,6 +236,20 @@ def main() -> int:
             "over_price": r.get("over_price"),
             "under_price": r.get("under_price"),
             "is_alternate": r.get("is_alternate"),
+            # generic fields possibly present for extended markets
+            "price": r.get("price"),
+            "threshold": r.get("threshold"),
+            "range_low": r.get("range_low"),
+            "range_high": r.get("range_high"),
+            "range_type": r.get("range_type"),
+            "total_line": r.get("total_line"),
+            "spread_line": r.get("spread_line"),
+            "total_side": r.get("total_side"),
+            "winner": r.get("winner"),
+            "combo": r.get("combo"),
+            "ht_result": r.get("ht_result"),
+            "ft_result": r.get("ft_result"),
+            "tie": r.get("tie"),
         }
 
         # Moneyline EV (if prices present)
@@ -276,7 +294,7 @@ def main() -> int:
             out_rows.append({**base, "side": "Under", "ev_units": evu, "edge_pts": -edge_t})
             continue
 
-        # Team Total EV via per-team points
+    # Team Total EV via per-team points
         if mk == "team_total" and line is not None and (pred_hp is not None or pred_ap is not None):
             # Determine which team
             team_side = str(r.get("team_side") or "").strip().lower()
@@ -290,6 +308,258 @@ def main() -> int:
                 evu = ev_from_prob_and_decimal(1.0 - p_over, d_under) if d_under is not None else None
                 out_rows.append({**base, "side": "Over", "ev_units": evo, "edge_pts": edge})
                 out_rows.append({**base, "side": "Under", "ev_units": evu, "edge_pts": -edge})
+            continue
+
+        # Total points range EV using Normal(pred_total, total_sigma)
+        if mk == "total_range" and pred_total is not None:
+            price = american_to_decimal(r.get("price"))
+            if price is not None:
+                a = _safe_float(r.get("range_low")); b = _safe_float(r.get("range_high"))
+                rtype = str(r.get("range_type") or "between").lower()
+                from math import erf, sqrt
+                def cdf(x):
+                    return 0.5 * (1.0 + erf((x - pred_total) / (total_sigma * sqrt(2.0))))
+                if a is not None and b is not None and rtype == "between":
+                    p = max(0.0, min(1.0, cdf(b) - cdf(a)))
+                elif a is not None and rtype == "le":
+                    p = max(0.0, min(1.0, cdf(a)))
+                elif a is not None and rtype == "ge":
+                    p = max(0.0, min(1.0, 1.0 - cdf(a)))
+                else:
+                    p = None
+                evu = ev_from_prob_and_decimal(p, price) if p is not None else None
+                out_rows.append({**base, "side": None, "ev_units": evu})
+            continue
+
+        # Winning margin EV: Normal(margin, ats_sigma); probability that margin in [a,b] (or >= a if b None); tie special-case small mass
+        if mk == "winning_margin" and pred_hp is not None and pred_ap is not None:
+            price = american_to_decimal(r.get("price"))
+            if price is not None:
+                margin_mu = pred_hp - pred_ap
+                a = _safe_float(r.get("range_low")); b = _safe_float(r.get("range_high"))
+                tie_flag = bool(r.get("tie"))
+                from math import erf, sqrt
+                def cdf_m(x):
+                    return 0.5 * (1.0 + erf((x - margin_mu) / (ats_sigma * sqrt(2.0))))
+                p=None
+                if tie_flag:
+                    # Approximate tie probability near zero margin; use narrow band [-0.5,0.5]
+                    p = max(0.0, min(1.0, cdf_m(0.5) - cdf_m(-0.5)))
+                else:
+                    # Map team_side to positive/negative interval
+                    side = str(r.get("team_side") or "").lower()
+                    if a is not None:
+                        low = a if side == "home" else (-b if b is not None else -a)
+                        high = (b if side == "home" else -a) if b is not None else None
+                        if high is None:
+                            # a+ (open upper)
+                            p = 1.0 - (cdf_m(low) if side == "home" else cdf_m(high or 0))
+                        else:
+                            lo = low; hi = high
+                            if lo > hi:
+                                lo, hi = hi, lo
+                            p = max(0.0, min(1.0, cdf_m(hi) - cdf_m(lo)))
+                evu = ev_from_prob_and_decimal(p, price) if p is not None else None
+                out_rows.append({**base, "ev_units": evu})
+            continue
+
+        # Both teams to score N+ points EV: P(HP>=thr and AP>=thr) assuming approx independence given total and margin
+        if mk == "btts_points" and (pred_hp is not None and pred_ap is not None):
+            price = american_to_decimal(r.get("price"))
+            thr = _safe_float(r.get("threshold"))
+            side = str(r.get("side") or "Yes")
+            if price is not None and thr is not None:
+                from math import erf, sqrt
+                def cdf_team(mu, x):
+                    return 0.5 * (1.0 + erf((x - mu) / (total_sigma * sqrt(2.0))))
+                p_yes = (1.0 - cdf_team(pred_hp, thr)) * (1.0 - cdf_team(pred_ap, thr))
+                p = p_yes if side.lower().startswith("y") else (1.0 - p_yes)
+                evu = ev_from_prob_and_decimal(p, price)
+                out_rows.append({**base, "ev_units": evu})
+            continue
+
+        # Spread + total combo EV: approximate independence between ATS and total outcome
+        if mk == "spread_total_combo" and (pred_hp is not None and pred_ap is not None) and pred_total is not None:
+            price = american_to_decimal(r.get("price"))
+            sp_line = _safe_float(r.get("spread_line")); tot_line = _safe_float(r.get("total_line"))
+            tot_side = str(r.get("total_side") or "Over")
+            side = str(r.get("team_side") or "home")
+            if price is not None and sp_line is not None and tot_line is not None:
+                margin = pred_hp - pred_ap
+                edge_home = margin + sp_line
+                p_home_cover = cover_prob_from_edge(edge_home, ats_sigma)
+                p_spread = p_home_cover if side == "home" else (1.0 - p_home_cover)
+                edge_t = pred_total - tot_line
+                p_over = cover_prob_from_edge(edge_t, total_sigma)
+                p_total = p_over if tot_side.lower().startswith("o") else (1.0 - p_over)
+                p = p_spread * p_total
+                evu = ev_from_prob_and_decimal(p, price)
+                out_rows.append({**base, "ev_units": evu, "edge_pts": None})
+            continue
+
+        # First team to score: approximate by proportional scoring rates
+        if mk == "first_to_score" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            side = str(r.get("team_side") or "").lower()
+            if d is not None and side in {"home","away"}:
+                lam_h = max(1e-6, pred_hp)
+                lam_a = max(1e-6, pred_ap)
+                p_home = lam_h / (lam_h + lam_a)
+                p = p_home if side == "home" else (1.0 - p_home)
+                evu = ev_from_prob_and_decimal(p, d)
+                out_rows.append({**base, "side": side, "ev_units": evu})
+            continue
+
+        # Race to N points: approximate with independence on team totals
+        if mk == "race_to_points" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            thr = _safe_float(r.get("threshold"))
+            side = str(r.get("team_side") or ("neither" if r.get("neither") else "")).lower()
+            if d is not None and thr is not None:
+                from math import erf, sqrt
+                team_sigma = _safe_float(os.environ.get("NFL_TEAM_POINTS_SIGMA") or (total_sigma * 0.75)) or (total_sigma * 0.75)
+                def cdf(mu, x):
+                    return 0.5 * (1.0 + erf((x - mu) / (team_sigma * sqrt(2.0))))
+                p_h_ge = 1.0 - cdf(pred_hp, thr)
+                p_a_ge = 1.0 - cdf(pred_ap, thr)
+                p_neither = (1.0 - p_h_ge) * (1.0 - p_a_ge)
+                # Tie-break when both reach: give edge to team with higher expected points
+                winner_bias = 1.0 if (pred_hp - pred_ap) >= 0 else 0.0
+                p_home_first = p_h_ge * (1.0 - p_a_ge) + 0.5 * p_h_ge * p_a_ge * winner_bias
+                p_away_first = p_a_ge * (1.0 - p_h_ge) + 0.5 * p_h_ge * p_a_ge * (1.0 - winner_bias)
+                if side == "home":
+                    p = p_home_first
+                elif side == "away":
+                    p = p_away_first
+                elif side == "neither":
+                    p = p_neither
+                else:
+                    p = None
+                evu = ev_from_prob_and_decimal(p, d) if p is not None else None
+                out_rows.append({**base, "side": side if side else None, "ev_units": evu})
+            continue
+
+        # Both Teams N+ and Winner: assume independence between BTTS and winner
+        if mk == "btts_and_winner" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            thr = _safe_float(r.get("threshold"))
+            winner = str(r.get("winner") or "").lower()
+            if d is not None and thr is not None and winner in {"home","away"}:
+                from math import erf, sqrt
+                def cdf_team(mu, x):
+                    return 0.5 * (1.0 + erf((x - mu) / (total_sigma * sqrt(2.0))))
+                p_btts = (1.0 - cdf_team(pred_hp, thr)) * (1.0 - cdf_team(pred_ap, thr))
+                # Winner from pred_home_win_prob or margin
+                if pred_home_win_prob is not None:
+                    p_win_home = pred_home_win_prob
+                else:
+                    # margin Normal vs 0
+                    from math import erf, sqrt
+                    p_win_home = 0.5 * (1.0 + erf(((pred_hp - pred_ap) - 0.0) / (ats_sigma * sqrt(2.0))))
+                p = p_btts * (p_win_home if winner == "home" else (1.0 - p_win_home))
+                evu = ev_from_prob_and_decimal(p, d)
+                out_rows.append({**base, "side": winner, "ev_units": evu})
+            continue
+
+        # Double Chance: combos like HOME/DRAW; use small draw probability band near 0 margin
+        if mk == "double_chance" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            combo = str(r.get("combo") or "")
+            if d is not None and combo:
+                from math import erf, sqrt
+                margin_mu = pred_hp - pred_ap
+                # tie band width in points
+                tie_band = _safe_float(os.environ.get("NFL_TIE_BAND_POINTS") or 0.5) or 0.5
+                def cdf_m(x):
+                    return 0.5 * (1.0 + erf((x - margin_mu) / (ats_sigma * sqrt(2.0))))
+                p_draw = max(0.0, min(1.0, cdf_m(tie_band) - cdf_m(-tie_band)))
+                if pred_home_win_prob is not None:
+                    p_home = max(0.0, min(1.0, pred_home_win_prob - 0.5 * p_draw))
+                else:
+                    p_home = max(0.0, min(1.0, 1.0 - (0.5 * (1.0 + erf((-margin_mu) / (ats_sigma * sqrt(2.0))))) - 0.5 * p_draw))
+                p_away = max(0.0, 1.0 - p_home - p_draw)
+                want = 0.0
+                parts = combo.split("/")
+                for p in parts:
+                    if p == "HOME": want += p_home
+                    elif p == "AWAY": want += p_away
+                    elif p == "DRAW": want += p_draw
+                evu = ev_from_prob_and_decimal(want, d)
+                out_rows.append({**base, "side": combo, "ev_units": evu})
+            continue
+
+        # Half-Time / Full-Time
+        if mk == "ht_ft" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            ht = str(r.get("ht_result") or "").upper(); ft = str(r.get("ft_result") or "").upper()
+            if d is not None and ht and ft:
+                from math import erf, sqrt
+                margin_mu = pred_hp - pred_ap
+                # Half margin approx half mean; variance scales with sqrt(0.5)
+                half_scale = _safe_float(os.environ.get("NFL_HALF_POINTS_SCALE") or 0.5) or 0.5
+                def cdf_m(mu, sigma, x):
+                    return 0.5 * (1.0 + erf((x - mu) / (sigma * sqrt(2.0))))
+                mu_half = margin_mu * half_scale; sig_half = ats_sigma * (half_scale ** 0.5)
+                p_ht_home = 1.0 - cdf_m(mu_half, sig_half, 0.0)
+                p_ht_draw = max(0.0, min(1.0, cdf_m(mu_half, sig_half, 0.5) - cdf_m(mu_half, sig_half, -0.5)))
+                p_ht_away = max(0.0, 1.0 - p_ht_home - p_ht_draw)
+                mu_full = margin_mu; sig_full = ats_sigma
+                p_ft_home = 1.0 - cdf_m(mu_full, sig_full, 0.0)
+                p_ft_draw = max(0.0, min(1.0, cdf_m(mu_full, sig_full, 0.5) - cdf_m(mu_full, sig_full, -0.5)))
+                p_ft_away = max(0.0, 1.0 - p_ft_home - p_ft_draw)
+                def pick(tag, ph, pd, pa):
+                    if tag == "HOME": return ph
+                    if tag == "AWAY": return pa
+                    if tag == "DRAW": return pd
+                    return 0.0
+                # Assume independence (coarse)
+                p = pick(ht, p_ht_home, p_ht_draw, p_ht_away) * pick(ft, p_ft_home, p_ft_draw, p_ft_away)
+                evu = ev_from_prob_and_decimal(p, d)
+                out_rows.append({**base, "side": f"{ht}-{ft}", "ev_units": evu})
+            continue
+
+        # Highest scoring half: model halves as Normal with equal variance and optional second-half tilt
+        if mk == "highest_scoring_half" and pred_total is not None:
+            d = american_to_decimal(r.get("price"))
+            side = str(r.get("side") or "").upper()
+            if d is not None and side in {"1H","2H"}:
+                # Split means by tilt fraction to 2H
+                tilt_2h = _safe_float(os.environ.get("NFL_2H_POINTS_FRACTION") or 0.5) or 0.5
+                mu2 = pred_total * tilt_2h; mu1 = pred_total * (1.0 - tilt_2h)
+                # Variance per half relative to total
+                from math import erf, sqrt
+                sigma_half = total_sigma * (0.5 ** 0.5)
+                # Prob(2H > 1H) = Prob(N(mu2-mu1, sqrt(2)*sigma_half) > 0)
+                mu_diff = mu2 - mu1; sig_diff = (2.0 ** 0.5) * sigma_half
+                p_2h = 0.5 * (1.0 + erf((mu_diff) / (sig_diff * sqrt(2.0))))
+                p = p_2h if side == "2H" else (1.0 - p_2h)
+                evu = ev_from_prob_and_decimal(p, d)
+                out_rows.append({**base, "ev_units": evu})
+            continue
+
+        # Odd/Even total points: absent a discrete model, approximate 0.5 each
+        if mk == "odd_even":
+            d = american_to_decimal(r.get("price"))
+            if d is not None:
+                evu = ev_from_prob_and_decimal(0.5, d)
+                out_rows.append({**base, "ev_units": evu})
+            continue
+
+        # Overtime (Regulation Time): Yes if draw in regulation
+        if mk == "overtime" and (pred_hp is not None and pred_ap is not None):
+            d = american_to_decimal(r.get("price"))
+            side = str(r.get("side") or "").lower()
+            if d is not None:
+                from math import erf, sqrt
+                margin_mu = pred_hp - pred_ap
+                tie_band = _safe_float(os.environ.get("NFL_TIE_BAND_POINTS") or 0.5) or 0.5
+                def cdf_m(x):
+                    return 0.5 * (1.0 + erf((x - margin_mu) / (ats_sigma * sqrt(2.0))))
+                p_draw = max(0.0, min(1.0, cdf_m(tie_band) - cdf_m(-tie_band)))
+                p = p_draw if side.startswith("y") else (1.0 - p_draw)
+                evu = ev_from_prob_and_decimal(p, d)
+                out_rows.append({**base, "ev_units": evu})
+            continue
 
     out = pd.DataFrame(out_rows)
     out_fp.parent.mkdir(parents=True, exist_ok=True)

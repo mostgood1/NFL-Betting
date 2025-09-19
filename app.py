@@ -6464,8 +6464,15 @@ def api_game_props_recommendations():
     records = []
     try:
         keep = [c for c in [
-            "event","game_time","home_team","away_team","market_key","team_side","line","side","ev_units",
-            "price_home","price_away","over_price","under_price","edge_pts","is_alternate"
+            "event","game_time","home_team","away_team",
+            "market_key","market_name","period",
+            "team_side","line","side","ev_units",
+            "price_home","price_away","over_price","under_price","price",
+            "edge_pts","is_alternate",
+            # extended fields
+            "threshold","range_low","range_high","range_type",
+            "total_line","spread_line","total_side","winner","combo",
+            "ht_result","ft_result","tie",
         ] if c in df.columns]
         if keep:
             for _, r in df[keep].iterrows():
