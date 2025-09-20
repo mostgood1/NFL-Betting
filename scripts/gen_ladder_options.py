@@ -51,12 +51,43 @@ def _pick_col(df: pd.DataFrame, candidates: List[str]) -> Optional[str]:
     return None
 
 
+def _ensure_market_norm(df: pd.DataFrame) -> pd.DataFrame:
+    """Guarantee a lowercase/stripped 'market_norm' column exists.
+    If 'market' is missing, fill with empty string to keep downstream filters safe.
+    """
+    if "market_norm" in df.columns:
+        return df
+    if "market" in df.columns:
+        df["market_norm"] = df["market"].astype(str).str.strip().str.lower()
+    else:
+        # Broadcast empty string to match length
+        df["market_norm"] = pd.Series([""] * len(df))
+    return df
+
+
+def _ensure_key_player_loose(df: pd.DataFrame) -> pd.DataFrame:
+    """Ensure a 'key_player_loose' column exists for downstream merges.
+    Attempts to derive from a plausible player column; if none, creates an empty column.
+    Safe for empty DataFrames.
+    """
+    if "key_player_loose" in df.columns:
+        return df
+    pcol = _pick_col(df, ["player", "name", "player_name", "display_name"])  # may be None
+    if pcol:
+        df[pcol] = df[pcol].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
+        df["key_player_loose"] = df[pcol].map(_nm_loose)
+    else:
+        # Broadcast empty string; safe for empty DataFrames
+        df["key_player_loose"] = ""
+    return df
+
+
 def load_bovada(path: Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"Bovada CSV not found: {path}")
     df = pd.read_csv(path)
     # Normalize market
-    df["market_norm"] = df.get("market", pd.Series(dtype=str)).astype(str).str.strip().str.lower()
+    df = _ensure_market_norm(df)
     # Keep only ladders for the markets we care about
     df = df[df.get("is_ladder").fillna(False) == True].copy()
     df = df[df["market_norm"].isin(MARKET_KEEP.keys())].copy()
@@ -116,7 +147,7 @@ def main() -> int:
 
     # Explicit ladders first
     bov = bov_all.copy()
-    bov["market_norm"] = bov.get("market", pd.Series(dtype=str)).astype(str).str.strip().str.lower()
+    bov = _ensure_market_norm(bov)
     bov = bov[bov.get("is_ladder").fillna(False) == True]
     bov = bov[bov["market_norm"].isin(MARKET_KEEP.keys())].copy()
     # Normalize names
@@ -132,7 +163,7 @@ def main() -> int:
     if bov.empty and args.synthesize:
         # Build from standard rows with numeric lines
         std = bov_all.copy()
-        std["market_norm"] = std.get("market", pd.Series(dtype=str)).astype(str).str.strip().str.lower()
+        std = _ensure_market_norm(std)
         std = std[std["market_norm"].isin(MARKET_KEEP.keys())].copy()
         std["line"] = pd.to_numeric(std.get("line"), errors="coerce")
         std = std[std["line"].notna()].copy()
@@ -149,7 +180,12 @@ def main() -> int:
             g2 = g.copy()
             g2["_dist"] = (g2["line"] - med).abs()
             return g2.sort_values(["_dist", "line"], ascending=[True, True]).head(1)
-        base = std.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_row)
+        # Future pandas may exclude grouping columns by default; request current behavior explicitly
+        try:
+            base = std.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_row, include_groups=False)  # type: ignore[arg-type]
+        except TypeError:
+            # Older pandas versions: no include_groups arg
+            base = std.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_row)
         try:
             base = base.reset_index(drop=True)
         except Exception:
@@ -204,6 +240,8 @@ def main() -> int:
 
     # Prepare market key for selecting projection column
     bov = bov.copy()
+    if "market_norm" not in bov.columns:
+        bov = _ensure_market_norm(bov)
     bov["market_key"] = bov["market_norm"].map(MARKET_KEEP)
 
     # Merge predictions by loose name (team not enforced to keep coverage high for ladder variants)
@@ -213,6 +251,10 @@ def main() -> int:
             pcol_b2 = _pick_col(bov, ["player", "name", "player_name", "display_name"]) or "player"
             bov[pcol_b2] = bov[pcol_b2].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
             bov["key_player_loose"] = bov[pcol_b2].map(_nm_loose)
+    # Ensure merge key exists even if bov is empty
+    bov = _ensure_key_player_loose(bov)
+    if "key_player_loose" not in bov.columns:
+        bov["key_player_loose"] = ""
     merged = bov.merge(preds, on="key_player_loose", how="left", suffixes=("", "_p"))
 
     # Choose projection per-row based on market
