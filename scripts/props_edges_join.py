@@ -30,6 +30,7 @@ projection column is missing for a market, it will skip that row with a note.
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 from typing import Optional, Dict, List, Tuple
 
@@ -115,6 +116,15 @@ def ev_from_prob_and_american(prob: Optional[float], odds: Optional[float | int 
     return float(prob) * (d - 1.0) - (1.0 - float(prob))
 
 
+def _normal_cdf(x: float) -> float:
+    """Standard normal CDF using error function; avoids scipy dependency."""
+    try:
+        return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
+    except Exception:
+        # Very small fallback
+        return 0.0 if x < 0 else 1.0
+
+
 def _poisson_pmf(k: int, lam: float) -> float:
     if k < 0:
         return 0.0
@@ -195,6 +205,26 @@ PROJ_COLS: Dict[str, List[str]] = {
     # Multi-TD uses combined rushing+receiving TD mean
     "multi_tds": ["rush_tds", "rec_tds"],
 }
+
+
+# Sigma (standard deviation) per market for Normal(proj, sigma) approximation
+def _sigma_for_market(key: str) -> Optional[float]:
+    env_map = {
+        "rec_yards": os.getenv("PROPS_SIGMA_REC_YARDS", "17.0"),
+        "rush_yards": os.getenv("PROPS_SIGMA_RUSH_YARDS", "14.0"),
+        "pass_yards": os.getenv("PROPS_SIGMA_PASS_YARDS", "35.0"),
+        "receptions": os.getenv("PROPS_SIGMA_RECEPTIONS", "1.3"),
+        "pass_attempts": os.getenv("PROPS_SIGMA_PASS_ATTEMPTS", "3.5"),
+        "rush_attempts": os.getenv("PROPS_SIGMA_RUSH_ATTEMPTS", "3.0"),
+        "rush_rec_yards": os.getenv("PROPS_SIGMA_RUSH_REC_YARDS", "20.0"),
+        "pass_rush_yards": os.getenv("PROPS_SIGMA_PASS_RUSH_YARDS", "38.0"),
+        "targets": os.getenv("PROPS_SIGMA_TARGETS", "2.2"),
+    }
+    v = env_map.get(key)
+    try:
+        return float(v) if v is not None else None
+    except Exception:
+        return None
 
 
 PLAYER_COL_CANDIDATES = ["display_name", "player", "name", "player_name"]
@@ -461,9 +491,63 @@ def compute_edges(
         mask_yard = merged["market_key"].isin(list(yard_markets)) & merged["proj"].notna() & merged["line"].notna()
         merged.loc[mask_yard, "edge"] = merged.loc[mask_yard, "proj"] - merged.loc[mask_yard, "line"]
 
-    # EV for Anytime TD (over/under)
+    # Initialize EV columns and compute EV for line-based markets via Normal(proj, sigma)
     merged["over_ev"] = np.nan
     merged["under_ev"] = np.nan
+    try:
+        normal_keys = [
+            "rec_yards",
+            "rush_yards",
+            "pass_yards",
+            "receptions",
+            "pass_attempts",
+            "rush_attempts",
+            "rush_rec_yards",
+            "pass_rush_yards",
+            "targets",
+        ]
+        for key in normal_keys:
+            sig = _sigma_for_market(key)
+            if sig is None or sig <= 0:
+                continue
+            mask_norm = (
+                (merged["market_key"] == key)
+                & merged["proj"].notna()
+                & merged["line"].notna()
+            )
+            if not mask_norm.any():
+                continue
+            mu = merged.loc[mask_norm, "proj"].astype(float)
+            L = merged.loc[mask_norm, "line"].astype(float)
+            z = (mu - L) / float(sig)
+            p_over = z.apply(lambda x: _normal_cdf(float(x)))
+            p_under = 1.0 - p_over
+            # Compute EVs where odds exist; leave NaN otherwise
+            if "over_price" in merged.columns:
+                over_odds = merged.loc[mask_norm, "over_price"]
+                over_vals = []
+                for p, oi in zip(p_over, over_odds):
+                    if oi is None or (isinstance(oi, float) and math.isnan(oi)):
+                        over_vals.append(np.nan)
+                    else:
+                        ev = ev_from_prob_and_american(float(p), oi)
+                        over_vals.append(np.nan if ev is None else float(ev))
+                merged.loc[mask_norm, "over_ev"] = over_vals
+            if "under_price" in merged.columns:
+                under_odds = merged.loc[mask_norm, "under_price"]
+                under_vals = []
+                for p, ui in zip(p_under, under_odds):
+                    if ui is None or (isinstance(ui, float) and math.isnan(ui)):
+                        under_vals.append(np.nan)
+                    else:
+                        ev = ev_from_prob_and_american(float(p), ui)
+                        under_vals.append(np.nan if ev is None else float(ev))
+                merged.loc[mask_norm, "under_ev"] = under_vals
+    except Exception:
+        # Non-fatal: if this fails, we'll still compute Poisson/ATD EVs below
+        pass
+
+    # EV for Anytime TD (over/under)
     mask_td = (merged["market_key"] == "any_td") & merged["proj"].notna()
     if mask_td.any():
         p = merged.loc[mask_td, "proj"].astype(float)
