@@ -5271,6 +5271,11 @@ def api_props_recommendations():
     ev_param = request.args.get("event")
     home_param = request.args.get("home_team")
     away_param = request.args.get("away_team")
+    all_param = request.args.get("all")
+    try:
+        show_all = str(all_param).strip().lower() in {"1","true","yes","y"}
+    except Exception:
+        show_all = False
     try:
         if ev_param and "event" in edges_df.columns:
             edges_df = edges_df[edges_df["event"].astype(str) == str(ev_param)]
@@ -5331,8 +5336,8 @@ def api_props_recommendations():
     except Exception:
         pass
 
-    # If no explicit filter, narrow to the first game for a concise default view
-    if not ev_param and not (home_param and away_param):
+    # If no explicit filter and not explicitly requesting all, narrow to the first game for a concise default view
+    if (not show_all) and (not ev_param) and (not (home_param and away_param)):
         try:
             if {"home_team","away_team"}.issubset(set(edges_df.columns)) and len(edges_df) > 0:
                 # Prefer earliest game_time if available

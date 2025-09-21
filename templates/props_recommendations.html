@@ -170,7 +170,9 @@
         const [home,away,ev] = g.split('|');
         if(ev) params.set('event', ev); else { if(home) params.set('home_team', home); if(away) params.set('away_team', away); }
       }
-      const url = '/api/props/recommendations' + (params.toString()? ('?'+params.toString()):'');
+  // If "All games" is selected (empty value), request all games explicitly to avoid API default narrowing
+  if(!g){ params.set('all','1'); }
+  const url = '/api/props/recommendations' + (params.toString()? ('?'+params.toString()):'');
       const res = await fetch(url, {cache:'no-store'});
       const js = await res.json();
       // Default inputs to current season/week if not set
