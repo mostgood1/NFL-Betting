@@ -39,6 +39,11 @@
   .price .val.under-rec{ background: var(--rec-under-bg); color: var(--rec-under-fg); border-color: var(--rec-under-br) }
   .price .label.over-rec{ color: var(--rec-over-fg) }
   .price .label.under-rec{ color: var(--rec-under-fg) }
+  /* Row accents for recommended side */
+  .play.over-row{ border-color: var(--rec-over-br) }
+  .play.under-row{ border-color: var(--rec-under-br) }
+  .ladder-row.over-row{ border-left: 3px solid var(--rec-over-br) }
+  .ladder-row.under-row{ border-left: 3px solid var(--rec-under-br) }
     /* Ladder grouping */
   details.ladder{border:1px solid var(--br);border-radius:10px;background:var(--pill);margin-top:6px}
   details.ladder>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:8px 10px}
@@ -65,6 +70,19 @@
           <option value="">All games</option>
         </select>
       </label>
+      <label>Market
+        <select id="marketFilter">
+          <option value="">All markets</option>
+        </select>
+      </label>
+      <label title="Only show plays with EV% computed"><input type="checkbox" id="onlyEV"> Only EV</label>
+      <label title="Minimum EV% (e.g., 1.5)">Min EV% <input type="number" id="minEV" step="0.1" style="width:80px" placeholder="0.0"></label>
+      <label>Sort By
+        <select id="sortBy">
+          <option value="ev_desc">EV desc</option>
+          <option value="edge_desc">Edge desc</option>
+        </select>
+      </label>
       <label><input type="checkbox" id="hideLadders"> Hide ladder plays</label>
       <button type="submit">Apply</button>
       <button type="button" id="reset">Reset</button>
@@ -74,6 +92,35 @@
   <div id="cards" class="grid grid-mt"></div>
   </div>
   <script>
+    // Keep last data for client-side filtering without refetching
+    let LAST_DATA = [];
+    function mkKey(s){ if(!s) return ''; const d=String(s).trim().toLowerCase();
+      const map={
+        'receiving yards':'rec_yards','receptions':'receptions','rushing yards':'rush_yards','passing yards':'pass_yards',
+        'passing tds':'pass_tds','pass tds':'pass_tds','pass touchdowns':'pass_tds',
+        'passing attempts':'pass_attempts','pass attempts':'pass_attempts','rushing attempts':'rush_attempts','rush attempts':'rush_attempts',
+        'interceptions':'interceptions','interceptions thrown':'interceptions',
+        'rush+rec yards':'rush_rec_yards','rushing + receiving yards':'rush_rec_yards','rush + rec yards':'rush_rec_yards',
+        'pass+rush yards':'pass_rush_yards','pass + rush yards':'pass_rush_yards','passing + rushing yards':'pass_rush_yards',
+        'targets':'targets','2+ touchdowns':'multi_tds','anytime td':'any_td','any time td':'any_td'
+      };
+      return map[d] || d;
+    }
+    function mkLabel(key){ const map={
+      'rec_yards':'Receiving Yards','receptions':'Receptions','rush_yards':'Rushing Yards','pass_yards':'Passing Yards',
+      'any_td':'Any Time TD','pass_tds':'Passing TDs','interceptions':'Interceptions','rush_attempts':'Rush Attempts','pass_attempts':'Pass Attempts',
+      'rush_rec_yards':'Rushing+Receiving Yards','pass_rush_yards':'Passing+Rushing Yards','targets':'Targets','multi_tds':'2+ Touchdowns'
+    }; return map[key] || (key? key.replace(/\b\w/g,c=>c.toUpperCase()).replace(/_/g,' '): ''); }
+    function collectMarkets(data){ const set=new Set(); (data||[]).forEach(it=> (it.plays||[]).forEach(p=>{ const k=mkKey(p.market); if(k) set.add(k); }));
+      // Order common markets first
+      const order=['receptions','rec_yards','rush_yards','pass_yards','any_td','pass_tds','interceptions','rush_attempts','pass_attempts','rush_rec_yards','pass_rush_yards','targets','multi_tds'];
+      const rest=[...set].filter(k=> !order.includes(k)).sort();
+      return [...order.filter(k=> set.has(k)), ...rest];
+    }
+    function renderMarketFilter(data){ const sel=document.getElementById('marketFilter'); if(!sel) return; const cur=sel.value; const keys=collectMarkets(data);
+      sel.innerHTML = '<option value="">All markets</option>' + keys.map(k=> `<option value="${k}">${mkLabel(k)}</option>`).join('');
+      if(cur && [...sel.options].some(o=> o.value===cur)) sel.value=cur;
+    }
     // Theme toggle
     (function(){ try{ var body=document.body; var saved=localStorage.getItem('theme'); if(saved==='light'){ body.classList.add('light'); }
       var tbtn=document.getElementById('themeToggle'); if(tbtn){ tbtn.addEventListener('click', function(){ body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light')?'light':'dark'); }); }
@@ -187,8 +234,10 @@
       if(!document.getElementById('week').value && js.week){
         document.getElementById('week').value = js.week;
       }
-      renderGames(js.games||[]);
-      renderCards(js.data||[]);
+  renderGames(js.games||[]);
+  LAST_DATA = js.data || [];
+  renderMarketFilter(LAST_DATA);
+  renderCards(LAST_DATA);
       document.getElementById('status').textContent = js.rows? `${js.rows} players` : (js.note || 'No props recommendations yet.');
     }
 
@@ -215,6 +264,40 @@
       const root = document.getElementById('cards');
       root.innerHTML = '';
       const hideLadders = document.getElementById('hideLadders').checked;
+      const marketFilter = document.getElementById('marketFilter').value || '';
+      const onlyEV = document.getElementById('onlyEV').checked;
+      const minEV = (function(){ const v = parseFloat(document.getElementById('minEV').value); return isNaN(v)? null : v; })();
+      const sortBy = document.getElementById('sortBy').value || 'ev_desc';
+      function passes(p){
+        if(!p) return false;
+        if(marketFilter){ if(mkKey(p.market)!==marketFilter) return false; }
+        const ev = (p.ev_pct!=null && !isNaN(p.ev_pct)) ? Number(p.ev_pct) : null;
+        if(onlyEV && (ev==null)) return false;
+        if(minEV!=null && (ev==null || ev < minEV)) return false;
+        return true;
+      }
+      function sortPlays(arr){
+        if(sortBy==='edge_desc'){
+          arr.sort((a,b)=>{
+            const ea = (a.edge!=null && !isNaN(a.edge))? Math.abs(Number(a.edge)) : -1e9;
+            const eb = (b.edge!=null && !isNaN(b.edge))? Math.abs(Number(b.edge)) : -1e9;
+            if(eb!==ea) return eb-ea;
+            const av = (a.ev_pct!=null && !isNaN(a.ev_pct))? Number(a.ev_pct) : -1e9;
+            const bv = (b.ev_pct!=null && !isNaN(b.ev_pct))? Number(b.ev_pct) : -1e9;
+            return bv-av;
+          });
+        } else {
+          // ev_desc default
+          arr.sort((a,b)=>{
+            const av = (a.ev_pct!=null && !isNaN(a.ev_pct))? Number(a.ev_pct) : -1e9;
+            const bv = (b.ev_pct!=null && !isNaN(b.ev_pct))? Number(b.ev_pct) : -1e9;
+            if(bv!==av) return bv-av;
+            const ea = (a.edge!=null && !isNaN(a.edge))? Math.abs(Number(a.edge)) : -1e9;
+            const eb = (b.edge!=null && !isNaN(b.edge))? Math.abs(Number(b.edge)) : -1e9;
+            return eb-ea;
+          });
+        }
+      }
       items.forEach(it=>{
         const div = document.createElement('div');
         div.className = 'card';
@@ -245,10 +328,11 @@
         `;
         const plays = div.querySelector('.plays');
         const allPlays = (it.plays||[]);
-        // Separate ladder vs non-ladder
+        // Separate ladder vs non-ladder, applying filters
         const basePlays = [];
         const ladderGroups = new Map(); // market -> plays[]
         for(const p of allPlays){
+          if(!passes(p)) continue;
           if(p && p.is_ladder===true){
             const mk = (p.market||'').toString();
             if(!ladderGroups.has(mk)) ladderGroups.set(mk, []);
@@ -257,7 +341,8 @@
             basePlays.push(p);
           }
         }
-        // Render non-ladder plays
+        // Sort and render non-ladder plays
+        sortPlays(basePlays);
         basePlays.forEach(p=>{
           const ev = (p.ev_pct!=null)? `<span class="ev">EV ${fmtNum(p.ev_pct)}</span>`: '';
           const edge = (p.edge!=null)? `<span class="edge">Δ ${fmtNum(p.edge)}</span>`: '';
@@ -265,9 +350,10 @@
           const u = p.under_price!=null? Number(p.under_price): null;
           const line = (p.line!=null? p.line : null);
           const row = document.createElement('div');
-          row.className='play';
+          row.className='play ' + (p.side==='Over'?'over-row': (p.side==='Under'?'under-row':''));
+          const sideIcon = p.side==='Over'? '↑' : (p.side==='Under'? '↓' : '');
           row.innerHTML = `
-            <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
+            <div>${sideIcon? `<span title=\"${p.side}\">${sideIcon}</span> `:''}${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
             <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
               <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
               <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
@@ -307,9 +393,10 @@
               const u = p.under_price!=null? Number(p.under_price): null;
               const line = (p.line!=null? p.line : null);
               const row = document.createElement('div');
-              row.className='ladder-row';
+              row.className='ladder-row ' + (p.side==='Over'?'over-row': (p.side==='Under'?'under-row':''));
+              const sideIcon = p.side==='Over'? '↑' : (p.side==='Under'? '↓' : '');
               row.innerHTML = `
-                <div>${p.side||''}${line!=null? ' '+line: ''}</div>
+                <div>${sideIcon? `<span title=\"${p.side}\">${sideIcon}</span> `:''}${p.side||''}${line!=null? ' '+line: ''}</div>
                 <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
                   <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
                   <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
@@ -324,9 +411,13 @@
       });
     }
 
-    document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
-    document.getElementById('hideLadders').addEventListener('change', ()=>{ loadData(); });
-    document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; loadData(); });
+  document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
+  document.getElementById('hideLadders').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
+  document.getElementById('marketFilter').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
+  document.getElementById('onlyEV').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
+  document.getElementById('minEV').addEventListener('input', ()=>{ renderCards(LAST_DATA); });
+  document.getElementById('sortBy').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
+  document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('marketFilter').value=''; document.getElementById('onlyEV').checked=false; document.getElementById('minEV').value=''; document.getElementById('sortBy').value='ev_desc'; document.getElementById('hideLadders').checked=false; loadData(); });
     window.addEventListener('load', loadData);
   </script>
 </body>
