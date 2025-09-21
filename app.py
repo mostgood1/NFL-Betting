@@ -6497,19 +6497,9 @@ def api_game_props_recommendations():
     except Exception:
         games = []
 
-    # Default: restrict to first game for compact output
-    # By default, restrict to first game for compact output unless all=1
-    try:
-        all_flag = str(request.args.get("all", "0")).strip().lower() in {"1","true","yes","y"}
-    except Exception:
-        all_flag = False
-    try:
-        if (not all_flag) and {"home_team","away_team"}.issubset(df.columns) and df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
-            first = df[["home_team","away_team"]].drop_duplicates().head(1)
-            ht = first.iloc[0]["home_team"]; at = first.iloc[0]["away_team"]
-            df = df[(df["home_team"] == ht) & (df["away_team"] == at)]
-    except Exception:
-        pass
+    # Default: return all games; only narrow when a specific event/home/away is requested
+    # (Behavior changed from "first game unless all=1" to "all by default")
+    # No action needed here; df already contains all rows unless upstream filtering set want_specific
 
     # Prepare output records
     records = []

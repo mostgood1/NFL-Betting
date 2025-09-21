@@ -412,14 +412,36 @@
           const o = p.over_price!=null? Number(p.over_price): null;
           const u = p.under_price!=null? Number(p.under_price): null;
           const line = (p.line!=null? p.line : null);
+          // Derive side on client if missing, based on proj vs line for line markets
+          let side = p.side || null;
+          if(!side){
+            // Try play-level proj first
+            let pr = (p.proj!=null && !isNaN(p.proj)) ? Number(p.proj) : null;
+            const ln = (p.line!=null && !isNaN(p.line)) ? Number(p.line) : null;
+            if(pr!=null && ln!=null){
+              if(pr > ln) side = 'Over'; else if(pr < ln) side = 'Under';
+            } else if(ln!=null){
+              // Try card-level projections (map market to projections bundle)
+              const key = mkKey(p.market);
+              const prj = (it && it.projections) ? it.projections[key] : null;
+              if(prj!=null && !isNaN(prj)){
+                pr = Number(prj);
+                if(pr > ln) side = 'Over'; else if(pr < ln) side = 'Under';
+              }
+            }
+            if(!side && p.edge!=null && !isNaN(p.edge)){
+              const ed = Number(p.edge);
+              if(ed>0) side='Over'; else if(ed<0) side='Under';
+            }
+          }
           const row = document.createElement('div');
-          row.className='play ' + (p.side==='Over'?'over-row': (p.side==='Under'?'under-row':''));
-          const sideIcon = p.side==='Over'? '↑' : (p.side==='Under'? '↓' : '');
+          row.className='play ' + (side==='Over'?'over-row': (side==='Under'?'under-row':''));
+          const sideIcon = side==='Over'? '↑' : (side==='Under'? '↓' : '');
           row.innerHTML = `
-            <div>${sideIcon? `<span title=\"${p.side}\">${sideIcon}</span> `:''}${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
+            <div>${sideIcon? `<span title=\"${side||''}\">${sideIcon}</span> `:''}${p.market||''} • ${side||''}${line!=null? ' '+line: ''}</div>
             <div>${edge} ${evNum? `<span class=\"ev\">EV ${evNum}</span>`: ''}
-              <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
-              <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
+              <span class=\"price\"><span class=\"label ${side==='Over'?'over-rec':''}\">O</span><span class=\"val ${side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
+              <span class=\"price\"><span class=\"label ${side==='Under'?'under-rec':''}\">U</span><span class=\"val ${side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
             </div>
           `;
           plays.appendChild(row);
