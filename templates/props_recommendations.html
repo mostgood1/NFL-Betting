@@ -310,11 +310,9 @@
       });
       if(cur) {
         sel.value = cur;
-      } else if(sel.options.length > 1){
-        // Default to first game unless URL explicitly requested all=1
-        const allParam = (qs('all')||'').toString().toLowerCase();
-        const wantAll = ['1','true','yes','y'].includes(allParam);
-        if(!wantAll){ sel.selectedIndex = 1; }
+      } else {
+        // Keep "All games" selected by default to avoid accidental narrowing
+        sel.selectedIndex = 0;
       }
     }
 

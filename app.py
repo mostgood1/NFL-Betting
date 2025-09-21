@@ -5037,8 +5037,28 @@ def api_props_recommendations():
         edges_df = pd.read_csv(edges_fp_used) if edges_fp_used.exists() else pd.DataFrame()
     except Exception:
         edges_df = pd.DataFrame()
+    # Flexible CSV reader to handle encoding variants (utf-8, utf-16, latin-1)
+    def _read_csv_flex(path: Path) -> pd.DataFrame:
+        try:
+            return pd.read_csv(path)
+        except Exception as e:
+            # Try common encodings
+            encs = [
+                ('utf-8', None),
+                ('utf-8-sig', None),
+                ('utf-16', None),
+                ('utf-16le', None),
+                ('utf-16be', None),
+                ('latin-1', None),
+            ]
+            for enc, sep in encs:
+                try:
+                    return pd.read_csv(path, encoding=enc) if sep is None else pd.read_csv(path, encoding=enc, sep=sep)
+                except Exception:
+                    continue
+        return pd.DataFrame()
     try:
-        bov_df = pd.read_csv(bovada_fp) if bovada_fp.exists() else pd.DataFrame()
+        bov_df = _read_csv_flex(bovada_fp) if bovada_fp.exists() else pd.DataFrame()
     except Exception:
         bov_df = pd.DataFrame()
     try:
@@ -5214,7 +5234,7 @@ def api_props_recommendations():
     except Exception:
         edges_df["rec_side"] = None
 
-    # Build games list for dropdown (canonicalize labels to avoid duplicates)
+    # Build games list for dropdown (canonicalize labels to avoid duplicates) and include all weekly games
     games = []
     try:
         # Team normalization helpers
@@ -5240,15 +5260,16 @@ def api_props_recommendations():
             def to_abbr(t):
                 return str(t or "").strip().upper()
 
-        def iter_games(df_src):
-            seen = set()
+        def collect_games(df_src, seen):
             if df_src is None or df_src.empty:
                 return []
             rows = []
-            for _, r in df_src[["home_team","away_team"]].dropna(how="any").drop_duplicates().iterrows():
+            cols = [c for c in ["home_team","away_team"] if c in df_src.columns]
+            if len(cols) < 2:
+                return []
+            for _, r in df_src[cols].dropna(how="any").drop_duplicates().iterrows():
                 ht_raw = r.get("home_team"); at_raw = r.get("away_team")
                 ht = _norm_team(ht_raw); at = _norm_team(at_raw)
-                # Canonical key for dedup
                 key = (to_abbr(ht), to_abbr(at))
                 if not key[0] or not key[1] or key in seen:
                     continue
@@ -5260,14 +5281,29 @@ def api_props_recommendations():
                 })
             return rows
 
-        if {"home_team","away_team"}.issubset(edges_df.columns) and not edges_df.empty:
-            games = iter_games(edges_df)
-        elif not bov_df.empty and {"home_team","away_team"}.issubset(bov_df.columns):
-            games = iter_games(bov_df)
+        seen = set()
+        # Priority 1: weekly schedule for this season/week (ensures started/completed games appear)
+        try:
+            if games_df is not None and not games_df.empty:
+                gdf = games_df.copy()
+                # Coerce season/week to numeric for filtering
+                if "season" in gdf.columns:
+                    gdf["season"] = pd.to_numeric(gdf["season"], errors="coerce")
+                if "week" in gdf.columns:
+                    gdf["week"] = pd.to_numeric(gdf["week"], errors="coerce")
+                if ("season" in gdf.columns and "week" in gdf.columns) and (season_i is not None and week_i is not None):
+                    gdf = gdf[(gdf["season"] == season_i) & (gdf["week"] == week_i)]
+                games.extend(collect_games(gdf, seen))
+        except Exception:
+            pass
+        # Priority 2: edges_df (has props context)
+        games.extend(collect_games(edges_df, seen))
+        # Priority 3: bovada raw
+        games.extend(collect_games(bov_df, seen))
     except Exception:
         games = []
 
-    # Optional game filter
+    # Optional game filter (robust: match by team abbreviations parsed from event/home/away)
     ev_param = request.args.get("event")
     home_param = request.args.get("home_team")
     away_param = request.args.get("away_team")
@@ -5276,11 +5312,226 @@ def api_props_recommendations():
         show_all = str(all_param).strip().lower() in {"1","true","yes","y"}
     except Exception:
         show_all = False
+
+    # Build abbreviation helpers similar to game-props to make filtering resilient
+    def _build_abbr_helpers():
+        try:
+            assets = _load_team_assets()
+            abbr_map = {}
+            nick_to_abbr = {}
+            if isinstance(assets, dict):
+                for full, meta in assets.items():
+                    try:
+                        ab = str((meta.get('abbr') if isinstance(meta, dict) else None) or full).strip().upper()
+                        full_up = str(full).strip().upper()
+                        abbr_map[full_up] = ab
+                        abbr_map[ab] = ab
+                        parts = [p for p in str(full).strip().split() if p]
+                        if parts:
+                            nick = parts[-1].upper()
+                            if nick not in nick_to_abbr:
+                                nick_to_abbr[nick] = ab
+                    except Exception:
+                        continue
+            def to_abbr_any(x: object) -> str:
+                s = str(x or '').strip()
+                if not s:
+                    return ''
+                u = s.upper()
+                if u in abbr_map:
+                    return abbr_map[u]
+                parts = [p for p in u.split() if p]
+                if parts:
+                    nick = parts[-1]
+                    if nick in nick_to_abbr:
+                        return nick_to_abbr[nick]
+                return u
+            return to_abbr_any
+        except Exception:
+            def to_abbr_any(x: object) -> str:
+                return str(x or '').strip().upper()
+            return to_abbr_any
+
+    to_abbr_any = _build_abbr_helpers()
+
+    # Ensure abbreviations columns exist for filtering; derive from home/away when available, else parse event per-row
     try:
-        if ev_param and "event" in edges_df.columns:
-            edges_df = edges_df[edges_df["event"].astype(str) == str(ev_param)]
-        elif home_param and away_param and {"home_team","away_team"}.issubset(edges_df.columns):
-            edges_df = edges_df[(edges_df["home_team"].astype(str) == str(home_param)) & (edges_df["away_team"].astype(str) == str(away_param))]
+        if {"home_team","away_team"}.issubset(edges_df.columns):
+            edges_df["__home_abbr"] = edges_df["home_team"].map(to_abbr_any)
+            edges_df["__away_abbr"] = edges_df["away_team"].map(to_abbr_any)
+        elif "event" in edges_df.columns:
+            def _row_home_abbr(ev: object) -> str:
+                s = str(ev or '')
+                if "@" in s:
+                    try:
+                        parts = [p.strip() for p in s.split("@", 1)]
+                        if len(parts) == 2:
+                            return to_abbr_any(parts[1])
+                    except Exception:
+                        return ''
+                return ''
+            def _row_away_abbr(ev: object) -> str:
+                s = str(ev or '')
+                if "@" in s:
+                    try:
+                        parts = [p.strip() for p in s.split("@", 1)]
+                        if len(parts) == 2:
+                            return to_abbr_any(parts[0])
+                    except Exception:
+                        return ''
+                return ''
+            edges_df["__home_abbr"] = edges_df["event"].map(_row_home_abbr)
+            edges_df["__away_abbr"] = edges_df["event"].map(_row_away_abbr)
+    except Exception:
+        pass
+
+    # Apply filter using abbreviations when a specific game is requested
+    try:
+        if ev_param and "@" in str(ev_param) and {"__home_abbr","__away_abbr"}.issubset(edges_df.columns):
+            parts = [p.strip() for p in str(ev_param).split("@", 1)]
+            if len(parts) == 2:
+                tgt_away_ab = to_abbr_any(parts[0])
+                tgt_home_ab = to_abbr_any(parts[1])
+                edges_df = edges_df[(edges_df["__home_abbr"].astype(str) == tgt_home_ab) & (edges_df["__away_abbr"].astype(str) == tgt_away_ab)]
+        elif home_param and away_param and {"__home_abbr","__away_abbr"}.issubset(edges_df.columns):
+            edges_df = edges_df[(edges_df["__home_abbr"].astype(str) == to_abbr_any(home_param)) & (edges_df["__away_abbr"].astype(str) == to_abbr_any(away_param))]
+    except Exception:
+        pass
+
+    # If a specific game is selected but edges yielded no rows, fallback to Bovada rows for that game
+    bovada_fallback_used = False
+    bovada_fallback_source = None  # 'current' | 'archive'
+    try:
+        want_specific = False
+        tgt_home_ab = tgt_away_ab = None
+        if ev_param and "@" in str(ev_param):
+            parts = [p.strip() for p in str(ev_param).split("@", 1)]
+            if len(parts) == 2:
+                tgt_away_ab, tgt_home_ab = to_abbr_any(parts[0]), to_abbr_any(parts[1])
+                want_specific = True
+        elif home_param and away_param:
+            tgt_home_ab, tgt_away_ab = to_abbr_any(home_param), to_abbr_any(away_param)
+            want_specific = True
+        if want_specific and (edges_df is None or edges_df.empty):
+            # First try current Bovada file
+            bsel = pd.DataFrame()
+            if bov_df is not None and not bov_df.empty:
+                b = bov_df.copy()
+                # Derive abbreviations for filtering
+                try:
+                    if {"home_team","away_team"}.issubset(b.columns):
+                        b["__home_abbr"] = b["home_team"].map(to_abbr_any)
+                        b["__away_abbr"] = b["away_team"].map(to_abbr_any)
+                    elif "event" in b.columns:
+                        def _home_ab(ev):
+                            s = str(ev or '')
+                            if "@" in s:
+                                parts = [p.strip() for p in s.split("@", 1)]
+                                if len(parts) == 2:
+                                    return to_abbr_any(parts[1])
+                            return ''
+                        def _away_ab(ev):
+                            s = str(ev or '')
+                            if "@" in s:
+                                parts = [p.strip() for p in s.split("@", 1)]
+                                if len(parts) == 2:
+                                    return to_abbr_any(parts[0])
+                            return ''
+                        b["__home_abbr"], b["__away_abbr"] = b["event"].map(_home_ab), b["event"].map(_away_ab)
+                except Exception:
+                    pass
+                # Filter to selected game
+                try:
+                    bsel = b[(b["__home_abbr"].astype(str) == tgt_home_ab) & (b["__away_abbr"].astype(str) == tgt_away_ab)]
+                except Exception:
+                    bsel = pd.DataFrame()
+                if bsel is not None and not bsel.empty:
+                    bovada_fallback_used = True
+                    bovada_fallback_source = 'current'
+            # If still empty, try archived Bovada snapshot (if present)
+            if bsel is None or bsel.empty:
+                try:
+                    arch_fp = DATA_DIR / f"bovada_player_props_{season_i}_wk{week_i}.archive.csv"
+                    if arch_fp.exists():
+                        ba = _read_csv_flex(arch_fp)
+                    else:
+                        ba = pd.DataFrame()
+                except Exception:
+                    ba = pd.DataFrame()
+                if ba is not None and not ba.empty:
+                    try:
+                        if {"home_team","away_team"}.issubset(ba.columns):
+                            ba["__home_abbr"] = ba["home_team"].map(to_abbr_any)
+                            ba["__away_abbr"] = ba["away_team"].map(to_abbr_any)
+                        elif "event" in ba.columns:
+                            def _home_ab(ev):
+                                s = str(ev or '')
+                                if "@" in s:
+                                    parts = [p.strip() for p in s.split("@", 1)]
+                                    if len(parts) == 2:
+                                        return to_abbr_any(parts[1])
+                                return ''
+                            def _away_ab(ev):
+                                s = str(ev or '')
+                                if "@" in s:
+                                    parts = [p.strip() for p in s.split("@", 1)]
+                                    if len(parts) == 2:
+                                        return to_abbr_any(parts[0])
+                                return ''
+                            ba["__home_abbr"], ba["__away_abbr"] = ba["event"].map(_home_ab), ba["event"].map(_away_ab)
+                    except Exception:
+                        pass
+                    try:
+                        bsel = ba[(ba["__home_abbr"].astype(str) == tgt_home_ab) & (ba["__away_abbr"].astype(str) == tgt_away_ab)]
+                    except Exception:
+                        bsel = pd.DataFrame()
+                    if bsel is not None and not bsel.empty:
+                        bovada_fallback_used = True
+                        bovada_fallback_source = 'archive'
+            if bsel is not None and not bsel.empty:
+                # Map market -> market_key minimally
+                if "market_key" not in bsel.columns and "market" in bsel.columns:
+                    mk_map = {
+                        "receiving yards": "rec_yards",
+                        "receptions": "receptions",
+                        "rushing yards": "rush_yards",
+                        "passing yards": "pass_yards",
+                        "passing tds": "pass_tds",
+                        "pass tds": "pass_tds",
+                        "pass touchdowns": "pass_tds",
+                        "passing attempts": "pass_attempts",
+                        "pass attempts": "pass_attempts",
+                        "rushing attempts": "rush_attempts",
+                        "rush attempts": "rush_attempts",
+                        "interceptions": "interceptions",
+                        "interceptions thrown": "interceptions",
+                        "rush+rec yards": "rush_rec_yards",
+                        "rushing + receiving yards": "rush_rec_yards",
+                        "rush + rec yards": "rush_rec_yards",
+                        "pass+rush yards": "pass_rush_yards",
+                        "pass + rush yards": "pass_rush_yards",
+                        "passing + rushing yards": "pass_rush_yards",
+                        "targets": "targets",
+                        "2+ touchdowns": "multi_tds",
+                        "anytime td": "any_td",
+                        "any time td": "any_td",
+                    }
+                    try:
+                        bsel["market_key"] = bsel["market"].astype(str).str.strip().str.lower().map(mk_map).fillna(bsel["market"].astype(str).str.strip().str.lower())
+                    except Exception:
+                        pass
+                # Ensure price columns present
+                for c in ["over_price","under_price"]:
+                    if c not in bsel.columns:
+                        bsel[c] = pd.NA
+                # Keep only relevant columns to mimic edges_df shape
+                keep_cols = [c for c in [
+                    "player","team","event","home_team","away_team","game_time",
+                    "market","market_key","line","over_price","under_price"
+                ] if c in bsel.columns]
+                bsel = bsel[keep_cols].copy()
+                # Use selection as edges_df
+                edges_df = bsel
     except Exception:
         pass
 
@@ -5336,31 +5587,7 @@ def api_props_recommendations():
     except Exception:
         pass
 
-    # If no explicit filter and not explicitly requesting all, narrow to the first game for a concise default view
-    if (not show_all) and (not ev_param) and (not (home_param and away_param)):
-        try:
-            if {"home_team","away_team"}.issubset(set(edges_df.columns)) and len(edges_df) > 0:
-                # Prefer earliest game_time if available
-                if "game_time" in edges_df.columns and edges_df["game_time"].notna().any():
-                    try:
-                        tmp = edges_df.copy()
-                        # game_time may be epoch ms; ensure numeric
-                        tmp["__gt"] = pd.to_numeric(tmp["game_time"], errors="coerce")
-                        first_row = tmp.sort_values("__gt").head(1)
-                        if len(first_row) == 1:
-                            ht = first_row.iloc[0].get("home_team")
-                            at = first_row.iloc[0].get("away_team")
-                            if ht is not None and at is not None:
-                                edges_df = edges_df[(edges_df["home_team"] == ht) & (edges_df["away_team"] == at)]
-                    except Exception:
-                        pass
-                # If still many games, just pick the first distinct matchup
-                if {"home_team","away_team"}.issubset(set(edges_df.columns)) and edges_df[["home_team","away_team"]].drop_duplicates().shape[0] > 1:
-                    first = edges_df[["home_team","away_team"]].drop_duplicates().head(1)
-                    ht = first.iloc[0]["home_team"]; at = first.iloc[0]["away_team"]
-                    edges_df = edges_df[(edges_df["home_team"] == ht) & (edges_df["away_team"] == at)]
-        except Exception:
-            pass
+    # Default now: do not narrow implicitly; return all games unless caller filters.
 
     # Join minimal player context from predictions (position/team/opponent + projections)
     player_key = None
@@ -5849,9 +6076,6 @@ def api_props_recommendations():
                 plays.sort(key=lambda x: (x.get("ev_pct") if x.get("ev_pct") is not None else (abs(x.get("edge")) if x.get("edge") is not None else -9999)), reverse=True)
             except Exception:
                 pass
-            # If no plays remain for this player (e.g., only 0% ATD or non-actionable rows), skip the card
-            if not plays:
-                continue
             # Projections bundle (best-effort)
             proj_bundle = {}
             for k in [
@@ -6016,6 +6240,122 @@ def api_props_recommendations():
                         if not merged[key].get(fld) and c.get(fld):
                             merged[key][fld] = c.get(fld)
             cards = list(merged.values())
+    except Exception:
+        pass
+
+    # Synthesize projection-only cards for schedule games that lack edges, so all games show player cards
+    try:
+        # Reuse robust abbreviation helper built earlier
+        to_abbr = to_abbr_any
+        # Determine if a specific game was requested; if so, restrict synthesis to those two teams
+        selected_abbrs = None  # type: Optional[set]
+        try:
+            if ev_param and "@" in str(ev_param):
+                parts = [p.strip() for p in str(ev_param).split("@", 1)]
+                if len(parts) == 2:
+                    selected_abbrs = {to_abbr(parts[0]), to_abbr(parts[1])}
+            elif home_param and away_param:
+                selected_abbrs = {to_abbr(home_param), to_abbr(away_param)}
+        except Exception:
+            selected_abbrs = None
+        # Build schedule map: team_abbr -> (home_team, away_team, event)
+        sched_map: Dict[str, Tuple[str, str, str]] = {}
+        try:
+            gdf = games_df.copy() if (games_df is not None and not games_df.empty) else pd.DataFrame()
+            if not gdf.empty:
+                if "season" in gdf.columns:
+                    gdf["season"] = pd.to_numeric(gdf["season"], errors="coerce")
+                if "week" in gdf.columns:
+                    gdf["week"] = pd.to_numeric(gdf["week"], errors="coerce")
+                if ("season" in gdf.columns and "week" in gdf.columns) and (season_i is not None and week_i is not None):
+                    gdf = gdf[(gdf["season"] == season_i) & (gdf["week"] == week_i)]
+                if not gdf.empty and {"home_team","away_team"}.issubset(gdf.columns):
+                    for _, rr in gdf[["home_team","away_team"]].dropna(how='any').drop_duplicates().iterrows():
+                        ht = str(rr.get("home_team") or "").strip(); at = str(rr.get("away_team") or "").strip()
+                        if not ht or not at:
+                            continue
+                        ev = f"{at} @ {ht}"
+                        sched_map[to_abbr(ht)] = (ht, at, ev)
+                        sched_map[to_abbr(at)] = (ht, at, ev)
+        except Exception:
+            pass
+        # Existing keys to avoid duplicates
+        exist_keys = set()
+        def _nm_loose_local2(s: Optional[str]) -> str:
+            return "" if s is None else "".join(ch for ch in str(s).lower() if ch.isalnum())
+        for c in cards:
+            try:
+                pk = _nm_loose_local2(c.get("player")); tb = to_abbr(c.get("team"))
+                exist_keys.add((pk, tb))
+            except Exception:
+                continue
+        # Ensure preds_df has name keys; if not, build minimal
+        try:
+            if "__key_player_loose" not in preds_df.columns:
+                name_col = next((c for c in ["display_name","player","name","player_name"] if c in preds_df.columns), None)
+                if name_col:
+                    preds_df["__key_player_loose"] = preds_df[name_col].astype(str).str.replace("[^a-z0-9]","", regex=True).str.lower()
+        except Exception:
+            pass
+        # Team abbr on preds
+        if "__team_abbr" not in preds_df.columns and "team" in preds_df.columns:
+            try:
+                preds_df["__team_abbr"] = preds_df["team"].map(lambda x: to_abbr(x))
+            except Exception:
+                preds_df["__team_abbr"] = None
+        # Iterate preds and add missing cards for schedule teams
+        add_cards = []
+        try:
+            tcol = "__team_abbr" if "__team_abbr" in preds_df.columns else ("team" if "team" in preds_df.columns else None)
+            ncol = "display_name" if "display_name" in preds_df.columns else ("player" if "player" in preds_df.columns else ("name" if "name" in preds_df.columns else None))
+            if tcol and ncol and not preds_df.empty:
+                for _, rr in preds_df.iterrows():
+                    try:
+                        tb = to_abbr(rr.get(tcol))
+                        if not tb or tb not in sched_map:
+                            continue
+                        # If a game filter is active, only synthesize for those two teams
+                        if selected_abbrs is not None and tb not in selected_abbrs:
+                            continue
+                        pk = _nm_loose_local2(rr.get(ncol))
+                        if (pk, tb) in exist_keys:
+                            continue
+                        ht, at, ev = sched_map[tb]
+                        projections = {}
+                        for k in [
+                            "pass_attempts","pass_yards","pass_tds","interceptions",
+                            "rush_attempts","rush_yards","rush_tds",
+                            "targets","receptions","rec_yards","rec_tds",
+                            "rush_rec_yards","pass_rush_yards","any_td_prob",
+                        ]:
+                            if k in preds_df.columns:
+                                v = rr.get(k)
+                                try:
+                                    projections[k] = (float(v) if v is not None and not pd.isna(v) else None)
+                                except Exception:
+                                    projections[k] = None
+                        # Require at least some projection to avoid empty noise
+                        has_proj = any((projections.get(k) not in (None, 0.0)) for k in ["pass_yards","rush_yards","rec_yards","receptions"]) or (projections.get("any_td_prob") not in (None, 0.0))
+                        if not has_proj:
+                            continue
+                        add_cards.append({
+                            "player": rr.get(ncol),
+                            "position": rr.get("position"),
+                            "team": rr.get("team"),
+                            "opponent": rr.get("opponent"),
+                            "home_team": ht,
+                            "away_team": at,
+                            "event": ev,
+                            "projections": projections,
+                            "plays": [],
+                        })
+                        exist_keys.add((pk, tb))
+                    except Exception:
+                        continue
+        except Exception:
+            add_cards = []
+        if add_cards:
+            cards.extend(add_cards)
     except Exception:
         pass
 
@@ -6280,6 +6620,8 @@ def api_props_recommendations():
         "rows": len(cards),
         "data": cards,
         "source": str(edges_fp_used),
+        "used_bovada_fallback": bovada_fallback_used,
+        "bovada_fallback_source": bovada_fallback_source,
     }
     try:
         _payload = _js(_payload)
