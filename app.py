@@ -684,15 +684,18 @@ def _load_predictions() -> pd.DataFrame:
                         has_finals = pd.Series(False, index=df.index)
                 except Exception:
                     has_finals = pd.Series(False, index=df.index)
-                src_rank = {'week': 3, 'pred': 2, 'locked': 1, 'synth': 0}
+                # Always prefer locked snapshots over any other source to maintain credibility post-game
+                # Higher is better
+                src_rank = {'locked': 100, 'week': 3, 'pred': 2, 'synth': 0}
                 pred_source = df['pred_source'] if 'pred_source' in df.columns else pd.Series(None, index=df.index)
                 src_priority = pred_source.map(lambda s: src_rank.get(str(s), -1))
-                df = df.assign(has_finals=has_finals, src_priority=src_priority)
-                # Sort by finals first, then by source priority; keep first per game_id
-                df = df.sort_values(by=['has_finals','src_priority'], ascending=[False, False])
+                is_locked = (pred_source == 'locked')
+                df = df.assign(has_finals=has_finals, src_priority=src_priority, is_locked=is_locked)
+                # Sort by is_locked first (desc), then finals, then source priority; keep first per game_id
+                df = df.sort_values(by=['is_locked','has_finals','src_priority'], ascending=[False, False, False])
                 df = df.drop_duplicates(subset=['game_id'], keep='first')
                 # Clean helper columns
-                df = df.drop(columns=[c for c in ['has_finals','src_priority'] if c in df.columns])
+                df = df.drop(columns=[c for c in ['has_finals','src_priority','is_locked'] if c in df.columns])
             # Normalize typical columns if present
             for c in ("week", "season"):
                 if c in df.columns:
@@ -1862,13 +1865,31 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             return out_base
         # Filter features to the rows in view_df (exclude completed/final games to keep historical predictions locked)
         vf = out_base.copy()
-        # Determine which rows actually need predictions (any key pred_* missing)
-        need_mask = pd.Series(False, index=vf.index)
-        for col in ("pred_home_points","pred_away_points","pred_total","pred_home_win_prob"):
+        # Determine which rows actually need predictions (any key pred_* missing), but NEVER for finals
+        try:
+            finals_mask = pd.Series(False, index=vf.index)
+            if {'home_score','away_score'}.issubset(vf.columns):
+                finals_mask = pd.to_numeric(vf['home_score'], errors='coerce').notna() & pd.to_numeric(vf['away_score'], errors='coerce').notna()
+        except Exception:
+            finals_mask = pd.Series(False, index=vf.index)
+        # Build a missing-any mask across core prediction fields
+        missing_any = pd.Series(False, index=vf.index)
+        core_pred_fields = ["pred_home_points","pred_away_points","pred_total","pred_home_win_prob"]
+        # If alternate naming is used, consider it satisfied
+        alt_prob_col = "prob_home_win"
+        for col in core_pred_fields:
             if col in vf.columns:
-                need_mask = need_mask | vf[col].isna()
+                missing_any = missing_any | vf[col].isna()
             else:
-                need_mask = True  # if a key column missing entirely, we need to predict
+                # If the only missing core is pred_home_win_prob but prob_home_win exists, treat as not missing
+                if col == "pred_home_win_prob" and alt_prob_col in vf.columns:
+                    # consider satisfied where alt prob is present
+                    missing_any = missing_any | vf[alt_prob_col].isna()
+                else:
+                    # Column entirely absent -> considered missing for non-final rows
+                    missing_any = True
+        # Need predictions only for non-final rows which are missing any core predictions
+        need_mask = (~finals_mask) & missing_any
         vf_pred = vf.loc[need_mask].copy()
         if vf_pred.empty:
             return out_base
