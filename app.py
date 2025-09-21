@@ -5680,6 +5680,25 @@ def api_props_recommendations():
                     return {}
             except Exception:
                 ev_pct = None
+            # Projection-vs-line fallback to choose side (for line-based markets) if still None
+            try:
+                if side is None:
+                    mk = r.get("market_key") or r.get("market")
+                    mk = (str(mk).strip().lower() if mk is not None else "")
+                    line_required = {
+                        "rec_yards","rush_yards","pass_yards","receptions",
+                        "pass_attempts","rush_attempts","rush_rec_yards","pass_rush_yards","targets"
+                    }
+                    if mk in line_required:
+                        pr = pd.to_numeric(r.get("proj"), errors="coerce")
+                        ln = pd.to_numeric(r.get("line"), errors="coerce")
+                        if pd.notna(pr) and pd.notna(ln):
+                            if float(pr) > float(ln):
+                                side = "Over"
+                            elif float(pr) < float(ln):
+                                side = "Under"
+            except Exception:
+                pass
             # Derive ladder flag if present in edges CSV
             is_ladder = None
             try:
