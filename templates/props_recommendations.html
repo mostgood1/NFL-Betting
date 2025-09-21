@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NFL – Props Recommendations</title>
   <style>
-    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7; --evbg:#113a34; --evfg:#a7f3d0 }
-    body.light{ --bg:#ffffff; --card:#f8fafc; --muted:#475569; --text:#0a0f1c; --br:#cbd5e1; --pill:#eef2f7; --link:#1e40af; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c; --evbg:#dcfce7; --evfg:#065f46 }
+    :root{ --bg:#0a1020; --card:#0f1730; --muted:#c7d2fe; --text:#f8fafc; --br:#223055; --pill:#152046; --link:#93c5fd; --button-bg:#1b2339; --button-br:#2a3a63; --button-text:#e6edf7; --evbg:#113a34; --evfg:#a7f3d0; --rec-over-bg:#0f3d2b; --rec-over-br:#167a5b; --rec-over-fg:#c7f9e5; --rec-under-bg:#3d1220; --rec-under-br:#7f1d1d; --rec-under-fg:#fde2e2 }
+    body.light{ --bg:#ffffff; --card:#f8fafc; --muted:#475569; --text:#0a0f1c; --br:#cbd5e1; --pill:#eef2f7; --link:#1e40af; --button-bg:#f1f5f9; --button-br:#94a3b8; --button-text:#0a0f1c; --evbg:#dcfce7; --evfg:#065f46; --rec-over-bg:#d1fae5; --rec-over-br:#10b981; --rec-over-fg:#065f46; --rec-under-bg:#fee2e2; --rec-under-br:#ef4444; --rec-under-fg:#7f1d1d }
     body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
     .container{max-width:1100px;margin:20px auto;padding:0 16px}
     .nav{font-size:14px;margin-bottom:10px}
@@ -34,6 +34,11 @@
   .price .label{opacity:.7;margin-right:3px}
   .price .val{display:inline-block;border:1px solid var(--br);border-radius:8px;padding:2px 6px}
   .price .sel{background:#10315a}
+  /* Recommended side coloring */
+  .price .val.over-rec{ background: var(--rec-over-bg); color: var(--rec-over-fg); border-color: var(--rec-over-br) }
+  .price .val.under-rec{ background: var(--rec-under-bg); color: var(--rec-under-fg); border-color: var(--rec-under-br) }
+  .price .label.over-rec{ color: var(--rec-over-fg) }
+  .price .label.under-rec{ color: var(--rec-under-fg) }
     /* Ladder grouping */
   details.ladder{border:1px solid var(--br);border-radius:10px;background:var(--pill);margin-top:6px}
   details.ladder>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:8px 10px}
@@ -264,8 +269,8 @@
           row.innerHTML = `
             <div>${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
             <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
-              <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
-              <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
+              <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
+              <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
             </div>
           `;
           plays.appendChild(row);
@@ -306,8 +311,8 @@
               row.innerHTML = `
                 <div>${p.side||''}${line!=null? ' '+line: ''}</div>
                 <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
-                  <span class=\"price\"><span class=\"label\">O</span><span class=\"val ${p.side==='Over'?'sel':''}\">${o!=null? o: ''}</span></span>
-                  <span class=\"price\"><span class=\"label\">U</span><span class=\"val ${p.side==='Under'?'sel':''}\">${u!=null? u: ''}</span></span>
+                  <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
+                  <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
                 </div>
               `;
               rowsRoot.appendChild(row);
