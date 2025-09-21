@@ -407,7 +407,7 @@
         // Sort and render non-ladder plays
         sortPlays(basePlays);
         basePlays.forEach(p=>{
-          const ev = (p.ev_pct!=null)? `<span class="ev">EV ${fmtNum(p.ev_pct)}</span>`: '';
+          const evNum = (p.ev_pct!=null && !isNaN(p.ev_pct)) ? `${fmtNum(p.ev_pct)}%` : null;
           const edge = (p.edge!=null)? `<span class="edge">Δ ${fmtNum(p.edge)}</span>`: '';
           const o = p.over_price!=null? Number(p.over_price): null;
           const u = p.under_price!=null? Number(p.under_price): null;
@@ -417,7 +417,7 @@
           const sideIcon = p.side==='Over'? '↑' : (p.side==='Under'? '↓' : '');
           row.innerHTML = `
             <div>${sideIcon? `<span title=\"${p.side}\">${sideIcon}</span> `:''}${p.market||''} • ${p.side||''}${line!=null? ' '+line: ''}</div>
-            <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
+            <div>${edge} ${evNum? `<span class=\"ev\">EV ${evNum}</span>`: ''}
               <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
               <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
             </div>
@@ -437,7 +437,7 @@
             // Compute best edge/ev for summary
             const bestEdge = arr.reduce((m,p)=> (p.edge!=null && (!isNaN(p.edge)) && (m==null || Math.abs(p.edge)>Math.abs(m))? p.edge: m), null);
             const anyEv = arr.find(p=> p.ev_pct!=null && !isNaN(p.ev_pct));
-            const evStr = anyEv? `EV ${fmtNum(anyEv.ev_pct)}`: '';
+            const evStr = anyEv? `EV ${fmtNum(anyEv.ev_pct)}%`: '';
             const details = document.createElement('details');
             details.className = 'ladder';
             const edgeStr = (bestEdge!=null)? `<span class="edge">Δ ${fmtNum(bestEdge)}</span>`: '';
@@ -450,7 +450,7 @@
             `;
             const rowsRoot = details.querySelector('.ladder-rows');
             arr.forEach(p=>{
-              const ev = (p.ev_pct!=null)? `<span class=\"ev\">EV ${fmtNum(p.ev_pct)}</span>`: '';
+              const evNum = (p.ev_pct!=null && !isNaN(p.ev_pct)) ? `${fmtNum(p.ev_pct)}%` : null;
               const edge = (p.edge!=null)? `<span class=\"edge\">Δ ${fmtNum(p.edge)}</span>`: '';
               const o = p.over_price!=null? Number(p.over_price): null;
               const u = p.under_price!=null? Number(p.under_price): null;
@@ -460,7 +460,7 @@
               const sideIcon = p.side==='Over'? '↑' : (p.side==='Under'? '↓' : '');
               row.innerHTML = `
                 <div>${sideIcon? `<span title=\"${p.side}\">${sideIcon}</span> `:''}${p.side||''}${line!=null? ' '+line: ''}</div>
-                <div>${edge} ${ev? `<span class=\"ev\">${ev.replace('EV','').trim()}</span>`: ''}
+                <div>${edge} ${evNum? `<span class=\"ev\">EV ${evNum}</span>`: ''}
                   <span class=\"price\"><span class=\"label ${p.side==='Over'?'over-rec':''}\">O</span><span class=\"val ${p.side==='Over'?'sel over-rec':''}\">${o!=null? o: ''}</span></span>
                   <span class=\"price\"><span class=\"label ${p.side==='Under'?'under-rec':''}\">U</span><span class=\"val ${p.side==='Under'?'sel under-rec':''}\">${u!=null? u: ''}</span></span>
                 </div>
