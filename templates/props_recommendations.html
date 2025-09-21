@@ -77,6 +77,7 @@
       </label>
       <label title="Only show plays with EV% computed"><input type="checkbox" id="onlyEV"> Only EV</label>
       <label title="Minimum EV% (e.g., 1.5)">Min EV% <input type="number" id="minEV" step="0.1" style="width:80px" placeholder="0.0"></label>
+      <label title="Quick filter to EV ≥ 2%"><input type="checkbox" id="topEV"> Top EV only</label>
       <label>Sort By
         <select id="sortBy">
           <option value="ev_desc">EV desc</option>
@@ -126,7 +127,8 @@
       var tbtn=document.getElementById('themeToggle'); if(tbtn){ tbtn.addEventListener('click', function(){ body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light')?'light':'dark'); }); }
     }catch(e){} })();
     function qs(name){ const u=new URL(window.location); return u.searchParams.get(name) }
-    function fmtPct(x){ if(x==null||isNaN(x)) return ''; return (x).toFixed(1)+'%' }
+  function fmtPct(x){ if(x==null||isNaN(x)) return ''; return (x).toFixed(1)+'%' }
+  const EV_TOP_THRESHOLD = 2.0; // percent
     function fmtNum(x){ if(x==null||isNaN(x)) return '—'; return Number(x).toFixed(1) }
     function fmtMaybeNum(x){
       if(x==null||isNaN(x)) return null;
@@ -212,6 +214,58 @@
     function teamAbbr(team){ if(!team) return null; const key=String(team).toUpperCase().trim(); return TEAM_ABBR_MAP.get(key) || key; }
     function espnTeamLogo(abbr){ if(!abbr) return null; const up=String(abbr).toUpperCase(); const espnMap={ 'WAS':'wsh' }; const code=(espnMap[up]||up).toLowerCase(); return `https://a.espncdn.com/i/teamlogos/nfl/500/${code}.png`; }
 
+    function syncControlsFromUrl(){
+      try{
+        const u = new URL(window.location);
+        const g = u.searchParams.get('game');
+        const all = u.searchParams.get('all');
+        const mf = u.searchParams.get('market');
+        const onlyEV = u.searchParams.get('onlyEV');
+        const minEV = u.searchParams.get('minEV');
+        const sortBy = u.searchParams.get('sortBy');
+        const hideL = u.searchParams.get('hideLadders');
+        const topEV = u.searchParams.get('topEV');
+        if(mf) document.getElementById('marketFilter').value = mf;
+        if(onlyEV){ document.getElementById('onlyEV').checked = ['1','true','yes','y'].includes(onlyEV.toLowerCase()); }
+        if(minEV){ document.getElementById('minEV').value = minEV; }
+        if(sortBy){ document.getElementById('sortBy').value = sortBy; }
+        if(hideL){ document.getElementById('hideLadders').checked = ['1','true','yes','y'].includes(hideL.toLowerCase()); }
+        if(topEV){ document.getElementById('topEV').checked = ['1','true','yes','y'].includes(topEV.toLowerCase()); }
+      }catch(e){}
+    }
+    function updateUrlFromControls(extraParams){
+      try{
+        const u = new URL(window.location);
+        const s = document.getElementById('season').value || qs('season');
+        const w = document.getElementById('week').value || qs('week');
+        const g = document.getElementById('game').value;
+        const mf = document.getElementById('marketFilter').value;
+        const onlyEV = document.getElementById('onlyEV').checked;
+        const minEV = document.getElementById('minEV').value;
+        const sortBy = document.getElementById('sortBy').value;
+        const hideL = document.getElementById('hideLadders').checked;
+        const topEV = document.getElementById('topEV').checked;
+        u.searchParams.delete('event'); u.searchParams.delete('home_team'); u.searchParams.delete('away_team');
+        if(s) u.searchParams.set('season', s); else u.searchParams.delete('season');
+        if(w) u.searchParams.set('week', w); else u.searchParams.delete('week');
+        if(g){
+          // carry event/home/away inside game value as we do now
+          u.searchParams.set('game', g);
+          u.searchParams.delete('all');
+        } else {
+          u.searchParams.delete('game');
+          u.searchParams.set('all','1');
+        }
+        if(mf) u.searchParams.set('market', mf); else u.searchParams.delete('market');
+        if(onlyEV) u.searchParams.set('onlyEV','1'); else u.searchParams.delete('onlyEV');
+        if(minEV) u.searchParams.set('minEV', minEV); else u.searchParams.delete('minEV');
+        if(sortBy) u.searchParams.set('sortBy', sortBy); else u.searchParams.delete('sortBy');
+        if(hideL) u.searchParams.set('hideLadders','1'); else u.searchParams.delete('hideLadders');
+        if(topEV) u.searchParams.set('topEV','1'); else u.searchParams.delete('topEV');
+        if(extraParams){ Object.entries(extraParams).forEach(([k,v])=>{ if(v==null || v==='') u.searchParams.delete(k); else u.searchParams.set(k,String(v)); }); }
+        window.history.replaceState({}, '', u.toString());
+      }catch(e){}
+    }
     async function loadData(){
       const params = new URLSearchParams();
       const s = document.getElementById('season').value || qs('season');
@@ -224,6 +278,8 @@
       }
   // If "All games" is selected (empty value), request all games explicitly to avoid API default narrowing
   if(!g){ params.set('all','1'); }
+      // Also reflect current UI state into the page URL for bookmarking
+      updateUrlFromControls();
   const url = '/api/props/recommendations' + (params.toString()? ('?'+params.toString()):'');
       const res = await fetch(url, {cache:'no-store'});
       const js = await res.json();
@@ -255,8 +311,10 @@
       if(cur) {
         sel.value = cur;
       } else if(sel.options.length > 1){
-        // Default to first game for current week if none selected
-        sel.selectedIndex = 1;
+        // Default to first game unless URL explicitly requested all=1
+        const allParam = (qs('all')||'').toString().toLowerCase();
+        const wantAll = ['1','true','yes','y'].includes(allParam);
+        if(!wantAll){ sel.selectedIndex = 1; }
       }
     }
 
@@ -266,7 +324,12 @@
       const hideLadders = document.getElementById('hideLadders').checked;
       const marketFilter = document.getElementById('marketFilter').value || '';
       const onlyEV = document.getElementById('onlyEV').checked;
-      const minEV = (function(){ const v = parseFloat(document.getElementById('minEV').value); return isNaN(v)? null : v; })();
+      const topEV = document.getElementById('topEV').checked;
+      const minEV = (function(){
+        if(topEV) return EV_TOP_THRESHOLD;
+        const v = parseFloat(document.getElementById('minEV').value);
+        return isNaN(v)? null : v;
+      })();
       const sortBy = document.getElementById('sortBy').value || 'ev_desc';
       function passes(p){
         if(!p) return false;
@@ -412,13 +475,16 @@
     }
 
   document.getElementById('filters').addEventListener('submit', (e)=>{ e.preventDefault(); loadData(); });
-  document.getElementById('hideLadders').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
-  document.getElementById('marketFilter').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
-  document.getElementById('onlyEV').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
-  document.getElementById('minEV').addEventListener('input', ()=>{ renderCards(LAST_DATA); });
-  document.getElementById('sortBy').addEventListener('change', ()=>{ renderCards(LAST_DATA); });
-  document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('marketFilter').value=''; document.getElementById('onlyEV').checked=false; document.getElementById('minEV').value=''; document.getElementById('sortBy').value='ev_desc'; document.getElementById('hideLadders').checked=false; loadData(); });
-    window.addEventListener('load', loadData);
+  document.getElementById('hideLadders').addEventListener('change', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('marketFilter').addEventListener('change', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('onlyEV').addEventListener('change', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('minEV').addEventListener('input', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('topEV').addEventListener('change', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('sortBy').addEventListener('change', ()=>{ updateUrlFromControls(); renderCards(LAST_DATA); });
+  document.getElementById('reset').addEventListener('click', ()=>{ document.getElementById('season').value=''; document.getElementById('week').value=''; document.getElementById('game').value=''; document.getElementById('marketFilter').value=''; document.getElementById('onlyEV').checked=false; document.getElementById('minEV').value=''; document.getElementById('topEV').checked=false; document.getElementById('sortBy').value='ev_desc'; document.getElementById('hideLadders').checked=false; updateUrlFromControls(); loadData(); });
+  // On first load, hydrate controls from URL before fetching
+  window.addEventListener('load', ()=>{ syncControlsFromUrl(); loadData(); });
+    
   </script>
 </body>
 </html>
