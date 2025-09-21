@@ -5664,12 +5664,17 @@ def api_props_recommendations():
                     ev_pct = float(ov) * 100.0
                 elif side == "Under" and un_ok:
                     ev_pct = float(un) * 100.0
-                # If side not chosen but only one EV exists, show that EV
                 elif side is None:
-                    if ov_ok and not un_ok:
-                        ev_pct = float(ov) * 100.0
+                    # If side not chosen, infer from EVs when possible to drive UI coloring and EV chip
+                    if ov_ok and un_ok:
+                        if float(ov) >= float(un):
+                            side = "Over"; ev_pct = float(ov) * 100.0
+                        else:
+                            side = "Under"; ev_pct = float(un) * 100.0
+                    elif ov_ok and not un_ok:
+                        side = "Over"; ev_pct = float(ov) * 100.0
                     elif un_ok and not ov_ok:
-                        ev_pct = float(un) * 100.0
+                        side = "Under"; ev_pct = float(un) * 100.0
                 # If no EV data at all for this row and it's ATD, skip (non-actionable)
                 if r.get("market_key") == "any_td" and (not ov_ok and not un_ok):
                     return {}
@@ -5701,7 +5706,8 @@ def api_props_recommendations():
                 "edge": r.get("edge"),
                 "over_price": r.get("over_price"),
                 "under_price": r.get("under_price"),
-                "side": r.get("rec_side"),
+                # Use inferred side (from rec_side or EV fallback) so UI can color prices
+                "side": side,
                 "ev_pct": ev_pct,
                 "is_ladder": is_ladder,
             }
