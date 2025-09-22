@@ -18,6 +18,14 @@ Set-Location -Path $Root
 $PythonVenv = Join-Path $Root '.venv/Scripts/python.exe'
 $Python = if (Test-Path $PythonVenv) { $PythonVenv } else { 'python' }
 
+# Allow env var to force git push without passing -GitPush explicitly
+if (-not $GitPush) {
+  $envPush = $env:DAILY_UPDATE_GITPUSH
+  if ($envPush -and ($envPush -match '^(1|true|yes|on)$')) {
+    $GitPush = $true
+  }
+}
+
 # Ensure log directory
 $LogPath = Join-Path $Root $LogDir
 if (-not (Test-Path $LogPath)) { New-Item -ItemType Directory -Path $LogPath | Out-Null }
@@ -171,4 +179,38 @@ if ($GitPush) {
 
   # Restore error handling
   $ErrorActionPreference = $PrevErrPref
+}
+else {
+  Write-Log 'Git: push disabled (use -GitPush or set DAILY_UPDATE_GITPUSH=1)'
+}
+
+# Post-push verification: if data dirs still have changes, attempt a secondary commit/push
+try {
+  $dirtyData = & git status --porcelain -- nfl_compare/data data 2>$null
+  if ($dirtyData) {
+    Write-Log 'Git: detected remaining changes in data dirs after run; attempting secondary commit/push'
+    # Stage again
+    & git add -- nfl_compare/data data 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+    # Check staged
+    $cachedAgain = & git diff --cached --name-only 2>$null
+    if ($cachedAgain) {
+      $CommitMsg2 = "Daily update (post-check): " + (Get-Date).ToString('u')
+      & git commit -m $CommitMsg2 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+      # Determine branch again
+      $Branch2 = $GitBranch
+      if (-not $Branch2) { $Branch2 = (& git rev-parse --abbrev-ref HEAD).Trim(); if (-not $Branch2) { $Branch2 = 'master' } }
+      # Pull --rebase and push if GitPush enabled, otherwise just log
+      if ($GitPush) {
+        & git pull --rebase $GitRemote $Branch2 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+        & git push $GitRemote $Branch2 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+        Write-Log "Git: secondary push attempted to $GitRemote/$Branch2"
+      } else {
+        Write-Log 'Git: secondary commit created but push disabled; run with -GitPush to publish'
+      }
+    } else {
+      Write-Log 'Git: no staged changes found on secondary attempt'
+    }
+  }
+} catch {
+  Write-Log "Git: post-push verification error: $($_.Exception.Message)"
 }
