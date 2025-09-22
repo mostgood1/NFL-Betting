@@ -3454,7 +3454,7 @@ def recommendations_page():
     date = request.args.get("date")
     active_week = None
 
-    # Determine default season/week: default to latest season, week 1 when no explicit filters
+    # Determine default season/week
     season_i = None
     week_i = None
     if season:
@@ -3475,18 +3475,23 @@ def recommendations_page():
                 season_i = int(src['season'].max())
         except Exception:
             season_i = None
-    if season_i is None and week_i is None and not date:
-        # Latest season from games (fallback to predictions)
+    # Default to inferred "current" week when no explicit week/date provided
+    if week_i is None and not date:
         try:
             src = games_df if (games_df is not None and not games_df.empty) else pred_df
-            if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
-                season_i = int(src['season'].max())
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_i, week_i = int(inferred[0]), int(inferred[1])
+            else:
+                # Fallback: latest season, week 1
+                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    if season_i is None:
+                        season_i = int(src['season'].max())
+                week_i = 1
         except Exception:
-            season_i = None
-        week_i = 1
-        active_week = 1
-    else:
-        active_week = week_i
+            # Last-resort fallback
+            week_i = 1
+    active_week = week_i
 
     # Build combined view and optionally filter by date
     view_df = _build_week_view(pred_df, games_df, season_i, week_i)
