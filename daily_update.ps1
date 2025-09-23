@@ -16,7 +16,9 @@ Param(
   [switch]$IncludeModel,
   # Optional reconciliation steps
   [switch]$ReconcileProps,
-  [switch]$ReconcileGames
+  [switch]$ReconcileGames,
+  [switch]$NoReconcileProps,
+  [switch]$NoReconcileGames
 )
 
 $ErrorActionPreference = 'Stop'
@@ -45,14 +47,27 @@ if (-not $IncludeModel) {
   $envIncModel = $env:DAILY_UPDATE_INCLUDE_MODEL
   if ($envIncModel -and ($envIncModel -match '^(1|true|yes|on)$')) { $IncludeModel = $true }
 }
-if (-not $ReconcileProps) {
-  $envReconProps = $env:DAILY_UPDATE_RECON_PROPS
-  if ($envReconProps -and ($envReconProps -match '^(1|true|yes|on)$')) { $ReconcileProps = $true }
+# Read env overrides (on/off) for reconciliation
+$envReconProps = $env:DAILY_UPDATE_RECON_PROPS
+if ($envReconProps) {
+  if ($envReconProps -match '^(0|false|no|off)$') { $ReconcileProps = $false }
+  elseif ($envReconProps -match '^(1|true|yes|on)$') { $ReconcileProps = $true }
 }
-if (-not $ReconcileGames) {
-  $envReconGames = $env:DAILY_UPDATE_RECON_GAMES
-  if ($envReconGames -and ($envReconGames -match '^(1|true|yes|on)$')) { $ReconcileGames = $true }
+$envReconGames = $env:DAILY_UPDATE_RECON_GAMES
+if ($envReconGames) {
+  if ($envReconGames -match '^(0|false|no|off)$') { $ReconcileGames = $false }
+  elseif ($envReconGames -match '^(1|true|yes|on)$') { $ReconcileGames = $true }
 }
+
+# Defaults: reconciliation ON unless explicitly disabled
+$ReconcilePropsFinal = $true
+$ReconcileGamesFinal = $true
+if ($NoReconcileProps) { $ReconcilePropsFinal = $false }
+if ($NoReconcileGames) { $ReconcileGamesFinal = $false }
+if ($ReconcileProps -eq $false) { $ReconcilePropsFinal = $false }
+if ($ReconcileGames -eq $false) { $ReconcileGamesFinal = $false }
+if ($ReconcileProps -eq $true) { $ReconcilePropsFinal = $true }
+if ($ReconcileGames -eq $true) { $ReconcileGamesFinal = $true }
 
 # Helper: resolve current season/week from env or nfl_compare/data/current_week.json
 function Resolve-CurrentWeek {
@@ -201,7 +216,7 @@ try {
 }
 
   # Optional: Reconcile props vs actuals for prior week
-  if ($ReconcileProps) {
+  if ($ReconcilePropsFinal) {
     try {
       $cur = Resolve-CurrentWeek
       if ($null -eq $cur) { throw 'Unable to resolve current week for reconciliation' }
@@ -216,7 +231,7 @@ try {
   }
 
   # Optional: Reconcile games schedule vs predictions for current week
-  if ($ReconcileGames) {
+  if ($ReconcileGamesFinal) {
     try {
       $cur = Resolve-CurrentWeek
       if ($null -eq $cur) { throw 'Unable to resolve current week for game reconciliation' }
