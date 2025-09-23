@@ -264,10 +264,10 @@
               {% if g.stadium_roof %}
                 <span class="chip">Roof {{ g.stadium_roof }}</span>
               {% endif %}
-              {% if g.market_total is not none %}
+              {% if g.market_total is number %}
                 <span class="chip">Total {{ '%.2f' % g.market_total }}</span>
               {% endif %}
-              {% if g.market_spread_home is not none %}
+              {% if g.market_spread_home is number %}
                 <span class="chip">Home {{ '%+.1f' % g.market_spread_home }}</span>
               {% endif %}
               <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
@@ -275,20 +275,20 @@
 
             <div class="odds">
               <div class="row"><span class="muted">Moneyline (Away / Home)</span><span>
-                {% if g.moneyline_away is not none %}{{ '%+d' % g.moneyline_away }}{% else %}-{% endif %}
+                {% if g.moneyline_away is number %}{{ '%+d' % g.moneyline_away }}{% else %}-{% endif %}
                 /
-                {% if g.moneyline_home is not none %}{{ '%+d' % g.moneyline_home }}{% else %}-{% endif %}
+                {% if g.moneyline_home is number %}{{ '%+d' % g.moneyline_home }}{% else %}-{% endif %}
               </span></div>
               <div class="row"><span class="muted">Implied Win Prob (Away / Home)</span><span>
-                {% if g.implied_away_prob is not none %}{{ '%.1f' % (g.implied_away_prob*100) }}%{% else %}-{% endif %}
+                {% if g.implied_away_prob is number %}{{ '%.1f' % (g.implied_away_prob*100) }}%{% else %}-{% endif %}
                 /
-                {% if g.implied_home_prob is not none %}{{ '%.1f' % (g.implied_home_prob*100) }}%{% else %}-{% endif %}
+                {% if g.implied_home_prob is number %}{{ '%.1f' % (g.implied_home_prob*100) }}%{% else %}-{% endif %}
               </span></div>
               <div class="row"><span class="muted">Spread (Home)</span><span>
-                {% if g.market_spread_home is not none %}{{ '%+.1f' % g.market_spread_home }}{% else %}-{% endif %}
+                {% if g.market_spread_home is number %}{{ '%+.1f' % g.market_spread_home }}{% else %}-{% endif %}
               </span></div>
               <div class="row"><span class="muted">Total</span><span>
-                {% if g.market_total is not none %}{{ '%.1f' % g.market_total }}{% else %}-{% endif %}
+                {% if g.market_total is number %}{{ '%.1f' % g.market_total }}{% else %}-{% endif %}
               </span></div>
             </div>
           </div>
