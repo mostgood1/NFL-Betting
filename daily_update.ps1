@@ -10,7 +10,13 @@ Param(
   [switch]$IncludeModel,
   # Remote/branch for push; if branch empty, current branch is used
   [string]$GitRemote = "origin",
-  [string]$GitBranch = ""
+  [string]$GitBranch = "",
+  # Optional pre-sync and artifact controls
+  [switch]$GitSyncFirst,
+  [switch]$IncludeModel,
+  # Optional reconciliation steps
+  [switch]$ReconcileProps,
+  [switch]$ReconcileGames
 )
 
 $ErrorActionPreference = 'Stop'
@@ -28,6 +34,45 @@ if (-not $GitPush) {
   if ($envPush -and ($envPush -match '^(1|true|yes|on)$')) {
     $GitPush = $true
   }
+}
+
+# Env toggles for optional features
+if (-not $GitSyncFirst) {
+  $envSync = $env:DAILY_UPDATE_GITSYNC
+  if ($envSync -and ($envSync -match '^(1|true|yes|on)$')) { $GitSyncFirst = $true }
+}
+if (-not $IncludeModel) {
+  $envIncModel = $env:DAILY_UPDATE_INCLUDE_MODEL
+  if ($envIncModel -and ($envIncModel -match '^(1|true|yes|on)$')) { $IncludeModel = $true }
+}
+if (-not $ReconcileProps) {
+  $envReconProps = $env:DAILY_UPDATE_RECON_PROPS
+  if ($envReconProps -and ($envReconProps -match '^(1|true|yes|on)$')) { $ReconcileProps = $true }
+}
+if (-not $ReconcileGames) {
+  $envReconGames = $env:DAILY_UPDATE_RECON_GAMES
+  if ($envReconGames -and ($envReconGames -match '^(1|true|yes|on)$')) { $ReconcileGames = $true }
+}
+
+# Helper: resolve current season/week from env or nfl_compare/data/current_week.json
+function Resolve-CurrentWeek {
+  $s = $null; $w = $null
+  if ($env:CURRENT_SEASON) { [int]::TryParse($env:CURRENT_SEASON, [ref]$s) | Out-Null }
+  if (-not $s -and $env:DEFAULT_SEASON) { [int]::TryParse($env:DEFAULT_SEASON, [ref]$s) | Out-Null }
+  if ($env:CURRENT_WEEK) { [int]::TryParse($env:CURRENT_WEEK, [ref]$w) | Out-Null }
+  if (-not $w -and $env:DEFAULT_WEEK) { [int]::TryParse($env:DEFAULT_WEEK, [ref]$w) | Out-Null }
+  if ($s -and $w) { return @{ Season = [int]$s; Week = [int]$w } }
+  $fp = Join-Path (Join-Path $Root 'nfl_compare') 'data/current_week.json'
+  if (Test-Path $fp) {
+    try {
+      $obj = Get-Content -Raw -Path $fp | ConvertFrom-Json
+      $ss = 0; $ww = 0
+      if ($obj.season) { [int]::TryParse([string]$obj.season, [ref]$ss) | Out-Null }
+      if ($obj.week) { [int]::TryParse([string]$obj.week, [ref]$ww) | Out-Null }
+      if ($ss -and $ww) { return @{ Season = [int]$ss; Week = [int]$ww } }
+    } catch { }
+  }
+  return $null
 }
 
 # Allow env vars to control pre-sync and model inclusion
@@ -56,6 +101,24 @@ function Write-Log {
 
 Write-Log "Starting daily update run"
 Write-Log "Python: $Python"
+
+# Optional pre-sync (reduce conflicts before artifact generation)
+if ($GitSyncFirst) {
+  try {
+    Write-Log 'Git: pre-sync (pull --rebase)'
+    try { git --version | Out-Null } catch { throw }
+    & git rev-parse --is-inside-work-tree 2>$null | Out-Null
+    if ($LASTEXITCODE -eq 0) {
+      $Branch0 = $GitBranch
+      if (-not $Branch0) { $Branch0 = (& git rev-parse --abbrev-ref HEAD).Trim(); if (-not $Branch0) { $Branch0 = 'master' } }
+      & git pull --rebase $GitRemote $Branch0 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } else {
+      Write-Log 'Git: pre-sync skipped (not a git repository)'
+    }
+  } catch {
+    Write-Log "Git: pre-sync failed: $($_.Exception.Message)"
+  }
+}
 
 # Optional pre-sync (pull --rebase) to reduce conflicts before generating artifacts
 if ($GitSyncFirst) {
@@ -136,6 +199,35 @@ try {
   Write-Log "props_pipeline failed: $($_.Exception.Message)"
   exit 1
 }
+
+  # Optional: Reconcile props vs actuals for prior week
+  if ($ReconcileProps) {
+    try {
+      $cur = Resolve-CurrentWeek
+      if ($null -eq $cur) { throw 'Unable to resolve current week for reconciliation' }
+      $Season = [int]$cur.Season
+      $Week = [int]$cur.Week
+      $PriorWeek = [Math]::Max(1, $Week - 1)
+      Write-Log "Recon: props vs actuals (Season=$Season Week=$PriorWeek)"
+      & $Python scripts/reconcile_props_vs_actuals.py --season $Season --week $PriorWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } catch {
+      Write-Log "Recon props failed: $($_.Exception.Message)"
+    }
+  }
+
+  # Optional: Reconcile games schedule vs predictions for current week
+  if ($ReconcileGames) {
+    try {
+      $cur = Resolve-CurrentWeek
+      if ($null -eq $cur) { throw 'Unable to resolve current week for game reconciliation' }
+      $Season = [int]$cur.Season
+      $Week = [int]$cur.Week
+      Write-Log "Recon: schedule vs predictions (Season=$Season Week=$Week)"
+      & $Python scripts/reconcile_schedule_vs_predictions.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } catch {
+      Write-Log "Recon games failed: $($_.Exception.Message)"
+    }
+  }
 
 Write-Log 'Completed successfully'
 
