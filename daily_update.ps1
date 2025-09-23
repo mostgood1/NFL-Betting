@@ -4,6 +4,10 @@ Param(
   [switch]$NoTrain,
   # If set, stage/commit/pull --rebase/push repo changes (data/ and nfl_compare/data)
   [switch]$GitPush,
+  # If set, do a 'git pull --rebase' before running to reduce conflicts
+  [switch]$GitSyncFirst,
+  # Include model artifact even if ignored (force add)
+  [switch]$IncludeModel,
   # Remote/branch for push; if branch empty, current branch is used
   [string]$GitRemote = "origin",
   [string]$GitBranch = ""
@@ -26,6 +30,16 @@ if (-not $GitPush) {
   }
 }
 
+# Allow env vars to control pre-sync and model inclusion
+if (-not $GitSyncFirst) {
+  $envSync = $env:DAILY_UPDATE_GITSYNC
+  if ($envSync -and ($envSync -match '^(1|true|yes|on)$')) { $GitSyncFirst = $true }
+}
+if (-not $IncludeModel) {
+  $envIncModel = $env:DAILY_UPDATE_INCLUDE_MODEL
+  if ($envIncModel -and ($envIncModel -match '^(1|true|yes|on)$')) { $IncludeModel = $true }
+}
+
 # Ensure log directory
 $LogPath = Join-Path $Root $LogDir
 if (-not (Test-Path $LogPath)) { New-Item -ItemType Directory -Path $LogPath | Out-Null }
@@ -42,6 +56,24 @@ function Write-Log {
 
 Write-Log "Starting daily update run"
 Write-Log "Python: $Python"
+
+# Optional pre-sync (pull --rebase) to reduce conflicts before generating artifacts
+if ($GitSyncFirst) {
+  try {
+    Write-Log 'Git: pre-sync (pull --rebase)'
+    try { git --version | Out-Null } catch { throw }
+    & git rev-parse --is-inside-work-tree 2>$null | Out-Null
+    if ($LASTEXITCODE -eq 0) {
+      $Branch0 = $GitBranch
+      if (-not $Branch0) { $Branch0 = (& git rev-parse --abbrev-ref HEAD).Trim(); if (-not $Branch0) { $Branch0 = 'master' } }
+      & git pull --rebase $GitRemote $Branch0 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } else {
+      Write-Log 'Git: pre-sync skipped (not a git repository)'
+    }
+  } catch {
+    Write-Log "Git: pre-sync failed: $($_.Exception.Message)"
+  }
+}
 
 # Optional model training (skip if NoTrain)
 if (-not $NoTrain) {
@@ -125,8 +157,8 @@ if ($GitPush) {
   }
   # Stage typical data directories and updated models, but avoid logs to reduce noise
   & git add -- nfl_compare/data data 2>$null | Tee-Object -FilePath $LogFile -Append
-  if (Test-Path 'nfl_compare/models/nfl_models.joblib') {
-    & git add -- 'nfl_compare/models/nfl_models.joblib' 2>$null | Tee-Object -FilePath $LogFile -Append
+  if ($IncludeModel -and (Test-Path 'nfl_compare/models/nfl_models.joblib')) {
+    & git add -f -- 'nfl_compare/models/nfl_models.joblib' 2>$null | Tee-Object -FilePath $LogFile -Append
   }
 
   # If there are remaining unstaged changes (e.g., logs), stash them while keeping index intact
