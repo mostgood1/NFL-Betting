@@ -11,9 +11,6 @@ Param(
   # Remote/branch for push; if branch empty, current branch is used
   [string]$GitRemote = "origin",
   [string]$GitBranch = "",
-  # Optional pre-sync and artifact controls
-  [switch]$GitSyncFirst,
-  [switch]$IncludeModel,
   # Optional reconciliation steps
   [switch]$ReconcileProps,
   [switch]$ReconcileGames,
