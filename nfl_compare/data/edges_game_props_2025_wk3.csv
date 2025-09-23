@@ -1,129 +1,53 @@
-event,game_time,home_team,away_team,market_key,market_name,period,team_side,line,price_home,price_away,over_price,under_price,is_alternate,price,threshold,range_low,range_high,range_type,total_line,spread_line,total_side,winner,combo,ht_result,ft_result,tie,side,ev_units,edge_pts
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,43.5,,,-380.0,265.0,True,,,,,,,,,,,,,,Over,0.21226555733083197,17.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,43.5,,,-380.0,265.0,True,,,,,,,,,,,,,,Under,-0.8529423500372167,-17.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,44.5,,,-330.0,235.0,True,,,,,,,,,,,,,,Over,0.23821135377484587,16.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,44.5,,,-330.0,235.0,True,,,,,,,,,,,,,,Under,-0.8333550037164934,-16.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,45.5,,,-290.0,210.0,True,,,,,,,,,,,,,,Over,0.2629390926612324,15.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,45.5,,,-290.0,210.0,True,,,,,,,,,,,,,,Under,-0.8112365238524304,-15.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,46.5,,,-260.0,190.0,True,,,,,,,,,,,,,,Over,0.28228982399555375,14.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,46.5,,,-260.0,190.0,True,,,,,,,,,,,,,,Under,-0.7856847980351321,-14.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,47.5,,,-220.0,165.0,True,,,,,,,,,,,,,,Over,0.3251833446303063,13.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,47.5,,,-220.0,165.0,True,,,,,,,,,,,,,,Under,-0.7643184059983392,-13.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,48.5,,,-200.0,150.0,True,,,,,,,,,,,,,,Over,0.3407935250115661,12.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,48.5,,,-200.0,150.0,True,,,,,,,,,,,,,,Under,-0.7346558750192769,-12.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,49.5,,,-180.0,135.0,True,,,,,,,,,,,,,,Over,0.36014364689779466,11.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,49.5,,,-180.0,135.0,True,,,,,,,,,,,,,,Under,-0.7047884379920255,-11.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,50.5,,,-160.0,120.0,True,,,,,,,,,,,,,,Over,0.3853564827084386,10.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,50.5,,,-160.0,120.0,True,,,,,,,,,,,,,,Under,-0.6755595458206552,-10.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,51.0,,,-145.0,110.0,True,,,,,,,,,,,,,,Over,0.4204907894043941,9.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,51.0,,,-145.0,110.0,True,,,,,,,,,,,,,,Under,-0.6654671239740326,-9.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,51.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Over,0.44179554316791037,9.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,51.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Under,-0.647944325837103,-9.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,52.0,,,-130.0,,True,,,,,,,,,,,,,,Over,0.4423290493479568,8.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,52.0,,,-130.0,,True,,,,,,,,,,,,,,Under,,-8.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,52.5,,,-125.0,-105.0,True,,,,,,,,,,,,,,Over,0.44287158312883135,8.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,52.5,,,-125.0,-105.0,True,,,,,,,,,,,,,,Under,-0.6126384896370922,-8.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,53.0,,,-115.0,-115.0,True,,,,,,,,,,,,,,Over,0.47204193382278925,7.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,53.0,,,-115.0,-115.0,True,,,,,,,,,,,,,,Under,-0.602476716431485,-7.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,54.0,,,,-130.0,True,,,,,,,,,,,,,,Over,,6.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,54.0,,,,-130.0,True,,,,,,,,,,,,,,Under,-0.570435889314554,-6.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,54.5,,,105.0,-135.0,True,,,,,,,,,,,,,,Over,0.5196483616546373,6.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,54.5,,,105.0,-135.0,True,,,,,,,,,,,,,,Under,-0.5496562420554284,-6.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,55.0,,,110.0,-145.0,True,,,,,,,,,,,,,,Over,0.5222009035202047,5.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,55.0,,,110.0,-145.0,True,,,,,,,,,,,,,,Under,-0.5351041752461416,-5.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,55.5,,,120.0,-160.0,True,,,,,,,,,,,,,,Over,0.557435278027743,5.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,55.5,,,120.0,-160.0,True,,,,,,,,,,,,,,Under,-0.5253783303614009,-5.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,56.5,,,130.0,-170.0,True,,,,,,,,,,,,,,Over,0.5471704366543523,4.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,56.5,,,130.0,-170.0,True,,,,,,,,,,,,,,Under,-0.4801432682779415,-4.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,57.5,,,150.0,-200.0,True,,,,,,,,,,,,,,Over,0.5895738608155102,3.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,57.5,,,150.0,-200.0,True,,,,,,,,,,,,,,Under,-0.45374431648930613,-3.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,58.5,,,170.0,-230.0,True,,,,,,,,,,,,,,Over,0.6137221439943907,2.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,58.5,,,170.0,-230.0,True,,,,,,,,,,,,,,Under,-0.422750897774797,-2.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,59.5,,,190.0,-260.0,True,,,,,,,,,,,,,,Over,0.6198400611219468,1.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,59.5,,,190.0,-260.0,True,,,,,,,,,,,,,,Under,-0.38878305305557137,-1.4733333333333363
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,60.5,,,210.0,-290.0,True,,,,,,,,,,,,,,Over,0.6085162793832964,0.47333333333333627
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,60.5,,,210.0,-290.0,True,,,,,,,,,,,,,,Under,-0.35297146714069594,-0.47333333333333627
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,61.5,,,240.0,-340.0,True,,,,,,,,,,,,,,Over,0.6285957471026993,-0.5266666666666637
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,61.5,,,240.0,-340.0,True,,,,,,,,,,,,,,Under,-0.3257630871325152,0.5266666666666637
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,62.5,,,275.0,-400.0,True,,,,,,,,,,,,,,Over,0.6474896538298932,-1.5266666666666637
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,62.5,,,275.0,-400.0,True,,,,,,,,,,,,,,Under,-0.2991632179432977,1.5266666666666637
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,28.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Over,0.739726830028351,32.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,28.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Under,-0.9988059583418986,-32.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,21.5,,,-150.0,115.0,True,,,,,,,,,,,,,,Over,0.6666008112543026,39.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,21.5,,,-150.0,115.0,True,,,,,,,,,,,,,,Under,-0.9999150465180505,-39.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,23.0,,,-215.0,160.0,True,,,,,,,,,,,,,,Over,0.46500913434560476,37.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,23.0,,,-215.0,160.0,True,,,,,,,,,,,,,,Under,-0.999809860632359,-37.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,23.5,,,-185.0,140.0,True,,,,,,,,,,,,,,Over,0.540402874362044,37.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,23.5,,,-185.0,140.0,True,,,,,,,,,,,,,,Under,-0.9997855305850791,-37.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,24.0,,,-160.0,120.0,True,,,,,,,,,,,,,,Over,0.6248229756099934,36.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,24.0,,,-160.0,120.0,True,,,,,,,,,,,,,,Under,-0.9997603362104527,-36.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,24.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Over,0.7405101134136381,36.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,24.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Under,-0.9997283995201037,-36.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,25.5,,,-130.0,,True,,,,,,,,,,,,,,Over,0.7688865194854901,35.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,25.5,,,-130.0,,True,,,,,,,,,,,,,,Under,,-35.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,26.0,,,-125.0,-105.0,True,,,,,,,,,,,,,,Over,0.7995770591767486,34.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,26.0,,,-125.0,-105.0,True,,,,,,,,,,,,,,Under,-0.9995412546626108,-34.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,27.0,,,,-130.0,True,,,,,,,,,,,,,,Over,,33.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,27.0,,,,-130.0,True,,,,,,,,,,,,,,Under,-0.9993980544016247,-33.973333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,27.5,,,110.0,-145.0,True,,,,,,,,,,,,,,Over,1.0991432731367112,33.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points,G,,27.5,,,110.0,-145.0,True,,,,,,,,,,,,,,Under,-0.9993106795352846,-33.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,14.5,,,105.0,-135.0,True,,,,,,,,,,,,,,Over,1.0499965534008657,46.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,14.5,,,105.0,-135.0,True,,,,,,,,,,,,,,Under,-0.9999970733485222,-46.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,10.5,,,-110.0,-120.0,True,,,,,,,,,,,,,,Over,0.9090904814361204,50.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,10.5,,,-110.0,-120.0,True,,,,,,,,,,,,,,Under,-0.9999995893156394,-50.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,6.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Over,0.740740696238192,54.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Baltimore Ravens,G,,6.5,,,-135.0,105.0,True,,,,,,,,,,,,,,Under,-0.9999999475911475,-54.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,3.5,,,110.0,-145.0,True,,,,,,,,,,,,,,Over,1.0999999904805016,57.473333333333336
-Detroit Lions @ Baltimore Ravens,1758586500000,Ravens,Lions,alt_total,Total Points - Detroit Lions,G,,3.5,,,110.0,-145.0,True,,,,,,,,,,,,,,Under,-0.9999999923406333,-57.473333333333336
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Minnesota Vikings @ Pittsburgh Steelers,1759066200000,Steelers,Vikings,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Minnesota Vikings @ Pittsburgh Steelers,1759066200000,Steelers,Vikings,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Philadelphia Eagles @ Tampa Bay Buccaneers,1759078800000,Buccaneers,Eagles,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Philadelphia Eagles @ Tampa Bay Buccaneers,1759078800000,Buccaneers,Eagles,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Tennessee Titans @ Houston Texans,1759078800000,Texans,Titans,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Tennessee Titans @ Houston Texans,1759078800000,Texans,Titans,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Indianapolis Colts @ Los Angeles Rams,1759089900000,Rams,Colts,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Indianapolis Colts @ Los Angeles Rams,1759089900000,Rams,Colts,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Chicago Bears @ Las Vegas Raiders,1759091100000,Raiders,Bears,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Chicago Bears @ Las Vegas Raiders,1759091100000,Raiders,Bears,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Green Bay Packers @ Dallas Cowboys,1759105200000,Cowboys,Packers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Green Bay Packers @ Dallas Cowboys,1759105200000,Cowboys,Packers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,,
-Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,,
+event,game_time,home_team,away_team,market_key,market_name,period,team_side,line,price_home,price_away,over_price,under_price,is_alternate,price,threshold,range_low,range_high,range_type,total_line,spread_line,total_side,winner,combo,ht_result,ft_result,tie,side,ev_units
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Seattle Seahawks @ Arizona Cardinals,1758845700000,Cardinals,Seahawks,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Minnesota Vikings @ Pittsburgh Steelers,1759066200000,Steelers,Vikings,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Minnesota Vikings @ Pittsburgh Steelers,1759066200000,Steelers,Vikings,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Carolina Panthers @ New England Patriots,1759078800000,Patriots,Panthers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Los Angeles Chargers @ New York Giants,1759078800000,Giants,Chargers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Los Angeles Chargers @ New York Giants,1759078800000,Giants,Chargers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New Orleans Saints @ Buffalo Bills,1759078800000,Bills,Saints,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Philadelphia Eagles @ Tampa Bay Buccaneers,1759078800000,Buccaneers,Eagles,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Philadelphia Eagles @ Tampa Bay Buccaneers,1759078800000,Buccaneers,Eagles,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Tennessee Titans @ Houston Texans,1759078800000,Texans,Titans,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Tennessee Titans @ Houston Texans,1759078800000,Texans,Titans,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Washington Commanders @ Atlanta Falcons,1759078800000,Falcons,Commanders,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Washington Commanders @ Atlanta Falcons,1759078800000,Falcons,Commanders,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Indianapolis Colts @ Los Angeles Rams,1759089900000,Rams,Colts,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Indianapolis Colts @ Los Angeles Rams,1759089900000,Rams,Colts,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Jacksonville Jaguars @ San Francisco 49ers,1759089900000,49ers,Jaguars,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Jacksonville Jaguars @ San Francisco 49ers,1759089900000,49ers,Jaguars,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Chicago Bears @ Las Vegas Raiders,1759091100000,Raiders,Bears,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Chicago Bears @ Las Vegas Raiders,1759091100000,Raiders,Bears,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Green Bay Packers @ Dallas Cowboys,1759105200000,Cowboys,Packers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Green Bay Packers @ Dallas Cowboys,1759105200000,Cowboys,Packers,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+New York Jets @ Miami Dolphins,1759187700000,Dolphins,Jets,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,home,
+Cincinnati Bengals @ Denver Broncos,1759191300000,Broncos,Bengals,moneyline,Moneyline,G,,,,,,,False,,,,,,,,,,,,,,away,

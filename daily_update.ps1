@@ -15,10 +15,9 @@ Param(
   [switch]$ReconcileProps,
   [switch]$ReconcileGames,
   [switch]$NoReconcileProps,
-  [switch]$NoReconcileGames
-    [switch]$NoReconcileGames,
-    # Control failure behavior when props pipeline errors occur (default: continue)
-    [switch]$FailOnPipeline
+  [switch]$NoReconcileGames,
+  # Control failure behavior when props pipeline errors occur (default: continue)
+  [switch]$FailOnPipeline
 )
 
 $ErrorActionPreference = 'Stop'
@@ -95,15 +94,7 @@ function Resolve-CurrentWeek {
   return $null
 }
 
-# Allow env vars to control pre-sync and model inclusion
-if (-not $GitSyncFirst) {
-  $envSync = $env:DAILY_UPDATE_GITSYNC
-  if ($envSync -and ($envSync -match '^(1|true|yes|on)$')) { $GitSyncFirst = $true }
-}
-if (-not $IncludeModel) {
-  $envIncModel = $env:DAILY_UPDATE_INCLUDE_MODEL
-  if ($envIncModel -and ($envIncModel -match '^(1|true|yes|on)$')) { $IncludeModel = $true }
-}
+## (env toggles applied above)
 
 # Ensure log directory
 $LogPath = Join-Path $Root $LogDir
@@ -123,24 +114,6 @@ Write-Log "Starting daily update run"
 Write-Log "Python: $Python"
 
 # Optional pre-sync (reduce conflicts before artifact generation)
-if ($GitSyncFirst) {
-  try {
-    Write-Log 'Git: pre-sync (pull --rebase)'
-    try { git --version | Out-Null } catch { throw }
-    & git rev-parse --is-inside-work-tree 2>$null | Out-Null
-    if ($LASTEXITCODE -eq 0) {
-      $Branch0 = $GitBranch
-      if (-not $Branch0) { $Branch0 = (& git rev-parse --abbrev-ref HEAD).Trim(); if (-not $Branch0) { $Branch0 = 'master' } }
-      & git pull --rebase $GitRemote $Branch0 2>$null | Tee-Object -FilePath $LogFile -Append | Out-Null
-    } else {
-      Write-Log 'Git: pre-sync skipped (not a git repository)'
-    }
-  } catch {
-    Write-Log "Git: pre-sync failed: $($_.Exception.Message)"
-  }
-}
-
-# Optional pre-sync (pull --rebase) to reduce conflicts before generating artifacts
 if ($GitSyncFirst) {
   try {
     Write-Log 'Git: pre-sync (pull --rebase)'

@@ -192,10 +192,19 @@ def main() -> int:
             pass
         if "_dist" in base.columns:
             base = base.drop(columns=["_dist"])
+        # Ensure market_norm survived grouping; if missing, derive from 'market' or set empty
+        if "market_norm" not in base.columns:
+            if "market" in base.columns:
+                base["market_norm"] = base["market"].astype(str).str.strip().str.lower()
+            else:
+                base["market_norm"] = ""
         # Generate rungs around baseline
         rows: List[dict] = []
         for _, r in base.iterrows():
-            market_norm = r["market_norm"]
+            # Safe access and fallback
+            market_norm = r.get("market_norm")
+            if market_norm is None or (isinstance(market_norm, float) and np.isnan(market_norm)):
+                market_norm = str(r.get("market") or "").strip().lower()
             market = r.get("market")
             player = r.get(pcol_s)
             team = r.get("team", np.nan)

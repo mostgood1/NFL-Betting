@@ -1,299 +1,34 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Jared Goff,DET,Passing Yards,400.0,1500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-146.9,-0.9997837572470996,,,146.9
-Lamar Jackson,BAL,Passing Yards,150.0,-1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,144.89999999999998,0.08331452093467025,,,144.89999999999998
-Derrick Henry,BAL,Rushing Yards,175.0,1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-134.2,-1.0,,,134.2
-Jared Goff,DET,Passing Yards,375.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-121.9,-0.9970234419040283,,,121.9
-Lamar Jackson,BAL,Passing Yards,175.0,-500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,119.89999999999998,0.19963208898063015,,,119.89999999999998
-Derrick Henry,BAL,Rushing Yards,150.0,700.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-109.2,-0.9999999999999751,,,109.2
-Amon-Ra St. Brown,DET,Receiving Yards,150.0,1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-106.3,-0.9999999973818396,,,106.3
-Jared Goff,DET,Passing Yards,350.0,625.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-96.9,-0.9795902920769523,,,96.9
-Lamar Jackson,BAL,Passing Yards,200.0,-260.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,94.89999999999998,0.3799773403020557,,,94.89999999999998
-Jameson Williams,DET,Receiving Yards,125.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-89.0,-0.9999990116659214,,,89.0
-Derrick Henry,BAL,Rushing Yards,125.0,300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-84.2,-0.9999999963863682,,,84.2
-Lamar Jackson,BAL,Rushing Yards,110.0,1500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-83.5,-0.9999999803434818,,,83.5
-Amon-Ra St. Brown,DET,Receiving Yards,125.0,575.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-81.3,-0.9999941526393333,,,81.3
-Sam LaPorta,DET,Receiving Yards,110.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-81.0,-0.9999886522408643,,,81.0
-Lamar Jackson,BAL,Passing Yards,375.0,1700.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,-80.10000000000002,-0.8010616101094734,,,80.10000000000002
-Jared Goff,DET,Passing Yards,175.0,-1500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,78.1,0.05298519784423458,,,78.1
-Zay Flowers,BAL,Receiving Yards,150.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-77.7,-0.9999708185747778,,,77.7
-Jameson Williams,DET,Receiving Yards,110.0,700.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-74.0,-0.9999462707197506,,,74.0
-Lamar Jackson,BAL,Rushing Yards,100.0,1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-73.5,-0.9999990113551328,,,73.5
-Jared Goff,DET,Passing Yards,325.0,350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-71.9,-0.9101168951915624,,,71.9
-Sam LaPorta,DET,Receiving Yards,100.0,800.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-71.0,-0.9998667698483914,,,71.0
-Lamar Jackson,BAL,Passing Yards,225.0,-145.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,69.89999999999998,0.650953902481866,,,69.89999999999998
-Derrick Henry,BAL,Rushing Yards,110.0,200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-69.2,-0.9999988452115399,,,69.2
-Amon-Ra St. Brown,DET,Receiving Yards,110.0,350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-66.3,-0.9997835664519208,,,66.3
-Mark Andrews,BAL,Receiving Yards,100.0,1300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-66.1,-0.9992931699981848,,,66.1
-Jameson Williams,DET,Receiving Yards,100.0,530.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-64.0,-0.9994747525152043,,,64.0
-Lamar Jackson,BAL,Rushing Yards,90.0,875.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-63.5,-0.9999720131829755,,,63.5
-Sam LaPorta,DET,Receiving Yards,90.0,530.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-61.0,-0.9989512901163867,,,61.0
-Derrick Henry,BAL,Rushing Yards,100.0,135.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-59.2,-0.9999723663672627,,,59.2
-Jahmyr Gibbs,DET,Rushing Yards,25.0,-1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,58.900000000000006,0.0833193247681457,,,58.900000000000006
-Amon-Ra St. Brown,DET,Receiving Yards,100.0,250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-56.3,-0.9983775840052127,,,56.3
-Mark Andrews,BAL,Receiving Yards,90.0,850.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-56.1,-0.9954074706473541,,,56.1
-Rashod Bateman,BAL,Receiving Yards,110.0,1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-55.8,-0.9933085967001882,,,55.8
-Lamar Jackson,BAL,Passing Yards,350.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,-55.10000000000002,-0.3074715344439447,,,55.10000000000002
-David Montgomery,DET,Rushing Yards,100.0,1400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-54.0,-0.9991395990921511,,,54.0
-Jameson Williams,DET,Receiving Yards,90.0,370.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-54.0,-0.9964966457230694,,,54.0
-Jahmyr Gibbs,DET,Rushing Yards,30.0,-625.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,53.900000000000006,0.1599314916615939,,,53.900000000000006
-Lamar Jackson,BAL,Rushing Yards,80.0,625.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-53.5,-0.9995190319364361,,,53.5
-Jared Goff,DET,Passing Yards,200.0,-600.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,53.099999999999994,0.09128213843628977,,,53.099999999999994
-Zay Flowers,BAL,Receiving Yards,125.0,530.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-52.7,-0.9939040997567242,,,52.7
-Sam LaPorta,DET,Receiving Yards,80.0,360.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-51.0,-0.9937904690545015,,,51.0
-Derrick Henry,BAL,Rushing Yards,90.0,-110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-49.2,-0.9995791043805938,,,49.2
-DeAndre Hopkins,BAL,Receiving Yards,80.0,1500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,-47.2,-0.9560379146306897,,,47.2
-Jared Goff,DET,Passing Yards,300.0,220.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-46.900000000000006,-0.7116074481137522,,,46.900000000000006
-Amon-Ra St. Brown,DET,Receiving Yards,90.0,175.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-46.3,-0.9911190861546897,,,46.3
-Mark Andrews,BAL,Receiving Yards,80.0,630.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-46.1,-0.9755719804976604,,,46.1
-Rashod Bateman,BAL,Receiving Yards,100.0,850.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-45.8,-0.96647675681704,,,45.8
-Lamar Jackson,BAL,Passing Yards,250.0,125.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,44.89999999999998,1.0255151037480044,,,44.89999999999998
-Rashod Bateman,BAL,Receiving Yards,10.0,-1000.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,44.2,0.09487269317390948,,,44.2
-David Montgomery,DET,Rushing Yards,90.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-44.0,-0.9899615516670863,,,44.0
-Jameson Williams,DET,Receiving Yards,80.0,270.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-44.0,-0.9821532239173268,,,44.0
-Jahmyr Gibbs,DET,Rushing Yards,40.0,-275.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,43.900000000000006,0.3624674809106014,,,43.900000000000006
-Lamar Jackson,BAL,Rushing Yards,70.0,360.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-43.5,-0.995655182996234,,,43.5
-Zay Flowers,BAL,Receiving Yards,30.0,-1300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,42.3,0.07001037414746603,,,42.3
-Jahmyr Gibbs,DET,Rushing Yards,125.0,1400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,-41.099999999999994,-0.975041449234544,,,41.099999999999994
-Sam LaPorta,DET,Receiving Yards,70.0,240.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-41.0,-0.9730116107031225,,,41.0
-Rashod Bateman,BAL,Receiving Yards,15.0,-530.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,39.2,0.1761284524751197,,,39.2
-Derrick Henry,BAL,Rushing Yards,80.0,-160.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-39.2,-0.9958479132130547,,,39.2
-Zay Flowers,BAL,Receiving Yards,110.0,340.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-37.7,-0.9415264055093837,,,37.7
-DeAndre Hopkins,BAL,Receiving Yards,70.0,1100.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,-37.2,-0.8280851953072246,,,37.2
-Amon-Ra St. Brown,DET,Receiving Yards,80.0,120.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-36.3,-0.9639893075692428,,,36.3
-Mark Andrews,BAL,Receiving Yards,70.0,460.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-36.1,-0.9056133620177846,,,36.1
-Rashod Bateman,BAL,Receiving Yards,90.0,675.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-35.8,-0.8635435298879707,,,35.8
-Rashod Bateman,BAL,Receiving Yards,20.0,-350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,34.2,0.2572712346705203,,,34.2
-Jameson Williams,DET,Receiving Yards,70.0,185.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-34.0,-0.9351621239476895,,,34.0
-David Montgomery,DET,Rushing Yards,80.0,750.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-34.0,-0.935576634770882,,,34.0
-Jahmyr Gibbs,DET,Rushing Yards,50.0,-150.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,33.900000000000006,0.653783634228085,,,33.900000000000006
-Lamar Jackson,BAL,Rushing Yards,60.0,220.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-33.5,-0.9732516017930589,,,33.5
-Zay Flowers,BAL,Receiving Yards,40.0,-600.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,32.3,0.13316401354799792,,,32.3
-David Montgomery,DET,Rushing Yards,15.0,-1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,31.0,0.06881172086238556,,,31.0
-Sam LaPorta,DET,Receiving Yards,60.0,150.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-31.0,-0.9147209416931124,,,31.0
-Lamar Jackson,BAL,Passing Yards,325.0,675.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,-30.100000000000023,0.5104325397015128,,,30.100000000000023
-Rashod Bateman,BAL,Receiving Yards,25.0,-250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,29.200000000000003,0.33989729212033637,,,29.200000000000003
-Derrick Henry,BAL,Rushing Yards,70.0,-250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-29.200000000000003,-0.9740968418685069,,,29.200000000000003
-Jared Goff,DET,Passing Yards,225.0,-295.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,28.099999999999994,0.05641925886979032,,,28.099999999999994
-Zay Flowers,BAL,Receiving Yards,100.0,255.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-27.700000000000003,-0.8167740631339502,,,27.700000000000003
-DeAndre Hopkins,BAL,Receiving Yards,60.0,750.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,-27.200000000000003,-0.5342060205537575,,,27.200000000000003
-Justice Hill,BAL,Rushing Yards,50.0,1400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,-26.6,-0.5692516027599739,,,26.6
-Amon-Ra St. Brown,DET,Receiving Yards,70.0,-130.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-26.299999999999997,-0.8922104452898055,,,26.299999999999997
-Mark Andrews,BAL,Receiving Yards,60.0,280.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-26.1,-0.7630479630111537,,,26.1
-Jahmyr Gibbs,DET,Rushing Yards,110.0,875.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,-26.099999999999994,-0.6963772395313857,,,26.099999999999994
-David Montgomery,DET,Rushing Yards,20.0,-500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,26.0,0.16202550065999258,,,26.0
-Rashod Bateman,BAL,Receiving Yards,80.0,500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-25.799999999999997,-0.6126898094637732,,,25.799999999999997
-Rashod Bateman,BAL,Receiving Yards,30.0,-180.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,24.200000000000003,0.4353245338451849,,,24.200000000000003
-David Montgomery,DET,Rushing Yards,70.0,480.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-24.0,-0.7492188300683698,,,24.0
-Jameson Williams,DET,Receiving Yards,60.0,125.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-24.0,-0.8222283394216764,,,24.0
-Jahmyr Gibbs,DET,Rushing Yards,60.0,115.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,23.900000000000006,1.055619834285493,,,23.900000000000006
-Mark Andrews,BAL,Receiving Yards,10.0,-1300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,23.9,-0.009101033563139668,,,23.9
-Lamar Jackson,BAL,Rushing Yards,50.0,125.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-23.5,-0.8951099513726386,,,23.5
-DeAndre Hopkins,BAL,Receiving Yards,10.0,-275.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,22.799999999999997,0.24100238827592613,,,22.799999999999997
-Zay Flowers,BAL,Receiving Yards,50.0,-320.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,22.299999999999997,0.18807530394282862,,,22.299999999999997
-Jared Goff,DET,Passing Yards,275.0,115.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,-21.900000000000006,-0.4286349615152056,,,21.900000000000006
-David Montgomery,DET,Rushing Yards,25.0,-325.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,21.0,0.2203290444945702,,,21.0
-Jameson Williams,DET,Receiving Yards,15.0,-1200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,21.0,-0.034057242013653385,,,21.0
-Sam LaPorta,DET,Receiving Yards,50.0,-120.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-21.0,-0.8013390263358687,,,21.0
-Lamar Jackson,BAL,Passing Yards,275.0,225.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,19.899999999999977,1.3243235941726428,,,19.899999999999977
-Derrick Henry,BAL,Rushing Yards,60.0,-400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-19.200000000000003,-0.8935991275564915,,,19.200000000000003
-Mark Andrews,BAL,Receiving Yards,15.0,-660.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,18.9,-0.0017741600464734608,,,18.9
-Derrick Henry,BAL,Receiving Yards,10.0,150.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,28.5,18.5,1.1543859407250572,,,18.5
-Jahmyr Gibbs,DET,Receiving Yards,40.0,250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,-17.9,-0.4883560827880379,,,17.9
-DeAndre Hopkins,BAL,Receiving Yards,15.0,-160.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,17.799999999999997,0.3852536352972109,,,17.799999999999997
-Zay Flowers,BAL,Receiving Yards,90.0,170.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-17.700000000000003,-0.5979785673118847,,,17.700000000000003
-DeAndre Hopkins,BAL,Receiving Yards,50.0,480.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,-17.200000000000003,-0.09621334979072871,,,17.200000000000003
-Justice Hill,BAL,Rushing Yards,40.0,875.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,-16.6,0.14920886101214126,,,16.6
-Amon-Ra St. Brown,DET,Receiving Yards,60.0,-225.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-16.299999999999997,-0.7561433612746742,,,16.299999999999997
-Mark Andrews,BAL,Receiving Yards,50.0,180.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-16.1,-0.5189476725837119,,,16.1
-Jahmyr Gibbs,DET,Rushing Yards,100.0,625.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,-16.099999999999994,-0.09322846663065998,,,16.099999999999994
-David Montgomery,DET,Rushing Yards,30.0,-200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,16.0,0.3101765682896632,,,16.0
-Jameson Williams,DET,Receiving Yards,20.0,-730.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,16.0,-0.06006162943666571,,,16.0
-Rashod Bateman,BAL,Receiving Yards,70.0,340.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-15.799999999999997,-0.2241133870814086,,,15.799999999999997
-Rashod Bateman,BAL,Receiving Yards,40.0,-110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,14.200000000000003,0.5238820590702481,,,14.200000000000003
-Sam LaPorta,DET,Receiving Yards,15.0,-1900.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,14.0,-0.16326684141697867,,,14.0
-David Montgomery,DET,Rushing Yards,60.0,300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-14.0,-0.3653789842741717,,,14.0
-Jameson Williams,DET,Receiving Yards,50.0,-120.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-14.0,-0.6239769178654289,,,14.0
-Jahmyr Gibbs,DET,Rushing Yards,70.0,185.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,13.900000000000006,1.3928891015795641,,,13.900000000000006
-Mark Andrews,BAL,Receiving Yards,20.0,-380.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,13.899999999999999,0.0019628957852508566,,,13.899999999999999
-Amon-Ra St. Brown,DET,Receiving Yards,30.0,-1800.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,13.700000000000003,-0.1662750850253434,,,13.700000000000003
-Lamar Jackson,BAL,Rushing Yards,40.0,-145.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-13.5,-0.7170649594159622,,,13.5
-Derrick Henry,BAL,Receiving Yards,15.0,225.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,28.5,13.5,1.5559187142211721,,,13.5
-Justice Hill,BAL,Rushing Yards,10.0,-145.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,13.399999999999999,0.4036851280856536,,,13.399999999999999
-Justice Hill,BAL,Receiving Yards,30.0,250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,16.7,-13.3,-0.24048743196662126,,,13.3
-DeAndre Hopkins,BAL,Receiving Yards,20.0,-110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,12.799999999999997,0.4781277035436955,,,12.799999999999997
-Zay Flowers,BAL,Receiving Yards,60.0,-200.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,12.299999999999997,0.14798398169189486,,,12.299999999999997
-Jahmyr Gibbs,DET,Receiving Yards,10.0,-500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,12.100000000000001,-0.08596629496597433,,,12.100000000000001
-David Montgomery,DET,Receiving Yards,25.0,235.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,13.6,-11.4,-0.1583411772934098,,,11.4
-Sam LaPorta,DET,Receiving Yards,40.0,-205.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-11.0,-0.6149606551109642,,,11.0
-Jameson Williams,DET,Receiving Yards,25.0,-490.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,11.0,-0.10753100544883826,,,11.0
-Derrick Henry,BAL,Rushing Yards,50.0,-725.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,-9.200000000000003,-0.7092079462780084,,,9.200000000000003
-Sam LaPorta,DET,Receiving Yards,20.0,-1000.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,9.0,-0.22808591129963968,,,9.0
-Mark Andrews,BAL,Receiving Yards,25.0,-265.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,8.899999999999999,-0.0362663198023655,,,8.899999999999999
-Derrick Henry,BAL,Receiving Yards,20.0,350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,28.5,8.5,2.111581075733058,,,8.5
-Justice Hill,BAL,Rushing Yards,15.0,140.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,8.399999999999999,0.7417925173998231,,,8.399999999999999
-Justice Hill,BAL,Receiving Yards,25.0,170.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,16.7,-8.3,-0.1557326964897855,,,8.3
-Jahmyr Gibbs,DET,Receiving Yards,30.0,125.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,-7.899999999999999,-0.27759014278925304,,,7.899999999999999
-DeAndre Hopkins,BAL,Receiving Yards,25.0,125.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,7.799999999999997,0.5228439913381886,,,7.799999999999997
-Zay Flowers,BAL,Receiving Yards,80.0,110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,-7.700000000000003,-0.31687934541072216,,,7.700000000000003
-Jared Goff,DET,Rushing Yards,10.0,300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,17.4,7.399999999999999,1.8057944305634794,,,7.399999999999999
-DeAndre Hopkins,BAL,Receiving Yards,40.0,300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,-7.200000000000003,0.34381808869054886,,,7.200000000000003
-Jahmyr Gibbs,DET,Receiving Yards,15.0,-275.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,7.100000000000001,-0.09741262605789128,,,7.100000000000001
-Justice Hill,BAL,Receiving Yards,10.0,-245.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,16.7,6.699999999999999,-0.08011325115500922,,,6.699999999999999
-Justice Hill,BAL,Rushing Yards,30.0,500.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,-6.600000000000001,0.9120041500812812,,,6.600000000000001
-Lamar Jackson,BAL,Rushing Yards,20.0,-875.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,6.5,-0.24364684641849976,,,6.5
-David Montgomery,DET,Receiving Yards,20.0,165.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,13.6,-6.4,-0.0637986228293217,,,6.4
-Amon-Ra St. Brown,DET,Receiving Yards,50.0,-345.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,-6.299999999999997,-0.5414924790439434,,,6.299999999999997
-Mark Andrews,BAL,Receiving Yards,40.0,-105.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,-6.100000000000001,-0.2974092503911495,,,6.100000000000001
-Jahmyr Gibbs,DET,Rushing Yards,90.0,425.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,-6.099999999999994,0.7404906038583118,,,6.099999999999994
-Jameson Williams,DET,Receiving Yards,30.0,-350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,6.0,-0.17979949025001954,,,6.0
-David Montgomery,DET,Rushing Yards,40.0,-105.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,6.0,0.30005617110463745,,,6.0
-Rashod Bateman,BAL,Receiving Yards,60.0,250.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,-5.799999999999997,0.28269878714257834,,,5.799999999999997
-Lamar Jackson,BAL,Passing Yards,300.0,400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,294.9,-5.100000000000023,1.210367358438257,,,5.100000000000023
-Rashod Bateman,BAL,Receiving Yards,50.0,160.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,54.2,4.200000000000003,0.5536784898541952,,,4.200000000000003
-Jameson Williams,DET,Receiving Yards,40.0,-205.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,36.0,-4.0,-0.3944779501776585,,,4.0
-David Montgomery,DET,Rushing Yards,50.0,185.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,46.0,-4.0,0.10451317112927816,,,4.0
-Sam LaPorta,DET,Receiving Yards,25.0,-600.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,4.0,-0.3081552685765355,,,4.0
-Jahmyr Gibbs,DET,Rushing Yards,80.0,300.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,83.9,3.9000000000000057,1.4388525165481894,,,3.9000000000000057
-Mark Andrews,BAL,Receiving Yards,30.0,-190.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,33.9,3.8999999999999986,-0.09836626049719693,,,3.8999999999999986
-Amon-Ra St. Brown,DET,Receiving Yards,40.0,-650.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,43.7,3.700000000000003,-0.32367545134336667,,,3.700000000000003
-David Montgomery,DET,Receiving Yards,10.0,-170.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,13.6,3.5999999999999996,-0.07270136251981091,,,3.5999999999999996
-Derrick Henry,BAL,Receiving Yards,25.0,450.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,28.5,3.5,2.1985722712233753,,,3.5
-Lamar Jackson,BAL,Rushing Yards,30.0,-325.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,-3.5,-0.47523134896997715,,,3.5
-Justice Hill,BAL,Rushing Yards,20.0,225.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,3.3999999999999986,0.9368113915010888,,,3.3999999999999986
-Justice Hill,BAL,Receiving Yards,20.0,110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,16.7,-3.3000000000000007,-0.11161204770676891,,,3.3000000000000007
-Jared Goff,DET,Passing Yards,250.0,-160.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_yards,253.1,3.0999999999999943,-0.13015579385657777,,,3.0999999999999943
-Jahmyr Gibbs,DET,Receiving Yards,25.0,-110.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,-2.8999999999999986,-0.17475006667185694,,,2.8999999999999986
-DeAndre Hopkins,BAL,Receiving Yards,30.0,175.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,32.8,2.799999999999997,0.5548837056882285,,,2.799999999999997
-Zay Flowers,BAL,Receiving Yards,70.0,-130.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,WR,rec_yards,72.3,2.299999999999997,-0.020181720091607458,,,2.299999999999997
-Lamar Jackson,BAL,Passing TDs,1.0,-1400.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,3.2,2.2,-0.11200134647407657,,,2.2
-Jahmyr Gibbs,DET,Receiving Yards,20.0,-170.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,22.1,2.1000000000000014,-0.12781096783666618,,,2.1000000000000014
-Justice Hill,BAL,Receiving Yards,15.0,-145.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,16.7,1.6999999999999993,-0.0878771025319165,,,1.6999999999999993
-Justice Hill,BAL,Rushing Yards,25.0,350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,23.4,-1.6000000000000014,1.0452754399536144,,,1.6000000000000014
-Jared Goff,DET,Passing TDs,1.0,-700.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,2.52,1.52,-0.18082036086669062,,,1.52
-Lamar Jackson,BAL,Rushing Yards,25.0,-480.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,rush_yards,26.5,1.5,-0.3442832038478424,,,1.5
-Jared Goff,DET,Passing TDs,4.0,1000.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,2.52,-1.48,0.22661000851601476,,,1.48
-David Montgomery,DET,Receiving Yards,15.0,-105.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rec_yards,13.6,-1.4000000000000004,-0.08788075448674687,,,1.4000000000000004
-Lamar Jackson,BAL,Passing TDs,2.0,-225.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,3.2,1.2000000000000002,-0.10430540377987241,,,1.2000000000000002
-Sam LaPorta,DET,Receiving Yards,30.0,-380.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,TE,rec_yards,29.0,-1.0,-0.3980467365384591,,,1.0
-Lamar Jackson,BAL,Passing TDs,4.0,625.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,3.2,-0.7999999999999998,0.5905592947620427,,,0.7999999999999998
-Derrick Henry,BAL,Rushing Yards,40.0,-1800.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,RB,rush_yards,40.8,0.7999999999999972,-0.4481721262544428,,,0.7999999999999972
-Jared Goff,DET,Passing TDs,2.0,-115.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,2.52,0.52,-0.1375567757263999,,,0.52
-Jared Goff,DET,Passing TDs,3.0,350.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,2.52,-0.48,0.11018398614017022,,,0.48
-Lamar Jackson,BAL,Passing TDs,3.0,175.0,,True,Detroit Lions @ Baltimore Ravens,Ravens,Lions,1758586500000,Bovada,QB,pass_tds,3.2,0.20000000000000018,0.09307075788471764,,,0.20000000000000018
-Jahmyr Gibbs & Baltimore Ravens,,Anytime TD,,500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Devontez Walker,BAL,Anytime TD,,1000.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Dominic Lovett,DET,Anytime TD,,2800.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Isaac TeSlaa,DET,Anytime TD,,600.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jameson Williams & Detroit Lions,,Anytime TD,,330.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Jameson Williams & Baltimore Ravens,,Anytime TD,,975.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Isaac TeSlaa,DET,Receiving Yards,14.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jameson Williams,DET,Receptions,3.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jacob Saylors,DET,Anytime TD,,2500.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Anytime TD,,-139.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Receiving Yards,23.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jameson Williams,DET,Receiving Yards,49.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jameson Williams,DET,Anytime TD,,250.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Receptions,4.5,115.0,-150.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jahmyr Gibbs (DET) - 1Q,,Anytime TD,,500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Rushing Attempts,12.5,115.0,-150.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jahmyr Gibbs (DET) - 1H,,Anytime TD,,200.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Derrick Henry (BAL) - 1Q,,Anytime TD,,350.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Rushing Yards,55.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jahmyr Gibbs & Detroit Lions,,Anytime TD,,120.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Detroit Lions Defense,,Anytime TD,,700.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown & Detroit Lions,,Anytime TD,,150.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Derrick Henry (BAL) - 1H,,Anytime TD,,125.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery (DET) - 1H,,Anytime TD,,275.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown (DET) - 1Q,,Anytime TD,,700.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Baltimore Ravens Defense,,Anytime TD,,500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Brock Wright,DET,Anytime TD,,1100.0,,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Charlie Kolar,BAL,Anytime TD,,725.0,,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Craig Reynolds,DET,Anytime TD,,2500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery,DET,Anytime TD,,120.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-David Montgomery,DET,Receiving Yards,52.5,-105.0,-125.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown & Baltimore Ravens,,Anytime TD,,575.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery,,Receptions,2.5,165.0,-220.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-David Montgomery,DET,Rushing Attempts,9.5,-145.0,110.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-David Montgomery,DET,Rushing Yards,37.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-David Montgomery & Baltimore Ravens,,Anytime TD,,625.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery & Detroit Lions,,Anytime TD,,160.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown,DET,Receptions,6.5,-125.0,-105.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Derrick Henry & Detroit Lions,,Anytime TD,,120.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery (DET) - 1Q,,Anytime TD,,700.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery Total Receiving Yards,,Receiving Yards,12.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-DeAndre Hopkins,BAL,Anytime TD,,330.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-DeAndre Hopkins,BAL,Receiving Yards,18.5,-130.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-DeAndre Hopkins,BAL,Receptions,1.5,-135.0,105.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jameson Williams (DET) - 1H,,Anytime TD,,525.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-DeAndre Hopkins (BAL) - 1Q,,Anytime TD,,1500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Derrick Henry,BAL,Anytime TD,,-230.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Derrick Henry,BAL,Receiving Yards,4.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Derrick Henry,BAL,Rushing Attempts,18.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown (DET) - 1H,,Anytime TD,,275.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Derrick Henry,BAL,Rushing Yards,86.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Derrick Henry & Baltimore Ravens,,Anytime TD,,220.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-DeAndre Hopkins (BAL) - 1H,,Anytime TD,,650.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Justice Hill,BAL,Anytime TD,,350.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jameson Williams (DET) - 1Q,,Anytime TD,,1200.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sam LaPorta,DET,Receiving Yards,45.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Mark Andrews & Baltimore Ravens,,Anytime TD,,525.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Mark Andrews & Detroit Lions,,Anytime TD,,330.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Mark Andrews (BAL) - 1H,,Anytime TD,,375.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Mark Andrews (BAL) - 1Q,,Anytime TD,,850.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Rasheen Ali,BAL,Anytime TD,,2000.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Rashod Bateman,BAL,Anytime TD,,200.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Rashod Bateman,BAL,Receiving Yards,35.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Rashod Bateman,BAL,Receptions,2.5,-130.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Rashod Bateman & Baltimore Ravens,,Anytime TD,,575.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Rashod Bateman & Detroit Lions,,Anytime TD,,350.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Rashod Bateman (BAL) - 1H,,Anytime TD,,425.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Rashod Bateman (BAL) - 1Q,,Anytime TD,,950.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sam LaPorta,DET,Anytime TD,,225.0,,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Sam LaPorta,DET,Receptions,4.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Mark Andrews,BAL,Receiving Yards,35.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Sam LaPorta & Baltimore Ravens,,Anytime TD,,875.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sam LaPorta & Detroit Lions,,Anytime TD,,300.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sam LaPorta (DET) - 1H,,Anytime TD,,500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sam LaPorta (DET) - 1Q,,Anytime TD,,1000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Sione Vaki,DET,Anytime TD,,2500.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Tylan Wallace,BAL,Anytime TD,,825.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Zay Flowers,BAL,Anytime TD,,110.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Zay Flowers,BAL,Receiving Yards,69.5,-135.0,105.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Zay Flowers,BAL,Receptions,5.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Zay Flowers & Baltimore Ravens,,Anytime TD,,375.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Zay Flowers & Detroit Lions,,Anytime TD,,220.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Zay Flowers (BAL) - 1H,,Anytime TD,,250.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Zay Flowers (BAL) - 1Q,,Anytime TD,,650.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Mark Andrews,BAL,Receptions,3.5,110.0,-145.0,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Mark Andrews,BAL,Anytime TD,,180.0,,False,,Ravens,Lions,1758586500000,Bovada,TE,,,,,,unsupported_market,0.0
-Jared Goff,DET,Anytime TD,,2000.0,,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Kalif Raymond,DET,Anytime TD,,900.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jared Goff,DET,Passing Attempts,34.5,-130.0,,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Jared Goff,DET,Passing TDs,1.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Jared Goff,DET,Passing Yards,260.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Jared Goff,DET,Rushing Yards,,7500.0,,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Jared Goff (DET) - 1H,,Anytime TD,,4000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Jared Goff (DET) - 1Q,,Anytime TD,,10000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown,DET,Receiving Yards,71.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Justice Hill,BAL,Receiving Yards,15.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Justice Hill,BAL,Receptions,2.5,125.0,-165.0,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Justice Hill,BAL,Rushing Yards,,3500.0,,False,,Ravens,Lions,1758586500000,Bovada,RB,,,,,,unsupported_market,0.0
-Justice Hill (BAL) - 1H,,Anytime TD,,700.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Justice Hill (BAL) - 1Q,,Anytime TD,,1800.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Justice Hill Total Rushing Yards,,Rushing Yards,10.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond,DET,Receiving Yards,9.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Lamar Jackson (BAL) - 1Q,,Anytime TD,,800.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond (DET) - 1H,,Anytime TD,,2000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond (DET) - 1Q,,Anytime TD,,8000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Keaton Mitchell,BAL,Anytime TD,,2000.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-LaJohntay Wester,BAL,Anytime TD,,2500.0,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Anytime TD,,170.0,,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Passing Attempts,28.5,-125.0,-105.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Passing TDs,1.5,-215.0,160.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Passing Yards,231.5,-120.0,-110.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Rushing Attempts,7.5,-110.0,-120.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Rushing Yards,44.5,-115.0,-115.0,False,,Ravens,Lions,1758586500000,Bovada,QB,,,,,,unsupported_market,0.0
-Lamar Jackson & Baltimore Ravens,,Anytime TD,,500.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Lamar Jackson & Detroit Lions,,Anytime TD,,300.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Lamar Jackson (BAL) - 1H,,Anytime TD,,350.0,,False,,Ravens,Lions,1758586500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown,DET,Anytime TD,,,,False,,Ravens,Lions,1758586500000,Bovada,WR,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,440.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Michael Wilson,ARI,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Zay Jones,ARI,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,-139.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Weaver,ARI,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride,ARI,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Trey Benson,ARI,Receiving Yards,85.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Trey Benson,ARI,Anytime TD,,,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Vokolek,ARI,Anytime TD,,1700.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Tip Reiman,ARI,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Simi Fehoko,ARI,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Seattle Seahawks Defense,,Anytime TD,,725.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,625.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Robbie Ouzts,SEA,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Nick Kallerup,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Harrison Jr.,ARI,Anytime TD,,180.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Arizona D/ST,,Anytime TD,,700.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Anytime TD,,300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,-139.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jacardia Wright,,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Greg Dortch,ARI,Anytime TD,,1100.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+George Holani,SEA,Anytime TD,,500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Eric Saubert,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Emari Demercado,ARI,Anytime TD,,400.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Elijah Higgins,ARI,Anytime TD,,1700.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Anytime TD,,800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Dareke Young,SEA,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,275.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Brady Russell,SEA,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zonovan Knight,ARI,Anytime TD,,1900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
