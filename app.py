@@ -4346,6 +4346,28 @@ def index():
     # Build cards via helper
     cards: List[Dict[str, Any]] = _build_cards(view_df)
 
+    # Sanitize numerics to avoid Jinja formatting errors on pandas NA in templates
+    def _safe_num(v):
+        try:
+            if v is None:
+                return None
+            # pd.NA or NaN handling
+            if pd.isna(v):
+                return None
+            return float(v)
+        except Exception:
+            return None
+
+    numeric_keys = (
+        'market_total', 'market_spread_home', 'moneyline_home', 'moneyline_away',
+        'implied_home_prob', 'implied_away_prob', 'edge_spread', 'edge_total',
+        'pred_total', 'pred_margin', 'total_diff'
+    )
+    for c in cards:
+        for k in numeric_keys:
+            if k in c:
+                c[k] = _safe_num(c.get(k))
+
     # Apply sorting
     def _dt_key(card: Dict[str, Any]):
         try:
