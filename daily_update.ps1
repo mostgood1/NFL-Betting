@@ -16,6 +16,9 @@ Param(
   [switch]$ReconcileGames,
   [switch]$NoReconcileProps,
   [switch]$NoReconcileGames
+    [switch]$NoReconcileGames,
+    # Control failure behavior when props pipeline errors occur (default: continue)
+    [switch]$FailOnPipeline
 )
 
 $ErrorActionPreference = 'Stop'
@@ -43,6 +46,11 @@ if (-not $GitSyncFirst) {
 if (-not $IncludeModel) {
   $envIncModel = $env:DAILY_UPDATE_INCLUDE_MODEL
   if ($envIncModel -and ($envIncModel -match '^(1|true|yes|on)$')) { $IncludeModel = $true }
+}
+$envFailPipe = $env:DAILY_UPDATE_FAIL_ON_PIPELINE
+if ($envFailPipe) {
+  if ($envFailPipe -match '^(1|true|yes|on)$') { $FailOnPipeline = $true }
+  elseif ($envFailPipe -match '^(0|false|no|off)$') { $FailOnPipeline = $false }
 }
 # Read env overrides (on/off) for reconciliation
 $envReconProps = $env:DAILY_UPDATE_RECON_PROPS
@@ -203,13 +211,22 @@ try {
   & $Python scripts/run_props_pipeline.py | Tee-Object -FilePath $LogFile -Append
   $PipelineExit = $LASTEXITCODE
   Write-Log "props_pipeline exit code: $PipelineExit"
-  if ($PipelineExit -ne 0) {
-    Write-Log 'Props pipeline completed with errors'
-    exit $PipelineExit
-  }
+    if ($PipelineExit -ne 0) {
+      Write-Log 'Props pipeline completed with errors'
+      if ($FailOnPipeline) {
+        Write-Log 'FailOnPipeline is set; exiting with pipeline error code'
+        exit $PipelineExit
+      } else {
+        Write-Log 'Continuing despite props pipeline errors'
+      }
+    }
 } catch {
   Write-Log "props_pipeline failed: $($_.Exception.Message)"
-  exit 1
+    if ($FailOnPipeline) {
+      exit 1
+    } else {
+      Write-Log 'Continuing despite props pipeline exception'
+    }
 }
 
   # Optional: Reconcile props vs actuals for prior week
