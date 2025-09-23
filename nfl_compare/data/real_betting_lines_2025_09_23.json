@@ -179,8 +179,8 @@
     },
     "Washington Commanders @ Atlanta Falcons": {
       "moneyline": {
-        "home": 110,
-        "away": -130
+        "home": 102,
+        "away": -122
       },
       "total_runs": {
         "line": 45.5,
@@ -196,11 +196,11 @@
           "outcomes": [
             {
               "name": "Atlanta Falcons",
-              "price": 110
+              "price": 102
             },
             {
               "name": "Washington Commanders",
-              "price": -130
+              "price": -122
             }
           ]
         },
@@ -209,12 +209,12 @@
           "outcomes": [
             {
               "name": "Atlanta Falcons",
-              "price": -115,
+              "price": -120,
               "point": 1.5
             },
             {
               "name": "Washington Commanders",
-              "price": -105,
+              "price": 100,
               "point": -1.5
             }
           ]
@@ -946,5 +946,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-09-23T17:35:27.610996+00:00"
+  "fetched_at": "2025-09-23T17:39:18.357031+00:00"
 }
