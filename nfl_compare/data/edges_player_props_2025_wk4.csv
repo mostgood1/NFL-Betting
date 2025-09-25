@@ -1,52 +1,362 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-AJ Barner,SEA,Anytime TD,,440.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Tip Reiman,ARI,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Michael Wilson,ARI,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Michael Wilson,ARI,Receiving Yards,21.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Nick Kallerup,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Robbie Ouzts,SEA,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Sam Darnold,SEA,Anytime TD,,625.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Sam Darnold,SEA,Passing Attempts,30.5,,-130.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Sam Darnold,SEA,Passing TDs,1.5,155.0,-210.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Sam Darnold,SEA,Passing Yards,220.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Seattle Seahawks Defense,,Anytime TD,,725.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Simi Fehoko,ARI,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Tory Horton,SEA,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Marvin Harrison Jr.,ARI,Anytime TD,,180.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tory Horton Total Receiving Yards,,Receiving Yards,21.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Travis Vokolek,ARI,Anytime TD,,1800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Trey Benson,ARI,Anytime TD,,,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
-Trey Benson,ARI,Receiving Yards,22.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
-Trey McBride,ARI,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Trey McBride,ARI,Receiving Yards,65.5,-130.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Trey McBride,ARI,Receptions,6.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Xavier Weaver,ARI,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Zach Charbonnet,SEA,Anytime TD,,-139.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
-Zay Jones,ARI,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Marvin Harrison Jr.,ARI,Receiving Yards,45.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Marvin Harrison,ARI,Receptions,3.5,-135.0,105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-AJ Barner,SEA,Receiving Yards,16.5,-135.0,105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Eric Saubert,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-AJ Barner,SEA,Receptions,1.5,-150.0,115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,350.0,1500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-158.7,-0.9999537610024802,,,158.7
+Jaxon Smith-Njigba,SEA,Receiving Yards,175.0,1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-138.7,-0.9999999999999978,,,138.7
+Sam Darnold,SEA,Passing Yards,325.0,900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-133.7,-0.9993327416297033,,,133.7
+Kyler Murray,ARI,Passing Yards,325.0,1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-126.30000000000001,-0.9979987296355901,,,126.30000000000001
+Jaxon Smith-Njigba,SEA,Receiving Yards,150.0,675.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-113.7,-0.9999999999124722,,,113.7
+Sam Darnold,SEA,Passing Yards,300.0,550.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-108.69999999999999,-0.9938308490571057,,,108.69999999999999
+Kyler Murray,ARI,Passing Yards,300.0,750.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-101.30000000000001,-0.9838490566582381,,,101.30000000000001
+Trey McBride,ARI,Receiving Yards,125.0,850.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-96.9,-0.9999999430914714,,,96.9
+Marvin Harrison Jr.,ARI,Receiving Yards,125.0,1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-89.1,-0.9999988033297638,,,89.1
+Jaxon Smith-Njigba,SEA,Receiving Yards,125.0,325.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-88.7,-0.9999996149280301,,,88.7
+Cooper Kupp,SEA,Receiving Yards,110.0,1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-84.4,-0.9999955276579968,,,84.4
+Sam Darnold,SEA,Passing Yards,275.0,300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-83.69999999999999,-0.9664341014486961,,,83.69999999999999
+Trey McBride,ARI,Receiving Yards,110.0,500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-81.9,-0.9999956421692924,,,81.9
+Kyler Murray,ARI,Passing Yards,275.0,400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-76.30000000000001,-0.9268563461200537,,,76.30000000000001
+Cooper Kupp,SEA,Receiving Yards,100.0,900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-74.4,-0.9999396917708328,,,74.4
+Marvin Harrison Jr.,ARI,Receiving Yards,110.0,900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-74.1,-0.9999346182496289,,,74.1
+Jaxon Smith-Njigba,SEA,Receiving Yards,110.0,200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-73.7,-0.999978165195961,,,73.7
+Kyler Murray,ARI,Passing Yards,125.0,-1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,73.69999999999999,0.05255579741512653,,,73.69999999999999
+Trey McBride,ARI,Receiving Yards,100.0,350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-71.9,-0.9999472817908851,,,71.9
+Trey Benson,ARI,Rushing Yards,125.0,1000.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-69.9,-0.9999967279090388,,,69.9
+Cooper Kupp,SEA,Receiving Yards,90.0,675.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-64.4,-0.9994120806315102,,,64.4
+Marvin Harrison Jr.,ARI,Receiving Yards,100.0,700.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-64.1,-0.9993485471776049,,,64.1
+Jaxon Smith-Njigba,SEA,Receiving Yards,100.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-63.7,-0.9997763498252348,,,63.7
+Tory Horton,SEA,Receiving Yards,90.0,1500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-62.1,-0.9979259708952526,,,62.1
+Trey McBride,ARI,Receiving Yards,90.0,250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-61.9,-0.9995250587097645,,,61.9
+Sam Darnold,SEA,Passing Yards,250.0,175.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-58.69999999999999,-0.8714174938265409,,,58.69999999999999
+Trey Benson,ARI,Rushing Yards,110.0,650.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-54.9,-0.9996699042140843,,,54.9
+Cooper Kupp,SEA,Receiving Yards,80.0,450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-54.4,-0.9962207413414628,,,54.4
+Marvin Harrison Jr.,ARI,Receiving Yards,90.0,500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-54.1,-0.9956174895761831,,,54.1
+Michael Wilson,ARI,Receiving Yards,80.0,1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-53.9,-0.9901115095623497,,,53.9
+Jaxon Smith-Njigba,SEA,Receiving Yards,90.0,,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-53.7,,,,53.7
+Tory Horton,SEA,Receiving Yards,80.0,1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-52.1,-0.9858375301549209,,,52.1
+Trey McBride,ARI,Receiving Yards,80.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-51.9,-0.9971673705674475,,,51.9
+Kyler Murray,ARI,Passing Yards,250.0,225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-51.30000000000001,-0.7680700214708156,,,51.30000000000001
+Kyler Murray,ARI,Passing Yards,150.0,-600.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,48.69999999999999,0.07094428837988845,,,48.69999999999999
+Trey Benson,ARI,Rushing Yards,100.0,450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-44.9,-0.9963133388686223,,,44.9
+Cooper Kupp,SEA,Receiving Yards,70.0,325.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-44.4,-0.9808588021746267,,,44.4
+Marvin Harrison Jr.,ARI,Receiving Yards,80.0,350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-44.1,-0.9786623432405545,,,44.1
+Michael Wilson,ARI,Receiving Yards,70.0,900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-43.9,-0.9509354133251215,,,43.9
+Jaxon Smith-Njigba,SEA,Receiving Yards,80.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-43.7,-0.9915395033191581,,,43.7
+Tory Horton,SEA,Receiving Yards,70.0,875.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-42.1,-0.935314328420374,,,42.1
+Trey McBride,ARI,Receiving Yards,70.0,105.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-41.9,-0.9859446096552766,,,41.9
+Sam Darnold,SEA,Passing Yards,150.0,-900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,41.30000000000001,-0.021111230505778553,,,41.30000000000001
+Trey Benson,ARI,Rushing Yards,90.0,300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-34.9,-0.9746560361867742,,,34.9
+Cooper Kupp,SEA,Receiving Yards,60.0,200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-34.4,-0.9354721084239418,,,34.4
+Marvin Harrison Jr.,ARI,Receiving Yards,70.0,225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-34.1,-0.9270881976023292,,,34.1
+Michael Wilson,ARI,Receiving Yards,60.0,650.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-33.9,-0.8269780032365959,,,33.9
+Jaxon Smith-Njigba,SEA,Receiving Yards,70.0,-225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-33.7,-0.9657379564621255,,,33.7
+Sam Darnold,SEA,Passing Yards,225.0,-105.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-33.69999999999999,-0.6723717143066072,,,33.69999999999999
+Tory Horton,SEA,Receiving Yards,60.0,600.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-32.1,-0.7935197063974672,,,32.1
+Trey McBride,ARI,Receiving Yards,60.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-31.9,-0.949507758587722,,,31.9
+Emari Demercado,ARI,Rushing Yards,60.0,1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,-29.8,-0.7503269915182075,,,29.8
+Kyler Murray,ARI,Passing Yards,225.0,120.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-26.30000000000001,-0.5023657495427865,,,26.30000000000001
+AJ Barner,SEA,Receiving Yards,10.0,-250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,25.299999999999997,0.3043178032626294,,,25.299999999999997
+Trey Benson,ARI,Rushing Yards,30.0,-1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,25.1,0.04379395810886019,,,25.1
+Trey Benson,ARI,Rushing Yards,80.0,200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-24.9,-0.8870349223493658,,,24.9
+Cooper Kupp,SEA,Receiving Yards,50.0,130.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-24.4,-0.8261162012048999,,,24.4
+Marvin Harrison Jr.,ARI,Receiving Yards,60.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-24.1,-0.8046327078355873,,,24.1
+Michael Wilson,ARI,Receiving Yards,50.0,400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-23.9,-0.6006023441711374,,,23.9
+Jaxon Smith-Njigba,SEA,Receiving Yards,60.0,-350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-23.700000000000003,-0.8950329479110245,,,23.700000000000003
+Kyler Murray,ARI,Passing Yards,175.0,-300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,23.69999999999999,0.001123120450435111,,,23.69999999999999
+Tory Horton,SEA,Receiving Yards,50.0,400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-22.1,-0.5159975770719483,,,22.1
+Trey McBride,ARI,Receiving Yards,50.0,-250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-21.9,-0.8616351513248486,,,21.9
+Marvin Harrison Jr.,ARI,Receiving Yards,15.0,-1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,20.9,-0.03524695831731044,,,20.9
+AJ Barner,SEA,Receiving Yards,15.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,20.299999999999997,0.47297337406985185,,,20.299999999999997
+Emari Demercado,ARI,Rushing Yards,10.0,-225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,20.2,0.33678948136877235,,,20.2
+Emari Demercado,ARI,Rushing Yards,50.0,900.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,-19.8,-0.21360985141463806,,,19.8
+Tory Horton,SEA,Receiving Yards,10.0,-350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,17.9,0.09776345898336075,,,17.9
+Sam Darnold,SEA,Passing Yards,175.0,-400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,16.30000000000001,-0.15088751588167382,,,16.30000000000001
+Michael Wilson,ARI,Receiving Yards,10.0,-350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,16.1,0.06482291088027572,,,16.1
+Marvin Harrison Jr.,ARI,Receiving Yards,20.0,-650.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,15.899999999999999,-0.04786735343785509,,,15.899999999999999
+AJ Barner,SEA,Receiving Yards,20.0,110.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,15.299999999999997,0.713473736771805,,,15.299999999999997
+Emari Demercado,ARI,Rushing Yards,15.0,-120.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,15.2,0.5788616998334001,,,15.2
+Trey Benson,ARI,Rushing Yards,40.0,-450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,15.100000000000001,0.05063516322511161,,,15.100000000000001
+Trey Benson,ARI,Rushing Yards,70.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-14.899999999999999,-0.6553608549218862,,,14.899999999999999
+Cooper Kupp,SEA,Receiving Yards,40.0,-140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-14.399999999999999,-0.6597465701655523,,,14.399999999999999
+Marvin Harrison Jr.,ARI,Receiving Yards,50.0,,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-14.100000000000001,,,,14.100000000000001
+Michael Wilson,ARI,Receiving Yards,40.0,275.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-13.899999999999999,-0.22457734686246367,,,13.899999999999999
+Jaxon Smith-Njigba,SEA,Receiving Yards,50.0,-600.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-13.700000000000003,-0.7548187656737432,,,13.700000000000003
+Tory Horton,SEA,Receiving Yards,15.0,-210.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,12.899999999999999,0.14555471476606202,,,12.899999999999999
+Trey Benson,ARI,Receiving Yards,10.0,-450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rec_yards,22.3,12.3,-0.06460564454734471,,,12.3
+Tory Horton,SEA,Receiving Yards,40.0,225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-12.100000000000001,-0.2255079511338195,,,12.100000000000001
+Trey McBride,ARI,Receiving Yards,40.0,-500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-11.899999999999999,-0.7096436173323124,,,11.899999999999999
+Michael Wilson,ARI,Receiving Yards,15.0,-210.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,11.100000000000001,0.0969614224799007,,,11.100000000000001
+Marvin Harrison Jr.,ARI,Receiving Yards,25.0,-400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,10.899999999999999,-0.07588002190509557,,,10.899999999999999
+Cooper Kupp,SEA,Receiving Yards,15.0,-1000.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,10.600000000000001,-0.19311517441862508,,,10.600000000000001
+AJ Barner,SEA,Receiving Yards,25.0,165.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,10.299999999999997,0.9284144358167671,,,10.299999999999997
+Emari Demercado,ARI,Rushing Yards,20.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,10.2,0.8404833668517779,,,10.2
+Sam Darnold,SEA,Rushing Yards,10.0,120.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,rush_yards,20.2,10.2,0.6871097529474632,,,10.2
+Emari Demercado,ARI,Rushing Yards,40.0,575.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,-9.8,0.633254652505743,,,9.8
+Sam Darnold,SEA,Passing Yards,200.0,-200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,191.3,-8.699999999999989,-0.3972307662929284,,,8.699999999999989
+Tory Horton,SEA,Receiving Yards,20.0,-140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,7.899999999999999,0.1638782040299071,,,7.899999999999999
+Trey Benson,ARI,Receiving Yards,30.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rec_yards,22.3,-7.699999999999999,-0.18676112548895502,,,7.699999999999999
+Trey Benson,ARI,Receiving Yards,15.0,-250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rec_yards,22.3,7.300000000000001,-0.06733651554851383,,,7.300000000000001
+Michael Wilson,ARI,Receiving Yards,20.0,-140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,6.100000000000001,0.09737676340965051,,,6.100000000000001
+Marvin Harrison Jr.,ARI,Receiving Yards,30.0,-300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,5.899999999999999,-0.1523647514136834,,,5.899999999999999
+Cooper Kupp,SEA,Receiving Yards,20.0,-550.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,5.600000000000001,-0.2565444634571968,,,5.600000000000001
+AJ Barner,SEA,Receiving Yards,30.0,250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,5.299999999999997,1.1783661398007281,,,5.299999999999997
+Sam Darnold,SEA,Rushing Yards,15.0,225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,rush_yards,20.2,5.199999999999999,1.0957326840877626,,,5.199999999999999
+Emari Demercado,ARI,Rushing Yards,25.0,220.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,5.199999999999999,1.0634906427941049,,,5.199999999999999
+Trey Benson,ARI,Rushing Yards,50.0,-225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,5.100000000000001,-0.07241003686981157,,,5.100000000000001
+Trey Benson,ARI,Rushing Yards,60.0,-125.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,55.1,-4.899999999999999,-0.34629517211611416,,,4.899999999999999
+Sam Darnold,SEA,Rushing Yards,25.0,650.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,rush_yards,20.2,-4.800000000000001,1.7438972550232203,,,4.800000000000001
+AJ Barner,SEA,Receiving Yards,40.0,500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,35.3,-4.700000000000003,1.3465599404021225,,,4.700000000000003
+Trey McBride,ARI,Receptions,9.0,250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,-4.48,-0.9990049035597169,,,4.48
+Cooper Kupp,SEA,Receiving Yards,30.0,-250.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,-4.399999999999999,-0.44296001826797204,,,4.399999999999999
+Marvin Harrison Jr.,ARI,Receiving Yards,40.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,35.9,-4.100000000000001,-0.3254847112777632,,,4.100000000000001
+Trey Benson,ARI,Receptions,7.0,650.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,-4.04,-0.9929292150149976,,,4.04
+Jaxon Smith-Njigba,SEA,Receptions,9.0,200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,-3.9800000000000004,-0.996696959503773,,,3.9800000000000004
+Michael Wilson,ARI,Receiving Yards,30.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,-3.8999999999999986,0.02318611633161549,,,3.8999999999999986
+Jaxon Smith-Njigba,SEA,Receiving Yards,40.0,-1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,36.3,-3.700000000000003,-0.5565870808954453,,,3.700000000000003
+Trey McBride,ARI,Receptions,8.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,-3.4800000000000004,-0.9907122885518872,,,3.4800000000000004
+Marvin Harrison Jr.,ARI,Receptions,7.0,550.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,-3.45,-0.9741364673110248,,,3.45
+AJ Barner,SEA,Receptions,1.0,-1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.45,3.45,0.07902274455183739,,,3.45
+Cooper Kupp,SEA,Receptions,7.0,500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,-3.38,-0.9720328718576876,,,3.38
+Trey Benson,ARI,Receptions,6.0,375.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,-3.04,-0.9540121182490526,,,3.04
+Jaxon Smith-Njigba,SEA,Receptions,8.0,120.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,-2.9800000000000004,-0.9759233163093654,,,2.9800000000000004
+Tory Horton,SEA,Receiving Yards,25.0,,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,2.8999999999999986,,,,2.8999999999999986
+Trey Benson,ARI,Receiving Yards,25.0,,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rec_yards,22.3,-2.6999999999999993,,,,2.6999999999999993
+Tory Horton,SEA,Receptions,5.0,850.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,2.32,-2.68,-0.8135544341490497,,,2.68
+Trey McBride,ARI,Receptions,7.0,-120.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,-2.4800000000000004,-0.9482715865202916,,,2.4800000000000004
+AJ Barner,SEA,Receptions,2.0,-215.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.45,2.45,0.4215424142660455,,,2.45
+Marvin Harrison Jr.,ARI,Receptions,6.0,300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,-2.45,-0.8810364325993625,,,2.45
+Cooper Kupp,SEA,Receptions,6.0,275.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,-2.38,-0.8741218848372704,,,2.38
+Trey Benson,ARI,Receiving Yards,20.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rec_yards,22.3,2.3000000000000007,-0.07698277979644169,,,2.3000000000000007
+Michael Wilson,ARI,Receptions,1.0,-1100.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.12,2.12,0.03476053333791132,,,2.12
+Tory Horton,SEA,Receiving Yards,30.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,27.9,-2.1000000000000014,0.12710985677993758,,,2.1000000000000014
+Trey Benson,ARI,Receptions,5.0,185.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,-2.04,-0.8338532976309087,,,2.04
+Jaxon Smith-Njigba,SEA,Receptions,7.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,-1.9800000000000004,-0.8935504486856934,,,1.9800000000000004
+Trey McBride,ARI,Receiving Yards,30.0,-1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,rec_yards,28.1,-1.8999999999999986,-0.5065362647513357,,,1.8999999999999986
+Michael Wilson,ARI,Receptions,5.0,750.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.12,-1.88,-0.3704302632980877,,,1.88
+Tory Horton,SEA,Receptions,4.0,400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,2.32,-1.6800000000000002,-0.5093734772423544,,,1.6800000000000002
+Cooper Kupp,SEA,Receptions,2.0,-1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,1.62,-0.04252209980053907,,,1.62
+Marvin Harrison Jr.,ARI,Receptions,2.0,-1400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,1.5499999999999998,-0.05346818897947994,,,1.5499999999999998
+Kyler Murray,ARI,Passing TDs,3.0,500.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.5,-1.5,-0.6061452737292989,,,1.5
+Trey McBride,ARI,Receptions,6.0,-225.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,-1.4800000000000004,-0.8158854703325961,,,1.4800000000000004
+AJ Barner,SEA,Receptions,3.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.45,1.4500000000000002,1.0823772327543792,,,1.4500000000000002
+Marvin Harrison Jr.,ARI,Receptions,5.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,-1.4500000000000002,-0.6823772327543792,,,1.4500000000000002
+Cooper Kupp,SEA,Receptions,5.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,-1.38,-0.6538656838898589,,,1.38
+Sam Darnold,SEA,Passing TDs,3.0,575.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.68,-1.32,-0.3910105825640914,,,1.32
+Tory Horton,SEA,Receptions,1.0,-1000.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,2.32,1.3199999999999998,-0.07045738804928572,,,1.3199999999999998
+Kyler Murray,ARI,Passing Yards,200.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_yards,198.7,-1.3000000000000114,-0.19135741622541497,,,1.3000000000000114
+Michael Wilson,ARI,Receptions,2.0,-210.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.12,1.12,0.18911457210757932,,,1.12
+Michael Wilson,ARI,Receiving Yards,25.0,,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,26.1,1.1000000000000014,,,,1.1000000000000014
+Trey Benson,ARI,Receptions,4.0,-105.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,-1.04,-0.5863775551467016,,,1.04
+Jaxon Smith-Njigba,SEA,Receptions,4.0,-1800.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,1.0199999999999996,-0.17280286208346174,,,1.0199999999999996
+Jaxon Smith-Njigba,SEA,Receptions,6.0,-275.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,-0.9800000000000004,-0.6925398137647782,,,0.9800000000000004
+Trey Benson,ARI,Receptions,2.0,-750.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,0.96,-0.12746595091771268,,,0.96
+Michael Wilson,ARI,Receptions,4.0,350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.12,-0.8799999999999999,0.12152321333395588,,,0.8799999999999999
+Tory Horton,SEA,Receptions,3.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,2.32,-0.6800000000000002,-0.24884909511835468,,,0.6800000000000002
+Sam Darnold,SEA,Passing TDs,1.0,-400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.68,0.6799999999999999,-0.37435281973202333,,,0.6799999999999999
+Cooper Kupp,SEA,Receptions,3.0,-375.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,0.6200000000000001,-0.13449736906874266,,,0.6200000000000001
+Cooper Kupp,SEA,Receiving Yards,25.0,-350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,rec_yards,25.6,0.6000000000000014,-0.33904335175935774,,,0.6000000000000014
+Marvin Harrison Jr.,ARI,Receptions,3.0,-350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,0.5499999999999998,-0.14643944632433745,,,0.5499999999999998
+Trey McBride,ARI,Receptions,4.0,-1200.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,0.5199999999999996,-0.28995977992214894,,,0.5199999999999996
+Kyler Murray,ARI,Passing TDs,1.0,-450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.5,0.5,-0.45956437823131324,,,0.5
+Kyler Murray,ARI,Passing TDs,2.0,125.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.5,-0.5,-0.5699053687106306,,,0.5
+Trey McBride,ARI,Receptions,5.0,-450.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.52,-0.4800000000000004,-0.5649159469489303,,,0.4800000000000004
+AJ Barner,SEA,Receptions,4.0,350.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,TE,receptions,4.45,0.4500000000000002,1.8592390285625862,,,0.4500000000000002
+Marvin Harrison Jr.,ARI,Receptions,4.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.55,-0.4500000000000002,-0.39231075131947635,,,0.4500000000000002
+Cooper Kupp,SEA,Receptions,4.0,-150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.62,-0.3799999999999999,-0.35829051840048043,,,0.3799999999999999
+Sam Darnold,SEA,Passing TDs,2.0,150.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,pass_tds,1.68,-0.32000000000000006,-0.4062330269310851,,,0.32000000000000006
+Tory Horton,SEA,Receptions,2.0,-190.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,2.32,0.31999999999999984,-0.08845608195261945,,,0.31999999999999984
+Sam Darnold,SEA,Rushing Yards,20.0,400.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,QB,rush_yards,20.2,0.1999999999999993,1.5284949079536778,,,0.1999999999999993
+Emari Demercado,ARI,Rushing Yards,30.0,300.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,rush_yards,30.2,0.1999999999999993,1.0227959263629423,,,0.1999999999999993
+Michael Wilson,ARI,Receptions,3.0,140.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,3.12,0.1200000000000001,0.2882557077341993,,,0.1200000000000001
+Trey Benson,ARI,Receptions,3.0,-245.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,RB,receptions,2.96,-0.040000000000000036,-0.3132010514605176,,,0.040000000000000036
+Jaxon Smith-Njigba,SEA,Receptions,5.0,-600.0,,True,Seattle Seahawks @ Arizona Cardinals,Cardinals,Seahawks,1758845700000,Bovada,WR,receptions,5.02,0.019999999999999574,-0.4095064466534757,,,0.019999999999999574
+Will Dissly,LAC,Anytime TD,,400.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Zonovan Knight,ARI,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zay Jones (ARI) - 1Q,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zay Jones (ARI) - 1H,,Anytime TD,,1600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zay Jones,ARI,Anytime TD,,825.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Zavier Scott,MIN,Anytime TD,,600.0,,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Zach Charbonnet & Seattle Seahawks,,Anytime TD,,170.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & Arizona Cardinals,,Anytime TD,,280.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,175.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Xavier Weaver (ARI) - 1Q,,Anytime TD,,8000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Weaver (ARI) - 1H,,Anytime TD,,5000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Weaver,ARI,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+A.J. Barner (SEA) - 1H,,Anytime TD,,1000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Barner (SEA) - 1Q,,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Arizona Cardinals,,Anytime TD,,425.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalin Hyatt,NYG,Anytime TD,,1400.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Nailor,MIN,Anytime TD,,600.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jacardia Wright (SEA) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jacardia Wright (SEA) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jacardia Wright,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Hassan Haskins,LAC,Anytime TD,,500.0,,False,,Giants,Chargers,1759078800000,Bovada,RB,,,,,,unsupported_market,0.0
+Gunner Olszewski,NYG,Anytime TD,,3000.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Greg Dortch (ARI) - 1Q,,Anytime TD,,4000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Greg Dortch (ARI) - 1H,,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Greg Dortch,ARI,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+George Holani (SEA) - 1Q,,Anytime TD,,2000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+George Holani (SEA) - 1H,,Anytime TD,,1000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+George Holani,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Eric Saubert (SEA) - 1Q,,Anytime TD,,8000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert (SEA) - 1H,,Anytime TD,,4000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,81.5,-125.0,-105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Seattle Seahawks,,Anytime TD,,275.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Conklin,LAC,Anytime TD,,700.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1H,,Anytime TD,,320.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Arizona Cardinals,,Anytime TD,,270.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1Q,,Anytime TD,,500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1H,,Anytime TD,,200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Receiving Yards,,10000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,110.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Anytime TD,,400.0,,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Keenan Allen,LAC,Anytime TD,,150.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+KeAndre Lambert-Smith,LAC,Anytime TD,,1200.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Kaleb Johnson,PIT,Anytime TD,,2200.0,,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Justin Jefferson,MIN,Anytime TD,,150.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Justin Herbert,LAC,Anytime TD,,350.0,,False,,Giants,Chargers,1759078800000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Oliver,MIN,Anytime TD,,1000.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Jordan Mason,MIN,Anytime TD,,-139.0,,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jordan Addison,MIN,Anytime TD,,240.0,,False,,Steelers,Vikings,1759066200000,Bovada,,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Anytime TD,,350.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Receiving Yards,82.5,-115.0,-115.0,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Anytime TD,,160.0,,False,,Steelers,Vikings,1759066200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaxson Dart,NYG,Anytime TD,,300.0,,False,,Giants,Chargers,1759078800000,Bovada,QB,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1Q,,Anytime TD,,850.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Emari Demercado (ARI) - 1Q,,Anytime TD,,1800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Emari Demercado (ARI) - 1H,,Anytime TD,,850.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Emari Demercado,ARI,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Connor Heyward,PIT,Anytime TD,,2000.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Chris Manhertz,NYG,Anytime TD,,1600.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Carson Wentz,MIN,Anytime TD,,625.0,,False,,Steelers,Vikings,1759066200000,Bovada,QB,,,,,,unsupported_market,0.0
+Cam Skattebo,NYG,Anytime TD,,-122.0,,False,,Giants,Chargers,1759078800000,Bovada,RB,,,,,,unsupported_market,0.0
+Calvin Austin III,PIT,Anytime TD,,260.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Brady Russell (SEA) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Brady Russell (SEA) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Brady Russell,SEA,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Ben Yurosek,MIN,Anytime TD,,1000.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Ben Skowronek,PIT,Anytime TD,,1100.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Beaux Collins,NYG,Anytime TD,,1400.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Ashton Jeanty,LV,Receiving Yards,81.5,-110.0,-120.0,False,,Raiders,Bears,1759091100000,Bovada,RB,,,,,,unsupported_market,0.0
 Arizona D/ST,,Anytime TD,,725.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Brady Russell,SEA,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Cooper Kupp,SEA,Anytime TD,,260.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Cooper Kupp,SEA,Receiving Yards,43.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+ARI Cardinals D/ST - 1Q,,Anytime TD,,2000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+ARI Cardinals D/ST - 1H,,Anytime TD,,950.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Receiving Yards,16.5,-135.0,105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,440.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Adam Thielen,MIN,Anytime TD,,725.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Anytime TD,,2500.0,,False,,Steelers,Vikings,1759066200000,Bovada,QB,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,275.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Receiving Yards,43.5,-105.0,-125.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
 Cooper Kupp,SEA,Receptions,3.5,-145.0,110.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Dareke Young,SEA,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Elijah Arroyo,SEA,Anytime TD,,800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
-Elijah Higgins,ARI,Anytime TD,,1800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Emari Demercado,ARI,Anytime TD,,400.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
-George Holani,SEA,Anytime TD,,500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Kyler Murray,ARI,Rushing Yards,29.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Greg Dortch,ARI,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Jacardia Wright,,Anytime TD,,2500.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Jake Bobo,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Jaxon Smith-Njigba,SEA,Anytime TD,,150.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaxon Smith-Njigba,SEA,Receiving Yards,81.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
-Kenneth Walker,SEA,Anytime TD,,-139.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
-Kyler Murray,ARI,Anytime TD,,300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Kyler Murray,ARI,Passing Attempts,31.5,-110.0,-120.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Kyler Murray,ARI,Passing TDs,1.5,135.0,-180.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Kyler Murray,ARI,Passing Yards,211.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
-Zonovan Knight,ARI,Anytime TD,,1900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Derius Davis,LAC,Anytime TD,,1200.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Elijah Higgins (ARI) - 1Q,,Anytime TD,,5000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Higgins (ARI) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Higgins,ARI,Anytime TD,,1300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1Q,,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1H,,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+DK Metcalf,PIT,Anytime TD,,150.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Devin Singletary,NYG,Anytime TD,,525.0,,False,,Giants,Chargers,1759078800000,Bovada,RB,,,,,,unsupported_market,0.0
+Darnell Washington,PIT,Anytime TD,,1000.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Cooper Kupp & Arizona Cardinals,,Anytime TD,,650.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Darius Slayton,NYG,Anytime TD,,500.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Dareke Young (SEA) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Dareke Young (SEA) - 1H,,Anytime TD,,4000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Dareke Young,SEA,Anytime TD,,3300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Daniel Bellinger,NYG,Anytime TD,,1600.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1Q,,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1H,,Anytime TD,,600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & Seattle Seahawks,,Anytime TD,,450.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Seattle Seahawks,,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Anytime TD,,275.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Passing Attempts,31.5,-125.0,-105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1Q,,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton (SEA) - 1Q,,Anytime TD,,1600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton (SEA) - 1H,,Anytime TD,,750.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton & Seattle Seahawks,,Anytime TD,,625.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton & Arizona Cardinals,,Anytime TD,,800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receiving Yards,,1900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Anytime TD,,400.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Tip Reiman (ARI) - 1Q,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tip Reiman (ARI) - 1H,,Anytime TD,,1600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Tip Reiman,ARI,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Theo Johnson,NYG,Anytime TD,,525.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Tai Felton,MIN,Anytime TD,,2000.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+T.J. Hockenson,MIN,Anytime TD,,275.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Simi Fehoko (ARI) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Simi Fehoko (ARI) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Simi Fehoko,ARI,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Seattle Seahawks Defense,,Anytime TD,,725.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1Q,,Anytime TD,,2000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1H,,Anytime TD,,900.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Scotty Miller,PIT,Anytime TD,,2000.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Tory Horton Total Receiving Yards,,Receiving Yards,21.5,-150.0,115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Travis Etienne,JAX,Receiving Yards,68.5,-115.0,-115.0,False,,49ers,Jaguars,1759089900000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Vokolek,ARI,Anytime TD,,1300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Trey McBride,ARI,Anytime TD,,160.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Tucker Fisk,LAC,Anytime TD,,1600.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Trey Sermon,PIT,Anytime TD,,2200.0,,False,,Steelers,Vikings,1759066200000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride (ARI) - 1Q,,Anytime TD,,850.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride (ARI) - 1H,,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride & Seattle Seahawks,,Anytime TD,,425.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride & Arizona Cardinals,,Anytime TD,,310.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey McBride,ARI,Receptions,6.5,-120.0,-110.0,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Trey McBride,ARI,Receiving Yards,65.5,-130.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+Trey Benson (ARI) - 1Q,,Anytime TD,,600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Travis Vokolek (ARI) - 1H,,Anytime TD,,4000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey Benson (ARI) - 1H,,Anytime TD,,225.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey Benson & Seattle Seahawks,,Anytime TD,,300.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey Benson & Arizona Cardinals,,Anytime TD,,210.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Trey Benson,ARI,Rushing Yards,60.5,110.0,-145.0,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Trey Benson,ARI,Receiving Yards,22.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Trey Benson,ARI,Anytime TD,,,,False,,Cardinals,Seahawks,1758845700000,Bovada,RB,,,,,,unsupported_market,0.0
+Tre Harris,LAC,Anytime TD,,800.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Travis Vokolek (ARI) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Scott Matlock,LAC,Anytime TD,,2500.0,,False,,Giants,Chargers,1759078800000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1H,,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Passing TDs,1.5,125.0,-165.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Rushing Yards,233.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Michael Wilson & Arizona Cardinals,,Anytime TD,,750.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Michael Wilson,ARI,Receiving Yards,21.5,-115.0,-115.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Michael Wilson,ARI,Anytime TD,,400.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Marvin Harrison Jr. (ARI) - 1Q,,Anytime TD,,1000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Harrison Jr. (ARI) - 1H,,Anytime TD,,400.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Harrison Jr. & Seattle Seahawks,,Anytime TD,,460.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Harrison Jr. & Arizona Cardinals,,Anytime TD,,350.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Harrison Jr.,ARI,Receiving Yards,45.5,-120.0,-110.0,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Marvin Harrison Jr.,ARI,Anytime TD,,185.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,WR,,,,,,unsupported_market,0.0
+Marvin Harrison,ARI,Receptions,3.5,-145.0,110.0,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Malik Nabers,NYG,Anytime TD,,170.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Los Angeles Chargers Defense,,Anytime TD,,600.0,,False,,Giants,Chargers,1759078800000,Bovada,,,,,,,unsupported_market,0.0
+Ladd McConkey,LAC,Anytime TD,,160.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyler Murray (ARI) - 1Q,,Anytime TD,,1200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray (ARI) - 1H,,Anytime TD,,550.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray & Seattle Seahawks,,Anytime TD,,700.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray & Arizona Cardinals,,Anytime TD,,525.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Rushing Yards,29.5,110.0,-145.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Kyler Murray,ARI,Passing Yards,211.5,-135.0,105.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Michael Wilson & Seattle Seahawks,,Anytime TD,,875.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Michael Wilson (ARI) - 1H,,Anytime TD,,750.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Michael Wilson (ARI) - 1Q,,Anytime TD,,1600.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston,LAC,Anytime TD,,180.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,220.5,-130.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing TDs,1.5,165.0,-220.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Attempts,30.5,,-130.0,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,625.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,QB,,,,,,unsupported_market,0.0
+Roman Wilson,PIT,Anytime TD,,1100.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Robbie Ouzts (SEA) - 1Q,,Anytime TD,,8000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Robbie Ouzts (SEA) - 1H,,Anytime TD,,4000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Robbie Ouzts,SEA,Anytime TD,,2800.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Pittsburgh D/ST,,Anytime TD,,725.0,,False,,Steelers,Vikings,1759066200000,Bovada,,,,,,,unsupported_market,0.0
+Minnesota Defense,,Anytime TD,,725.0,,False,,Steelers,Vikings,1759066200000,Bovada,,,,,,,unsupported_market,0.0
+Pat Freiermuth,PIT,Anytime TD,,400.0,,False,,Steelers,Vikings,1759066200000,Bovada,TE,,,,,,unsupported_market,0.0
+Oronde Gadsden II,LAC,Anytime TD,,400.0,,False,,Giants,Chargers,1759078800000,Bovada,TE,,,,,,unsupported_market,0.0
+Omarion Hampton,LAC,Anytime TD,,-152.0,,False,,Giants,Chargers,1759078800000,Bovada,RB,,,,,,unsupported_market,0.0
+Nick Kallerup (SEA) - 1Q,,Anytime TD,,6000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Nick Kallerup (SEA) - 1H,,Anytime TD,,3000.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,,,,,,,unsupported_market,0.0
+Nick Kallerup,SEA,Anytime TD,,2200.0,,False,,Cardinals,Seahawks,1758845700000,Bovada,TE,,,,,,unsupported_market,0.0
+New York Giants Defense,,Anytime TD,,900.0,,False,,Giants,Chargers,1759078800000,Bovada,,,,,,,unsupported_market,0.0
+Myles Price,MIN,Anytime TD,,2000.0,,False,,Steelers,Vikings,1759066200000,Bovada,WR,,,,,,unsupported_market,0.0
+Wan'dale Robinson,NYG,Anytime TD,,350.0,,False,,Giants,Chargers,1759078800000,Bovada,WR,,,,,,unsupported_market,0.0
