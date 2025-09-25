@@ -183,6 +183,38 @@ if ($ExitCode -ne 0) {
   exit $ExitCode
 }
 
+# Verify today's odds snapshot exists; if missing or stale, attempt direct fetch
+try {
+  $OddsDir = Join-Path $Root 'nfl_compare/data'
+  $latestOdds = Get-ChildItem -Path $OddsDir -Filter 'real_betting_lines_*.json' -ErrorAction SilentlyContinue |
+    Sort-Object LastWriteTime -Descending |
+    Select-Object -First 1
+  $today = (Get-Date).Date
+  $needsFetch = $true
+  if ($null -ne $latestOdds) {
+    if ($latestOdds.LastWriteTime.Date -eq $today) { $needsFetch = $false }
+  }
+  if ($needsFetch) {
+    Write-Log 'Odds snapshot missing or not from today; attempting direct odds fetch (python -m nfl_compare.src.odds_api_client)'
+    # Ensure default region if not set; books can be configured via .env
+    if (-not $env:ODDS_API_REGION) { $env:ODDS_API_REGION = 'us' }
+    & $Python -m nfl_compare.src.odds_api_client | Tee-Object -FilePath $LogFile -Append
+    # Re-check after fetch
+    $latestOdds = Get-ChildItem -Path $OddsDir -Filter 'real_betting_lines_*.json' -ErrorAction SilentlyContinue |
+      Sort-Object LastWriteTime -Descending |
+      Select-Object -First 1
+    if ($null -ne $latestOdds -and $latestOdds.LastWriteTime.Date -eq $today) {
+      Write-Log ("Odds snapshot ready: {0}" -f $latestOdds.Name)
+    } else {
+      Write-Log 'Warning: Direct odds fetch did not produce a snapshot for today.'
+    }
+  } else {
+    Write-Log ("Found today's odds snapshot: {0}" -f $latestOdds.Name)
+  }
+} catch {
+  Write-Log ("Odds snapshot check/fetch step failed: {0}" -f $_.Exception.Message)
+}
+
 # Run props pipeline (fetch Bovada -> edges -> ladders) using current_week.json
 try {
   Write-Log 'Running props pipeline (scripts/run_props_pipeline.py)'

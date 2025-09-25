@@ -101,6 +101,14 @@ if (-not $NoRetrain.IsPresent) {
   Write-Host "[SKIP] Retrain models (NoRetrain flag)" -ForegroundColor Yellow
 }
 
+# 3b) Fetch latest odds snapshot and seed/enrich lines for the target week
+Invoke-Step "Fetch odds + seed lines (Season=$Season Week=$TargetWeek)" {
+  # Ensure region default; ODDS_API_KEY should be in env or .env
+  if (-not $env:ODDS_API_REGION) { $env:ODDS_API_REGION = 'us' }
+  & $venvPy -m nfl_compare.src.odds_api_client | Write-Host
+  & $venvPy scripts/seed_lines_for_week.py --season $Season --week $TargetWeek | Write-Host
+}
+
 # 4) Generate props for target week
 Invoke-Step "Generate props (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/gen_props.py $Season $TargetWeek | Write-Host
@@ -115,6 +123,9 @@ Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
 # 6) Stage and optionally commit/pull --rebase/push with safety
 Invoke-Step "Stage updated data" {
   git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv | Write-Host
+  if (Test-Path 'nfl_compare/data/lines.csv') { git add -- nfl_compare/data/lines.csv | Write-Host }
+  $todayJson = (Get-ChildItem -Path (Join-Path (Join-Path $PSScriptRoot 'nfl_compare') 'data') -Filter "real_betting_lines_*.json" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
+  if ($todayJson) { git add -- $todayJson.FullName | Write-Host }
   if (Test-Path 'nfl_compare/data/predictions.csv') { git add -- nfl_compare/data/predictions.csv | Write-Host }
   if (Test-Path 'nfl_compare/models/nfl_models.joblib') { git add -- nfl_compare/models/nfl_models.joblib | Write-Host }
 }
