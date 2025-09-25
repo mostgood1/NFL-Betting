@@ -29,11 +29,16 @@ Set-Location -Path $Root
 $PythonVenv = Join-Path $Root '.venv/Scripts/python.exe'
 $Python = if (Test-Path $PythonVenv) { $PythonVenv } else { 'python' }
 
-# Allow env var to force git push without passing -GitPush explicitly
-if (-not $GitPush) {
+# Determine default push behavior:
+# - If -GitPush not explicitly provided, default to $true.
+# - Env DAILY_UPDATE_GITPUSH can override default: accepts 1/true/on or 0/false/off.
+$explicitGitPushProvided = $PSBoundParameters.ContainsKey('GitPush')
+if (-not $explicitGitPushProvided) {
+  $GitPush = $true
   $envPush = $env:DAILY_UPDATE_GITPUSH
-  if ($envPush -and ($envPush -match '^(1|true|yes|on)$')) {
-    $GitPush = $true
+  if ($envPush) {
+    if ($envPush -match '^(0|false|no|off)$') { $GitPush = $false }
+    elseif ($envPush -match '^(1|true|yes|on)$') { $GitPush = $true }
   }
 }
 
@@ -307,7 +312,7 @@ if ($GitPush) {
   $ErrorActionPreference = $PrevErrPref
 }
 else {
-  Write-Log 'Git: push disabled (use -GitPush or set DAILY_UPDATE_GITPUSH=1)'
+  Write-Log 'Git: push disabled (use -GitPush:$true or set DAILY_UPDATE_GITPUSH=1)'
 }
 
 # Post-push verification: if data dirs still have changes, attempt a secondary commit/push
