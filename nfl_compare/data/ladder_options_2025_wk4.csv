@@ -1,165 +1,554 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,125.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,198.7,73.69999999999999
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,150.0,-600.0,,1758845700000,Cardinals,Seahawks,True,198.7,48.69999999999999
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,175.0,-300.0,,1758845700000,Cardinals,Seahawks,True,198.7,23.69999999999999
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,200.0,-150.0,,1758845700000,Cardinals,Seahawks,True,198.7,-1.3000000000000114
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,225.0,120.0,,1758845700000,Cardinals,Seahawks,True,198.7,-26.30000000000001
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,250.0,225.0,,1758845700000,Cardinals,Seahawks,True,198.7,-51.30000000000001
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,275.0,400.0,,1758845700000,Cardinals,Seahawks,True,198.7,-76.30000000000001
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,300.0,750.0,,1758845700000,Cardinals,Seahawks,True,198.7,-101.30000000000001
-Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,325.0,1200.0,,1758845700000,Cardinals,Seahawks,True,198.7,-126.30000000000001
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,150.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,191.3,41.30000000000001
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,175.0,-500.0,,1758845700000,Cardinals,Seahawks,True,191.3,16.30000000000001
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,200.0,-250.0,,1758845700000,Cardinals,Seahawks,True,191.3,-8.699999999999989
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,225.0,-125.0,,1758845700000,Cardinals,Seahawks,True,191.3,-33.69999999999999
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,250.0,150.0,,1758845700000,Cardinals,Seahawks,True,191.3,-58.69999999999999
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,275.0,275.0,,1758845700000,Cardinals,Seahawks,True,191.3,-83.69999999999999
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,300.0,500.0,,1758845700000,Cardinals,Seahawks,True,191.3,-108.69999999999999
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,325.0,850.0,,1758845700000,Cardinals,Seahawks,True,191.3,-133.7
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,350.0,1200.0,,1758845700000,Cardinals,Seahawks,True,191.3,-158.7
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-250.0,,1758845700000,Cardinals,Seahawks,True,35.3,25.299999999999997
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-150.0,,1758845700000,Cardinals,Seahawks,True,35.3,20.299999999999997
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,110.0,,1758845700000,Cardinals,Seahawks,True,35.3,15.299999999999997
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,165.0,,1758845700000,Cardinals,Seahawks,True,35.3,10.299999999999997
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,250.0,,1758845700000,Cardinals,Seahawks,True,35.3,5.299999999999997
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,500.0,,1758845700000,Cardinals,Seahawks,True,35.3,-4.700000000000003
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-1000.0,,1758845700000,Cardinals,Seahawks,True,25.6,10.600000000000001
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-550.0,,1758845700000,Cardinals,Seahawks,True,25.6,5.600000000000001
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-350.0,,1758845700000,Cardinals,Seahawks,True,25.6,0.6000000000000014
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-250.0,,1758845700000,Cardinals,Seahawks,True,25.6,-4.399999999999999
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-140.0,,1758845700000,Cardinals,Seahawks,True,25.6,-14.399999999999999
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,130.0,,1758845700000,Cardinals,Seahawks,True,25.6,-24.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,200.0,,1758845700000,Cardinals,Seahawks,True,25.6,-34.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,325.0,,1758845700000,Cardinals,Seahawks,True,25.6,-44.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,450.0,,1758845700000,Cardinals,Seahawks,True,25.6,-54.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,675.0,,1758845700000,Cardinals,Seahawks,True,25.6,-64.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,900.0,,1758845700000,Cardinals,Seahawks,True,25.6,-74.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,1200.0,,1758845700000,Cardinals,Seahawks,True,25.6,-84.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,120.0,1400.0,,1758845700000,Cardinals,Seahawks,True,25.6,-94.4
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,130.0,1700.0,,1758845700000,Cardinals,Seahawks,True,25.6,-104.4
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,36.3,-3.700000000000003
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,-600.0,,1758845700000,Cardinals,Seahawks,True,36.3,-13.700000000000003
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,-350.0,,1758845700000,Cardinals,Seahawks,True,36.3,-23.700000000000003
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,-225.0,,1758845700000,Cardinals,Seahawks,True,36.3,-33.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,-150.0,,1758845700000,Cardinals,Seahawks,True,36.3,-43.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,,,1758845700000,Cardinals,Seahawks,True,36.3,-53.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,150.0,,1758845700000,Cardinals,Seahawks,True,36.3,-63.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,200.0,,1758845700000,Cardinals,Seahawks,True,36.3,-73.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,325.0,,1758845700000,Cardinals,Seahawks,True,36.3,-88.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,150.0,675.0,,1758845700000,Cardinals,Seahawks,True,36.3,-113.7
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,175.0,1200.0,,1758845700000,Cardinals,Seahawks,True,36.3,-138.7
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,35.9,20.9
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-650.0,,1758845700000,Cardinals,Seahawks,True,35.9,15.899999999999999
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-400.0,,1758845700000,Cardinals,Seahawks,True,35.9,10.899999999999999
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-300.0,,1758845700000,Cardinals,Seahawks,True,35.9,5.899999999999999
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-150.0,,1758845700000,Cardinals,Seahawks,True,35.9,-4.100000000000001
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,,,1758845700000,Cardinals,Seahawks,True,35.9,-14.100000000000001
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,150.0,,1758845700000,Cardinals,Seahawks,True,35.9,-24.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,225.0,,1758845700000,Cardinals,Seahawks,True,35.9,-34.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,350.0,,1758845700000,Cardinals,Seahawks,True,35.9,-44.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,500.0,,1758845700000,Cardinals,Seahawks,True,35.9,-54.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,700.0,,1758845700000,Cardinals,Seahawks,True,35.9,-64.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,900.0,,1758845700000,Cardinals,Seahawks,True,35.9,-74.1
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,1400.0,,1758845700000,Cardinals,Seahawks,True,35.9,-89.1
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-350.0,,1758845700000,Cardinals,Seahawks,True,26.1,16.1
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-210.0,,1758845700000,Cardinals,Seahawks,True,26.1,11.100000000000001
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-140.0,,1758845700000,Cardinals,Seahawks,True,26.1,6.100000000000001
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,,,1758845700000,Cardinals,Seahawks,True,26.1,1.1000000000000014
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,150.0,,1758845700000,Cardinals,Seahawks,True,26.1,-3.8999999999999986
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,275.0,,1758845700000,Cardinals,Seahawks,True,26.1,-13.899999999999999
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,400.0,,1758845700000,Cardinals,Seahawks,True,26.1,-23.9
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,650.0,,1758845700000,Cardinals,Seahawks,True,26.1,-33.9
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,900.0,,1758845700000,Cardinals,Seahawks,True,26.1,-43.9
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,1200.0,,1758845700000,Cardinals,Seahawks,True,26.1,-53.9
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-450.0,,1758845700000,Cardinals,Seahawks,True,27.9,17.9
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-275.0,,1758845700000,Cardinals,Seahawks,True,27.9,12.899999999999999
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-175.0,,1758845700000,Cardinals,Seahawks,True,27.9,7.899999999999999
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-125.0,,1758845700000,Cardinals,Seahawks,True,27.9,2.8999999999999986
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,110.0,,1758845700000,Cardinals,Seahawks,True,27.9,-2.1000000000000014
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,185.0,,1758845700000,Cardinals,Seahawks,True,27.9,-12.100000000000001
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,300.0,,1758845700000,Cardinals,Seahawks,True,27.9,-22.1
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,475.0,,1758845700000,Cardinals,Seahawks,True,27.9,-32.1
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,675.0,,1758845700000,Cardinals,Seahawks,True,27.9,-42.1
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,900.0,,1758845700000,Cardinals,Seahawks,True,27.9,-52.1
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,1200.0,,1758845700000,Cardinals,Seahawks,True,27.9,-62.1
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-450.0,,1758845700000,Cardinals,Seahawks,True,22.3,12.3
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-250.0,,1758845700000,Cardinals,Seahawks,True,22.3,7.300000000000001
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-150.0,,1758845700000,Cardinals,Seahawks,True,22.3,2.3000000000000007
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,,,1758845700000,Cardinals,Seahawks,True,22.3,-2.6999999999999993
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,150.0,,1758845700000,Cardinals,Seahawks,True,22.3,-7.699999999999999
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,28.1,-1.8999999999999986
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-500.0,,1758845700000,Cardinals,Seahawks,True,28.1,-11.899999999999999
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,-250.0,,1758845700000,Cardinals,Seahawks,True,28.1,-21.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,-150.0,,1758845700000,Cardinals,Seahawks,True,28.1,-31.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,105.0,,1758845700000,Cardinals,Seahawks,True,28.1,-41.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,150.0,,1758845700000,Cardinals,Seahawks,True,28.1,-51.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,250.0,,1758845700000,Cardinals,Seahawks,True,28.1,-61.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,350.0,,1758845700000,Cardinals,Seahawks,True,28.1,-71.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,500.0,,1758845700000,Cardinals,Seahawks,True,28.1,-81.9
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,850.0,,1758845700000,Cardinals,Seahawks,True,28.1,-96.9
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,4.45,3.45
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-215.0,,1758845700000,Cardinals,Seahawks,True,4.45,2.45
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,140.0,,1758845700000,Cardinals,Seahawks,True,4.45,1.4500000000000002
-AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,350.0,,1758845700000,Cardinals,Seahawks,True,4.45,0.4500000000000002
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,3.62,1.62
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-375.0,,1758845700000,Cardinals,Seahawks,True,3.62,0.6200000000000001
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-150.0,,1758845700000,Cardinals,Seahawks,True,3.62,-0.3799999999999999
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,140.0,,1758845700000,Cardinals,Seahawks,True,3.62,-1.38
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,275.0,,1758845700000,Cardinals,Seahawks,True,3.62,-2.38
-Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,500.0,,1758845700000,Cardinals,Seahawks,True,3.62,-3.38
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-1800.0,,1758845700000,Cardinals,Seahawks,True,5.02,1.0199999999999996
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,-600.0,,1758845700000,Cardinals,Seahawks,True,5.02,0.019999999999999574
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,-275.0,,1758845700000,Cardinals,Seahawks,True,5.02,-0.9800000000000004
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,-150.0,,1758845700000,Cardinals,Seahawks,True,5.02,-1.9800000000000004
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,8.0,120.0,,1758845700000,Cardinals,Seahawks,True,5.02,-2.9800000000000004
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,9.0,200.0,,1758845700000,Cardinals,Seahawks,True,5.02,-3.9800000000000004
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,3.55,1.5499999999999998
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-350.0,,1758845700000,Cardinals,Seahawks,True,3.55,0.5499999999999998
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-150.0,,1758845700000,Cardinals,Seahawks,True,3.55,-0.4500000000000002
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,140.0,,1758845700000,Cardinals,Seahawks,True,3.55,-1.4500000000000002
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,300.0,,1758845700000,Cardinals,Seahawks,True,3.55,-2.45
-Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,550.0,,1758845700000,Cardinals,Seahawks,True,3.55,-3.45
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1800.0,,1758845700000,Cardinals,Seahawks,True,3.12,2.12
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-300.0,,1758845700000,Cardinals,Seahawks,True,3.12,1.12
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,105.0,,1758845700000,Cardinals,Seahawks,True,3.12,0.1200000000000001
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,250.0,,1758845700000,Cardinals,Seahawks,True,3.12,-0.8799999999999999
-Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,575.0,,1758845700000,Cardinals,Seahawks,True,3.12,-1.88
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,2.32,1.3199999999999998
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-225.0,,1758845700000,Cardinals,Seahawks,True,2.32,0.31999999999999984
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,135.0,,1758845700000,Cardinals,Seahawks,True,2.32,-0.6800000000000002
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,300.0,,1758845700000,Cardinals,Seahawks,True,2.32,-1.6800000000000002
-Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,700.0,,1758845700000,Cardinals,Seahawks,True,2.32,-2.68
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-750.0,,1758845700000,Cardinals,Seahawks,True,2.96,0.96
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-245.0,,1758845700000,Cardinals,Seahawks,True,2.96,-0.040000000000000036
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-105.0,,1758845700000,Cardinals,Seahawks,True,2.96,-1.04
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,185.0,,1758845700000,Cardinals,Seahawks,True,2.96,-2.04
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,375.0,,1758845700000,Cardinals,Seahawks,True,2.96,-3.04
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,650.0,,1758845700000,Cardinals,Seahawks,True,2.96,-4.04
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,4.52,0.5199999999999996
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,-450.0,,1758845700000,Cardinals,Seahawks,True,4.52,-0.4800000000000004
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,-225.0,,1758845700000,Cardinals,Seahawks,True,4.52,-1.4800000000000004
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,-120.0,,1758845700000,Cardinals,Seahawks,True,4.52,-2.4800000000000004
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,8.0,150.0,,1758845700000,Cardinals,Seahawks,True,4.52,-3.4800000000000004
-Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,9.0,250.0,,1758845700000,Cardinals,Seahawks,True,4.52,-4.48
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,10.0,-225.0,,1758845700000,Cardinals,Seahawks,True,30.2,20.2
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,15.0,-120.0,,1758845700000,Cardinals,Seahawks,True,30.2,15.2
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,20.0,140.0,,1758845700000,Cardinals,Seahawks,True,30.2,10.2
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,25.0,220.0,,1758845700000,Cardinals,Seahawks,True,30.2,5.199999999999999
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,30.0,300.0,,1758845700000,Cardinals,Seahawks,True,30.2,0.1999999999999993
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,40.0,575.0,,1758845700000,Cardinals,Seahawks,True,30.2,-9.8
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,50.0,900.0,,1758845700000,Cardinals,Seahawks,True,30.2,-19.8
-Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,60.0,1400.0,,1758845700000,Cardinals,Seahawks,True,30.2,-29.8
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,10.0,120.0,,1758845700000,Cardinals,Seahawks,True,20.2,10.2
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,15.0,225.0,,1758845700000,Cardinals,Seahawks,True,20.2,5.199999999999999
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,20.0,400.0,,1758845700000,Cardinals,Seahawks,True,20.2,0.1999999999999993
-Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,25.0,650.0,,1758845700000,Cardinals,Seahawks,True,20.2,-4.800000000000001
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,30.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,55.1,25.1
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,40.0,-450.0,,1758845700000,Cardinals,Seahawks,True,55.1,15.100000000000001
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,50.0,-225.0,,1758845700000,Cardinals,Seahawks,True,55.1,5.100000000000001
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,60.0,-125.0,,1758845700000,Cardinals,Seahawks,True,55.1,-4.899999999999999
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,70.0,140.0,,1758845700000,Cardinals,Seahawks,True,55.1,-14.899999999999999
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,80.0,200.0,,1758845700000,Cardinals,Seahawks,True,55.1,-24.9
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,90.0,300.0,,1758845700000,Cardinals,Seahawks,True,55.1,-34.9
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,100.0,450.0,,1758845700000,Cardinals,Seahawks,True,55.1,-44.9
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,110.0,650.0,,1758845700000,Cardinals,Seahawks,True,55.1,-54.9
-Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,125.0,1000.0,,1758845700000,Cardinals,Seahawks,True,55.1,-69.9
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,150.0,-1000.0,,1759078800000,Lions,Browns,True,220.8,70.80000000000001
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,175.0,-450.0,,1759078800000,Lions,Browns,True,220.8,45.80000000000001
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,200.0,-240.0,,1759078800000,Lions,Browns,True,220.8,20.80000000000001
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,225.0,-125.0,,1759078800000,Lions,Browns,True,220.8,-4.199999999999989
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,250.0,150.0,,1759078800000,Lions,Browns,True,220.8,-29.19999999999999
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,275.0,275.0,,1759078800000,Lions,Browns,True,220.8,-54.19999999999999
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,300.0,475.0,,1759078800000,Lions,Browns,True,220.8,-79.19999999999999
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,325.0,750.0,,1759078800000,Lions,Browns,True,220.8,-104.19999999999999
+Jared Goff,DET,Cleveland Browns @ Detroit Lions,Passing Yards,350.0,1200.0,,1759078800000,Lions,Browns,True,220.8,-129.2
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,125.0,-1400.0,,1759078800000,Lions,Browns,True,236.5,111.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,150.0,-600.0,,1759078800000,Lions,Browns,True,236.5,86.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,175.0,-300.0,,1759078800000,Lions,Browns,True,236.5,61.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,200.0,-165.0,,1759078800000,Lions,Browns,True,236.5,36.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,225.0,110.0,,1759078800000,Lions,Browns,True,236.5,11.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,250.0,200.0,,1759078800000,Lions,Browns,True,236.5,-13.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,275.0,375.0,,1759078800000,Lions,Browns,True,236.5,-38.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,300.0,650.0,,1759078800000,Lions,Browns,True,236.5,-63.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,325.0,1000.0,,1759078800000,Lions,Browns,True,236.5,-88.5
+Joe Flacco,CLE,Cleveland Browns @ Detroit Lions,Passing Yards,350.0,1600.0,,1759078800000,Lions,Browns,True,236.5,-113.5
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,125.0,-1000.0,,1759066200000,Steelers,Vikings,True,223.0,98.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,150.0,-450.0,,1759066200000,Steelers,Vikings,True,223.0,73.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,175.0,-245.0,,1759066200000,Steelers,Vikings,True,223.0,48.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,200.0,-125.0,,1759066200000,Steelers,Vikings,True,223.0,23.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,225.0,150.0,,1759066200000,Steelers,Vikings,True,223.0,-2.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,250.0,265.0,,1759066200000,Steelers,Vikings,True,223.0,-27.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,275.0,450.0,,1759066200000,Steelers,Vikings,True,223.0,-52.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,300.0,800.0,,1759066200000,Steelers,Vikings,True,223.0,-77.0
+Aaron Rodgers,PIT,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,325.0,1400.0,,1759066200000,Steelers,Vikings,True,223.0,-102.0
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,125.0,-1400.0,,1759066200000,Steelers,Vikings,True,230.5,105.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,150.0,-600.0,,1759066200000,Steelers,Vikings,True,230.5,80.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,175.0,-310.0,,1759066200000,Steelers,Vikings,True,230.5,55.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,200.0,-155.0,,1759066200000,Steelers,Vikings,True,230.5,30.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,225.0,125.0,,1759066200000,Steelers,Vikings,True,230.5,5.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,250.0,225.0,,1759066200000,Steelers,Vikings,True,230.5,-19.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,275.0,400.0,,1759066200000,Steelers,Vikings,True,230.5,-44.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,300.0,750.0,,1759066200000,Steelers,Vikings,True,230.5,-69.5
+Carson Wentz,MIN,Minnesota Vikings @ Pittsburgh Steelers,Passing Yards,325.0,1200.0,,1759066200000,Steelers,Vikings,True,230.5,-94.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,10.0,-900.0,,1759066200000,Steelers,Vikings,True,33.5,23.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-475.0,,1759066200000,Steelers,Vikings,True,33.5,18.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-300.0,,1759066200000,Steelers,Vikings,True,33.5,13.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-220.0,,1759066200000,Steelers,Vikings,True,33.5,8.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-155.0,,1759066200000,Steelers,Vikings,True,33.5,3.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,115.0,,1759066200000,Steelers,Vikings,True,33.5,-6.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,190.0,,1759066200000,Steelers,Vikings,True,33.5,-16.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,275.0,,1759066200000,Steelers,Vikings,True,33.5,-26.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,400.0,,1759066200000,Steelers,Vikings,True,33.5,-36.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,600.0,,1759066200000,Steelers,Vikings,True,33.5,-46.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,800.0,,1759066200000,Steelers,Vikings,True,33.5,-56.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,100.0,1000.0,,1759066200000,Steelers,Vikings,True,33.5,-66.5
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,110.0,1400.0,,1759066200000,Steelers,Vikings,True,33.5,-76.5
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-1400.0,,1759066200000,Steelers,Vikings,True,40.9,25.9
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-850.0,,1759066200000,Steelers,Vikings,True,40.9,20.9
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-550.0,,1759066200000,Steelers,Vikings,True,40.9,15.899999999999999
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-360.0,,1759066200000,Steelers,Vikings,True,40.9,10.899999999999999
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,-210.0,,1759066200000,Steelers,Vikings,True,40.9,0.8999999999999986
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,-120.0,,1759066200000,Steelers,Vikings,True,40.9,-9.100000000000001
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,130.0,,1759066200000,Steelers,Vikings,True,40.9,-19.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,200.0,,1759066200000,Steelers,Vikings,True,40.9,-29.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,275.0,,1759066200000,Steelers,Vikings,True,40.9,-39.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,400.0,,1759066200000,Steelers,Vikings,True,40.9,-49.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,100.0,550.0,,1759066200000,Steelers,Vikings,True,40.9,-59.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,110.0,750.0,,1759066200000,Steelers,Vikings,True,40.9,-69.1
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,125.0,1100.0,,1759066200000,Steelers,Vikings,True,40.9,-84.1
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,10.0,-500.0,,1759066200000,Steelers,Vikings,True,18.9,8.899999999999999
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-275.0,,1759066200000,Steelers,Vikings,True,18.9,3.8999999999999986
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-160.0,,1759066200000,Steelers,Vikings,True,18.9,-1.1000000000000014
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-105.0,,1759066200000,Steelers,Vikings,True,18.9,-6.100000000000001
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,140.0,,1759066200000,Steelers,Vikings,True,18.9,-11.100000000000001
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,250.0,,1759066200000,Steelers,Vikings,True,18.9,-21.1
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,10.0,-850.0,,1759066200000,Steelers,Vikings,True,34.9,24.9
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-450.0,,1759066200000,Steelers,Vikings,True,34.9,19.9
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-250.0,,1759066200000,Steelers,Vikings,True,34.9,14.899999999999999
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-175.0,,1759066200000,Steelers,Vikings,True,34.9,9.899999999999999
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-115.0,,1759066200000,Steelers,Vikings,True,34.9,4.899999999999999
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,170.0,,1759066200000,Steelers,Vikings,True,34.9,-5.100000000000001
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,300.0,,1759066200000,Steelers,Vikings,True,34.9,-15.100000000000001
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,500.0,,1759066200000,Steelers,Vikings,True,34.9,-25.1
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,750.0,,1759066200000,Steelers,Vikings,True,34.9,-35.1
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,1100.0,,1759066200000,Steelers,Vikings,True,34.9,-45.1
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,1600.0,,1759066200000,Steelers,Vikings,True,34.9,-55.1
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-850.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-500.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-330.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-235.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,-125.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,135.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,200.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,300.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,475.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,700.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,100.0,900.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,110.0,1200.0,,1759066200000,Steelers,Vikings,True,,
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-1800.0,,1759066200000,Steelers,Vikings,True,45.3,15.299999999999997
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,-700.0,,1759066200000,Steelers,Vikings,True,45.3,5.299999999999997
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,-400.0,,1759066200000,Steelers,Vikings,True,45.3,-4.700000000000003
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,-230.0,,1759066200000,Steelers,Vikings,True,45.3,-14.700000000000003
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,-150.0,,1759066200000,Steelers,Vikings,True,45.3,-24.700000000000003
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,105.0,,1759066200000,Steelers,Vikings,True,45.3,-34.7
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,155.0,,1759066200000,Steelers,Vikings,True,45.3,-44.7
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,100.0,220.0,,1759066200000,Steelers,Vikings,True,45.3,-54.7
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,110.0,300.0,,1759066200000,Steelers,Vikings,True,45.3,-64.7
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,125.0,500.0,,1759066200000,Steelers,Vikings,True,45.3,-79.7
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,150.0,900.0,,1759066200000,Steelers,Vikings,True,45.3,-104.7
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,10.0,-170.0,,1759066200000,Steelers,Vikings,True,11.6,1.5999999999999996
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,110.0,,1759066200000,Steelers,Vikings,True,11.6,-3.4000000000000004
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,175.0,,1759066200000,Steelers,Vikings,True,11.6,-8.4
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,265.0,,1759066200000,Steelers,Vikings,True,11.6,-13.4
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,10.0,-350.0,,1759066200000,Steelers,Vikings,True,16.6,6.600000000000001
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-200.0,,1759066200000,Steelers,Vikings,True,16.6,1.6000000000000014
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-125.0,,1759066200000,Steelers,Vikings,True,16.6,-3.3999999999999986
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,120.0,,1759066200000,Steelers,Vikings,True,16.6,-8.399999999999999
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,175.0,,1759066200000,Steelers,Vikings,True,16.6,-13.399999999999999
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,330.0,,1759066200000,Steelers,Vikings,True,16.6,-23.4
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,575.0,,1759066200000,Steelers,Vikings,True,16.6,-33.4
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,15.0,-800.0,,1759066200000,Steelers,Vikings,True,35.3,20.299999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,20.0,-450.0,,1759066200000,Steelers,Vikings,True,35.3,15.299999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,25.0,-300.0,,1759066200000,Steelers,Vikings,True,35.3,10.299999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,30.0,-200.0,,1759066200000,Steelers,Vikings,True,35.3,5.299999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,40.0,,,1759066200000,Steelers,Vikings,True,35.3,-4.700000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,50.0,180.0,,1759066200000,Steelers,Vikings,True,35.3,-14.700000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,60.0,300.0,,1759066200000,Steelers,Vikings,True,35.3,-24.700000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,70.0,475.0,,1759066200000,Steelers,Vikings,True,35.3,-34.7
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,80.0,750.0,,1759066200000,Steelers,Vikings,True,35.3,-44.7
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,90.0,1100.0,,1759066200000,Steelers,Vikings,True,35.3,-54.7
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receiving Yards,100.0,1800.0,,1759066200000,Steelers,Vikings,True,35.3,-64.7
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-450.0,,1759066200000,Steelers,Vikings,True,3.15,1.15
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-145.0,,1759066200000,Steelers,Vikings,True,3.15,0.1499999999999999
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,175.0,,1759066200000,Steelers,Vikings,True,3.15,-0.8500000000000001
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,375.0,,1759066200000,Steelers,Vikings,True,3.15,-1.85
+Calvin Austin III,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,750.0,,1759066200000,Steelers,Vikings,True,3.15,-2.85
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-1800.0,,1759066200000,Steelers,Vikings,True,4.2,2.2
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-450.0,,1759066200000,Steelers,Vikings,True,4.2,1.2000000000000002
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,-175.0,,1759066200000,Steelers,Vikings,True,4.2,0.20000000000000018
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,130.0,,1759066200000,Steelers,Vikings,True,4.2,-0.7999999999999998
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,255.0,,1759066200000,Steelers,Vikings,True,4.2,-1.7999999999999998
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,500.0,,1759066200000,Steelers,Vikings,True,4.2,-2.8
+DK Metcalf,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,8.0,900.0,,1759066200000,Steelers,Vikings,True,4.2,-3.8
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-700.0,,1759066200000,Steelers,Vikings,True,3.21,1.21
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-240.0,,1759066200000,Steelers,Vikings,True,3.21,0.20999999999999996
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,,,1759066200000,Steelers,Vikings,True,3.21,-0.79
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,200.0,,1759066200000,Steelers,Vikings,True,3.21,-1.79
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,400.0,,1759066200000,Steelers,Vikings,True,3.21,-2.79
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,700.0,,1759066200000,Steelers,Vikings,True,3.21,-3.79
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-700.0,,1759066200000,Steelers,Vikings,True,4.87,2.87
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-230.0,,1759066200000,Steelers,Vikings,True,4.87,1.87
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,105.0,,1759066200000,Steelers,Vikings,True,4.87,0.8700000000000001
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,225.0,,1759066200000,Steelers,Vikings,True,4.87,-0.1299999999999999
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,450.0,,1759066200000,Steelers,Vikings,True,4.87,-1.13
+Jonnu Smith,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,800.0,,1759066200000,Steelers,Vikings,True,4.87,-2.13
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-900.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-260.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,200.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,400.0,,1759066200000,Steelers,Vikings,True,,
+Jordan Addison,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,750.0,,1759066200000,Steelers,Vikings,True,,
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,-600.0,,1759066200000,Steelers,Vikings,True,4.86,0.8600000000000003
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,-250.0,,1759066200000,Steelers,Vikings,True,4.86,-0.13999999999999968
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,-125.0,,1759066200000,Steelers,Vikings,True,4.86,-1.1399999999999997
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,155.0,,1759066200000,Steelers,Vikings,True,4.86,-2.1399999999999997
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,8.0,275.0,,1759066200000,Steelers,Vikings,True,4.86,-3.1399999999999997
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,9.0,475.0,,1759066200000,Steelers,Vikings,True,4.86,-4.14
+Justin Jefferson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,10.0,750.0,,1759066200000,Steelers,Vikings,True,4.86,-5.14
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,1.0,-1400.0,,1759066200000,Steelers,Vikings,True,1.88,0.8799999999999999
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-275.0,,1759066200000,Steelers,Vikings,True,1.88,-0.1200000000000001
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,110.0,,1759066200000,Steelers,Vikings,True,1.88,-1.12
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,230.0,,1759066200000,Steelers,Vikings,True,1.88,-2.12
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,500.0,,1759066200000,Steelers,Vikings,True,1.88,-3.12
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,900.0,,1759066200000,Steelers,Vikings,True,1.88,-4.12
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,1.0,-1800.0,,1759066200000,Steelers,Vikings,True,2.29,1.29
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-300.0,,1759066200000,Steelers,Vikings,True,2.29,0.29000000000000004
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,,,1759066200000,Steelers,Vikings,True,2.29,-0.71
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,240.0,,1759066200000,Steelers,Vikings,True,2.29,-1.71
+Pat Freiermuth,PIT,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,500.0,,1759066200000,Steelers,Vikings,True,2.29,-2.71
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,2.0,-1600.0,,1759066200000,Steelers,Vikings,True,4.32,2.3200000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,3.0,-400.0,,1759066200000,Steelers,Vikings,True,4.32,1.3200000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,4.0,-165.0,,1759066200000,Steelers,Vikings,True,4.32,0.3200000000000003
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,5.0,135.0,,1759066200000,Steelers,Vikings,True,4.32,-0.6799999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,6.0,240.0,,1759066200000,Steelers,Vikings,True,4.32,-1.6799999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,7.0,450.0,,1759066200000,Steelers,Vikings,True,4.32,-2.6799999999999997
+T.J. Hockenson,MIN,Minnesota Vikings @ Pittsburgh Steelers,Receptions,8.0,750.0,,1759066200000,Steelers,Vikings,True,4.32,-3.6799999999999997
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,25.0,-1400.0,,1759066200000,Steelers,Vikings,True,82.3,57.3
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,30.0,-750.0,,1759066200000,Steelers,Vikings,True,82.3,52.3
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,40.0,-330.0,,1759066200000,Steelers,Vikings,True,82.3,42.3
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,50.0,-170.0,,1759066200000,Steelers,Vikings,True,82.3,32.3
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,60.0,105.0,,1759066200000,Steelers,Vikings,True,82.3,22.299999999999997
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,70.0,170.0,,1759066200000,Steelers,Vikings,True,82.3,12.299999999999997
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,80.0,270.0,,1759066200000,Steelers,Vikings,True,82.3,2.299999999999997
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,90.0,400.0,,1759066200000,Steelers,Vikings,True,82.3,-7.700000000000003
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,100.0,600.0,,1759066200000,Steelers,Vikings,True,82.3,-17.700000000000003
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,110.0,800.0,,1759066200000,Steelers,Vikings,True,82.3,-27.700000000000003
+Jaylen Warren,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,125.0,1200.0,,1759066200000,Steelers,Vikings,True,82.3,-42.7
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,40.0,-1600.0,,1759066200000,Steelers,Vikings,True,88.5,48.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,50.0,-675.0,,1759066200000,Steelers,Vikings,True,88.5,38.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,60.0,-350.0,,1759066200000,Steelers,Vikings,True,88.5,28.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,70.0,-220.0,,1759066200000,Steelers,Vikings,True,88.5,18.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,80.0,-135.0,,1759066200000,Steelers,Vikings,True,88.5,8.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,90.0,115.0,,1759066200000,Steelers,Vikings,True,88.5,-1.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,100.0,170.0,,1759066200000,Steelers,Vikings,True,88.5,-11.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,110.0,235.0,,1759066200000,Steelers,Vikings,True,88.5,-21.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,125.0,400.0,,1759066200000,Steelers,Vikings,True,88.5,-36.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,150.0,900.0,,1759066200000,Steelers,Vikings,True,88.5,-61.5
+Jordan Mason,MIN,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,175.0,1800.0,,1759066200000,Steelers,Vikings,True,88.5,-86.5
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,10.0,-400.0,,1759066200000,Steelers,Vikings,True,45.7,35.7
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,15.0,-200.0,,1759066200000,Steelers,Vikings,True,45.7,30.700000000000003
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,20.0,-115.0,,1759066200000,Steelers,Vikings,True,45.7,25.700000000000003
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,25.0,140.0,,1759066200000,Steelers,Vikings,True,45.7,20.700000000000003
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,30.0,200.0,,1759066200000,Steelers,Vikings,True,45.7,15.700000000000003
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,40.0,400.0,,1759066200000,Steelers,Vikings,True,45.7,5.700000000000003
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,50.0,700.0,,1759066200000,Steelers,Vikings,True,45.7,-4.299999999999997
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,60.0,1100.0,,1759066200000,Steelers,Vikings,True,45.7,-14.299999999999997
+Kenneth Gainwell,PIT,Minnesota Vikings @ Pittsburgh Steelers,Rushing Yards,70.0,1600.0,,1759066200000,Steelers,Vikings,True,45.7,-24.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,150.0,-700.0,,1759078800000,Bills,Saints,True,240.5,90.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,175.0,-350.0,,1759078800000,Bills,Saints,True,240.5,65.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,200.0,-190.0,,1759078800000,Bills,Saints,True,240.5,40.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,225.0,105.0,,1759078800000,Bills,Saints,True,240.5,15.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,250.0,190.0,,1759078800000,Bills,Saints,True,240.5,-9.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,275.0,350.0,,1759078800000,Bills,Saints,True,240.5,-34.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,300.0,625.0,,1759078800000,Bills,Saints,True,240.5,-59.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,325.0,900.0,,1759078800000,Bills,Saints,True,240.5,-84.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Passing Yards,350.0,1500.0,,1759078800000,Bills,Saints,True,240.5,-109.5
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,125.0,-1200.0,,1759078800000,Bills,Saints,True,215.7,90.69999999999999
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,150.0,-475.0,,1759078800000,Bills,Saints,True,215.7,65.69999999999999
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,175.0,-250.0,,1759078800000,Bills,Saints,True,215.7,40.69999999999999
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,200.0,-125.0,,1759078800000,Bills,Saints,True,215.7,15.699999999999989
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,225.0,150.0,,1759078800000,Bills,Saints,True,215.7,-9.300000000000011
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,250.0,275.0,,1759078800000,Bills,Saints,True,215.7,-34.30000000000001
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,275.0,475.0,,1759078800000,Bills,Saints,True,215.7,-59.30000000000001
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,300.0,875.0,,1759078800000,Bills,Saints,True,215.7,-84.30000000000001
+Spencer Rattler,NO,New Orleans Saints @ Buffalo Bills,Passing Yards,325.0,1200.0,,1759078800000,Bills,Saints,True,215.7,-109.30000000000001
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-1100.0,,1759078800000,Bills,Saints,True,43.8,18.799999999999997
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-650.0,,1759078800000,Bills,Saints,True,43.8,13.799999999999997
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,-325.0,,1759078800000,Bills,Saints,True,43.8,3.799999999999997
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,-190.0,,1759078800000,Bills,Saints,True,43.8,-6.200000000000003
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,-115.0,,1759078800000,Bills,Saints,True,43.8,-16.200000000000003
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,145.0,,1759078800000,Bills,Saints,True,43.8,-26.200000000000003
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,200.0,,1759078800000,Bills,Saints,True,43.8,-36.2
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,300.0,,1759078800000,Bills,Saints,True,43.8,-46.2
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,425.0,,1759078800000,Bills,Saints,True,43.8,-56.2
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,110.0,625.0,,1759078800000,Bills,Saints,True,43.8,-66.2
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,125.0,900.0,,1759078800000,Bills,Saints,True,43.8,-81.2
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,10.0,-1500.0,,1759078800000,Bills,Saints,True,38.3,28.299999999999997
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,15.0,-650.0,,1759078800000,Bills,Saints,True,38.3,23.299999999999997
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,20.0,-400.0,,1759078800000,Bills,Saints,True,38.3,18.299999999999997
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-250.0,,1759078800000,Bills,Saints,True,38.3,13.299999999999997
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-175.0,,1759078800000,Bills,Saints,True,38.3,8.299999999999997
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,,,1759078800000,Bills,Saints,True,38.3,-1.7000000000000028
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,190.0,,1759078800000,Bills,Saints,True,38.3,-11.700000000000003
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,300.0,,1759078800000,Bills,Saints,True,38.3,-21.700000000000003
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,475.0,,1759078800000,Bills,Saints,True,38.3,-31.700000000000003
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,750.0,,1759078800000,Bills,Saints,True,38.3,-41.7
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,1000.0,,1759078800000,Bills,Saints,True,38.3,-51.7
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,1400.0,,1759078800000,Bills,Saints,True,38.3,-61.7
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,15.0,-1500.0,,1759078800000,Bills,Saints,True,29.2,14.2
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,20.0,-700.0,,1759078800000,Bills,Saints,True,29.2,9.2
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-500.0,,1759078800000,Bills,Saints,True,29.2,4.199999999999999
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-300.0,,1759078800000,Bills,Saints,True,29.2,-0.8000000000000007
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,-150.0,,1759078800000,Bills,Saints,True,29.2,-10.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,120.0,,1759078800000,Bills,Saints,True,29.2,-20.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,200.0,,1759078800000,Bills,Saints,True,29.2,-30.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,300.0,,1759078800000,Bills,Saints,True,29.2,-40.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,475.0,,1759078800000,Bills,Saints,True,29.2,-50.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,750.0,,1759078800000,Bills,Saints,True,29.2,-60.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,1000.0,,1759078800000,Bills,Saints,True,29.2,-70.8
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,110.0,1400.0,,1759078800000,Bills,Saints,True,29.2,-80.8
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,10.0,-1600.0,,1759078800000,Bills,Saints,True,56.2,46.2
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,15.0,-800.0,,1759078800000,Bills,Saints,True,56.2,41.2
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,20.0,-500.0,,1759078800000,Bills,Saints,True,56.2,36.2
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-325.0,,1759078800000,Bills,Saints,True,56.2,31.200000000000003
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-250.0,,1759078800000,Bills,Saints,True,56.2,26.200000000000003
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,-135.0,,1759078800000,Bills,Saints,True,56.2,16.200000000000003
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,130.0,,1759078800000,Bills,Saints,True,56.2,6.200000000000003
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,200.0,,1759078800000,Bills,Saints,True,56.2,-3.799999999999997
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,300.0,,1759078800000,Bills,Saints,True,56.2,-13.799999999999997
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,425.0,,1759078800000,Bills,Saints,True,56.2,-23.799999999999997
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,650.0,,1759078800000,Bills,Saints,True,56.2,-33.8
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,875.0,,1759078800000,Bills,Saints,True,56.2,-43.8
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,110.0,1200.0,,1759078800000,Bills,Saints,True,56.2,-53.8
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,10.0,-1800.0,,1759078800000,Bills,Saints,True,36.8,26.799999999999997
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,15.0,-800.0,,1759078800000,Bills,Saints,True,36.8,21.799999999999997
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,20.0,-475.0,,1759078800000,Bills,Saints,True,36.8,16.799999999999997
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-325.0,,1759078800000,Bills,Saints,True,36.8,11.799999999999997
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-225.0,,1759078800000,Bills,Saints,True,36.8,6.799999999999997
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,-115.0,,1759078800000,Bills,Saints,True,36.8,-3.200000000000003
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,150.0,,1759078800000,Bills,Saints,True,36.8,-13.200000000000003
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,225.0,,1759078800000,Bills,Saints,True,36.8,-23.200000000000003
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,350.0,,1759078800000,Bills,Saints,True,36.8,-33.2
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,500.0,,1759078800000,Bills,Saints,True,36.8,-43.2
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,750.0,,1759078800000,Bills,Saints,True,36.8,-53.2
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,1000.0,,1759078800000,Bills,Saints,True,36.8,-63.2
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receiving Yards,110.0,1400.0,,1759078800000,Bills,Saints,True,36.8,-73.2
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,10.0,-1200.0,,1759078800000,Bills,Saints,True,34.2,24.200000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,15.0,-600.0,,1759078800000,Bills,Saints,True,34.2,19.200000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,20.0,-350.0,,1759078800000,Bills,Saints,True,34.2,14.200000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,25.0,-250.0,,1759078800000,Bills,Saints,True,34.2,9.200000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,30.0,-175.0,,1759078800000,Bills,Saints,True,34.2,4.200000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,40.0,,,1759078800000,Bills,Saints,True,34.2,-5.799999999999997
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,50.0,175.0,,1759078800000,Bills,Saints,True,34.2,-15.799999999999997
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,60.0,275.0,,1759078800000,Bills,Saints,True,34.2,-25.799999999999997
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,70.0,400.0,,1759078800000,Bills,Saints,True,34.2,-35.8
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,80.0,625.0,,1759078800000,Bills,Saints,True,34.2,-45.8
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,90.0,875.0,,1759078800000,Bills,Saints,True,34.2,-55.8
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,100.0,1200.0,,1759078800000,Bills,Saints,True,34.2,-65.8
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receiving Yards,110.0,1500.0,,1759078800000,Bills,Saints,True,34.2,-75.8
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-650.0,,1759078800000,Bills,Saints,True,6.1,2.0999999999999996
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,5.0,-275.0,,1759078800000,Bills,Saints,True,6.1,1.0999999999999996
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,6.0,-140.0,,1759078800000,Bills,Saints,True,6.1,0.09999999999999964
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,7.0,130.0,,1759078800000,Bills,Saints,True,6.1,-0.9000000000000004
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,8.0,225.0,,1759078800000,Bills,Saints,True,6.1,-1.9000000000000004
+Chris Olave,NO,New Orleans Saints @ Buffalo Bills,Receptions,9.0,400.0,,1759078800000,Bills,Saints,True,6.1,-2.9000000000000004
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,2.0,-1000.0,,1759078800000,Bills,Saints,True,4.87,2.87
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,3.0,-275.0,,1759078800000,Bills,Saints,True,4.87,1.87
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-115.0,,1759078800000,Bills,Saints,True,4.87,0.8700000000000001
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,5.0,175.0,,1759078800000,Bills,Saints,True,4.87,-0.1299999999999999
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,6.0,350.0,,1759078800000,Bills,Saints,True,4.87,-1.13
+Dalton Kincaid,BUF,New Orleans Saints @ Buffalo Bills,Receptions,7.0,650.0,,1759078800000,Bills,Saints,True,4.87,-2.13
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,3.0,-900.0,,1759078800000,Bills,Saints,True,4.89,1.8899999999999997
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-350.0,,1759078800000,Bills,Saints,True,4.89,0.8899999999999997
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,5.0,-175.0,,1759078800000,Bills,Saints,True,4.89,-0.11000000000000032
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,6.0,120.0,,1759078800000,Bills,Saints,True,4.89,-1.1100000000000003
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,7.0,225.0,,1759078800000,Bills,Saints,True,4.89,-2.1100000000000003
+Juwan Johnson,NO,New Orleans Saints @ Buffalo Bills,Receptions,8.0,400.0,,1759078800000,Bills,Saints,True,4.89,-3.1100000000000003
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,2.0,-850.0,,1759078800000,Bills,Saints,True,4.06,2.0599999999999996
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,3.0,-250.0,,1759078800000,Bills,Saints,True,4.06,1.0599999999999996
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-110.0,,1759078800000,Bills,Saints,True,4.06,0.05999999999999961
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,5.0,200.0,,1759078800000,Bills,Saints,True,4.06,-0.9400000000000004
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,6.0,400.0,,1759078800000,Bills,Saints,True,4.06,-1.9400000000000004
+Keon Coleman,BUF,New Orleans Saints @ Buffalo Bills,Receptions,7.0,750.0,,1759078800000,Bills,Saints,True,4.06,-2.9400000000000004
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,2.0,-1200.0,,1759078800000,Bills,Saints,True,4.53,2.5300000000000002
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,3.0,-350.0,,1759078800000,Bills,Saints,True,4.53,1.5300000000000002
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-130.0,,1759078800000,Bills,Saints,True,4.53,0.5300000000000002
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,5.0,150.0,,1759078800000,Bills,Saints,True,4.53,-0.46999999999999975
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,6.0,300.0,,1759078800000,Bills,Saints,True,4.53,-1.4699999999999998
+Khalil Shakir,BUF,New Orleans Saints @ Buffalo Bills,Receptions,7.0,625.0,,1759078800000,Bills,Saints,True,4.53,-2.4699999999999998
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,2.0,-850.0,,1759078800000,Bills,Saints,True,4.86,2.8600000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,3.0,-275.0,,1759078800000,Bills,Saints,True,4.86,1.8600000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,4.0,-110.0,,1759078800000,Bills,Saints,True,4.86,0.8600000000000003
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,5.0,190.0,,1759078800000,Bills,Saints,True,4.86,-0.13999999999999968
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,6.0,400.0,,1759078800000,Bills,Saints,True,4.86,-1.1399999999999997
+Rashid Shaheed,NO,New Orleans Saints @ Buffalo Bills,Receptions,7.0,750.0,,1759078800000,Bills,Saints,True,4.86,-2.1399999999999997
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,25.0,-900.0,,1759078800000,Bills,Saints,True,41.5,16.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,30.0,-500.0,,1759078800000,Bills,Saints,True,41.5,11.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,40.0,-250.0,,1759078800000,Bills,Saints,True,41.5,1.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,50.0,-125.0,,1759078800000,Bills,Saints,True,41.5,-8.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,60.0,140.0,,1759078800000,Bills,Saints,True,41.5,-18.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,70.0,225.0,,1759078800000,Bills,Saints,True,41.5,-28.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,80.0,350.0,,1759078800000,Bills,Saints,True,41.5,-38.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,90.0,500.0,,1759078800000,Bills,Saints,True,41.5,-48.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,100.0,750.0,,1759078800000,Bills,Saints,True,41.5,-58.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,110.0,1000.0,,1759078800000,Bills,Saints,True,41.5,-68.5
+Alvin Kamara,NO,New Orleans Saints @ Buffalo Bills,Rushing Yards,125.0,1500.0,,1759078800000,Bills,Saints,True,41.5,-83.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,40.0,-900.0,,1759078800000,Bills,Saints,True,56.5,16.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,50.0,-425.0,,1759078800000,Bills,Saints,True,56.5,6.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,60.0,-250.0,,1759078800000,Bills,Saints,True,56.5,-3.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,70.0,-150.0,,1759078800000,Bills,Saints,True,56.5,-13.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,80.0,,,1759078800000,Bills,Saints,True,56.5,-23.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,90.0,160.0,,1759078800000,Bills,Saints,True,56.5,-33.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,100.0,225.0,,1759078800000,Bills,Saints,True,56.5,-43.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,110.0,350.0,,1759078800000,Bills,Saints,True,56.5,-53.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,125.0,575.0,,1759078800000,Bills,Saints,True,56.5,-68.5
+James Cook,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,150.0,1200.0,,1759078800000,Bills,Saints,True,56.5,-93.5
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,10.0,-900.0,,1759078800000,Bills,Saints,True,32.3,22.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,15.0,-400.0,,1759078800000,Bills,Saints,True,32.3,17.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,20.0,-250.0,,1759078800000,Bills,Saints,True,32.3,12.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,25.0,-145.0,,1759078800000,Bills,Saints,True,32.3,7.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,30.0,110.0,,1759078800000,Bills,Saints,True,32.3,2.299999999999997
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,40.0,225.0,,1759078800000,Bills,Saints,True,32.3,-7.700000000000003
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,50.0,400.0,,1759078800000,Bills,Saints,True,32.3,-17.700000000000003
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,60.0,675.0,,1759078800000,Bills,Saints,True,32.3,-27.700000000000003
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,70.0,1000.0,,1759078800000,Bills,Saints,True,32.3,-37.7
+Josh Allen,BUF,New Orleans Saints @ Buffalo Bills,Rushing Yards,80.0,1400.0,,1759078800000,Bills,Saints,True,32.3,-47.7
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,125.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,257.4,132.39999999999998
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,150.0,-600.0,,1758845700000,Cardinals,Seahawks,True,257.4,107.39999999999998
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,175.0,-300.0,,1758845700000,Cardinals,Seahawks,True,257.4,82.39999999999998
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,200.0,-150.0,,1758845700000,Cardinals,Seahawks,True,257.4,57.39999999999998
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,225.0,120.0,,1758845700000,Cardinals,Seahawks,True,257.4,32.39999999999998
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,250.0,225.0,,1758845700000,Cardinals,Seahawks,True,257.4,7.399999999999977
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,275.0,400.0,,1758845700000,Cardinals,Seahawks,True,257.4,-17.600000000000023
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,300.0,750.0,,1758845700000,Cardinals,Seahawks,True,257.4,-42.60000000000002
+Kyler Murray,ARI,Seattle Seahawks @ Arizona Cardinals,Passing Yards,325.0,1200.0,,1758845700000,Cardinals,Seahawks,True,257.4,-67.60000000000002
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,150.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,198.7,48.69999999999999
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,175.0,-500.0,,1758845700000,Cardinals,Seahawks,True,198.7,23.69999999999999
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,200.0,-250.0,,1758845700000,Cardinals,Seahawks,True,198.7,-1.3000000000000114
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,225.0,-125.0,,1758845700000,Cardinals,Seahawks,True,198.7,-26.30000000000001
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,250.0,150.0,,1758845700000,Cardinals,Seahawks,True,198.7,-51.30000000000001
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,275.0,275.0,,1758845700000,Cardinals,Seahawks,True,198.7,-76.30000000000001
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,300.0,500.0,,1758845700000,Cardinals,Seahawks,True,198.7,-101.30000000000001
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,325.0,850.0,,1758845700000,Cardinals,Seahawks,True,198.7,-126.30000000000001
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Passing Yards,350.0,1200.0,,1758845700000,Cardinals,Seahawks,True,198.7,-151.3
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-250.0,,1758845700000,Cardinals,Seahawks,True,37.4,27.4
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-150.0,,1758845700000,Cardinals,Seahawks,True,37.4,22.4
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,110.0,,1758845700000,Cardinals,Seahawks,True,37.4,17.4
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,165.0,,1758845700000,Cardinals,Seahawks,True,37.4,12.399999999999999
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,250.0,,1758845700000,Cardinals,Seahawks,True,37.4,7.399999999999999
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,500.0,,1758845700000,Cardinals,Seahawks,True,37.4,-2.6000000000000014
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-1000.0,,1758845700000,Cardinals,Seahawks,True,27.0,12.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-550.0,,1758845700000,Cardinals,Seahawks,True,27.0,7.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-350.0,,1758845700000,Cardinals,Seahawks,True,27.0,2.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-250.0,,1758845700000,Cardinals,Seahawks,True,27.0,-3.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-140.0,,1758845700000,Cardinals,Seahawks,True,27.0,-13.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,130.0,,1758845700000,Cardinals,Seahawks,True,27.0,-23.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,200.0,,1758845700000,Cardinals,Seahawks,True,27.0,-33.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,325.0,,1758845700000,Cardinals,Seahawks,True,27.0,-43.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,450.0,,1758845700000,Cardinals,Seahawks,True,27.0,-53.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,675.0,,1758845700000,Cardinals,Seahawks,True,27.0,-63.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,900.0,,1758845700000,Cardinals,Seahawks,True,27.0,-73.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,1200.0,,1758845700000,Cardinals,Seahawks,True,27.0,-83.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,120.0,1400.0,,1758845700000,Cardinals,Seahawks,True,27.0,-93.0
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,130.0,1700.0,,1758845700000,Cardinals,Seahawks,True,27.0,-103.0
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-250.0,,1758845700000,Cardinals,Seahawks,True,24.2,14.2
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-140.0,,1758845700000,Cardinals,Seahawks,True,24.2,9.2
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,120.0,,1758845700000,Cardinals,Seahawks,True,24.2,4.199999999999999
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,175.0,,1758845700000,Cardinals,Seahawks,True,24.2,-0.8000000000000007
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,200.0,,1758845700000,Cardinals,Seahawks,True,24.2,-5.800000000000001
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,450.0,,1758845700000,Cardinals,Seahawks,True,24.2,-15.8
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,850.0,,1758845700000,Cardinals,Seahawks,True,24.2,-25.8
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,1000.0,,1758845700000,Cardinals,Seahawks,True,24.2,-35.8
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,1200.0,,1758845700000,Cardinals,Seahawks,True,24.2,-45.8
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,38.4,-1.6000000000000014
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,-600.0,,1758845700000,Cardinals,Seahawks,True,38.4,-11.600000000000001
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,-350.0,,1758845700000,Cardinals,Seahawks,True,38.4,-21.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,-225.0,,1758845700000,Cardinals,Seahawks,True,38.4,-31.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,-150.0,,1758845700000,Cardinals,Seahawks,True,38.4,-41.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,,,1758845700000,Cardinals,Seahawks,True,38.4,-51.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,150.0,,1758845700000,Cardinals,Seahawks,True,38.4,-61.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,200.0,,1758845700000,Cardinals,Seahawks,True,38.4,-71.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,325.0,,1758845700000,Cardinals,Seahawks,True,38.4,-86.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,150.0,675.0,,1758845700000,Cardinals,Seahawks,True,38.4,-111.6
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,175.0,1200.0,,1758845700000,Cardinals,Seahawks,True,38.4,-136.6
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,52.5,37.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-650.0,,1758845700000,Cardinals,Seahawks,True,52.5,32.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-400.0,,1758845700000,Cardinals,Seahawks,True,52.5,27.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-300.0,,1758845700000,Cardinals,Seahawks,True,52.5,22.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-150.0,,1758845700000,Cardinals,Seahawks,True,52.5,12.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,,,1758845700000,Cardinals,Seahawks,True,52.5,2.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,150.0,,1758845700000,Cardinals,Seahawks,True,52.5,-7.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,225.0,,1758845700000,Cardinals,Seahawks,True,52.5,-17.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,350.0,,1758845700000,Cardinals,Seahawks,True,52.5,-27.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,500.0,,1758845700000,Cardinals,Seahawks,True,52.5,-37.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,700.0,,1758845700000,Cardinals,Seahawks,True,52.5,-47.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,900.0,,1758845700000,Cardinals,Seahawks,True,52.5,-57.5
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,1400.0,,1758845700000,Cardinals,Seahawks,True,52.5,-72.5
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-350.0,,1758845700000,Cardinals,Seahawks,True,38.1,28.1
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-210.0,,1758845700000,Cardinals,Seahawks,True,38.1,23.1
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-140.0,,1758845700000,Cardinals,Seahawks,True,38.1,18.1
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,,,1758845700000,Cardinals,Seahawks,True,38.1,13.100000000000001
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,150.0,,1758845700000,Cardinals,Seahawks,True,38.1,8.100000000000001
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,275.0,,1758845700000,Cardinals,Seahawks,True,38.1,-1.8999999999999986
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,400.0,,1758845700000,Cardinals,Seahawks,True,38.1,-11.899999999999999
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,650.0,,1758845700000,Cardinals,Seahawks,True,38.1,-21.9
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,900.0,,1758845700000,Cardinals,Seahawks,True,38.1,-31.9
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,1200.0,,1758845700000,Cardinals,Seahawks,True,38.1,-41.9
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-450.0,,1758845700000,Cardinals,Seahawks,True,29.5,19.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-275.0,,1758845700000,Cardinals,Seahawks,True,29.5,14.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-175.0,,1758845700000,Cardinals,Seahawks,True,29.5,9.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,-125.0,,1758845700000,Cardinals,Seahawks,True,29.5,4.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,110.0,,1758845700000,Cardinals,Seahawks,True,29.5,-0.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,185.0,,1758845700000,Cardinals,Seahawks,True,29.5,-10.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,300.0,,1758845700000,Cardinals,Seahawks,True,29.5,-20.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,475.0,,1758845700000,Cardinals,Seahawks,True,29.5,-30.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,675.0,,1758845700000,Cardinals,Seahawks,True,29.5,-40.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,900.0,,1758845700000,Cardinals,Seahawks,True,29.5,-50.5
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,1200.0,,1758845700000,Cardinals,Seahawks,True,29.5,-60.5
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,10.0,-450.0,,1758845700000,Cardinals,Seahawks,True,32.6,22.6
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,15.0,-250.0,,1758845700000,Cardinals,Seahawks,True,32.6,17.6
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,20.0,-150.0,,1758845700000,Cardinals,Seahawks,True,32.6,12.600000000000001
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,25.0,,,1758845700000,Cardinals,Seahawks,True,32.6,7.600000000000001
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,150.0,,1758845700000,Cardinals,Seahawks,True,32.6,2.6000000000000014
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,30.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,41.1,11.100000000000001
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,40.0,-500.0,,1758845700000,Cardinals,Seahawks,True,41.1,1.1000000000000014
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,50.0,-250.0,,1758845700000,Cardinals,Seahawks,True,41.1,-8.899999999999999
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,60.0,-150.0,,1758845700000,Cardinals,Seahawks,True,41.1,-18.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,70.0,105.0,,1758845700000,Cardinals,Seahawks,True,41.1,-28.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,80.0,150.0,,1758845700000,Cardinals,Seahawks,True,41.1,-38.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,90.0,250.0,,1758845700000,Cardinals,Seahawks,True,41.1,-48.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,100.0,350.0,,1758845700000,Cardinals,Seahawks,True,41.1,-58.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,110.0,500.0,,1758845700000,Cardinals,Seahawks,True,41.1,-68.9
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receiving Yards,125.0,850.0,,1758845700000,Cardinals,Seahawks,True,41.1,-83.9
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,4.09,3.09
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-215.0,,1758845700000,Cardinals,Seahawks,True,4.09,2.09
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,140.0,,1758845700000,Cardinals,Seahawks,True,4.09,1.0899999999999999
+AJ Barner,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,350.0,,1758845700000,Cardinals,Seahawks,True,4.09,0.08999999999999986
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,3.33,1.33
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-375.0,,1758845700000,Cardinals,Seahawks,True,3.33,0.33000000000000007
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-150.0,,1758845700000,Cardinals,Seahawks,True,3.33,-0.6699999999999999
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,140.0,,1758845700000,Cardinals,Seahawks,True,3.33,-1.67
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,275.0,,1758845700000,Cardinals,Seahawks,True,3.33,-2.67
+Cooper Kupp,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,500.0,,1758845700000,Cardinals,Seahawks,True,3.33,-3.67
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-900.0,,1758845700000,Cardinals,Seahawks,True,3.09,2.09
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-200.0,,1758845700000,Cardinals,Seahawks,True,3.09,1.0899999999999999
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,150.0,,1758845700000,Cardinals,Seahawks,True,3.09,0.08999999999999986
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,350.0,,1758845700000,Cardinals,Seahawks,True,3.09,-0.9100000000000001
+Greg Dortch,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,800.0,,1758845700000,Cardinals,Seahawks,True,3.09,-1.9100000000000001
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-1800.0,,1758845700000,Cardinals,Seahawks,True,4.62,0.6200000000000001
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,-600.0,,1758845700000,Cardinals,Seahawks,True,4.62,-0.3799999999999999
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,-275.0,,1758845700000,Cardinals,Seahawks,True,4.62,-1.38
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,-150.0,,1758845700000,Cardinals,Seahawks,True,4.62,-2.38
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,8.0,120.0,,1758845700000,Cardinals,Seahawks,True,4.62,-3.38
+Jaxon Smith-Njigba,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,9.0,200.0,,1758845700000,Cardinals,Seahawks,True,4.62,-4.38
+Kenneth Walker,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,,
+Kenneth Walker,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-215.0,,1758845700000,Cardinals,Seahawks,True,,
+Kenneth Walker,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,140.0,,1758845700000,Cardinals,Seahawks,True,,
+Kenneth Walker,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,300.0,,1758845700000,Cardinals,Seahawks,True,,
+Kenneth Walker,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,675.0,,1758845700000,Cardinals,Seahawks,True,,
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-1400.0,,1758845700000,Cardinals,Seahawks,True,4.52,2.5199999999999996
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-350.0,,1758845700000,Cardinals,Seahawks,True,4.52,1.5199999999999996
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-150.0,,1758845700000,Cardinals,Seahawks,True,4.52,0.5199999999999996
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,140.0,,1758845700000,Cardinals,Seahawks,True,4.52,-0.4800000000000004
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,300.0,,1758845700000,Cardinals,Seahawks,True,4.52,-1.4800000000000004
+Marvin Harrison Jr.,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,550.0,,1758845700000,Cardinals,Seahawks,True,4.52,-2.4800000000000004
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1800.0,,1758845700000,Cardinals,Seahawks,True,3.96,2.96
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-300.0,,1758845700000,Cardinals,Seahawks,True,3.96,1.96
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,105.0,,1758845700000,Cardinals,Seahawks,True,3.96,0.96
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,250.0,,1758845700000,Cardinals,Seahawks,True,3.96,-0.040000000000000036
+Michael Wilson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,575.0,,1758845700000,Cardinals,Seahawks,True,3.96,-1.04
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,1.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,2.13,1.13
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-225.0,,1758845700000,Cardinals,Seahawks,True,2.13,0.1299999999999999
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,135.0,,1758845700000,Cardinals,Seahawks,True,2.13,-0.8700000000000001
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,300.0,,1758845700000,Cardinals,Seahawks,True,2.13,-1.87
+Tory Horton,SEA,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,700.0,,1758845700000,Cardinals,Seahawks,True,2.13,-2.87
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,2.0,-750.0,,1758845700000,Cardinals,Seahawks,True,3.76,1.7599999999999998
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,3.0,-245.0,,1758845700000,Cardinals,Seahawks,True,3.76,0.7599999999999998
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-105.0,,1758845700000,Cardinals,Seahawks,True,3.76,-0.2400000000000002
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,185.0,,1758845700000,Cardinals,Seahawks,True,3.76,-1.2400000000000002
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,375.0,,1758845700000,Cardinals,Seahawks,True,3.76,-2.24
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,650.0,,1758845700000,Cardinals,Seahawks,True,3.76,-3.24
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,4.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,5.75,1.75
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,5.0,-450.0,,1758845700000,Cardinals,Seahawks,True,5.75,0.75
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,6.0,-225.0,,1758845700000,Cardinals,Seahawks,True,5.75,-0.25
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,7.0,-120.0,,1758845700000,Cardinals,Seahawks,True,5.75,-1.25
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,8.0,150.0,,1758845700000,Cardinals,Seahawks,True,5.75,-2.25
+Trey McBride,ARI,Seattle Seahawks @ Arizona Cardinals,Receptions,9.0,250.0,,1758845700000,Cardinals,Seahawks,True,5.75,-3.25
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,10.0,-225.0,,1758845700000,Cardinals,Seahawks,True,32.9,22.9
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,15.0,-120.0,,1758845700000,Cardinals,Seahawks,True,32.9,17.9
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,20.0,140.0,,1758845700000,Cardinals,Seahawks,True,32.9,12.899999999999999
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,25.0,220.0,,1758845700000,Cardinals,Seahawks,True,32.9,7.899999999999999
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,30.0,300.0,,1758845700000,Cardinals,Seahawks,True,32.9,2.8999999999999986
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,40.0,575.0,,1758845700000,Cardinals,Seahawks,True,32.9,-7.100000000000001
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,50.0,900.0,,1758845700000,Cardinals,Seahawks,True,32.9,-17.1
+Emari Demercado,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,60.0,1400.0,,1758845700000,Cardinals,Seahawks,True,32.9,-27.1
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,10.0,120.0,,1758845700000,Cardinals,Seahawks,True,31.9,21.9
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,15.0,225.0,,1758845700000,Cardinals,Seahawks,True,31.9,16.9
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,20.0,400.0,,1758845700000,Cardinals,Seahawks,True,31.9,11.899999999999999
+Sam Darnold,SEA,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,25.0,650.0,,1758845700000,Cardinals,Seahawks,True,31.9,6.899999999999999
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,30.0,-1200.0,,1758845700000,Cardinals,Seahawks,True,60.0,30.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,40.0,-450.0,,1758845700000,Cardinals,Seahawks,True,60.0,20.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,50.0,-225.0,,1758845700000,Cardinals,Seahawks,True,60.0,10.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,60.0,-125.0,,1758845700000,Cardinals,Seahawks,True,60.0,0.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,70.0,140.0,,1758845700000,Cardinals,Seahawks,True,60.0,-10.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,80.0,200.0,,1758845700000,Cardinals,Seahawks,True,60.0,-20.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,90.0,300.0,,1758845700000,Cardinals,Seahawks,True,60.0,-30.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,100.0,450.0,,1758845700000,Cardinals,Seahawks,True,60.0,-40.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,110.0,650.0,,1758845700000,Cardinals,Seahawks,True,60.0,-50.0
+Trey Benson,ARI,Seattle Seahawks @ Arizona Cardinals,Rushing Yards,125.0,1000.0,,1758845700000,Cardinals,Seahawks,True,60.0,-65.0

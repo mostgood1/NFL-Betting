@@ -32,12 +32,12 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": -110,
+              "price": -105,
               "point": 1.5
             },
             {
               "name": "Seattle Seahawks",
-              "price": -110,
+              "price": -115,
               "point": -1.5
             }
           ]
@@ -1772,5 +1772,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-09-25T21:56:29.192057+00:00"
+  "fetched_at": "2025-09-25T22:13:55.847446+00:00"
 }
