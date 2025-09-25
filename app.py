@@ -1519,6 +1519,38 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         out_base = out_base.drop(columns=drop_fb)
                 except Exception:
                     pass
+            # After all merges/fallbacks, refresh base and market aliases to reflect latest data
+            try:
+                import pandas as _pd
+                # Backfill base fields from close_* if still missing
+                if 'close_spread_home' in out_base.columns:
+                    if 'spread_home' not in out_base.columns:
+                        out_base['spread_home'] = _pd.NA
+                    m_sp = out_base['spread_home'].isna()
+                    out_base.loc[m_sp & out_base['close_spread_home'].notna(), 'spread_home'] = out_base.loc[m_sp, 'close_spread_home']
+                if 'close_total' in out_base.columns:
+                    if 'total' not in out_base.columns:
+                        out_base['total'] = _pd.NA
+                    m_t = out_base['total'].isna()
+                    out_base.loc[m_t & out_base['close_total'].notna(), 'total'] = out_base.loc[m_t, 'close_total']
+
+                # Ensure market_* reflect latest base/close fields (prefer base, then close)
+                if 'market_spread_home' not in out_base.columns:
+                    out_base['market_spread_home'] = _pd.NA
+                if 'market_total' not in out_base.columns:
+                    out_base['market_total'] = _pd.NA
+                # Overwrite market_* with best available current values
+                out_base['market_spread_home'] = out_base.get('spread_home') if 'spread_home' in out_base.columns else out_base['market_spread_home']
+                out_base['market_total'] = out_base.get('total') if 'total' in out_base.columns else out_base['market_total']
+                # Where still missing, use close_* as secondary
+                if 'close_spread_home' in out_base.columns:
+                    m2 = out_base['market_spread_home'].isna()
+                    out_base.loc[m2 & out_base['close_spread_home'].notna(), 'market_spread_home'] = out_base.loc[m2, 'close_spread_home']
+                if 'close_total' in out_base.columns:
+                    m2t = out_base['market_total'].isna()
+                    out_base.loc[m2t & out_base['close_total'].notna(), 'market_total'] = out_base.loc[m2t, 'close_total']
+            except Exception:
+                pass
             # Last-resort: for any rows still missing odds/close fields, directly lookup in fallback CSV by keys and assign
             try:
                 if 'df_csv_fb' in locals() and isinstance(df_csv_fb, _pd.DataFrame) and not df_csv_fb.empty:
