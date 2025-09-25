@@ -8,9 +8,19 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import sys
 import pandas as pd
 
+def _ensure_repo_on_path() -> None:
+    # When executed as a script from scripts/, parent (repo root) isn't on sys.path.
+    # Add it so 'nfl_compare' package can be imported.
+    here = Path(__file__).resolve()
+    repo_root = here.parents[1]
+    if str(repo_root) not in sys.path:
+        sys.path.append(str(repo_root))
+
 def main() -> None:
+    _ensure_repo_on_path()
     ap = argparse.ArgumentParser()
     ap.add_argument("--season", type=int, required=True)
     ap.add_argument("--week", type=int, required=True)
