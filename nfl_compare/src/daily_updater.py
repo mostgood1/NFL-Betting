@@ -429,7 +429,15 @@ def main() -> None:
         if 'away_team' in lines_df.columns:
             lines_df['away_team'] = lines_df['away_team'].astype(str).apply(normalize_team_name)
 
-        g_slice = games[(games['season']==season) & (games['week']==cur_week)].copy()
+        # Include both current and upcoming week to keep app markets fresh for next slate
+        weeks_for_lines: list[int] = [int(cur_week)]
+        try:
+            # up_week is available from main() scope; guard if missing
+            if 'up_week' in locals() and up_week is not None:
+                weeks_for_lines.append(int(up_week))
+        except Exception:
+            pass
+        g_slice = games[(games['season'] == season) & (games['week'].isin(weeks_for_lines))].copy()
         g_slice['home_team'] = g_slice['home_team'].astype(str).apply(normalize_team_name)
         g_slice['away_team'] = g_slice['away_team'].astype(str).apply(normalize_team_name)
 
@@ -478,7 +486,11 @@ def main() -> None:
         # Backfill closing fields using snapshots and fallbacks
         lines_df2, report = backfill_close_fields(lines_df)
         lines_df2.to_csv(lines_fp, index=False)
-        print(f"Seeded/enriched lines.csv for current week — {report}")
+        try:
+            wk_list = ','.join(str(w) for w in sorted(set(weeks_for_lines)))
+        except Exception:
+            wk_list = str(cur_week)
+        print(f"Seeded/enriched lines.csv for week(s) {wk_list} — {report}")
     except Exception as e:
         print(f"Seeding/backfilling lines.csv failed: {e}")
 
