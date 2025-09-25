@@ -2,13 +2,13 @@
   "lines": {
     "Seattle Seahawks @ Arizona Cardinals": {
       "moneyline": {
-        "home": 105,
-        "away": -125
+        "home": 110,
+        "away": -130
       },
       "total_runs": {
         "line": 43.5,
-        "over": -108,
-        "under": -112
+        "over": -112,
+        "under": -108
       },
       "run_line": {
         "home": 1.5
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": 105
+              "price": 110
             },
             {
               "name": "Seattle Seahawks",
-              "price": -125
+              "price": -130
             }
           ]
         },
@@ -47,12 +47,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -108,
+              "price": -112,
               "point": 43.5
             },
             {
               "name": "Under",
-              "price": -112,
+              "price": -108,
               "point": 43.5
             }
           ]
@@ -66,8 +66,8 @@
       },
       "total_runs": {
         "line": 40.5,
-        "over": -112,
-        "under": -108
+        "over": -115,
+        "under": -105
       },
       "run_line": {
         "home": 2.5
@@ -106,12 +106,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -112,
+              "price": -115,
               "point": 40.5
             },
             {
               "name": "Under",
-              "price": -108,
+              "price": -105,
               "point": 40.5
             }
           ]
@@ -365,7 +365,7 @@
         "under": -105
       },
       "run_line": {
-        "home": -4.5
+        "home": -5.5
       },
       "markets": [
         {
@@ -386,13 +386,13 @@
           "outcomes": [
             {
               "name": "Carolina Panthers",
-              "price": -105,
-              "point": 4.5
+              "price": -112,
+              "point": 5.5
             },
             {
               "name": "New England Patriots",
-              "price": -115,
-              "point": -4.5
+              "price": -108,
+              "point": -5.5
             }
           ]
         },
@@ -479,8 +479,8 @@
       },
       "total_runs": {
         "line": 43.5,
-        "over": -115,
-        "under": -105
+        "over": -118,
+        "under": -102
       },
       "run_line": {
         "home": 3.5
@@ -519,12 +519,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -115,
+              "price": -118,
               "point": 43.5
             },
             {
               "name": "Under",
-              "price": -105,
+              "price": -102,
               "point": 43.5
             }
           ]
@@ -592,13 +592,13 @@
     },
     "Jacksonville Jaguars @ San Francisco 49ers": {
       "moneyline": {
-        "home": -175,
-        "away": 145
+        "home": -180,
+        "away": 150
       },
       "total_runs": {
-        "line": 47.5,
-        "over": -105,
-        "under": -115
+        "line": 46.5,
+        "over": -120,
+        "under": 100
       },
       "run_line": {
         "home": -3.5
@@ -609,11 +609,11 @@
           "outcomes": [
             {
               "name": "Jacksonville Jaguars",
-              "price": 145
+              "price": 150
             },
             {
               "name": "San Francisco 49ers",
-              "price": -175
+              "price": -180
             }
           ]
         },
@@ -637,13 +637,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -105,
-              "point": 47.5
+              "price": -120,
+              "point": 46.5
             },
             {
               "name": "Under",
-              "price": -115,
-              "point": 47.5
+              "price": 100,
+              "point": 46.5
             }
           ]
         }
@@ -660,7 +660,7 @@
         "under": -105
       },
       "run_line": {
-        "home": 2.5
+        "home": 3.0
       },
       "markets": [
         {
@@ -681,13 +681,13 @@
           "outcomes": [
             {
               "name": "Baltimore Ravens",
-              "price": -120,
-              "point": -2.5
+              "price": -102,
+              "point": -3.0
             },
             {
               "name": "Kansas City Chiefs",
-              "price": 100,
-              "point": 2.5
+              "price": -118,
+              "point": 3.0
             }
           ]
         },
@@ -1064,8 +1064,8 @@
     },
     "Houston Texans @ Baltimore Ravens": {
       "moneyline": {
-        "home": -500,
-        "away": 380
+        "home": -485,
+        "away": 370
       },
       "total_runs": {
         "line": 45.5,
@@ -1081,11 +1081,11 @@
           "outcomes": [
             {
               "name": "Baltimore Ravens",
-              "price": -500
+              "price": -485
             },
             {
               "name": "Houston Texans",
-              "price": 380
+              "price": 370
             }
           ]
         },
@@ -1123,11 +1123,11 @@
     },
     "Miami Dolphins @ Carolina Panthers": {
       "moneyline": {
-        "home": -115,
-        "away": -105
+        "home": -118,
+        "away": -102
       },
       "total_runs": {
-        "line": 46.5,
+        "line": 44.5,
         "over": -110,
         "under": -110
       },
@@ -1140,11 +1140,11 @@
           "outcomes": [
             {
               "name": "Carolina Panthers",
-              "price": -115
+              "price": -118
             },
             {
               "name": "Miami Dolphins",
-              "price": -105
+              "price": -102
             }
           ]
         },
@@ -1169,12 +1169,12 @@
             {
               "name": "Over",
               "price": -110,
-              "point": 46.5
+              "point": 44.5
             },
             {
               "name": "Under",
               "price": -110,
-              "point": 46.5
+              "point": 44.5
             }
           ]
         }
@@ -1418,8 +1418,8 @@
     },
     "Tennessee Titans @ Arizona Cardinals": {
       "moneyline": {
-        "home": -410,
-        "away": 320
+        "home": -395,
+        "away": 310
       },
       "total_runs": {
         "line": 42.5,
@@ -1435,11 +1435,11 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": -410
+              "price": -395
             },
             {
               "name": "Tennessee Titans",
-              "price": 320
+              "price": 310
             }
           ]
         },
@@ -1536,8 +1536,8 @@
     },
     "Detroit Lions @ Cincinnati Bengals": {
       "moneyline": {
-        "home": 275,
-        "away": -345
+        "home": 285,
+        "away": -360
       },
       "total_runs": {
         "line": 49.5,
@@ -1553,11 +1553,11 @@
           "outcomes": [
             {
               "name": "Cincinnati Bengals",
-              "price": 275
+              "price": 285
             },
             {
               "name": "Detroit Lions",
-              "price": -345
+              "price": -360
             }
           ]
         },
@@ -1772,5 +1772,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-09-25T14:57:19.335478+00:00"
+  "fetched_at": "2025-09-25T21:47:20.662346+00:00"
 }
