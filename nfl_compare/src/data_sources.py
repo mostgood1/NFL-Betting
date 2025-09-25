@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from pathlib import Path
 from .schemas import GameRow, TeamStatRow, LineRow
@@ -5,7 +6,9 @@ import json
 from datetime import datetime
 from typing import Any, Dict
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+# Respect NFL_DATA_DIR env when present; fallback to package data folder
+_ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
+DATA_DIR = Path(_ENV_DATA_DIR) if _ENV_DATA_DIR else (Path(__file__).resolve().parents[1] / "data")
 
 # CSV readers; swap out to real APIs when ready
 

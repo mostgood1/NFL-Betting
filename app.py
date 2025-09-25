@@ -1434,7 +1434,8 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     out_base = out_base.drop(columns=drop_cols)
             # Always attempt a raw CSV fallback merge to fill any remaining gaps (per-row), even if load_lines() failed
             import pandas as _pd
-            csv_fp = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
+            # Use the same DATA_DIR as the rest of the app (respects NFL_DATA_DIR)
+            csv_fp = DATA_DIR / 'lines.csv'
             if csv_fp.exists():
                 try:
                     df_csv_fb = _pd.read_csv(csv_fp)
