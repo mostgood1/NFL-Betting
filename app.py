@@ -1047,7 +1047,16 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     except Exception:
         pass
 
-    core_keys = {'season','week','game_id','game_date','date','home_team','away_team','home_score','away_score'}
+    # Do NOT carry market/odds fields from predictions.csv; they'll be joined later from lines.csv.
+    core_keys = {
+        'season','week','game_id','game_date','date','home_team','away_team','home_score','away_score',
+        # Odds/market fields we explicitly exclude from pred merge to avoid stale leakage
+        'spread_home','open_spread_home','close_spread_home',
+        'total','open_total','close_total',
+        'moneyline_home','moneyline_away',
+        'spread_home_price','spread_away_price','total_over_price','total_under_price',
+        'market_spread_home','market_total'
+    }
     pred_cols = [c for c in p.columns if c not in core_keys]
     merged = view.copy()
 
@@ -1382,10 +1391,20 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 cols_present = [c for c in line_cols if c in lines.columns]
                 # Deduplicate right-hand lines by game_id, preferring rows with most filled values
                 if 'game_id' in lines.columns:
-                    _r_gid = lines[['game_id'] + cols_present].copy()
+                    # Prefer newest odds by date when available; tie-break by non-null count
+                    keep_cols = ['game_id'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
+                    _r_gid = lines[keep_cols].copy()
                     try:
+                        import pandas as _pd
                         _r_gid['_nn'] = _r_gid[cols_present].notna().sum(axis=1)
-                        _r_gid = _r_gid.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                        if 'date' in _r_gid.columns or 'game_date' in _r_gid.columns:
+                            dcol = 'date' if 'date' in _r_gid.columns else 'game_date'
+                            _r_gid['_dt'] = _pd.to_datetime(_r_gid[dcol], errors='coerce')
+                            _r_gid = _r_gid.sort_values(['_dt','_nn'], ascending=[False, False])
+                            _r_gid = _r_gid.drop(columns=['_dt'])
+                        else:
+                            _r_gid = _r_gid.sort_values(['_nn'], ascending=False)
+                        _r_gid = _r_gid.drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
                     except Exception:
                         _r_gid = _r_gid.drop_duplicates(['game_id'], keep='first')
                 else:
@@ -1395,18 +1414,34 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 # Supplement by season/week + (home_team, away_team) when possible; else by teams only.
                 if {'home_team','away_team'}.issubset(set(lines.columns)):
                     if {'season','week'}.issubset(set(lines.columns)) and {'season','week'}.issubset(set(out_base.columns)):
-                        sup = lines[['season','week','home_team','away_team'] + cols_present].copy()
+                        keep_cols = ['season','week','home_team','away_team'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
+                        sup = lines[keep_cols].copy()
                         try:
+                            import pandas as _pd
                             sup['_nn'] = sup[cols_present].notna().sum(axis=1)
-                            sup = sup.sort_values(['_nn'], ascending=False).drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
+                            if 'date' in sup.columns or 'game_date' in sup.columns:
+                                dcol = 'date' if 'date' in sup.columns else 'game_date'
+                                sup['_dt'] = _pd.to_datetime(sup[dcol], errors='coerce')
+                                sup = sup.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                            else:
+                                sup = sup.sort_values(['_nn'], ascending=False)
+                            sup = sup.drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
                         except Exception:
                             sup = sup.drop_duplicates(['season','week','home_team','away_team'], keep='first')
                         out_base = out_base.merge(sup, on=['season','week','home_team','away_team'], how='left', suffixes=('', '_ln2'))
                     else:
-                        sup = lines[['home_team','away_team'] + cols_present].copy()
+                        keep_cols = ['home_team','away_team'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
+                        sup = lines[keep_cols].copy()
                         try:
+                            import pandas as _pd
                             sup['_nn'] = sup[cols_present].notna().sum(axis=1)
-                            sup = sup.sort_values(['_nn'], ascending=False).drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
+                            if 'date' in sup.columns or 'game_date' in sup.columns:
+                                dcol = 'date' if 'date' in sup.columns else 'game_date'
+                                sup['_dt'] = _pd.to_datetime(sup[dcol], errors='coerce')
+                                sup = sup.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                            else:
+                                sup = sup.sort_values(['_nn'], ascending=False)
+                            sup = sup.drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
                         except Exception:
                             sup = sup.drop_duplicates(['home_team','away_team'], keep='first')
                         out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
@@ -1462,10 +1497,18 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
                     # Prepare de-duplicated right-hand slices with priority by non-null counts
                     if 'game_id' in df_csv_fb.columns:
-                        _fb_gid = df_csv_fb[['game_id'] + cols_present_fb].copy()
+                        keep_cols = ['game_id'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
+                        _fb_gid = df_csv_fb[keep_cols].copy()
                         try:
+                            import pandas as _pd
                             _fb_gid['_nn'] = _fb_gid[cols_present_fb].notna().sum(axis=1)
-                            _fb_gid = _fb_gid.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                            if 'date' in _fb_gid.columns or 'game_date' in _fb_gid.columns:
+                                dcol = 'date' if 'date' in _fb_gid.columns else 'game_date'
+                                _fb_gid['_dt'] = _pd.to_datetime(_fb_gid[dcol], errors='coerce')
+                                _fb_gid = _fb_gid.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                            else:
+                                _fb_gid = _fb_gid.sort_values(['_nn'], ascending=False)
+                            _fb_gid = _fb_gid.drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
                         except Exception:
                             _fb_gid = _fb_gid.drop_duplicates(['game_id'], keep='first')
                     else:
@@ -1479,10 +1522,18 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         )
                     # Also try season/week/home/away even if game_id merge ran
                     if {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
-                        _fb_sw = df_csv_fb[['season','week','home_team','away_team'] + cols_present_fb].copy()
+                        keep_cols = ['season','week','home_team','away_team'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
+                        _fb_sw = df_csv_fb[keep_cols].copy()
                         try:
+                            import pandas as _pd
                             _fb_sw['_nn'] = _fb_sw[cols_present_fb].notna().sum(axis=1)
-                            _fb_sw = _fb_sw.sort_values(['_nn'], ascending=False).drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
+                            if 'date' in _fb_sw.columns or 'game_date' in _fb_sw.columns:
+                                dcol = 'date' if 'date' in _fb_sw.columns else 'game_date'
+                                _fb_sw['_dt'] = _pd.to_datetime(_fb_sw[dcol], errors='coerce')
+                                _fb_sw = _fb_sw.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                            else:
+                                _fb_sw = _fb_sw.sort_values(['_nn'], ascending=False)
+                            _fb_sw = _fb_sw.drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
                         except Exception:
                             _fb_sw = _fb_sw.drop_duplicates(['season','week','home_team','away_team'], keep='first')
                         out_base = out_base.merge(
@@ -1493,10 +1544,18 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         )
                     # Finally try by teams only
                     if {'home_team','away_team'}.issubset(df_csv_fb.columns):
-                        _fb_h2h = df_csv_fb[['home_team','away_team'] + cols_present_fb].copy()
+                        keep_cols = ['home_team','away_team'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
+                        _fb_h2h = df_csv_fb[keep_cols].copy()
                         try:
+                            import pandas as _pd
                             _fb_h2h['_nn'] = _fb_h2h[cols_present_fb].notna().sum(axis=1)
-                            _fb_h2h = _fb_h2h.sort_values(['_nn'], ascending=False).drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
+                            if 'date' in _fb_h2h.columns or 'game_date' in _fb_h2h.columns:
+                                dcol = 'date' if 'date' in _fb_h2h.columns else 'game_date'
+                                _fb_h2h['_dt'] = _pd.to_datetime(_fb_h2h[dcol], errors='coerce')
+                                _fb_h2h = _fb_h2h.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                            else:
+                                _fb_h2h = _fb_h2h.sort_values(['_nn'], ascending=False)
+                            _fb_h2h = _fb_h2h.drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
                         except Exception:
                             _fb_h2h = _fb_h2h.drop_duplicates(['home_team','away_team'], keep='first')
                         out_base = out_base.merge(
@@ -1683,16 +1742,31 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 if 'game_id' in out_base.columns and out_base['game_id'].notna().any():
                     tmp = out_base.copy()
                     try:
+                        import pandas as _pd
                         tmp['_nn'] = tmp[[c for c in line_cols_final if c in tmp.columns]].notna().sum(axis=1)
-                        tmp = tmp.sort_values(['_nn'], ascending=False).drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
+                        # Prefer latest date when available, then non-null count
+                        if 'date' in tmp.columns or 'game_date' in tmp.columns:
+                            dcol = 'date' if 'date' in tmp.columns else 'game_date'
+                            tmp['_dt'] = _pd.to_datetime(tmp[dcol], errors='coerce')
+                            tmp = tmp.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                        else:
+                            tmp = tmp.sort_values(['_nn'], ascending=False)
+                        tmp = tmp.drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
                     except Exception:
                         tmp = tmp.drop_duplicates(['game_id'], keep='first')
                     out_base = tmp
                 elif len(keep_keys) == 4:
                     tmp = out_base.copy()
                     try:
+                        import pandas as _pd
                         tmp['_nn'] = tmp[[c for c in line_cols_final if c in tmp.columns]].notna().sum(axis=1)
-                        tmp = tmp.sort_values(['_nn'], ascending=False).drop_duplicates(keep_keys, keep='first').drop(columns=['_nn'])
+                        if 'date' in tmp.columns or 'game_date' in tmp.columns:
+                            dcol = 'date' if 'date' in tmp.columns else 'game_date'
+                            tmp['_dt'] = _pd.to_datetime(tmp[dcol], errors='coerce')
+                            tmp = tmp.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
+                        else:
+                            tmp = tmp.sort_values(['_nn'], ascending=False)
+                        tmp = tmp.drop_duplicates(keep_keys, keep='first').drop(columns=['_nn'])
                     except Exception:
                         tmp = tmp.drop_duplicates(keep_keys, keep='first')
                     out_base = tmp
