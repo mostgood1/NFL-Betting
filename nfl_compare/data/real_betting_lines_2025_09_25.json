@@ -356,16 +356,16 @@
     },
     "Carolina Panthers @ New England Patriots": {
       "moneyline": {
-        "home": -238,
-        "away": 195
+        "home": -225,
+        "away": 185
       },
       "total_runs": {
         "line": 42.5,
-        "over": -118,
-        "under": -102
+        "over": -115,
+        "under": -105
       },
       "run_line": {
-        "home": -5.5
+        "home": -4.5
       },
       "markets": [
         {
@@ -373,11 +373,11 @@
           "outcomes": [
             {
               "name": "Carolina Panthers",
-              "price": 195
+              "price": 185
             },
             {
               "name": "New England Patriots",
-              "price": -238
+              "price": -225
             }
           ]
         },
@@ -386,13 +386,13 @@
           "outcomes": [
             {
               "name": "Carolina Panthers",
-              "price": -110,
-              "point": 5.5
+              "price": -105,
+              "point": 4.5
             },
             {
               "name": "New England Patriots",
-              "price": -110,
-              "point": -5.5
+              "price": -115,
+              "point": -4.5
             }
           ]
         },
@@ -401,12 +401,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -118,
+              "price": -115,
               "point": 42.5
             },
             {
               "name": "Under",
-              "price": -102,
+              "price": -105,
               "point": 42.5
             }
           ]
@@ -1772,5 +1772,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-09-25T14:05:41.973886+00:00"
+  "fetched_at": "2025-09-25T14:57:19.335478+00:00"
 }
