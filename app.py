@@ -2530,9 +2530,19 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     recs: List[Dict[str, Any]] = []
 
     def g(key: str, *alts: str, default=None):
-        for k in (key, *alts):
+        """Get first non-null value among provided keys from the row.
+        Treats pandas NA/NaT as missing so we properly fall back (e.g., game_date -> date).
+        """
+        keys = (key, *alts)
+        for k in keys:
             if k in row.index:
                 v = row.get(k)
+                try:
+                    if v is None or pd.isna(v):
+                        continue
+                except Exception:
+                    # If pd.isna fails for this type, still accept v as-is
+                    pass
                 return v
         return default
 
