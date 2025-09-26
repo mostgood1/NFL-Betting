@@ -668,6 +668,27 @@ def _load_predictions() -> pd.DataFrame:
             except Exception:
                 _log_once('predictions-synth-load-fail', 'Failed loading predictions_synth.csv')
 
+        # Fallback: check top-level ./data directory for predictions if nfl_compare/data is empty
+        if not dfs:
+            try:
+                alt_dir = BASE_DIR / 'data'
+                alt_files = {
+                    'pred': alt_dir / 'predictions.csv',
+                    'week': alt_dir / 'predictions_week.csv',
+                    'locked': alt_dir / 'predictions_locked.csv',
+                    'synth': alt_dir / 'predictions_synth.csv',
+                }
+                for tag, path in alt_files.items():
+                    if path.exists():
+                        try:
+                            d = pd.read_csv(path)
+                            d['pred_source'] = tag
+                            dfs.append(d)
+                        except Exception:
+                            _log_once(f'predictions-{tag}-alt-read-fail', f'Failed reading {path}')
+            except Exception:
+                pass
+
         if dfs:
             df = pd.concat(dfs, ignore_index=True)
             # Normalize typical columns if present
@@ -754,6 +775,37 @@ def _load_games() -> pd.DataFrame:
                             df = pd.concat([df, add], ignore_index=True)
             except Exception as e:  # noqa: BLE001
                 _log_once("games-norm-read-fail", f"Failed reading games_normalized.csv: {e}")
+
+        # Fallback: read from top-level ./data if nfl_compare/data was empty
+        if df.empty:
+            alt_dir = BASE_DIR / 'data'
+            alt_fp = alt_dir / 'games.csv'
+            alt_norm = alt_dir / 'games_normalized.csv'
+            if alt_fp.exists():
+                try:
+                    df = pd.read_csv(alt_fp)
+                    for c in ("week","season"):
+                        if c in df.columns:
+                            df[c] = pd.to_numeric(df[c], errors='coerce')
+                except Exception as e:  # noqa: BLE001
+                    _log_once("games-alt-read-fail", f"Failed reading {alt_fp}: {e}")
+            # Union alt normalized
+            if alt_norm.exists():
+                try:
+                    nf = pd.read_csv(alt_norm)
+                    for c in ("week","season"):
+                        if c in nf.columns:
+                            nf[c] = pd.to_numeric(nf[c], errors='coerce')
+                    if 'game_id' in nf.columns:
+                        if df.empty or 'game_id' not in df.columns:
+                            df = nf
+                        else:
+                            base_ids = set(df['game_id'].dropna().astype(str))
+                            add = nf[~nf['game_id'].astype(str).isin(base_ids)].copy()
+                            if not add.empty:
+                                df = pd.concat([df, add], ignore_index=True)
+                except Exception as e:  # noqa: BLE001
+                    _log_once("games-alt-norm-read-fail", f"Failed reading {alt_norm}: {e}")
 
         if not df.empty:
             sort_cols = [c for c in ["season", "week", "game_date", "date"] if c in df.columns]
@@ -1175,6 +1227,73 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
                         merged = merged_sw
                 except Exception:
                     pass
+                # 2d. For finalized games, backfill closing lines and moneylines from predictions
+                try:
+                    finals_mask = None
+                    if {'home_score','away_score'}.issubset(merged.columns):
+                        finals_mask = pd.to_numeric(merged['home_score'], errors='coerce').notna() & pd.to_numeric(merged['away_score'], errors='coerce').notna()
+                    if finals_mask is not None and finals_mask.any():
+                        # Select odds/close fields from predictions to backfill
+                        odds_cols = [
+                            'close_spread_home','close_total',
+                            'moneyline_home','moneyline_away',
+                            'spread_home','total',
+                            'spread_home_price','spread_away_price','total_over_price','total_under_price'
+                        ]
+                        keep_cols = ['game_id'] + [c for c in odds_cols if c in p.columns]
+                        if 'game_id' in merged.columns and 'game_id' in p.columns and len(keep_cols) > 1:
+                            pf = p[keep_cols].drop_duplicates()
+                            merged_odds = merged.merge(pf, on='game_id', how='left', suffixes=('', '_pclose'))
+                            # Fill only for finalized rows and where base is missing
+                            for c in [c for c in odds_cols if c in merged_odds.columns and f"{c}_pclose" in merged_odds.columns]:
+                                base = c
+                                alt = f"{c}_pclose"
+                                try:
+                                    m = finals_mask & merged_odds[base].isna() & merged_odds[alt].notna()
+                                except Exception:
+                                    # If base doesn't yet exist, create and fill for finals
+                                    if base not in merged_odds.columns:
+                                        merged_odds[base] = pd.NA
+                                    m = finals_mask & merged_odds[alt].notna()
+                                if m.any():
+                                    merged_odds.loc[m, base] = merged_odds.loc[m, alt]
+                            # Promote close_* into canonical fields when only close exists (finals)
+                            try:
+                                m2 = finals_mask
+                                if 'spread_home' in merged_odds.columns and 'close_spread_home' in merged_odds.columns:
+                                    mm = m2 & merged_odds['spread_home'].isna() & merged_odds['close_spread_home'].notna()
+                                    if mm.any():
+                                        merged_odds.loc[mm, 'spread_home'] = merged_odds.loc[mm, 'close_spread_home']
+                                if 'total' in merged_odds.columns and 'close_total' in merged_odds.columns:
+                                    mm2 = m2 & merged_odds['total'].isna() & merged_odds['close_total'].notna()
+                                    if mm2.any():
+                                        merged_odds.loc[mm2, 'total'] = merged_odds.loc[mm2, 'close_total']
+                                # Ensure market_* aliases reflect best available for finals
+                                if 'market_spread_home' not in merged_odds.columns:
+                                    merged_odds['market_spread_home'] = pd.NA
+                                if 'market_total' not in merged_odds.columns:
+                                    merged_odds['market_total'] = pd.NA
+                                mm3 = m2 & merged_odds['market_spread_home'].isna()
+                                if 'spread_home' in merged_odds.columns:
+                                    merged_odds.loc[mm3 & merged_odds['spread_home'].notna(), 'market_spread_home'] = merged_odds.loc[mm3, 'spread_home']
+                                if 'close_spread_home' in merged_odds.columns:
+                                    mm3b = m2 & merged_odds['market_spread_home'].isna() & merged_odds['close_spread_home'].notna()
+                                    merged_odds.loc[mm3b, 'market_spread_home'] = merged_odds.loc[mm3b, 'close_spread_home']
+                                mtm = m2 & merged_odds['market_total'].isna()
+                                if 'total' in merged_odds.columns:
+                                    merged_odds.loc[mtm & merged_odds['total'].notna(), 'market_total'] = merged_odds.loc[mtm, 'total']
+                                if 'close_total' in merged_odds.columns:
+                                    mtm2 = m2 & merged_odds['market_total'].isna() & merged_odds['close_total'].notna()
+                                    merged_odds.loc[mtm2, 'market_total'] = merged_odds.loc[mtm2, 'close_total']
+                            except Exception:
+                                pass
+                            # Drop helper suffixed cols
+                            drops = [c for c in merged_odds.columns if c.endswith('_pclose')]
+                            if drops:
+                                merged_odds = merged_odds.drop(columns=drops)
+                            merged = merged_odds
+                except Exception:
+                    pass
     except Exception:
         pass
 
@@ -1319,7 +1438,6 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             return view_df
         # Always perform odds/weather enrichment FIRST so even disabled prediction inference still yields market data.
         out_base = view_df.copy()
-        # Normalize team names early to improve team-based merges (games.csv may use abbreviations like PHI/DAL)
         try:
             from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
             for _col in ("home_team", "away_team"):
@@ -1471,9 +1589,22 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             import pandas as _pd
             # Use the same DATA_DIR as the rest of the app (respects NFL_DATA_DIR)
             csv_fp = DATA_DIR / 'lines.csv'
+            df_csv_fb = None
             if csv_fp.exists():
                 try:
                     df_csv_fb = _pd.read_csv(csv_fp)
+                except Exception:
+                    df_csv_fb = None
+            else:
+                # Try top-level ./data/lines.csv as a fallback (when running locally with data/ checked out at root)
+                alt_lines_fp = BASE_DIR / 'data' / 'lines.csv'
+                if alt_lines_fp.exists():
+                    try:
+                        df_csv_fb = _pd.read_csv(alt_lines_fp)
+                    except Exception:
+                        df_csv_fb = None
+            if df_csv_fb is not None:
+                try:
                     # Normalize team names in fallback to match app conventions
                     try:
                         from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
@@ -4490,6 +4621,113 @@ def index():
     elif sort_param == "total":
         cards.sort(key=lambda c: (abs(c.get("edge_total")) if c.get("edge_total") is not None else float('-inf')), reverse=True)
 
+    # --- Season-to-date accuracy summary (Overall, High/Med/Low) ---
+    # Build recommendations across all completed weeks up to the active week and
+    # compute tiered accuracy/ROI similar to recommendations page.
+    accuracy_s2d = None
+    try:
+        if season_param is not None and week_param is not None:
+            # Aggregate recommendations across weeks 1..week_param
+            all_recs_s2d: List[Dict[str, Any]] = []
+            # Small safety bound on weeks
+            max_weeks = int(min(max(week_param, 1), 25))
+            for wk in range(1, max_weeks + 1):
+                try:
+                    vw = _build_week_view(df, games_df, season_param, wk)
+                    try:
+                        vw = _attach_model_predictions(vw)
+                    except Exception:
+                        pass
+                    if not fast_mode:
+                        try:
+                            vw = _derive_predictions_from_market(vw)
+                        except Exception:
+                            pass
+                except Exception:
+                    vw = None
+                if vw is None:
+                    continue
+                for _, row in vw.iterrows():
+                    try:
+                        recs = _compute_recommendations_for_row(row)
+                        all_recs_s2d.extend(recs)
+                    except Exception:
+                        continue
+
+            # Group and compute metrics per recommendations_page logic
+            groups_s2d: Dict[str, List[Dict[str, Any]]] = {"High": [], "Medium": [], "Low": [], "": []}
+            for r in all_recs_s2d:
+                c = r.get("confidence") or ""
+                if c not in groups_s2d:
+                    groups_s2d[c] = []
+                groups_s2d[c].append(r)
+
+            stake_map = {"High": 100.0, "Medium": 50.0, "Low": 25.0}
+            def american_profit(stake: float, odds: Any) -> Optional[float]:
+                try:
+                    if odds is None or (isinstance(odds, float) and pd.isna(odds)):
+                        odds = -110
+                    o = float(odds)
+                    if o > 0:
+                        return stake * (o / 100.0)
+                    else:
+                        return stake * (100.0 / abs(o))
+                except Exception:
+                    return None
+            def tier_metrics(tier: str) -> Dict[str, Any]:
+                items = groups_s2d.get(tier, [])
+                done = [x for x in items if x.get('result') in {'Win','Loss','Push'}]
+                wins = sum(1 for x in done if x.get('result') == 'Win')
+                losses = sum(1 for x in done if x.get('result') == 'Loss')
+                pushes = sum(1 for x in done if x.get('result') == 'Push')
+                played = wins + losses
+                acc = (wins / played * 100.0) if played > 0 else None
+                stake_total = 0.0
+                profit_total = 0.0
+                for x in done:
+                    stake = stake_map.get(tier, 25.0)
+                    res = x.get('result')
+                    odds_val = x.get('odds')
+                    if res == 'Win':
+                        prof = american_profit(stake, odds_val)
+                        if prof is None:
+                            prof = stake * (100.0/110.0)
+                        profit_total += prof
+                        stake_total += stake
+                    elif res == 'Loss':
+                        profit_total -= stake
+                        stake_total += stake
+                    elif res == 'Push':
+                        stake_total += 0.0
+                roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
+                return {
+                    'tier': tier,
+                    'total': len(items),
+                    'resolved': len(done),
+                    'wins': wins,
+                    'losses': losses,
+                    'pushes': pushes,
+                    'accuracy_pct': acc,
+                    'roi_pct': roi_pct,
+                    'stake_total': stake_total,
+                    'profit_total': profit_total,
+                }
+
+            accuracy_s2d = {t: tier_metrics(t) for t in ['High','Medium','Low']}
+            overall = {'tier': 'Overall','total':0,'resolved':0,'wins':0,'losses':0,'pushes':0,'accuracy_pct':None,'roi_pct':None,'stake_total':0.0,'profit_total':0.0}
+            for t in ['High','Medium','Low']:
+                m = accuracy_s2d.get(t, {})
+                for k in ['total','resolved','wins','losses','pushes','stake_total','profit_total']:
+                    overall[k] += m.get(k, 0) or 0
+            played_overall = overall['wins'] + overall['losses']
+            if played_overall > 0:
+                overall['accuracy_pct'] = overall['wins'] / played_overall * 100.0
+            if overall['stake_total'] > 0:
+                overall['roi_pct'] = overall['profit_total'] / overall['stake_total'] * 100.0
+            accuracy_s2d['Overall'] = overall
+    except Exception:
+        accuracy_s2d = None
+
     return render_template(
         "index.html",
         have_data=len(cards) > 0,
@@ -4499,6 +4737,7 @@ def index():
         sort=sort_param,
         total_rows=len(cards),
         fast_mode=fast_mode,
+        accuracy_s2d=accuracy_s2d,
     )
 
 

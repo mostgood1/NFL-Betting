@@ -85,6 +85,15 @@
   .b-low{box-shadow:inset 0 0 0 1px #375a7f}
   .b-med{box-shadow:inset 0 0 0 1px #7f7f37}
   .b-high{box-shadow:inset 0 0 0 1px #2e8b57}
+  /* Summary cards row (season to date) */
+  .cards-summary{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0;align-items:stretch}
+  .card-summary{flex:1;min-width:240px;padding:10px;background:linear-gradient(180deg,#132a52,#0d1426)}
+  .card-tier{flex:1;min-width:200px;padding:10px}
+  .title-sm{font-size:14px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+  .title-lg{font-size:20px;font-weight:600}
+  .title-md{font-size:18px;font-weight:600}
+  .muted-small{font-size:12px;color:var(--muted)}
+  .muted-tiny{font-size:11px;color:var(--muted)}
   .odds{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
   .odds .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
   .odds .muted{color:var(--muted)}
@@ -149,6 +158,40 @@
   </div>
     <h1>NFL Betting – Cards</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
+    {% if accuracy_s2d %}
+      <div class="cards-summary">
+        {% set overall = accuracy_s2d.get('Overall') %}
+        {% if overall %}
+          <div class="card card-summary">
+            <div class="title-sm">Season to date</div>
+            <div class="mt-4 title-lg">
+              {% if overall.accuracy_pct is not none %}{{ '%.1f' % overall.accuracy_pct }}% Accuracy{% else %}—{% endif %}
+            </div>
+            <div class="muted-small mt-4">
+              {{ overall.wins }}W-{{ overall.losses }}L{% if overall.pushes %}-{{ overall.pushes }}P{% endif %} / {{ overall.resolved }} settled
+            </div>
+            <div class="mt-4 muted-small">ROI: {% if overall.roi_pct is not none %}{{ '%.1f' % overall.roi_pct }}%{% else %}—{% endif %}</div>
+            <div class="mt-4 muted-tiny">Stake: ${{ '%.0f' % overall.stake_total }} | P/L: ${{ '%.0f' % overall.profit_total }}</div>
+            <div class="mt-4 muted-tiny">Total picks: {{ overall.total }}</div>
+          </div>
+        {% endif %}
+        {% for tier in ['High','Medium','Low'] %}
+          {% set m = accuracy_s2d.get(tier) %}
+          <div class="card card-tier">
+            <div class="title-sm">{{ tier }}</div>
+            <div class="mt-4 title-md">
+              {% if m.accuracy_pct is not none %}{{ '%.1f' % m.accuracy_pct }}% Acc{% else %}—{% endif %}
+            </div>
+            <div class="muted-small mt-4">
+              {{ m.wins }}W-{{ m.losses }}L{% if m.pushes %}-{{ m.pushes }}P{% endif %} / {{ m.resolved }}
+            </div>
+            <div class="mt-4 muted-small">ROI: {% if m.roi_pct is not none %}{{ '%.1f' % m.roi_pct }}%{% else %}—{% endif %}</div>
+            <div class="mt-4 muted-tiny">Stake: ${{ '%.0f' % m.stake_total }} | P/L: ${{ '%.0f' % m.profit_total }}</div>
+            <div class="mt-4 muted-tiny">Picks: {{ m.total }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
     <form class="filters" method="get" action="/">
       <label>Season: <input type="number" name="season" value="{{ season or '' }}" /></label>
       <label>Week: <input type="number" name="week" value="{{ week or '' }}" /></label>
