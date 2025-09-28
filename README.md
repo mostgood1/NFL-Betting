@@ -17,26 +17,14 @@ python -m venv .venv
 pip install -r requirements.txt
 python app.py  # http://localhost:5050
 ```
-
-Optional data refresh (training + predict):
-- GET /api/refresh-data?train=true
 - GET /api/refresh-odds (requires ODDS_API_KEY)
 
-## Deploy on Render
-
-This repo includes a Render blueprint (render.yaml). Two options:
 
 1) Blueprint deploy
-- In Render dashboard: New + → Blueprint → Give repo URL
 - Set required environment variables
 - Deploy
 
 2) Manual service
-- Create a new Web Service
-- Runtime: Python
-- Build Command:
-  - pip install --upgrade pip
-  - pip install -r requirements.txt
 - Start Command:
   - bash start.sh
 
@@ -59,10 +47,32 @@ This repo includes a Render blueprint (render.yaml). Two options:
     - NFL_TOTAL_SCALE (default 1.0) — multiplicative scale applied to model total before blending
     - NFL_TOTAL_SHIFT (default 0.0) — additive shift (points) applied before blending
     - NFL_MARKET_TOTAL_BLEND (default 0.60) — 0=no market anchor, 1=fully market total
-    - NFL_TOTAL_MARKET_BAND (default 5.0) — clamp final total within ±band points of market (0 disables clamp)
-
-Typical balanced settings that reduced an “all unders” bias in testing:
   - NFL_TOTAL_SCALE=1.03
+### Render Cron Job (server-side daily refresh)
+
+If you want the live app to refresh odds, weather, predictions, and props daily without a redeploy, set up a Render Cron Job to call the built-in admin endpoint.
+
+Two options:
+
+1) Call the endpoint directly (no code changes required)
+
+- Method: GET
+- URL: `https://<your-app>.onrender.com/api/admin/daily-update?push=1&key=<ADMIN_KEY>`
+- Schedule: daily at your preferred time (e.g., 10:00 UTC)
+- Notes: `push=1` lets the server push updated data back to Git (optional).
+
+2) Use the helper script in this repo
+
+- Command: `python scripts/trigger_daily_update.py --base-url https://<your-app>.onrender.com --key <ADMIN_KEY> --push 1`
+- Requirements: Python + `requests` available in the Cron environment.
+- You can also set env vars so the command shortens to `python scripts/trigger_daily_update.py`:
+  - `ADMIN_BASE_URL` or `BASE_URL` → `https://<your-app>.onrender.com`
+  - `ADMIN_KEY` → your admin key
+
+Validation:
+
+- Check `GET /api/admin/daily-update/status?tail=200&key=<ADMIN_KEY>` to view the latest run log.
+- Check `GET /api/data-status` to verify the server sees updated `predictions.csv`, `weather_*.csv`, and `real_betting_lines_*.json` files.
   - NFL_TOTAL_SHIFT=1.8
   - NFL_MARKET_TOTAL_BLEND=0.70
   - NFL_TOTAL_MARKET_BAND=6.5

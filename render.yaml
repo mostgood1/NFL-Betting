@@ -36,3 +36,15 @@ services:
         value: "Render Bot"
       - key: GIT_AUTHOR_EMAIL
         value: "render-bot@example.com"
+
+cronJobs:
+  - name: daily-admin-refresh
+    # UTC schedule — adjust as needed (here: 10:00 UTC daily)
+    schedule: "0 10 * * *"
+    envVars:
+      - key: ADMIN_KEY
+        # Set this secret in Render dashboard or via 'render.yaml' sync
+        sync: false
+    command: |
+      # Hit the admin endpoint to refresh odds, weather, predictions, and props
+      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&key=${ADMIN_KEY}" || true

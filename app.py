@@ -6739,6 +6739,61 @@ def api_props_recommendations():
             add_cards = []
         if add_cards:
             cards.extend(add_cards)
+            # Second-pass merge: synthesized cards may duplicate existing player/team cards.
+            try:
+                def _nm2(s: object) -> str:
+                    try:
+                        return "".join(ch for ch in str(s or "").lower() if ch.isalnum())
+                    except Exception:
+                        return str(s or "").strip().lower()
+                def _tabbr(team: object) -> str:
+                    try:
+                        return to_abbr(team)  # reuse helper from above
+                    except Exception:
+                        return str(team or "").strip().upper()
+                merged2 = {}
+                for c in cards:
+                    try:
+                        key = (_nm2(c.get("player")), _tabbr(c.get("team")))
+                        if key not in merged2:
+                            merged2[key] = c
+                        else:
+                            exist = merged2[key]
+                            # Merge plays (dedup by market/line/side/prices)
+                            try:
+                                ep = exist.get("plays") or []
+                                np = c.get("plays") or []
+                                combo = {(p.get("market"), p.get("line"), p.get("side"), p.get("over_price"), p.get("under_price")) for p in ep}
+                                for p in np:
+                                    k = (p.get("market"), p.get("line"), p.get("side"), p.get("over_price"), p.get("under_price"))
+                                    if k not in combo:
+                                        ep.append(p); combo.add(k)
+                                exist["plays"] = ep
+                            except Exception:
+                                pass
+                            # Prefer projections with more non-null fields
+                            def _proj_score(d):
+                                try:
+                                    return sum(1 for k in [
+                                        "pass_yards","rush_yards","rec_yards","receptions","any_td_prob"
+                                    ] if (d or {}).get(k) is not None)
+                                except Exception:
+                                    return 0
+                            try:
+                                if _proj_score(c.get("projections")) > _proj_score(exist.get("projections")):
+                                    exist["projections"] = c.get("projections")
+                            except Exception:
+                                pass
+                            # Fill missing meta fields
+                            for fld in ["event","home_team","away_team","opponent","position"]:
+                                if not exist.get(fld) and c.get(fld):
+                                    exist[fld] = c.get(fld)
+                    except Exception:
+                        # If any issue occurs merging one card, skip it and continue
+                        continue
+                cards = list(merged2.values())
+            except Exception:
+                pass
     except Exception:
         pass
 
