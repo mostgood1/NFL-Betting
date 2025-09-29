@@ -59,3 +59,11 @@ cronJobs:
     command: |
       # Hit the admin endpoint to refresh odds, weather, predictions, and props (light mode by default)
       curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&light=1&key=${ADMIN_KEY}" || true
+  - name: odds-refresh-30min
+    # Refresh odds frequently so EV/edges/recommendations reflect latest markets
+    schedule: "*/30 * * * *"  # every 30 minutes
+    envVars:
+      - key: ADMIN_KEY
+        sync: false
+    command: |
+      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=0&light=1&key=${ADMIN_KEY}" || true
