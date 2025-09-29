@@ -10,7 +10,7 @@ services:
       pip install -r requirements.txt
     startCommand: bash start.sh
     autoDeploy: true
-  healthCheckPath: /health
+    healthCheckPath: /health
     # Optional: configure a health check in the Render UI to GET /health
     envVars:
       - key: PYTHON_VERSION

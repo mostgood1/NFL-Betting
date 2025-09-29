@@ -1,22 +1,29 @@
 # Root requirements for Render; include Flask/gunicorn and reuse package set from nfl_compare
 Flask==2.3.3
 gunicorn==21.2.0
-# Core DS stack pinned for Python 3.11 Linux wheels to avoid source builds on 3.13
+
+# Core DS stack pinned for Python 3.11 Linux wheels
 numpy==1.26.4
 pandas==2.2.2
 scipy==1.11.4
-scikit-learn==1.7.1
-statsmodels==0.14.1
+scikit-learn==1.5.1
+statsmodels==0.14.2
 xgboost==2.0.3
-requests>=2.31.0
+joblib==1.4.2
+
+# HTTP/utility
+requests==2.31.0
 pydantic==2.6.4
+python-dotenv==1.0.1
+
+# Optional viz (used in scripts only; still lightweight)
 matplotlib==3.8.4
 seaborn==0.13.2
-joblib==1.4.2
-requests==2.31.0
-nfl-data-py==0.3.1
+
+# Data I/O
 pyarrow==14.0.2
-python-dotenv==1.0.1
-# streamlit is not needed on Render for this app, omit to keep image light
+
+# External data
+nfl-data-py==0.3.1
 beautifulsoup4==4.12.3
 lxml==4.9.3
