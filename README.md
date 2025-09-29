@@ -34,6 +34,11 @@ python app.py  # http://localhost:5050
 - PYTHONUNBUFFERED=1
 - ODDS_API_KEY=... (for /api/refresh-odds)
 - OPENWEATHER_API_KEY=... (only if you wire weather refresh)
+- LIGHT_DAILY_UPDATE=1 (use light updater module for admin daily updates; reduces memory and runtime)
+- OMP_NUM_THREADS=1 (cap BLAS threads to reduce memory; also set MKL/OPENBLAS/NUMEXPR)
+- MKL_NUM_THREADS=1
+- OPENBLAS_NUM_THREADS=1
+- NUMEXPR_MAX_THREADS=1
 - Optional tuning:
   - RECS_MARKET_BLEND (default 0.50)
   - RECS_MARKET_BAND (default 0.10)
@@ -57,13 +62,15 @@ Two options:
 1) Call the endpoint directly (no code changes required)
 
 - Method: GET
-- URL: `https://<your-app>.onrender.com/api/admin/daily-update?push=1&key=<ADMIN_KEY>`
+- URL: `https://<your-app>.onrender.com/api/admin/daily-update?push=1&light=1&key=<ADMIN_KEY>`
 - Schedule: daily at your preferred time (e.g., 10:00 UTC)
 - Notes: `push=1` lets the server push updated data back to Git (optional).
+  - You can omit `&light=1` if you set `LIGHT_DAILY_UPDATE=1` on the service.
 
 2) Use the helper script in this repo
 
 - Command: `python scripts/trigger_daily_update.py --base-url https://<your-app>.onrender.com --key <ADMIN_KEY> --push 1`
+  - To opt into light mode, add `--light 1` or set `LIGHT_DAILY_UPDATE=1` on the service.
 - Requirements: Python + `requests` available in the Cron environment.
 - You can also set env vars so the command shortens to `python scripts/trigger_daily_update.py`:
   - `ADMIN_BASE_URL` or `BASE_URL` → `https://<your-app>.onrender.com`

@@ -25,6 +25,17 @@ services:
         value: "1"
       - key: DISABLE_JSON_ODDS
         value: "1"
+      # Prefer light daily updater + cap BLAS threads to avoid OOM on small plans
+      - key: LIGHT_DAILY_UPDATE
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: NUMEXPR_MAX_THREADS
+        value: "1"
       # Admin endpoints: set a strong key to allow triggering daily updates from UI
       - key: ADMIN_KEY
         sync: false
@@ -46,5 +57,5 @@ cronJobs:
         # Set this secret in Render dashboard or via 'render.yaml' sync
         sync: false
     command: |
-      # Hit the admin endpoint to refresh odds, weather, predictions, and props
-      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&key=${ADMIN_KEY}" || true
+      # Hit the admin endpoint to refresh odds, weather, predictions, and props (light mode by default)
+      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&light=1&key=${ADMIN_KEY}" || true

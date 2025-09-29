@@ -537,7 +537,7 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
         return False, f"git push exception: {e}"
 
 
-def _daily_update_job(do_push: bool) -> None:
+def _daily_update_job(do_push: bool, light: bool = False) -> None:
     _job_state['running'] = True
     _job_state['started_at'] = datetime.utcnow().isoformat()
     _job_state['ended_at'] = None
@@ -550,9 +550,20 @@ def _daily_update_job(do_push: bool) -> None:
     _job_state['log_file'] = str(log_file)
     try:
         _append_log('Starting daily update...')
-        # Prefer light behavior on Render
-        env = {'RENDER': os.environ.get('RENDER', 'true')}
-        rc = _run_to_file([sys.executable, '-m', 'nfl_compare.src.daily_updater'], log_file, cwd=BASE_DIR, env=env)
+        # Prefer light behavior on Render: allow a lighter updater and limit BLAS threads
+        env = {
+            'RENDER': os.environ.get('RENDER', 'true'),
+            # Limit numeric libs threads to reduce memory on small instances
+            'OMP_NUM_THREADS': os.environ.get('OMP_NUM_THREADS', '1'),
+            'MKL_NUM_THREADS': os.environ.get('MKL_NUM_THREADS', '1'),
+            'OPENBLAS_NUM_THREADS': os.environ.get('OPENBLAS_NUM_THREADS', '1'),
+            'NUMEXPR_MAX_THREADS': os.environ.get('NUMEXPR_MAX_THREADS', '1'),
+        }
+        # Choose module: light path uses simpler daily_update runner
+        use_light = bool(light or (str(os.environ.get('LIGHT_DAILY_UPDATE','0')).lower() in ('1','true','yes')))
+        mod = 'nfl_compare.src.daily_update' if use_light else 'nfl_compare.src.daily_updater'
+        _append_log(f"Updater module: {mod} (light={use_light})")
+        rc = _run_to_file([sys.executable, '-m', mod], log_file, cwd=BASE_DIR, env=env)
         _append_log(f'daily_updater exited with code {rc}')
         ok = (rc == 0)
         if ok and do_push:
@@ -579,9 +590,10 @@ def api_admin_daily_update():
     if _job_state['running']:
         return jsonify({'status': 'already-running', 'started_at': _job_state['started_at']}), 409
     do_push = (request.args.get('push', '1') in ('1','true','yes'))
-    t = threading.Thread(target=_daily_update_job, args=(do_push,), daemon=True)
+    do_light = (request.args.get('light', str(os.environ.get('LIGHT_DAILY_UPDATE','0'))).strip().lower() in ('1','true','yes'))
+    t = threading.Thread(target=_daily_update_job, args=(do_push, do_light), daemon=True)
     t.start()
-    return jsonify({'status': 'started', 'push': do_push, 'started_at': datetime.utcnow().isoformat()}), 202
+    return jsonify({'status': 'started', 'push': do_push, 'light': do_light, 'started_at': datetime.utcnow().isoformat()}), 202
 
 
 @app.route('/api/admin/daily-update/status', methods=['GET'])
