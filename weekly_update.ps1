@@ -153,3 +153,22 @@ if ($Push.IsPresent) {
 }
 
 Write-Host "Weekly update complete." -ForegroundColor Cyan
+
+# Write last update marker for UI footer
+try {
+  $dataDir = Get-DataDir
+  $marker = Join-Path $dataDir 'last_update.json'
+  $obj = [ordered]@{
+    ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+    type = 'weekly_update'
+    season = [int]$Season
+    week = [int]$TargetWeek
+    prior_week = [int]$PriorWeek
+    note = "Weekly: schedules, team stats, retrain$([string]::Empty + ($NoRetrain.IsPresent? ' (skipped)':'') ), odds+seed lines, props gen, prior-week recon"
+  }
+  $json = $obj | ConvertTo-Json -Compress
+  $json | Out-File -FilePath $marker -Encoding UTF8
+  Write-Host "Wrote last_update marker: $marker" -ForegroundColor DarkGray
+} catch {
+  Write-Host "Failed to write last_update.json: $($_.Exception.Message)" -ForegroundColor Yellow
+}

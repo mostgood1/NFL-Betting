@@ -32,6 +32,39 @@ def _log_once(key: str, msg: str) -> None:
     except Exception:
         pass
 
+def _load_last_update() -> Optional[Dict[str, Any]]:
+    """Load last update marker written by daily/weekly jobs.
+    Expected at DATA_DIR/last_update.json with keys like:
+      {"ts":"ISO-UTC","type":"daily_update|weekly_update","season":2025,"week":1,"note":"..."}
+    Returns minimal dict or None.
+    """
+    try:
+        fp = DATA_DIR / 'last_update.json'
+        if not fp.exists():
+            return None
+        try:
+            data = json.loads(fp.read_text(encoding='utf-8'))
+            if isinstance(data, dict):
+                # Shallow sanitize expected keys
+                out: Dict[str, Any] = {}
+                for k in ('ts','type','note','season','week','prior_week'):
+                    if k in data:
+                        out[k] = data.get(k)
+                return out or None
+        except Exception:
+            _log_once('last_update_parse_err', f'Warn: failed to parse {fp} as JSON')
+            return None
+    except Exception:
+        return None
+
+# Inject global template context
+@app.context_processor
+def _inject_global_template_context():
+    try:
+        return {'last_update': _load_last_update()}
+    except Exception:
+        return {'last_update': None}
+
 
 # --- Ultra-light health endpoints (always fast, minimal IO) ---
 @app.route('/api/ping')

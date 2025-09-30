@@ -377,3 +377,23 @@ try {
 } catch {
   Write-Log "Git: post-push verification error: $($_.Exception.Message)"
 }
+
+# Write last update marker for UI footer
+try {
+  $dataDir = Join-Path $Root 'nfl_compare/data'
+  $marker = Join-Path $dataDir 'last_update.json'
+  $cur = Resolve-CurrentWeek
+  $obj = [ordered]@{
+    ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+    type = 'daily_update'
+    season = $null
+    week = $null
+    note = 'Daily pipeline: train, updater, odds check, props pipeline, reconciliations'
+  }
+  if ($null -ne $cur) { $obj.season = [int]$cur.Season; $obj.week = [int]$cur.Week }
+  $json = $obj | ConvertTo-Json -Compress
+  $json | Out-File -FilePath $marker -Encoding UTF8
+  Write-Log ("Wrote last_update marker: {0}" -f $marker)
+} catch {
+  Write-Log ("Failed to write last_update.json: {0}" -f $_.Exception.Message)
+}

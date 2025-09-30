@@ -48,6 +48,7 @@
     <div id="status" class="muted">Loading…</div>
     <div id="list"></div>
   </div>
+    {% include '_footer.html' %}
   <script>
     function qs(name){ const u=new URL(window.location); return u.searchParams.get(name) }
     function fmtNum(x){ if(x==null||isNaN(x)) return '—'; return Number(x).toFixed(2) }

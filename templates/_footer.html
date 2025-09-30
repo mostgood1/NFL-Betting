@@ -1,0 +1,13 @@
+<div class="app-footer" role="contentinfo">
+  <small>
+    {% if last_update %}
+      <span>Last update: {{ last_update.ts or '' }}</span>
+      {% if last_update.type %} • <span>{{ last_update.type | replace('_',' ') }}</span>{% endif %}
+      {% if last_update.season %} • <span>S{{ last_update.season }}</span>{% endif %}
+      {% if last_update.week %} • <span>Wk {{ last_update.week }}</span>{% endif %}
+      {% if last_update.note %} • <span>{{ last_update.note }}</span>{% endif %}
+    {% else %}
+      <span>Last update: —</span>
+    {% endif %}
+  </small>
+</div>
