@@ -67,3 +67,11 @@ cronJobs:
         sync: false
     command: |
       curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=0&light=1&key=${ADMIN_KEY}" || true
+  - name: weekly-totals-calibration
+    # Run every Tuesday at 09:00 UTC (after MNF completes) to fit last 4 completed weeks
+    schedule: "0 9 * * 2"
+    envVars:
+      - key: ADMIN_KEY
+        sync: false
+    command: |
+      curl -fsSL "https://nfl-betting.onrender.com/api/admin/calibration/fit?weeks=4&push=1&key=${ADMIN_KEY}" || true

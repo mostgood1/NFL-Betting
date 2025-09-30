@@ -65,6 +65,65 @@ _job_state: Dict[str, Any] = {
 # --- Simple in-memory cache for reconciliation results (per season/week) ---
 _recon_cache: dict[tuple[int,int], dict[str, Any]] = {}
 
+# --- Calibration job state (weekly totals calibration fit) ---
+_cal_job_state: Dict[str, Any] = {
+    'running': False,
+    'started_at': None,
+    'ended_at': None,
+    'ok': None,
+    'logs': [],
+    'log_file': None,
+}
+
+def _append_cal_log(msg: str) -> None:
+    try:
+        print(f"[cal] {msg}")
+        _cal_job_state['logs'].append(msg)
+        if len(_cal_job_state['logs']) > 500:
+            _cal_job_state['logs'] = _cal_job_state['logs'][-500:]
+    except Exception:
+        pass
+
+def _fit_totals_cal_job(weeks: int = 4, do_push: bool = True) -> None:
+    _cal_job_state['running'] = True
+    _cal_job_state['started_at'] = datetime.utcnow().isoformat()
+    _cal_job_state['ended_at'] = None
+    _cal_job_state['ok'] = None
+    _cal_job_state['logs'] = []
+    logs_dir = _ensure_logs_dir()
+    stamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+    log_file = logs_dir / f"web_fit_totals_cal_{stamp}.log"
+    _cal_job_state['log_file'] = str(log_file)
+    try:
+        _append_cal_log(f"Starting totals calibration fit (weeks={weeks})...")
+        env = {
+            'RENDER': os.environ.get('RENDER', 'true'),
+            'OMP_NUM_THREADS': os.environ.get('OMP_NUM_THREADS', '1'),
+            'MKL_NUM_THREADS': os.environ.get('MKL_NUM_THREADS', '1'),
+            'OPENBLAS_NUM_THREADS': os.environ.get('OPENBLAS_NUM_THREADS', '1'),
+            'NUMEXPR_MAX_THREADS': os.environ.get('NUMEXPR_MAX_THREADS', '1'),
+        }
+        out_fp = DATA_DIR / 'totals_calibration.json'
+        cmd = [sys.executable, 'scripts/fit_totals_calibration.py', '--weeks', str(int(weeks)), '--out', str(out_fp)]
+        rc = _run_to_file(cmd, log_file, cwd=BASE_DIR, env=env)
+        _append_cal_log(f'fit_totals_calibration exited with code {rc}')
+        ok = (rc == 0)
+        if ok and do_push:
+            _append_cal_log('Committing and pushing calibration to Git...')
+            ts = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%SZ')
+            ok2, msg = _git_commit_and_push(f'chore(model): weekly totals calibration fit {ts}')
+            _append_cal_log(msg)
+            ok = ok and ok2
+        elif ok and not do_push:
+            _append_cal_log('Push disabled by request; skipping git commit/push.')
+        _cal_job_state['ok'] = ok
+    except Exception as e:
+        _append_cal_log(f'Exception: {e}')
+        _cal_job_state['ok'] = False
+    finally:
+        _cal_job_state['running'] = False
+        _cal_job_state['ended_at'] = datetime.utcnow().isoformat()
+
 
 # --- Totals calibration (global scale/shift, optional market blend) ---
 def _load_totals_calibration() -> Optional[Dict[str, Any]]:
@@ -760,6 +819,48 @@ def api_admin_clear_recon_cache():
         return jsonify({'status': 'cleared', 'entries': n})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/admin/calibration/fit', methods=['POST','GET'])
+def api_admin_fit_calibration():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    if _cal_job_state['running']:
+        return jsonify({'status': 'already-running', 'started_at': _cal_job_state['started_at']}), 409
+    try:
+        weeks = int(request.args.get('weeks', '4'))
+    except Exception:
+        weeks = 4
+    do_push = (request.args.get('push', '1') in ('1','true','yes'))
+    t = threading.Thread(target=_fit_totals_cal_job, args=(weeks, do_push), daemon=True)
+    t.start()
+    return jsonify({'status': 'started', 'weeks': weeks, 'push': do_push, 'started_at': datetime.utcnow().isoformat()}), 202
+
+
+@app.route('/api/admin/calibration/status', methods=['GET'])
+def api_admin_fit_calibration_status():
+    if not _admin_auth_ok(request):
+        return jsonify({'error': 'unauthorized'}), 401
+    tail = int(request.args.get('tail', '200'))
+    log_lines = list(_cal_job_state['logs'][-tail:])
+    try:
+        lf = _cal_job_state.get('log_file')
+        if lf:
+            from pathlib import Path as _P
+            file_tail = _tail_file(_P(lf), tail)
+            if file_tail:
+                merged = file_tail + [ln for ln in log_lines if ln not in file_tail]
+                log_lines = merged[-tail:]
+    except Exception:
+        pass
+    return jsonify({
+        'running': _cal_job_state['running'],
+        'started_at': _cal_job_state['started_at'],
+        'ended_at': _cal_job_state['ended_at'],
+        'ok': _cal_job_state['ok'],
+        'logs': log_lines,
+        'log_file': _cal_job_state.get('log_file'),
+    })
 
 
 
