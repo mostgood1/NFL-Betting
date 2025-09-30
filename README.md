@@ -97,3 +97,29 @@ Validation:
 - nfl_compare/src: data pipeline (training, prediction, odds/weather clients)
 - render.yaml, Procfile, start.sh: deployment
 - requirements.txt: runtime dependencies
+
+## Totals calibration (O/U)
+
+We support a simple global totals calibration to offset/scale model totals and optionally blend with market totals.
+
+- Config file: `nfl_compare/data/totals_calibration.json` with keys `{scale, shift, market_blend}`
+- Env overrides: `NFL_TOTAL_SCALE`, `NFL_TOTAL_SHIFT`, `NFL_MARKET_TOTAL_BLEND`
+
+When present, the app adds `pred_total_cal` to the weekly view and prefers it for O/U edge and EV.
+
+Fit and write calibration from the last 4 completed weeks:
+
+```
+python scripts/fit_totals_calibration.py --weeks 4
+```
+
+Optionally override output path:
+
+```
+python scripts/fit_totals_calibration.py --weeks 6 --out nfl_compare/data/totals_calibration.json
+```
+
+Validate it’s picked up:
+
+- GET `/api/health/calibration` should show the loaded values
+- `/api/debug-week-view` should include `pred_total_cal` rows when predictions are present
