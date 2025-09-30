@@ -43,6 +43,15 @@ def api_ping():
 def health_root():
     return jsonify({'status': 'ok'})
 
+# Calibration health: expose currently loaded totals calibration
+@app.route('/api/health/calibration')
+def api_health_calibration():
+    try:
+        calib = _load_totals_calibration()
+        return jsonify({'ok': True, 'calibration': calib})
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)})
+
 # --- Background job state (admin refresh, etc.) ---
 _job_state: Dict[str, Any] = {
     'running': False,
@@ -55,6 +64,115 @@ _job_state: Dict[str, Any] = {
 
 # --- Simple in-memory cache for reconciliation results (per season/week) ---
 _recon_cache: dict[tuple[int,int], dict[str, Any]] = {}
+
+
+# --- Totals calibration (global scale/shift, optional market blend) ---
+def _load_totals_calibration() -> Optional[Dict[str, Any]]:
+    """Return totals calibration dict if configured.
+    Sources (priority):
+      1) File nfl_compare/data/totals_calibration.json with keys {scale, shift, market_blend}
+      2) Env NFL_TOTAL_SCALE, NFL_TOTAL_SHIFT, NFL_MARKET_TOTAL_BLEND
+    If nothing configured, return None.
+    """
+    try:
+        fp = DATA_DIR / 'totals_calibration.json'
+        if fp.exists():
+            try:
+                data = json.loads(fp.read_text(encoding='utf-8'))
+                # minimal validation
+                if isinstance(data, dict) and any(k in data for k in ('scale','shift','market_blend')):
+                    return data
+            except Exception:
+                pass
+        # Env fallback
+        s = os.environ.get('NFL_TOTAL_SCALE'); h = os.environ.get('NFL_TOTAL_SHIFT'); b = os.environ.get('NFL_MARKET_TOTAL_BLEND')
+        any_env = any(v is not None for v in (s, h, b))
+        if any_env:
+            out: Dict[str, Any] = {}
+            try:
+                if s is not None:
+                    out['scale'] = float(s)
+            except Exception:
+                pass
+            try:
+                if h is not None:
+                    out['shift'] = float(h)
+            except Exception:
+                pass
+            try:
+                if b is not None:
+                    out['market_blend'] = float(b)
+            except Exception:
+                pass
+            return out if out else None
+    except Exception:
+        pass
+    return None
+
+
+def _apply_totals_calibration_to_view(df: pd.DataFrame) -> pd.DataFrame:
+    """Apply totals calibration to produce pred_total_cal, leaving original intact.
+    - Uses values from totals_calibration.json or env (NFL_TOTAL_SCALE, NFL_TOTAL_SHIFT, NFL_MARKET_TOTAL_BLEND).
+    - Skips rows without pred_total.
+    - Does NOT calibrate market-derived rows when 'derived_from_market' is True.
+    """
+    try:
+        if df is None or df.empty:
+            return df
+        calib = _load_totals_calibration()
+        if not calib:
+            # Also accept envs directly if present
+            try:
+                calib = {}
+                if os.environ.get('NFL_TOTAL_SCALE'):
+                    calib['scale'] = float(os.environ.get('NFL_TOTAL_SCALE'))
+                if os.environ.get('NFL_TOTAL_SHIFT'):
+                    calib['shift'] = float(os.environ.get('NFL_TOTAL_SHIFT'))
+                if os.environ.get('NFL_MARKET_TOTAL_BLEND'):
+                    calib['market_blend'] = float(os.environ.get('NFL_MARKET_TOTAL_BLEND'))
+            except Exception:
+                calib = None
+        if not calib:
+            return df
+        scale = float(calib.get('scale', 1.0))
+        shift = float(calib.get('shift', 0.0))
+        blend = calib.get('market_blend', None)
+        try:
+            blend = float(blend) if blend is not None else None
+        except Exception:
+            blend = None
+        work = df.copy()
+        if 'pred_total' not in work.columns:
+            return work
+        # Only calibrate where pred_total is present; optionally skip derived_from_market
+        mask = work['pred_total'].notna() if 'pred_total' in work.columns else pd.Series([False]*len(work))
+        if 'derived_from_market' in work.columns:
+            mask = mask & (~work['derived_from_market'].fillna(False))
+        # Compute adjusted
+        try:
+            adj = work.loc[mask, 'pred_total'] * scale + shift
+        except Exception:
+            adj = work.loc[mask, 'pred_total']
+        if blend is not None and 0.0 <= blend <= 1.0 and 'market_total' in work.columns:
+            try:
+                mt = work.loc[mask, 'market_total']
+                # Only blend where market_total is available
+                have_m = mt.notna()
+                adj_blend = adj.copy()
+                adj_blend.loc[have_m] = (1.0 - blend) * adj.loc[have_m] + blend * mt.loc[have_m]
+                adj = adj_blend
+            except Exception:
+                pass
+        # Write pred_total_cal and provenance
+        work['pred_total_cal'] = work.get('pred_total')
+        try:
+            work.loc[mask, 'pred_total_cal'] = adj
+            work['pred_total_cal_source'] = f"scale={scale},shift={shift},blend={blend if blend is not None else 0.0}"
+        except Exception:
+            pass
+        return work
+    except Exception:
+        return df
 
 
 # --- Display aliases for player names (UI/API presentation only) ---
@@ -2742,7 +2860,8 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 })
 
     # Total at -110
-    total_pred = g("pred_total")
+    # Prefer calibrated total if present
+    total_pred = g("pred_total_cal", "pred_total")
     m_total = g("close_total") if _is_final else g("market_total", "total", "open_total")
     if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
         m_total = g("market_total", "total", "open_total")
@@ -3956,7 +4075,8 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             pa = g("pred_away_points", "pred_away_score")
             margin = None
             winner = None
-            total_pred = g("pred_total")
+            # Prefer calibrated total if present
+            total_pred = g("pred_total_cal", "pred_total")
             # Weather-aware tweak for upcoming outdoor games: small downward adjustment for high precip/wind
             try:
                 # Only apply to non-final games with a model total
@@ -4591,12 +4711,17 @@ def index():
             view_df = _attach_model_predictions(view_df)
         except Exception as e:
             _log_once('attach-preds-fail', f'_attach_model_predictions failed: {e}')
+        # Apply totals calibration if configured (keeps pred_total; adds pred_total_cal)
+        try:
+            view_df = _apply_totals_calibration_to_view(view_df)
+        except Exception:
+            pass
         # Derive synthetic predictions from market if model outputs entirely absent (skip in fast mode)
         if not fast_mode:
-            try:
-                view_df = _derive_predictions_from_market(view_df)
-            except Exception as e:
-                _log_once('derive-from-market-fail', f'_derive_predictions_from_market failed: {e}')
+                    try:
+                        view_df = _derive_predictions_from_market(view_df)
+                    except Exception as e:
+                        _log_once('derive-from-market-fail', f'_derive_predictions_from_market failed: {e}')
     except Exception as e:
         _log_once('index-fast-fallback', f'index pipeline failed early: {e}')
         view_df = pd.DataFrame()
