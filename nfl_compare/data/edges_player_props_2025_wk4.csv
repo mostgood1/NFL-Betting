@@ -1,616 +1,233 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Jake Browning,CIN,Passing Yards,350.0,1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-147.7,-0.9997923430292708,,,147.7
-Bo Nix,DEN,Passing Yards,350.0,1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-136.2,-0.999152926311033,,,136.2
-Jake Browning,CIN,Passing Yards,325.0,900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-122.69999999999999,-0.9977230811569939,,,122.69999999999999
-J.K. Dobbins,DEN,Rushing Yards,150.0,1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-118.6,-1.0,,,118.6
-Tua Tagovailoa,MIA,Passing Yards,150.0,-1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,115.39999999999998,0.08280426687742626,,,115.39999999999998
-Ja'Marr Chase,CIN,Receiving Yards,150.0,1400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-113.0,-0.9999999997757444,,,113.0
-Bo Nix,DEN,Passing Yards,325.0,900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-111.19999999999999,-0.9925633123652913,,,111.19999999999999
-Jaylen Waddle,MIA,Receiving Yards,150.0,4000.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-110.2,-0.9999999981487865,,,110.2
-Courtland Sutton,DEN,Receiving Yards,150.0,1200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-108.0,-0.999999998626963,,,108.0
-Garrett Wilson,NYJ,Receiving Yards,150.0,1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-106.4,-0.9999999970908063,,,106.4
-Jake Browning,CIN,Passing Yards,300.0,550.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-97.69999999999999,-0.9829453199829188,,,97.69999999999999
-Tee Higgins,CIN,Receiving Yards,125.0,1100.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-97.3,-0.9999999373999029,,,97.3
-Tyreek Hill,MIA,Receiving Yards,150.0,1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-96.3,-0.999999904269993,,,96.3
-Breece Hall,NYJ,Rushing Yards,125.0,1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-94.5,-0.9999999999039006,,,94.5
-J.K. Dobbins,DEN,Rushing Yards,125.0,850.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-93.6,-0.9999999998908446,,,93.6
-Justin Fields,NYJ,Rushing Yards,110.0,1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-93.4,-0.9999999998353386,,,93.4
-Tua Tagovailoa,MIA,Passing Yards,175.0,-600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,90.39999999999998,0.16095082326395935,,,90.39999999999998
-Justin Fields,NYJ,Passing Yards,300.0,1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,-89.6,-0.9319630938737749,,,89.6
-Troy Franklin,DEN,Receiving Yards,125.0,1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-88.6,-0.9999984100520481,,,88.6
-Ja'Marr Chase,CIN,Receiving Yards,125.0,750.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-88.0,-0.9999990389786109,,,88.0
-Bo Nix,DEN,Passing Yards,300.0,650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-86.19999999999999,-0.9483119416454178,,,86.19999999999999
-Justin Fields,NYJ,Passing Yards,125.0,-700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,85.4,0.13446442176531617,,,85.4
-Jaylen Waddle,MIA,Receiving Yards,125.0,1800.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-85.2,-0.9999948763529236,,,85.2
-Tua Tagovailoa,MIA,Passing Yards,350.0,1100.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,-84.60000000000002,-0.9061427413722511,,,84.60000000000002
-Justin Fields,NYJ,Rushing Yards,100.0,900.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-83.4,-0.9999999871657075,,,83.4
-Courtland Sutton,DEN,Receiving Yards,125.0,650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-83.0,-0.9999960689720419,,,83.0
-Tee Higgins,CIN,Receiving Yards,110.0,700.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-82.3,-0.9999948370926401,,,82.3
-Garrett Wilson,NYJ,Receiving Yards,125.0,800.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-81.4,-0.9999924285561756,,,81.4
-Breece Hall,NYJ,Rushing Yards,110.0,850.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-79.5,-0.9999999354834508,,,79.5
-J.K. Dobbins,DEN,Rushing Yards,110.0,500.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-78.6,-0.9999999407872437,,,78.6
-Marvin Mims Jr.,DEN,Receiving Yards,100.0,1800.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-77.9,-0.9999563215620241,,,77.9
-Jake Browning,CIN,Passing Yards,125.0,-1800.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,77.30000000000001,0.041197643750858104,,,77.30000000000001
-Troy Franklin,DEN,Receiving Yards,110.0,1100.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-73.6,-0.9999102951053922,,,73.6
-Justin Fields,NYJ,Rushing Yards,90.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-73.4,-0.9999994070914231,,,73.4
-Ja'Marr Chase,CIN,Receiving Yards,110.0,475.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-73.0,-0.9999495755308444,,,73.0
-Jake Browning,CIN,Passing Yards,275.0,330.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-72.69999999999999,-0.9187549914883401,,,72.69999999999999
-Tee Higgins,CIN,Receiving Yards,100.0,550.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-72.3,-0.9999314311712191,,,72.3
-Tyreek Hill,MIA,Receiving Yards,125.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-71.3,-0.999897274079062,,,71.3
-Jaylen Waddle,MIA,Receiving Yards,110.0,1000.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-70.2,-0.9997999691013332,,,70.2
-Breece Hall,NYJ,Rushing Yards,100.0,600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-69.5,-0.9999975865970177,,,69.5
-J.K. Dobbins,DEN,Rushing Yards,100.0,360.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-68.6,-0.9999977957569276,,,68.6
-Courtland Sutton,DEN,Receiving Yards,110.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-68.0,-0.9998416437908344,,,68.0
-Marvin Mims Jr.,DEN,Receiving Yards,90.0,1200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-67.9,-0.9995779184893554,,,67.9
-Garrett Wilson,NYJ,Receiving Yards,110.0,500.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-66.4,-0.9997183534526943,,,66.4
-Tua Tagovailoa,MIA,Passing Yards,200.0,-300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,65.39999999999998,0.2922116907348331,,,65.39999999999998
-Justin Fields,NYJ,Passing Yards,275.0,700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,-64.6,-0.7402651926742387,,,64.6
-Bo Nix,DEN,Passing Yards,150.0,-850.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,63.80000000000001,0.07946542420304209,,,63.80000000000001
-Troy Franklin,DEN,Receiving Yards,100.0,800.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-63.6,-0.9991757761691296,,,63.6
-Justin Fields,NYJ,Rushing Yards,80.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-63.4,-0.9999851540481997,,,63.4
-Ja'Marr Chase,CIN,Receiving Yards,100.0,350.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-63.0,-0.999526023838937,,,63.0
-Tee Higgins,CIN,Receiving Yards,90.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-62.3,-0.9993809425506617,,,62.3
-Bo Nix,DEN,Passing Yards,275.0,330.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-61.19999999999999,-0.8272149733830008,,,61.19999999999999
-Justin Fields,NYJ,Passing Yards,150.0,-330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,60.400000000000006,0.24804318867197606,,,60.400000000000006
-Jaylen Waddle,MIA,Receiving Yards,100.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-60.2,-0.9985061985473813,,,60.2
-Tua Tagovailoa,MIA,Passing Yards,325.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,-59.60000000000002,-0.667769477475183,,,59.60000000000002
-Breece Hall,NYJ,Rushing Yards,90.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-59.5,-0.9999465573711253,,,59.5
-J.K. Dobbins,DEN,Rushing Yards,90.0,250.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-58.6,-0.9999502526201781,,,58.6
-Courtland Sutton,DEN,Receiving Yards,100.0,300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-58.0,-0.9987091239976222,,,58.0
-Marvin Mims Jr.,DEN,Receiving Yards,80.0,900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-57.9,-0.9967024703853014,,,57.9
-Garrett Wilson,NYJ,Receiving Yards,100.0,360.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-56.4,-0.997912080382573,,,56.4
-Tyreek Hill,MIA,Receiving Yards,110.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-56.3,-0.9976822628645895,,,56.3
-De'Von Achane,MIA,Rushing Yards,125.0,1600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-55.400000000000006,-0.9993552616370802,,,55.400000000000006
-Troy Franklin,DEN,Receiving Yards,90.0,600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-53.6,-0.9943427969047073,,,53.6
-Justin Fields,NYJ,Rushing Yards,70.0,275.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-53.4,-0.999743917402302,,,53.4
-Ja'Marr Chase,CIN,Receiving Yards,90.0,230.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-53.0,-0.9969920339579457,,,53.0
-Braelon Allen,NYJ,Rushing Yards,70.0,1600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-52.4,-0.998453512761056,,,52.4
-Jake Browning,CIN,Passing Yards,150.0,-750.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,52.30000000000001,0.05677612413637938,,,52.30000000000001
-Tee Higgins,CIN,Receiving Yards,80.0,275.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-52.3,-0.9960724943721415,,,52.3
-Chase Brown,CIN,Receiving Yards,70.0,1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-52.0,-0.9811123198819576,,,52.0
-Jaylen Waddle,MIA,Receiving Yards,90.0,450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-50.2,-0.9913440467446417,,,50.2
-RJ Harvey,DEN,Rushing Yards,70.0,750.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-49.9,-0.998449394419745,,,49.9
-Breece Hall,NYJ,Rushing Yards,80.0,265.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-49.5,-0.9992578194559142,,,49.5
-J.K. Dobbins,DEN,Rushing Yards,80.0,175.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-48.6,-0.9992881665715133,,,48.6
-Courtland Sutton,DEN,Receiving Yards,90.0,220.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-48.0,-0.9924003091692499,,,48.0
-Mason Taylor,NYJ,Receiving Yards,10.0,-350.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,47.9,0.2826043385953547,,,47.9
-Marvin Mims Jr.,DEN,Receiving Yards,70.0,650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-47.9,-0.9818586418062363,,,47.9
-Jake Browning,CIN,Passing Yards,250.0,180.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-47.69999999999999,-0.7579014470708922,,,47.69999999999999
-Chase Brown,CIN,Rushing Yards,100.0,650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,-47.2,-0.9971957714713577,,,47.2
-Garrett Wilson,NYJ,Receiving Yards,90.0,250.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-46.4,-0.9888967005020117,,,46.4
-Tyreek Hill,MIA,Receiving Yards,100.0,300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-46.3,-0.9870823071340942,,,46.3
-De'Von Achane,MIA,Rushing Yards,25.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,44.599999999999994,0.07065501540816375,,,44.599999999999994
-Troy Franklin,DEN,Receiving Yards,80.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-43.6,-0.9741841759440744,,,43.6
-Bo Nix,DEN,Rushing Yards,60.0,1200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-43.5,-0.987721169337183,,,43.5
-Justin Fields,NYJ,Rushing Yards,60.0,170.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-43.4,-0.9973874713243104,,,43.4
-Ja'Marr Chase,CIN,Receiving Yards,80.0,170.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-43.0,-0.9845757237910217,,,43.0
-Mason Taylor,NYJ,Receiving Yards,15.0,-200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,42.9,0.4912862494125916,,,42.9
-Braelon Allen,NYJ,Rushing Yards,60.0,1000.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-42.4,-0.9864857859227716,,,42.4
-Tee Higgins,CIN,Receiving Yards,70.0,190.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-42.3,-0.9813850789542481,,,42.3
-Chase Brown,CIN,Receiving Yards,60.0,1100.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-42.0,-0.9190653776318338,,,42.0
-De'Von Achane,MIA,Rushing Yards,110.0,900.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-40.400000000000006,-0.9804736746317406,,,40.400000000000006
-Tua Tagovailoa,MIA,Passing Yards,225.0,-155.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,40.39999999999998,0.44084619967028327,,,40.39999999999998
-Jaylen Waddle,MIA,Receiving Yards,80.0,300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-40.2,-0.9639112105006999,,,40.2
-RJ Harvey,DEN,Rushing Yards,60.0,500.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-39.9,-0.9868842312705206,,,39.9
-Andrei Iosivas,CIN,Receiving Yards,60.0,1200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,-39.8,-0.8750499893722951,,,39.8
-De'Von Achane,MIA,Rushing Yards,30.0,-700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,39.599999999999994,0.14018535623480252,,,39.599999999999994
-Justin Fields,NYJ,Passing Yards,250.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,-39.599999999999994,-0.35531312107341617,,,39.599999999999994
-Breece Hall,NYJ,Rushing Yards,70.0,170.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-39.5,-0.9935456117588687,,,39.5
-Bo Nix,DEN,Passing Yards,175.0,-375.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,38.80000000000001,0.09717709740498248,,,38.80000000000001
-J.K. Dobbins,DEN,Rushing Yards,70.0,110.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-38.6,-0.993877568553146,,,38.6
-Courtland Sutton,DEN,Receiving Yards,80.0,155.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-38.0,-0.9676174913505908,,,38.0
-Mason Taylor,NYJ,Receiving Yards,20.0,-130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,37.9,0.7464196167719921,,,37.9
-Marvin Mims Jr.,DEN,Receiving Yards,60.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-37.9,-0.9355336995730217,,,37.9
-Chase Brown,CIN,Rushing Yards,90.0,450.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,-37.2,-0.9783283387982911,,,37.2
-Malik Washington,MIA,Receiving Yards,70.0,1200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,-36.8,-0.8023335939035647,,,36.8
-Garrett Wilson,NYJ,Receiving Yards,80.0,180.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-36.4,-0.9548362663457473,,,36.4
-Tyreek Hill,MIA,Receiving Yards,90.0,200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-36.3,-0.9508945103216947,,,36.3
-Bo Nix,DEN,Passing Yards,250.0,185.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-36.19999999999999,-0.5710712760080411,,,36.19999999999999
-Justin Fields,NYJ,Passing Yards,175.0,-160.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,35.400000000000006,0.37165327642000245,,,35.400000000000006
-Ollie Gordon II,MIA,Rushing Yards,80.0,1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,-35.4,-0.9141041652674885,,,35.4
-Tua Tagovailoa,MIA,Passing Yards,300.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,-34.60000000000002,-0.19281782267381464,,,34.60000000000002
-Ollie Gordon II,MIA,Rushing Yards,10.0,-600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,34.6,0.15881649144399315,,,34.6
-Troy Franklin,DEN,Receiving Yards,70.0,275.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-33.6,-0.9098096805734738,,,33.6
-Bo Nix,DEN,Rushing Yards,50.0,750.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-33.5,-0.9289495672628127,,,33.5
-Justin Fields,NYJ,Rushing Yards,50.0,-105.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-33.4,-0.9833598684370034,,,33.4
-Ja'Marr Chase,CIN,Receiving Yards,70.0,115.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-33.0,-0.9438453582102588,,,33.0
-Mason Taylor,NYJ,Receiving Yards,25.0,120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,32.9,1.1417503648419731,,,32.9
-Darren Waller,MIA,Receiving Yards,10.0,-160.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,42.4,32.4,0.5789593047306445,,,32.4
-Braelon Allen,NYJ,Rushing Yards,50.0,700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-32.4,-0.9173917804303295,,,32.4
-Tee Higgins,CIN,Receiving Yards,60.0,125.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-32.3,-0.9353877404139959,,,32.3
-Chase Brown,CIN,Receiving Yards,50.0,700.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-32.0,-0.7608475566941433,,,32.0
-De'Von Achane,MIA,Rushing Yards,100.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-30.400000000000006,-0.8878795333692112,,,30.400000000000006
-Jaylen Waddle,MIA,Receiving Yards,70.0,200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-30.200000000000003,-0.8865169217555199,,,30.200000000000003
-RJ Harvey,DEN,Rushing Yards,50.0,300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-29.9,-0.9345945814601568,,,29.9
-Andrei Iosivas,CIN,Receiving Yards,50.0,900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,-29.8,-0.6019394766016597,,,29.8
-Ollie Gordon II,MIA,Rushing Yards,15.0,-300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,29.6,0.31033941882402166,,,29.6
-De'Von Achane,MIA,Rushing Yards,40.0,-300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,29.599999999999994,0.31033941882402183,,,29.599999999999994
-Breece Hall,NYJ,Rushing Yards,60.0,,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-29.5,,,,29.5
-Tyreek Hill,MIA,Receiving Yards,25.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,28.700000000000003,0.02248246216277741,,,28.700000000000003
-J.K. Dobbins,DEN,Rushing Yards,60.0,-150.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-28.6,-0.9657778484144114,,,28.6
-Courtland Sutton,DEN,Receiving Yards,70.0,,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-28.0,,,,28.0
-Mason Taylor,NYJ,Receiving Yards,30.0,180.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,27.9,1.6589348961114754,,,27.9
-Marvin Mims Jr.,DEN,Receiving Yards,50.0,270.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-27.9,-0.813592541290164,,,27.9
-Chase Brown,CIN,Rushing Yards,25.0,-1100.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,27.799999999999997,0.0652372411733118,,,27.799999999999997
-Darren Waller,MIA,Receiving Yards,15.0,115.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,42.4,27.4,1.0349608625164142,,,27.4
-Jake Browning,CIN,Passing Yards,175.0,-350.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,27.30000000000001,0.005820151675485968,,,27.30000000000001
-Chase Brown,CIN,Rushing Yards,80.0,300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,-27.200000000000003,-0.8959331572784013,,,27.200000000000003
-Malik Washington,MIA,Receiving Yards,60.0,850.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,-26.799999999999997,-0.4541423889104064,,,26.799999999999997
-Garrett Wilson,NYJ,Receiving Yards,70.0,120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-26.4,-0.8675190927655099,,,26.4
-Tyreek Hill,MIA,Receiving Yards,80.0,150.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-26.299999999999997,-0.8476886726921165,,,26.299999999999997
-Ollie Gordon II,MIA,Rushing Yards,70.0,1000.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,-25.4,-0.6170143762378443,,,25.4
-Jaylen Waddle,MIA,Receiving Yards,15.0,-1300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,24.799999999999997,-0.0009458302423454995,,,24.799999999999997
-Ollie Gordon II,MIA,Rushing Yards,20.0,-180.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,24.6,0.49419397375166085,,,24.6
-RJ Harvey,DEN,Receiving Yards,40.0,750.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,-24.4,-0.35738596097463016,,,24.4
-Tyreek Hill,MIA,Receiving Yards,30.0,-900.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,23.700000000000003,0.02039884387372491,,,23.700000000000003
-Troy Franklin,DEN,Receiving Yards,60.0,180.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-23.6,-0.7689084284350541,,,23.6
-Bo Nix,DEN,Rushing Yards,40.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-23.5,-0.7669110030503079,,,23.5
-Justin Fields,NYJ,Rushing Yards,40.0,-200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-23.4,-0.9290222077105347,,,23.4
-Malik Washington,MIA,Receiving Yards,10.0,-400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,23.200000000000003,0.14228405620303203,,,23.200000000000003
-Ja'Marr Chase,CIN,Receiving Yards,60.0,-140.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-23.0,-0.8490790656521411,,,23.0
-Chase Brown,CIN,Rushing Yards,30.0,-650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,22.799999999999997,0.09419012878710636,,,22.799999999999997
-Jake Browning,CIN,Passing Yards,225.0,,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,-22.69999999999999,,,,22.69999999999999
-Darren Waller,MIA,Receiving Yards,20.0,170.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,42.4,22.4,1.4467105368276139,,,22.4
-Braelon Allen,NYJ,Rushing Yards,40.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-22.4,-0.72600354150221,,,22.4
-Tee Higgins,CIN,Receiving Yards,50.0,-130.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-22.3,-0.8322773327874028,,,22.3
-Chase Brown,CIN,Receiving Yards,40.0,400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-22.0,-0.5109380328268334,,,22.0
-Troy Franklin,DEN,Receiving Yards,15.0,-900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,21.4,-0.004496710885780061,,,21.4
-De'Von Achane,MIA,Rushing Yards,90.0,450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-20.400000000000006,-0.6010383867083168,,,20.400000000000006
-Jaylen Waddle,MIA,Receiving Yards,60.0,130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-20.200000000000003,-0.7300481694260094,,,20.200000000000003
-RJ Harvey,DEN,Rushing Yards,40.0,175.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-19.9,-0.7866107178035857,,,19.9
-Andrei Iosivas,CIN,Receiving Yards,40.0,600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,-19.8,-0.14551676516569823,,,19.8
-Jaylen Waddle,MIA,Receiving Yards,20.0,-525.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,19.799999999999997,0.0451559124431459,,,19.799999999999997
-Ollie Gordon II,MIA,Rushing Yards,25.0,-115.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,19.6,0.7185853762151235,,,19.6
-De'Von Achane,MIA,Rushing Yards,50.0,-160.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,19.599999999999994,0.4937704287451219,,,19.599999999999994
-Breece Hall,NYJ,Rushing Yards,50.0,-175.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-19.5,-0.8714076471827177,,,19.5
-J.K. Dobbins,DEN,Rushing Yards,50.0,-260.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-18.6,-0.8726227206709541,,,18.6
-Garrett Wilson,NYJ,Receiving Yards,25.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,18.6,-0.07530538412169338,,,18.6
-Malik Washington,MIA,Receiving Yards,15.0,-220.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,18.200000000000003,0.247742097714984,,,18.200000000000003
-Courtland Sutton,DEN,Receiving Yards,60.0,-150.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-18.0,-0.7585998702210949,,,18.0
-Marvin Mims Jr.,DEN,Receiving Yards,40.0,170.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-17.9,-0.6053032638650577,,,17.9
-Mason Taylor,NYJ,Receiving Yards,40.0,330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,17.9,2.6714089017110174,,,17.9
-Darren Waller,MIA,Receiving Yards,25.0,275.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,42.4,17.4,2.1761419981866057,,,17.4
-Chase Brown,CIN,Rushing Yards,70.0,200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,-17.200000000000003,-0.6711512000780006,,,17.200000000000003
-Courtland Sutton,DEN,Receiving Yards,25.0,-1400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,17.0,-0.09855920064084689,,,17.0
-Malik Washington,MIA,Receiving Yards,50.0,500.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,-16.799999999999997,-0.03088772002457607,,,16.799999999999997
-Garrett Wilson,NYJ,Receiving Yards,60.0,-130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-16.4,-0.7039261766742969,,,16.4
-Troy Franklin,DEN,Receiving Yards,20.0,-550.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,16.4,-0.015954451154323396,,,16.4
-Tyreek Hill,MIA,Receiving Yards,70.0,,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-16.299999999999997,,,,16.299999999999997
-Ollie Gordon II,MIA,Rushing Yards,60.0,700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,-15.399999999999999,0.08532848757106226,,,15.399999999999999
-Tua Tagovailoa,MIA,Passing Yards,250.0,120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,15.399999999999977,0.4740691819466937,,,15.399999999999977
-Ollie Gordon II,MIA,Rushing Yards,30.0,130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,14.600000000000001,0.9584333696079164,,,14.600000000000001
-Justin Fields,NYJ,Passing Yards,225.0,225.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,-14.599999999999994,0.09943261830442418,,,14.599999999999994
-RJ Harvey,DEN,Receiving Yards,30.0,430.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,-14.4,0.051950187238167356,,,14.4
-Bo Nix,DEN,Passing Yards,200.0,-185.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,13.800000000000011,0.0064581591571026276,,,13.800000000000011
-Tyreek Hill,MIA,Receiving Yards,40.0,-450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,13.700000000000003,-0.03463430897671335,,,13.700000000000003
-Troy Franklin,DEN,Receiving Yards,50.0,120.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-13.600000000000001,-0.5339181231165271,,,13.600000000000001
-Garrett Wilson,NYJ,Receiving Yards,30.0,-800.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,13.600000000000001,-0.11333732340632134,,,13.600000000000001
-Bo Nix,DEN,Rushing Yards,30.0,180.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-13.5,-0.5311362184607373,,,13.5
-Justin Fields,NYJ,Rushing Yards,30.0,-450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-13.399999999999999,-0.7931418500211417,,,13.399999999999999
-Malik Washington,MIA,Receiving Yards,20.0,-140.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,13.200000000000003,0.3393104168946811,,,13.200000000000003
-Ja'Marr Chase,CIN,Receiving Yards,50.0,-220.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-13.0,-0.6767660344473279,,,13.0
-Chase Brown,CIN,Rushing Yards,40.0,-275.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,12.799999999999997,0.1177954078880874,,,12.799999999999997
-Tee Higgins,CIN,Receiving Yards,15.0,-1600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,12.7,-0.1792336537082266,,,12.7
-Braelon Allen,NYJ,Rushing Yards,30.0,220.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-12.399999999999999,-0.39876558679819135,,,12.399999999999999
-Darren Waller,MIA,Receiving Yards,30.0,375.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,42.4,12.399999999999999,2.6438441693039563,,,12.399999999999999
-Tee Higgins,CIN,Receiving Yards,40.0,-200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-12.3,-0.6479839816918951,,,12.3
-Marvin Mims Jr.,DEN,Receiving Yards,10.0,-600.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,12.100000000000001,-0.11135612010580828,,,12.100000000000001
-Chase Brown,CIN,Receiving Yards,30.0,200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-12.0,-0.27960804586986543,,,12.0
-Courtland Sutton,DEN,Receiving Yards,30.0,-850.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,12.0,-0.15073425742103053,,,12.0
-Ja'Marr Chase,CIN,Receiving Yards,25.0,-1400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,12.0,-0.18585426933219096,,,12.0
-Troy Franklin,DEN,Receiving Yards,25.0,-360.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,11.399999999999999,-0.04325295061777082,,,11.399999999999999
-Bo Nix,DEN,Passing Yards,225.0,,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,213.8,-11.199999999999989,,,,11.199999999999989
-J.K. Dobbins,DEN,Receiving Yards,10.0,,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,20.6,10.600000000000001,,,,10.600000000000001
-De'Von Achane,MIA,Rushing Yards,80.0,300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-10.400000000000006,-0.08486364987498529,,,10.400000000000006
-Justin Fields,NYJ,Passing Yards,200.0,120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,210.4,10.400000000000006,0.357006809533694,,,10.400000000000006
-Jaylen Waddle,MIA,Receiving Yards,50.0,-120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-10.200000000000003,-0.4972026174581985,,,10.200000000000003
-Andrei Iosivas,CIN,Receiving Yards,10.0,-140.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,10.2,0.2441375124284454,,,10.2
-RJ Harvey,DEN,Rushing Yards,10.0,-1100.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,10.100000000000001,-0.16580683983201072,,,10.100000000000001
-RJ Harvey,DEN,Rushing Yards,30.0,-110.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-9.899999999999999,-0.5423167360200916,,,9.899999999999999
-Andrei Iosivas,CIN,Receiving Yards,30.0,330.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,-9.8,0.2132388603059049,,,9.8
-Tua Tagovailoa,MIA,Passing Yards,275.0,220.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_yards,265.4,-9.600000000000023,0.25418409926418883,,,9.600000000000023
-De'Von Achane,MIA,Rushing Yards,60.0,115.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,9.599999999999994,0.6201397063273929,,,9.599999999999994
-Breece Hall,NYJ,Rushing Yards,40.0,-330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,-9.5,-0.6759302059973646,,,9.5
-RJ Harvey,DEN,Receiving Yards,25.0,300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,-9.4,0.16060738092247173,,,9.4
-J.K. Dobbins,DEN,Rushing Yards,40.0,-500.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,-8.600000000000001,-0.6765840754052462,,,8.600000000000001
-Bo Nix,DEN,Rushing Yards,25.0,115.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-8.5,-0.41546218113134686,,,8.5
-Justin Fields,NYJ,Rushing Yards,25.0,-700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-8.399999999999999,-0.6865678654284872,,,8.399999999999999
-Malik Washington,MIA,Receiving Yards,25.0,110.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,8.200000000000003,0.4389669929875949,,,8.200000000000003
-Chase Brown,CIN,Receiving Yards,10.0,-300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,8.0,-0.09195654039397139,,,8.0
-Courtland Sutton,DEN,Receiving Yards,50.0,-240.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,-8.0,-0.5481295091647387,,,8.0
-Mason Taylor,NYJ,Receiving Yards,50.0,600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,rec_yards,57.9,7.899999999999999,3.7525026664554537,,,7.899999999999999
-Marvin Mims Jr.,DEN,Receiving Yards,30.0,-110.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-7.899999999999999,-0.3870461817605783,,,7.899999999999999
-Tee Higgins,CIN,Receiving Yards,20.0,-900.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,7.699999999999999,-0.25032838867157553,,,7.699999999999999
-Braelon Allen,NYJ,Rushing Yards,10.0,-330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,7.600000000000001,-0.07955774436013477,,,7.600000000000001
-Braelon Allen,NYJ,Rushing Yards,25.0,150.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-7.399999999999999,-0.2536215191021748,,,7.399999999999999
-Chase Brown,CIN,Rushing Yards,60.0,120.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,-7.200000000000003,-0.33224252712189445,,,7.200000000000003
-Marvin Mims Jr.,DEN,Receiving Yards,15.0,-330.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,7.100000000000001,-0.13752762045531844,,,7.100000000000001
-Ja'Marr Chase,CIN,Receiving Yards,30.0,-800.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,7.0,-0.25778793975719877,,,7.0
-Chase Brown,CIN,Receiving Yards,25.0,145.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-7.0,-0.16637293119543378,,,7.0
-Malik Washington,MIA,Receiving Yards,40.0,300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,-6.799999999999997,0.3783130335587037,,,6.799999999999997
-Bo Nix,DEN,Rushing Yards,10.0,-500.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,6.5,-0.18546583460453825,,,6.5
-De'Von Achane,MIA,Receptions,10.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-6.46,-0.9999974792862902,,,6.46
-Troy Franklin,DEN,Receiving Yards,30.0,-260.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,6.399999999999999,-0.10454643799919336,,,6.399999999999999
-Garrett Wilson,NYJ,Receiving Yards,50.0,-225.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,-6.399999999999999,-0.4897015554205946,,,6.399999999999999
-Tyreek Hill,MIA,Receiving Yards,60.0,-160.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,-6.299999999999997,-0.42235780014384433,,,6.299999999999997
-J.K. Dobbins,DEN,Receiving Yards,15.0,180.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,20.6,5.600000000000001,0.7614177327321798,,,5.600000000000001
-RJ Harvey,DEN,Receiving Yards,10.0,-130.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,5.6,0.11298373222088265,,,5.6
-Breece Hall,NYJ,Rushing Yards,25.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,5.5,-0.3005848197312858,,,5.5
-De'Von Achane,MIA,Receptions,9.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-5.46,-0.9999332712549205,,,5.46
-Ollie Gordon II,MIA,Rushing Yards,50.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,-5.399999999999999,0.7492707039587557,,,5.399999999999999
-Andrei Iosivas,CIN,Receiving Yards,15.0,115.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,5.199999999999999,0.33332871059419455,,,5.199999999999999
-RJ Harvey,DEN,Rushing Yards,15.0,-500.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,5.100000000000001,-0.22938679986107424,,,5.100000000000001
-RJ Harvey,DEN,Rushing Yards,25.0,-175.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,-4.899999999999999,-0.4293053089902584,,,4.899999999999999
-Mason Taylor,NYJ,Receptions,1.0,-1800.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,5.84,4.84,0.05545168386081426,,,4.84
-Andrei Iosivas,CIN,Receiving Yards,25.0,240.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,-4.800000000000001,0.3220439214967932,,,4.800000000000001
-Ollie Gordon II,MIA,Rushing Yards,40.0,250.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,44.6,4.600000000000001,1.200660618217317,,,4.600000000000001
-De'Von Achane,MIA,Receptions,8.0,260.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-4.46,-0.9989166297121467,,,4.46
-RJ Harvey,DEN,Receiving Yards,20.0,200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,-4.4,0.19365710371148848,,,4.4
-J.K. Dobbins,DEN,Receiving Yards,25.0,430.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,20.6,-4.399999999999999,1.108794216556963,,,4.399999999999999
-Garrett Wilson,NYJ,Receptions,10.0,750.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,-4.25,-0.9954167868202854,,,4.25
-Darren Waller,MIA,Receptions,1.0,-420.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,4.95,3.95,0.2366232081259807,,,3.95
-Mason Taylor,NYJ,Receptions,2.0,-275.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,5.84,3.84,0.3614965425986008,,,3.84
-Tyreek Hill,MIA,Receiving Yards,50.0,-250.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,53.7,3.700000000000003,-0.17939288096328485,,,3.700000000000003
-Jaylen Waddle,MIA,Receptions,8.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,-3.6500000000000004,-0.9812882959931117,,,3.6500000000000004
-Troy Franklin,DEN,Receiving Yards,40.0,-145.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,36.4,-3.6000000000000014,-0.2968579374469954,,,3.6000000000000014
-Garrett Wilson,NYJ,Receiving Yards,40.0,-400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,43.6,3.6000000000000014,-0.2701816279091105,,,3.6000000000000014
-Bo Nix,DEN,Rushing Yards,20.0,-145.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,-3.5,-0.32195206753321587,,,3.5
-De'Von Achane,MIA,Receptions,7.0,155.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-3.46,-0.9900824821486645,,,3.46
-Justin Fields,NYJ,Rushing Yards,20.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,rush_yards,16.6,-3.3999999999999986,-0.5670806785168425,,,3.3999999999999986
-Garrett Wilson,NYJ,Receptions,9.0,450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,-3.25,-0.9658468407082311,,,3.25
-Malik Washington,MIA,Receiving Yards,30.0,160.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,33.2,3.200000000000003,0.49410013184587365,,,3.200000000000003
-Malik Washington,MIA,Receptions,6.0,850.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,2.86,-3.14,-0.9253366412705937,,,3.14
-Tyreek Hill,MIA,Receptions,9.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,-3.13,-0.9397986071041853,,,3.13
-Chase Brown,CIN,Receiving Yards,15.0,-175.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,3.0,-0.10422619897288216,,,3.0
-Ja'Marr Chase,CIN,Receiving Yards,40.0,-400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,37.0,-3.0,-0.46254734172611645,,,3.0
-Darren Waller,MIA,Receptions,2.0,115.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,4.95,2.95,1.1250016317394167,,,2.95
-Marvin Mims Jr.,DEN,Receiving Yards,25.0,-155.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,-2.8999999999999986,-0.2888399192057017,,,2.8999999999999986
-Tyreek Hill,MIA,Receptions,3.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,2.87,0.05682193066332464,,,2.87
-Mason Taylor,NYJ,Receptions,3.0,110.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,5.84,2.84,1.0696370881018036,,,2.84
-Chase Brown,CIN,Rushing Yards,50.0,-145.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,52.8,2.799999999999997,-0.02125083577530873,,,2.799999999999997
-Tee Higgins,CIN,Receiving Yards,25.0,-550.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,2.6999999999999993,-0.33452285609716625,,,2.6999999999999993
-Jaylen Waddle,MIA,Receptions,7.0,350.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,-2.6500000000000004,-0.9066164558109671,,,2.6500000000000004
-Braelon Allen,NYJ,Rushing Yards,15.0,-180.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,2.6000000000000014,-0.10763130820380651,,,2.6000000000000014
-De'Von Achane,MIA,Receptions,6.0,-115.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-2.46,-0.9453619596654985,,,2.46
-Bo Nix,DEN,Passing TDs,4.0,1000.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.58,-2.42,-0.7514424372681988,,,2.42
-Braelon Allen,NYJ,Rushing Yards,20.0,-105.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,17.6,-2.3999999999999986,-0.15668194256328583,,,2.3999999999999986
-Jake Browning,CIN,Passing Yards,200.0,-200.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_yards,202.3,2.3000000000000114,-0.21070397398248808,,,2.3000000000000114
-Tee Higgins,CIN,Receiving Yards,30.0,-375.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,27.7,-2.3000000000000007,-0.43482642068803773,,,2.3000000000000007
-Garrett Wilson,NYJ,Receptions,8.0,275.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,-2.25,-0.843450752796591,,,2.25
-Breece Hall,NYJ,Receptions,6.0,500.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.8,-2.2,-0.7282380342354591,,,2.2
-Malik Washington,MIA,Receptions,5.0,400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,2.86,-2.14,-0.750669778039025,,,2.14
-Tyreek Hill,MIA,Receptions,8.0,350.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,-2.13,-0.7720177352590041,,,2.13
-Marvin Mims Jr.,DEN,Receiving Yards,20.0,-220.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,22.1,2.1000000000000014,-0.20122755303560003,,,2.1000000000000014
-Courtland Sutton,DEN,Receiving Yards,40.0,-420.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,42.0,2.0,-0.32297691007945284,,,2.0
-Chase Brown,CIN,Receiving Yards,20.0,-105.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,18.0,-2.0,-0.11523238172452577,,,2.0
-Darren Waller,MIA,Receptions,3.0,330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,4.95,1.9500000000000002,3.01272903454391,,,1.9500000000000002
-Tua Tagovailoa,MIA,Passing TDs,4.0,900.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,2.07,-1.9300000000000002,-0.4081037808364687,,,1.9300000000000002
-Tyreek Hill,MIA,Receptions,4.0,-420.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,1.87,0.14505043539707835,,,1.87
-Mason Taylor,NYJ,Receptions,4.0,265.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,5.84,1.8399999999999999,2.3635557418575184,,,1.8399999999999999
-Jake Browning,CIN,Passing TDs,3.0,650.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.2,-1.8,-0.7467327386075825,,,1.8
-Breece Hall,NYJ,Receptions,2.0,-550.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.8,1.7999999999999998,0.08362675632375496,,,1.7999999999999998
-Garrett Wilson,NYJ,Receptions,4.0,-600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,1.75,0.06268580471896518,,,1.75
-Justin Fields,NYJ,Passing TDs,3.0,650.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,1.34,-1.66,-0.6460641811625927,,,1.66
-Jaylen Waddle,MIA,Receptions,6.0,190.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,-1.6500000000000004,-0.7036797836249852,,,1.6500000000000004
-Bo Nix,DEN,Rushing Yards,15.0,-250.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,rush_yards,16.5,1.5,-0.240272953423707,,,1.5
-De'Von Achane,MIA,Receptions,5.0,-220.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-1.46,-0.8098873992028813,,,1.46
-Bo Nix,DEN,Passing TDs,3.0,330.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.58,-1.42,-0.6728511820207882,,,1.42
-J.K. Dobbins,DEN,Rushing Yards,30.0,-1400.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,31.4,1.3999999999999986,-0.42161303148889767,,,1.3999999999999986
-Jaylen Waddle,MIA,Receptions,3.0,-600.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,1.3499999999999996,-0.00778221896262718,,,1.3499999999999996
-Garrett Wilson,NYJ,Receptions,7.0,155.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,-1.25,-0.5712410920126363,,,1.25
-Breece Hall,NYJ,Receptions,5.0,250.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.8,-1.2000000000000002,-0.3770575404659706,,,1.2000000000000002
-Malik Washington,MIA,Receptions,4.0,200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,2.86,-1.1400000000000001,-0.429207368750976,,,1.1400000000000001
-Tyreek Hill,MIA,Receptions,7.0,200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,-1.13,-0.42291861863636904,,,1.13
-Tua Tagovailoa,MIA,Passing TDs,1.0,-700.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,2.07,1.0699999999999998,-0.29987468552510754,,,1.0699999999999998
-Tua Tagovailoa,MIA,Passing TDs,3.0,300.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,2.07,-0.9300000000000002,-0.3771052807122479,,,0.9300000000000002
-Tyreek Hill,MIA,Receptions,5.0,-200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,0.8700000000000001,0.12248878898328397,,,0.8700000000000001
-Malik Washington,MIA,Receptions,2.0,-350.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,2.86,0.8599999999999999,-0.041028822711284135,,,0.8599999999999999
-Mason Taylor,NYJ,Receptions,5.0,550.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,TE,receptions,5.84,0.8399999999999999,3.8159158894123357,,,0.8399999999999999
-Jake Browning,CIN,Passing TDs,2.0,-170.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.2,-0.8,-0.8085971568916479,,,0.8
-Breece Hall,NYJ,Receptions,3.0,-185.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.8,0.7999999999999998,0.12590347710719985,,,0.7999999999999998
-Garrett Wilson,NYJ,Receptions,5.0,-250.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,0.75,0.00520600556742129,,,0.75
-Justin Fields,NYJ,Passing TDs,2.0,170.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,1.34,-0.6599999999999999,-0.5890705454693248,,,0.6599999999999999
-Jaylen Waddle,MIA,Receptions,5.0,-105.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,-0.6500000000000004,-0.39761718629688275,,,0.6500000000000004
-J.K. Dobbins,DEN,Receiving Yards,20.0,300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,20.6,0.6000000000000014,1.0563095723042206,,,0.6000000000000014
-RJ Harvey,DEN,Receiving Yards,15.0,135.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rec_yards,15.6,0.5999999999999996,0.20808187372872944,,,0.5999999999999996
-Bo Nix,DEN,Passing TDs,1.0,-700.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.58,0.5800000000000001,-0.4644751467069706,,,0.5800000000000001
-De'Von Achane,MIA,Receptions,3.0,-1400.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,0.54,-0.29171091098560453,,,0.54
-Breece Hall,NYJ,Rushing Yards,30.0,-750.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,30.5,0.5,-0.4171891016977659,,,0.5
-De'Von Achane,MIA,Receptions,4.0,-450.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.54,-0.45999999999999996,-0.5578891106993294,,,0.45999999999999996
-Bo Nix,DEN,Passing TDs,2.0,-120.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.58,-0.41999999999999993,-0.6122754300712138,,,0.41999999999999993
-De'Von Achane,MIA,Rushing Yards,70.0,200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,rush_yards,69.6,-0.4000000000000057,0.4658095992126472,,,0.4000000000000057
-Jaylen Waddle,MIA,Receptions,4.0,-225.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,4.35,0.34999999999999964,-0.12448763046045547,,,0.34999999999999964
-Justin Fields,NYJ,Passing TDs,1.0,-330.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,1.34,0.3400000000000001,-0.4953609446228001,,,0.3400000000000001
-Garrett Wilson,NYJ,Receptions,6.0,-120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.75,-0.25,-0.22312390617091316,,,0.25
-Jaylen Waddle,MIA,Receiving Yards,40.0,-200.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,rec_yards,39.8,-0.20000000000000284,-0.2570399954900894,,,0.20000000000000284
-Breece Hall,NYJ,Receptions,4.0,130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,RB,receptions,3.8,-0.20000000000000018,0.009390697726973318,,,0.20000000000000018
-Jake Browning,CIN,Passing TDs,1.0,-300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,QB,pass_tds,1.2,0.19999999999999996,-0.5501696882757929,,,0.19999999999999996
-Andrei Iosivas,CIN,Receiving Yards,20.0,175.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,WR,rec_yards,20.2,0.1999999999999993,0.3879066583984969,,,0.1999999999999993
-Malik Washington,MIA,Receptions,3.0,-120.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,2.86,-0.14000000000000012,-0.16194687603540414,,,0.14000000000000012
-Tyreek Hill,MIA,Receptions,6.0,110.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,WR,receptions,5.87,-0.1299999999999999,-0.03363845828176071,,,0.1299999999999999
-RJ Harvey,DEN,Rushing Yards,20.0,-300.0,,True,Cincinnati Bengals @ Denver Broncos,Broncos,Bengals,1759191300000,Bovada,RB,rush_yards,20.1,0.10000000000000142,-0.3295339153517993,,,0.10000000000000142
-Tua Tagovailoa,MIA,Passing TDs,2.0,-130.0,,True,New York Jets @ Miami Dolphins,Dolphins,Jets,1759187700000,Bovada,QB,pass_tds,2.07,0.06999999999999984,-0.39445790696260585,,,0.06999999999999984
-Alec Ingold,MIA,Anytime TD,,1900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Receptions,1.5,145.0,-190.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Adam Prentice (DEN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Andrei Iosivas (CIN) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Andrei Iosivas (CIN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Trautman (DEN) - 1H,,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Trautman (DEN) - 1Q,,Anytime TD,,1900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Trautman,DEN,Anytime TD,,500.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Receiving Yards,12.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Allen Lazard (NYJ) - 1Q,,Anytime TD,,3500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Allen Lazard (NYJ) - 1H,,Anytime TD,,1600.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Allen Lazard,NYJ,Anytime TD,,1100.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Andrew Beck,NYJ,Anytime TD,,3300.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Anytime TD,,260.0,,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Arian Smith,NYJ,Anytime TD,,1100.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Isaiah Davis,NYJ,Anytime TD,,1400.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Anytime TD,,175.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-J.K. Dobbins (DEN) - 1Q,,Anytime TD,,450.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins (DEN) - 1H,,Anytime TD,,170.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins & Denver Broncos,,Anytime TD,,-110.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins & Cincinnati Bengals,,Anytime TD,,800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins,DEN,Rushing Yards,65.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-J.K. Dobbins,DEN,Rushing Attempts,14.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-J.K. Dobbins,DEN,Receiving Yards,9.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-J.K. Dobbins,DEN,Anytime TD,,-152.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Isaiah Williams (NYJ) - 1Q,,Anytime TD,,6000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Williams (NYJ) - 1H,,Anytime TD,,2500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Williams,NYJ,Anytime TD,,2800.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Isaiah Davis (NYJ) - 1Q,,Anytime TD,,4500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Davis (NYJ) - 1H,,Anytime TD,,2200.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Garrett Wilson (NYJ) - 1Q,,Anytime TD,,1000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Receptions,5.5,-120.0,-110.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Garrett Wilson (NYJ) - 1H,,Anytime TD,,375.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Garrett Wilson & New York Jets,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Garrett Wilson & Miami Dolphins,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Garrett Wilson,NYJ,Receptions,5.5,-130.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Garrett Wilson,NYJ,Receiving Yards,60.5,-130.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Garrett Wilson,NYJ,Anytime TD,,150.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Evan Engram (DEN) - 1Q,,Anytime TD,,1400.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram & Denver Broncos,,Anytime TD,,425.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram & Cincinnati Bengals,,Anytime TD,,2200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram,DEN,Receptions,2.5,115.0,-150.0,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Evan Engram,DEN,Receiving Yards,17.5,-130.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Evan Engram,DEN,Anytime TD,,350.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Drew Sample (CIN) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Receiving Yards,64.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Ja'Marr Chase & Cincinnati Bengals,,Anytime TD,,700.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Josh Reynolds,NYJ,Anytime TD,,440.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Waddle & Miami Dolphins,,Anytime TD,,300.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jermaine Burton (CIN) - 1H,,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jermaine Burton,CIN,Anytime TD,,2000.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Jeremy Ruckert (NYJ) - 1Q,,Anytime TD,,3000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jeremy Ruckert (NYJ) - 1H,,Anytime TD,,1600.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jeremy Ruckert,NYJ,Anytime TD,,1200.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Jelani Woods (NYJ) - 1Q,,Anytime TD,,6000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jelani Woods (NYJ) - 1H,,Anytime TD,,2800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jelani Woods,NYJ,Anytime TD,,2500.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Jaylen Wright (MIA) - 1Q,,Anytime TD,,4500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Wright (MIA) - 1H,,Anytime TD,,2200.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Wright,MIA,Anytime TD,,1300.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylen Waddle (MIA) - 1Q,,Anytime TD,,850.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle (MIA) - 1H,,Anytime TD,,330.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle & New York Jets,,Anytime TD,,650.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Receptions,4.5,-120.0,-110.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Ja'Marr Chase & Denver Broncos,,Anytime TD,,250.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Receiving Yards,50.5,-115.0,-115.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Anytime TD,,180.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaleel McLaughlin (DEN) - 1Q,,Anytime TD,,2200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jaleel McLaughlin (DEN) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jaleel McLaughlin,DEN,Anytime TD,,1200.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Jake Browning (CIN) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Browning (CIN) - 1H,,Anytime TD,,1300.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Browning,CIN,Passing Yards,219.5,-130.0,,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Jake Browning,CIN,Passing TDs,1.5,170.0,-230.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Jake Browning,CIN,Passing Attempts,32.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Jake Browning,CIN,Interceptions,0.5,-185.0,140.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Jake Browning,CIN,Anytime TD,,800.0,,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Ja'Marr Chase (CIN) - 1Q,,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase (CIN) - 1H,,Anytime TD,,375.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Drew Sample (CIN) - 1H,,Anytime TD,,1800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Drew Sample,CIN,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Devon Achane (MIA) - 1Q,,Anytime TD,,550.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Breece Hall,NYJ,Anytime TD,,140.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Receiving Yards,18.5,-120.0,-110.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Anytime TD,,130.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Charlie Jones (CIN) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Jones (CIN) - 1H,,Anytime TD,,4000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Jones,CIN,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Cam Grandy,CIN,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Breece Hall (NYJ) - 1Q,,Anytime TD,,650.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Breece Hall (NYJ) - 1H,,Anytime TD,,250.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Breece Hall & New York Jets,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Breece Hall & Miami Dolphins,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Breece Hall,NYJ,Rushing Yards,56.5,-125.0,-105.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Breece Hall,NYJ,Rushing Attempts,14.5,,-130.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Breece Hall,NYJ,Receptions,3.5,145.0,-190.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Breece Hall,NYJ,Receiving Yards,22.5,-115.0,-115.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Braelon Allen (NYJ) - 1Q,,Anytime TD,,900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Devon Achane (MIA) - 1H,,Anytime TD,,200.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Braelon Allen (NYJ) - 1H,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Braelon Allen & New York Jets,,Anytime TD,,750.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Braelon Allen & Miami Dolphins,,Anytime TD,,500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Braelon Allen,NYJ,Rushing Yards,15.5,-145.0,110.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Braelon Allen,NYJ,Anytime TD,,225.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Bo Nix (DEN) - 1Q,,Anytime TD,,1200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix (DEN) - 1H,,Anytime TD,,550.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix & Denver Broncos,,Anytime TD,,300.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix & Cincinnati Bengals,,Anytime TD,,1600.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Rushing Yards,19.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Rushing Attempts,5.5,105.0,-135.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Passing Yards,223.5,-110.0,-120.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Passing TDs,1.5,-110.0,-120.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Passing Attempts,31.5,-125.0,-105.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Receptions,3.5,135.0,-180.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Rushing Attempts,15.5,,-130.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Rushing Yards,53.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown & Cincinnati Bengals,,Anytime TD,,600.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Denver Defense,,Anytime TD,,440.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-DEN Broncos D/ST - 1Q,,Anytime TD,,1900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-DEN Broncos D/ST - 1H,,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Dee Eskridge - 1Q,,Anytime TD,,6000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Dee Eskridge - 1H,,Anytime TD,,3000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-De'Von Achane & New York Jets,,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-De'Von Achane & Miami Dolphins,,Anytime TD,,140.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Rushing Yards,56.5,-105.0,-125.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Rushing Attempts,12.5,-105.0,-125.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Receptions,5.5,-105.0,-125.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Receiving Yards,40.5,,-130.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Anytime TD,,-139.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Darren Waller (MIA) - 1Q,,Anytime TD,,1400.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Darren Waller (MIA) - 1H,,Anytime TD,,650.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Darren Waller,MIA,Receptions,1.5,135.0,-180.0,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Darren Waller,MIA,Receiving Yards,11.5,110.0,-145.0,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Darren Waller,MIA,Anytime TD,,525.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Courtland Sutton (DEN) - 1Q,,Anytime TD,,750.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton (DEN) - 1H,,Anytime TD,,275.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton & Denver Broncos,,Anytime TD,,150.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton & Cincinnati Bengals,,Anytime TD,,1000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton,DEN,Receptions,4.5,-145.0,110.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Courtland Sutton,DEN,Receiving Yards,62.5,-130.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Courtland Sutton,DEN,Anytime TD,,130.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-CIN Bengals D/ST - 1Q,,Anytime TD,,2200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-CIN Bengals D/ST - 1H,,Anytime TD,,1000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown (CIN) - 1Q,,Anytime TD,,650.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown (CIN) - 1H,,Anytime TD,,260.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown & Denver Broncos,,Anytime TD,,200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Jermaine Burton (CIN) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Josh Reynolds,NYJ,Receiving Yards,18.5,-110.0,-120.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Interceptions,0.5,105.0,-135.0,False,,Broncos,Bengals,1759191300000,Bovada,QB,,,,,,unsupported_market,0.0
-Stone Smartt (NYJ) - 1H,,Anytime TD,,3500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tee Higgins & Denver Broncos,,Anytime TD,,350.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tee Higgins & Cincinnati Bengals,,Anytime TD,,850.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Receptions,4.5,120.0,-160.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Receiving Yards,50.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Anytime TD,,250.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Tanner Hudson,CIN,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Tanner Conner (MIA) - 1Q,,Anytime TD,,3000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner (MIA) - 1H,,Anytime TD,,1500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner,MIA,Anytime TD,,825.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Tahj Washington,MIA,Anytime TD,,2000.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tahj Brooks (CIN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tahj Brooks (CIN) - 1H,,Anytime TD,,1800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tahj Brooks,CIN,Anytime TD,,1400.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Stone Smartt (NYJ) - 1Q,,Anytime TD,,6000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Stone Smartt,NYJ,Anytime TD,,2500.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Tee Higgins (CIN) - 1Q,,Anytime TD,,1200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Samaje Perine (CIN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Samaje Perine (CIN) - 1H,,Anytime TD,,1800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Samaje Perine,CIN,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-RJ Harvey (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey (DEN) - 1H,,Anytime TD,,475.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey & Denver Broncos,,Anytime TD,,275.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey & Cincinnati Bengals,,Anytime TD,,1500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey,DEN,Receiving Yards,39.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-RJ Harvey,DEN,Anytime TD,,240.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Pat Bryant (DEN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Pat Bryant (DEN) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Pat Bryant,DEN,Anytime TD,,700.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Ollie Gordon II (MIA) - 1Q,,Anytime TD,,1600.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II (MIA) - 1H,,Anytime TD,,650.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tee Higgins (CIN) - 1H,,Anytime TD,,500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Trent Sherfield,DEN,Anytime TD,,700.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Josh Reynolds & Miami Dolphins,,Anytime TD,,875.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Badie (DEN) - 1H,,Anytime TD,,1300.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Prentice (DEN) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Arian Smith (NYJ) - 1H,,Anytime TD,,1500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Arian Smith (NYJ) - 1Q,,Anytime TD,,3000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill (MIA) - 1Q,,Anytime TD,,800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill (MIA) - 1H,,Anytime TD,,300.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill & New York Jets,,Anytime TD,,450.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill & Miami Dolphins,,Anytime TD,,200.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyreek Hill,MIA,Receptions,5.5,110.0,-145.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyreek Hill,MIA,Receiving Yards,67.5,-110.0,-120.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyreek Hill,MIA,Anytime TD,,110.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Johnson (NYJ) - 1Q,,Anytime TD,,3500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Johnson (NYJ) - 1H,,Anytime TD,,1700.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Johnson,NYJ,Anytime TD,,725.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Badie (DEN) - 1Q,,Anytime TD,,2800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Badie,DEN,Anytime TD,,1200.0,,False,,Broncos,Bengals,1759191300000,Bovada,RB,,,,,,unsupported_market,0.0
-Trent Sherfield (DEN) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa (MIA) - 1Q,,Anytime TD,,3500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa (MIA) - 1H,,Anytime TD,,1700.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Passing Yards,237.5,,-130.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Passing TDs,1.5,-120.0,-110.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Passing Attempts,32.5,-115.0,-115.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Interceptions,0.5,-105.0,-125.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Anytime TD,,2000.0,,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Troy Franklin (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin (DEN) - 1H,,Anytime TD,,450.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin & Denver Broncos,,Anytime TD,,300.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin & Cincinnati Bengals,,Anytime TD,,1600.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin,DEN,Receiving Yards,,525.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Troy Franklin,DEN,Anytime TD,,250.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Trent Sherfield (DEN) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II & New York Jets,,Anytime TD,,900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II & Miami Dolphins,,Anytime TD,,500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II,MIA,Rushing Yards,24.5,-110.0,-120.0,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Justin Fields (NYJ) - 1H,,Anytime TD,,425.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims,DEN,Receptions,2.5,,-130.0,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims,DEN,Receiving Yards,28.5,-110.0,-120.0,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington (MIA) - 1Q,,Anytime TD,,1800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington (MIA) - 1H,,Anytime TD,,800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington & New York Jets,,Anytime TD,,1000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington & Miami Dolphins,,Anytime TD,,575.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington,MIA,Rushing Yards,,10000.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Malik Washington,MIA,Receptions,2.5,110.0,-145.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Malik Washington,MIA,Receiving Yards,19.5,-125.0,-105.0,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Malik Washington,MIA,Anytime TD,,350.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Lucas Krull (DEN) - 1Q,,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Lucas Krull (DEN) - 1H,,Anytime TD,,1200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Lucas Krull,DEN,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Justin Fields (NYJ) - 1Q,,Anytime TD,,1100.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Justin Fields & New York Jets,,Anytime TD,,450.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II,MIA,Anytime TD,,320.0,,False,,Dolphins,Jets,1759187700000,Bovada,RB,,,,,,unsupported_market,0.0
-Justin Fields & Miami Dolphins,,Anytime TD,,425.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Rushing Yards,45.5,-125.0,-105.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Rushing Attempts,8.5,-120.0,-110.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Passing Yards,184.5,-120.0,-110.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Passing TDs,0.5,-260.0,190.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Passing Attempts,26.5,-125.0,-105.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Interceptions,0.5,125.0,-165.0,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Fields,NYJ,Anytime TD,,185.0,,False,,Dolphins,Jets,1759187700000,Bovada,QB,,,,,,unsupported_market,0.0
-Julian Hill (MIA) - 1Q,,Anytime TD,,4000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Julian Hill (MIA) - 1H,,Anytime TD,,1800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Julian Hill,MIA,Anytime TD,,1700.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Josh Reynolds (NYJ) - 1Q,,Anytime TD,,1800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Josh Reynolds (NYJ) - 1H,,Anytime TD,,750.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Josh Reynolds & New York Jets,,Anytime TD,,800.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims (DEN) - 1Q,,Anytime TD,,1400.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims Jr.,DEN,Anytime TD,,350.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Marvin Mims Jr.,DEN,Receiving Yards,,1400.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-NY Jets D/ST - 1Q,,Anytime TD,,2000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-NY Jets D/ST - 1H,,Anytime TD,,900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-NY Jets D/ST,,Anytime TD,,725.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Noah Fant (CIN) - 1Q,,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Noah Fant (CIN) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine (MIA) - 1Q,,Anytime TD,,3000.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine (MIA) - 1H,,Anytime TD,,1300.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine,MIA,Anytime TD,,900.0,,False,,Dolphins,Jets,1759187700000,Bovada,WR,,,,,,unsupported_market,0.0
-Nate Adkins (DEN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Nate Adkins (DEN) - 1H,,Anytime TD,,1900.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Nate Adkins,DEN,Anytime TD,,900.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Mitchell Tinsley (CIN) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley (CIN) - 1H,,Anytime TD,,3500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley,CIN,Anytime TD,,2000.0,,False,,Broncos,Bengals,1759191300000,Bovada,WR,,,,,,unsupported_market,0.0
-Mike Gesicki (CIN) - 1Q,,Anytime TD,,2500.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Mike Gesicki (CIN) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Mike Gesicki,CIN,Receptions,2.5,-125.0,-105.0,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Mike Gesicki,CIN,Receiving Yards,23.5,-115.0,-115.0,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Mike Gesicki,CIN,Anytime TD,,440.0,,False,,Broncos,Bengals,1759191300000,Bovada,TE,,,,,,unsupported_market,0.0
-Miami Dolphins Defense,,Anytime TD,,625.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-MIA Dolphins D/ST - 1Q,,Anytime TD,,1900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-MIA Dolphins D/ST - 1H,,Anytime TD,,900.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Mason Taylor (NYJ) - 1Q,,Anytime TD,,2500.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Mason Taylor (NYJ) - 1H,,Anytime TD,,1100.0,,False,,Dolphins,Jets,1759187700000,Bovada,,,,,,,unsupported_market,0.0
-Mason Taylor,NYJ,Receptions,2.5,,-130.0,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Mason Taylor,NYJ,Receiving Yards,20.5,-115.0,-115.0,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Mason Taylor,NYJ,Anytime TD,,500.0,,False,,Dolphins,Jets,1759187700000,Bovada,TE,,,,,,unsupported_market,0.0
-Marvin Mims Jr. & Denver Broncos,,Anytime TD,,425.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims Jr. & Cincinnati Bengals,,Anytime TD,,2200.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Prentice,DEN,Anytime TD,,1800.0,,False,,Broncos,Bengals,1759191300000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing Yards,350.0,1100.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-138.9,-0.9995661712881296,,,138.9
+Puka Nacua,LAR,Receiving Yards,175.0,900.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-138.0,-0.9999999999999978,,,138.0
+Matthew Stafford,LAR,Passing Yards,325.0,700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-113.9,-0.9954528845666979,,,113.9
+Puka Nacua,LAR,Receiving Yards,150.0,475.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-113.0,-0.9999999999140353,,,113.0
+Davante Adams,LAR,Receiving Yards,125.0,1000.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-99.1,-0.999999969407296,,,99.1
+Matthew Stafford,LAR,Passing Yards,300.0,400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-88.9,-0.972286882784587,,,88.9
+Puka Nacua,LAR,Receiving Yards,125.0,220.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-88.0,-0.9999996382037124,,,88.0
+Davante Adams,LAR,Receiving Yards,110.0,675.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-84.1,-0.9999970804504673,,,84.1
+Kyren Williams,LAR,Rushing Yards,150.0,1400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-84.0,-0.9999999852011853,,,84.0
+Christian McCaffrey,SF,Rushing Yards,125.0,875.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-80.6,-0.9999999582946135,,,80.6
+Kendrick Bourne,SF,Receiving Yards,110.0,1600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-80.1,-0.9999791256290409,,,80.1
+Christian McCaffrey,SF,Receiving Yards,100.0,625.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-76.1,-0.99997249092012,,,76.1
+Davante Adams,LAR,Receiving Yards,100.0,475.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-74.1,-0.9999624054935367,,,74.1
+Puka Nacua,LAR,Receiving Yards,110.0,140.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-73.0,-0.999978953265048,,,73.0
+Kendrick Bourne,SF,Receiving Yards,100.0,1200.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-70.1,-0.9997574779850504,,,70.1
+Christian McCaffrey,SF,Receiving Yards,90.0,400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-66.1,-0.9997475607136375,,,66.1
+Christian McCaffrey,SF,Rushing Yards,110.0,550.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-65.6,-0.9999909329800079,,,65.6
+Davante Adams,LAR,Receiving Yards,90.0,350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-64.1,-0.9996335577874027,,,64.1
+Matthew Stafford,LAR,Passing Yards,275.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-63.900000000000006,-0.8896733709440529,,,63.900000000000006
+Puka Nacua,LAR,Receiving Yards,100.0,,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-63.0,,,,63.0
+Matthew Stafford,LAR,Passing Yards,150.0,-1200.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,61.099999999999994,0.039533835452537136,,,61.099999999999994
+Kendrick Bourne,SF,Receiving Yards,90.0,875.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-60.1,-0.9980143076141877,,,60.1
+Kyren Williams,LAR,Rushing Yards,125.0,750.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-59.0,-0.9998935077827309,,,59.0
+Christian McCaffrey,SF,Receiving Yards,80.0,275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-56.1,-0.9981871594660608,,,56.1
+Christian McCaffrey,SF,Rushing Yards,100.0,375.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-55.6,-0.9998303230595612,,,55.6
+Davante Adams,LAR,Receiving Yards,80.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-54.1,-0.9976261401870992,,,54.1
+Jake Tonges,SF,Receiving Yards,10.0,-550.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,53.2,0.1807831651406855,,,53.2
+Puka Nacua,LAR,Receiving Yards,90.0,-150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-53.0,-0.9984808252312857,,,53.0
+Kendrick Bourne,SF,Receiving Yards,80.0,650.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-50.1,-0.9879695436423201,,,50.1
+Jake Tonges,SF,Receiving Yards,15.0,-275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,48.2,0.36051476039592145,,,48.2
+Jordan Whittington,LAR,Receiving Yards,70.0,1500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-46.7,-0.9518941212227503,,,46.7
+Christian McCaffrey,SF,Receiving Yards,70.0,180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-46.1,-0.9906303486840342,,,46.1
+Christian McCaffrey,SF,Rushing Yards,90.0,250.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-45.6,-0.9980305538726618,,,45.6
+Davante Adams,LAR,Receiving Yards,70.0,160.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-44.1,-0.9876715760945426,,,44.1
+Kyren Williams,LAR,Rushing Yards,110.0,450.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-44.0,-0.9953990445140812,,,44.0
+Jake Tonges,SF,Receiving Yards,20.0,-180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,43.2,0.5469626556756194,,,43.2
+Puka Nacua,LAR,Receiving Yards,80.0,-225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-43.0,-0.991748329600135,,,43.0
+Blake Corum,LAR,Rushing Yards,80.0,1100.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,-41.2,-0.9804880933346252,,,41.2
+Kendrick Bourne,SF,Receiving Yards,70.0,425.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-40.1,-0.9518759497954226,,,40.1
+Matthew Stafford,LAR,Passing Yards,250.0,125.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-38.900000000000006,-0.7003180902615318,,,38.900000000000006
+Jake Tonges,SF,Receiving Yards,25.0,-115.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,38.2,0.8465356625133986,,,38.2
+Jordan Whittington,LAR,Receiving Yards,60.0,1100.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-36.7,-0.8148168380842433,,,36.7
+Christian McCaffrey,SF,Receiving Yards,60.0,110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-36.1,-0.9646050107566693,,,36.1
+Matthew Stafford,LAR,Passing Yards,175.0,-500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,36.099999999999994,0.018596067088067575,,,36.099999999999994
+Kyren Williams,LAR,Rushing Yards,30.0,-1600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,36.0,0.057119505020636174,,,36.0
+Christian McCaffrey,SF,Rushing Yards,80.0,170.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-35.6,-0.9851567267590385,,,35.6
+Davante Adams,LAR,Receiving Yards,60.0,105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-34.1,-0.9540094784876231,,,34.1
+Kyren Williams,LAR,Rushing Yards,100.0,320.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-34.0,-0.968167278357377,,,34.0
+Jake Tonges,SF,Receiving Yards,30.0,120.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,33.2,1.1440907776123797,,,33.2
+Puka Nacua,LAR,Receiving Yards,70.0,-350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-33.0,-0.9664191510891913,,,33.0
+Blake Corum,LAR,Rushing Yards,70.0,750.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,-31.200000000000003,-0.8901696561593032,,,31.200000000000003
+Brian Robinson,SF,Rushing Yards,10.0,-310.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,31.1,0.3051741959099736,,,31.1
+Kendrick Bourne,SF,Receiving Yards,60.0,275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-30.1,-0.8563202504808102,,,30.1
+Blake Corum,LAR,Rushing Yards,10.0,-1400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,28.799999999999997,0.05017545378608457,,,28.799999999999997
+Jordan Whittington,LAR,Receiving Yards,50.0,700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-26.7,-0.534886702299024,,,26.7
+Christian McCaffrey,SF,Receiving Yards,50.0,-150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-26.1,-0.8960736679873481,,,26.1
+Brian Robinson,SF,Rushing Yards,15.0,-160.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,26.1,0.5743962065885645,,,26.1
+Kyren Williams,LAR,Rushing Yards,40.0,-600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,26.0,0.12974701453054846,,,26.0
+Christian McCaffrey,SF,Rushing Yards,70.0,105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-25.6,-0.9308495679650982,,,25.6
+Davante Adams,LAR,Receiving Yards,50.0,-150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-24.1,-0.8697551385570581,,,24.1
+Kyren Williams,LAR,Rushing Yards,90.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-24.0,-0.8594760685727935,,,24.0
+Blake Corum,LAR,Rushing Yards,15.0,-550.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,23.799999999999997,0.1291499076489947,,,23.799999999999997
+Jake Tonges,SF,Receiving Yards,40.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,23.200000000000003,1.969938546127883,,,23.200000000000003
+Puka Nacua,LAR,Receiving Yards,60.0,-575.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-23.0,-0.8966519688704879,,,23.0
+Blake Corum,LAR,Rushing Yards,60.0,475.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,-21.200000000000003,-0.6263840031320733,,,21.200000000000003
+Brian Robinson,SF,Rushing Yards,20.0,105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,21.1,0.9149316053778788,,,21.1
+Kendrick Bourne,SF,Receiving Yards,50.0,190.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-20.1,-0.6562547534531034,,,20.1
+Kendrick Bourne,SF,Receiving Yards,10.0,-1200.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,19.9,-0.04762234459450773,,,19.9
+Blake Corum,LAR,Rushing Yards,20.0,-300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,18.799999999999997,0.2137878426364162,,,18.799999999999997
+Jordan Whittington,LAR,Receiving Yards,40.0,450.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-16.7,-0.10370349625641062,,,16.7
+Brian Robinson,SF,Rushing Yards,25.0,170.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,16.1,1.3623057737796946,,,16.1
+Christian McCaffrey,SF,Receiving Yards,40.0,-275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-16.1,-0.765721269115444,,,16.1
+Kyren Williams,LAR,Rushing Yards,50.0,-300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,16.0,0.16460139403525614,,,16.0
+Christian McCaffrey,SF,Rushing Yards,60.0,-150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-15.600000000000001,-0.7790361386450366,,,15.600000000000001
+Puka Nacua,LAR,Rushing Yards,15.0,325.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rush_yards,0.0,-15.0,-0.3965493600293123,,,15.0
+Kendrick Bourne,SF,Receiving Yards,15.0,-600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,14.899999999999999,-0.05545165097975005,,,14.899999999999999
+Christian McCaffrey,SF,Rushing Yards,30.0,-1600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,14.399999999999999,-0.09883058953998214,,,14.399999999999999
+Davante Adams,LAR,Receiving Yards,40.0,-250.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-14.100000000000001,-0.7151899873920184,,,14.100000000000001
+Kyren Williams,LAR,Rushing Yards,80.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-14.0,-0.6033618651713573,,,14.0
+Matthew Stafford,LAR,Passing Yards,225.0,-140.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,-13.900000000000006,-0.40748961340987566,,,13.900000000000006
+Blake Corum,LAR,Rushing Yards,25.0,-190.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,13.799999999999997,0.27884403211319403,,,13.799999999999997
+Jordan Whittington,LAR,Receiving Yards,10.0,-180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,13.3,0.21799441420738724,,,13.3
+Jake Tonges,SF,Receiving Yards,50.0,400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,rec_yards,63.2,13.200000000000003,2.9063220492761532,,,13.200000000000003
+Puka Nacua,LAR,Receiving Yards,50.0,-1200.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,37.0,-13.0,-0.7592580360727494,,,13.0
+Blake Corum,LAR,Rushing Yards,50.0,275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,-11.200000000000003,-0.20554225531226245,,,11.200000000000003
+Brian Robinson,SF,Rushing Yards,30.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,11.100000000000001,0.9651736759023357,,,11.100000000000001
+Matthew Stafford,LAR,Passing Yards,200.0,-250.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_yards,211.1,11.099999999999994,-0.12579464472346402,,,11.099999999999994
+Kendrick Bourne,SF,Receiving Yards,40.0,110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-10.100000000000001,-0.4199448999891071,,,10.100000000000001
+Puka Nacua,LAR,Rushing Yards,10.0,200.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rush_yards,0.0,-10.0,-0.28742421391907025,,,10.0
+Kendrick Bourne,SF,Receiving Yards,20.0,-350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,9.899999999999999,-0.07449719649739589,,,9.899999999999999
+Brian Robinson,SF,Rushing Yards,50.0,850.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,-8.899999999999999,1.4935726514008443,,,8.899999999999999
+Blake Corum,LAR,Rushing Yards,30.0,-125.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,8.799999999999997,0.3233332967411636,,,8.799999999999997
+Jordan Whittington,LAR,Receiving Yards,15.0,-110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,8.3,0.3121342298412626,,,8.3
+Christian McCaffrey,SF,Receptions,11.0,450.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-6.99,-0.9999997916338054,,,6.99
+Jordan Whittington,LAR,Receiving Yards,30.0,250.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-6.699999999999999,0.21361481989976927,,,6.699999999999999
+Kyren Williams,LAR,Receiving Yards,10.0,-115.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,16.2,6.199999999999999,0.20088626983875835,,,6.199999999999999
+Christian McCaffrey,SF,Receiving Yards,30.0,-550.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-6.100000000000001,-0.574706708108168,,,6.100000000000001
+Kyren Williams,LAR,Rushing Yards,60.0,-175.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,6.0,0.046386674303732556,,,6.0
+Christian McCaffrey,SF,Receptions,10.0,275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-5.99,-0.9999923657017077,,,5.99
+Davante Adams,LAR,Receiving Yards,20.0,-1400.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,5.899999999999999,-0.3188645323859956,,,5.899999999999999
+Christian McCaffrey,SF,Rushing Yards,50.0,-275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,-5.600000000000001,-0.5301205567413512,,,5.600000000000001
+Puka Nacua,LAR,Receptions,11.0,275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-5.53,-0.9999606006816415,,,5.53
+Demarcus Robinson,SF,Receptions,5.0,500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,0.0,-5.0,-0.9996400406773065,,,5.0
+Christian McCaffrey,SF,Receptions,9.0,180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-4.99,-0.9998266693563617,,,4.99
+Kendrick Bourne,SF,Receiving Yards,25.0,-250.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,4.899999999999999,-0.1412166436882805,,,4.899999999999999
+Davante Adams,LAR,Receptions,8.0,550.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,-4.62,-0.9987661660162841,,,4.62
+Puka Nacua,LAR,Receptions,10.0,180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-4.53,-0.9993100171188884,,,4.53
+Christian McCaffrey,SF,Rushing Yards,40.0,-600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,44.4,4.399999999999999,-0.27276069425011545,,,4.399999999999999
+Davante Adams,LAR,Receiving Yards,30.0,-475.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,-4.100000000000001,-0.5100888955596385,,,4.100000000000001
+Demarcus Robinson,SF,Receptions,4.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,0.0,-4.0,-0.9966013244267241,,,4.0
+Kyren Williams,LAR,Rushing Yards,70.0,-105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,66.0,-4.0,-0.24335772738011024,,,4.0
+Christian McCaffrey,SF,Receptions,8.0,110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-3.99,-0.9977465871792924,,,3.99
+Christian McCaffrey,SF,Receiving Yards,20.0,-1600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,3.8999999999999986,-0.3723540994409366,,,3.8999999999999986
+Kyren Williams,LAR,Receiving Yards,20.0,220.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,16.2,-3.8000000000000007,0.3169975917927007,,,3.8000000000000007
+Jake Tonges,SF,Receptions,2.0,-500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,receptions,5.63,3.63,0.19685998608759853,,,3.63
+Davante Adams,LAR,Receptions,7.0,300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,-3.62,-0.9892817500420501,,,3.62
+Puka Nacua,LAR,Receptions,9.0,110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-3.5300000000000002,-0.9930491218087513,,,3.5300000000000002
+Kendrick Bourne,SF,Receptions,7.0,675.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,-3.44,-0.9684525474957547,,,3.44
+Jordan Whittington,LAR,Receiving Yards,20.0,140.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,3.3000000000000007,0.38469948309345015,,,3.3000000000000007
+Demarcus Robinson,SF,Receptions,3.0,-105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,0.0,-3.0,-0.9794841308255174,,,3.0
+Christian McCaffrey,SF,Receptions,7.0,-160.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-2.99,-0.9825733212147769,,,2.99
+Jake Tonges,SF,Receptions,3.0,-165.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,receptions,5.63,2.63,0.5714779315095382,,,2.63
+Davante Adams,LAR,Receptions,6.0,170.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,-2.62,-0.9407831070457505,,,2.62
+Puka Nacua,LAR,Receptions,8.0,-160.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-2.5300000000000002,-0.9580455370385392,,,2.5300000000000002
+Kendrick Bourne,SF,Receptions,6.0,350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,-2.44,-0.8638105656320073,,,2.44
+Matthew Stafford,LAR,Passing TDs,4.0,700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_tds,1.72,-2.2800000000000002,-0.7527716912226801,,,2.2800000000000002
+Demarcus Robinson,SF,Receptions,2.0,-300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,0.0,-2.0,-0.917376129551505,,,2.0
+Christian McCaffrey,SF,Receptions,6.0,-275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-1.9900000000000002,-0.9142092477339966,,,1.9900000000000002
+Jordan Whittington,LAR,Receptions,1.0,-425.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,2.89,1.8900000000000001,0.1451244632720497,,,1.8900000000000001
+Kyren Williams,LAR,Receptions,1.0,-800.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,2.86,1.8599999999999999,0.03922079511159715,,,1.8599999999999999
+Jordan Whittington,LAR,Receiving Yards,25.0,190.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,23.3,-1.6999999999999993,0.3344992718966159,,,1.6999999999999993
+Jake Tonges,SF,Receptions,4.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,receptions,5.63,1.63,1.2376275877479421,,,1.63
+Davante Adams,LAR,Receptions,5.0,-120.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,-1.62,-0.8050177403412998,,,1.62
+Kendrick Bourne,SF,Receptions,2.0,-1000.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,1.56,-0.026576637243879084,,,1.56
+Puka Nacua,LAR,Receptions,7.0,-300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-1.5300000000000002,-0.8405158597823714,,,1.5300000000000002
+Kendrick Bourne,SF,Receptions,5.0,185.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,-1.44,-0.6181075202951282,,,1.44
+Matthew Stafford,LAR,Passing TDs,3.0,225.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_tds,1.72,-1.28,-0.6873371040366142,,,1.28
+Blake Corum,LAR,Rushing Yards,40.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,38.8,-1.2000000000000028,0.16461693195846427,,,1.2000000000000028
+Kyren Williams,LAR,Receiving Yards,15.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,16.2,1.1999999999999993,0.3203431575864588,,,1.1999999999999993
+Jordan Whittington,LAR,Receptions,4.0,825.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,2.89,-1.1099999999999999,0.8185048497913665,,,1.1099999999999999
+Christian McCaffrey,SF,Receiving Yards,25.0,-900.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rec_yards,23.9,-1.1000000000000014,-0.47310656711122095,,,1.1000000000000014
+Brian Robinson,SF,Rushing Yards,40.0,500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,rush_yards,41.1,1.1000000000000014,2.1878794581270085,,,1.1000000000000014
+Christian McCaffrey,SF,Receptions,5.0,-600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,-0.9900000000000002,-0.7396376161085877,,,0.9900000000000002
+Davante Adams,LAR,Receiving Yards,25.0,-700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,25.9,0.8999999999999986,-0.4044450150291188,,,0.8999999999999986
+Jordan Whittington,LAR,Receptions,2.0,110.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,2.89,0.8900000000000001,0.5817340108777183,,,0.8900000000000001
+Kyren Williams,LAR,Receptions,2.0,-190.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,2.86,0.8599999999999999,0.13842777186906036,,,0.8599999999999999
+Matthew Stafford,LAR,Passing TDs,1.0,-1000.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_tds,1.72,0.72,-0.4357659145511876,,,0.72
+Jake Tonges,SF,Receptions,5.0,325.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,receptions,5.63,0.6299999999999999,1.9156079531356824,,,0.6299999999999999
+Davante Adams,LAR,Receptions,4.0,-280.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,-0.6200000000000001,-0.57018139028349,,,0.6200000000000001
+Kendrick Bourne,SF,Receptions,3.0,-275.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,0.56,-0.09088830072264029,,,0.56
+Puka Nacua,LAR,Receptions,6.0,-600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,-0.5300000000000002,-0.6012919084125338,,,0.5300000000000002
+Puka Nacua,LAR,Receptions,5.0,-1500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,5.47,0.46999999999999975,-0.3161050444729971,,,0.46999999999999975
+Kendrick Bourne,SF,Receptions,4.0,-120.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.56,-0.43999999999999995,-0.32623587744990046,,,0.43999999999999995
+Davante Adams,LAR,Receptions,3.0,-700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,3.38,0.3799999999999999,-0.2971722159539564,,,0.3799999999999999
+Jake Tonges,SF,Receptions,6.0,600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,TE,receptions,5.63,-0.3700000000000001,1.7157858816293903,,,0.3700000000000001
+Matthew Stafford,LAR,Passing TDs,2.0,-165.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,QB,pass_tds,1.72,-0.28,-0.6015918824371801,,,0.28
+Kyren Williams,LAR,Receptions,3.0,150.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,2.86,-0.14000000000000012,0.1427997144971761,,,0.14000000000000012
+Jordan Whittington,LAR,Receptions,3.0,300.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,receptions,2.89,-0.10999999999999988,0.8651343355589267,,,0.10999999999999988
+Kendrick Bourne,SF,Receiving Yards,30.0,-170.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,WR,rec_yards,29.9,-0.10000000000000142,-0.20960947385886536,,,0.10000000000000142
+Christian McCaffrey,SF,Receptions,4.0,-1600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,RB,receptions,4.01,0.009999999999999787,-0.46548944620980603,,,0.009999999999999787
+Jake Tonges,SF,Anytime TD,,350.0,,False,,Rams,49ers,1759450500000,Bovada,TE,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Receiving Yards,13.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Jake Tonges & Los Angeles Rams,,Anytime TD,,550.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges & San Francisco 49ers,,Anytime TD,,975.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Juszczyk,SF,Anytime TD,,900.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Jarquez Hunter,LAR,Anytime TD,,2200.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Jordan James,SF,Anytime TD,,3300.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Anytime TD,,440.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Receptions,1.5,110.0,-145.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kendrick Bourne & San Francisco 49ers,,Anytime TD,,900.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne,SF,Anytime TD,,320.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Blake Corum & San Francisco 49ers,,Anytime TD,,1400.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum & Los Angeles Rams,,Anytime TD,,350.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne & Los Angeles Rams,,Anytime TD,,500.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield,LAR,Anytime TD,,1400.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Davante Adams & Los Angeles Rams,,Anytime TD,,150.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen,LAR,Anytime TD,,440.0,,False,,Rams,49ers,1759450500000,Bovada,TE,,,,,,unsupported_market,0.0
+Isaac Guerendo,SF,Anytime TD,,3300.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+DeMarcus Robinson & San Francisco 49ers,,Anytime TD,,1100.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+DeMarcus Robinson & Los Angeles Rams,,Anytime TD,,525.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Brayden Willis,SF,Anytime TD,,2000.0,,False,,Rams,49ers,1759450500000,Bovada,TE,,,,,,unsupported_market,0.0
+Demarcus Robinson,SF,Anytime TD,,300.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Brian Robinson,SF,Anytime TD,,625.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Anytime TD,,-125.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Receptions,4.5,-125.0,-105.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Davante Adams & San Francisco 49ers,,Anytime TD,,775.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & Los Angeles Rams,,Anytime TD,,150.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & San Francisco 49ers,,Anytime TD,,350.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson,LAR,Anytime TD,,700.0,,False,,Rams,49ers,1759450500000,Bovada,TE,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Anytime TD,,110.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Receiving Yards,9.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Receiving Yards,52.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Anytime TD,,-200.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Skyy Moore,SF,Anytime TD,,1300.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Receptions,1.5,-160.0,120.0,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Mac Jones,SF,Passing Yards,150.0,-700.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+TuTu Atwell,LAR,Anytime TD,,600.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+TuTu Atwell,LAR,Receiving Yards,8.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Smith,LAR,Anytime TD,,1400.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Mac Jones,SF,Passing TDs,1.0,-375.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Mac Jones,SF,Passing TDs,2.0,140.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Mac Jones,SF,Passing TDs,3.0,500.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,125.0,-1800.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,175.0,-350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Kyren Williams,LAR,Rushing Attempts,16.5,-120.0,-110.0,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Mac Jones,SF,Passing Yards,200.0,-180.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,225.0,105.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,250.0,190.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Blake Corum,LAR,Rushing Yards,28.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Mac Jones,SF,Passing Yards,275.0,350.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,300.0,600.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Mac Jones,SF,Passing Yards,325.0,900.0,,True,San Francisco 49ers @ Los Angeles Rams,Rams,49ers,1759450500000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Terrance Ferguson,LAR,Anytime TD,,700.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+San Francisco 49ers Defense,,Anytime TD,,1000.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua & San Francisco 49ers,,Anytime TD,,700.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua & Los Angeles Rams,,Anytime TD,,120.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Rushing Yards,67.5,-130.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyren Williams & Los Angeles Rams,,Anytime TD,,-140.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams & San Francisco 49ers,,Anytime TD,,500.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+LA Rams D/ST,,Anytime TD,,525.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell,SF,Anytime TD,,825.0,,False,,Rams,49ers,1759450500000,Bovada,TE,,,,,,unsupported_market,0.0
+Mac Jones,SF,Anytime TD,,1200.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Marquez Valdes-Scantling,SF,Anytime TD,,1000.0,,False,,Rams,49ers,1759450500000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Anytime TD,,1800.0,,False,,Rams,49ers,1759450500000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing Attempts,31.5,-125.0,-105.0,False,,Rams,49ers,1759450500000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing TDs,1.5,-135.0,105.0,False,,Rams,49ers,1759450500000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing Yards,232.5,-115.0,-115.0,False,,Rams,49ers,1759450500000,Bovada,QB,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Anytime TD,,-114.0,,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Receiving Yards,95.5,-125.0,-105.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Receptions,7.5,-160.0,120.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Rushing Yards,3.5,-110.0,-120.0,False,,Rams,49ers,1759450500000,Bovada,WR,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Anytime TD,,320.0,,False,,Rams,49ers,1759450500000,Bovada,RB,,,,,,unsupported_market,0.0

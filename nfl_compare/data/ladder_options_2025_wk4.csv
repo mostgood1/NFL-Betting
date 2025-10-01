@@ -1,318 +1,166 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,150.0,-850.0,,1759191300000,Broncos,Bengals,True,213.8,63.80000000000001
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,175.0,-375.0,,1759191300000,Broncos,Bengals,True,213.8,38.80000000000001
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,200.0,-185.0,,1759191300000,Broncos,Bengals,True,213.8,13.800000000000011
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,225.0,,,1759191300000,Broncos,Bengals,True,213.8,-11.199999999999989
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,250.0,185.0,,1759191300000,Broncos,Bengals,True,213.8,-36.19999999999999
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,275.0,330.0,,1759191300000,Broncos,Bengals,True,213.8,-61.19999999999999
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,300.0,650.0,,1759191300000,Broncos,Bengals,True,213.8,-86.19999999999999
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,325.0,900.0,,1759191300000,Broncos,Bengals,True,213.8,-111.19999999999999
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Passing Yards,350.0,1600.0,,1759191300000,Broncos,Bengals,True,213.8,-136.2
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,125.0,-1800.0,,1759191300000,Broncos,Bengals,True,202.3,77.30000000000001
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,150.0,-750.0,,1759191300000,Broncos,Bengals,True,202.3,52.30000000000001
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,175.0,-350.0,,1759191300000,Broncos,Bengals,True,202.3,27.30000000000001
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,200.0,-200.0,,1759191300000,Broncos,Bengals,True,202.3,2.3000000000000114
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,225.0,,,1759191300000,Broncos,Bengals,True,202.3,-22.69999999999999
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,250.0,180.0,,1759191300000,Broncos,Bengals,True,202.3,-47.69999999999999
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,275.0,330.0,,1759191300000,Broncos,Bengals,True,202.3,-72.69999999999999
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,300.0,550.0,,1759191300000,Broncos,Bengals,True,202.3,-97.69999999999999
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,325.0,900.0,,1759191300000,Broncos,Bengals,True,202.3,-122.69999999999999
-Jake Browning,CIN,Cincinnati Bengals @ Denver Broncos,Passing Yards,350.0,1600.0,,1759191300000,Broncos,Bengals,True,202.3,-147.7
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,10.0,-140.0,,1759191300000,Broncos,Bengals,True,20.2,10.2
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,115.0,,1759191300000,Broncos,Bengals,True,20.2,5.199999999999999
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,175.0,,1759191300000,Broncos,Bengals,True,20.2,0.1999999999999993
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,240.0,,1759191300000,Broncos,Bengals,True,20.2,-4.800000000000001
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,330.0,,1759191300000,Broncos,Bengals,True,20.2,-9.8
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,600.0,,1759191300000,Broncos,Bengals,True,20.2,-19.8
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,900.0,,1759191300000,Broncos,Bengals,True,20.2,-29.8
-Andrei Iosivas,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,1200.0,,1759191300000,Broncos,Bengals,True,20.2,-39.8
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,10.0,-300.0,,1759191300000,Broncos,Bengals,True,18.0,8.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,-175.0,,1759191300000,Broncos,Bengals,True,18.0,3.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,-105.0,,1759191300000,Broncos,Bengals,True,18.0,-2.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,145.0,,1759191300000,Broncos,Bengals,True,18.0,-7.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,200.0,,1759191300000,Broncos,Bengals,True,18.0,-12.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,400.0,,1759191300000,Broncos,Bengals,True,18.0,-22.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,700.0,,1759191300000,Broncos,Bengals,True,18.0,-32.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,1100.0,,1759191300000,Broncos,Bengals,True,18.0,-42.0
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,1600.0,,1759191300000,Broncos,Bengals,True,18.0,-52.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,-1400.0,,1759191300000,Broncos,Bengals,True,42.0,17.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,-850.0,,1759191300000,Broncos,Bengals,True,42.0,12.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,-420.0,,1759191300000,Broncos,Bengals,True,42.0,2.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,-240.0,,1759191300000,Broncos,Bengals,True,42.0,-8.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,-150.0,,1759191300000,Broncos,Bengals,True,42.0,-18.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,,,1759191300000,Broncos,Bengals,True,42.0,-28.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,80.0,155.0,,1759191300000,Broncos,Bengals,True,42.0,-38.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,90.0,220.0,,1759191300000,Broncos,Bengals,True,42.0,-48.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,100.0,300.0,,1759191300000,Broncos,Bengals,True,42.0,-58.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,110.0,400.0,,1759191300000,Broncos,Bengals,True,42.0,-68.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,125.0,650.0,,1759191300000,Broncos,Bengals,True,42.0,-83.0
-Courtland Sutton,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,150.0,1200.0,,1759191300000,Broncos,Bengals,True,42.0,-108.0
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,10.0,,,1759191300000,Broncos,Bengals,True,20.6,10.600000000000001
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,180.0,,1759191300000,Broncos,Bengals,True,20.6,5.600000000000001
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,300.0,,1759191300000,Broncos,Bengals,True,20.6,0.6000000000000014
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,430.0,,1759191300000,Broncos,Bengals,True,20.6,-4.399999999999999
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,-1400.0,,1759191300000,Broncos,Bengals,True,37.0,12.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,-800.0,,1759191300000,Broncos,Bengals,True,37.0,7.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,-400.0,,1759191300000,Broncos,Bengals,True,37.0,-3.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,-220.0,,1759191300000,Broncos,Bengals,True,37.0,-13.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,-140.0,,1759191300000,Broncos,Bengals,True,37.0,-23.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,115.0,,1759191300000,Broncos,Bengals,True,37.0,-33.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,80.0,170.0,,1759191300000,Broncos,Bengals,True,37.0,-43.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,90.0,230.0,,1759191300000,Broncos,Bengals,True,37.0,-53.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,100.0,350.0,,1759191300000,Broncos,Bengals,True,37.0,-63.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,110.0,475.0,,1759191300000,Broncos,Bengals,True,37.0,-73.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,125.0,750.0,,1759191300000,Broncos,Bengals,True,37.0,-88.0
-Ja'Marr Chase,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,150.0,1400.0,,1759191300000,Broncos,Bengals,True,37.0,-113.0
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,10.0,-600.0,,1759191300000,Broncos,Bengals,True,22.1,12.100000000000001
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,-330.0,,1759191300000,Broncos,Bengals,True,22.1,7.100000000000001
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,-220.0,,1759191300000,Broncos,Bengals,True,22.1,2.1000000000000014
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,-155.0,,1759191300000,Broncos,Bengals,True,22.1,-2.8999999999999986
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,-110.0,,1759191300000,Broncos,Bengals,True,22.1,-7.899999999999999
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,170.0,,1759191300000,Broncos,Bengals,True,22.1,-17.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,270.0,,1759191300000,Broncos,Bengals,True,22.1,-27.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,400.0,,1759191300000,Broncos,Bengals,True,22.1,-37.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,650.0,,1759191300000,Broncos,Bengals,True,22.1,-47.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,80.0,900.0,,1759191300000,Broncos,Bengals,True,22.1,-57.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,90.0,1200.0,,1759191300000,Broncos,Bengals,True,22.1,-67.9
-Marvin Mims Jr.,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,100.0,1800.0,,1759191300000,Broncos,Bengals,True,22.1,-77.9
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,10.0,-130.0,,1759191300000,Broncos,Bengals,True,15.6,5.6
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,135.0,,1759191300000,Broncos,Bengals,True,15.6,0.5999999999999996
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,200.0,,1759191300000,Broncos,Bengals,True,15.6,-4.4
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,300.0,,1759191300000,Broncos,Bengals,True,15.6,-9.4
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,430.0,,1759191300000,Broncos,Bengals,True,15.6,-14.4
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,750.0,,1759191300000,Broncos,Bengals,True,15.6,-24.4
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,-1600.0,,1759191300000,Broncos,Bengals,True,27.7,12.7
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,-900.0,,1759191300000,Broncos,Bengals,True,27.7,7.699999999999999
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,-550.0,,1759191300000,Broncos,Bengals,True,27.7,2.6999999999999993
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,-375.0,,1759191300000,Broncos,Bengals,True,27.7,-2.3000000000000007
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,-200.0,,1759191300000,Broncos,Bengals,True,27.7,-12.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,-130.0,,1759191300000,Broncos,Bengals,True,27.7,-22.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,125.0,,1759191300000,Broncos,Bengals,True,27.7,-32.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,190.0,,1759191300000,Broncos,Bengals,True,27.7,-42.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,80.0,275.0,,1759191300000,Broncos,Bengals,True,27.7,-52.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,90.0,400.0,,1759191300000,Broncos,Bengals,True,27.7,-62.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,100.0,550.0,,1759191300000,Broncos,Bengals,True,27.7,-72.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,110.0,700.0,,1759191300000,Broncos,Bengals,True,27.7,-82.3
-Tee Higgins,CIN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,125.0,1100.0,,1759191300000,Broncos,Bengals,True,27.7,-97.3
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,15.0,-900.0,,1759191300000,Broncos,Bengals,True,36.4,21.4
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,20.0,-550.0,,1759191300000,Broncos,Bengals,True,36.4,16.4
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,25.0,-360.0,,1759191300000,Broncos,Bengals,True,36.4,11.399999999999999
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,30.0,-260.0,,1759191300000,Broncos,Bengals,True,36.4,6.399999999999999
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,40.0,-145.0,,1759191300000,Broncos,Bengals,True,36.4,-3.6000000000000014
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,50.0,120.0,,1759191300000,Broncos,Bengals,True,36.4,-13.600000000000001
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,60.0,180.0,,1759191300000,Broncos,Bengals,True,36.4,-23.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,70.0,275.0,,1759191300000,Broncos,Bengals,True,36.4,-33.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,80.0,400.0,,1759191300000,Broncos,Bengals,True,36.4,-43.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,90.0,600.0,,1759191300000,Broncos,Bengals,True,36.4,-53.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,100.0,800.0,,1759191300000,Broncos,Bengals,True,36.4,-63.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,110.0,1100.0,,1759191300000,Broncos,Bengals,True,36.4,-73.6
-Troy Franklin,DEN,Cincinnati Bengals @ Denver Broncos,Receiving Yards,125.0,1600.0,,1759191300000,Broncos,Bengals,True,36.4,-88.6
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,10.0,-500.0,,1759191300000,Broncos,Bengals,True,16.5,6.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,15.0,-250.0,,1759191300000,Broncos,Bengals,True,16.5,1.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,20.0,-145.0,,1759191300000,Broncos,Bengals,True,16.5,-3.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,25.0,115.0,,1759191300000,Broncos,Bengals,True,16.5,-8.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,30.0,180.0,,1759191300000,Broncos,Bengals,True,16.5,-13.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,40.0,400.0,,1759191300000,Broncos,Bengals,True,16.5,-23.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,50.0,750.0,,1759191300000,Broncos,Bengals,True,16.5,-33.5
-Bo Nix,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,60.0,1200.0,,1759191300000,Broncos,Bengals,True,16.5,-43.5
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,25.0,-1100.0,,1759191300000,Broncos,Bengals,True,52.8,27.799999999999997
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,30.0,-650.0,,1759191300000,Broncos,Bengals,True,52.8,22.799999999999997
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,40.0,-275.0,,1759191300000,Broncos,Bengals,True,52.8,12.799999999999997
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,50.0,-145.0,,1759191300000,Broncos,Bengals,True,52.8,2.799999999999997
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,60.0,120.0,,1759191300000,Broncos,Bengals,True,52.8,-7.200000000000003
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,70.0,200.0,,1759191300000,Broncos,Bengals,True,52.8,-17.200000000000003
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,80.0,300.0,,1759191300000,Broncos,Bengals,True,52.8,-27.200000000000003
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,90.0,450.0,,1759191300000,Broncos,Bengals,True,52.8,-37.2
-Chase Brown,CIN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,100.0,650.0,,1759191300000,Broncos,Bengals,True,52.8,-47.2
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,30.0,-1400.0,,1759191300000,Broncos,Bengals,True,31.4,1.3999999999999986
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,40.0,-500.0,,1759191300000,Broncos,Bengals,True,31.4,-8.600000000000001
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,50.0,-260.0,,1759191300000,Broncos,Bengals,True,31.4,-18.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,60.0,-150.0,,1759191300000,Broncos,Bengals,True,31.4,-28.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,70.0,110.0,,1759191300000,Broncos,Bengals,True,31.4,-38.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,80.0,175.0,,1759191300000,Broncos,Bengals,True,31.4,-48.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,90.0,250.0,,1759191300000,Broncos,Bengals,True,31.4,-58.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,100.0,360.0,,1759191300000,Broncos,Bengals,True,31.4,-68.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,110.0,500.0,,1759191300000,Broncos,Bengals,True,31.4,-78.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,125.0,850.0,,1759191300000,Broncos,Bengals,True,31.4,-93.6
-J.K. Dobbins,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,150.0,1600.0,,1759191300000,Broncos,Bengals,True,31.4,-118.6
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,10.0,-1100.0,,1759191300000,Broncos,Bengals,True,20.1,10.100000000000001
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,15.0,-500.0,,1759191300000,Broncos,Bengals,True,20.1,5.100000000000001
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,20.0,-300.0,,1759191300000,Broncos,Bengals,True,20.1,0.10000000000000142
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,25.0,-175.0,,1759191300000,Broncos,Bengals,True,20.1,-4.899999999999999
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,30.0,-110.0,,1759191300000,Broncos,Bengals,True,20.1,-9.899999999999999
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,40.0,175.0,,1759191300000,Broncos,Bengals,True,20.1,-19.9
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,50.0,300.0,,1759191300000,Broncos,Bengals,True,20.1,-29.9
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,60.0,500.0,,1759191300000,Broncos,Bengals,True,20.1,-39.9
-RJ Harvey,DEN,Cincinnati Bengals @ Denver Broncos,Rushing Yards,70.0,750.0,,1759191300000,Broncos,Bengals,True,20.1,-49.9
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,125.0,-700.0,,1759187700000,Dolphins,Jets,True,210.4,85.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,150.0,-330.0,,1759187700000,Dolphins,Jets,True,210.4,60.400000000000006
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,175.0,-160.0,,1759187700000,Dolphins,Jets,True,210.4,35.400000000000006
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,200.0,120.0,,1759187700000,Dolphins,Jets,True,210.4,10.400000000000006
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,225.0,225.0,,1759187700000,Dolphins,Jets,True,210.4,-14.599999999999994
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,250.0,400.0,,1759187700000,Dolphins,Jets,True,210.4,-39.599999999999994
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,275.0,700.0,,1759187700000,Dolphins,Jets,True,210.4,-64.6
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Passing Yards,300.0,1200.0,,1759187700000,Dolphins,Jets,True,210.4,-89.6
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,150.0,-1200.0,,1759187700000,Dolphins,Jets,True,265.4,115.39999999999998
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,175.0,-600.0,,1759187700000,Dolphins,Jets,True,265.4,90.39999999999998
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,200.0,-300.0,,1759187700000,Dolphins,Jets,True,265.4,65.39999999999998
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,225.0,-155.0,,1759187700000,Dolphins,Jets,True,265.4,40.39999999999998
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,250.0,120.0,,1759187700000,Dolphins,Jets,True,265.4,15.399999999999977
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,275.0,220.0,,1759187700000,Dolphins,Jets,True,265.4,-9.600000000000023
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,300.0,400.0,,1759187700000,Dolphins,Jets,True,265.4,-34.60000000000002
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,325.0,650.0,,1759187700000,Dolphins,Jets,True,265.4,-59.60000000000002
-Tua Tagovailoa,MIA,New York Jets @ Miami Dolphins,Passing Yards,350.0,1100.0,,1759187700000,Dolphins,Jets,True,265.4,-84.60000000000002
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receiving Yards,10.0,-160.0,,1759187700000,Dolphins,Jets,True,42.4,32.4
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receiving Yards,15.0,115.0,,1759187700000,Dolphins,Jets,True,42.4,27.4
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receiving Yards,20.0,170.0,,1759187700000,Dolphins,Jets,True,42.4,22.4
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receiving Yards,25.0,275.0,,1759187700000,Dolphins,Jets,True,42.4,17.4
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receiving Yards,30.0,375.0,,1759187700000,Dolphins,Jets,True,42.4,12.399999999999999
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,25.0,-1400.0,,1759187700000,Dolphins,Jets,True,43.6,18.6
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,30.0,-800.0,,1759187700000,Dolphins,Jets,True,43.6,13.600000000000001
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,40.0,-400.0,,1759187700000,Dolphins,Jets,True,43.6,3.6000000000000014
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,50.0,-225.0,,1759187700000,Dolphins,Jets,True,43.6,-6.399999999999999
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,60.0,-130.0,,1759187700000,Dolphins,Jets,True,43.6,-16.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,70.0,120.0,,1759187700000,Dolphins,Jets,True,43.6,-26.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,80.0,180.0,,1759187700000,Dolphins,Jets,True,43.6,-36.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,90.0,250.0,,1759187700000,Dolphins,Jets,True,43.6,-46.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,100.0,360.0,,1759187700000,Dolphins,Jets,True,43.6,-56.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,110.0,500.0,,1759187700000,Dolphins,Jets,True,43.6,-66.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,125.0,800.0,,1759187700000,Dolphins,Jets,True,43.6,-81.4
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,150.0,1400.0,,1759187700000,Dolphins,Jets,True,43.6,-106.4
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,15.0,-1300.0,,1759187700000,Dolphins,Jets,True,39.8,24.799999999999997
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,20.0,-525.0,,1759187700000,Dolphins,Jets,True,39.8,19.799999999999997
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,40.0,-200.0,,1759187700000,Dolphins,Jets,True,39.8,-0.20000000000000284
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,50.0,-120.0,,1759187700000,Dolphins,Jets,True,39.8,-10.200000000000003
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,60.0,130.0,,1759187700000,Dolphins,Jets,True,39.8,-20.200000000000003
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,70.0,200.0,,1759187700000,Dolphins,Jets,True,39.8,-30.200000000000003
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,80.0,300.0,,1759187700000,Dolphins,Jets,True,39.8,-40.2
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,90.0,450.0,,1759187700000,Dolphins,Jets,True,39.8,-50.2
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,100.0,650.0,,1759187700000,Dolphins,Jets,True,39.8,-60.2
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,110.0,1000.0,,1759187700000,Dolphins,Jets,True,39.8,-70.2
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,125.0,1800.0,,1759187700000,Dolphins,Jets,True,39.8,-85.2
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receiving Yards,150.0,4000.0,,1759187700000,Dolphins,Jets,True,39.8,-110.2
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,10.0,-400.0,,1759187700000,Dolphins,Jets,True,33.2,23.200000000000003
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,15.0,-220.0,,1759187700000,Dolphins,Jets,True,33.2,18.200000000000003
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,20.0,-140.0,,1759187700000,Dolphins,Jets,True,33.2,13.200000000000003
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,25.0,110.0,,1759187700000,Dolphins,Jets,True,33.2,8.200000000000003
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,30.0,160.0,,1759187700000,Dolphins,Jets,True,33.2,3.200000000000003
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,40.0,300.0,,1759187700000,Dolphins,Jets,True,33.2,-6.799999999999997
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,50.0,500.0,,1759187700000,Dolphins,Jets,True,33.2,-16.799999999999997
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,60.0,850.0,,1759187700000,Dolphins,Jets,True,33.2,-26.799999999999997
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receiving Yards,70.0,1200.0,,1759187700000,Dolphins,Jets,True,33.2,-36.8
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,10.0,-350.0,,1759187700000,Dolphins,Jets,True,57.9,47.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,15.0,-200.0,,1759187700000,Dolphins,Jets,True,57.9,42.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,20.0,-130.0,,1759187700000,Dolphins,Jets,True,57.9,37.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,25.0,120.0,,1759187700000,Dolphins,Jets,True,57.9,32.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,30.0,180.0,,1759187700000,Dolphins,Jets,True,57.9,27.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,40.0,330.0,,1759187700000,Dolphins,Jets,True,57.9,17.9
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receiving Yards,50.0,600.0,,1759187700000,Dolphins,Jets,True,57.9,7.899999999999999
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,25.0,-1400.0,,1759187700000,Dolphins,Jets,True,53.7,28.700000000000003
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,30.0,-900.0,,1759187700000,Dolphins,Jets,True,53.7,23.700000000000003
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,40.0,-450.0,,1759187700000,Dolphins,Jets,True,53.7,13.700000000000003
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,50.0,-250.0,,1759187700000,Dolphins,Jets,True,53.7,3.700000000000003
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,60.0,-160.0,,1759187700000,Dolphins,Jets,True,53.7,-6.299999999999997
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,70.0,,,1759187700000,Dolphins,Jets,True,53.7,-16.299999999999997
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,80.0,150.0,,1759187700000,Dolphins,Jets,True,53.7,-26.299999999999997
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,90.0,200.0,,1759187700000,Dolphins,Jets,True,53.7,-36.3
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,100.0,300.0,,1759187700000,Dolphins,Jets,True,53.7,-46.3
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,110.0,400.0,,1759187700000,Dolphins,Jets,True,53.7,-56.3
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,125.0,650.0,,1759187700000,Dolphins,Jets,True,53.7,-71.3
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receiving Yards,150.0,1200.0,,1759187700000,Dolphins,Jets,True,53.7,-96.3
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Receptions,2.0,-550.0,,1759187700000,Dolphins,Jets,True,3.8,1.7999999999999998
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Receptions,3.0,-185.0,,1759187700000,Dolphins,Jets,True,3.8,0.7999999999999998
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Receptions,4.0,130.0,,1759187700000,Dolphins,Jets,True,3.8,-0.20000000000000018
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Receptions,5.0,250.0,,1759187700000,Dolphins,Jets,True,3.8,-1.2000000000000002
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Receptions,6.0,500.0,,1759187700000,Dolphins,Jets,True,3.8,-2.2
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receptions,1.0,-420.0,,1759187700000,Dolphins,Jets,True,4.95,3.95
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receptions,2.0,115.0,,1759187700000,Dolphins,Jets,True,4.95,2.95
-Darren Waller,MIA,New York Jets @ Miami Dolphins,Receptions,3.0,330.0,,1759187700000,Dolphins,Jets,True,4.95,1.9500000000000002
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,3.0,-1400.0,,1759187700000,Dolphins,Jets,True,3.54,0.54
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,4.0,-450.0,,1759187700000,Dolphins,Jets,True,3.54,-0.45999999999999996
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,5.0,-220.0,,1759187700000,Dolphins,Jets,True,3.54,-1.46
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,6.0,-115.0,,1759187700000,Dolphins,Jets,True,3.54,-2.46
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,7.0,155.0,,1759187700000,Dolphins,Jets,True,3.54,-3.46
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,8.0,260.0,,1759187700000,Dolphins,Jets,True,3.54,-4.46
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,9.0,400.0,,1759187700000,Dolphins,Jets,True,3.54,-5.46
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Receptions,10.0,650.0,,1759187700000,Dolphins,Jets,True,3.54,-6.46
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,4.0,-600.0,,1759187700000,Dolphins,Jets,True,5.75,1.75
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,5.0,-250.0,,1759187700000,Dolphins,Jets,True,5.75,0.75
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,6.0,-120.0,,1759187700000,Dolphins,Jets,True,5.75,-0.25
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,7.0,155.0,,1759187700000,Dolphins,Jets,True,5.75,-1.25
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,8.0,275.0,,1759187700000,Dolphins,Jets,True,5.75,-2.25
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,9.0,450.0,,1759187700000,Dolphins,Jets,True,5.75,-3.25
-Garrett Wilson,NYJ,New York Jets @ Miami Dolphins,Receptions,10.0,750.0,,1759187700000,Dolphins,Jets,True,5.75,-4.25
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,3.0,-600.0,,1759187700000,Dolphins,Jets,True,4.35,1.3499999999999996
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,4.0,-225.0,,1759187700000,Dolphins,Jets,True,4.35,0.34999999999999964
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,5.0,-105.0,,1759187700000,Dolphins,Jets,True,4.35,-0.6500000000000004
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,6.0,190.0,,1759187700000,Dolphins,Jets,True,4.35,-1.6500000000000004
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,7.0,350.0,,1759187700000,Dolphins,Jets,True,4.35,-2.6500000000000004
-Jaylen Waddle,MIA,New York Jets @ Miami Dolphins,Receptions,8.0,650.0,,1759187700000,Dolphins,Jets,True,4.35,-3.6500000000000004
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receptions,2.0,-350.0,,1759187700000,Dolphins,Jets,True,2.86,0.8599999999999999
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receptions,3.0,-120.0,,1759187700000,Dolphins,Jets,True,2.86,-0.14000000000000012
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receptions,4.0,200.0,,1759187700000,Dolphins,Jets,True,2.86,-1.1400000000000001
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receptions,5.0,400.0,,1759187700000,Dolphins,Jets,True,2.86,-2.14
-Malik Washington,MIA,New York Jets @ Miami Dolphins,Receptions,6.0,850.0,,1759187700000,Dolphins,Jets,True,2.86,-3.14
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receptions,1.0,-1800.0,,1759187700000,Dolphins,Jets,True,5.84,4.84
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receptions,2.0,-275.0,,1759187700000,Dolphins,Jets,True,5.84,3.84
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receptions,3.0,110.0,,1759187700000,Dolphins,Jets,True,5.84,2.84
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receptions,4.0,265.0,,1759187700000,Dolphins,Jets,True,5.84,1.8399999999999999
-Mason Taylor,NYJ,New York Jets @ Miami Dolphins,Receptions,5.0,550.0,,1759187700000,Dolphins,Jets,True,5.84,0.8399999999999999
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,3.0,-1400.0,,1759187700000,Dolphins,Jets,True,5.87,2.87
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,4.0,-420.0,,1759187700000,Dolphins,Jets,True,5.87,1.87
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,5.0,-200.0,,1759187700000,Dolphins,Jets,True,5.87,0.8700000000000001
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,6.0,110.0,,1759187700000,Dolphins,Jets,True,5.87,-0.1299999999999999
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,7.0,200.0,,1759187700000,Dolphins,Jets,True,5.87,-1.13
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,8.0,350.0,,1759187700000,Dolphins,Jets,True,5.87,-2.13
-Tyreek Hill,MIA,New York Jets @ Miami Dolphins,Receptions,9.0,650.0,,1759187700000,Dolphins,Jets,True,5.87,-3.13
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,10.0,-330.0,,1759187700000,Dolphins,Jets,True,17.6,7.600000000000001
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,15.0,-180.0,,1759187700000,Dolphins,Jets,True,17.6,2.6000000000000014
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,20.0,-105.0,,1759187700000,Dolphins,Jets,True,17.6,-2.3999999999999986
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,25.0,150.0,,1759187700000,Dolphins,Jets,True,17.6,-7.399999999999999
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,30.0,220.0,,1759187700000,Dolphins,Jets,True,17.6,-12.399999999999999
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,40.0,400.0,,1759187700000,Dolphins,Jets,True,17.6,-22.4
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,50.0,700.0,,1759187700000,Dolphins,Jets,True,17.6,-32.4
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,60.0,1000.0,,1759187700000,Dolphins,Jets,True,17.6,-42.4
-Braelon Allen,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,70.0,1600.0,,1759187700000,Dolphins,Jets,True,17.6,-52.4
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,25.0,-1400.0,,1759187700000,Dolphins,Jets,True,30.5,5.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,30.0,-750.0,,1759187700000,Dolphins,Jets,True,30.5,0.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,40.0,-330.0,,1759187700000,Dolphins,Jets,True,30.5,-9.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,50.0,-175.0,,1759187700000,Dolphins,Jets,True,30.5,-19.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,60.0,,,1759187700000,Dolphins,Jets,True,30.5,-29.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,70.0,170.0,,1759187700000,Dolphins,Jets,True,30.5,-39.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,80.0,265.0,,1759187700000,Dolphins,Jets,True,30.5,-49.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,90.0,400.0,,1759187700000,Dolphins,Jets,True,30.5,-59.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,100.0,600.0,,1759187700000,Dolphins,Jets,True,30.5,-69.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,110.0,850.0,,1759187700000,Dolphins,Jets,True,30.5,-79.5
-Breece Hall,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,125.0,1200.0,,1759187700000,Dolphins,Jets,True,30.5,-94.5
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,25.0,-1400.0,,1759187700000,Dolphins,Jets,True,69.6,44.599999999999994
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,30.0,-700.0,,1759187700000,Dolphins,Jets,True,69.6,39.599999999999994
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,40.0,-300.0,,1759187700000,Dolphins,Jets,True,69.6,29.599999999999994
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,50.0,-160.0,,1759187700000,Dolphins,Jets,True,69.6,19.599999999999994
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,60.0,115.0,,1759187700000,Dolphins,Jets,True,69.6,9.599999999999994
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,70.0,200.0,,1759187700000,Dolphins,Jets,True,69.6,-0.4000000000000057
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,80.0,300.0,,1759187700000,Dolphins,Jets,True,69.6,-10.400000000000006
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,90.0,450.0,,1759187700000,Dolphins,Jets,True,69.6,-20.400000000000006
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,100.0,650.0,,1759187700000,Dolphins,Jets,True,69.6,-30.400000000000006
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,110.0,900.0,,1759187700000,Dolphins,Jets,True,69.6,-40.400000000000006
-De'Von Achane,MIA,New York Jets @ Miami Dolphins,Rushing Yards,125.0,1600.0,,1759187700000,Dolphins,Jets,True,69.6,-55.400000000000006
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,20.0,-1400.0,,1759187700000,Dolphins,Jets,True,16.6,-3.3999999999999986
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,25.0,-700.0,,1759187700000,Dolphins,Jets,True,16.6,-8.399999999999999
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,30.0,-450.0,,1759187700000,Dolphins,Jets,True,16.6,-13.399999999999999
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,40.0,-200.0,,1759187700000,Dolphins,Jets,True,16.6,-23.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,50.0,-105.0,,1759187700000,Dolphins,Jets,True,16.6,-33.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,60.0,170.0,,1759187700000,Dolphins,Jets,True,16.6,-43.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,70.0,275.0,,1759187700000,Dolphins,Jets,True,16.6,-53.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,80.0,400.0,,1759187700000,Dolphins,Jets,True,16.6,-63.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,90.0,650.0,,1759187700000,Dolphins,Jets,True,16.6,-73.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,100.0,900.0,,1759187700000,Dolphins,Jets,True,16.6,-83.4
-Justin Fields,NYJ,New York Jets @ Miami Dolphins,Rushing Yards,110.0,1200.0,,1759187700000,Dolphins,Jets,True,16.6,-93.4
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,10.0,-600.0,,1759187700000,Dolphins,Jets,True,44.6,34.6
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,15.0,-300.0,,1759187700000,Dolphins,Jets,True,44.6,29.6
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,20.0,-180.0,,1759187700000,Dolphins,Jets,True,44.6,24.6
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,25.0,-115.0,,1759187700000,Dolphins,Jets,True,44.6,19.6
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,30.0,130.0,,1759187700000,Dolphins,Jets,True,44.6,14.600000000000001
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,40.0,250.0,,1759187700000,Dolphins,Jets,True,44.6,4.600000000000001
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,50.0,400.0,,1759187700000,Dolphins,Jets,True,44.6,-5.399999999999999
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,60.0,700.0,,1759187700000,Dolphins,Jets,True,44.6,-15.399999999999999
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,70.0,1000.0,,1759187700000,Dolphins,Jets,True,44.6,-25.4
-Ollie Gordon II,MIA,New York Jets @ Miami Dolphins,Rushing Yards,80.0,1400.0,,1759187700000,Dolphins,Jets,True,44.6,-35.4
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,125.0,-1800.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,150.0,-700.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,175.0,-350.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,200.0,-180.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,225.0,105.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,250.0,190.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,275.0,350.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,300.0,600.0,,1759450500000,Rams,49ers,True,,
+Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,325.0,900.0,,1759450500000,Rams,49ers,True,,
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,150.0,-1200.0,,1759450500000,Rams,49ers,True,211.1,61.099999999999994
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,175.0,-500.0,,1759450500000,Rams,49ers,True,211.1,36.099999999999994
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,200.0,-250.0,,1759450500000,Rams,49ers,True,211.1,11.099999999999994
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,225.0,-140.0,,1759450500000,Rams,49ers,True,211.1,-13.900000000000006
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,250.0,125.0,,1759450500000,Rams,49ers,True,211.1,-38.900000000000006
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,275.0,225.0,,1759450500000,Rams,49ers,True,211.1,-63.900000000000006
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,300.0,400.0,,1759450500000,Rams,49ers,True,211.1,-88.9
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,325.0,700.0,,1759450500000,Rams,49ers,True,211.1,-113.9
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,350.0,1100.0,,1759450500000,Rams,49ers,True,211.1,-138.9
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-1600.0,,1759450500000,Rams,49ers,True,23.9,3.8999999999999986
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-900.0,,1759450500000,Rams,49ers,True,23.9,-1.1000000000000014
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-550.0,,1759450500000,Rams,49ers,True,23.9,-6.100000000000001
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,-275.0,,1759450500000,Rams,49ers,True,23.9,-16.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,-150.0,,1759450500000,Rams,49ers,True,23.9,-26.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,110.0,,1759450500000,Rams,49ers,True,23.9,-36.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,180.0,,1759450500000,Rams,49ers,True,23.9,-46.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,275.0,,1759450500000,Rams,49ers,True,23.9,-56.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,400.0,,1759450500000,Rams,49ers,True,23.9,-66.1
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,625.0,,1759450500000,Rams,49ers,True,23.9,-76.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-1400.0,,1759450500000,Rams,49ers,True,25.9,5.899999999999999
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-700.0,,1759450500000,Rams,49ers,True,25.9,0.8999999999999986
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-475.0,,1759450500000,Rams,49ers,True,25.9,-4.100000000000001
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,-250.0,,1759450500000,Rams,49ers,True,25.9,-14.100000000000001
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,-150.0,,1759450500000,Rams,49ers,True,25.9,-24.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,105.0,,1759450500000,Rams,49ers,True,25.9,-34.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,160.0,,1759450500000,Rams,49ers,True,25.9,-44.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,225.0,,1759450500000,Rams,49ers,True,25.9,-54.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,350.0,,1759450500000,Rams,49ers,True,25.9,-64.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,475.0,,1759450500000,Rams,49ers,True,25.9,-74.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,675.0,,1759450500000,Rams,49ers,True,25.9,-84.1
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,125.0,1000.0,,1759450500000,Rams,49ers,True,25.9,-99.1
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-550.0,,1759450500000,Rams,49ers,True,63.2,53.2
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-275.0,,1759450500000,Rams,49ers,True,63.2,48.2
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-180.0,,1759450500000,Rams,49ers,True,63.2,43.2
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-115.0,,1759450500000,Rams,49ers,True,63.2,38.2
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,120.0,,1759450500000,Rams,49ers,True,63.2,33.2
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,225.0,,1759450500000,Rams,49ers,True,63.2,23.200000000000003
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,400.0,,1759450500000,Rams,49ers,True,63.2,13.200000000000003
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-180.0,,1759450500000,Rams,49ers,True,23.3,13.3
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-110.0,,1759450500000,Rams,49ers,True,23.3,8.3
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,140.0,,1759450500000,Rams,49ers,True,23.3,3.3000000000000007
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,190.0,,1759450500000,Rams,49ers,True,23.3,-1.6999999999999993
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,250.0,,1759450500000,Rams,49ers,True,23.3,-6.699999999999999
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,450.0,,1759450500000,Rams,49ers,True,23.3,-16.7
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,700.0,,1759450500000,Rams,49ers,True,23.3,-26.7
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,1100.0,,1759450500000,Rams,49ers,True,23.3,-36.7
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,1500.0,,1759450500000,Rams,49ers,True,23.3,-46.7
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-1200.0,,1759450500000,Rams,49ers,True,29.9,19.9
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-600.0,,1759450500000,Rams,49ers,True,29.9,14.899999999999999
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-350.0,,1759450500000,Rams,49ers,True,29.9,9.899999999999999
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-250.0,,1759450500000,Rams,49ers,True,29.9,4.899999999999999
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-170.0,,1759450500000,Rams,49ers,True,29.9,-0.10000000000000142
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,110.0,,1759450500000,Rams,49ers,True,29.9,-10.100000000000001
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,190.0,,1759450500000,Rams,49ers,True,29.9,-20.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,275.0,,1759450500000,Rams,49ers,True,29.9,-30.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,425.0,,1759450500000,Rams,49ers,True,29.9,-40.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,650.0,,1759450500000,Rams,49ers,True,29.9,-50.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,875.0,,1759450500000,Rams,49ers,True,29.9,-60.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,1200.0,,1759450500000,Rams,49ers,True,29.9,-70.1
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,1600.0,,1759450500000,Rams,49ers,True,29.9,-80.1
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-115.0,,1759450500000,Rams,49ers,True,16.2,6.199999999999999
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,150.0,,1759450500000,Rams,49ers,True,16.2,1.1999999999999993
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,220.0,,1759450500000,Rams,49ers,True,16.2,-3.8000000000000007
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,-1200.0,,1759450500000,Rams,49ers,True,37.0,-13.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,-575.0,,1759450500000,Rams,49ers,True,37.0,-23.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,-350.0,,1759450500000,Rams,49ers,True,37.0,-33.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,-225.0,,1759450500000,Rams,49ers,True,37.0,-43.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,-150.0,,1759450500000,Rams,49ers,True,37.0,-53.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,,,1759450500000,Rams,49ers,True,37.0,-63.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,140.0,,1759450500000,Rams,49ers,True,37.0,-73.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,125.0,220.0,,1759450500000,Rams,49ers,True,37.0,-88.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,150.0,475.0,,1759450500000,Rams,49ers,True,37.0,-113.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,175.0,900.0,,1759450500000,Rams,49ers,True,37.0,-138.0
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,-1600.0,,1759450500000,Rams,49ers,True,4.01,0.009999999999999787
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,-600.0,,1759450500000,Rams,49ers,True,4.01,-0.9900000000000002
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,-275.0,,1759450500000,Rams,49ers,True,4.01,-1.9900000000000002
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,-160.0,,1759450500000,Rams,49ers,True,4.01,-2.99
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,8.0,110.0,,1759450500000,Rams,49ers,True,4.01,-3.99
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,9.0,180.0,,1759450500000,Rams,49ers,True,4.01,-4.99
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,10.0,275.0,,1759450500000,Rams,49ers,True,4.01,-5.99
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,11.0,450.0,,1759450500000,Rams,49ers,True,4.01,-6.99
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-700.0,,1759450500000,Rams,49ers,True,3.38,0.3799999999999999
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,-280.0,,1759450500000,Rams,49ers,True,3.38,-0.6200000000000001
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,-120.0,,1759450500000,Rams,49ers,True,3.38,-1.62
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,170.0,,1759450500000,Rams,49ers,True,3.38,-2.62
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,300.0,,1759450500000,Rams,49ers,True,3.38,-3.62
+Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,8.0,550.0,,1759450500000,Rams,49ers,True,3.38,-4.62
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-300.0,,1759450500000,Rams,49ers,True,0.0,-2.0
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-105.0,,1759450500000,Rams,49ers,True,0.0,-3.0
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,225.0,,1759450500000,Rams,49ers,True,0.0,-4.0
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,500.0,,1759450500000,Rams,49ers,True,0.0,-5.0
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-500.0,,1759450500000,Rams,49ers,True,5.63,3.63
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-165.0,,1759450500000,Rams,49ers,True,5.63,2.63
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,150.0,,1759450500000,Rams,49ers,True,5.63,1.63
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,325.0,,1759450500000,Rams,49ers,True,5.63,0.6299999999999999
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,600.0,,1759450500000,Rams,49ers,True,5.63,-0.3700000000000001
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,1.0,-425.0,,1759450500000,Rams,49ers,True,2.89,1.8900000000000001
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,110.0,,1759450500000,Rams,49ers,True,2.89,0.8900000000000001
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,300.0,,1759450500000,Rams,49ers,True,2.89,-0.10999999999999988
+Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,825.0,,1759450500000,Rams,49ers,True,2.89,-1.1099999999999999
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-1000.0,,1759450500000,Rams,49ers,True,3.56,1.56
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-275.0,,1759450500000,Rams,49ers,True,3.56,0.56
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,-120.0,,1759450500000,Rams,49ers,True,3.56,-0.43999999999999995
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,185.0,,1759450500000,Rams,49ers,True,3.56,-1.44
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,350.0,,1759450500000,Rams,49ers,True,3.56,-2.44
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,675.0,,1759450500000,Rams,49ers,True,3.56,-3.44
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,1.0,-800.0,,1759450500000,Rams,49ers,True,2.86,1.8599999999999999
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-190.0,,1759450500000,Rams,49ers,True,2.86,0.8599999999999999
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,150.0,,1759450500000,Rams,49ers,True,2.86,-0.14000000000000012
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,-1500.0,,1759450500000,Rams,49ers,True,5.47,0.46999999999999975
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,-600.0,,1759450500000,Rams,49ers,True,5.47,-0.5300000000000002
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,-300.0,,1759450500000,Rams,49ers,True,5.47,-1.5300000000000002
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,8.0,-160.0,,1759450500000,Rams,49ers,True,5.47,-2.5300000000000002
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,9.0,110.0,,1759450500000,Rams,49ers,True,5.47,-3.5300000000000002
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,10.0,180.0,,1759450500000,Rams,49ers,True,5.47,-4.53
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,11.0,275.0,,1759450500000,Rams,49ers,True,5.47,-5.53
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,-1400.0,,1759450500000,Rams,49ers,True,38.8,28.799999999999997
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-550.0,,1759450500000,Rams,49ers,True,38.8,23.799999999999997
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,-300.0,,1759450500000,Rams,49ers,True,38.8,18.799999999999997
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,-190.0,,1759450500000,Rams,49ers,True,38.8,13.799999999999997
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-125.0,,1759450500000,Rams,49ers,True,38.8,8.799999999999997
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,150.0,,1759450500000,Rams,49ers,True,38.8,-1.2000000000000028
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,275.0,,1759450500000,Rams,49ers,True,38.8,-11.200000000000003
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,60.0,475.0,,1759450500000,Rams,49ers,True,38.8,-21.200000000000003
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,70.0,750.0,,1759450500000,Rams,49ers,True,38.8,-31.200000000000003
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,80.0,1100.0,,1759450500000,Rams,49ers,True,38.8,-41.2
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,-310.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-160.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,105.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,170.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,150.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,500.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,850.0,,1759450500000,Rams,49ers,True,,
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-1600.0,,1759450500000,Rams,49ers,True,44.4,14.399999999999999
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,-600.0,,1759450500000,Rams,49ers,True,44.4,4.399999999999999
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,-275.0,,1759450500000,Rams,49ers,True,44.4,-5.600000000000001
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,60.0,-150.0,,1759450500000,Rams,49ers,True,44.4,-15.600000000000001
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,70.0,105.0,,1759450500000,Rams,49ers,True,44.4,-25.6
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,80.0,170.0,,1759450500000,Rams,49ers,True,44.4,-35.6
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,90.0,250.0,,1759450500000,Rams,49ers,True,44.4,-45.6
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,100.0,375.0,,1759450500000,Rams,49ers,True,44.4,-55.6
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,110.0,550.0,,1759450500000,Rams,49ers,True,44.4,-65.6
+Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,125.0,875.0,,1759450500000,Rams,49ers,True,44.4,-80.6
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-1600.0,,1759450500000,Rams,49ers,True,66.0,36.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,-600.0,,1759450500000,Rams,49ers,True,66.0,26.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,-300.0,,1759450500000,Rams,49ers,True,66.0,16.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,60.0,-175.0,,1759450500000,Rams,49ers,True,66.0,6.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,70.0,-105.0,,1759450500000,Rams,49ers,True,66.0,-4.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,80.0,150.0,,1759450500000,Rams,49ers,True,66.0,-14.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,90.0,225.0,,1759450500000,Rams,49ers,True,66.0,-24.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,100.0,320.0,,1759450500000,Rams,49ers,True,66.0,-34.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,110.0,450.0,,1759450500000,Rams,49ers,True,66.0,-44.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,125.0,750.0,,1759450500000,Rams,49ers,True,66.0,-59.0
+Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,150.0,1400.0,,1759450500000,Rams,49ers,True,66.0,-84.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,200.0,,1759450500000,Rams,49ers,True,0.0,-10.0
+Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,325.0,,1759450500000,Rams,49ers,True,0.0,-15.0
