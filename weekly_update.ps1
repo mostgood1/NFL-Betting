@@ -114,6 +114,11 @@ Invoke-Step "Generate props (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/gen_props.py $Season $TargetWeek | Write-Host
 }
 
+# 4b) Also recompute props EV/edges/ladders for the target week
+Invoke-Step "Props pipeline (Season=$Season Week=$TargetWeek)" {
+  & $venvPy scripts/run_props_pipeline.py | Write-Host
+}
+
 # 5) Reconcile prior week props vs actuals (writes player_props_vs_actuals_*.csv)
 Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
   # Prefer in-package reconciliation (local PBP fallback)
@@ -154,20 +159,32 @@ if ($Push.IsPresent) {
 
 Write-Host "Weekly update complete." -ForegroundColor Cyan
 
-# Write last update marker for UI footer
+# Write last update marker for UI footer (merge: update last_weekly)
 try {
   $dataDir = Get-DataDir
   $marker = Join-Path $dataDir 'last_update.json'
-  $obj = [ordered]@{
+  $rootObj = @{}
+  if (Test-Path $marker) {
+    try { $rootObj = Get-Content -Raw -Path $marker | ConvertFrom-Json | ConvertTo-Json -Compress | ConvertFrom-Json } catch { $rootObj = @{} }
+  }
+  $lastWeekly = [ordered]@{
     ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-    type = 'weekly_update'
     season = [int]$Season
     week = [int]$TargetWeek
     prior_week = [int]$PriorWeek
-    note = "Weekly: schedules, team stats, retrain$([string]::Empty + ($NoRetrain.IsPresent? ' (skipped)':'') ), odds+seed lines, props gen, prior-week recon"
+    retrain = (-not $NoRetrain.IsPresent)
+    note = "Weekly: schedules, team stats, retrain$([string]::Empty + ($NoRetrain.IsPresent? ' (skipped)':'') ), odds+seed lines, props gen, props pipeline, prior-week recon"
+    tasks = @(
+      @{ name = 'odds_seed_lines'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'props_generated'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'props_pipeline'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') }
+    )
   }
-  $json = $obj | ConvertTo-Json -Compress
-  $json | Out-File -FilePath $marker -Encoding UTF8
+  # Build new root with last_weekly
+  $out = [ordered]@{}
+  foreach ($k in $rootObj.PSObject.Properties.Name) { $out[$k] = $rootObj.$k }
+  $out['last_weekly'] = $lastWeekly
+  ($out | ConvertTo-Json -Compress) | Out-File -FilePath $marker -Encoding UTF8
   Write-Host "Wrote last_update marker: $marker" -ForegroundColor DarkGray
 } catch {
   Write-Host "Failed to write last_update.json: $($_.Exception.Message)" -ForegroundColor Yellow

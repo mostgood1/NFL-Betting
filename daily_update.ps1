@@ -378,21 +378,34 @@ try {
   Write-Log "Git: post-push verification error: $($_.Exception.Message)"
 }
 
-# Write last update marker for UI footer
+# Write last update marker for UI footer (merge: update last_daily)
 try {
   $dataDir = Join-Path $Root 'nfl_compare/data'
   $marker = Join-Path $dataDir 'last_update.json'
   $cur = Resolve-CurrentWeek
-  $obj = [ordered]@{
-    ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-    type = 'daily_update'
-    season = $null
-    week = $null
-    note = 'Daily pipeline: train, updater, odds check, props pipeline, reconciliations'
+  $rootObj = @{}
+  if (Test-Path $marker) {
+    try { $rootObj = Get-Content -Raw -Path $marker | ConvertFrom-Json | ConvertTo-Json -Compress | ConvertFrom-Json } catch { $rootObj = @{} }
   }
-  if ($null -ne $cur) { $obj.season = [int]$cur.Season; $obj.week = [int]$cur.Week }
-  $json = $obj | ConvertTo-Json -Compress
-  $json | Out-File -FilePath $marker -Encoding UTF8
+  $lastDaily = [ordered]@{
+    ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+    season = ($null -ne $cur) ? [int]$cur.Season : $null
+    week = ($null -ne $cur) ? [int]$cur.Week : $null
+    note = 'Daily: odds fetch, seed/enrich lines, predictions, weather, props, props pipeline, reconciliations'
+    tasks = @(
+      @{ name = 'odds_fetch'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'lines_seed_enrich'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'predictions'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'weather'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'player_props'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'props_pipeline'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
+      @{ name = 'reconciliations'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') }
+    )
+  }
+  $out = [ordered]@{}
+  foreach ($k in $rootObj.PSObject.Properties.Name) { $out[$k] = $rootObj.$k }
+  $out['last_daily'] = $lastDaily
+  ($out | ConvertTo-Json -Compress) | Out-File -FilePath $marker -Encoding UTF8
   Write-Log ("Wrote last_update marker: {0}" -f $marker)
 } catch {
   Write-Log ("Failed to write last_update.json: {0}" -f $_.Exception.Message)

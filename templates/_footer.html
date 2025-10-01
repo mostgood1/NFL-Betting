@@ -1,12 +1,15 @@
 <div class="app-footer" role="contentinfo">
   <small>
-    {% if last_update %}
-      <span>Last update: {{ last_update.ts or '' }}</span>
-      {% if last_update.type %} • <span>{{ last_update.type | replace('_',' ') }}</span>{% endif %}
-      {% if last_update.season %} • <span>S{{ last_update.season }}</span>{% endif %}
-      {% if last_update.week %} • <span>Wk {{ last_update.week }}</span>{% endif %}
-      {% if last_update.note %} • <span>{{ last_update.note }}</span>{% endif %}
-    {% else %}
+    {% set lu = last_update or {} %}
+    {% set daily = lu.get('last_daily') if lu.get('last_daily') is not none else (lu if lu.get('ts') and (lu.get('type') == 'daily_update')) %}
+    {% set weekly = lu.get('last_weekly') if lu.get('last_weekly') is not none else (lu if lu.get('ts') and (lu.get('type') == 'weekly_update')) %}
+    {% if daily %}
+      <div>Daily: {{ daily.ts or '' }}{% if daily.season %} • S{{ daily.season }}{% endif %}{% if daily.week %} • Wk {{ daily.week }}{% endif %}{% if daily.note %} • {{ daily.note }}{% endif %}</div>
+    {% endif %}
+    {% if weekly %}
+      <div>Weekly: {{ weekly.ts or '' }}{% if weekly.season %} • S{{ weekly.season }}{% endif %}{% if weekly.week %} • Wk {{ weekly.week }}{% endif %}{% if weekly.note %} • {{ weekly.note }}{% endif %}</div>
+    {% endif %}
+    {% if not daily and not weekly %}
       <span>Last update: —</span>
     {% endif %}
   </small>
