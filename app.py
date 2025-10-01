@@ -57,13 +57,63 @@ def _load_last_update() -> Optional[Dict[str, Any]]:
     except Exception:
         return None
 
+# --- Latest odds snapshot helper (cached) ---
+_odds_cache: Dict[str, Any] = {
+    'path': None,
+    'mtime': 0.0,
+    'data': None,
+}
+
+def _load_last_odds() -> Optional[Dict[str, Any]]:
+    """Return metadata for the most recent real_betting_lines_*.json.
+    Tries to read fetched_at from the file; falls back to filename date. Cached by mtime.
+    { ts, file, path }
+    """
+    try:
+        import glob
+        pattern = str(DATA_DIR / 'real_betting_lines_*.json')
+        files = glob.glob(pattern)
+        if not files:
+            return None
+        # pick latest by mtime
+        latest = max(files, key=lambda p: Path(p).stat().st_mtime)
+        mtime = Path(latest).stat().st_mtime
+        if _odds_cache.get('path') == latest and abs(float(_odds_cache.get('mtime', 0.0)) - float(mtime)) < 1e-6:
+            return _odds_cache.get('data')
+        # Read and parse fetched_at
+        ts = None
+        try:
+            txt = Path(latest).read_text(encoding='utf-8')
+            j = json.loads(txt)
+            ts = j.get('fetched_at') if isinstance(j, dict) else None
+        except Exception:
+            ts = None
+        if not ts:
+            # fallback to filename date part
+            try:
+                name = Path(latest).name  # real_betting_lines_YYYY_MM_DD.json
+                parts = name.replace('.json','').split('_')
+                # expect ..._YYYY_MM_DD
+                if len(parts) >= 4:
+                    y, m, d = parts[-3], parts[-2], parts[-1]
+                    ts = f"{y}-{m}-{d}"
+            except Exception:
+                ts = None
+        data = {'ts': ts, 'file': Path(latest).name, 'path': str(latest)}
+        _odds_cache['path'] = latest
+        _odds_cache['mtime'] = mtime
+        _odds_cache['data'] = data
+        return data
+    except Exception:
+        return None
+
 # Inject global template context
 @app.context_processor
 def _inject_global_template_context():
     try:
-        return {'last_update': _load_last_update()}
+        return {'last_update': _load_last_update(), 'last_odds': _load_last_odds()}
     except Exception:
-        return {'last_update': None}
+        return {'last_update': None, 'last_odds': None}
 
 
 # --- Ultra-light health endpoints (always fast, minimal IO) ---

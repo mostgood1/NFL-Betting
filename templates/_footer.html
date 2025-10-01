@@ -12,5 +12,8 @@
     {% if not daily and not weekly %}
       <span>Last update: —</span>
     {% endif %}
+    {% if last_odds %}
+      <div>Odds: {{ last_odds.ts or '' }} • {{ last_odds.file }}</div>
+    {% endif %}
   </small>
 </div>
