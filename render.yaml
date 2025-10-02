@@ -36,6 +36,9 @@ services:
         value: "1"
       - key: NUMEXPR_MAX_THREADS
         value: "1"
+      # When admin daily-update runs, also run props pipeline (fetch Bovada -> edges -> ladders)
+      - key: RUN_PROPS_PIPELINE_ON_CRON
+        value: "1"
       # Admin endpoints: set a strong key to allow triggering daily updates from UI
       - key: ADMIN_KEY
         sync: false
@@ -58,7 +61,7 @@ cronJobs:
         sync: false
     command: |
       # Hit the admin endpoint to refresh odds, weather, predictions, and props (light mode by default)
-      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&light=1&key=${ADMIN_KEY}" || true
+      curl -fsSL "https://nfl-betting.onrender.com/api/admin/daily-update?push=1&light=1&pipeline=1&key=${ADMIN_KEY}" || true
   - name: odds-refresh-30min
     # Refresh odds frequently so EV/edges/recommendations reflect latest markets
     schedule: "*/30 * * * *"  # every 30 minutes

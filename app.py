@@ -776,6 +776,59 @@ def _admin_auth_ok(req) -> bool:
     return bool(sent) and (sent == key)
 
 
+def _resolve_current_week_marker() -> tuple[int | None, int | None]:
+    """Read nfl_compare/data/current_week.json and return (season, week) if available."""
+    try:
+        fp = DATA_DIR / 'current_week.json'
+        if not fp.exists():
+            return None, None
+        import json as _json
+        obj = _json.loads(fp.read_text(encoding='utf-8'))
+        s = obj.get('season') if isinstance(obj, dict) else None
+        w = obj.get('week') if isinstance(obj, dict) else None
+        try:
+            s = int(s) if s is not None else None
+        except Exception:
+            s = None
+        try:
+            w = int(w) if w is not None else None
+        except Exception:
+            w = None
+        return s, w
+    except Exception:
+        return None, None
+
+
+def _write_last_update_marker(kind: str = 'last_daily', note: str | None = None) -> None:
+    """Update nfl_compare/data/last_update.json with a fresh entry for kind (last_daily/last_weekly).
+    This mirrors the PowerShell scripts so UI footer reflects web-admin runs too.
+    """
+    try:
+        import json as _json
+        ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+        season, week = _resolve_current_week_marker()
+        marker = {
+            'ts': ts,
+            'season': season,
+            'week': week,
+            'note': note or 'Daily: odds/weather/predictions (web-admin)'
+        }
+        fp = DATA_DIR / 'last_update.json'
+        root = {}
+        if fp.exists():
+            try:
+                root = _json.loads(fp.read_text(encoding='utf-8'))
+                if not isinstance(root, dict):
+                    root = {}
+            except Exception:
+                root = {}
+        root[kind] = marker
+        fp.write_text(_json.dumps(root, separators=(',',':')), encoding='utf-8')
+    except Exception:
+        # Best effort; do not crash admin request
+        pass
+
+
 def _append_log(line: str) -> None:
     try:
         ts = datetime.utcnow().isoformat(timespec='seconds')
@@ -979,7 +1032,7 @@ def _git_commit_and_push(commit_message: str) -> tuple[bool, str]:
         return False, f"git push exception: {e}"
 
 
-def _daily_update_job(do_push: bool, light: bool = False) -> None:
+def _daily_update_job(do_push: bool, light: bool = False, run_pipeline: bool = False) -> None:
     _job_state['running'] = True
     _job_state['started_at'] = datetime.utcnow().isoformat()
     _job_state['ended_at'] = None
@@ -1008,6 +1061,20 @@ def _daily_update_job(do_push: bool, light: bool = False) -> None:
         rc = _run_to_file([sys.executable, '-m', mod], log_file, cwd=BASE_DIR, env=env)
         _append_log(f'daily_updater exited with code {rc}')
         ok = (rc == 0)
+        # Optionally run the props pipeline (fetch Bovada -> edges -> ladders)
+        if ok:
+            # Determine if pipeline should run: explicit flag or env RUN_PROPS_PIPELINE_ON_CRON
+            env_flag = str(os.environ.get('RUN_PROPS_PIPELINE_ON_CRON','0')).strip().lower() in ('1','true','yes')
+            do_pipeline = bool(run_pipeline or env_flag)
+            if do_pipeline:
+                _append_log('Running props pipeline (scripts/run_props_pipeline.py)...')
+                try:
+                    rc2 = _run_to_file([sys.executable, 'scripts/run_props_pipeline.py'], log_file, cwd=BASE_DIR, env=env)
+                    _append_log(f'props pipeline exited with code {rc2}')
+                    ok = ok and (rc2 == 0)
+                except Exception as e:
+                    _append_log(f'props pipeline exception: {e}')
+                    ok = False
         if ok and do_push:
             _append_log('Committing and pushing changes to Git...')
             ts = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%SZ')
@@ -1016,6 +1083,12 @@ def _daily_update_job(do_push: bool, light: bool = False) -> None:
             ok = ok and ok2
         elif ok and not do_push:
             _append_log('Push disabled by request; skipping git commit/push.')
+        # Write last_update.json marker for UI footer
+        try:
+            _write_last_update_marker('last_daily', note='Daily (web-admin): odds/weather/predictions' + (' + props pipeline' if (run_pipeline or env_flag) else ''))
+            _append_log('Updated last_update.json marker (last_daily).')
+        except Exception as e:
+            _append_log(f'Failed to write last_update.json: {e}')
         _job_state['ok'] = ok
     except Exception as e:
         _append_log(f'Exception: {e}')
@@ -1033,9 +1106,10 @@ def api_admin_daily_update():
         return jsonify({'status': 'already-running', 'started_at': _job_state['started_at']}), 409
     do_push = (request.args.get('push', '1') in ('1','true','yes'))
     do_light = (request.args.get('light', str(os.environ.get('LIGHT_DAILY_UPDATE','0'))).strip().lower() in ('1','true','yes'))
-    t = threading.Thread(target=_daily_update_job, args=(do_push, do_light), daemon=True)
+    do_pipeline = (request.args.get('pipeline', '0').strip().lower() in ('1','true','yes'))
+    t = threading.Thread(target=_daily_update_job, args=(do_push, do_light, do_pipeline), daemon=True)
     t.start()
-    return jsonify({'status': 'started', 'push': do_push, 'light': do_light, 'started_at': datetime.utcnow().isoformat()}), 202
+    return jsonify({'status': 'started', 'push': do_push, 'light': do_light, 'pipeline': do_pipeline, 'started_at': datetime.utcnow().isoformat()}), 202
 
 
 @app.route('/api/admin/daily-update/status', methods=['GET'])
