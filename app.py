@@ -736,17 +736,26 @@ def _auto_advance_current_week_marker() -> Dict[str, Any]:
         return out
 
 
-# Fire-and-forget auto-advance on first request so a cold start updates the marker
-@app.before_first_request
-def _auto_advance_on_start() -> None:
+# Fire-and-forget auto-advance once per process on the first incoming request (Flask 3 safe)
+_AUTO_ADV_ONCE = {"done": False}
+_AUTO_ADV_LOCK = threading.Lock()
+
+@app.before_request
+def _auto_advance_once_per_process() -> None:
     try:
-        def _runner():
-            try:
-                _ = _auto_advance_current_week_marker()
-            except Exception:
-                pass
-        t = threading.Thread(target=_runner, daemon=True)
-        t.start()
+        if _AUTO_ADV_ONCE.get("done"):
+            return
+        with _AUTO_ADV_LOCK:
+            if _AUTO_ADV_ONCE.get("done"):
+                return
+            def _runner():
+                try:
+                    _ = _auto_advance_current_week_marker()
+                except Exception:
+                    pass
+            t = threading.Thread(target=_runner, daemon=True)
+            t.start()
+            _AUTO_ADV_ONCE["done"] = True
     except Exception:
         pass
 
