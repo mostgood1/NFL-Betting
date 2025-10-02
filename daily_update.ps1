@@ -395,10 +395,17 @@ try {
   if (Test-Path $marker) {
     try { $rootObj = Get-Content -Raw -Path $marker | ConvertFrom-Json | ConvertTo-Json -Compress | ConvertFrom-Json } catch { $rootObj = @{} }
   }
+  # PowerShell 5.1 compatible: compute season/week without ternary
+  $seasonVal = $null
+  $weekVal = $null
+  if ($null -ne $cur) {
+    try { $seasonVal = [int]$cur.Season } catch { $seasonVal = $null }
+    try { $weekVal = [int]$cur.Week } catch { $weekVal = $null }
+  }
   $lastDaily = [ordered]@{
     ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-    season = ($null -ne $cur) ? [int]$cur.Season : $null
-    week = ($null -ne $cur) ? [int]$cur.Week : $null
+    season = $seasonVal
+    week = $weekVal
     note = 'Daily: odds fetch, seed/enrich lines, predictions, weather, props, props pipeline, reconciliations'
     tasks = @(
       @{ name = 'odds_fetch'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
