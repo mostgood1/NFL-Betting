@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os, sys, json, math, time, re, subprocess, hashlib, traceback, shlex, threading
-from pathlib import Path
+from pathlib import Path, PurePath
 from typing import Optional, Dict, Any, List
 
 from datetime import datetime
@@ -584,6 +584,179 @@ def _load_current_week_override() -> Optional[tuple[int, int]]:
     except Exception:
         return None
     return None
+
+
+def _read_current_week_marker() -> Optional[tuple[int, int]]:
+    try:
+        fp = DATA_DIR / 'current_week.json'
+        if not fp.exists():
+            return None
+        with fp.open('r', encoding='utf-8') as f:
+            obj = json.load(f)
+        s = int(obj.get('season')) if obj.get('season') is not None else None
+        w = int(obj.get('week')) if obj.get('week') is not None else None
+        if s and w:
+            return s, w
+    except Exception:
+        return None
+    return None
+
+
+def _write_current_week_marker(season: int, week: int) -> bool:
+    try:
+        fp = DATA_DIR / 'current_week.json'
+        tmp = fp.with_suffix('.tmp')
+        obj = {"season": int(season), "week": int(week)}
+        with tmp.open('w', encoding='utf-8') as f:
+            json.dump(obj, f, indent=2)
+        try:
+            tmp.replace(fp)
+        except Exception:
+            # Fallback on platforms that lack replace semantics
+            import shutil
+            shutil.move(str(tmp), str(fp))
+        return True
+    except Exception:
+        return False
+
+
+def _infer_marker_from_games(games_df: Optional[pd.DataFrame]) -> Optional[tuple[int, int, str]]:
+    try:
+        df = games_df.copy() if (games_df is not None and not games_df.empty) else pd.DataFrame()
+    except Exception:
+        df = pd.DataFrame()
+    if df is None or df.empty:
+        return None
+    # Coerce core
+    for c in ('season','week'):
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors='coerce')
+    # Find a usable datetime column
+    dt = None
+    for c in ('game_date','date','start_time','kickoff','datetime','game_time'):
+        if c in df.columns:
+            try:
+                dt = pd.to_datetime(df[c], errors='coerce', utc=True)
+                if dt.notna().any():
+                    break
+            except Exception:
+                dt = None
+    if dt is None:
+        df['__dt'] = pd.NaT
+    else:
+        df['__dt'] = dt
+    # Earliest future game by date
+    try:
+        if df['__dt'].notna().any() and {'season','week'}.issubset(df.columns):
+            fut = df[df['__dt'] >= pd.Timestamp.utcnow()]
+            if not fut.empty:
+                r = fut.sort_values('__dt', ascending=True).iloc[0]
+                s = int(r['season']) if pd.notna(r['season']) else None
+                w = int(r['week']) if pd.notna(r['week']) else None
+                if s and w:
+                    return s, w, 'games.csv (future-by-date)'
+    except Exception:
+        pass
+    # Fallback: latest season -> max week
+    try:
+        if {'season','week'}.issubset(df.columns):
+            g = df.dropna(subset=['season','week'])[['season','week']].astype({'season':int,'week':int})
+            if not g.empty:
+                latest_season = int(g['season'].max())
+                max_week = int(g[g['season'] == latest_season]['week'].max())
+                return latest_season, max_week, 'games.csv (latest-season max week)'
+    except Exception:
+        pass
+    return None
+
+
+def _infer_marker_from_predictions() -> Optional[tuple[int, int, str]]:
+    # predictions_week.csv preferred
+    try:
+        fp = DATA_DIR / 'predictions_week.csv'
+        if fp.exists():
+            df = pd.read_csv(fp)
+            for c in ('season','week'):
+                if c in df.columns:
+                    df[c] = pd.to_numeric(df[c], errors='coerce')
+            df = df.dropna(subset=['season','week'])
+            if not df.empty:
+                s = int(df['season'].max())
+                w = int(df[df['season']==s]['week'].max())
+                return s, w, 'predictions_week.csv'
+    except Exception:
+        pass
+    # then predictions.csv
+    try:
+        fp = DATA_DIR / 'predictions.csv'
+        if fp.exists():
+            df = pd.read_csv(fp)
+            for c in ('season','week'):
+                if c in df.columns:
+                    df[c] = pd.to_numeric(df[c], errors='coerce')
+            df = df.dropna(subset=['season','week'])
+            if not df.empty:
+                s = int(df['season'].max())
+                w = int(df[df['season']==s]['week'].max())
+                return s, w, 'predictions.csv'
+    except Exception:
+        pass
+    return None
+
+
+def _auto_advance_current_week_marker() -> Dict[str, Any]:
+    """Advance DATA_DIR/current_week.json to upcoming slate if needed.
+    Returns details: {changed: bool, previous: [s,w]|None, new: [s,w]|None, source: str}
+    """
+    out: Dict[str, Any] = {"changed": False, "previous": None, "new": None, "source": None}
+    try:
+        prev = _read_current_week_marker()
+        if prev:
+            out['previous'] = [int(prev[0]), int(prev[1])]
+        # Try games first
+        try:
+            games_df = _load_games()
+        except Exception:
+            games_df = None
+        got = _infer_marker_from_games(games_df)
+        if not got:
+            got = _infer_marker_from_predictions()
+        if not got:
+            return out
+        s, w, src = got
+        out['source'] = src
+        if prev == (s, w):
+            return out
+        if _write_current_week_marker(s, w):
+            out['changed'] = True
+            out['new'] = [int(s), int(w)]
+        return out
+    except Exception as e:
+        _log_once('auto-advance-error', f'auto-advance failed: {e}')
+        return out
+
+
+# Fire-and-forget auto-advance on first request so a cold start updates the marker
+@app.before_first_request
+def _auto_advance_on_start() -> None:
+    try:
+        def _runner():
+            try:
+                _ = _auto_advance_current_week_marker()
+            except Exception:
+                pass
+        t = threading.Thread(target=_runner, daemon=True)
+        t.start()
+    except Exception:
+        pass
+
+
+@app.route('/api/admin/auto-advance-week', methods=['POST','GET'])
+def api_admin_auto_advance_week():
+    if not _admin_auth_ok(request):
+        return jsonify({"error": "unauthorized"}), 401
+    res = _auto_advance_current_week_marker()
+    return jsonify({"status": "ok", **res})
 
 
 def _admin_auth_ok(req) -> bool:

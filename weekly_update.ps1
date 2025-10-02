@@ -82,6 +82,24 @@ if ($Season -le 0 -or $PriorWeek -le 0 -or $TargetWeek -le 0) {
 
 Write-Host "Resolved Season=$Season PriorWeek=$PriorWeek TargetWeek=$TargetWeek (DataDir=$(Get-DataDir))" -ForegroundColor DarkGray
 
+# 0) Auto-advance current_week.json to the upcoming slate (runs safely even if already up-to-date)
+Invoke-Step "Auto-advance current_week.json" {
+  & $venvPy scripts/update_current_week.py | Write-Host
+  # Re-resolve after potential update to keep TargetWeek aligned
+  $cur2 = Resolve-CurrentWeek
+  if ($cur2) {
+    if ($Season -le 0) { $Season = [int]$cur2.Season }
+    # If caller didn't explicitly provide a TargetWeek, follow the marker
+    if ($PSBoundParameters.ContainsKey('TargetWeek') -eq $false -and $TargetWeek -gt 0) {
+      # TargetWeek already resolved above; keep as-is
+    } elseif ($TargetWeek -le 0 -or -not $PSBoundParameters.ContainsKey('TargetWeek')) {
+      $TargetWeek = [int]$cur2.Week
+    }
+    if ($PriorWeek -le 0) { $PriorWeek = [Math]::Max(1, [int]$TargetWeek - 1) }
+    Write-Host "Re-aligned to Season=$Season PriorWeek=$PriorWeek TargetWeek=$TargetWeek based on marker" -ForegroundColor DarkGray
+  }
+}
+
 # 1) Fetch schedules (games.csv) for current season
 Invoke-Step "Fetch schedules ($Season)" {
   & $venvPy -m nfl_compare.src.fetch_nflfastr --seasons $Season --only-schedules | Write-Host

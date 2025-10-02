@@ -118,6 +118,14 @@ function Write-Log {
 Write-Log "Starting daily update run"
 Write-Log "Python: $Python"
 
+# Auto-advance current_week.json to the upcoming slate (idempotent)
+try {
+  Write-Log 'Auto-advance current_week.json (scripts/update_current_week.py)'
+  & $Python scripts/update_current_week.py | Tee-Object -FilePath $LogFile -Append | Out-Null
+} catch {
+  Write-Log "Auto-advance failed: $($_.Exception.Message)"
+}
+
 # Optional pre-sync (reduce conflicts before artifact generation)
 if ($GitSyncFirst) {
   try {
