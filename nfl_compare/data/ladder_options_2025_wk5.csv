@@ -1,4 +1,403 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,150.0,-1400.0,,1759683600000,Jets,Cowboys,True,273.8,123.80000000000001
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,175.0,-650.0,,1759683600000,Jets,Cowboys,True,273.8,98.80000000000001
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,200.0,-320.0,,1759683600000,Jets,Cowboys,True,273.8,73.80000000000001
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,225.0,-170.0,,1759683600000,Jets,Cowboys,True,273.8,48.80000000000001
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,250.0,110.0,,1759683600000,Jets,Cowboys,True,273.8,23.80000000000001
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,275.0,200.0,,1759683600000,Jets,Cowboys,True,273.8,-1.1999999999999886
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,300.0,350.0,,1759683600000,Jets,Cowboys,True,273.8,-26.19999999999999
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,325.0,650.0,,1759683600000,Jets,Cowboys,True,273.8,-51.19999999999999
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,350.0,900.0,,1759683600000,Jets,Cowboys,True,273.8,-76.19999999999999
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Passing Yards,375.0,1600.0,,1759683600000,Jets,Cowboys,True,273.8,-101.19999999999999
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,125.0,-675.0,,1759683600000,Jets,Cowboys,True,205.8,80.80000000000001
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,150.0,-300.0,,1759683600000,Jets,Cowboys,True,205.8,55.80000000000001
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,175.0,-160.0,,1759683600000,Jets,Cowboys,True,205.8,30.80000000000001
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,200.0,120.0,,1759683600000,Jets,Cowboys,True,205.8,5.800000000000011
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,225.0,225.0,,1759683600000,Jets,Cowboys,True,205.8,-19.19999999999999
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,250.0,400.0,,1759683600000,Jets,Cowboys,True,205.8,-44.19999999999999
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,275.0,700.0,,1759683600000,Jets,Cowboys,True,205.8,-69.19999999999999
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Passing Yards,300.0,1100.0,,1759683600000,Jets,Cowboys,True,205.8,-94.19999999999999
+100+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,,,1759683600000,Jets,Cowboys,True,,
+100+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,125.0,,1759683600000,Jets,Cowboys,True,,
+110+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,110.0,140.0,,1759683600000,Jets,Cowboys,True,,
+110+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,110.0,175.0,,1759683600000,Jets,Cowboys,True,,
+125+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,125.0,230.0,,1759683600000,Jets,Cowboys,True,,
+125+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,125.0,300.0,,1759683600000,Jets,Cowboys,True,,
+150+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,150.0,550.0,,1759683600000,Jets,Cowboys,True,,
+150+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,150.0,650.0,,1759683600000,Jets,Cowboys,True,,
+25+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,-50000.0,,1759683600000,Jets,Cowboys,True,,
+30+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-50000.0,,1759683600000,Jets,Cowboys,True,,
+30+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-10000.0,,1759683600000,Jets,Cowboys,True,,
+40+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,-4500.0,,1759683600000,Jets,Cowboys,True,,
+40+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,-3000.0,,1759683600000,Jets,Cowboys,True,,
+50+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,-1400.0,,1759683600000,Jets,Cowboys,True,,
+50+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,-1100.0,,1759683600000,Jets,Cowboys,True,,
+60+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,-700.0,,1759683600000,Jets,Cowboys,True,,
+60+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,-550.0,,1759683600000,Jets,Cowboys,True,,
+70+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,-400.0,,1759683600000,Jets,Cowboys,True,,
+70+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,-300.0,,1759683600000,Jets,Cowboys,True,,
+80+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,-245.0,,1759683600000,Jets,Cowboys,True,,
+80+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,-190.0,,1759683600000,Jets,Cowboys,True,,
+90+ Rushing and Receiving Yards,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,-155.0,,1759683600000,Jets,Cowboys,True,,
+90+ Rushing and Receiving Yards,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,-120.0,,1759683600000,Jets,Cowboys,True,,
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,10.0,-420.0,,1759683600000,Jets,Cowboys,True,24.1,14.100000000000001
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,15.0,-245.0,,1759683600000,Jets,Cowboys,True,24.1,9.100000000000001
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,20.0,-150.0,,1759683600000,Jets,Cowboys,True,24.1,4.100000000000001
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,,,1759683600000,Jets,Cowboys,True,24.1,-0.8999999999999986
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,150.0,,1759683600000,Jets,Cowboys,True,24.1,-5.899999999999999
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,275.0,,1759683600000,Jets,Cowboys,True,24.1,-15.899999999999999
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,475.0,,1759683600000,Jets,Cowboys,True,24.1,-25.9
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,750.0,,1759683600000,Jets,Cowboys,True,24.1,-35.9
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,1200.0,,1759683600000,Jets,Cowboys,True,24.1,-45.9
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,1600.0,,1759683600000,Jets,Cowboys,True,24.1,-55.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,-1400.0,,1759683600000,Jets,Cowboys,True,42.1,17.1
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-800.0,,1759683600000,Jets,Cowboys,True,42.1,12.100000000000001
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,-400.0,,1759683600000,Jets,Cowboys,True,42.1,2.1000000000000014
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,-220.0,,1759683600000,Jets,Cowboys,True,42.1,-7.899999999999999
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,-130.0,,1759683600000,Jets,Cowboys,True,42.1,-17.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,120.0,,1759683600000,Jets,Cowboys,True,42.1,-27.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,180.0,,1759683600000,Jets,Cowboys,True,42.1,-37.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,250.0,,1759683600000,Jets,Cowboys,True,42.1,-47.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,350.0,,1759683600000,Jets,Cowboys,True,42.1,-57.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,110.0,500.0,,1759683600000,Jets,Cowboys,True,42.1,-67.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,125.0,800.0,,1759683600000,Jets,Cowboys,True,42.1,-82.9
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,150.0,1600.0,,1759683600000,Jets,Cowboys,True,42.1,-107.9
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-1200.0,,1759683600000,Jets,Cowboys,True,54.2,24.200000000000003
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,-550.0,,1759683600000,Jets,Cowboys,True,54.2,14.200000000000003
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,-330.0,,1759683600000,Jets,Cowboys,True,54.2,4.200000000000003
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,-200.0,,1759683600000,Jets,Cowboys,True,54.2,-5.799999999999997
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,-130.0,,1759683600000,Jets,Cowboys,True,54.2,-15.799999999999997
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,115.0,,1759683600000,Jets,Cowboys,True,54.2,-25.799999999999997
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,165.0,,1759683600000,Jets,Cowboys,True,54.2,-35.8
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,225.0,,1759683600000,Jets,Cowboys,True,54.2,-45.8
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,110.0,300.0,,1759683600000,Jets,Cowboys,True,54.2,-55.8
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,125.0,500.0,,1759683600000,Jets,Cowboys,True,54.2,-70.8
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,150.0,900.0,,1759683600000,Jets,Cowboys,True,54.2,-95.8
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,15.0,-1800.0,,1759683600000,Jets,Cowboys,True,34.0,19.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,20.0,-850.0,,1759683600000,Jets,Cowboys,True,34.0,14.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,-500.0,,1759683600000,Jets,Cowboys,True,34.0,9.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-330.0,,1759683600000,Jets,Cowboys,True,34.0,4.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,-160.0,,1759683600000,Jets,Cowboys,True,34.0,-6.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,115.0,,1759683600000,Jets,Cowboys,True,34.0,-16.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,200.0,,1759683600000,Jets,Cowboys,True,34.0,-26.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,300.0,,1759683600000,Jets,Cowboys,True,34.0,-36.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,475.0,,1759683600000,Jets,Cowboys,True,34.0,-46.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,750.0,,1759683600000,Jets,Cowboys,True,34.0,-56.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,1000.0,,1759683600000,Jets,Cowboys,True,34.0,-66.0
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,110.0,1400.0,,1759683600000,Jets,Cowboys,True,34.0,-76.0
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,10.0,-250.0,,1759683600000,Jets,Cowboys,True,25.4,15.399999999999999
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,15.0,-145.0,,1759683600000,Jets,Cowboys,True,25.4,10.399999999999999
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,20.0,115.0,,1759683600000,Jets,Cowboys,True,25.4,5.399999999999999
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,180.0,,1759683600000,Jets,Cowboys,True,25.4,0.3999999999999986
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,250.0,,1759683600000,Jets,Cowboys,True,25.4,-4.600000000000001
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,475.0,,1759683600000,Jets,Cowboys,True,25.4,-14.600000000000001
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,750.0,,1759683600000,Jets,Cowboys,True,25.4,-24.6
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,10.0,-900.0,,1759683600000,Jets,Cowboys,True,40.8,30.799999999999997
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,15.0,-500.0,,1759683600000,Jets,Cowboys,True,40.8,25.799999999999997
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,20.0,-330.0,,1759683600000,Jets,Cowboys,True,40.8,20.799999999999997
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,25.0,-220.0,,1759683600000,Jets,Cowboys,True,40.8,15.799999999999997
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,30.0,-150.0,,1759683600000,Jets,Cowboys,True,40.8,10.799999999999997
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,40.0,125.0,,1759683600000,Jets,Cowboys,True,40.8,0.7999999999999972
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,50.0,200.0,,1759683600000,Jets,Cowboys,True,40.8,-9.200000000000003
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,60.0,330.0,,1759683600000,Jets,Cowboys,True,40.8,-19.200000000000003
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,70.0,500.0,,1759683600000,Jets,Cowboys,True,40.8,-29.200000000000003
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,80.0,750.0,,1759683600000,Jets,Cowboys,True,40.8,-39.2
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,90.0,1000.0,,1759683600000,Jets,Cowboys,True,40.8,-49.2
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receiving Yards,100.0,1400.0,,1759683600000,Jets,Cowboys,True,40.8,-59.2
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,2.0,-700.0,,1759683600000,Jets,Cowboys,True,3.88,1.88
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,3.0,-240.0,,1759683600000,Jets,Cowboys,True,3.88,0.8799999999999999
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,4.0,,,1759683600000,Jets,Cowboys,True,3.88,-0.1200000000000001
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,5.0,200.0,,1759683600000,Jets,Cowboys,True,3.88,-1.12
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,6.0,375.0,,1759683600000,Jets,Cowboys,True,3.88,-2.12
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Receptions,7.0,650.0,,1759683600000,Jets,Cowboys,True,3.88,-3.12
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,4.0,-600.0,,1759683600000,Jets,Cowboys,True,5.45,1.4500000000000002
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,5.0,-275.0,,1759683600000,Jets,Cowboys,True,5.45,0.4500000000000002
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,6.0,-130.0,,1759683600000,Jets,Cowboys,True,5.45,-0.5499999999999998
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,7.0,150.0,,1759683600000,Jets,Cowboys,True,5.45,-1.5499999999999998
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,8.0,250.0,,1759683600000,Jets,Cowboys,True,5.45,-2.55
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,9.0,400.0,,1759683600000,Jets,Cowboys,True,5.45,-3.55
+Garrett Wilson,NYJ,Dallas Cowboys @ New York Jets,Receptions,10.0,700.0,,1759683600000,Jets,Cowboys,True,5.45,-4.55
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,3.0,-1400.0,,1759683600000,Jets,Cowboys,True,5.06,2.0599999999999996
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,4.0,-450.0,,1759683600000,Jets,Cowboys,True,5.06,1.0599999999999996
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,5.0,-200.0,,1759683600000,Jets,Cowboys,True,5.06,0.05999999999999961
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,6.0,105.0,,1759683600000,Jets,Cowboys,True,5.06,-0.9400000000000004
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,7.0,200.0,,1759683600000,Jets,Cowboys,True,5.06,-1.9400000000000004
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,8.0,350.0,,1759683600000,Jets,Cowboys,True,5.06,-2.9400000000000004
+George Pickens,DAL,Dallas Cowboys @ New York Jets,Receptions,9.0,650.0,,1759683600000,Jets,Cowboys,True,5.06,-3.9400000000000004
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,3.0,-1100.0,,1759683600000,Jets,Cowboys,True,4.75,1.75
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,4.0,-375.0,,1759683600000,Jets,Cowboys,True,4.75,0.75
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,5.0,-170.0,,1759683600000,Jets,Cowboys,True,4.75,-0.25
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,6.0,115.0,,1759683600000,Jets,Cowboys,True,4.75,-1.25
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,7.0,200.0,,1759683600000,Jets,Cowboys,True,4.75,-2.25
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,8.0,350.0,,1759683600000,Jets,Cowboys,True,4.75,-3.25
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,9.0,600.0,,1759683600000,Jets,Cowboys,True,4.75,-4.25
+Jake Ferguson,DAL,Dallas Cowboys @ New York Jets,Receptions,10.0,900.0,,1759683600000,Jets,Cowboys,True,4.75,-5.25
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receptions,2.0,-450.0,,1759683600000,Jets,Cowboys,True,3.8,1.7999999999999998
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receptions,3.0,-155.0,,1759683600000,Jets,Cowboys,True,3.8,0.7999999999999998
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receptions,4.0,155.0,,1759683600000,Jets,Cowboys,True,3.8,-0.20000000000000018
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receptions,5.0,300.0,,1759683600000,Jets,Cowboys,True,3.8,-1.2000000000000002
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Receptions,6.0,650.0,,1759683600000,Jets,Cowboys,True,3.8,-2.2
+Josh Reynolds,NYJ,Dallas Cowboys @ New York Jets,Receptions,1.0,-500.0,,1759683600000,Jets,Cowboys,True,4.21,3.21
+Josh Reynolds,NYJ,Dallas Cowboys @ New York Jets,Receptions,2.0,-105.0,,1759683600000,Jets,Cowboys,True,4.21,2.21
+Josh Reynolds,NYJ,Dallas Cowboys @ New York Jets,Receptions,3.0,275.0,,1759683600000,Jets,Cowboys,True,4.21,1.21
+Josh Reynolds,NYJ,Dallas Cowboys @ New York Jets,Receptions,4.0,700.0,,1759683600000,Jets,Cowboys,True,4.21,0.20999999999999996
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receptions,2.0,-550.0,,1759683600000,Jets,Cowboys,True,4.34,2.34
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receptions,3.0,-175.0,,1759683600000,Jets,Cowboys,True,4.34,1.3399999999999999
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receptions,4.0,140.0,,1759683600000,Jets,Cowboys,True,4.34,0.33999999999999986
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receptions,5.0,300.0,,1759683600000,Jets,Cowboys,True,4.34,-0.6600000000000001
+Mason Taylor,NYJ,Dallas Cowboys @ New York Jets,Receptions,6.0,600.0,,1759683600000,Jets,Cowboys,True,4.34,-1.6600000000000001
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,40.0,-675.0,,1759683600000,Jets,Cowboys,True,37.0,-3.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,50.0,-330.0,,1759683600000,Jets,Cowboys,True,37.0,-13.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,60.0,-200.0,,1759683600000,Jets,Cowboys,True,37.0,-23.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,70.0,-115.0,,1759683600000,Jets,Cowboys,True,37.0,-33.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,80.0,140.0,,1759683600000,Jets,Cowboys,True,37.0,-43.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,90.0,200.0,,1759683600000,Jets,Cowboys,True,37.0,-53.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,100.0,300.0,,1759683600000,Jets,Cowboys,True,37.0,-63.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,110.0,400.0,,1759683600000,Jets,Cowboys,True,37.0,-73.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,125.0,700.0,,1759683600000,Jets,Cowboys,True,37.0,-88.0
+Breece Hall,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,150.0,1400.0,,1759683600000,Jets,Cowboys,True,37.0,-113.0
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,10.0,200.0,,1759683600000,Jets,Cowboys,True,10.2,0.1999999999999993
+Dak Prescott,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,15.0,350.0,,1759683600000,Jets,Cowboys,True,10.2,-4.800000000000001
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,40.0,-700.0,,1759683600000,Jets,Cowboys,True,65.8,25.799999999999997
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,50.0,-340.0,,1759683600000,Jets,Cowboys,True,65.8,15.799999999999997
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,60.0,-200.0,,1759683600000,Jets,Cowboys,True,65.8,5.799999999999997
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,70.0,-115.0,,1759683600000,Jets,Cowboys,True,65.8,-4.200000000000003
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,80.0,140.0,,1759683600000,Jets,Cowboys,True,65.8,-14.200000000000003
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,90.0,200.0,,1759683600000,Jets,Cowboys,True,65.8,-24.200000000000003
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,100.0,300.0,,1759683600000,Jets,Cowboys,True,65.8,-34.2
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,110.0,400.0,,1759683600000,Jets,Cowboys,True,65.8,-44.2
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,125.0,700.0,,1759683600000,Jets,Cowboys,True,65.8,-59.2
+Javonte Williams,DAL,Dallas Cowboys @ New York Jets,Rushing Yards,150.0,1400.0,,1759683600000,Jets,Cowboys,True,65.8,-84.2
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,20.0,-1400.0,,1759683600000,Jets,Cowboys,True,20.2,0.1999999999999993
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,25.0,-700.0,,1759683600000,Jets,Cowboys,True,20.2,-4.800000000000001
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,30.0,-450.0,,1759683600000,Jets,Cowboys,True,20.2,-9.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,40.0,-200.0,,1759683600000,Jets,Cowboys,True,20.2,-19.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,50.0,-110.0,,1759683600000,Jets,Cowboys,True,20.2,-29.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,60.0,160.0,,1759683600000,Jets,Cowboys,True,20.2,-39.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,70.0,250.0,,1759683600000,Jets,Cowboys,True,20.2,-49.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,80.0,400.0,,1759683600000,Jets,Cowboys,True,20.2,-59.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,90.0,600.0,,1759683600000,Jets,Cowboys,True,20.2,-69.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,100.0,900.0,,1759683600000,Jets,Cowboys,True,20.2,-79.8
+Justin Fields,NYJ,Dallas Cowboys @ New York Jets,Rushing Yards,110.0,1200.0,,1759683600000,Jets,Cowboys,True,20.2,-89.8
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,125.0,-475.0,,1759683600000,Saints,Giants,True,161.0,36.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,150.0,-220.0,,1759683600000,Saints,Giants,True,161.0,11.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,175.0,-110.0,,1759683600000,Saints,Giants,True,161.0,-14.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,200.0,175.0,,1759683600000,Saints,Giants,True,161.0,-39.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,225.0,330.0,,1759683600000,Saints,Giants,True,161.0,-64.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,250.0,600.0,,1759683600000,Saints,Giants,True,161.0,-89.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,275.0,900.0,,1759683600000,Saints,Giants,True,161.0,-114.0
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Passing Yards,300.0,1600.0,,1759683600000,Saints,Giants,True,161.0,-139.0
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,125.0,-1100.0,,1759683600000,Saints,Giants,True,228.1,103.1
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,150.0,-475.0,,1759683600000,Saints,Giants,True,228.1,78.1
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,175.0,-240.0,,1759683600000,Saints,Giants,True,228.1,53.099999999999994
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,200.0,-120.0,,1759683600000,Saints,Giants,True,228.1,28.099999999999994
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,225.0,160.0,,1759683600000,Saints,Giants,True,228.1,3.0999999999999943
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,250.0,275.0,,1759683600000,Saints,Giants,True,228.1,-21.900000000000006
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,275.0,500.0,,1759683600000,Saints,Giants,True,228.1,-46.900000000000006
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,300.0,900.0,,1759683600000,Saints,Giants,True,228.1,-71.9
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Passing Yards,325.0,1400.0,,1759683600000,Saints,Giants,True,228.1,-96.9
+100+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,100.0,180.0,,1759683600000,Saints,Giants,True,,
+100+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,100.0,120.0,,1759683600000,Saints,Giants,True,,
+110+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,110.0,250.0,,1759683600000,Saints,Giants,True,,
+110+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,110.0,175.0,,1759683600000,Saints,Giants,True,,
+125+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,125.0,400.0,,1759683600000,Saints,Giants,True,,
+125+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,125.0,275.0,,1759683600000,Saints,Giants,True,,
+150+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,150.0,900.0,,1759683600000,Saints,Giants,True,,
+150+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,150.0,650.0,,1759683600000,Saints,Giants,True,,
+25+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-10000.0,,1759683600000,Saints,Giants,True,,
+25+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-50000.0,,1759683600000,Saints,Giants,True,,
+30+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-5000.0,,1759683600000,Saints,Giants,True,,
+30+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-8000.0,,1759683600000,Saints,Giants,True,,
+40+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,40.0,-1600.0,,1759683600000,Saints,Giants,True,,
+40+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,40.0,-3000.0,,1759683600000,Saints,Giants,True,,
+50+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,50.0,-650.0,,1759683600000,Saints,Giants,True,,
+50+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,50.0,-1100.0,,1759683600000,Saints,Giants,True,,
+60+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,60.0,-350.0,,1759683600000,Saints,Giants,True,,
+60+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,60.0,-500.0,,1759683600000,Saints,Giants,True,,
+70+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,70.0,-200.0,,1759683600000,Saints,Giants,True,,
+70+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,70.0,-300.0,,1759683600000,Saints,Giants,True,,
+80+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,80.0,-125.0,,1759683600000,Saints,Giants,True,,
+80+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,80.0,-180.0,,1759683600000,Saints,Giants,True,,
+90+ Rushing and Receiving Yards,NO,New York Giants @ New Orleans Saints,Receiving Yards,90.0,120.0,,1759683600000,Saints,Giants,True,,
+90+ Rushing and Receiving Yards,NYG,New York Giants @ New Orleans Saints,Receiving Yards,90.0,-120.0,,1759683600000,Saints,Giants,True,,
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-350.0,,1759683600000,Saints,Giants,True,20.7,10.7
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-200.0,,1759683600000,Saints,Giants,True,20.7,5.699999999999999
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-115.0,,1759683600000,Saints,Giants,True,20.7,0.6999999999999993
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,25.0,135.0,,1759683600000,Saints,Giants,True,20.7,-4.300000000000001
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,30.0,200.0,,1759683600000,Saints,Giants,True,20.7,-9.3
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,40.0,360.0,,1759683600000,Saints,Giants,True,20.7,-19.3
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receiving Yards,50.0,650.0,,1759683600000,Saints,Giants,True,20.7,-29.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-420.0,,1759683600000,Saints,Giants,True,20.7,10.7
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-240.0,,1759683600000,Saints,Giants,True,20.7,5.699999999999999
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-145.0,,1759683600000,Saints,Giants,True,20.7,0.6999999999999993
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,25.0,,,1759683600000,Saints,Giants,True,20.7,-4.300000000000001
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,30.0,145.0,,1759683600000,Saints,Giants,True,20.7,-9.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,40.0,275.0,,1759683600000,Saints,Giants,True,20.7,-19.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,50.0,450.0,,1759683600000,Saints,Giants,True,20.7,-29.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,60.0,750.0,,1759683600000,Saints,Giants,True,20.7,-39.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,70.0,1200.0,,1759683600000,Saints,Giants,True,20.7,-49.3
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receiving Yards,80.0,1800.0,,1759683600000,Saints,Giants,True,20.7,-59.3
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-275.0,,1759683600000,Saints,Giants,True,19.7,9.7
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-165.0,,1759683600000,Saints,Giants,True,19.7,4.699999999999999
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-105.0,,1759683600000,Saints,Giants,True,19.7,-0.3000000000000007
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,25.0,140.0,,1759683600000,Saints,Giants,True,19.7,-5.300000000000001
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,30.0,180.0,,1759683600000,Saints,Giants,True,19.7,-10.3
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,40.0,330.0,,1759683600000,Saints,Giants,True,19.7,-20.3
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,50.0,550.0,,1759683600000,Saints,Giants,True,19.7,-30.3
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receiving Yards,60.0,900.0,,1759683600000,Saints,Giants,True,19.7,-40.3
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-1600.0,,1759683600000,Saints,Giants,True,43.3,23.299999999999997
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-900.0,,1759683600000,Saints,Giants,True,43.3,18.299999999999997
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-550.0,,1759683600000,Saints,Giants,True,43.3,13.299999999999997
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,40.0,-250.0,,1759683600000,Saints,Giants,True,43.3,3.299999999999997
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,50.0,-145.0,,1759683600000,Saints,Giants,True,43.3,-6.700000000000003
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,60.0,120.0,,1759683600000,Saints,Giants,True,43.3,-16.700000000000003
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,70.0,200.0,,1759683600000,Saints,Giants,True,43.3,-26.700000000000003
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,80.0,300.0,,1759683600000,Saints,Giants,True,43.3,-36.7
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,90.0,430.0,,1759683600000,Saints,Giants,True,43.3,-46.7
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,100.0,650.0,,1759683600000,Saints,Giants,True,43.3,-56.7
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,110.0,900.0,,1759683600000,Saints,Giants,True,43.3,-66.7
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receiving Yards,125.0,1400.0,,1759683600000,Saints,Giants,True,43.3,-81.7
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-1400.0,,1759683600000,Saints,Giants,True,22.6,12.600000000000001
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-750.0,,1759683600000,Saints,Giants,True,22.6,7.600000000000001
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-450.0,,1759683600000,Saints,Giants,True,22.6,2.6000000000000014
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-330.0,,1759683600000,Saints,Giants,True,22.6,-2.3999999999999986
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-225.0,,1759683600000,Saints,Giants,True,22.6,-7.399999999999999
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,40.0,-130.0,,1759683600000,Saints,Giants,True,22.6,-17.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,50.0,130.0,,1759683600000,Saints,Giants,True,22.6,-27.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,60.0,200.0,,1759683600000,Saints,Giants,True,22.6,-37.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,70.0,300.0,,1759683600000,Saints,Giants,True,22.6,-47.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,80.0,400.0,,1759683600000,Saints,Giants,True,22.6,-57.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,90.0,650.0,,1759683600000,Saints,Giants,True,22.6,-67.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,100.0,800.0,,1759683600000,Saints,Giants,True,22.6,-77.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,110.0,1100.0,,1759683600000,Saints,Giants,True,22.6,-87.4
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receiving Yards,125.0,1600.0,,1759683600000,Saints,Giants,True,22.6,-102.4
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-1400.0,,1759683600000,Saints,Giants,True,33.8,23.799999999999997
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-700.0,,1759683600000,Saints,Giants,True,33.8,18.799999999999997
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-400.0,,1759683600000,Saints,Giants,True,33.8,13.799999999999997
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-275.0,,1759683600000,Saints,Giants,True,33.8,8.799999999999997
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-180.0,,1759683600000,Saints,Giants,True,33.8,3.799999999999997
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,40.0,105.0,,1759683600000,Saints,Giants,True,33.8,-6.200000000000003
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,50.0,180.0,,1759683600000,Saints,Giants,True,33.8,-16.200000000000003
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,60.0,300.0,,1759683600000,Saints,Giants,True,33.8,-26.200000000000003
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,70.0,475.0,,1759683600000,Saints,Giants,True,33.8,-36.2
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,80.0,700.0,,1759683600000,Saints,Giants,True,33.8,-46.2
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,90.0,1000.0,,1759683600000,Saints,Giants,True,33.8,-56.2
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receiving Yards,100.0,1400.0,,1759683600000,Saints,Giants,True,33.8,-66.2
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,10.0,-600.0,,1759683600000,Saints,Giants,True,24.3,14.3
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-330.0,,1759683600000,Saints,Giants,True,24.3,9.3
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-200.0,,1759683600000,Saints,Giants,True,24.3,4.300000000000001
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-125.0,,1759683600000,Saints,Giants,True,24.3,-0.6999999999999993
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,30.0,120.0,,1759683600000,Saints,Giants,True,24.3,-5.699999999999999
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,40.0,230.0,,1759683600000,Saints,Giants,True,24.3,-15.7
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,50.0,400.0,,1759683600000,Saints,Giants,True,24.3,-25.7
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,60.0,700.0,,1759683600000,Saints,Giants,True,24.3,-35.7
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,70.0,1100.0,,1759683600000,Saints,Giants,True,24.3,-45.7
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,80.0,1600.0,,1759683600000,Saints,Giants,True,24.3,-55.7
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,15.0,-1600.0,,1759683600000,Saints,Giants,True,30.9,15.899999999999999
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,20.0,-800.0,,1759683600000,Saints,Giants,True,30.9,10.899999999999999
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,25.0,-475.0,,1759683600000,Saints,Giants,True,30.9,5.899999999999999
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,30.0,-330.0,,1759683600000,Saints,Giants,True,30.9,0.8999999999999986
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,40.0,-165.0,,1759683600000,Saints,Giants,True,30.9,-9.100000000000001
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,50.0,110.0,,1759683600000,Saints,Giants,True,30.9,-19.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,60.0,180.0,,1759683600000,Saints,Giants,True,30.9,-29.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,70.0,275.0,,1759683600000,Saints,Giants,True,30.9,-39.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,80.0,430.0,,1759683600000,Saints,Giants,True,30.9,-49.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,90.0,650.0,,1759683600000,Saints,Giants,True,30.9,-59.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,100.0,900.0,,1759683600000,Saints,Giants,True,30.9,-69.1
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receiving Yards,110.0,1200.0,,1759683600000,Saints,Giants,True,30.9,-79.1
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receptions,2.0,-500.0,,1759683600000,Saints,Giants,True,3.34,1.3399999999999999
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receptions,3.0,-165.0,,1759683600000,Saints,Giants,True,3.34,0.33999999999999986
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receptions,4.0,140.0,,1759683600000,Saints,Giants,True,3.34,-0.6600000000000001
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receptions,5.0,275.0,,1759683600000,Saints,Giants,True,3.34,-1.6600000000000001
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Receptions,6.0,550.0,,1759683600000,Saints,Giants,True,3.34,-2.66
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receptions,2.0,-350.0,,1759683600000,Saints,Giants,True,2.3,0.2999999999999998
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receptions,3.0,-120.0,,1759683600000,Saints,Giants,True,2.3,-0.7000000000000002
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receptions,4.0,200.0,,1759683600000,Saints,Giants,True,2.3,-1.7000000000000002
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receptions,5.0,400.0,,1759683600000,Saints,Giants,True,2.3,-2.7
+Brandin Cooks,NO,New York Giants @ New Orleans Saints,Receptions,6.0,850.0,,1759683600000,Saints,Giants,True,2.3,-3.7
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receptions,1.0,-1400.0,,1759683600000,Saints,Giants,True,2.87,1.87
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receptions,2.0,-250.0,,1759683600000,Saints,Giants,True,2.87,0.8700000000000001
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receptions,3.0,115.0,,1759683600000,Saints,Giants,True,2.87,-0.1299999999999999
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receptions,4.0,275.0,,1759683600000,Saints,Giants,True,2.87,-1.13
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Receptions,5.0,600.0,,1759683600000,Saints,Giants,True,2.87,-2.13
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,4.0,-600.0,,1759683600000,Saints,Giants,True,4.74,0.7400000000000002
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,5.0,-250.0,,1759683600000,Saints,Giants,True,4.74,-0.2599999999999998
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,6.0,-120.0,,1759683600000,Saints,Giants,True,4.74,-1.2599999999999998
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,7.0,155.0,,1759683600000,Saints,Giants,True,4.74,-2.26
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,8.0,250.0,,1759683600000,Saints,Giants,True,4.74,-3.26
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,9.0,450.0,,1759683600000,Saints,Giants,True,4.74,-4.26
+Chris Olave,NO,New York Giants @ New Orleans Saints,Receptions,10.0,750.0,,1759683600000,Saints,Giants,True,4.74,-5.26
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,2.0,-750.0,,1759683600000,Saints,Giants,True,2.83,0.8300000000000001
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,3.0,-225.0,,1759683600000,Saints,Giants,True,2.83,-0.16999999999999993
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,4.0,115.0,,1759683600000,Saints,Giants,True,2.83,-1.17
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,5.0,230.0,,1759683600000,Saints,Giants,True,2.83,-2.17
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,6.0,475.0,,1759683600000,Saints,Giants,True,2.83,-3.17
+Darius Slayton,NYG,New York Giants @ New Orleans Saints,Receptions,7.0,900.0,,1759683600000,Saints,Giants,True,2.83,-4.17
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,2.0,-1200.0,,1759683600000,Saints,Giants,True,3.81,1.81
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,3.0,-330.0,,1759683600000,Saints,Giants,True,3.81,0.81
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,4.0,-130.0,,1759683600000,Saints,Giants,True,3.81,-0.18999999999999995
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,5.0,165.0,,1759683600000,Saints,Giants,True,3.81,-1.19
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,6.0,330.0,,1759683600000,Saints,Giants,True,3.81,-2.19
+Rashid Shaheed,NO,New York Giants @ New Orleans Saints,Receptions,7.0,600.0,,1759683600000,Saints,Giants,True,3.81,-3.19
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,2.0,-700.0,,1759683600000,Saints,Giants,True,3.09,1.0899999999999999
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,3.0,-220.0,,1759683600000,Saints,Giants,True,3.09,0.08999999999999986
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,4.0,110.0,,1759683600000,Saints,Giants,True,3.09,-0.9100000000000001
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,5.0,225.0,,1759683600000,Saints,Giants,True,3.09,-1.9100000000000001
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,6.0,425.0,,1759683600000,Saints,Giants,True,3.09,-2.91
+Theo Johnson,NYG,New York Giants @ New Orleans Saints,Receptions,7.0,750.0,,1759683600000,Saints,Giants,True,3.09,-3.91
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,3.0,-1100.0,,1759683600000,Saints,Giants,True,4.46,1.46
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,4.0,-350.0,,1759683600000,Saints,Giants,True,4.46,0.45999999999999996
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,5.0,-170.0,,1759683600000,Saints,Giants,True,4.46,-0.54
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,6.0,115.0,,1759683600000,Saints,Giants,True,4.46,-1.54
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,7.0,200.0,,1759683600000,Saints,Giants,True,4.46,-2.54
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,8.0,350.0,,1759683600000,Saints,Giants,True,4.46,-3.54
+Wan'dale Robinson,NYG,New York Giants @ New Orleans Saints,Receptions,9.0,650.0,,1759683600000,Saints,Giants,True,4.46,-4.54
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,25.0,-1400.0,,1759683600000,Saints,Giants,True,73.4,48.400000000000006
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,30.0,-750.0,,1759683600000,Saints,Giants,True,73.4,43.400000000000006
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,40.0,-330.0,,1759683600000,Saints,Giants,True,73.4,33.400000000000006
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,50.0,-180.0,,1759683600000,Saints,Giants,True,73.4,23.400000000000006
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,60.0,,,1759683600000,Saints,Giants,True,73.4,13.400000000000006
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,70.0,160.0,,1759683600000,Saints,Giants,True,73.4,3.4000000000000057
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,80.0,230.0,,1759683600000,Saints,Giants,True,73.4,-6.599999999999994
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,90.0,350.0,,1759683600000,Saints,Giants,True,73.4,-16.599999999999994
+Alvin Kamara,NO,New York Giants @ New Orleans Saints,Rushing Yards,100.0,500.0,,1759683600000,Saints,Giants,True,73.4,-26.599999999999994
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,30.0,-1400.0,,1759683600000,Saints,Giants,True,84.5,54.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,40.0,-600.0,,1759683600000,Saints,Giants,True,84.5,44.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,50.0,-300.0,,1759683600000,Saints,Giants,True,84.5,34.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,60.0,-165.0,,1759683600000,Saints,Giants,True,84.5,24.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,70.0,-105.0,,1759683600000,Saints,Giants,True,84.5,14.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,80.0,155.0,,1759683600000,Saints,Giants,True,84.5,4.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,90.0,225.0,,1759683600000,Saints,Giants,True,84.5,-5.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,100.0,330.0,,1759683600000,Saints,Giants,True,84.5,-15.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,110.0,475.0,,1759683600000,Saints,Giants,True,84.5,-25.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,125.0,750.0,,1759683600000,Saints,Giants,True,84.5,-40.5
+Cam Skattebo,NYG,New York Giants @ New Orleans Saints,Rushing Yards,150.0,1400.0,,1759683600000,Saints,Giants,True,84.5,-65.5
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,15.0,-1100.0,,1759683600000,Saints,Giants,True,4.3,-10.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,20.0,-550.0,,1759683600000,Saints,Giants,True,4.3,-15.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,25.0,-300.0,,1759683600000,Saints,Giants,True,4.3,-20.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,30.0,-200.0,,1759683600000,Saints,Giants,True,4.3,-25.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,40.0,110.0,,1759683600000,Saints,Giants,True,4.3,-35.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,50.0,200.0,,1759683600000,Saints,Giants,True,4.3,-45.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,60.0,350.0,,1759683600000,Saints,Giants,True,4.3,-55.7
+Jaxson Dart,NYG,New York Giants @ New Orleans Saints,Rushing Yards,70.0,550.0,,1759683600000,Saints,Giants,True,4.3,-65.7
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,10.0,-900.0,,1759683600000,Saints,Giants,True,43.0,33.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,15.0,-420.0,,1759683600000,Saints,Giants,True,43.0,28.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,20.0,-245.0,,1759683600000,Saints,Giants,True,43.0,23.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,25.0,-160.0,,1759683600000,Saints,Giants,True,43.0,18.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,30.0,-105.0,,1759683600000,Saints,Giants,True,43.0,13.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,40.0,190.0,,1759683600000,Saints,Giants,True,43.0,3.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,50.0,330.0,,1759683600000,Saints,Giants,True,43.0,-7.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,60.0,550.0,,1759683600000,Saints,Giants,True,43.0,-17.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,70.0,850.0,,1759683600000,Saints,Giants,True,43.0,-27.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,80.0,1200.0,,1759683600000,Saints,Giants,True,43.0,-37.0
+Kendre Miller,NO,New York Giants @ New Orleans Saints,Rushing Yards,90.0,1600.0,,1759683600000,Saints,Giants,True,43.0,-47.0
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,10.0,-250.0,,1759683600000,Saints,Giants,True,19.8,9.8
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,15.0,-130.0,,1759683600000,Saints,Giants,True,19.8,4.800000000000001
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,20.0,135.0,,1759683600000,Saints,Giants,True,19.8,-0.1999999999999993
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,25.0,220.0,,1759683600000,Saints,Giants,True,19.8,-5.199999999999999
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,30.0,350.0,,1759683600000,Saints,Giants,True,19.8,-10.2
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,40.0,750.0,,1759683600000,Saints,Giants,True,19.8,-20.2
+Spencer Rattler,NO,New York Giants @ New Orleans Saints,Rushing Yards,50.0,1400.0,,1759683600000,Saints,Giants,True,19.8,-30.2
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,125.0,-1800.0,,1759450500000,Rams,49ers,True,186.8,61.80000000000001
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,150.0,-700.0,,1759450500000,Rams,49ers,True,186.8,36.80000000000001
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,175.0,-350.0,,1759450500000,Rams,49ers,True,186.8,11.800000000000011
@@ -8,7 +407,7 @@ Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,250.0,190.0,,1
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,275.0,350.0,,1759450500000,Rams,49ers,True,186.8,-88.19999999999999
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,300.0,600.0,,1759450500000,Rams,49ers,True,186.8,-113.19999999999999
 Mac Jones,SF,San Francisco 49ers @ Los Angeles Rams,Passing Yards,325.0,900.0,,1759450500000,Rams,49ers,True,186.8,-138.2
-Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,150.0,-1200.0,,1759450500000,Rams,49ers,True,277.6,127.60000000000002
+Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,150.0,-1400.0,,1759450500000,Rams,49ers,True,277.6,127.60000000000002
 Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,175.0,-500.0,,1759450500000,Rams,49ers,True,277.6,102.60000000000002
 Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,200.0,-250.0,,1759450500000,Rams,49ers,True,277.6,77.60000000000002
 Matthew Stafford,LAR,San Francisco 49ers @ Los Angeles Rams,Passing Yards,225.0,-140.0,,1759450500000,Rams,49ers,True,277.6,52.60000000000002
@@ -39,13 +438,25 @@ Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,35
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,475.0,,1759450500000,Rams,49ers,True,35.8,-64.2
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,675.0,,1759450500000,Rams,49ers,True,35.8,-74.2
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,125.0,1000.0,,1759450500000,Rams,49ers,True,35.8,-89.2
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-550.0,,1759450500000,Rams,49ers,True,34.1,24.1
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-275.0,,1759450500000,Rams,49ers,True,34.1,19.1
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-180.0,,1759450500000,Rams,49ers,True,34.1,14.100000000000001
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-115.0,,1759450500000,Rams,49ers,True,34.1,9.100000000000001
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,120.0,,1759450500000,Rams,49ers,True,34.1,4.100000000000001
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,225.0,,1759450500000,Rams,49ers,True,34.1,-5.899999999999999
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,400.0,,1759450500000,Rams,49ers,True,34.1,-15.899999999999999
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-750.0,,1759450500000,Rams,49ers,True,26.6,16.6
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-450.0,,1759450500000,Rams,49ers,True,26.6,11.600000000000001
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-300.0,,1759450500000,Rams,49ers,True,26.6,6.600000000000001
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-200.0,,1759450500000,Rams,49ers,True,26.6,1.6000000000000014
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-135.0,,1759450500000,Rams,49ers,True,26.6,-3.3999999999999986
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,125.0,,1759450500000,Rams,49ers,True,26.6,-13.399999999999999
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,200.0,,1759450500000,Rams,49ers,True,26.6,-23.4
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,325.0,,1759450500000,Rams,49ers,True,26.6,-33.4
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,500.0,,1759450500000,Rams,49ers,True,26.6,-43.4
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,700.0,,1759450500000,Rams,49ers,True,26.6,-53.4
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,900.0,,1759450500000,Rams,49ers,True,26.6,-63.4
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,1200.0,,1759450500000,Rams,49ers,True,26.6,-73.4
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-850.0,,1759450500000,Rams,49ers,True,34.1,24.1
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-450.0,,1759450500000,Rams,49ers,True,34.1,19.1
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-300.0,,1759450500000,Rams,49ers,True,34.1,14.100000000000001
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-200.0,,1759450500000,Rams,49ers,True,34.1,9.100000000000001
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-130.0,,1759450500000,Rams,49ers,True,34.1,4.100000000000001
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,150.0,,1759450500000,Rams,49ers,True,34.1,-5.899999999999999
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,250.0,,1759450500000,Rams,49ers,True,34.1,-15.899999999999999
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-180.0,,1759450500000,Rams,49ers,True,32.3,22.299999999999997
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-110.0,,1759450500000,Rams,49ers,True,32.3,17.299999999999997
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,140.0,,1759450500000,Rams,49ers,True,32.3,12.299999999999997
@@ -55,19 +466,18 @@ Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,700.0,,1759450500000,Rams,49ers,True,32.3,-17.700000000000003
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,1100.0,,1759450500000,Rams,49ers,True,32.3,-27.700000000000003
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,1500.0,,1759450500000,Rams,49ers,True,32.3,-37.7
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-1200.0,,1759450500000,Rams,49ers,True,37.8,27.799999999999997
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-600.0,,1759450500000,Rams,49ers,True,37.8,22.799999999999997
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-350.0,,1759450500000,Rams,49ers,True,37.8,17.799999999999997
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-250.0,,1759450500000,Rams,49ers,True,37.8,12.799999999999997
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-170.0,,1759450500000,Rams,49ers,True,37.8,7.799999999999997
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,110.0,,1759450500000,Rams,49ers,True,37.8,-2.200000000000003
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,190.0,,1759450500000,Rams,49ers,True,37.8,-12.200000000000003
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,275.0,,1759450500000,Rams,49ers,True,37.8,-22.200000000000003
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,425.0,,1759450500000,Rams,49ers,True,37.8,-32.2
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,650.0,,1759450500000,Rams,49ers,True,37.8,-42.2
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,875.0,,1759450500000,Rams,49ers,True,37.8,-52.2
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,1200.0,,1759450500000,Rams,49ers,True,37.8,-62.2
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,1600.0,,1759450500000,Rams,49ers,True,37.8,-72.2
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,-1000.0,,1759450500000,Rams,49ers,True,37.8,22.799999999999997
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,-550.0,,1759450500000,Rams,49ers,True,37.8,17.799999999999997
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,25.0,-350.0,,1759450500000,Rams,49ers,True,37.8,12.799999999999997
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,30.0,-250.0,,1759450500000,Rams,49ers,True,37.8,7.799999999999997
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,40.0,-130.0,,1759450500000,Rams,49ers,True,37.8,-2.200000000000003
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,50.0,125.0,,1759450500000,Rams,49ers,True,37.8,-12.200000000000003
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,60.0,200.0,,1759450500000,Rams,49ers,True,37.8,-22.200000000000003
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,70.0,300.0,,1759450500000,Rams,49ers,True,37.8,-32.2
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,80.0,425.0,,1759450500000,Rams,49ers,True,37.8,-42.2
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,90.0,625.0,,1759450500000,Rams,49ers,True,37.8,-52.2
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,100.0,800.0,,1759450500000,Rams,49ers,True,37.8,-62.2
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,110.0,1200.0,,1759450500000,Rams,49ers,True,37.8,-72.2
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,10.0,-115.0,,1759450500000,Rams,49ers,True,28.0,18.0
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,15.0,150.0,,1759450500000,Rams,49ers,True,28.0,13.0
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receiving Yards,20.0,220.0,,1759450500000,Rams,49ers,True,28.0,8.0
@@ -95,25 +505,30 @@ Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,-120.0,,
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,170.0,,1759450500000,Rams,49ers,True,4.01,-1.9900000000000002
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,300.0,,1759450500000,Rams,49ers,True,4.01,-2.99
 Davante Adams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,8.0,550.0,,1759450500000,Rams,49ers,True,4.01,-3.99
-Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-300.0,,1759450500000,Rams,49ers,True,3.21,1.21
-Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-105.0,,1759450500000,Rams,49ers,True,3.21,0.20999999999999996
-Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,225.0,,1759450500000,Rams,49ers,True,3.21,-0.79
-Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,500.0,,1759450500000,Rams,49ers,True,3.21,-1.79
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-500.0,,1759450500000,Rams,49ers,True,3.55,1.5499999999999998
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-165.0,,1759450500000,Rams,49ers,True,3.55,0.5499999999999998
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,150.0,,1759450500000,Rams,49ers,True,3.55,-0.4500000000000002
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,325.0,,1759450500000,Rams,49ers,True,3.55,-1.4500000000000002
-Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,600.0,,1759450500000,Rams,49ers,True,3.55,-2.45
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-500.0,,1759450500000,Rams,49ers,True,3.21,1.21
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-150.0,,1759450500000,Rams,49ers,True,3.21,0.20999999999999996
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,150.0,,1759450500000,Rams,49ers,True,3.21,-0.79
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,350.0,,1759450500000,Rams,49ers,True,3.21,-1.79
+Demarcus Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,650.0,,1759450500000,Rams,49ers,True,3.21,-2.79
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-600.0,,1759450500000,Rams,49ers,True,3.55,1.5499999999999998
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-190.0,,1759450500000,Rams,49ers,True,3.55,0.5499999999999998
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,130.0,,1759450500000,Rams,49ers,True,3.55,-0.4500000000000002
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,250.0,,1759450500000,Rams,49ers,True,3.55,-1.4500000000000002
+Jake Tonges,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,550.0,,1759450500000,Rams,49ers,True,3.55,-2.45
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,1.0,-425.0,,1759450500000,Rams,49ers,True,3.43,2.43
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,110.0,,1759450500000,Rams,49ers,True,3.43,1.4300000000000002
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,300.0,,1759450500000,Rams,49ers,True,3.43,0.43000000000000016
 Jordan Whittington,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,825.0,,1759450500000,Rams,49ers,True,3.43,-0.5699999999999998
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-1000.0,,1759450500000,Rams,49ers,True,4.99,2.99
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-275.0,,1759450500000,Rams,49ers,True,4.99,1.9900000000000002
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,-120.0,,1759450500000,Rams,49ers,True,4.99,0.9900000000000002
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,185.0,,1759450500000,Rams,49ers,True,4.99,-0.009999999999999787
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,350.0,,1759450500000,Rams,49ers,True,4.99,-1.0099999999999998
-Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,675.0,,1759450500000,Rams,49ers,True,4.99,-2.01
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-1400.0,,1759450500000,Rams,49ers,True,4.99,2.99
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,-350.0,,1759450500000,Rams,49ers,True,4.99,1.9900000000000002
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,-140.0,,1759450500000,Rams,49ers,True,4.99,0.9900000000000002
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,5.0,150.0,,1759450500000,Rams,49ers,True,4.99,-0.009999999999999787
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,6.0,300.0,,1759450500000,Rams,49ers,True,4.99,-1.0099999999999998
+Kendrick Bourne,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,7.0,550.0,,1759450500000,Rams,49ers,True,4.99,-2.01
+Kyle Juszczyk,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,1.0,-550.0,,1759450500000,Rams,49ers,True,,
+Kyle Juszczyk,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-120.0,,1759450500000,Rams,49ers,True,,
+Kyle Juszczyk,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,250.0,,1759450500000,Rams,49ers,True,,
+Kyle Juszczyk,SF,San Francisco 49ers @ Los Angeles Rams,Receptions,4.0,625.0,,1759450500000,Rams,49ers,True,,
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,1.0,-800.0,,1759450500000,Rams,49ers,True,4.06,3.0599999999999996
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,2.0,-190.0,,1759450500000,Rams,49ers,True,4.06,2.0599999999999996
 Kyren Williams,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,3.0,150.0,,1759450500000,Rams,49ers,True,4.06,1.0599999999999996
@@ -125,22 +540,22 @@ Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,9.0,110.0,,1759
 Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,10.0,180.0,,1759450500000,Rams,49ers,True,6.49,-3.51
 Puka Nacua,LAR,San Francisco 49ers @ Los Angeles Rams,Receptions,11.0,275.0,,1759450500000,Rams,49ers,True,6.49,-4.51
 Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,-1400.0,,1759450500000,Rams,49ers,True,30.7,20.7
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-550.0,,1759450500000,Rams,49ers,True,30.7,15.7
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,-300.0,,1759450500000,Rams,49ers,True,30.7,10.7
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,-190.0,,1759450500000,Rams,49ers,True,30.7,5.699999999999999
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-125.0,,1759450500000,Rams,49ers,True,30.7,0.6999999999999993
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,150.0,,1759450500000,Rams,49ers,True,30.7,-9.3
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,275.0,,1759450500000,Rams,49ers,True,30.7,-19.3
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,60.0,475.0,,1759450500000,Rams,49ers,True,30.7,-29.3
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,70.0,750.0,,1759450500000,Rams,49ers,True,30.7,-39.3
-Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,80.0,1100.0,,1759450500000,Rams,49ers,True,30.7,-49.3
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,-310.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-160.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,105.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,170.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,150.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,500.0,,1759450500000,Rams,49ers,True,,
-Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,850.0,,1759450500000,Rams,49ers,True,,
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-700.0,,1759450500000,Rams,49ers,True,30.7,15.7
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,-400.0,,1759450500000,Rams,49ers,True,30.7,10.7
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,-250.0,,1759450500000,Rams,49ers,True,30.7,5.699999999999999
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-150.0,,1759450500000,Rams,49ers,True,30.7,0.6999999999999993
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,130.0,,1759450500000,Rams,49ers,True,30.7,-9.3
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,250.0,,1759450500000,Rams,49ers,True,30.7,-19.3
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,60.0,400.0,,1759450500000,Rams,49ers,True,30.7,-29.3
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,70.0,625.0,,1759450500000,Rams,49ers,True,30.7,-39.3
+Blake Corum,LAR,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,80.0,900.0,,1759450500000,Rams,49ers,True,30.7,-49.3
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,10.0,-400.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,15.0,-220.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,20.0,-120.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,25.0,150.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,200.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,400.0,,1759450500000,Rams,49ers,True,,
+Brian Robinson,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,750.0,,1759450500000,Rams,49ers,True,,
 Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,30.0,-1600.0,,1759450500000,Rams,49ers,True,33.7,3.700000000000003
 Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,40.0,-600.0,,1759450500000,Rams,49ers,True,33.7,-6.299999999999997
 Christian McCaffrey,SF,San Francisco 49ers @ Los Angeles Rams,Rushing Yards,50.0,-275.0,,1759450500000,Rams,49ers,True,33.7,-16.299999999999997
