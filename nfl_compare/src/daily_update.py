@@ -16,6 +16,111 @@ from pathlib import Path
 from .config import load_env
 from .odds_api_client import main as fetch_odds
 from .auto_update import main as update_weather_and_predict
+from .data_sources import DATA_DIR as DATA_DIR, _try_load_latest_real_lines, load_games
+from .team_normalizer import normalize_team_name
+import pandas as pd
+
+
+def _ensure_lines_schema(df: pd.DataFrame) -> pd.DataFrame:
+    cols = [
+        'season','week','game_id','date','home_team','away_team',
+        'spread_home','total','moneyline_home','moneyline_away',
+        'spread_home_price','spread_away_price','total_over_price','total_under_price',
+        'close_spread_home','close_total'
+    ]
+    out = df.copy() if df is not None else pd.DataFrame()
+    for c in cols:
+        if c not in out.columns:
+            out[c] = pd.NA
+    return out[cols]
+
+
+def _enrich_lines_from_latest_json() -> None:
+    """Lightweight enrichment: merge latest JSON odds into lines.csv by (home, away).
+    - Seeds missing rows for upcoming games from games.csv when possible.
+    - Overwrites market columns with current JSON snapshot values (spread/total/moneylines/prices).
+    Safe to run frequently; idempotent per snapshot.
+    """
+    try:
+        j = _try_load_latest_real_lines()
+    except Exception as e:
+        print(f"JSON odds load failed: {e}")
+        return
+    if j is None or j.empty:
+        print('No JSON odds snapshot found; skipping lines enrichment.')
+        return
+    # Normalize team names in JSON frame
+    try:
+        j['home_team'] = j['home_team'].astype(str).apply(normalize_team_name)
+        j['away_team'] = j['away_team'].astype(str).apply(normalize_team_name)
+    except Exception:
+        pass
+
+    # Load existing lines.csv (or create empty with schema)
+    lines_fp = DATA_DIR / 'lines.csv'
+    if lines_fp.exists():
+        try:
+            lines = pd.read_csv(lines_fp)
+        except Exception:
+            lines = pd.DataFrame()
+    else:
+        lines = pd.DataFrame()
+    lines = _ensure_lines_schema(lines)
+    try:
+        lines['home_team'] = lines['home_team'].astype(str).apply(normalize_team_name)
+        lines['away_team'] = lines['away_team'].astype(str).apply(normalize_team_name)
+    except Exception:
+        pass
+
+    # Seed missing rows from games.csv for upcoming games to ensure coverage
+    try:
+        g = load_games()
+        if g is not None and not g.empty:
+            g2 = g.copy()
+            g2['home_team'] = g2['home_team'].astype(str).apply(normalize_team_name)
+            g2['away_team'] = g2['away_team'].astype(str).apply(normalize_team_name)
+            # Consider games with missing finals (future/unplayed) to avoid seeding historical duplicates
+            try:
+                g2['has_final'] = (~g2['home_score'].isna()) & (~g2['away_score'].isna())
+            except Exception:
+                g2['has_final'] = False
+            seed = g2[g2['has_final'] == False][['season','week','game_id','date','home_team','away_team']].dropna(subset=['home_team','away_team'])
+            # Add rows for (home, away) not present in lines
+            have_pairs = set(zip(lines['home_team'].astype(str), lines['away_team'].astype(str)))
+            add_rows = []
+            for _, r in seed.iterrows():
+                pair = (str(r['home_team']), str(r['away_team']))
+                if pair not in have_pairs:
+                    add_rows.append({
+                        'season': r.get('season'), 'week': r.get('week'), 'game_id': r.get('game_id'), 'date': r.get('date'),
+                        'home_team': r['home_team'], 'away_team': r['away_team'],
+                        'spread_home': pd.NA, 'total': pd.NA, 'moneyline_home': pd.NA, 'moneyline_away': pd.NA,
+                        'spread_home_price': pd.NA, 'spread_away_price': pd.NA, 'total_over_price': pd.NA, 'total_under_price': pd.NA,
+                        'close_spread_home': pd.NA, 'close_total': pd.NA,
+                    })
+            if add_rows:
+                lines = pd.concat([lines, pd.DataFrame(add_rows)], ignore_index=True)
+    except Exception as e:
+        print(f"Seeding from games.csv skipped: {e}")
+
+    # Merge current JSON odds onto lines by (home_team, away_team)
+    key = ['home_team','away_team']
+    cols = ['spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price']
+    try:
+        merged = lines.drop(columns=[c for c in cols if c in lines.columns]).merge(j[key+cols], on=key, how='left')
+        # If any key columns lost due to merge issues, fallback to original lines
+        if set(key).issubset(merged.columns):
+            lines = merged
+    except Exception as e:
+        print(f"JSON odds merge failed: {e}")
+
+    # Save back
+    try:
+        lines = _ensure_lines_schema(lines)
+        lines.to_csv(lines_fp, index=False)
+        print(f"Enriched lines.csv with latest JSON odds — rows={len(lines)}")
+    except Exception as e:
+        print(f"Failed writing lines.csv: {e}")
 
 
 def main() -> None:
@@ -31,6 +136,12 @@ def main() -> None:
         update_weather_and_predict()
     except Exception as e:
         print(f"Weather/predict failed: {e}")
+
+    # 2b) Enrich lines.csv with latest JSON odds for rapid live odds reflection
+    try:
+        _enrich_lines_from_latest_json()
+    except Exception as e:
+        print(f"Lines enrichment step failed: {e}")
 
     out_fp = Path(__file__).resolve().parents[1] / 'data' / 'predictions.csv'
     if out_fp.exists():

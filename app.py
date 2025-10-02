@@ -2846,7 +2846,9 @@ def api_data_status():
         candidates = []
         for pat in ('real_betting_lines_*.json','real_betting_lines.json'):
             candidates.extend([p for p in DATA_DIR.glob(pat)])
-        status['json_odds'] = [ _file_status(p) for p in sorted(candidates)[:5] ]
+        # Show newest first (by mtime)
+        candidates = sorted(candidates, key=lambda p: p.stat().st_mtime if p.exists() else 0, reverse=True)
+        status['json_odds'] = [ _file_status(p) for p in candidates[:5] ]
     except Exception:
         status['json_odds'] = []
     return jsonify({
