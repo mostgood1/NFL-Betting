@@ -5107,6 +5107,12 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
 
 @app.route("/")
 def index():
+    # Fast path for HEAD: avoid expensive work; used by platform health checks
+    try:
+        if request.method == 'HEAD':
+            return "", 200
+    except Exception:
+        pass
     df = _load_predictions()
     games_df = _load_games()
     # Filters
@@ -5210,15 +5216,21 @@ def index():
     elif sort_param == "total":
         cards.sort(key=lambda c: (abs(c.get("edge_total")) if c.get("edge_total") is not None else float('-inf')), reverse=True)
 
-    # --- Season-to-date accuracy summary (Overall, High/Med/Low) ---
-    # Build recommendations across all completed weeks up to the active week and
-    # compute tiered accuracy/ROI similar to recommendations page.
+    # --- Season-to-date accuracy summary ---
+    # This is heavy. On Render (or when explicitly disabled), skip by default; allow opt-in via ?s2d=1.
     accuracy_s2d = None
     try:
-        if season_param is not None and week_param is not None:
-            # Aggregate recommendations across weeks 1..week_param
+        s2d_qs = request.args.get('s2d')
+        disable_s2d_env = str(os.environ.get('DISABLE_S2D_ON_RENDER', '1')).strip().lower() in {'1','true','yes','y'}
+        compute_s2d = True
+        if on_render and s2d_qs is None:
+            compute_s2d = not disable_s2d_env
+        if s2d_qs is not None:
+            compute_s2d = (s2d_qs.strip().lower() in {'1','true','yes','y'})
+
+        if compute_s2d and season_param is not None and week_param is not None:
+            # Aggregate recommendations across weeks 1..week_param (cap to 25 for safety)
             all_recs_s2d: List[Dict[str, Any]] = []
-            # Small safety bound on weeks
             max_weeks = int(min(max(week_param, 1), 25))
             for wk in range(1, max_weeks + 1):
                 try:
@@ -5243,7 +5255,6 @@ def index():
                     except Exception:
                         continue
 
-            # Group and compute metrics per recommendations_page logic
             groups_s2d: Dict[str, List[Dict[str, Any]]] = {"High": [], "Medium": [], "Low": [], "": []}
             for r in all_recs_s2d:
                 c = r.get("confidence") or ""
