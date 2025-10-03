@@ -104,13 +104,38 @@ def _enrich_lines_from_latest_json() -> None:
         print(f"Seeding from games.csv skipped: {e}")
 
     # Merge current JSON odds onto lines by (home_team, away_team)
+    # IMPORTANT: only update future/unplayed games to avoid overwriting saved odds for completed games.
     key = ['home_team','away_team']
     cols = ['spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price']
     try:
-        merged = lines.drop(columns=[c for c in cols if c in lines.columns]).merge(j[key+cols], on=key, how='left')
-        # If any key columns lost due to merge issues, fallback to original lines
-        if set(key).issubset(merged.columns):
-            lines = merged
+        # Build a mask for future/unplayed games
+        today = pd.Timestamp.today().normalize()
+        dts = pd.to_datetime(lines.get('date'), errors='coerce')
+        has_home_final = lines.get('home_score') if 'home_score' in lines.columns else pd.Series([pd.NA]*len(lines))
+        has_away_final = lines.get('away_score') if 'away_score' in lines.columns else pd.Series([pd.NA]*len(lines))
+        # Unplayed if scores are NA; also treat games dated today or later as eligible
+        unplayed = has_home_final.isna() | has_away_final.isna()
+        future_or_today = dts.isna() | (dts.dt.normalize() >= today)
+        mask = (unplayed | future_or_today)
+
+        base_cols = list(lines.columns)
+        # Split frames to update only masked rows
+        lines['_row_idx'] = range(len(lines))
+        keep_df = lines[~mask].copy()
+        upd_df = lines[mask].copy()
+        # Drop market columns in update slice before merge to ensure overwrite
+        upd_df = upd_df.drop(columns=[c for c in cols if c in upd_df.columns])
+        merged = upd_df.merge(j[key+cols], on=key, how='left')
+        # Reassemble
+        combined = pd.concat([keep_df, merged], ignore_index=True)
+        # Restore original column order (plus any new cols at end) and original-like ordering by _row_idx
+        if '_row_idx' in combined.columns:
+            combined = combined.sort_values('_row_idx').drop(columns=['_row_idx'])
+        # Ensure we keep at least the original base_cols ordering
+        for c in base_cols:
+            if c not in combined.columns:
+                combined[c] = pd.NA
+        lines = combined
     except Exception as e:
         print(f"JSON odds merge failed: {e}")
 
