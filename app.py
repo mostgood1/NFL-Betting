@@ -1838,23 +1838,27 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
                                     mm2 = m2 & merged_odds['total'].isna() & merged_odds['close_total'].notna()
                                     if mm2.any():
                                         merged_odds.loc[mm2, 'total'] = merged_odds.loc[mm2, 'close_total']
-                                # Ensure market_* aliases reflect best available for finals
+                                # Ensure market_* aliases reflect closing lines for finals (prefer close_* over base)
                                 if 'market_spread_home' not in merged_odds.columns:
                                     merged_odds['market_spread_home'] = pd.NA
                                 if 'market_total' not in merged_odds.columns:
                                     merged_odds['market_total'] = pd.NA
-                                mm3 = m2 & merged_odds['market_spread_home'].isna()
-                                if 'spread_home' in merged_odds.columns:
-                                    merged_odds.loc[mm3 & merged_odds['spread_home'].notna(), 'market_spread_home'] = merged_odds.loc[mm3, 'spread_home']
+                                # Prefer closers where available
                                 if 'close_spread_home' in merged_odds.columns:
-                                    mm3b = m2 & merged_odds['market_spread_home'].isna() & merged_odds['close_spread_home'].notna()
-                                    merged_odds.loc[mm3b, 'market_spread_home'] = merged_odds.loc[mm3b, 'close_spread_home']
-                                mtm = m2 & merged_odds['market_total'].isna()
-                                if 'total' in merged_odds.columns:
-                                    merged_odds.loc[mtm & merged_odds['total'].notna(), 'market_total'] = merged_odds.loc[mtm, 'total']
+                                    mmc = m2 & merged_odds['close_spread_home'].notna()
+                                    if mmc.any():
+                                        merged_odds.loc[mmc, 'market_spread_home'] = merged_odds.loc[mmc, 'close_spread_home']
                                 if 'close_total' in merged_odds.columns:
-                                    mtm2 = m2 & merged_odds['market_total'].isna() & merged_odds['close_total'].notna()
-                                    merged_odds.loc[mtm2, 'market_total'] = merged_odds.loc[mtm2, 'close_total']
+                                    mmtc = m2 & merged_odds['close_total'].notna()
+                                    if mmtc.any():
+                                        merged_odds.loc[mmtc, 'market_total'] = merged_odds.loc[mmtc, 'close_total']
+                                # Where closers missing, fall back to base fields
+                                mm3_fallback = m2 & merged_odds['market_spread_home'].isna()
+                                if 'spread_home' in merged_odds.columns:
+                                    merged_odds.loc[mm3_fallback & merged_odds['spread_home'].notna(), 'market_spread_home'] = merged_odds.loc[mm3_fallback, 'spread_home']
+                                mtm_fallback = m2 & merged_odds['market_total'].isna()
+                                if 'total' in merged_odds.columns:
+                                    merged_odds.loc[mtm_fallback & merged_odds['total'].notna(), 'market_total'] = merged_odds.loc[mtm_fallback, 'total']
                             except Exception:
                                 pass
                             # Drop helper suffixed cols
@@ -2294,15 +2298,30 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     m_t = out_base['total'].isna()
                     out_base.loc[m_t & out_base['close_total'].notna(), 'total'] = out_base.loc[m_t, 'close_total']
 
-                # Ensure market_* reflect latest base/close fields (prefer base, then close)
+                # Ensure market_* reflect appropriate values
                 if 'market_spread_home' not in out_base.columns:
                     out_base['market_spread_home'] = _pd.NA
                 if 'market_total' not in out_base.columns:
                     out_base['market_total'] = _pd.NA
-                # Overwrite market_* with best available current values
-                out_base['market_spread_home'] = out_base.get('spread_home') if 'spread_home' in out_base.columns else out_base['market_spread_home']
-                out_base['market_total'] = out_base.get('total') if 'total' in out_base.columns else out_base['market_total']
-                # Where still missing, use close_* as secondary
+                # If game is finalized (scores present), prefer closing lines for display
+                finals_mask = None
+                if {'home_score','away_score'}.issubset(out_base.columns):
+                    finals_mask = out_base['home_score'].notna() & out_base['away_score'].notna()
+                if finals_mask is not None and finals_mask.any():
+                    if 'close_spread_home' in out_base.columns:
+                        m_close = finals_mask & out_base['close_spread_home'].notna()
+                        out_base.loc[m_close, 'market_spread_home'] = out_base.loc[m_close, 'close_spread_home']
+                    if 'close_total' in out_base.columns:
+                        m_close_t = finals_mask & out_base['close_total'].notna()
+                        out_base.loc[m_close_t, 'market_total'] = out_base.loc[m_close_t, 'close_total']
+                # For non-finalized, prefer current base values, then closers
+                non_final_mask = (~finals_mask) if finals_mask is not None else _pd.Series([True]*len(out_base), index=out_base.index)
+                if 'spread_home' in out_base.columns:
+                    m_base = non_final_mask & out_base['spread_home'].notna()
+                    out_base.loc[m_base, 'market_spread_home'] = out_base.loc[m_base, 'spread_home']
+                if 'total' in out_base.columns:
+                    m_base_t = non_final_mask & out_base['total'].notna()
+                    out_base.loc[m_base_t, 'market_total'] = out_base.loc[m_base_t, 'total']
                 if 'close_spread_home' in out_base.columns:
                     m2 = out_base['market_spread_home'].isna()
                     out_base.loc[m2 & out_base['close_spread_home'].notna(), 'market_spread_home'] = out_base.loc[m2, 'close_spread_home']
