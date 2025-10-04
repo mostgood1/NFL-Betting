@@ -2574,6 +2574,20 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                     # Build quick index by game_id
                     df_g = df_final.set_index('game_id') if 'game_id' in df_final.columns else None
                     if df_g is not None:
+                        # First pass: override closers unconditionally from authoritative lines.csv (prevents stale prediction closers)
+                        for i in out_base.index:
+                            gid = str(out_base.at[i, 'game_id']) if 'game_id' in out_base.columns and _pd.notna(out_base.at[i, 'game_id']) else None
+                            if not gid or gid not in df_g.index:
+                                continue
+                            cand = df_g.loc[gid]
+                            if isinstance(cand, _pd.DataFrame):
+                                cand = cand.iloc[0]
+                            for c in ('close_spread_home','close_total'):
+                                if c in present_line_cols and c in out_base.columns and c in cand.index and _pd.notna(cand[c]):
+                                    try:
+                                        out_base.at[i, c] = cand[c]
+                                    except Exception:
+                                        pass
                         # Rows needing any fill
                         need_idx = out_base.index[[any(pd.isna(out_base.at[i, c]) for c in line_cols_final if c in out_base.columns) for i in out_base.index]]
                         for i in need_idx:
@@ -2583,9 +2597,10 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                 if isinstance(cand, _pd.DataFrame):
                                     cand = cand.iloc[0]
                                 for c in present_line_cols:
-                                    if c in out_base.columns and pd.isna(out_base.at[i, c]) and c in cand.index:
+                                    if c in out_base.columns and c in cand.index:
                                         try:
-                                            out_base.at[i, c] = cand[c]
+                                            if pd.isna(out_base.at[i, c]):
+                                                out_base.at[i, c] = cand[c]
                                         except Exception:
                                             pass
                                 # Also set market_* aliases if absent

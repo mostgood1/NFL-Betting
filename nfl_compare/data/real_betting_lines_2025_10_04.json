@@ -327,12 +327,12 @@
           "outcomes": [
             {
               "name": "Indianapolis Colts",
-              "price": -102,
+              "price": -105,
               "point": -7.0
             },
             {
               "name": "Las Vegas Raiders",
-              "price": -118,
+              "price": -115,
               "point": 7.0
             }
           ]
@@ -356,8 +356,8 @@
     },
     "New York Giants @ New Orleans Saints": {
       "moneyline": {
-        "home": -118,
-        "away": -102
+        "home": -120,
+        "away": 100
       },
       "total_runs": {
         "line": 42.5,
@@ -373,11 +373,11 @@
           "outcomes": [
             {
               "name": "New Orleans Saints",
-              "price": -118
+              "price": -120
             },
             {
               "name": "New York Giants",
-              "price": -102
+              "price": 100
             }
           ]
         },
@@ -1595,5 +1595,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-10-04T17:46:25.423561+00:00"
+  "fetched_at": "2025-10-04T15:26:30.674616+00:00"
 }
