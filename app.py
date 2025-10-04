@@ -2656,6 +2656,20 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         if 'close_total' in out_base.columns and m_mask2.any():
                             fill2 = out_base.loc[m_mask2, 'close_total']
                             out_base.loc[m_mask2 & fill2.notna(), 'market_total'] = fill2[fill2.notna()]
+                # Finals clamp: for finalized games, force market_* to use closing lines when available
+                try:
+                    if {'home_score','away_score'}.issubset(out_base.columns):
+                        fmask = out_base['home_score'].notna() & out_base['away_score'].notna()
+                        if {'market_spread_home','close_spread_home'}.issubset(out_base.columns):
+                            mm = fmask & out_base['close_spread_home'].notna()
+                            if mm.any():
+                                out_base.loc[mm, 'market_spread_home'] = out_base.loc[mm, 'close_spread_home']
+                        if {'market_total','close_total'}.issubset(out_base.columns):
+                            mt = fmask & out_base['close_total'].notna()
+                            if mt.any():
+                                out_base.loc[mt, 'market_total'] = out_base.loc[mt, 'close_total']
+                except Exception:
+                    pass
                 # One-time log for any games still missing all spread or all total indicators
                 try:
                     spread_cols = [c for c in ['spread_home','close_spread_home','market_spread_home','open_spread_home'] if c in out_base.columns]
