@@ -75,8 +75,13 @@ def _load_last_odds() -> Optional[Dict[str, Any]]:
         files = glob.glob(pattern)
         if not files:
             return None
-        # pick latest by mtime
-        latest = max(files, key=lambda p: Path(p).stat().st_mtime)
+        # pick latest by (mtime, filename) to break ties deterministically
+        def _file_key(pth: str):
+            try:
+                return (Path(pth).stat().st_mtime, Path(pth).name)
+            except Exception:
+                return (0.0, Path(pth).name)
+        latest = max(files, key=_file_key)
         mtime = Path(latest).stat().st_mtime
         if _odds_cache.get('path') == latest and abs(float(_odds_cache.get('mtime', 0.0)) - float(mtime)) < 1e-6:
             return _odds_cache.get('data')
