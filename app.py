@@ -5862,7 +5862,7 @@ def api_inspect_game():
         keep = [c for c in [
             'game_id','season','week','game_date','date','home_team','away_team',
             'moneyline_home','moneyline_away','spread_home','total','spread_home_price','spread_away_price','total_over_price','total_under_price',
-            'close_spread_home','close_total',
+            'close_spread_home','close_total','market_spread_home','market_total',
             'home_score','away_score'
         ] if c in df.columns]
         data = df[keep].to_dict(orient='records') if keep else df.to_dict(orient='records')
