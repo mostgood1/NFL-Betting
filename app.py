@@ -2608,6 +2608,26 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                                     out_base.at[i, 'market_spread_home'] = cand.get('spread_home')
                                 if 'total' in cand.index and 'market_total' in out_base.columns and pd.isna(out_base.at[i, 'market_total']):
                                     out_base.at[i, 'market_total'] = cand.get('total')
+                        # Upcoming games: force market_* from latest lines.csv (authoritative current lines)
+                        try:
+                            if {'home_score','away_score'}.issubset(out_base.columns):
+                                upcoming_mask = out_base['home_score'].isna() | out_base['away_score'].isna()
+                            else:
+                                upcoming_mask = _pd.Series([True]*len(out_base), index=out_base.index)
+                            for i in out_base.index[out_base.index.isin(out_base.index[upcoming_mask])]:
+                                gid = str(out_base.at[i, 'game_id']) if 'game_id' in out_base.columns and _pd.notna(out_base.at[i, 'game_id']) else None
+                                if not gid or gid not in df_g.index:
+                                    continue
+                                cand = df_g.loc[gid]
+                                if isinstance(cand, _pd.DataFrame):
+                                    cand = cand.iloc[0]
+                                # Set market_* directly from spread/total when available
+                                if 'spread_home' in cand.index and 'market_spread_home' in out_base.columns and _pd.notna(cand.get('spread_home')):
+                                    out_base.at[i, 'market_spread_home'] = cand.get('spread_home')
+                                if 'total' in cand.index and 'market_total' in out_base.columns and _pd.notna(cand.get('total')):
+                                    out_base.at[i, 'market_total'] = cand.get('total')
+                        except Exception:
+                            pass
             except Exception:
                 pass
             # Post-merge normalization: promote close_* lines into canonical/market fields when only close values exist
