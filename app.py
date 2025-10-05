@@ -89,16 +89,20 @@ def _load_last_odds() -> Optional[Dict[str, Any]]:
         except Exception:
             ts = None
         if not ts:
-            # fallback to filename date part
+            # fallback to file mtime in ISO or filename date
             try:
-                name = Path(latest).name  # real_betting_lines_YYYY_MM_DD.json
-                parts = name.replace('.json','').split('_')
-                # expect ..._YYYY_MM_DD
-                if len(parts) >= 4:
-                    y, m, d = parts[-3], parts[-2], parts[-1]
-                    ts = f"{y}-{m}-{d}"
+                ts = datetime.utcfromtimestamp(mtime).strftime('%Y-%m-%dT%H:%M:%S+00:00')
             except Exception:
                 ts = None
+            if not ts:
+                try:
+                    name = Path(latest).name  # real_betting_lines_YYYY_MM_DD.json
+                    parts = name.replace('.json','').split('_')
+                    if len(parts) >= 4:
+                        y, m, d = parts[-3], parts[-2], parts[-1]
+                        ts = f"{y}-{m}-{d}"
+                except Exception:
+                    ts = None
         data = {'ts': ts, 'file': Path(latest).name, 'path': str(latest)}
         _odds_cache['path'] = latest
         _odds_cache['mtime'] = mtime
@@ -111,7 +115,16 @@ def _load_last_odds() -> Optional[Dict[str, Any]]:
 @app.context_processor
 def _inject_global_template_context():
     try:
-        return {'last_update': _load_last_update(), 'last_odds': _load_last_odds()}
+        lu = _load_last_update()
+        lo = _load_last_odds()
+        # Fallback: if no last_update marker, synthesize one from latest odds ts
+        if lu is None and lo is not None:
+            lu = {
+                'ts': lo.get('ts'),
+                'type': 'odds_fallback',
+                'note': f"Latest odds file: {lo.get('file')}"
+            }
+        return {'last_update': lu, 'last_odds': lo}
     except Exception:
         return {'last_update': None, 'last_odds': None}
 
