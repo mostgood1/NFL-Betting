@@ -37,16 +37,16 @@ season,week,game_id,date,home_team,away_team,spread_home,total,moneyline_home,mo
 2025,4,2025_04_NYJ_MIA,2025-09-29,Miami Dolphins,New York Jets,,,,,,,,,-3.0,45.5
 2025,4,2025_04_CIN_DEN,2025-09-29,Denver Broncos,Cincinnati Bengals,,,,,,,,,-7.5,44.5
 2025,5,2025_05_SF_LA,2025-10-02,Los Angeles Rams,San Francisco 49ers,,,,,,,,,-8.5,43.5
-2025,5,2025_05_MIN_CLE,2025-10-05,Cleveland Browns,Minnesota Vikings,3.5,36.5,164.0,-198.0,,,100.0,-120.0,4.5,38.5
-2025,5,2025_05_HOU_BAL,2025-10-05,Baltimore Ravens,Houston Texans,1.5,40.5,110.0,-130.0,,,-110.0,-110.0,-9.5,45.5
-2025,5,2025_05_MIA_CAR,2025-10-05,Carolina Panthers,Miami Dolphins,1.5,45.5,100.0,-120.0,,,-102.0,-118.0,-1.5,44.5
-2025,5,2025_05_LV_IND,2025-10-05,Indianapolis Colts,Las Vegas Raiders,-7.0,47.5,-340.0,270.0,,,-115.0,-105.0,-6.0,48.5
-2025,5,2025_05_NYG_NO,2025-10-05,New Orleans Saints,New York Giants,-1.5,42.5,-118.0,-102.0,,,-105.0,-115.0,2.5,43.5
+2025,5,2025_05_MIN_CLE,2025-10-05,Cleveland Browns,Minnesota Vikings,3.5,36.5,160.0,-192.0,,,100.0,-120.0,4.5,38.5
+2025,5,2025_05_HOU_BAL,2025-10-05,Baltimore Ravens,Houston Texans,1.5,40.5,105.0,-125.0,,,-110.0,-110.0,-9.5,45.5
+2025,5,2025_05_MIA_CAR,2025-10-05,Carolina Panthers,Miami Dolphins,1.5,45.5,-102.0,-118.0,,,-102.0,-118.0,-1.5,44.5
+2025,5,2025_05_LV_IND,2025-10-05,Indianapolis Colts,Las Vegas Raiders,-7.0,47.5,-375.0,295.0,,,-115.0,-105.0,-6.0,48.5
+2025,5,2025_05_NYG_NO,2025-10-05,New Orleans Saints,New York Giants,-1.5,42.5,-120.0,100.0,,,-105.0,-115.0,2.5,43.5
 2025,5,2025_05_DAL_NYJ,2025-10-05,New York Jets,Dallas Cowboys,1.5,47.5,105.0,-125.0,,,-115.0,-105.0,1.5,46.5
-2025,5,2025_05_DEN_PHI,2025-10-05,Philadelphia Eagles,Denver Broncos,-4.5,43.5,-225.0,185.0,,,-115.0,-105.0,-5.5,43.5
+2025,5,2025_05_DEN_PHI,2025-10-05,Philadelphia Eagles,Denver Broncos,-4.5,44.5,-218.0,180.0,,,-105.0,-115.0,-5.5,43.5
 2025,5,2025_05_TEN_ARI,2025-10-05,Arizona Cardinals,Tennessee Titans,-7.5,41.5,-425.0,330.0,,,-110.0,-110.0,-7.5,41.5
 2025,5,2025_05_TB_SEA,2025-10-05,Seattle Seahawks,Tampa Bay Buccaneers,-3.5,44.5,-180.0,150.0,,,-110.0,-110.0,-2.5,44.5
-2025,5,2025_05_DET_CIN,2025-10-05,Cincinnati Bengals,Detroit Lions,10.5,49.5,440.0,-600.0,,,-108.0,-112.0,7.5,49.5
+2025,5,2025_05_DET_CIN,2025-10-05,Cincinnati Bengals,Detroit Lions,10.5,49.5,425.0,-575.0,,,-108.0,-112.0,7.5,49.5
 2025,5,2025_05_WAS_LAC,2025-10-05,Los Angeles Chargers,Washington Commanders,-2.5,47.5,-155.0,130.0,,,-105.0,-115.0,-2.5,48.5
 2025,5,2025_05_NE_BUF,2025-10-05,Buffalo Bills,New England Patriots,-8.5,49.5,-425.0,330.0,,,-115.0,-105.0,-10.0,49.5
 2025,5,2025_05_KC_JAX,2025-10-06,Jacksonville Jaguars,Kansas City Chiefs,3.5,45.5,154.0,-185.0,,,-112.0,-108.0,3.5,44.5
@@ -57,9 +57,9 @@ season,week,game_id,date,home_team,away_team,spread_home,total,moneyline_home,mo
 2025,6,2025_06_ARI_IND,2025-10-12,Indianapolis Colts,Arizona Cardinals,-3.5,47.5,-198.0,164.0,,,-105.0,-115.0,-3.5,47.5
 2025,6,2025_06_SEA_JAX,2025-10-12,Jacksonville Jaguars,Seattle Seahawks,-1.5,45.5,-115.0,-105.0,,,-105.0,-115.0,-1.5,45.5
 2025,6,2025_06_LAC_MIA,2025-10-12,Miami Dolphins,Los Angeles Chargers,5.5,45.5,200.0,-245.0,,,-110.0,-110.0,5.5,45.5
-2025,6,2025_06_NE_NO,2025-10-12,New Orleans Saints,New England Patriots,3.5,44.5,170.0,-205.0,,,-115.0,-105.0,3.5,44.5
+2025,6,2025_06_NE_NO,2025-10-12,New Orleans Saints,New England Patriots,3.5,44.5,164.0,-198.0,,,-115.0,-105.0,3.5,44.5
 2025,6,2025_06_CLE_PIT,2025-10-12,Pittsburgh Steelers,Cleveland Browns,-5.5,38.5,-265.0,215.0,,,-110.0,-110.0,-5.5,38.5
-2025,6,2025_06_TEN_LV,2025-10-12,Las Vegas Raiders,Tennessee Titans,-6.5,41.5,-305.0,245.0,,,-110.0,-110.0,-6.5,41.5
+2025,6,2025_06_TEN_LV,2025-10-12,Las Vegas Raiders,Tennessee Titans,-6.0,41.5,-278.0,225.0,,,-110.0,-110.0,-6.5,41.5
 2025,6,2025_06_CIN_GB,2025-10-12,Green Bay Packers,Cincinnati Bengals,-13.5,44.5,-1000.0,650.0,,,-110.0,-110.0,-13.5,44.5
 2025,6,2025_06_SF_TB,2025-10-12,Tampa Bay Buccaneers,San Francisco 49ers,,,,,,,,,-2.5,46.5
 2025,6,2025_06_DET_KC,2025-10-12,Kansas City Chiefs,Detroit Lions,-1.5,48.5,-118.0,-102.0,,,-115.0,-105.0,-1.5,48.5
