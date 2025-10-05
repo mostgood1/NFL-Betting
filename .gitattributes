@@ -1,2 +1,9 @@
 * text=auto eol=lf
 *.sh text eol=lf
+
+# Treat generated data artifacts as ours during merges to avoid noisy conflicts
+nfl_compare/data/*.csv -diff merge=ours
+nfl_compare/data/*.json -diff merge=ours
+nfl_compare/data/*.parquet -diff merge=ours
+data/*.csv -diff merge=ours
+data/*.json -diff merge=ours
