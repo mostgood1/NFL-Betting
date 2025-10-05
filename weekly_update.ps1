@@ -185,13 +185,16 @@ try {
   if (Test-Path $marker) {
     try { $rootObj = Get-Content -Raw -Path $marker | ConvertFrom-Json | ConvertTo-Json -Compress | ConvertFrom-Json } catch { $rootObj = @{} }
   }
+  # Build optional retrain skip note (PowerShell 5.1-safe)
+  $skipNote = ''
+  if ($NoRetrain.IsPresent) { $skipNote = ' (skipped)' }
   $lastWeekly = [ordered]@{
     ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
     season = [int]$Season
     week = [int]$TargetWeek
     prior_week = [int]$PriorWeek
     retrain = (-not $NoRetrain.IsPresent)
-    note = "Weekly: schedules, team stats, retrain$([string]::Empty + ($NoRetrain.IsPresent? ' (skipped)':'') ), odds+seed lines, props gen, props pipeline, prior-week recon"
+    note = "Weekly: schedules, team stats, retrain$skipNote, odds+seed lines, props gen, props pipeline, prior-week recon"
     tasks = @(
       @{ name = 'odds_seed_lines'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
       @{ name = 'props_generated'; ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') },
