@@ -1,361 +1,253 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Patrick Mahomes,KC,Passing Yards,150.0,-1600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,173.60000000000002,0.062499625504983114,,,173.60000000000002
-Patrick Mahomes,KC,Passing Yards,175.0,-775.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,148.60000000000002,0.12901995736257915,,,148.60000000000002
-Trevor Lawrence,JAX,Passing Yards,350.0,1600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-140.5,-0.9994931782761837,,,140.5
-Patrick Mahomes,KC,Passing Yards,200.0,-380.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,123.60000000000002,0.2628968495944283,,,123.60000000000002
-Trevor Lawrence,JAX,Passing Yards,325.0,950.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-115.5,-0.9949240465049702,,,115.5
-Patrick Mahomes,KC,Passing Yards,225.0,-200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,98.60000000000002,0.49636602733716734,,,98.60000000000002
-Trevor Lawrence,JAX,Passing Yards,300.0,625.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-90.5,-0.964773175580693,,,90.5
-Trevor Lawrence,JAX,Passing Yards,125.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,84.5,0.05825808330839591,,,84.5
-Xavier Worthy,KC,Receiving Yards,150.0,1600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-75.5,-0.999923951873512,,,75.5
-Patrick Mahomes,KC,Passing Yards,250.0,-115.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,73.60000000000002,0.8364007577691949,,,73.60000000000002
-Travis Kelce,KC,Receiving Yards,110.0,1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-66.0,-0.9993792965219728,,,66.0
-Trevor Lawrence,JAX,Passing Yards,275.0,375.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-65.5,-0.8544464582712258,,,65.5
-Kareem Hunt,KC,Rushing Yards,90.0,1400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-64.9,-0.9999733219740891,,,64.9
-Brenton Strange,JAX,Receiving Yards,90.0,1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-60.2,-0.9976099176758102,,,60.2
-Trevor Lawrence,JAX,Passing Yards,150.0,-675.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,59.5,0.09698039461056174,,,59.5
-JuJu Smith-Schuster,KC,Receiving Yards,90.0,1200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-57.8,-0.9956199195462009,,,57.8
-Travis Kelce,KC,Receiving Yards,100.0,950.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-56.0,-0.9948166138019778,,,56.0
-Kareem Hunt,KC,Rushing Yards,80.0,1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-54.9,-0.9994718467425348,,,54.9
-Xavier Worthy,KC,Receiving Yards,20.0,-1800.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,54.5,0.054844907911830006,,,54.5
-Travis Hunter,JAX,Receiving Yards,90.0,1400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-53.6,-0.9878774219386585,,,53.6
-Patrick Mahomes,KC,Passing Yards,375.0,1300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,-51.39999999999998,-0.006356516036598814,,,51.39999999999998
-Xavier Worthy,KC,Receiving Yards,125.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-50.5,-0.9858815746320816,,,50.5
-Brenton Strange,JAX,Receiving Yards,80.0,825.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-50.2,-0.9854422604341702,,,50.2
-Xavier Worthy,KC,Receiving Yards,25.0,-1000.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,49.5,0.0980233371394248,,,49.5
-Patrick Mahomes,KC,Passing Yards,275.0,165.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,48.60000000000002,1.4314238786094409,,,48.60000000000002
-JuJu Smith-Schuster,KC,Receiving Yards,80.0,900.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-47.8,-0.9753647344753134,,,47.8
-Travis Kelce,KC,Receiving Yards,90.0,725.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-46.0,-0.9718991902303425,,,46.0
-Isiah Pacheco,KC,Rushing Yards,90.0,1400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,-45.0,-0.99019228893918,,,45.0
-Kareem Hunt,KC,Rushing Yards,70.0,725.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-44.9,-0.9944700083029335,,,44.9
-Xavier Worthy,KC,Receiving Yards,30.0,-625.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,44.5,0.15486477694331466,,,44.5
-Travis Hunter,JAX,Receiving Yards,80.0,900.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-43.6,-0.9483683518881487,,,43.6
-Patrick Mahomes,KC,Rushing Yards,60.0,1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-43.0,-0.9872177722788673,,,43.0
-Trevor Lawrence,JAX,Passing Yards,250.0,200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-40.5,-0.6291790008702313,,,40.5
-Brenton Strange,JAX,Receiving Yards,70.0,575.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-40.2,-0.9391001677199311,,,40.2
-JuJu Smith-Schuster,KC,Receiving Yards,70.0,650.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-37.8,-0.9018245409932462,,,37.8
-Travis Kelce,KC,Receiving Yards,80.0,500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-36.0,-0.897385091263976,,,36.0
-Xavier Worthy,KC,Receiving Yards,110.0,575.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-35.5,-0.8758789242367178,,,35.5
-Isiah Pacheco,KC,Rushing Yards,10.0,-1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,35.0,0.08413491055369865,,,35.0
-Isiah Pacheco,KC,Rushing Yards,80.0,1100.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,-35.0,-0.9254840160906861,,,35.0
-Kareem Hunt,KC,Rushing Yards,60.0,500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-34.9,-0.9619840542801612,,,34.9
-Xavier Worthy,KC,Receiving Yards,40.0,-330.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,34.5,0.27539539672253327,,,34.5
-Trevor Lawrence,JAX,Passing Yards,175.0,-330.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,34.5,0.09176131059193271,,,34.5
-Travis Hunter,JAX,Receiving Yards,70.0,700.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-33.6,-0.8075939852234106,,,33.6
-Patrick Mahomes,KC,Rushing Yards,50.0,650.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-33.0,-0.9309393978388599,,,33.0
-Trevor Lawrence,JAX,Rushing Yards,40.0,1300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-32.6,-0.8608275320407535,,,32.6
-Brenton Strange,JAX,Receiving Yards,60.0,350.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-30.2,-0.82977538263328,,,30.2
-Isiah Pacheco,KC,Rushing Yards,15.0,-450.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,30.0,0.20259053981754319,,,30.0
-Travis Kelce,KC,Receiving Yards,15.0,-1200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,29.0,0.0356504242390622,,,29.0
-JuJu Smith-Schuster,KC,Receiving Yards,60.0,400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-27.799999999999997,-0.7450314847252084,,,27.799999999999997
-Travis Hunter,JAX,Receiving Yards,10.0,-675.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,26.4,0.07900828073620883,,,26.4
-Patrick Mahomes,KC,Passing Yards,350.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,-26.399999999999977,1.140718973003565,,,26.399999999999977
-Travis Kelce,KC,Receiving Yards,70.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-26.0,-0.7476752045150363,,,26.0
-Xavier Worthy,KC,Receiving Yards,100.0,400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-25.5,-0.6659639936557096,,,25.5
-Isiah Pacheco,KC,Rushing Yards,70.0,775.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,-25.0,-0.6756133013875945,,,25.0
-Isiah Pacheco,KC,Rushing Yards,20.0,-275.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,25.0,0.3130825924240408,,,25.0
-Kareem Hunt,KC,Rushing Yards,50.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-24.9,-0.849379896465821,,,24.9
-Xavier Worthy,KC,Receiving Yards,50.0,-200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,24.5,0.3878488745373796,,,24.5
-Travis Kelce,KC,Receiving Yards,20.0,-575.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,24.0,0.08116261187217885,,,24.0
-Patrick Mahomes,KC,Passing Yards,300.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,23.600000000000023,1.9997406308257957,,,23.600000000000023
-Travis Hunter,JAX,Receiving Yards,60.0,450.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-23.6,-0.546070127283142,,,23.6
-Patrick Mahomes,KC,Rushing Yards,40.0,350.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-23.0,-0.7740718885312683,,,23.0
-Trevor Lawrence,JAX,Rushing Yards,30.0,675.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-22.6,-0.5874463141445944,,,22.6
-JuJu Smith-Schuster,KC,Receiving Yards,10.0,-675.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,22.200000000000003,0.038159821696038876,,,22.200000000000003
-Travis Hunter,JAX,Receiving Yards,15.0,-360.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,21.4,0.1448287824813528,,,21.4
-Brenton Strange,JAX,Receiving Yards,50.0,220.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-20.2,-0.6244148444187951,,,20.2
-Isiah Pacheco,KC,Rushing Yards,25.0,-180.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,20.0,0.43645642698470144,,,20.0
-Brenton Strange,JAX,Receiving Yards,10.0,-1300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,19.8,-0.05453588228220037,,,19.8
-Travis Kelce,KC,Receiving Yards,25.0,-375.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,19.0,0.09964541750532532,,,19.0
-JuJu Smith-Schuster,KC,Receiving Yards,50.0,260.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-17.799999999999997,-0.468869592043052,,,17.799999999999997
-Trevor Lawrence,JAX,Rushing Yards,25.0,400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-17.6,-0.4782452233191081,,,17.6
-JuJu Smith-Schuster,KC,Receiving Yards,15.0,-375.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,17.200000000000003,0.0692879729428027,,,17.200000000000003
-Travis Hunter,JAX,Receiving Yards,20.0,-240.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,16.4,0.17959306175731743,,,16.4
-Travis Kelce,KC,Receiving Yards,60.0,200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-16.0,-0.480078351245424,,,16.0
-Xavier Worthy,KC,Receiving Yards,90.0,275.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-15.5,-0.321451387269347,,,15.5
-Trevor Lawrence,JAX,Passing Yards,225.0,115.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,-15.5,-0.2927907517567864,,,15.5
-Kareem Hunt,KC,Rushing Yards,10.0,-925.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,15.100000000000001,-0.04745853751826498,,,15.100000000000001
-Isiah Pacheco,KC,Rushing Yards,30.0,-110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,15.0,0.6380221724195843,,,15.0
-Isiah Pacheco,KC,Rushing Yards,60.0,525.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,-15.0,-0.11257258827840044,,,15.0
-Kareem Hunt,KC,Rushing Yards,40.0,160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-14.899999999999999,-0.6266409261653767,,,14.899999999999999
-Brenton Strange,JAX,Receiving Yards,15.0,-600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,14.8,-0.057321096418985945,,,14.8
-Xavier Worthy,KC,Receiving Yards,60.0,-120.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,14.5,0.47244906811728604,,,14.5
-Travis Kelce,KC,Receiving Yards,30.0,-270.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,14.0,0.0893026120071555,,,14.0
-Travis Hunter,JAX,Receiving Yards,50.0,275.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-13.600000000000001,-0.20554225531226222,,,13.600000000000001
-Patrick Mahomes,KC,Rushing Yards,30.0,170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-13.0,-0.5232998334168926,,,13.0
-Trevor Lawrence,JAX,Rushing Yards,20.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-12.6,-0.35578956128634176,,,12.6
-JuJu Smith-Schuster,KC,Receiving Yards,20.0,-250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,12.200000000000003,0.06891754629000935,,,12.200000000000003
-Travis Hunter,JAX,Receiving Yards,25.0,-155.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,11.399999999999999,0.23182859934486166,,,11.399999999999999
-Brenton Strange,JAX,Receiving Yards,40.0,120.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-10.2,-0.3966431409498381,,,10.2
-Kareem Hunt,KC,Rushing Yards,15.0,-440.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,10.100000000000001,-0.06153269481101198,,,10.100000000000001
-Brenton Strange,JAX,Receiving Yards,20.0,-350.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,9.8,-0.07704816421106794,,,9.8
-Trevor Lawrence,JAX,Passing Yards,200.0,-170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,209.5,9.5,-0.03598995890500056,,,9.5
-Patrick Mahomes,KC,Rushing Yards,25.0,110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-8.0,-0.4039053754927798,,,8.0
-JuJu Smith-Schuster,KC,Receiving Yards,40.0,160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,-7.799999999999997,-0.15973083443524017,,,7.799999999999997
-Trevor Lawrence,JAX,Rushing Yards,15.0,150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-7.6,-0.2659647927974159,,,7.6
-JuJu Smith-Schuster,KC,Receiving Yards,25.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,7.200000000000003,0.07907390146946452,,,7.200000000000003
-Patrick Mahomes,KC,Rushing Yards,10.0,-500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,7.0,-0.17024504647118444,,,7.0
-Travis Hunter,JAX,Receiving Yards,30.0,-110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,6.399999999999999,0.2346405173041426,,,6.399999999999999
-Travis Kelce,KC,Receiving Yards,50.0,130.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,-6.0,-0.16724757855274303,,,6.0
-Xavier Worthy,KC,Receiving Yards,80.0,200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,-5.5,0.11944150522149999,,,5.5
-Kareem Hunt,KC,Rushing Yards,20.0,-260.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,5.100000000000001,-0.11083092291662411,,,5.100000000000001
-Isiah Pacheco,KC,Rushing Yards,50.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,-5.0,0.44196972380334165,,,5.0
-Isiah Pacheco,KC,Rushing Yards,40.0,165.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,45.0,5.0,0.6946950579802861,,,5.0
-Kareem Hunt,KC,Rushing Yards,30.0,-110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,-4.899999999999999,-0.30667669769890893,,,4.899999999999999
-Brenton Strange,JAX,Receiving Yards,25.0,-240.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,4.800000000000001,-0.13418496729033036,,,4.800000000000001
-Xavier Worthy,KC,Receiving Yards,70.0,140.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,74.5,4.5,0.4505167452358323,,,4.5
-Travis Kelce,KC,Receptions,2.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,4.24,0.06607568320521602,,,4.24
-Xavier Worthy,KC,Receptions,3.0,-925.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,4.01,0.10697885987564648,,,4.01
-Travis Kelce,KC,Receiving Yards,40.0,-140.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,44.0,4.0,0.016588176785498843,,,4.0
-Travis Hunter,JAX,Receiving Yards,40.0,170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,36.4,-3.6000000000000014,0.12359231628367884,,,3.6000000000000014
-Travis Kelce,KC,Receptions,3.0,-425.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,3.24,0.22745518591266556,,,3.24
-Xavier Worthy,KC,Receptions,4.0,-330.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,3.01,0.2896143729293668,,,3.01
-Patrick Mahomes,KC,Rushing Yards,20.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,-3.0,-0.32536154065466627,,,3.0
-Trevor Lawrence,JAX,Rushing Yards,10.0,-130.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,7.4,-2.5999999999999996,-0.24571603957039595,,,2.5999999999999996
-Trevor Lawrence,JAX,Passing TDs,4.0,1300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,1.43,-2.5700000000000003,-0.7834103454551617,,,2.5700000000000003
-Brenton Strange,JAX,Receptions,2.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,2.5199999999999996,0.03863096594570442,,,2.5199999999999996
-Brenton Strange,JAX,Receptions,7.0,475.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,-2.4800000000000004,-0.8377608849954602,,,2.4800000000000004
-Travis Hunter,JAX,Receptions,6.0,625.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.65,-2.35,-0.7438777910215811,,,2.35
-Travis Kelce,KC,Receptions,4.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,2.24,0.5560393750088485,,,2.24
-JuJu Smith-Schuster,KC,Receiving Yards,30.0,-110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,rec_yards,32.2,2.200000000000003,0.052833244522429657,,,2.200000000000003
-JuJu Smith-Schuster,KC,Receptions,6.0,625.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.85,-2.15,-0.6441744385546049,,,2.15
-Patrick Mahomes,KC,Passing TDs,1.0,-775.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,3.11,2.11,-0.07793056211930621,,,2.11
-Xavier Worthy,KC,Receptions,5.0,-150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,2.01,0.5649438191341264,,,2.01
-Patrick Mahomes,KC,Rushing Yards,15.0,-275.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,rush_yards,17.0,2.0,-0.24072932252299784,,,2.0
-Xavier Worthy,KC,Receptions,9.0,750.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,-1.9900000000000002,-0.4652376442085786,,,1.9900000000000002
-JuJu Smith-Schuster,KC,Receptions,2.0,-500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.85,1.85,0.10717168562820395,,,1.85
-Travis Hunter,JAX,Receptions,2.0,-525.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.65,1.65,0.06883406552749796,,,1.65
-Trevor Lawrence,JAX,Passing TDs,3.0,475.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,1.43,-1.57,-0.6712929673074135,,,1.57
-Brenton Strange,JAX,Receptions,3.0,-400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,1.5199999999999996,0.09855583284282105,,,1.5199999999999996
-Brenton Strange,JAX,Receptions,6.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,-1.4800000000000004,-0.5538763319597519,,,1.4800000000000004
-Patrick Mahomes,KC,Passing Yards,325.0,525.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_yards,323.6,-1.3999999999999773,2.0252910196698095,,,1.3999999999999773
-Travis Hunter,JAX,Receptions,5.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.65,-1.35,-0.40188953498527874,,,1.35
-Travis Kelce,KC,Receptions,5.0,130.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,1.2400000000000002,0.9088142485503382,,,1.2400000000000002
-JuJu Smith-Schuster,KC,Receptions,5.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.85,-1.15,-0.24727178756644053,,,1.15
-Patrick Mahomes,KC,Passing TDs,2.0,-150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,3.11,1.1099999999999999,0.0016627057968949255,,,1.1099999999999999
-Xavier Worthy,KC,Receptions,6.0,140.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,1.0099999999999998,0.8753550136959966,,,1.0099999999999998
-Xavier Worthy,KC,Receptions,8.0,425.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,-0.9900000000000002,0.17163072751135566,,,0.9900000000000002
-Patrick Mahomes,KC,Passing TDs,4.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,3.11,-0.8900000000000001,0.933692111372924,,,0.8900000000000001
-JuJu Smith-Schuster,KC,Receptions,3.0,-170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.85,0.8500000000000001,0.18068543962790223,,,0.8500000000000001
-Travis Kelce,KC,Receptions,7.0,475.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,-0.7599999999999998,0.6065682870922644,,,0.7599999999999998
-Travis Hunter,JAX,Receptions,3.0,-170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.65,0.6499999999999999,0.0982050855528443,,,0.6499999999999999
-Trevor Lawrence,JAX,Passing TDs,2.0,120.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,1.43,-0.5700000000000001,-0.6176445949209907,,,0.5700000000000001
-Brenton Strange,JAX,Receptions,4.0,-170.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,0.5199999999999996,0.04096394255757363,,,0.5199999999999996
-Brenton Strange,JAX,Receptions,5.0,135.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,4.52,-0.4800000000000004,-0.16345202526998887,,,0.4800000000000004
-Trevor Lawrence,JAX,Passing TDs,1.0,-430.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,1.43,0.42999999999999994,-0.4841999092040266,,,0.42999999999999994
-Travis Hunter,JAX,Receptions,4.0,140.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.65,-0.3500000000000001,-0.05469747554262794,,,0.3500000000000001
-Travis Kelce,KC,Receptions,6.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,receptions,6.24,0.2400000000000002,1.0063212431638286,,,0.2400000000000002
-Brenton Strange,JAX,Receiving Yards,30.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,TE,rec_yards,29.8,-0.1999999999999993,-0.19512666178092986,,,0.1999999999999993
-JuJu Smith-Schuster,KC,Receptions,4.0,150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,3.85,-0.1499999999999999,0.13517534082179095,,,0.1499999999999999
-Patrick Mahomes,KC,Passing TDs,3.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,QB,pass_tds,3.11,0.10999999999999988,0.3208875758240637,,,0.10999999999999988
-Kareem Hunt,KC,Rushing Yards,25.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,RB,rush_yards,25.1,0.10000000000000142,-0.18286945933500542,,,0.10000000000000142
-Xavier Worthy,KC,Receptions,7.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,WR,receptions,7.01,0.009999999999999787,0.7607406477794626,,,0.009999999999999787
-Marquise Brown,KC,Receiving Yards,110.0,1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,20.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,60.0,240.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,70.0,375.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,80.0,575.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,40.0,-290.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,30.0,-525.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,25.0,-775.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,90.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,100.0,1200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,70.0,150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,50.0,150.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,80.0,200.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,90.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,5.0,130.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,100.0,400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,110.0,600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,6.0,250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,125.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,7.0,500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,5.0,-115.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,3.0,-400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,40.0,-115.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,80.0,160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,3.0,-675.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,6.0,180.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,7.0,300.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,150.0,1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,50.0,-175.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,8.0,600.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,150.0,1400.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,125.0,775.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,110.0,500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,100.0,350.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,90.0,220.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,70.0,110.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,30.0,-225.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,60.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,50.0,-275.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,40.0,-500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Travis Etienne,JAX,Rushing Yards,30.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,15.0,-1000.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,8.0,850.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,2.0,-1500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receptions,4.0,-250.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Marquise Brown,KC,Receptions,4.0,-160.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,receptions,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,20.0,-500.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Marquise Brown,KC,Receiving Yards,25.0,-325.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brian Thomas,JAX,Receiving Yards,60.0,-105.0,,True,Kansas City Chiefs @ Jacksonville Jaguars,Jaguars,Chiefs,1759796100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Brenton Strange,JAX,Receptions,3.5,-165.0,125.0,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Brenton Strange & Jacksonville Jaguars,,Anytime TD,,800.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster,KC,Receiving Yards,29.5,-110.0,-120.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Rushing Attempts,8.5,-125.0,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Receiving Yards,39.5,-110.0,-120.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Anytime TD,,230.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kansas City Chiefs Defense,,Anytime TD,,725.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster (KC) - 1Q,,Anytime TD,,1800.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster (KC) - 1H,,Anytime TD,,650.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster,KC,Receptions,2.5,-165.0,125.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster,KC,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Kareem Hunt & Jacksonville Jaguars,,Anytime TD,,875.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Johnny Mundt (JAX) - 1Q,,Anytime TD,,5000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Johnny Mundt (JAX) - 1H,,Anytime TD,,2800.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Johnny Mundt,JAX,Anytime TD,,1400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-JAX Jaguars D/ST - 1Q,,Anytime TD,,3000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-JAX Jaguars D/ST - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jason Brownlee,KC,Anytime TD,,1700.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jared Wiley (KC) - 1Q,,Anytime TD,,8000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Rushing Yards,27.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kareem Hunt & Kansas City Chiefs,,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jared Wiley,KC,Anytime TD,,2500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown,KC,Receptions,4.5,140.0,-185.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Nikko Remigio (KC) - 1Q,,Anytime TD,,5000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Nikko Remigio (KC) - 1H,,Anytime TD,,3000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Nikko Remigio,KC,Anytime TD,,1700.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown (KC) - 1Q,,Anytime TD,,1200.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown (KC) - 1H,,Anytime TD,,425.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown & Kansas City Chiefs,,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown & Jacksonville Jaguars,,Anytime TD,,875.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown,KC,Receiving Yards,35.5,-150.0,115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Kareem Hunt (KC) - 1H,,Anytime TD,,450.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown,KC,Anytime TD,,250.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-LeQuint Allen Jr. (JAX) - 1Q,,Anytime TD,,3500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-LeQuint Allen Jr. (JAX) - 1H,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-LeQuint Allen Jr.,JAX,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-KC Chiefs D/ST - 1Q,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-KC Chiefs D/ST - 1H,,Anytime TD,,1000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Kareem Hunt (KC) - 1Q,,Anytime TD,,1200.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jared Wiley (KC) - 1H,,Anytime TD,,3500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Royals (KC) - 1Q,,Anytime TD,,5000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Gray,KC,Receiving Yards,,10000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Brian Thomas Jr. & Jacksonville Jaguars,,Anytime TD,,475.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Dyami Brown,JAX,Receptions,2.5,-145.0,110.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Dyami Brown,JAX,Receiving Yards,28.5,-130.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Dyami Brown,JAX,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Cody Schrader (JAX) - 1Q,,Anytime TD,,5500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Cody Schrader (JAX) - 1H,,Anytime TD,,4000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Cody Schrader,JAX,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas Jr. & Kansas City Chiefs,,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas (JAX) - 1Q,,Anytime TD,,850.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Dyami Brown & Kansas City Chiefs,,Anytime TD,,625.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas (JAX) - 1H,,Anytime TD,,375.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas,JAX,Receptions,4.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas,JAX,Receiving Yards,57.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brian Thomas,JAX,Anytime TD,,170.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brenton Strange (JAX) - 1Q,,Anytime TD,,1400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brenton Strange (JAX) - 1H,,Anytime TD,,650.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brenton Strange & Kansas City Chiefs,,Anytime TD,,600.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Dyami Brown & Jacksonville Jaguars,,Anytime TD,,825.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Dyami Brown (JAX) - 1H,,Anytime TD,,650.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Royals (KC) - 1H,,Anytime TD,,2800.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Rushing Attempts,7.5,-145.0,110.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Jalen Royals,KC,Anytime TD,,1700.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Jacksonville State D/ST,,Anytime TD,,725.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco (KC) - 1Q,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco (KC) - 1H,,Anytime TD,,550.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco & Kansas City Chiefs,,Anytime TD,,375.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco & Jacksonville Jaguars,,Anytime TD,,900.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Rushing Yards,29.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Receptions,1.5,,-130.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Dyami Brown (JAX) - 1Q,,Anytime TD,,1400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Receiving Yards,6.5,,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Anytime TD,,330.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Hunter Long (JAX) - 1Q,,Anytime TD,,3500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Long (JAX) - 1H,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Long,JAX,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Elijah Mitchell (KC) - 1Q,,Anytime TD,,5500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Elijah Mitchell (KC) - 1H,,Anytime TD,,3500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Gray,KC,Anytime TD,,600.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Noah Gray,KC,Receptions,1.5,-145.0,110.0,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Bhayshul Tuten (JAX) - 1H,,Anytime TD,,650.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Passing Attempts,33.5,-125.0,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Tyquan Thornton,KC,Receiving Yards,15.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Tyquan Thornton,KC,Anytime TD,,400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Lawrence (JAX) - 1Q,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Lawrence (JAX) - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Rushing Yards,10.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Passing Yards,214.5,-125.0,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Passing TDs,1.5,125.0,-165.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Interceptions,0.5,-165.0,125.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Tyquan Thornton (KC) - 1H,,Anytime TD,,850.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Lawrence,JAX,Anytime TD,,600.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Travis Kelce (KC) - 1Q,,Anytime TD,,900.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce (KC) - 1H,,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce & Kansas City Chiefs,,Anytime TD,,250.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce & Jacksonville Jaguars,,Anytime TD,,725.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce,KC,Receptions,4.5,115.0,-150.0,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Travis Kelce,KC,Receiving Yards,43.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Tyquan Thornton,KC,Receptions,1.5,125.0,-165.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Tyquan Thornton (KC) - 1Q,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Hunter (JAX) - 1Q,,Anytime TD,,1400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Worthy (KC) - 1Q,,Anytime TD,,750.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Bhayshul Tuten,JAX,Rushing Yards,20.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
-Bhayshul Tuten (JAX) - 1Q,,Anytime TD,,1500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brashard Smith,KC,Anytime TD,,440.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brashard Smith (KC) - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brashard Smith (KC) - 1Q,,Anytime TD,,2500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Brenton Strange,JAX,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Brenton Strange,JAX,Receiving Yards,33.5,-135.0,105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Xavier Worthy (KC) - 1H,,Anytime TD,,325.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,JAX,Passing Yards,44.5,-120.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Worthy & Kansas City Chiefs,,Anytime TD,,225.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Worthy & Jacksonville Jaguars,,Anytime TD,,675.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Worthy,KC,Receptions,4.5,-125.0,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Worthy,KC,Receiving Yards,58.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Worthy,KC,Anytime TD,,140.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Under - 1Q,KC,Rushing Yards,3.5,-110.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,JAC,Receiving Yards,5.5,-120.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce,KC,Anytime TD,,150.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,TE,,,,,,unsupported_market,0.0
-Travis Hunter (JAX) - 1H,,Anytime TD,,550.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Gray (KC) - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Parker Washington (JAX) - 1Q,,Anytime TD,,1500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Rushing Yards,21.5,-120.0,-110.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Rushing Attempts,4.5,-125.0,-105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Passing Yards,249.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Passing TDs,1.5,-160.0,120.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Passing Attempts,35.5,-135.0,105.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Interceptions,0.5,-110.0,-120.0,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,QB,,,,,,unsupported_market,0.0
-Parker Washington (JAX) - 1H,,Anytime TD,,650.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes & Kansas City Chiefs,,Anytime TD,,500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Parker Washington,JAX,Receptions,1.5,-145.0,110.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Parker Washington,JAX,Receiving Yards,14.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Parker Washington,JAX,Anytime TD,,400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,KC,Rushing Yards,3.5,-120.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,JAC,Receiving Yards,5.5,-110.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,JAX,Passing Yards,44.5,-110.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Gray (KC) - 1Q,,Anytime TD,,2500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes & Jacksonville Jaguars,,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes (KC) - 1H,,Anytime TD,,850.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Hunter,JAX,Receptions,2.5,-165.0,125.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Travis Etienne,JAX,Rushing Attempts,14.5,-130.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Hunter,JAX,Receiving Yards,28.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Travis Hunter,JAX,Anytime TD,,350.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,WR,,,,,,unsupported_market,0.0
-Travis Etienne (JAX) - 1Q,,Anytime TD,,600.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne (JAX) - 1H,,Anytime TD,,250.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne & Kansas City Chiefs,,Anytime TD,,250.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne & Jacksonville Jaguars,,Anytime TD,,375.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne,JAX,Rushing Yards,65.5,-105.0,-125.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne,JAX,Receptions,2.5,140.0,-185.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes (KC) - 1Q,,Anytime TD,,2000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne,JAX,Receiving Yards,12.5,-115.0,-115.0,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Etienne,JAX,Anytime TD,,110.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Tim Patrick (JAX) - 1Q,,Anytime TD,,3000.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Tim Patrick (JAX) - 1H,,Anytime TD,,1500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Tim Patrick,JAX,Anytime TD,,1600.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Robert Tonyan,KC,Anytime TD,,2500.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Quintin Morris,JAX,Anytime TD,,1100.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,,,,,,,unsupported_market,0.0
-Bhayshul Tuten,JAX,Anytime TD,,400.0,,False,,Jaguars,Chiefs,1759796100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Passing Yards,125.0,-1200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,169.10000000000002,0.08333259906705177,,,169.10000000000002
+Jalen Hurts,PHI,Passing Yards,150.0,-450.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,144.10000000000002,0.2221987801030113,,,144.10000000000002
+Saquon Barkley,PHI,Rushing Yards,175.0,1400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-139.5,-1.0,,,139.5
+Jaxson Dart,NYG,Passing Yards,125.0,-550.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,129.0,0.18168341785243547,,,129.0
+Jalen Hurts,PHI,Passing Yards,175.0,-220.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,119.10000000000002,0.4540604717248249,,,119.10000000000002
+Saquon Barkley,PHI,Rushing Yards,150.0,800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-114.5,-0.9999999999999984,,,114.5
+Jaxson Dart,NYG,Passing Yards,150.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,104.0,0.3979250752829788,,,104.0
+Jaxson Dart,NYG,Rushing Yards,100.0,1500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-96.9,-0.9999999999642313,,,96.9
+Jalen Hurts,PHI,Passing Yards,200.0,-105.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,94.10000000000002,0.9453759577456333,,,94.10000000000002
+AJ Brown,PHI,Receiving Yards,150.0,1300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-90.2,-0.9999992150951607,,,90.2
+Saquon Barkley,PHI,Rushing Yards,125.0,375.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-89.5,-0.9999999996133161,,,89.5
+Jaxson Dart,NYG,Rushing Yards,90.0,1200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-86.9,-0.9999999964928242,,,86.9
+Jalen Hurts,PHI,Rushing Yards,110.0,1700.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-86.7,-0.9999999946825056,,,86.7
+DeVonta Smith,PHI,Receiving Yards,125.0,1300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-80.9,-0.9999863692791477,,,80.9
+Wan'dale Robinson,NYG,Receiving Yards,125.0,1600.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-79.6,-0.9999758939459968,,,79.6
+Jaxson Dart,NYG,Passing Yards,175.0,-125.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,79.0,0.7784007653029966,,,79.0
+Jaxson Dart,NYG,Rushing Yards,80.0,800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-76.9,-0.999999822032787,,,76.9
+Jalen Hurts,PHI,Rushing Yards,100.0,1200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-76.7,-0.9999997212972278,,,76.7
+Saquon Barkley,PHI,Rushing Yards,110.0,220.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-74.5,-0.9999998352711437,,,74.5
+Jalen Hurts,PHI,Passing Yards,225.0,175.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,69.10000000000002,1.68351976150565,,,69.10000000000002
+Jaxson Dart,NYG,Rushing Yards,70.0,500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-66.9,-0.9999947036486099,,,66.9
+Jalen Hurts,PHI,Rushing Yards,90.0,900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-66.7,-0.9999905238098463,,,66.7
+DeVonta Smith,PHI,Receiving Yards,110.0,900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-65.9,-0.9994700869281983,,,65.9
+AJ Brown,PHI,Receiving Yards,125.0,675.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-65.2,-0.9995140202673773,,,65.2
+Wan'dale Robinson,NYG,Receiving Yards,110.0,1100.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-64.6,-0.9991318234728983,,,64.6
+Saquon Barkley,PHI,Rushing Yards,100.0,150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-64.5,-0.9999948970057079,,,64.5
+Jaxson Dart,NYG,Rushing Yards,60.0,300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-56.9,-0.9999036404420902,,,56.9
+Jalen Hurts,PHI,Rushing Yards,80.0,625.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-56.7,-0.999814336080563,,,56.7
+DeVonta Smith,PHI,Receiving Yards,100.0,650.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-55.9,-0.99621934218866,,,55.9
+Wan'dale Robinson,NYG,Receiving Yards,100.0,850.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-54.6,-0.9937336872249262,,,54.6
+Saquon Barkley,PHI,Rushing Yards,90.0,,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-54.5,,,,54.5
+Jaxson Dart,NYG,Passing Yards,200.0,150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,54.0,1.346418198463353,,,54.0
+AJ Brown,PHI,Receiving Yards,110.0,425.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-50.2,-0.9917374991653398,,,50.2
+Dallas Goedert,PHI,Receiving Yards,90.0,1400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,-47.3,-0.9595252626506866,,,47.3
+Jaxson Dart,NYG,Rushing Yards,50.0,175.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-46.9,-0.998888841044874,,,46.9
+Jalen Hurts,PHI,Rushing Yards,70.0,400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-46.7,-0.9978729861143947,,,46.7
+Jaxson Dart,NYG,Passing Yards,300.0,1400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,-46.0,0.4156255467747012,,,46.0
+DeVonta Smith,PHI,Receiving Yards,90.0,475.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-45.9,-0.9800649006325162,,,45.9
+Wan'dale Robinson,NYG,Receiving Yards,90.0,575.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-44.6,-0.9706294232773716,,,44.6
+Saquon Barkley,PHI,Rushing Yards,80.0,-155.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-44.5,-0.9987825580523013,,,44.5
+Jalen Hurts,PHI,Passing Yards,250.0,325.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,44.10000000000002,2.808702605234474,,,44.10000000000002
+Theo Johnson,NYG,Receiving Yards,80.0,1100.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,-43.4,-0.9359094791806082,,,43.4
+AJ Brown,PHI,Receiving Yards,100.0,300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-40.2,-0.9639112105006999,,,40.2
+Dallas Goedert,PHI,Receiving Yards,80.0,900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,-37.3,-0.8588652353860251,,,37.3
+Jaxson Dart,NYG,Rushing Yards,40.0,,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-36.9,,,,36.9
+Jalen Hurts,PHI,Rushing Yards,60.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-36.7,-0.9835821045433741,,,36.7
+DeVonta Smith,PHI,Receiving Yards,80.0,300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-35.9,-0.9305867281102633,,,35.9
+AJ Brown,PHI,Receiving Yards,25.0,-1500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,34.8,0.044985435057208756,,,34.8
+Wan'dale Robinson,NYG,Receiving Yards,80.0,400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-34.6,-0.8954467807334032,,,34.6
+Saquon Barkley,PHI,Rushing Yards,70.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-34.5,-0.990389936138039,,,34.5
+Theo Johnson,NYG,Receiving Yards,70.0,800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,-33.4,-0.7774827006948832,,,33.4
+Dallas Goedert,PHI,Receiving Yards,10.0,-1500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,32.7,0.03764608191302714,,,32.7
+Jalen Hurts,PHI,Passing Yards,325.0,1500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,-30.899999999999977,2.0185076935945903,,,30.899999999999977
+Wan'dale Robinson,NYG,Receiving Yards,15.0,-1800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,30.4,0.016638249122079306,,,30.4
+AJ Brown,PHI,Receiving Yards,90.0,220.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-30.200000000000003,-0.8789513832058878,,,30.200000000000003
+AJ Brown,PHI,Receiving Yards,30.0,-800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,29.799999999999997,0.08021819111768672,,,29.799999999999997
+Jaxson Dart,NYG,Passing Yards,225.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,29.0,1.9862244482366116,,,29.0
+Dallas Goedert,PHI,Receiving Yards,15.0,-675.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,27.700000000000003,0.08888884670998909,,,27.700000000000003
+Dallas Goedert,PHI,Receiving Yards,70.0,625.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,-27.299999999999997,-0.6074133641964025,,,27.299999999999997
+Jaxson Dart,NYG,Rushing Yards,30.0,-215.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-26.9,-0.9599454062571203,,,26.9
+Jalen Hurts,PHI,Rushing Yards,50.0,160.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-26.7,-0.9265472819872875,,,26.7
+Theo Johnson,NYG,Receiving Yards,10.0,-1200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,26.6,0.019605227014910465,,,26.6
+DeVonta Smith,PHI,Receiving Yards,70.0,200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-25.9,-0.8085605378584736,,,25.9
+Wan'dale Robinson,NYG,Receiving Yards,20.0,-900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,25.4,0.03603062650360547,,,25.4
+Wan'dale Robinson,NYG,Receiving Yards,70.0,250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-24.6,-0.7412092138347262,,,24.6
+Saquon Barkley,PHI,Rushing Yards,60.0,-425.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-24.5,-0.9505151591682259,,,24.5
+DeVonta Smith,PHI,Receiving Yards,20.0,-1200.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,24.1,-0.0013258266045789724,,,24.1
+Theo Johnson,NYG,Receiving Yards,60.0,500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,-23.4,-0.49397203877396856,,,23.4
+Dallas Goedert,PHI,Receiving Yards,20.0,-400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,22.700000000000003,0.13638743554914892,,,22.700000000000003
+Jaxson Dart,NYG,Rushing Yards,25.0,-350.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-21.9,-0.9243032593243621,,,21.9
+Theo Johnson,NYG,Receiving Yards,15.0,-500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,21.6,0.07767489531140415,,,21.6
+Jaxson Dart,NYG,Passing Yards,275.0,875.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,-21.0,1.6739678980632178,,,21.0
+Wan'dale Robinson,NYG,Receiving Yards,25.0,-500.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,20.4,0.06191639573394997,,,20.4
+AJ Brown,PHI,Receiving Yards,80.0,150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-20.200000000000003,-0.706574097202184,,,20.200000000000003
+AJ Brown,PHI,Receiving Yards,40.0,-425.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,19.799999999999997,0.08450295855865261,,,19.799999999999997
+Jalen Hurts,PHI,Passing Yards,275.0,575.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,19.100000000000023,3.774739567143309,,,19.100000000000023
+DeVonta Smith,PHI,Receiving Yards,25.0,-675.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,19.1,-0.0018073001701504887,,,19.1
+Dallas Goedert,PHI,Receiving Yards,25.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,17.700000000000003,0.19154444230986606,,,17.700000000000003
+Dallas Goedert,PHI,Receiving Yards,60.0,375.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,-17.299999999999997,-0.26649142698836803,,,17.299999999999997
+Jaxson Dart,NYG,Rushing Yards,20.0,-600.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-16.9,-0.8673633394170451,,,16.9
+Jalen Hurts,PHI,Rushing Yards,40.0,-115.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-16.7,-0.7822654559570473,,,16.7
+Theo Johnson,NYG,Receiving Yards,20.0,-325.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,16.6,0.09268721639636524,,,16.6
+DeVonta Smith,PHI,Receiving Yards,60.0,130.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-15.899999999999999,-0.5979177421472092,,,15.899999999999999
+Wan'dale Robinson,NYG,Receiving Yards,30.0,-350.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,15.399999999999999,0.05107263344096405,,,15.399999999999999
+Wan'dale Robinson,NYG,Receiving Yards,60.0,160.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-14.600000000000001,-0.49243075072351283,,,14.600000000000001
+Saquon Barkley,PHI,Rushing Yards,50.0,-800.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rush_yards,35.5,-14.5,-0.8310613061818709,,,14.5
+DeVonta Smith,PHI,Receiving Yards,30.0,-450.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,14.100000000000001,-0.0264214395783966,,,14.100000000000001
+Theo Johnson,NYG,Receiving Yards,50.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,-13.399999999999999,-0.19270170983033663,,,13.399999999999999
+Saquon Barkley,PHI,Receiving Yards,10.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rec_yards,23.3,13.3,0.09619497278664846,,,13.3
+Dallas Goedert,PHI,Receiving Yards,30.0,-170.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,12.700000000000003,0.2268894864984295,,,12.700000000000003
+Jaxson Dart,NYG,Rushing Yards,15.0,-1400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,3.1,-11.9,-0.7882187037971153,,,11.9
+Theo Johnson,NYG,Receiving Yards,25.0,-190.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,11.600000000000001,0.14854057021450384,,,11.600000000000001
+AJ Brown,PHI,Receiving Yards,70.0,105.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-10.200000000000003,-0.43778110861234926,,,10.200000000000003
+AJ Brown,PHI,Receiving Yards,50.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,9.799999999999997,0.0049919989701703305,,,9.799999999999997
+Saquon Barkley,PHI,Receiving Yards,15.0,-140.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rec_yards,23.3,8.3,0.1782429818982767,,,8.3
+Jalen Hurts,PHI,Rushing Yards,15.0,-1400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,8.3,-0.2249696937689864,,,8.3
+Dallas Goedert,PHI,Receiving Yards,50.0,225.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,-7.299999999999997,0.08488833966619302,,,7.299999999999997
+Jalen Hurts,PHI,Rushing Yards,30.0,-250.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-6.699999999999999,-0.5574295162127919,,,6.699999999999999
+Saquon Barkley,PHI,Receiving Yards,30.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rec_yards,23.3,-6.699999999999999,0.3003015927497529,,,6.699999999999999
+Theo Johnson,NYG,Receiving Yards,30.0,-130.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,6.600000000000001,0.15190907374340346,,,6.600000000000001
+DeVonta Smith,PHI,Receiving Yards,50.0,-145.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,-5.899999999999999,-0.38450328915679777,,,5.899999999999999
+Jalen Hurts,PHI,Passing Yards,300.0,900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,294.1,-5.899999999999977,3.3306687780031465,,,5.899999999999977
+Wan'dale Robinson,NYG,Receiving Yards,40.0,-180.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,5.399999999999999,-0.028363190608778566,,,5.399999999999999
+Wan'dale Robinson,NYG,Receiving Yards,50.0,,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,45.4,-4.600000000000001,,,,4.600000000000001
+Wan'dale Robinson,NYG,Receptions,3.0,-1000.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,4.21,0.09933903077149578,,,4.21
+DeVonta Smith,PHI,Receiving Yards,40.0,-230.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,44.1,4.100000000000001,-0.14588707463914308,,,4.100000000000001
+Jaxson Dart,NYG,Passing Yards,250.0,525.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_yards,254.0,4.0,2.409339666731091,,,4.0
+AJ Brown,PHI,Receptions,3.0,-900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,3.6900000000000004,0.10859268987733811,,,3.6900000000000004
+Theo Johnson,NYG,Receiving Yards,40.0,150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,36.6,-3.3999999999999986,0.05185072640224253,,,3.3999999999999986
+Dallas Goedert,PHI,Receptions,3.0,-450.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,3.3200000000000003,0.21571142492235632,,,3.3200000000000003
+Saquon Barkley,PHI,Receiving Yards,20.0,120.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rec_yards,23.3,3.3000000000000007,0.2693078595023295,,,3.3000000000000007
+Jalen Hurts,PHI,Rushing Yards,20.0,-650.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,3.3000000000000007,-0.31556983681856066,,,3.3000000000000007
+Theo Johnson,NYG,Receptions,2.0,-1600.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,3.2199999999999998,0.05545985057356932,,,3.2199999999999998
+Wan'dale Robinson,NYG,Receptions,4.0,-350.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,3.21,0.2770097514450656,,,3.21
+DeVonta Smith,PHI,Receptions,9.0,700.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,-3.0,-0.9159349750899253,,,3.0
+DeVonta Smith,PHI,Receptions,3.0,-900.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,3.0,0.09943541320693411,,,3.0
+Theo Johnson,NYG,Receptions,8.0,750.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,-2.7800000000000002,-0.8619629642774438,,,2.7800000000000002
+Dallas Goedert,PHI,Receiving Yards,40.0,120.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,rec_yards,42.7,2.700000000000003,0.2388112986498908,,,2.700000000000003
+AJ Brown,PHI,Receptions,4.0,-325.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,2.6900000000000004,0.2825032529578631,,,2.6900000000000004
+Dallas Goedert,PHI,Receptions,4.0,-190.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,2.3200000000000003,0.4695950525513347,,,2.3200000000000003
+AJ Brown,PHI,Receptions,9.0,850.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,-2.3099999999999996,-0.6409907395720135,,,2.3099999999999996
+Saquon Barkley,PHI,Receptions,6.0,850.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,receptions,3.77,-2.23,-0.5901950127503541,,,2.23
+Theo Johnson,NYG,Receptions,3.0,-450.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,2.2199999999999998,0.16863178042199542,,,2.2199999999999998
+Wan'dale Robinson,NYG,Receptions,5.0,-170.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,2.21,0.5174548532658436,,,2.21
+DeVonta Smith,PHI,Receptions,8.0,400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,-2.0,-0.6901604858181439,,,2.0
+DeVonta Smith,PHI,Receptions,4.0,-325.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,2.0,0.22665735782936075,,,2.0
+Wan'dale Robinson,NYG,Receptions,9.0,700.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,-1.79,-0.3258558735973467,,,1.79
+Theo Johnson,NYG,Receptions,7.0,400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,-1.7800000000000002,-0.572682123001523,,,1.7800000000000002
+Saquon Barkley,PHI,Receptions,2.0,-300.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,receptions,3.77,1.77,0.21777094164176075,,,1.77
+Jalen Hurts,PHI,Passing TDs,1.0,-400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,2.7,1.7000000000000002,-0.060825496421342634,,,1.7000000000000002
+Jalen Hurts,PHI,Rushing Yards,25.0,-400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,rush_yards,23.3,-1.6999999999999993,-0.43540525775661776,,,1.6999999999999993
+Saquon Barkley,PHI,Receiving Yards,25.0,190.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,rec_yards,23.3,-1.6999999999999993,0.3344992718966159,,,1.6999999999999993
+AJ Brown,PHI,Receptions,5.0,-150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,1.6900000000000004,0.5053325256906493,,,1.6900000000000004
+Dallas Goedert,PHI,Receptions,8.0,700.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,-1.6799999999999997,-0.21499756358776612,,,1.6799999999999997
+Jaxson Dart,NYG,Passing TDs,3.0,1000.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,1.42,-1.58,-0.3839281340146057,,,1.58
+Dallas Goedert,PHI,Receptions,5.0,115.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,1.3200000000000003,0.8168332869945777,,,1.3200000000000003
+AJ Brown,PHI,Receptions,8.0,475.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,-1.3099999999999996,-0.0983936779174992,,,1.3099999999999996
+Saquon Barkley,PHI,Receptions,5.0,450.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,receptions,3.77,-1.23,-0.05380716194557045,,,1.23
+Theo Johnson,NYG,Receptions,4.0,-185.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,1.2199999999999998,0.27248088377481594,,,1.2199999999999998
+Wan'dale Robinson,NYG,Receptions,6.0,110.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,1.21,0.7304284033478768,,,1.21
+DeVonta Smith,PHI,Receptions,5.0,-155.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,1.0,0.2817810855053081,,,1.0
+DeVonta Smith,PHI,Receptions,7.0,225.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,-1.0,-0.2821459679345059,,,1.0
+Wan'dale Robinson,NYG,Receptions,8.0,375.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,-0.79,0.29055496879851694,,,0.79
+Theo Johnson,NYG,Receptions,6.0,225.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,-0.7800000000000002,-0.10867736731226096,,,0.7800000000000002
+Saquon Barkley,PHI,Receptions,3.0,-105.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,receptions,3.77,0.77,0.4119184000514714,,,0.77
+Jalen Hurts,PHI,Passing TDs,2.0,140.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,2.7,0.7000000000000002,0.21530122142369124,,,0.7000000000000002
+AJ Brown,PHI,Receptions,6.0,140.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,0.6900000000000004,0.6853055544920731,,,0.6900000000000004
+Dallas Goedert,PHI,Receptions,7.0,400.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,-0.6799999999999997,0.5023018097632912,,,0.6799999999999997
+Jaxson Dart,NYG,Passing TDs,2.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,1.42,-0.5800000000000001,-0.3574149727240762,,,0.5800000000000001
+Jaxson Dart,NYG,Passing TDs,1.0,-205.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,1.42,0.41999999999999993,-0.38248349205708576,,,0.41999999999999993
+Dallas Goedert,PHI,Receptions,6.0,210.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,6.32,0.3200000000000003,0.8513771301031288,,,0.3200000000000003
+AJ Brown,PHI,Receptions,7.0,275.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.69,-0.3099999999999996,0.5216058928504321,,,0.3099999999999996
+Jalen Hurts,PHI,Passing TDs,3.0,550.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,QB,pass_tds,2.7,-0.2999999999999998,0.8584008584946281,,,0.2999999999999998
+Saquon Barkley,PHI,Receptions,4.0,225.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,RB,receptions,3.77,-0.22999999999999998,0.39679931916788924,,,0.22999999999999998
+Theo Johnson,NYG,Receptions,5.0,120.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,TE,receptions,5.22,0.21999999999999975,0.24782335867556637,,,0.21999999999999975
+Wan'dale Robinson,NYG,Receptions,7.0,225.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,7.21,0.20999999999999996,0.8335373530676385,,,0.20999999999999996
+AJ Brown,PHI,Receiving Yards,60.0,-150.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,rec_yards,59.8,-0.20000000000000284,-0.17448888387787714,,,0.20000000000000284
+DeVonta Smith,PHI,Receptions,6.0,130.0,,True,Philadelphia Eagles @ New York Giants,Giants,Eagles,1760055300000,Bovada,WR,receptions,6.0,0.0,0.1499999999999999,,,0.0
+A.J. Brown (PHI) - 1H,,Anytime TD,,350.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Brown & Philadelphia Eagles,,Anytime TD,,210.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Bellinger,NYG,Anytime TD,,1200.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Cam Skattebo,NYG,Anytime TD,,130.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+A.J. Brown (PHI) - 1Q,,Anytime TD,,750.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts & Philadelphia Eagles,,Anytime TD,,-110.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts (PHI) - 1Q,,Anytime TD,,525.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalin Hyatt,NYG,Anytime TD,,700.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalin Hyatt (NYG) - 1H,,Anytime TD,,1200.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalin Hyatt (NYG) - 1Q,,Anytime TD,,3300.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jaxson Dart,NYG,Anytime TD,,275.0,,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jaxson Dart,NYG,Passing Yards,,125.0,,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jaxson Dart,NYG,Rushing Yards,221.5,-115.0,-115.0,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jaxson Dart & New York Giants,,Anytime TD,,1100.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jaxson Dart & Philadelphia Eagles,,Anytime TD,,450.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jaxson Dart (NYG) - 1H,,Anytime TD,,525.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jaxson Dart (NYG) - 1Q,,Anytime TD,,1300.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+John Metchie III,PHI,Anytime TD,,2200.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+John Metchie III (PHI) - 1H,,Anytime TD,,4000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Kylen Granson,PHI,Anytime TD,,1600.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Kylen Granson (PHI) - 1H,,Anytime TD,,3000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+New York Giants Defense,,Anytime TD,,1100.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+NY Giants D/ST - 1H,,Anytime TD,,1600.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+NY Giants D/ST - 1Q,,Anytime TD,,3500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+PHI Eagles D/ST,,Anytime TD,,700.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts (PHI) - 1H,,Anytime TD,,180.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts & New York Giants,,Anytime TD,,725.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Dillon (PHI) - 1H,,Anytime TD,,2500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Rushing Yards,244.5,-115.0,-115.0,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+Daniel Bellinger (NYG) - 1Q,,Anytime TD,,5000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Devin Singletary,NYG,Anytime TD,,350.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Devin Singletary (NYG) - 1H,,Anytime TD,,900.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Devin Singletary (NYG) - 1Q,,Anytime TD,,2500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+DeVonta Smith,PHI,Anytime TD,,240.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+DeVonta Smith & New York Giants,,Anytime TD,,1300.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+DeVonta Smith & Philadelphia Eagles,,Anytime TD,,250.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+DeVonta Smith (PHI) - 1H,,Anytime TD,,425.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+DeVonta Smith (PHI) - 1Q,,Anytime TD,,950.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Grant Calcaterra,PHI,Anytime TD,,1600.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Grant Calcaterra (PHI) - 1H,,Anytime TD,,3000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Gunner Olszewski,NYG,Anytime TD,,1200.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+Gunner Olszewski (NYG) - 1H,,Anytime TD,,2000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Gunner Olszewski (NYG) - 1Q,,Anytime TD,,5000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jahan Dotson,PHI,Anytime TD,,1000.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jahan Dotson (PHI) - 1H,,Anytime TD,,1800.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jahan Dotson (PHI) - 1Q,,Anytime TD,,10000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Anytime TD,,-139.0,,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Passing Yards,,-165.0,,False,,Giants,Eagles,1760055300000,Bovada,QB,,,,,,unsupported_market,0.0
+PHI Eagles D/ST - 1H,,Anytime TD,,1400.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+PHI Eagles D/ST - 1Q,,Anytime TD,,3000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley,PHI,Anytime TD,,-168.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Saquon Barkley & New York Giants,,Anytime TD,,725.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Gipson,NYJ,Anytime TD,,2200.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Gipson (NYJ) - 1H,,Anytime TD,,4000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert (PHI) - 1Q,,Anytime TD,,1100.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert (PHI) - 1H,,Anytime TD,,450.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert & Philadelphia Eagles,,Anytime TD,,260.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert & New York Giants,,Anytime TD,,1400.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert,PHI,Anytime TD,,250.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Chris Manhertz,NYG,Anytime TD,,3300.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Cameron Latu,PHI,Anytime TD,,4000.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Cam Skattebo (NYG) - 1Q,,Anytime TD,,625.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Brown & New York Giants,,Anytime TD,,1100.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Cam Skattebo (NYG) - 1H,,Anytime TD,,275.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Cam Skattebo & Philadelphia Eagles,,Anytime TD,,250.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Cam Skattebo & New York Giants,,Anytime TD,,650.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Bellinger (NYG) - 1H,,Anytime TD,,2000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Beaux Collins (NYG) - 1Q,,Anytime TD,,3300.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Beaux Collins (NYG) - 1H,,Anytime TD,,1400.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Beaux Collins,NYG,Anytime TD,,700.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+AJ Dillon,PHI,Anytime TD,,900.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Will Shipley (PHI) - 1H,,Anytime TD,,2500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Will Shipley,PHI,Anytime TD,,1200.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Wan'dale Robinson (NYG) - 1Q,,Anytime TD,,1500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Theo Johnson (NYG) - 1H,,Anytime TD,,825.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley & Philadelphia Eagles,,Anytime TD,,-120.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley (PHI) - 1H,,Anytime TD,,150.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley (PHI) - 1Q,,Anytime TD,,380.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tank Bigsby,PHI,Anytime TD,,1200.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Tank Bigsby (PHI) - 1H,,Anytime TD,,2500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Theo Johnson,NYG,Anytime TD,,400.0,,False,,Giants,Eagles,1760055300000,Bovada,TE,,,,,,unsupported_market,0.0
+Theo Johnson & New York Giants,,Anytime TD,,1300.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Theo Johnson & Philadelphia Eagles,,Anytime TD,,625.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Theo Johnson (NYG) - 1Q,,Anytime TD,,2000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Wan'dale Robinson (NYG) - 1H,,Anytime TD,,675.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr & New York Giants,,Anytime TD,,1000.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr & Philadelphia Eagles,,Anytime TD,,475.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr - 1H,,Anytime TD,,900.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr - 1Q,,Anytime TD,,2500.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr.,NYG,Anytime TD,,350.0,,False,,Giants,Eagles,1760055300000,Bovada,RB,,,,,,unsupported_market,0.0
+Wan'dale Robinson,NYG,Anytime TD,,350.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
+Wan'Dale Robinson & New York Giants,,Anytime TD,,900.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+Wan'Dale Robinson & Philadelphia Eagles,,Anytime TD,,425.0,,False,,Giants,Eagles,1760055300000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Brown,PHI,Anytime TD,,185.0,,False,,Giants,Eagles,1760055300000,Bovada,WR,,,,,,unsupported_market,0.0
