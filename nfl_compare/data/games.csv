@@ -1,273 +1,273 @@
-season,week,game_id,date,home_team,away_team,home_score,away_score,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4
-2025,1,2025_01_DAL_PHI,2025-09-04,Philadelphia Eagles,Dallas Cowboys,24.0,20.0,7.0,14.0,3.0,0.0,7.0,13.0,0.0,0.0
-2025,1,2025_01_KC_LAC,2025-09-05,Los Angeles Chargers,Kansas City Chiefs,27.0,21.0,7.0,6.0,7.0,7.0,0.0,6.0,6.0,9.0
-2025,1,2025_01_TB_ATL,2025-09-07,Atlanta Falcons,Tampa Bay Buccaneers,20.0,23.0,7.0,3.0,3.0,7.0,0.0,10.0,7.0,6.0
-2025,1,2025_01_CIN_CLE,2025-09-07,Cleveland Browns,Cincinnati Bengals,16.0,17.0,0.0,10.0,6.0,0.0,7.0,7.0,3.0,0.0
-2025,1,2025_01_MIA_IND,2025-09-07,Indianapolis Colts,Miami Dolphins,33.0,8.0,3.0,17.0,3.0,10.0,0.0,0.0,0.0,8.0
-2025,1,2025_01_CAR_JAX,2025-09-07,Jacksonville Jaguars,Carolina Panthers,26.0,10.0,3.0,17.0,0.0,6.0,3.0,0.0,0.0,7.0
-2025,1,2025_01_LV_NE,2025-09-07,New England Patriots,Las Vegas Raiders,13.0,20.0,7.0,3.0,0.0,3.0,7.0,0.0,10.0,3.0
-2025,1,2025_01_ARI_NO,2025-09-07,New Orleans Saints,Arizona Cardinals,13.0,20.0,0.0,10.0,0.0,3.0,3.0,14.0,3.0,0.0
-2025,1,2025_01_PIT_NYJ,2025-09-07,New York Jets,Pittsburgh Steelers,32.0,34.0,9.0,10.0,7.0,6.0,7.0,10.0,0.0,17.0
-2025,1,2025_01_NYG_WAS,2025-09-07,Washington Commanders,New York Giants,21.0,6.0,7.0,7.0,0.0,7.0,0.0,3.0,3.0,0.0
-2025,1,2025_01_TEN_DEN,2025-09-07,Denver Broncos,Tennessee Titans,20.0,12.0,3.0,7.0,3.0,7.0,3.0,6.0,3.0,0.0
-2025,1,2025_01_SF_SEA,2025-09-07,Seattle Seahawks,San Francisco 49ers,13.0,17.0,0.0,10.0,0.0,3.0,7.0,0.0,0.0,10.0
-2025,1,2025_01_DET_GB,2025-09-07,Green Bay Packers,Detroit Lions,27.0,13.0,10.0,7.0,0.0,10.0,0.0,3.0,3.0,7.0
-2025,1,2025_01_HOU_LA,2025-09-07,Los Angeles Rams,Houston Texans,14.0,9.0,0.0,7.0,7.0,0.0,3.0,6.0,0.0,0.0
-2025,1,2025_01_BAL_BUF,2025-09-07,Buffalo Bills,Baltimore Ravens,41.0,40.0,7.0,6.0,6.0,22.0,3.0,17.0,14.0,6.0
-2025,1,2025_01_MIN_CHI,2025-09-08,Chicago Bears,Minnesota Vikings,24.0,27.0,7.0,3.0,7.0,7.0,0.0,6.0,0.0,21.0
-2025,2,2025_02_WAS_GB,2025-09-11,Green Bay Packers,Washington Commanders,27.0,18.0,7.0,7.0,3.0,10.0,0.0,3.0,0.0,15.0
-2025,2,2025_02_CLE_BAL,2025-09-14,Baltimore Ravens,Cleveland Browns,41.0,17.0,3.0,7.0,10.0,21.0,0.0,3.0,7.0,7.0
-2025,2,2025_02_JAX_CIN,2025-09-14,Cincinnati Bengals,Jacksonville Jaguars,31.0,27.0,7.0,3.0,14.0,7.0,7.0,10.0,7.0,3.0
-2025,2,2025_02_NYG_DAL,2025-09-14,Dallas Cowboys,New York Giants,40.0,37.0,0.0,10.0,7.0,20.0,6.0,7.0,3.0,21.0
-2025,2,2025_02_CHI_DET,2025-09-14,Detroit Lions,Chicago Bears,52.0,21.0,14.0,14.0,10.0,14.0,7.0,7.0,0.0,7.0
-2025,2,2025_02_NE_MIA,2025-09-14,Miami Dolphins,New England Patriots,27.0,33.0,0.0,14.0,6.0,7.0,12.0,3.0,8.0,10.0
-2025,2,2025_02_SF_NO,2025-09-14,New Orleans Saints,San Francisco 49ers,21.0,26.0,0.0,7.0,7.0,7.0,6.0,10.0,3.0,7.0
-2025,2,2025_02_BUF_NYJ,2025-09-14,New York Jets,Buffalo Bills,10.0,30.0,0.0,3.0,0.0,7.0,10.0,10.0,3.0,7.0
-2025,2,2025_02_SEA_PIT,2025-09-14,Pittsburgh Steelers,Seattle Seahawks,17.0,31.0,6.0,8.0,0.0,3.0,7.0,0.0,7.0,17.0
-2025,2,2025_02_LA_TEN,2025-09-14,Tennessee Titans,Los Angeles Rams,19.0,33.0,0.0,13.0,3.0,3.0,7.0,3.0,10.0,13.0
-2025,2,2025_02_CAR_ARI,2025-09-14,Arizona Cardinals,Carolina Panthers,27.0,22.0,10.0,10.0,7.0,0.0,3.0,0.0,6.0,13.0
-2025,2,2025_02_DEN_IND,2025-09-14,Indianapolis Colts,Denver Broncos,29.0,28.0,6.0,14.0,3.0,6.0,7.0,14.0,7.0,0.0
-2025,2,2025_02_PHI_KC,2025-09-14,Kansas City Chiefs,Philadelphia Eagles,17.0,20.0,0.0,10.0,0.0,7.0,7.0,3.0,3.0,7.0
-2025,2,2025_02_ATL_MIN,2025-09-14,Minnesota Vikings,Atlanta Falcons,6.0,22.0,0.0,6.0,0.0,0.0,6.0,3.0,3.0,10.0
-2025,2,2025_02_TB_HOU,2025-09-15,Houston Texans,Tampa Bay Buccaneers,19.0,20.0,10.0,0.0,0.0,9.0,7.0,7.0,0.0,6.0
-2025,2,2025_02_LAC_LV,2025-09-15,Las Vegas Raiders,Los Angeles Chargers,9.0,20.0,3.0,3.0,0.0,3.0,10.0,7.0,3.0,0.0
-2025,3,2025_03_MIA_BUF,2025-09-18,Buffalo Bills,Miami Dolphins,31.0,21.0,7.0,7.0,7.0,10.0,7.0,7.0,0.0,7.0
-2025,3,2025_03_ATL_CAR,2025-09-21,Carolina Panthers,Atlanta Falcons,30.0,0.0,7.0,3.0,10.0,10.0,0.0,0.0,0.0,0.0
-2025,3,2025_03_GB_CLE,2025-09-21,Cleveland Browns,Green Bay Packers,13.0,10.0,0.0,0.0,0.0,13.0,0.0,3.0,7.0,0.0
-2025,3,2025_03_HOU_JAX,2025-09-21,Jacksonville Jaguars,Houston Texans,17.0,10.0,7.0,0.0,3.0,7.0,0.0,3.0,0.0,7.0
-2025,3,2025_03_CIN_MIN,2025-09-21,Minnesota Vikings,Cincinnati Bengals,48.0,10.0,14.0,20.0,14.0,0.0,0.0,3.0,0.0,7.0
-2025,3,2025_03_PIT_NE,2025-09-21,New England Patriots,Pittsburgh Steelers,14.0,21.0,0.0,7.0,0.0,7.0,7.0,7.0,0.0,7.0
-2025,3,2025_03_LA_PHI,2025-09-21,Philadelphia Eagles,Los Angeles Rams,33.0,26.0,7.0,0.0,14.0,12.0,10.0,9.0,7.0,0.0
-2025,3,2025_03_NYJ_TB,2025-09-21,Tampa Bay Buccaneers,New York Jets,29.0,27.0,3.0,17.0,3.0,6.0,3.0,3.0,0.0,21.0
-2025,3,2025_03_IND_TEN,2025-09-21,Tennessee Titans,Indianapolis Colts,20.0,41.0,3.0,3.0,7.0,7.0,17.0,3.0,14.0,7.0
-2025,3,2025_03_LV_WAS,2025-09-21,Washington Commanders,Las Vegas Raiders,41.0,24.0,7.0,13.0,14.0,7.0,3.0,7.0,0.0,14.0
-2025,3,2025_03_DEN_LAC,2025-09-21,Los Angeles Chargers,Denver Broncos,23.0,20.0,3.0,7.0,3.0,10.0,0.0,7.0,10.0,3.0
-2025,3,2025_03_NO_SEA,2025-09-21,Seattle Seahawks,New Orleans Saints,44.0,13.0,21.0,17.0,6.0,0.0,0.0,6.0,0.0,7.0
-2025,3,2025_03_DAL_CHI,2025-09-21,Chicago Bears,Dallas Cowboys,31.0,14.0,14.0,10.0,7.0,0.0,3.0,11.0,0.0,0.0
-2025,3,2025_03_ARI_SF,2025-09-21,San Francisco 49ers,Arizona Cardinals,16.0,15.0,0.0,6.0,0.0,10.0,0.0,3.0,3.0,9.0
-2025,3,2025_03_KC_NYG,2025-09-21,New York Giants,Kansas City Chiefs,9.0,22.0,0.0,6.0,0.0,3.0,3.0,6.0,7.0,6.0
-2025,3,2025_03_DET_BAL,2025-09-22,Baltimore Ravens,Detroit Lions,30.0,38.0,7.0,7.0,7.0,9.0,7.0,7.0,7.0,17.0
-2025,4,2025_04_SEA_ARI,2025-09-25,Arizona Cardinals,Seattle Seahawks,20.0,23.0,3.0,0.0,3.0,14.0,7.0,7.0,3.0,6.0
-2025,4,2025_04_MIN_PIT,2025-09-28,Pittsburgh Steelers,Minnesota Vikings,24.0,21.0,7.0,7.0,7.0,3.0,3.0,3.0,0.0,15.0
-2025,4,2025_04_WAS_ATL,2025-09-28,Atlanta Falcons,Washington Commanders,34.0,27.0,10.0,7.0,14.0,3.0,0.0,10.0,6.0,11.0
-2025,4,2025_04_NO_BUF,2025-09-28,Buffalo Bills,New Orleans Saints,31.0,19.0,14.0,0.0,7.0,10.0,7.0,3.0,6.0,3.0
-2025,4,2025_04_CLE_DET,2025-09-28,Detroit Lions,Cleveland Browns,34.0,10.0,7.0,13.0,0.0,14.0,7.0,0.0,3.0,0.0
-2025,4,2025_04_TEN_HOU,2025-09-28,Houston Texans,Tennessee Titans,26.0,0.0,3.0,3.0,0.0,20.0,0.0,0.0,0.0,0.0
-2025,4,2025_04_CAR_NE,2025-09-28,New England Patriots,Carolina Panthers,42.0,13.0,7.0,21.0,7.0,7.0,6.0,0.0,0.0,7.0
-2025,4,2025_04_LAC_NYG,2025-09-28,New York Giants,Los Angeles Chargers,21.0,18.0,7.0,6.0,8.0,0.0,0.0,10.0,8.0,0.0
-2025,4,2025_04_PHI_TB,2025-09-28,Tampa Bay Buccaneers,Philadelphia Eagles,25.0,31.0,3.0,3.0,14.0,5.0,14.0,10.0,7.0,0.0
-2025,4,2025_04_IND_LA,2025-09-28,Los Angeles Rams,Indianapolis Colts,27.0,20.0,3.0,10.0,0.0,14.0,3.0,7.0,0.0,10.0
-2025,4,2025_04_JAX_SF,2025-09-28,San Francisco 49ers,Jacksonville Jaguars,21.0,26.0,3.0,3.0,8.0,7.0,0.0,17.0,9.0,0.0
-2025,4,2025_04_BAL_KC,2025-09-28,Kansas City Chiefs,Baltimore Ravens,37.0,20.0,3.0,17.0,10.0,7.0,7.0,3.0,3.0,7.0
-2025,4,2025_04_CHI_LV,2025-09-28,Las Vegas Raiders,Chicago Bears,24.0,25.0,7.0,7.0,7.0,3.0,3.0,6.0,7.0,9.0
-2025,4,2025_04_GB_DAL,2025-09-28,Dallas Cowboys,Green Bay Packers,40.0,40.0,0.0,16.0,7.0,14.0,7.0,6.0,7.0,17.0
-2025,4,2025_04_NYJ_MIA,2025-09-29,Miami Dolphins,New York Jets,27.0,21.0,3.0,7.0,14.0,3.0,0.0,3.0,7.0,11.0
-2025,4,2025_04_CIN_DEN,2025-09-29,Denver Broncos,Cincinnati Bengals,28.0,3.0,7.0,14.0,0.0,7.0,3.0,0.0,0.0,0.0
-2025,5,2025_05_SF_LA,2025-10-02,Los Angeles Rams,San Francisco 49ers,23.0,26.0,0.0,7.0,7.0,9.0,7.0,10.0,3.0,3.0
-2025,5,2025_05_MIN_CLE,2025-10-05,Cleveland Browns,Minnesota Vikings,17.0,21.0,7.0,3.0,7.0,0.0,7.0,0.0,7.0,7.0
-2025,5,2025_05_HOU_BAL,2025-10-05,Baltimore Ravens,Houston Texans,10.0,44.0,3.0,0.0,7.0,0.0,7.0,17.0,10.0,10.0
-2025,5,2025_05_MIA_CAR,2025-10-05,Carolina Panthers,Miami Dolphins,27.0,24.0,0.0,10.0,3.0,14.0,3.0,14.0,0.0,7.0
-2025,5,2025_05_LV_IND,2025-10-05,Indianapolis Colts,Las Vegas Raiders,40.0,6.0,0.0,20.0,20.0,0.0,3.0,0.0,0.0,3.0
-2025,5,2025_05_NYG_NO,2025-10-05,New Orleans Saints,New York Giants,26.0,14.0,3.0,13.0,3.0,7.0,7.0,7.0,0.0,0.0
-2025,5,2025_05_DAL_NYJ,2025-10-05,New York Jets,Dallas Cowboys,22.0,37.0,3.0,0.0,3.0,16.0,3.0,20.0,7.0,7.0
-2025,5,2025_05_DEN_PHI,2025-10-05,Philadelphia Eagles,Denver Broncos,17.0,21.0,3.0,7.0,7.0,0.0,3.0,0.0,0.0,18.0
-2025,5,2025_05_TEN_ARI,2025-10-05,Arizona Cardinals,Tennessee Titans,21.0,22.0,14.0,7.0,0.0,0.0,3.0,3.0,0.0,16.0
-2025,5,2025_05_TB_SEA,2025-10-05,Seattle Seahawks,Tampa Bay Buccaneers,35.0,38.0,0.0,7.0,14.0,14.0,3.0,10.0,15.0,10.0
-2025,5,2025_05_DET_CIN,2025-10-05,Cincinnati Bengals,Detroit Lions,24.0,37.0,0.0,3.0,0.0,21.0,7.0,7.0,14.0,9.0
-2025,5,2025_05_WAS_LAC,2025-10-05,Los Angeles Chargers,Washington Commanders,10.0,27.0,10.0,0.0,0.0,0.0,0.0,10.0,10.0,7.0
-2025,5,2025_05_NE_BUF,2025-10-05,Buffalo Bills,New England Patriots,20.0,23.0,0.0,3.0,7.0,10.0,3.0,3.0,7.0,10.0
-2025,5,2025_05_KC_JAX,2025-10-06,Jacksonville Jaguars,Kansas City Chiefs,31.0,28.0,0.0,7.0,14.0,10.0,7.0,7.0,0.0,14.0
-2025,6,2025_06_PHI_NYG,2025-10-09,New York Giants,Philadelphia Eagles,,,,,,,,,,
-2025,6,2025_06_DEN_NYJ,2025-10-12,New York Jets,Denver Broncos,,,,,,,,,,
-2025,6,2025_06_LA_BAL,2025-10-12,Baltimore Ravens,Los Angeles Rams,,,,,,,,,,
-2025,6,2025_06_DAL_CAR,2025-10-12,Carolina Panthers,Dallas Cowboys,,,,,,,,,,
-2025,6,2025_06_ARI_IND,2025-10-12,Indianapolis Colts,Arizona Cardinals,,,,,,,,,,
-2025,6,2025_06_SEA_JAX,2025-10-12,Jacksonville Jaguars,Seattle Seahawks,,,,,,,,,,
-2025,6,2025_06_LAC_MIA,2025-10-12,Miami Dolphins,Los Angeles Chargers,,,,,,,,,,
-2025,6,2025_06_NE_NO,2025-10-12,New Orleans Saints,New England Patriots,,,,,,,,,,
-2025,6,2025_06_CLE_PIT,2025-10-12,Pittsburgh Steelers,Cleveland Browns,,,,,,,,,,
-2025,6,2025_06_TEN_LV,2025-10-12,Las Vegas Raiders,Tennessee Titans,,,,,,,,,,
-2025,6,2025_06_CIN_GB,2025-10-12,Green Bay Packers,Cincinnati Bengals,,,,,,,,,,
-2025,6,2025_06_SF_TB,2025-10-12,Tampa Bay Buccaneers,San Francisco 49ers,,,,,,,,,,
-2025,6,2025_06_DET_KC,2025-10-12,Kansas City Chiefs,Detroit Lions,,,,,,,,,,
-2025,6,2025_06_BUF_ATL,2025-10-13,Atlanta Falcons,Buffalo Bills,,,,,,,,,,
-2025,6,2025_06_CHI_WAS,2025-10-13,Washington Commanders,Chicago Bears,,,,,,,,,,
-2025,7,2025_07_PIT_CIN,2025-10-16,Cincinnati Bengals,Pittsburgh Steelers,,,,,,,,,,
-2025,7,2025_07_LA_JAX,2025-10-19,Jacksonville Jaguars,Los Angeles Rams,,,,,,,,,,
-2025,7,2025_07_NO_CHI,2025-10-19,Chicago Bears,New Orleans Saints,,,,,,,,,,
-2025,7,2025_07_MIA_CLE,2025-10-19,Cleveland Browns,Miami Dolphins,,,,,,,,,,
-2025,7,2025_07_LV_KC,2025-10-19,Kansas City Chiefs,Las Vegas Raiders,,,,,,,,,,
-2025,7,2025_07_PHI_MIN,2025-10-19,Minnesota Vikings,Philadelphia Eagles,,,,,,,,,,
-2025,7,2025_07_CAR_NYJ,2025-10-19,New York Jets,Carolina Panthers,,,,,,,,,,
-2025,7,2025_07_NE_TEN,2025-10-19,Tennessee Titans,New England Patriots,,,,,,,,,,
-2025,7,2025_07_NYG_DEN,2025-10-19,Denver Broncos,New York Giants,,,,,,,,,,
-2025,7,2025_07_IND_LAC,2025-10-19,Los Angeles Chargers,Indianapolis Colts,,,,,,,,,,
-2025,7,2025_07_GB_ARI,2025-10-19,Arizona Cardinals,Green Bay Packers,,,,,,,,,,
-2025,7,2025_07_WAS_DAL,2025-10-19,Dallas Cowboys,Washington Commanders,,,,,,,,,,
-2025,7,2025_07_ATL_SF,2025-10-19,San Francisco 49ers,Atlanta Falcons,,,,,,,,,,
-2025,7,2025_07_TB_DET,2025-10-20,Detroit Lions,Tampa Bay Buccaneers,,,,,,,,,,
-2025,7,2025_07_HOU_SEA,2025-10-20,Seattle Seahawks,Houston Texans,,,,,,,,,,
-2025,8,2025_08_MIN_LAC,2025-10-23,Los Angeles Chargers,Minnesota Vikings,,,,,,,,,,
-2025,8,2025_08_MIA_ATL,2025-10-26,Atlanta Falcons,Miami Dolphins,,,,,,,,,,
-2025,8,2025_08_CHI_BAL,2025-10-26,Baltimore Ravens,Chicago Bears,,,,,,,,,,
-2025,8,2025_08_BUF_CAR,2025-10-26,Carolina Panthers,Buffalo Bills,,,,,,,,,,
-2025,8,2025_08_NYJ_CIN,2025-10-26,Cincinnati Bengals,New York Jets,,,,,,,,,,
-2025,8,2025_08_SF_HOU,2025-10-26,Houston Texans,San Francisco 49ers,,,,,,,,,,
-2025,8,2025_08_CLE_NE,2025-10-26,New England Patriots,Cleveland Browns,,,,,,,,,,
-2025,8,2025_08_NYG_PHI,2025-10-26,Philadelphia Eagles,New York Giants,,,,,,,,,,
-2025,8,2025_08_TB_NO,2025-10-26,New Orleans Saints,Tampa Bay Buccaneers,,,,,,,,,,
-2025,8,2025_08_DAL_DEN,2025-10-26,Denver Broncos,Dallas Cowboys,,,,,,,,,,
-2025,8,2025_08_TEN_IND,2025-10-26,Indianapolis Colts,Tennessee Titans,,,,,,,,,,
-2025,8,2025_08_GB_PIT,2025-10-26,Pittsburgh Steelers,Green Bay Packers,,,,,,,,,,
-2025,8,2025_08_WAS_KC,2025-10-27,Kansas City Chiefs,Washington Commanders,,,,,,,,,,
-2025,9,2025_09_BAL_MIA,2025-10-30,Miami Dolphins,Baltimore Ravens,,,,,,,,,,
-2025,9,2025_09_CHI_CIN,2025-11-02,Cincinnati Bengals,Chicago Bears,,,,,,,,,,
-2025,9,2025_09_MIN_DET,2025-11-02,Detroit Lions,Minnesota Vikings,,,,,,,,,,
-2025,9,2025_09_CAR_GB,2025-11-02,Green Bay Packers,Carolina Panthers,,,,,,,,,,
-2025,9,2025_09_DEN_HOU,2025-11-02,Houston Texans,Denver Broncos,,,,,,,,,,
-2025,9,2025_09_ATL_NE,2025-11-02,New England Patriots,Atlanta Falcons,,,,,,,,,,
-2025,9,2025_09_SF_NYG,2025-11-02,New York Giants,San Francisco 49ers,,,,,,,,,,
-2025,9,2025_09_IND_PIT,2025-11-02,Pittsburgh Steelers,Indianapolis Colts,,,,,,,,,,
-2025,9,2025_09_LAC_TEN,2025-11-02,Tennessee Titans,Los Angeles Chargers,,,,,,,,,,
-2025,9,2025_09_NO_LA,2025-11-02,Los Angeles Rams,New Orleans Saints,,,,,,,,,,
-2025,9,2025_09_JAX_LV,2025-11-02,Las Vegas Raiders,Jacksonville Jaguars,,,,,,,,,,
-2025,9,2025_09_KC_BUF,2025-11-02,Buffalo Bills,Kansas City Chiefs,,,,,,,,,,
-2025,9,2025_09_SEA_WAS,2025-11-02,Washington Commanders,Seattle Seahawks,,,,,,,,,,
-2025,9,2025_09_ARI_DAL,2025-11-03,Dallas Cowboys,Arizona Cardinals,,,,,,,,,,
-2025,10,2025_10_LV_DEN,2025-11-06,Denver Broncos,Las Vegas Raiders,,,,,,,,,,
-2025,10,2025_10_ATL_IND,2025-11-09,Indianapolis Colts,Atlanta Falcons,,,,,,,,,,
-2025,10,2025_10_NO_CAR,2025-11-09,Carolina Panthers,New Orleans Saints,,,,,,,,,,
-2025,10,2025_10_NYG_CHI,2025-11-09,Chicago Bears,New York Giants,,,,,,,,,,
-2025,10,2025_10_JAX_HOU,2025-11-09,Houston Texans,Jacksonville Jaguars,,,,,,,,,,
-2025,10,2025_10_BUF_MIA,2025-11-09,Miami Dolphins,Buffalo Bills,,,,,,,,,,
-2025,10,2025_10_BAL_MIN,2025-11-09,Minnesota Vikings,Baltimore Ravens,,,,,,,,,,
-2025,10,2025_10_CLE_NYJ,2025-11-09,New York Jets,Cleveland Browns,,,,,,,,,,
-2025,10,2025_10_NE_TB,2025-11-09,Tampa Bay Buccaneers,New England Patriots,,,,,,,,,,
-2025,10,2025_10_ARI_SEA,2025-11-09,Seattle Seahawks,Arizona Cardinals,,,,,,,,,,
-2025,10,2025_10_LA_SF,2025-11-09,San Francisco 49ers,Los Angeles Rams,,,,,,,,,,
-2025,10,2025_10_DET_WAS,2025-11-09,Washington Commanders,Detroit Lions,,,,,,,,,,
-2025,10,2025_10_PIT_LAC,2025-11-09,Los Angeles Chargers,Pittsburgh Steelers,,,,,,,,,,
-2025,10,2025_10_PHI_GB,2025-11-10,Green Bay Packers,Philadelphia Eagles,,,,,,,,,,
-2025,11,2025_11_NYJ_NE,2025-11-13,New England Patriots,New York Jets,,,,,,,,,,
-2025,11,2025_11_WAS_MIA,2025-11-16,Miami Dolphins,Washington Commanders,,,,,,,,,,
-2025,11,2025_11_CAR_ATL,2025-11-16,Atlanta Falcons,Carolina Panthers,,,,,,,,,,
-2025,11,2025_11_TB_BUF,2025-11-16,Buffalo Bills,Tampa Bay Buccaneers,,,,,,,,,,
-2025,11,2025_11_LAC_JAX,2025-11-16,Jacksonville Jaguars,Los Angeles Chargers,,,,,,,,,,
-2025,11,2025_11_CHI_MIN,2025-11-16,Minnesota Vikings,Chicago Bears,,,,,,,,,,
-2025,11,2025_11_GB_NYG,2025-11-16,New York Giants,Green Bay Packers,,,,,,,,,,
-2025,11,2025_11_CIN_PIT,2025-11-16,Pittsburgh Steelers,Cincinnati Bengals,,,,,,,,,,
-2025,11,2025_11_HOU_TEN,2025-11-16,Tennessee Titans,Houston Texans,,,,,,,,,,
-2025,11,2025_11_SF_ARI,2025-11-16,Arizona Cardinals,San Francisco 49ers,,,,,,,,,,
-2025,11,2025_11_SEA_LA,2025-11-16,Los Angeles Rams,Seattle Seahawks,,,,,,,,,,
-2025,11,2025_11_BAL_CLE,2025-11-16,Cleveland Browns,Baltimore Ravens,,,,,,,,,,
-2025,11,2025_11_KC_DEN,2025-11-16,Denver Broncos,Kansas City Chiefs,,,,,,,,,,
-2025,11,2025_11_DET_PHI,2025-11-16,Philadelphia Eagles,Detroit Lions,,,,,,,,,,
-2025,11,2025_11_DAL_LV,2025-11-17,Las Vegas Raiders,Dallas Cowboys,,,,,,,,,,
-2025,12,2025_12_BUF_HOU,2025-11-20,Houston Texans,Buffalo Bills,,,,,,,,,,
-2025,12,2025_12_NYJ_BAL,2025-11-23,Baltimore Ravens,New York Jets,,,,,,,,,,
-2025,12,2025_12_PIT_CHI,2025-11-23,Chicago Bears,Pittsburgh Steelers,,,,,,,,,,
-2025,12,2025_12_NE_CIN,2025-11-23,Cincinnati Bengals,New England Patriots,,,,,,,,,,
-2025,12,2025_12_NYG_DET,2025-11-23,Detroit Lions,New York Giants,,,,,,,,,,
-2025,12,2025_12_MIN_GB,2025-11-23,Green Bay Packers,Minnesota Vikings,,,,,,,,,,
-2025,12,2025_12_IND_KC,2025-11-23,Kansas City Chiefs,Indianapolis Colts,,,,,,,,,,
-2025,12,2025_12_SEA_TEN,2025-11-23,Tennessee Titans,Seattle Seahawks,,,,,,,,,,
-2025,12,2025_12_JAX_ARI,2025-11-23,Arizona Cardinals,Jacksonville Jaguars,,,,,,,,,,
-2025,12,2025_12_CLE_LV,2025-11-23,Las Vegas Raiders,Cleveland Browns,,,,,,,,,,
-2025,12,2025_12_PHI_DAL,2025-11-23,Dallas Cowboys,Philadelphia Eagles,,,,,,,,,,
-2025,12,2025_12_ATL_NO,2025-11-23,New Orleans Saints,Atlanta Falcons,,,,,,,,,,
-2025,12,2025_12_TB_LA,2025-11-23,Los Angeles Rams,Tampa Bay Buccaneers,,,,,,,,,,
-2025,12,2025_12_CAR_SF,2025-11-24,San Francisco 49ers,Carolina Panthers,,,,,,,,,,
-2025,13,2025_13_GB_DET,2025-11-27,Detroit Lions,Green Bay Packers,,,,,,,,,,
-2025,13,2025_13_KC_DAL,2025-11-27,Dallas Cowboys,Kansas City Chiefs,,,,,,,,,,
-2025,13,2025_13_CIN_BAL,2025-11-27,Baltimore Ravens,Cincinnati Bengals,,,,,,,,,,
-2025,13,2025_13_CHI_PHI,2025-11-28,Philadelphia Eagles,Chicago Bears,,,,,,,,,,
-2025,13,2025_13_LA_CAR,2025-11-30,Carolina Panthers,Los Angeles Rams,,,,,,,,,,
-2025,13,2025_13_SF_CLE,2025-11-30,Cleveland Browns,San Francisco 49ers,,,,,,,,,,
-2025,13,2025_13_HOU_IND,2025-11-30,Indianapolis Colts,Houston Texans,,,,,,,,,,
-2025,13,2025_13_NO_MIA,2025-11-30,Miami Dolphins,New Orleans Saints,,,,,,,,,,
-2025,13,2025_13_ATL_NYJ,2025-11-30,New York Jets,Atlanta Falcons,,,,,,,,,,
-2025,13,2025_13_ARI_TB,2025-11-30,Tampa Bay Buccaneers,Arizona Cardinals,,,,,,,,,,
-2025,13,2025_13_JAX_TEN,2025-11-30,Tennessee Titans,Jacksonville Jaguars,,,,,,,,,,
-2025,13,2025_13_MIN_SEA,2025-11-30,Seattle Seahawks,Minnesota Vikings,,,,,,,,,,
-2025,13,2025_13_LV_LAC,2025-11-30,Los Angeles Chargers,Las Vegas Raiders,,,,,,,,,,
-2025,13,2025_13_BUF_PIT,2025-11-30,Pittsburgh Steelers,Buffalo Bills,,,,,,,,,,
-2025,13,2025_13_DEN_WAS,2025-11-30,Washington Commanders,Denver Broncos,,,,,,,,,,
-2025,13,2025_13_NYG_NE,2025-12-01,New England Patriots,New York Giants,,,,,,,,,,
-2025,14,2025_14_DAL_DET,2025-12-04,Detroit Lions,Dallas Cowboys,,,,,,,,,,
-2025,14,2025_14_SEA_ATL,2025-12-07,Atlanta Falcons,Seattle Seahawks,,,,,,,,,,
-2025,14,2025_14_PIT_BAL,2025-12-07,Baltimore Ravens,Pittsburgh Steelers,,,,,,,,,,
-2025,14,2025_14_TEN_CLE,2025-12-07,Cleveland Browns,Tennessee Titans,,,,,,,,,,
-2025,14,2025_14_CHI_GB,2025-12-07,Green Bay Packers,Chicago Bears,,,,,,,,,,
-2025,14,2025_14_IND_JAX,2025-12-07,Jacksonville Jaguars,Indianapolis Colts,,,,,,,,,,
-2025,14,2025_14_WAS_MIN,2025-12-07,Minnesota Vikings,Washington Commanders,,,,,,,,,,
-2025,14,2025_14_MIA_NYJ,2025-12-07,New York Jets,Miami Dolphins,,,,,,,,,,
-2025,14,2025_14_NO_TB,2025-12-07,Tampa Bay Buccaneers,New Orleans Saints,,,,,,,,,,
-2025,14,2025_14_DEN_LV,2025-12-07,Las Vegas Raiders,Denver Broncos,,,,,,,,,,
-2025,14,2025_14_LA_ARI,2025-12-07,Arizona Cardinals,Los Angeles Rams,,,,,,,,,,
-2025,14,2025_14_CIN_BUF,2025-12-07,Buffalo Bills,Cincinnati Bengals,,,,,,,,,,
-2025,14,2025_14_HOU_KC,2025-12-07,Kansas City Chiefs,Houston Texans,,,,,,,,,,
-2025,14,2025_14_PHI_LAC,2025-12-08,Los Angeles Chargers,Philadelphia Eagles,,,,,,,,,,
-2025,15,2025_15_ATL_TB,2025-12-11,Tampa Bay Buccaneers,Atlanta Falcons,,,,,,,,,,
-2025,15,2025_15_CLE_CHI,2025-12-14,Chicago Bears,Cleveland Browns,,,,,,,,,,
-2025,15,2025_15_BAL_CIN,2025-12-14,Cincinnati Bengals,Baltimore Ravens,,,,,,,,,,
-2025,15,2025_15_ARI_HOU,2025-12-14,Houston Texans,Arizona Cardinals,,,,,,,,,,
-2025,15,2025_15_NYJ_JAX,2025-12-14,Jacksonville Jaguars,New York Jets,,,,,,,,,,
-2025,15,2025_15_LAC_KC,2025-12-14,Kansas City Chiefs,Los Angeles Chargers,,,,,,,,,,
-2025,15,2025_15_BUF_NE,2025-12-14,New England Patriots,Buffalo Bills,,,,,,,,,,
-2025,15,2025_15_WAS_NYG,2025-12-14,New York Giants,Washington Commanders,,,,,,,,,,
-2025,15,2025_15_LV_PHI,2025-12-14,Philadelphia Eagles,Las Vegas Raiders,,,,,,,,,,
-2025,15,2025_15_GB_DEN,2025-12-14,Denver Broncos,Green Bay Packers,,,,,,,,,,
-2025,15,2025_15_DET_LA,2025-12-14,Los Angeles Rams,Detroit Lions,,,,,,,,,,
-2025,15,2025_15_CAR_NO,2025-12-14,New Orleans Saints,Carolina Panthers,,,,,,,,,,
-2025,15,2025_15_IND_SEA,2025-12-14,Seattle Seahawks,Indianapolis Colts,,,,,,,,,,
-2025,15,2025_15_TEN_SF,2025-12-14,San Francisco 49ers,Tennessee Titans,,,,,,,,,,
-2025,15,2025_15_MIN_DAL,2025-12-14,Dallas Cowboys,Minnesota Vikings,,,,,,,,,,
-2025,15,2025_15_MIA_PIT,2025-12-15,Pittsburgh Steelers,Miami Dolphins,,,,,,,,,,
-2025,16,2025_16_LA_SEA,2025-12-18,Seattle Seahawks,Los Angeles Rams,,,,,,,,,,
-2025,16,2025_16_GB_CHI,2025-12-19,Chicago Bears,Green Bay Packers,,,,,,,,,,
-2025,16,2025_16_PHI_WAS,2025-12-19,Washington Commanders,Philadelphia Eagles,,,,,,,,,,
-2025,16,2025_16_NE_BAL,2025-12-21,Baltimore Ravens,New England Patriots,,,,,,,,,,
-2025,16,2025_16_TB_CAR,2025-12-21,Carolina Panthers,Tampa Bay Buccaneers,,,,,,,,,,
-2025,16,2025_16_BUF_CLE,2025-12-21,Cleveland Browns,Buffalo Bills,,,,,,,,,,
-2025,16,2025_16_LAC_DAL,2025-12-21,Dallas Cowboys,Los Angeles Chargers,,,,,,,,,,
-2025,16,2025_16_NYJ_NO,2025-12-21,New Orleans Saints,New York Jets,,,,,,,,,,
-2025,16,2025_16_MIN_NYG,2025-12-21,New York Giants,Minnesota Vikings,,,,,,,,,,
-2025,16,2025_16_KC_TEN,2025-12-21,Tennessee Titans,Kansas City Chiefs,,,,,,,,,,
-2025,16,2025_16_ATL_ARI,2025-12-21,Arizona Cardinals,Atlanta Falcons,,,,,,,,,,
-2025,16,2025_16_JAX_DEN,2025-12-21,Denver Broncos,Jacksonville Jaguars,,,,,,,,,,
-2025,16,2025_16_PIT_DET,2025-12-21,Detroit Lions,Pittsburgh Steelers,,,,,,,,,,
-2025,16,2025_16_LV_HOU,2025-12-21,Houston Texans,Las Vegas Raiders,,,,,,,,,,
-2025,16,2025_16_CIN_MIA,2025-12-21,Miami Dolphins,Cincinnati Bengals,,,,,,,,,,
-2025,16,2025_16_SF_IND,2025-12-22,Indianapolis Colts,San Francisco 49ers,,,,,,,,,,
-2025,17,2025_17_DAL_WAS,2025-12-25,Washington Commanders,Dallas Cowboys,,,,,,,,,,
-2025,17,2025_17_DET_MIN,2025-12-25,Minnesota Vikings,Detroit Lions,,,,,,,,,,
-2025,17,2025_17_DEN_KC,2025-12-25,Kansas City Chiefs,Denver Broncos,,,,,,,,,,
-2025,17,2025_17_SEA_CAR,2025-12-28,Carolina Panthers,Seattle Seahawks,,,,,,,,,,
-2025,17,2025_17_ARI_CIN,2025-12-28,Cincinnati Bengals,Arizona Cardinals,,,,,,,,,,
-2025,17,2025_17_PIT_CLE,2025-12-28,Cleveland Browns,Pittsburgh Steelers,,,,,,,,,,
-2025,17,2025_17_BAL_GB,2025-12-28,Green Bay Packers,Baltimore Ravens,,,,,,,,,,
-2025,17,2025_17_JAX_IND,2025-12-28,Indianapolis Colts,Jacksonville Jaguars,,,,,,,,,,
-2025,17,2025_17_HOU_LAC,2025-12-28,Los Angeles Chargers,Houston Texans,,,,,,,,,,
-2025,17,2025_17_NYG_LV,2025-12-28,Las Vegas Raiders,New York Giants,,,,,,,,,,
-2025,17,2025_17_TB_MIA,2025-12-28,Miami Dolphins,Tampa Bay Buccaneers,,,,,,,,,,
-2025,17,2025_17_NE_NYJ,2025-12-28,New York Jets,New England Patriots,,,,,,,,,,
-2025,17,2025_17_NO_TEN,2025-12-28,Tennessee Titans,New Orleans Saints,,,,,,,,,,
-2025,17,2025_17_PHI_BUF,2025-12-28,Buffalo Bills,Philadelphia Eagles,,,,,,,,,,
-2025,17,2025_17_CHI_SF,2025-12-28,San Francisco 49ers,Chicago Bears,,,,,,,,,,
-2025,17,2025_17_LA_ATL,2025-12-29,Atlanta Falcons,Los Angeles Rams,,,,,,,,,,
-2025,18,2025_18_NO_ATL,2026-01-04,Atlanta Falcons,New Orleans Saints,,,,,,,,,,
-2025,18,2025_18_NYJ_BUF,2026-01-04,Buffalo Bills,New York Jets,,,,,,,,,,
-2025,18,2025_18_DET_CHI,2026-01-04,Chicago Bears,Detroit Lions,,,,,,,,,,
-2025,18,2025_18_CLE_CIN,2026-01-04,Cincinnati Bengals,Cleveland Browns,,,,,,,,,,
-2025,18,2025_18_LAC_DEN,2026-01-04,Denver Broncos,Los Angeles Chargers,,,,,,,,,,
-2025,18,2025_18_IND_HOU,2026-01-04,Houston Texans,Indianapolis Colts,,,,,,,,,,
-2025,18,2025_18_TEN_JAX,2026-01-04,Jacksonville Jaguars,Tennessee Titans,,,,,,,,,,
-2025,18,2025_18_ARI_LA,2026-01-04,Los Angeles Rams,Arizona Cardinals,,,,,,,,,,
-2025,18,2025_18_KC_LV,2026-01-04,Las Vegas Raiders,Kansas City Chiefs,,,,,,,,,,
-2025,18,2025_18_GB_MIN,2026-01-04,Minnesota Vikings,Green Bay Packers,,,,,,,,,,
-2025,18,2025_18_MIA_NE,2026-01-04,New England Patriots,Miami Dolphins,,,,,,,,,,
-2025,18,2025_18_DAL_NYG,2026-01-04,New York Giants,Dallas Cowboys,,,,,,,,,,
-2025,18,2025_18_WAS_PHI,2026-01-04,Philadelphia Eagles,Washington Commanders,,,,,,,,,,
-2025,18,2025_18_BAL_PIT,2026-01-04,Pittsburgh Steelers,Baltimore Ravens,,,,,,,,,,
-2025,18,2025_18_SEA_SF,2026-01-04,San Francisco 49ers,Seattle Seahawks,,,,,,,,,,
-2025,18,2025_18_CAR_TB,2026-01-04,Tampa Bay Buccaneers,Carolina Panthers,,,,,,,,,,
+game_id,season,week,date,home_team,away_team,home_score,away_score,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4
+2025_01_DAL_PHI,2025,1,2025-09-04,Philadelphia Eagles,Dallas Cowboys,24.0,20.0,7.0,14.0,3.0,0.0,7.0,13.0,0.0,0.0
+2025_01_KC_LAC,2025,1,2025-09-05,Los Angeles Chargers,Kansas City Chiefs,27.0,21.0,7.0,6.0,7.0,7.0,0.0,6.0,6.0,9.0
+2025_01_TB_ATL,2025,1,2025-09-07,Atlanta Falcons,Tampa Bay Buccaneers,20.0,23.0,7.0,3.0,3.0,7.0,0.0,10.0,7.0,6.0
+2025_01_CIN_CLE,2025,1,2025-09-07,Cleveland Browns,Cincinnati Bengals,16.0,17.0,0.0,10.0,6.0,0.0,7.0,7.0,3.0,0.0
+2025_01_MIA_IND,2025,1,2025-09-07,Indianapolis Colts,Miami Dolphins,33.0,8.0,3.0,17.0,3.0,10.0,0.0,0.0,0.0,8.0
+2025_01_CAR_JAX,2025,1,2025-09-07,Jacksonville Jaguars,Carolina Panthers,26.0,10.0,3.0,17.0,0.0,6.0,3.0,0.0,0.0,7.0
+2025_01_LV_NE,2025,1,2025-09-07,New England Patriots,Las Vegas Raiders,13.0,20.0,7.0,3.0,0.0,3.0,7.0,0.0,10.0,3.0
+2025_01_ARI_NO,2025,1,2025-09-07,New Orleans Saints,Arizona Cardinals,13.0,20.0,0.0,10.0,0.0,3.0,3.0,14.0,3.0,0.0
+2025_01_PIT_NYJ,2025,1,2025-09-07,New York Jets,Pittsburgh Steelers,32.0,34.0,9.0,10.0,7.0,6.0,7.0,10.0,0.0,17.0
+2025_01_NYG_WAS,2025,1,2025-09-07,Washington Commanders,New York Giants,21.0,6.0,7.0,7.0,0.0,7.0,0.0,3.0,3.0,0.0
+2025_01_TEN_DEN,2025,1,2025-09-07,Denver Broncos,Tennessee Titans,20.0,12.0,3.0,7.0,3.0,7.0,3.0,6.0,3.0,0.0
+2025_01_SF_SEA,2025,1,2025-09-07,Seattle Seahawks,San Francisco 49ers,13.0,17.0,0.0,10.0,0.0,3.0,7.0,0.0,0.0,10.0
+2025_01_DET_GB,2025,1,2025-09-07,Green Bay Packers,Detroit Lions,27.0,13.0,10.0,7.0,0.0,10.0,0.0,3.0,3.0,7.0
+2025_01_HOU_LA,2025,1,2025-09-07,Los Angeles Rams,Houston Texans,14.0,9.0,0.0,7.0,7.0,0.0,3.0,6.0,0.0,0.0
+2025_01_BAL_BUF,2025,1,2025-09-07,Buffalo Bills,Baltimore Ravens,41.0,40.0,7.0,6.0,6.0,22.0,3.0,17.0,14.0,6.0
+2025_01_MIN_CHI,2025,1,2025-09-08,Chicago Bears,Minnesota Vikings,24.0,27.0,7.0,3.0,7.0,7.0,0.0,6.0,0.0,21.0
+2025_02_WAS_GB,2025,2,2025-09-11,Green Bay Packers,Washington Commanders,27.0,18.0,7.0,7.0,3.0,10.0,0.0,3.0,0.0,15.0
+2025_02_CLE_BAL,2025,2,2025-09-14,Baltimore Ravens,Cleveland Browns,41.0,17.0,3.0,7.0,10.0,21.0,0.0,3.0,7.0,7.0
+2025_02_JAX_CIN,2025,2,2025-09-14,Cincinnati Bengals,Jacksonville Jaguars,31.0,27.0,7.0,3.0,14.0,7.0,7.0,10.0,7.0,3.0
+2025_02_NYG_DAL,2025,2,2025-09-14,Dallas Cowboys,New York Giants,40.0,37.0,0.0,10.0,7.0,20.0,6.0,7.0,3.0,21.0
+2025_02_CHI_DET,2025,2,2025-09-14,Detroit Lions,Chicago Bears,52.0,21.0,14.0,14.0,10.0,14.0,7.0,7.0,0.0,7.0
+2025_02_NE_MIA,2025,2,2025-09-14,Miami Dolphins,New England Patriots,27.0,33.0,0.0,14.0,6.0,7.0,12.0,3.0,8.0,10.0
+2025_02_SF_NO,2025,2,2025-09-14,New Orleans Saints,San Francisco 49ers,21.0,26.0,0.0,7.0,7.0,7.0,6.0,10.0,3.0,7.0
+2025_02_BUF_NYJ,2025,2,2025-09-14,New York Jets,Buffalo Bills,10.0,30.0,0.0,3.0,0.0,7.0,10.0,10.0,3.0,7.0
+2025_02_SEA_PIT,2025,2,2025-09-14,Pittsburgh Steelers,Seattle Seahawks,17.0,31.0,6.0,8.0,0.0,3.0,7.0,0.0,7.0,17.0
+2025_02_LA_TEN,2025,2,2025-09-14,Tennessee Titans,Los Angeles Rams,19.0,33.0,0.0,13.0,3.0,3.0,7.0,3.0,10.0,13.0
+2025_02_CAR_ARI,2025,2,2025-09-14,Arizona Cardinals,Carolina Panthers,27.0,22.0,10.0,10.0,7.0,0.0,3.0,0.0,6.0,13.0
+2025_02_DEN_IND,2025,2,2025-09-14,Indianapolis Colts,Denver Broncos,29.0,28.0,6.0,14.0,3.0,6.0,7.0,14.0,7.0,0.0
+2025_02_PHI_KC,2025,2,2025-09-14,Kansas City Chiefs,Philadelphia Eagles,17.0,20.0,0.0,10.0,0.0,7.0,7.0,3.0,3.0,7.0
+2025_02_ATL_MIN,2025,2,2025-09-14,Minnesota Vikings,Atlanta Falcons,6.0,22.0,0.0,6.0,0.0,0.0,6.0,3.0,3.0,10.0
+2025_02_TB_HOU,2025,2,2025-09-15,Houston Texans,Tampa Bay Buccaneers,19.0,20.0,10.0,0.0,0.0,9.0,7.0,7.0,0.0,6.0
+2025_02_LAC_LV,2025,2,2025-09-15,Las Vegas Raiders,Los Angeles Chargers,9.0,20.0,3.0,3.0,0.0,3.0,10.0,7.0,3.0,0.0
+2025_03_MIA_BUF,2025,3,2025-09-18,Buffalo Bills,Miami Dolphins,31.0,21.0,7.0,7.0,7.0,10.0,7.0,7.0,0.0,7.0
+2025_03_ATL_CAR,2025,3,2025-09-21,Carolina Panthers,Atlanta Falcons,30.0,0.0,7.0,3.0,10.0,10.0,0.0,0.0,0.0,0.0
+2025_03_GB_CLE,2025,3,2025-09-21,Cleveland Browns,Green Bay Packers,13.0,10.0,0.0,0.0,0.0,13.0,0.0,3.0,7.0,0.0
+2025_03_HOU_JAX,2025,3,2025-09-21,Jacksonville Jaguars,Houston Texans,17.0,10.0,7.0,0.0,3.0,7.0,0.0,3.0,0.0,7.0
+2025_03_CIN_MIN,2025,3,2025-09-21,Minnesota Vikings,Cincinnati Bengals,48.0,10.0,14.0,20.0,14.0,0.0,0.0,3.0,0.0,7.0
+2025_03_PIT_NE,2025,3,2025-09-21,New England Patriots,Pittsburgh Steelers,14.0,21.0,0.0,7.0,0.0,7.0,7.0,7.0,0.0,7.0
+2025_03_LA_PHI,2025,3,2025-09-21,Philadelphia Eagles,Los Angeles Rams,33.0,26.0,7.0,0.0,14.0,12.0,10.0,9.0,7.0,0.0
+2025_03_NYJ_TB,2025,3,2025-09-21,Tampa Bay Buccaneers,New York Jets,29.0,27.0,3.0,17.0,3.0,6.0,3.0,3.0,0.0,21.0
+2025_03_IND_TEN,2025,3,2025-09-21,Tennessee Titans,Indianapolis Colts,20.0,41.0,3.0,3.0,7.0,7.0,17.0,3.0,14.0,7.0
+2025_03_LV_WAS,2025,3,2025-09-21,Washington Commanders,Las Vegas Raiders,41.0,24.0,7.0,13.0,14.0,7.0,3.0,7.0,0.0,14.0
+2025_03_DEN_LAC,2025,3,2025-09-21,Los Angeles Chargers,Denver Broncos,23.0,20.0,3.0,7.0,3.0,10.0,0.0,7.0,10.0,3.0
+2025_03_NO_SEA,2025,3,2025-09-21,Seattle Seahawks,New Orleans Saints,44.0,13.0,21.0,17.0,6.0,0.0,0.0,6.0,0.0,7.0
+2025_03_DAL_CHI,2025,3,2025-09-21,Chicago Bears,Dallas Cowboys,31.0,14.0,14.0,10.0,7.0,0.0,3.0,11.0,0.0,0.0
+2025_03_ARI_SF,2025,3,2025-09-21,San Francisco 49ers,Arizona Cardinals,16.0,15.0,0.0,6.0,0.0,10.0,0.0,3.0,3.0,9.0
+2025_03_KC_NYG,2025,3,2025-09-21,New York Giants,Kansas City Chiefs,9.0,22.0,0.0,6.0,0.0,3.0,3.0,6.0,7.0,6.0
+2025_03_DET_BAL,2025,3,2025-09-22,Baltimore Ravens,Detroit Lions,30.0,38.0,7.0,7.0,7.0,9.0,7.0,7.0,7.0,17.0
+2025_04_SEA_ARI,2025,4,2025-09-25,Arizona Cardinals,Seattle Seahawks,20.0,23.0,3.0,0.0,3.0,14.0,7.0,7.0,3.0,6.0
+2025_04_MIN_PIT,2025,4,2025-09-28,Pittsburgh Steelers,Minnesota Vikings,24.0,21.0,7.0,7.0,7.0,3.0,3.0,3.0,0.0,15.0
+2025_04_WAS_ATL,2025,4,2025-09-28,Atlanta Falcons,Washington Commanders,34.0,27.0,10.0,7.0,14.0,3.0,0.0,10.0,6.0,11.0
+2025_04_NO_BUF,2025,4,2025-09-28,Buffalo Bills,New Orleans Saints,31.0,19.0,14.0,0.0,7.0,10.0,7.0,3.0,6.0,3.0
+2025_04_CLE_DET,2025,4,2025-09-28,Detroit Lions,Cleveland Browns,34.0,10.0,7.0,13.0,0.0,14.0,7.0,0.0,3.0,0.0
+2025_04_TEN_HOU,2025,4,2025-09-28,Houston Texans,Tennessee Titans,26.0,0.0,3.0,3.0,0.0,20.0,0.0,0.0,0.0,0.0
+2025_04_CAR_NE,2025,4,2025-09-28,New England Patriots,Carolina Panthers,42.0,13.0,7.0,21.0,7.0,7.0,6.0,0.0,0.0,7.0
+2025_04_LAC_NYG,2025,4,2025-09-28,New York Giants,Los Angeles Chargers,21.0,18.0,7.0,6.0,8.0,0.0,0.0,10.0,8.0,0.0
+2025_04_PHI_TB,2025,4,2025-09-28,Tampa Bay Buccaneers,Philadelphia Eagles,25.0,31.0,3.0,3.0,14.0,5.0,14.0,10.0,7.0,0.0
+2025_04_IND_LA,2025,4,2025-09-28,Los Angeles Rams,Indianapolis Colts,27.0,20.0,3.0,10.0,0.0,14.0,3.0,7.0,0.0,10.0
+2025_04_JAX_SF,2025,4,2025-09-28,San Francisco 49ers,Jacksonville Jaguars,21.0,26.0,3.0,3.0,8.0,7.0,0.0,17.0,9.0,0.0
+2025_04_BAL_KC,2025,4,2025-09-28,Kansas City Chiefs,Baltimore Ravens,37.0,20.0,3.0,17.0,10.0,7.0,7.0,3.0,3.0,7.0
+2025_04_CHI_LV,2025,4,2025-09-28,Las Vegas Raiders,Chicago Bears,24.0,25.0,7.0,7.0,7.0,3.0,3.0,6.0,7.0,9.0
+2025_04_GB_DAL,2025,4,2025-09-28,Dallas Cowboys,Green Bay Packers,40.0,40.0,0.0,16.0,7.0,14.0,7.0,6.0,7.0,17.0
+2025_04_NYJ_MIA,2025,4,2025-09-29,Miami Dolphins,New York Jets,27.0,21.0,3.0,7.0,14.0,3.0,0.0,3.0,7.0,11.0
+2025_04_CIN_DEN,2025,4,2025-09-29,Denver Broncos,Cincinnati Bengals,28.0,3.0,7.0,14.0,0.0,7.0,3.0,0.0,0.0,0.0
+2025_05_SF_LA,2025,5,2025-10-02,Los Angeles Rams,San Francisco 49ers,23.0,26.0,0.0,7.0,7.0,9.0,7.0,10.0,3.0,3.0
+2025_05_MIN_CLE,2025,5,2025-10-05,Cleveland Browns,Minnesota Vikings,17.0,21.0,7.0,3.0,7.0,0.0,7.0,0.0,7.0,7.0
+2025_05_HOU_BAL,2025,5,2025-10-05,Baltimore Ravens,Houston Texans,10.0,44.0,3.0,0.0,7.0,0.0,7.0,17.0,10.0,10.0
+2025_05_MIA_CAR,2025,5,2025-10-05,Carolina Panthers,Miami Dolphins,27.0,24.0,0.0,10.0,3.0,14.0,3.0,14.0,0.0,7.0
+2025_05_LV_IND,2025,5,2025-10-05,Indianapolis Colts,Las Vegas Raiders,40.0,6.0,0.0,20.0,20.0,0.0,3.0,0.0,0.0,3.0
+2025_05_NYG_NO,2025,5,2025-10-05,New Orleans Saints,New York Giants,26.0,14.0,3.0,13.0,3.0,7.0,7.0,7.0,0.0,0.0
+2025_05_DAL_NYJ,2025,5,2025-10-05,New York Jets,Dallas Cowboys,22.0,37.0,3.0,0.0,3.0,16.0,3.0,20.0,7.0,7.0
+2025_05_DEN_PHI,2025,5,2025-10-05,Philadelphia Eagles,Denver Broncos,17.0,21.0,3.0,7.0,7.0,0.0,3.0,0.0,0.0,18.0
+2025_05_TEN_ARI,2025,5,2025-10-05,Arizona Cardinals,Tennessee Titans,21.0,22.0,14.0,7.0,0.0,0.0,3.0,3.0,0.0,16.0
+2025_05_TB_SEA,2025,5,2025-10-05,Seattle Seahawks,Tampa Bay Buccaneers,35.0,38.0,0.0,7.0,14.0,14.0,3.0,10.0,15.0,10.0
+2025_05_DET_CIN,2025,5,2025-10-05,Cincinnati Bengals,Detroit Lions,24.0,37.0,0.0,3.0,0.0,21.0,7.0,7.0,14.0,9.0
+2025_05_WAS_LAC,2025,5,2025-10-05,Los Angeles Chargers,Washington Commanders,10.0,27.0,10.0,0.0,0.0,0.0,0.0,10.0,10.0,7.0
+2025_05_NE_BUF,2025,5,2025-10-05,Buffalo Bills,New England Patriots,20.0,23.0,0.0,3.0,7.0,10.0,3.0,3.0,7.0,10.0
+2025_05_KC_JAX,2025,5,2025-10-06,Jacksonville Jaguars,Kansas City Chiefs,31.0,28.0,0.0,7.0,14.0,10.0,7.0,7.0,0.0,14.0
+2025_06_PHI_NYG,2025,6,2025-10-09,New York Giants,Philadelphia Eagles,34.0,17.0,,,,,,,,
+2025_06_DEN_NYJ,2025,6,2025-10-12,New York Jets,Denver Broncos,,,,,,,,,,
+2025_06_LA_BAL,2025,6,2025-10-12,Baltimore Ravens,Los Angeles Rams,,,,,,,,,,
+2025_06_DAL_CAR,2025,6,2025-10-12,Carolina Panthers,Dallas Cowboys,,,,,,,,,,
+2025_06_ARI_IND,2025,6,2025-10-12,Indianapolis Colts,Arizona Cardinals,,,,,,,,,,
+2025_06_SEA_JAX,2025,6,2025-10-12,Jacksonville Jaguars,Seattle Seahawks,,,,,,,,,,
+2025_06_LAC_MIA,2025,6,2025-10-12,Miami Dolphins,Los Angeles Chargers,,,,,,,,,,
+2025_06_NE_NO,2025,6,2025-10-12,New Orleans Saints,New England Patriots,,,,,,,,,,
+2025_06_CLE_PIT,2025,6,2025-10-12,Pittsburgh Steelers,Cleveland Browns,,,,,,,,,,
+2025_06_TEN_LV,2025,6,2025-10-12,Las Vegas Raiders,Tennessee Titans,,,,,,,,,,
+2025_06_CIN_GB,2025,6,2025-10-12,Green Bay Packers,Cincinnati Bengals,,,,,,,,,,
+2025_06_SF_TB,2025,6,2025-10-12,Tampa Bay Buccaneers,San Francisco 49ers,,,,,,,,,,
+2025_06_DET_KC,2025,6,2025-10-12,Kansas City Chiefs,Detroit Lions,,,,,,,,,,
+2025_06_BUF_ATL,2025,6,2025-10-13,Atlanta Falcons,Buffalo Bills,,,,,,,,,,
+2025_06_CHI_WAS,2025,6,2025-10-13,Washington Commanders,Chicago Bears,,,,,,,,,,
+2025_07_PIT_CIN,2025,7,2025-10-16,Cincinnati Bengals,Pittsburgh Steelers,,,,,,,,,,
+2025_07_LA_JAX,2025,7,2025-10-19,Jacksonville Jaguars,Los Angeles Rams,,,,,,,,,,
+2025_07_NO_CHI,2025,7,2025-10-19,Chicago Bears,New Orleans Saints,,,,,,,,,,
+2025_07_MIA_CLE,2025,7,2025-10-19,Cleveland Browns,Miami Dolphins,,,,,,,,,,
+2025_07_LV_KC,2025,7,2025-10-19,Kansas City Chiefs,Las Vegas Raiders,,,,,,,,,,
+2025_07_PHI_MIN,2025,7,2025-10-19,Minnesota Vikings,Philadelphia Eagles,,,,,,,,,,
+2025_07_CAR_NYJ,2025,7,2025-10-19,New York Jets,Carolina Panthers,,,,,,,,,,
+2025_07_NE_TEN,2025,7,2025-10-19,Tennessee Titans,New England Patriots,,,,,,,,,,
+2025_07_NYG_DEN,2025,7,2025-10-19,Denver Broncos,New York Giants,,,,,,,,,,
+2025_07_IND_LAC,2025,7,2025-10-19,Los Angeles Chargers,Indianapolis Colts,,,,,,,,,,
+2025_07_GB_ARI,2025,7,2025-10-19,Arizona Cardinals,Green Bay Packers,,,,,,,,,,
+2025_07_WAS_DAL,2025,7,2025-10-19,Dallas Cowboys,Washington Commanders,,,,,,,,,,
+2025_07_ATL_SF,2025,7,2025-10-19,San Francisco 49ers,Atlanta Falcons,,,,,,,,,,
+2025_07_TB_DET,2025,7,2025-10-20,Detroit Lions,Tampa Bay Buccaneers,,,,,,,,,,
+2025_07_HOU_SEA,2025,7,2025-10-20,Seattle Seahawks,Houston Texans,,,,,,,,,,
+2025_08_MIN_LAC,2025,8,2025-10-23,Los Angeles Chargers,Minnesota Vikings,,,,,,,,,,
+2025_08_MIA_ATL,2025,8,2025-10-26,Atlanta Falcons,Miami Dolphins,,,,,,,,,,
+2025_08_CHI_BAL,2025,8,2025-10-26,Baltimore Ravens,Chicago Bears,,,,,,,,,,
+2025_08_BUF_CAR,2025,8,2025-10-26,Carolina Panthers,Buffalo Bills,,,,,,,,,,
+2025_08_NYJ_CIN,2025,8,2025-10-26,Cincinnati Bengals,New York Jets,,,,,,,,,,
+2025_08_SF_HOU,2025,8,2025-10-26,Houston Texans,San Francisco 49ers,,,,,,,,,,
+2025_08_CLE_NE,2025,8,2025-10-26,New England Patriots,Cleveland Browns,,,,,,,,,,
+2025_08_NYG_PHI,2025,8,2025-10-26,Philadelphia Eagles,New York Giants,,,,,,,,,,
+2025_08_TB_NO,2025,8,2025-10-26,New Orleans Saints,Tampa Bay Buccaneers,,,,,,,,,,
+2025_08_DAL_DEN,2025,8,2025-10-26,Denver Broncos,Dallas Cowboys,,,,,,,,,,
+2025_08_TEN_IND,2025,8,2025-10-26,Indianapolis Colts,Tennessee Titans,,,,,,,,,,
+2025_08_GB_PIT,2025,8,2025-10-26,Pittsburgh Steelers,Green Bay Packers,,,,,,,,,,
+2025_08_WAS_KC,2025,8,2025-10-27,Kansas City Chiefs,Washington Commanders,,,,,,,,,,
+2025_09_BAL_MIA,2025,9,2025-10-30,Miami Dolphins,Baltimore Ravens,,,,,,,,,,
+2025_09_CHI_CIN,2025,9,2025-11-02,Cincinnati Bengals,Chicago Bears,,,,,,,,,,
+2025_09_MIN_DET,2025,9,2025-11-02,Detroit Lions,Minnesota Vikings,,,,,,,,,,
+2025_09_CAR_GB,2025,9,2025-11-02,Green Bay Packers,Carolina Panthers,,,,,,,,,,
+2025_09_DEN_HOU,2025,9,2025-11-02,Houston Texans,Denver Broncos,,,,,,,,,,
+2025_09_ATL_NE,2025,9,2025-11-02,New England Patriots,Atlanta Falcons,,,,,,,,,,
+2025_09_SF_NYG,2025,9,2025-11-02,New York Giants,San Francisco 49ers,,,,,,,,,,
+2025_09_IND_PIT,2025,9,2025-11-02,Pittsburgh Steelers,Indianapolis Colts,,,,,,,,,,
+2025_09_LAC_TEN,2025,9,2025-11-02,Tennessee Titans,Los Angeles Chargers,,,,,,,,,,
+2025_09_NO_LA,2025,9,2025-11-02,Los Angeles Rams,New Orleans Saints,,,,,,,,,,
+2025_09_JAX_LV,2025,9,2025-11-02,Las Vegas Raiders,Jacksonville Jaguars,,,,,,,,,,
+2025_09_KC_BUF,2025,9,2025-11-02,Buffalo Bills,Kansas City Chiefs,,,,,,,,,,
+2025_09_SEA_WAS,2025,9,2025-11-02,Washington Commanders,Seattle Seahawks,,,,,,,,,,
+2025_09_ARI_DAL,2025,9,2025-11-03,Dallas Cowboys,Arizona Cardinals,,,,,,,,,,
+2025_10_LV_DEN,2025,10,2025-11-06,Denver Broncos,Las Vegas Raiders,,,,,,,,,,
+2025_10_ATL_IND,2025,10,2025-11-09,Indianapolis Colts,Atlanta Falcons,,,,,,,,,,
+2025_10_NO_CAR,2025,10,2025-11-09,Carolina Panthers,New Orleans Saints,,,,,,,,,,
+2025_10_NYG_CHI,2025,10,2025-11-09,Chicago Bears,New York Giants,,,,,,,,,,
+2025_10_JAX_HOU,2025,10,2025-11-09,Houston Texans,Jacksonville Jaguars,,,,,,,,,,
+2025_10_BUF_MIA,2025,10,2025-11-09,Miami Dolphins,Buffalo Bills,,,,,,,,,,
+2025_10_BAL_MIN,2025,10,2025-11-09,Minnesota Vikings,Baltimore Ravens,,,,,,,,,,
+2025_10_CLE_NYJ,2025,10,2025-11-09,New York Jets,Cleveland Browns,,,,,,,,,,
+2025_10_NE_TB,2025,10,2025-11-09,Tampa Bay Buccaneers,New England Patriots,,,,,,,,,,
+2025_10_ARI_SEA,2025,10,2025-11-09,Seattle Seahawks,Arizona Cardinals,,,,,,,,,,
+2025_10_LA_SF,2025,10,2025-11-09,San Francisco 49ers,Los Angeles Rams,,,,,,,,,,
+2025_10_DET_WAS,2025,10,2025-11-09,Washington Commanders,Detroit Lions,,,,,,,,,,
+2025_10_PIT_LAC,2025,10,2025-11-09,Los Angeles Chargers,Pittsburgh Steelers,,,,,,,,,,
+2025_10_PHI_GB,2025,10,2025-11-10,Green Bay Packers,Philadelphia Eagles,,,,,,,,,,
+2025_11_NYJ_NE,2025,11,2025-11-13,New England Patriots,New York Jets,,,,,,,,,,
+2025_11_WAS_MIA,2025,11,2025-11-16,Miami Dolphins,Washington Commanders,,,,,,,,,,
+2025_11_CAR_ATL,2025,11,2025-11-16,Atlanta Falcons,Carolina Panthers,,,,,,,,,,
+2025_11_TB_BUF,2025,11,2025-11-16,Buffalo Bills,Tampa Bay Buccaneers,,,,,,,,,,
+2025_11_LAC_JAX,2025,11,2025-11-16,Jacksonville Jaguars,Los Angeles Chargers,,,,,,,,,,
+2025_11_CHI_MIN,2025,11,2025-11-16,Minnesota Vikings,Chicago Bears,,,,,,,,,,
+2025_11_GB_NYG,2025,11,2025-11-16,New York Giants,Green Bay Packers,,,,,,,,,,
+2025_11_CIN_PIT,2025,11,2025-11-16,Pittsburgh Steelers,Cincinnati Bengals,,,,,,,,,,
+2025_11_HOU_TEN,2025,11,2025-11-16,Tennessee Titans,Houston Texans,,,,,,,,,,
+2025_11_SF_ARI,2025,11,2025-11-16,Arizona Cardinals,San Francisco 49ers,,,,,,,,,,
+2025_11_SEA_LA,2025,11,2025-11-16,Los Angeles Rams,Seattle Seahawks,,,,,,,,,,
+2025_11_BAL_CLE,2025,11,2025-11-16,Cleveland Browns,Baltimore Ravens,,,,,,,,,,
+2025_11_KC_DEN,2025,11,2025-11-16,Denver Broncos,Kansas City Chiefs,,,,,,,,,,
+2025_11_DET_PHI,2025,11,2025-11-16,Philadelphia Eagles,Detroit Lions,,,,,,,,,,
+2025_11_DAL_LV,2025,11,2025-11-17,Las Vegas Raiders,Dallas Cowboys,,,,,,,,,,
+2025_12_BUF_HOU,2025,12,2025-11-20,Houston Texans,Buffalo Bills,,,,,,,,,,
+2025_12_NYJ_BAL,2025,12,2025-11-23,Baltimore Ravens,New York Jets,,,,,,,,,,
+2025_12_PIT_CHI,2025,12,2025-11-23,Chicago Bears,Pittsburgh Steelers,,,,,,,,,,
+2025_12_NE_CIN,2025,12,2025-11-23,Cincinnati Bengals,New England Patriots,,,,,,,,,,
+2025_12_NYG_DET,2025,12,2025-11-23,Detroit Lions,New York Giants,,,,,,,,,,
+2025_12_MIN_GB,2025,12,2025-11-23,Green Bay Packers,Minnesota Vikings,,,,,,,,,,
+2025_12_IND_KC,2025,12,2025-11-23,Kansas City Chiefs,Indianapolis Colts,,,,,,,,,,
+2025_12_SEA_TEN,2025,12,2025-11-23,Tennessee Titans,Seattle Seahawks,,,,,,,,,,
+2025_12_JAX_ARI,2025,12,2025-11-23,Arizona Cardinals,Jacksonville Jaguars,,,,,,,,,,
+2025_12_CLE_LV,2025,12,2025-11-23,Las Vegas Raiders,Cleveland Browns,,,,,,,,,,
+2025_12_PHI_DAL,2025,12,2025-11-23,Dallas Cowboys,Philadelphia Eagles,,,,,,,,,,
+2025_12_ATL_NO,2025,12,2025-11-23,New Orleans Saints,Atlanta Falcons,,,,,,,,,,
+2025_12_TB_LA,2025,12,2025-11-23,Los Angeles Rams,Tampa Bay Buccaneers,,,,,,,,,,
+2025_12_CAR_SF,2025,12,2025-11-24,San Francisco 49ers,Carolina Panthers,,,,,,,,,,
+2025_13_GB_DET,2025,13,2025-11-27,Detroit Lions,Green Bay Packers,,,,,,,,,,
+2025_13_KC_DAL,2025,13,2025-11-27,Dallas Cowboys,Kansas City Chiefs,,,,,,,,,,
+2025_13_CIN_BAL,2025,13,2025-11-27,Baltimore Ravens,Cincinnati Bengals,,,,,,,,,,
+2025_13_CHI_PHI,2025,13,2025-11-28,Philadelphia Eagles,Chicago Bears,,,,,,,,,,
+2025_13_LA_CAR,2025,13,2025-11-30,Carolina Panthers,Los Angeles Rams,,,,,,,,,,
+2025_13_SF_CLE,2025,13,2025-11-30,Cleveland Browns,San Francisco 49ers,,,,,,,,,,
+2025_13_HOU_IND,2025,13,2025-11-30,Indianapolis Colts,Houston Texans,,,,,,,,,,
+2025_13_NO_MIA,2025,13,2025-11-30,Miami Dolphins,New Orleans Saints,,,,,,,,,,
+2025_13_ATL_NYJ,2025,13,2025-11-30,New York Jets,Atlanta Falcons,,,,,,,,,,
+2025_13_ARI_TB,2025,13,2025-11-30,Tampa Bay Buccaneers,Arizona Cardinals,,,,,,,,,,
+2025_13_JAX_TEN,2025,13,2025-11-30,Tennessee Titans,Jacksonville Jaguars,,,,,,,,,,
+2025_13_MIN_SEA,2025,13,2025-11-30,Seattle Seahawks,Minnesota Vikings,,,,,,,,,,
+2025_13_LV_LAC,2025,13,2025-11-30,Los Angeles Chargers,Las Vegas Raiders,,,,,,,,,,
+2025_13_BUF_PIT,2025,13,2025-11-30,Pittsburgh Steelers,Buffalo Bills,,,,,,,,,,
+2025_13_DEN_WAS,2025,13,2025-11-30,Washington Commanders,Denver Broncos,,,,,,,,,,
+2025_13_NYG_NE,2025,13,2025-12-01,New England Patriots,New York Giants,,,,,,,,,,
+2025_14_DAL_DET,2025,14,2025-12-04,Detroit Lions,Dallas Cowboys,,,,,,,,,,
+2025_14_SEA_ATL,2025,14,2025-12-07,Atlanta Falcons,Seattle Seahawks,,,,,,,,,,
+2025_14_PIT_BAL,2025,14,2025-12-07,Baltimore Ravens,Pittsburgh Steelers,,,,,,,,,,
+2025_14_TEN_CLE,2025,14,2025-12-07,Cleveland Browns,Tennessee Titans,,,,,,,,,,
+2025_14_CHI_GB,2025,14,2025-12-07,Green Bay Packers,Chicago Bears,,,,,,,,,,
+2025_14_IND_JAX,2025,14,2025-12-07,Jacksonville Jaguars,Indianapolis Colts,,,,,,,,,,
+2025_14_WAS_MIN,2025,14,2025-12-07,Minnesota Vikings,Washington Commanders,,,,,,,,,,
+2025_14_MIA_NYJ,2025,14,2025-12-07,New York Jets,Miami Dolphins,,,,,,,,,,
+2025_14_NO_TB,2025,14,2025-12-07,Tampa Bay Buccaneers,New Orleans Saints,,,,,,,,,,
+2025_14_DEN_LV,2025,14,2025-12-07,Las Vegas Raiders,Denver Broncos,,,,,,,,,,
+2025_14_LA_ARI,2025,14,2025-12-07,Arizona Cardinals,Los Angeles Rams,,,,,,,,,,
+2025_14_CIN_BUF,2025,14,2025-12-07,Buffalo Bills,Cincinnati Bengals,,,,,,,,,,
+2025_14_HOU_KC,2025,14,2025-12-07,Kansas City Chiefs,Houston Texans,,,,,,,,,,
+2025_14_PHI_LAC,2025,14,2025-12-08,Los Angeles Chargers,Philadelphia Eagles,,,,,,,,,,
+2025_15_ATL_TB,2025,15,2025-12-11,Tampa Bay Buccaneers,Atlanta Falcons,,,,,,,,,,
+2025_15_CLE_CHI,2025,15,2025-12-14,Chicago Bears,Cleveland Browns,,,,,,,,,,
+2025_15_BAL_CIN,2025,15,2025-12-14,Cincinnati Bengals,Baltimore Ravens,,,,,,,,,,
+2025_15_ARI_HOU,2025,15,2025-12-14,Houston Texans,Arizona Cardinals,,,,,,,,,,
+2025_15_NYJ_JAX,2025,15,2025-12-14,Jacksonville Jaguars,New York Jets,,,,,,,,,,
+2025_15_LAC_KC,2025,15,2025-12-14,Kansas City Chiefs,Los Angeles Chargers,,,,,,,,,,
+2025_15_BUF_NE,2025,15,2025-12-14,New England Patriots,Buffalo Bills,,,,,,,,,,
+2025_15_WAS_NYG,2025,15,2025-12-14,New York Giants,Washington Commanders,,,,,,,,,,
+2025_15_LV_PHI,2025,15,2025-12-14,Philadelphia Eagles,Las Vegas Raiders,,,,,,,,,,
+2025_15_GB_DEN,2025,15,2025-12-14,Denver Broncos,Green Bay Packers,,,,,,,,,,
+2025_15_DET_LA,2025,15,2025-12-14,Los Angeles Rams,Detroit Lions,,,,,,,,,,
+2025_15_CAR_NO,2025,15,2025-12-14,New Orleans Saints,Carolina Panthers,,,,,,,,,,
+2025_15_IND_SEA,2025,15,2025-12-14,Seattle Seahawks,Indianapolis Colts,,,,,,,,,,
+2025_15_TEN_SF,2025,15,2025-12-14,San Francisco 49ers,Tennessee Titans,,,,,,,,,,
+2025_15_MIN_DAL,2025,15,2025-12-14,Dallas Cowboys,Minnesota Vikings,,,,,,,,,,
+2025_15_MIA_PIT,2025,15,2025-12-15,Pittsburgh Steelers,Miami Dolphins,,,,,,,,,,
+2025_16_LA_SEA,2025,16,2025-12-18,Seattle Seahawks,Los Angeles Rams,,,,,,,,,,
+2025_16_GB_CHI,2025,16,2025-12-19,Chicago Bears,Green Bay Packers,,,,,,,,,,
+2025_16_PHI_WAS,2025,16,2025-12-19,Washington Commanders,Philadelphia Eagles,,,,,,,,,,
+2025_16_NE_BAL,2025,16,2025-12-21,Baltimore Ravens,New England Patriots,,,,,,,,,,
+2025_16_TB_CAR,2025,16,2025-12-21,Carolina Panthers,Tampa Bay Buccaneers,,,,,,,,,,
+2025_16_BUF_CLE,2025,16,2025-12-21,Cleveland Browns,Buffalo Bills,,,,,,,,,,
+2025_16_LAC_DAL,2025,16,2025-12-21,Dallas Cowboys,Los Angeles Chargers,,,,,,,,,,
+2025_16_NYJ_NO,2025,16,2025-12-21,New Orleans Saints,New York Jets,,,,,,,,,,
+2025_16_MIN_NYG,2025,16,2025-12-21,New York Giants,Minnesota Vikings,,,,,,,,,,
+2025_16_KC_TEN,2025,16,2025-12-21,Tennessee Titans,Kansas City Chiefs,,,,,,,,,,
+2025_16_ATL_ARI,2025,16,2025-12-21,Arizona Cardinals,Atlanta Falcons,,,,,,,,,,
+2025_16_JAX_DEN,2025,16,2025-12-21,Denver Broncos,Jacksonville Jaguars,,,,,,,,,,
+2025_16_PIT_DET,2025,16,2025-12-21,Detroit Lions,Pittsburgh Steelers,,,,,,,,,,
+2025_16_LV_HOU,2025,16,2025-12-21,Houston Texans,Las Vegas Raiders,,,,,,,,,,
+2025_16_CIN_MIA,2025,16,2025-12-21,Miami Dolphins,Cincinnati Bengals,,,,,,,,,,
+2025_16_SF_IND,2025,16,2025-12-22,Indianapolis Colts,San Francisco 49ers,,,,,,,,,,
+2025_17_DAL_WAS,2025,17,2025-12-25,Washington Commanders,Dallas Cowboys,,,,,,,,,,
+2025_17_DET_MIN,2025,17,2025-12-25,Minnesota Vikings,Detroit Lions,,,,,,,,,,
+2025_17_DEN_KC,2025,17,2025-12-25,Kansas City Chiefs,Denver Broncos,,,,,,,,,,
+2025_17_SEA_CAR,2025,17,2025-12-28,Carolina Panthers,Seattle Seahawks,,,,,,,,,,
+2025_17_ARI_CIN,2025,17,2025-12-28,Cincinnati Bengals,Arizona Cardinals,,,,,,,,,,
+2025_17_PIT_CLE,2025,17,2025-12-28,Cleveland Browns,Pittsburgh Steelers,,,,,,,,,,
+2025_17_BAL_GB,2025,17,2025-12-28,Green Bay Packers,Baltimore Ravens,,,,,,,,,,
+2025_17_JAX_IND,2025,17,2025-12-28,Indianapolis Colts,Jacksonville Jaguars,,,,,,,,,,
+2025_17_HOU_LAC,2025,17,2025-12-28,Los Angeles Chargers,Houston Texans,,,,,,,,,,
+2025_17_NYG_LV,2025,17,2025-12-28,Las Vegas Raiders,New York Giants,,,,,,,,,,
+2025_17_TB_MIA,2025,17,2025-12-28,Miami Dolphins,Tampa Bay Buccaneers,,,,,,,,,,
+2025_17_NE_NYJ,2025,17,2025-12-28,New York Jets,New England Patriots,,,,,,,,,,
+2025_17_NO_TEN,2025,17,2025-12-28,Tennessee Titans,New Orleans Saints,,,,,,,,,,
+2025_17_PHI_BUF,2025,17,2025-12-28,Buffalo Bills,Philadelphia Eagles,,,,,,,,,,
+2025_17_CHI_SF,2025,17,2025-12-28,San Francisco 49ers,Chicago Bears,,,,,,,,,,
+2025_17_LA_ATL,2025,17,2025-12-29,Atlanta Falcons,Los Angeles Rams,,,,,,,,,,
+2025_18_NO_ATL,2025,18,2026-01-04,Atlanta Falcons,New Orleans Saints,,,,,,,,,,
+2025_18_NYJ_BUF,2025,18,2026-01-04,Buffalo Bills,New York Jets,,,,,,,,,,
+2025_18_DET_CHI,2025,18,2026-01-04,Chicago Bears,Detroit Lions,,,,,,,,,,
+2025_18_CLE_CIN,2025,18,2026-01-04,Cincinnati Bengals,Cleveland Browns,,,,,,,,,,
+2025_18_LAC_DEN,2025,18,2026-01-04,Denver Broncos,Los Angeles Chargers,,,,,,,,,,
+2025_18_IND_HOU,2025,18,2026-01-04,Houston Texans,Indianapolis Colts,,,,,,,,,,
+2025_18_TEN_JAX,2025,18,2026-01-04,Jacksonville Jaguars,Tennessee Titans,,,,,,,,,,
+2025_18_ARI_LA,2025,18,2026-01-04,Los Angeles Rams,Arizona Cardinals,,,,,,,,,,
+2025_18_KC_LV,2025,18,2026-01-04,Las Vegas Raiders,Kansas City Chiefs,,,,,,,,,,
+2025_18_GB_MIN,2025,18,2026-01-04,Minnesota Vikings,Green Bay Packers,,,,,,,,,,
+2025_18_MIA_NE,2025,18,2026-01-04,New England Patriots,Miami Dolphins,,,,,,,,,,
+2025_18_DAL_NYG,2025,18,2026-01-04,New York Giants,Dallas Cowboys,,,,,,,,,,
+2025_18_WAS_PHI,2025,18,2026-01-04,Philadelphia Eagles,Washington Commanders,,,,,,,,,,
+2025_18_BAL_PIT,2025,18,2026-01-04,Pittsburgh Steelers,Baltimore Ravens,,,,,,,,,,
+2025_18_SEA_SF,2025,18,2026-01-04,San Francisco 49ers,Seattle Seahawks,,,,,,,,,,
+2025_18_CAR_TB,2025,18,2026-01-04,Tampa Bay Buccaneers,Carolina Panthers,,,,,,,,,,
