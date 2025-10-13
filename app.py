@@ -5404,19 +5404,10 @@ def index():
     except Exception:
         accuracy_week = None
 
-    # --- Season-to-date accuracy summary ---
-    # This is heavy. On Render (or when explicitly disabled), skip by default; allow opt-in via ?s2d=1.
+    # --- Season-to-date accuracy summary (always compute when season/week known) ---
     accuracy_s2d = None
     try:
-        s2d_qs = request.args.get('s2d')
-        disable_s2d_env = str(os.environ.get('DISABLE_S2D_ON_RENDER', '1')).strip().lower() in {'1','true','yes','y'}
-        compute_s2d = True
-        if on_render and s2d_qs is None:
-            compute_s2d = not disable_s2d_env
-        if s2d_qs is not None:
-            compute_s2d = (s2d_qs.strip().lower() in {'1','true','yes','y'})
-
-        if compute_s2d and season_param is not None and week_param is not None:
+        if season_param is not None and week_param is not None:
             # Aggregate recommendations across weeks 1..week_param (cap to 25 for safety)
             all_recs_s2d: List[Dict[str, Any]] = []
             max_weeks = int(min(max(week_param, 1), 25))
@@ -5454,7 +5445,7 @@ def index():
             def american_profit(stake: float, odds: Any) -> Optional[float]:
                 try:
                     if odds is None or (isinstance(odds, float) and pd.isna(odds)):
-                        odds = -110
+                        odds = -110  # fallback
                     o = float(odds)
                     if o > 0:
                         return stake * (o / 100.0)
@@ -5468,7 +5459,7 @@ def index():
                 wins = sum(1 for x in done if x.get('result') == 'Win')
                 losses = sum(1 for x in done if x.get('result') == 'Loss')
                 pushes = sum(1 for x in done if x.get('result') == 'Push')
-                played = wins + losses
+                played = wins + losses  # exclude pushes from accuracy denominator
                 acc = (wins / played * 100.0) if played > 0 else None
                 stake_total = 0.0
                 profit_total = 0.0
@@ -5486,6 +5477,7 @@ def index():
                         profit_total -= stake
                         stake_total += stake
                     elif res == 'Push':
+                        # Stake returned; no profit, but do not add to stake turnover
                         stake_total += 0.0
                 roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
                 return {
