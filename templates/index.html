@@ -192,6 +192,40 @@
         {% endfor %}
       </div>
     {% endif %}
+    {% if accuracy_week %}
+      <div class="cards-summary">
+        {% set overall_wk = accuracy_week.get('Overall') %}
+        {% if overall_wk %}
+          <div class="card card-summary">
+            <div class="title-sm">This week</div>
+            <div class="mt-4 title-lg">
+              {% if overall_wk.accuracy_pct is not none %}{{ '%.1f' % overall_wk.accuracy_pct }}% Accuracy{% else %}—{% endif %}
+            </div>
+            <div class="muted-small mt-4">
+              {{ overall_wk.wins }}W-{{ overall_wk.losses }}L{% if overall_wk.pushes %}-{{ overall_wk.pushes }}P{% endif %} / {{ overall_wk.resolved }} settled
+            </div>
+            <div class="mt-4 muted-small">ROI: {% if overall_wk.roi_pct is not none %}{{ '%.1f' % overall_wk.roi_pct }}%{% else %}—{% endif %}</div>
+            <div class="mt-4 muted-tiny">Stake: ${{ '%.0f' % overall_wk.stake_total }} | P/L: ${{ '%.0f' % overall_wk.profit_total }}</div>
+            <div class="mt-4 muted-tiny">Total picks: {{ overall_wk.total }}</div>
+          </div>
+        {% endif %}
+        {% for tier in ['High','Medium','Low'] %}
+          {% set m = accuracy_week.get(tier) %}
+          <div class="card card-tier">
+            <div class="title-sm">{{ tier }}</div>
+            <div class="mt-4 title-md">
+              {% if m.accuracy_pct is not none %}{{ '%.1f' % m.accuracy_pct }}% Acc{% else %}—{% endif %}
+            </div>
+            <div class="muted-small mt-4">
+              {{ m.wins }}W-{{ m.losses }}L{% if m.pushes %}-{{ m.pushes }}P{% endif %} / {{ m.resolved }}
+            </div>
+            <div class="mt-4 muted-small">ROI: {% if m.roi_pct is not none %}{{ '%.1f' % m.roi_pct }}%{% else %}—{% endif %}</div>
+            <div class="mt-4 muted-tiny">Stake: ${{ '%.0f' % m.stake_total }} | P/L: ${{ '%.0f' % m.profit_total }}</div>
+            <div class="mt-4 muted-tiny">Picks: {{ m.total }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
     <form class="filters" method="get" action="/">
       <label>Season: <input type="number" name="season" value="{{ season or '' }}" /></label>
       <label>Week: <input type="number" name="week" value="{{ week or '' }}" /></label>

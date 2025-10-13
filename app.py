@@ -5302,6 +5302,108 @@ def index():
     elif sort_param == "total":
         cards.sort(key=lambda c: (abs(c.get("edge_total")) if c.get("edge_total") is not None else float('-inf')), reverse=True)
 
+    # --- This-week accuracy summary (lightweight) ---
+    accuracy_week = None
+    try:
+        # Build recommendations for the current week view and compute tier metrics
+        all_recs_wk: List[Dict[str, Any]] = []
+        if view_df is not None and not view_df.empty:
+            for _, row in view_df.iterrows():
+                try:
+                    recs = _compute_recommendations_for_row(row)
+                    all_recs_wk.extend(recs)
+                except Exception:
+                    continue
+        # If no recs found, optionally relax min EV threshold once to surface something
+        if not all_recs_wk and not request.args.get("min_ev"):
+            try:
+                prev = os.environ.get('RECS_MIN_EV_PCT')
+                os.environ['RECS_MIN_EV_PCT'] = '0.5'
+                if view_df is not None and not view_df.empty:
+                    for _, row in view_df.iterrows():
+                        try:
+                            recs = _compute_recommendations_for_row(row)
+                            all_recs_wk.extend(recs)
+                        except Exception:
+                            continue
+            finally:
+                if 'prev' in locals() and prev is not None:
+                    os.environ['RECS_MIN_EV_PCT'] = prev
+                else:
+                    os.environ.pop('RECS_MIN_EV_PCT', None)
+
+        groups_wk: Dict[str, List[Dict[str, Any]]] = {"High": [], "Medium": [], "Low": [], "": []}
+        for r in all_recs_wk:
+            c = r.get("confidence") or ""
+            if c not in groups_wk:
+                groups_wk[c] = []
+            groups_wk[c].append(r)
+
+        stake_map_wk = {"High": 100.0, "Medium": 50.0, "Low": 25.0}
+        def american_profit_wk(stake: float, odds: Any) -> Optional[float]:
+            try:
+                if odds is None or (isinstance(odds, float) and pd.isna(odds)):
+                    odds = -110
+                o = float(odds)
+                if o > 0:
+                    return stake * (o / 100.0)
+                else:
+                    return stake * (100.0 / abs(o))
+            except Exception:
+                return None
+        def tier_metrics_wk(tier: str) -> Dict[str, Any]:
+            items = groups_wk.get(tier, [])
+            done = [x for x in items if x.get('result') in {'Win','Loss','Push'}]
+            wins = sum(1 for x in done if x.get('result') == 'Win')
+            losses = sum(1 for x in done if x.get('result') == 'Loss')
+            pushes = sum(1 for x in done if x.get('result') == 'Push')
+            played = wins + losses
+            acc = (wins / played * 100.0) if played > 0 else None
+            stake_total = 0.0
+            profit_total = 0.0
+            for x in done:
+                stake = stake_map_wk.get(tier, 25.0)
+                res = x.get('result')
+                odds_val = x.get('odds')
+                if res == 'Win':
+                    prof = american_profit_wk(stake, odds_val)
+                    if prof is None:
+                        prof = stake * (100.0/110.0)
+                    profit_total += prof
+                    stake_total += stake
+                elif res == 'Loss':
+                    profit_total -= stake
+                    stake_total += stake
+                elif res == 'Push':
+                    stake_total += 0.0
+            roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
+            return {
+                'tier': tier,
+                'total': len(items),
+                'resolved': len(done),
+                'wins': wins,
+                'losses': losses,
+                'pushes': pushes,
+                'accuracy_pct': acc,
+                'roi_pct': roi_pct,
+                'stake_total': stake_total,
+                'profit_total': profit_total,
+            }
+        accuracy_week = {t: tier_metrics_wk(t) for t in ['High','Medium','Low']}
+        overall_wk = {'tier': 'Overall','total':0,'resolved':0,'wins':0,'losses':0,'pushes':0,'accuracy_pct':None,'roi_pct':None,'stake_total':0.0,'profit_total':0.0}
+        for t in ['High','Medium','Low']:
+            m = accuracy_week.get(t, {})
+            for k in ['total','resolved','wins','losses','pushes','stake_total','profit_total']:
+                overall_wk[k] += m.get(k, 0) or 0
+        played_overall_wk = overall_wk['wins'] + overall_wk['losses']
+        if played_overall_wk > 0:
+            overall_wk['accuracy_pct'] = overall_wk['wins'] / played_overall_wk * 100.0
+        if overall_wk['stake_total'] > 0:
+            overall_wk['roi_pct'] = overall_wk['profit_total'] / overall_wk['stake_total'] * 100.0
+        accuracy_week['Overall'] = overall_wk
+    except Exception:
+        accuracy_week = None
+
     # --- Season-to-date accuracy summary ---
     # This is heavy. On Render (or when explicitly disabled), skip by default; allow opt-in via ?s2d=1.
     accuracy_s2d = None
@@ -5423,6 +5525,7 @@ def index():
         sort=sort_param,
         total_rows=len(cards),
         fast_mode=fast_mode,
+        accuracy_week=accuracy_week,
         accuracy_s2d=accuracy_s2d,
     )
 
