@@ -5517,6 +5517,7 @@ def index():
         sort=sort_param,
         total_rows=len(cards),
         fast_mode=fast_mode,
+        show_week_summary=(str(request.args.get('week_summary','0')).lower() in {'1','true','yes','y'}),
         accuracy_week=accuracy_week,
         accuracy_s2d=accuracy_s2d,
     )
