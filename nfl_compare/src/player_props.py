@@ -67,6 +67,12 @@ QB_OVERRIDE_BY_TEAM = {
     "Chicago Bears": "Caleb Williams",
 }
 
+# Optional explicit RB1 overrides by team (normalized team names)
+# Used to force a specific RB to be the top rushing option when sources conflict.
+RB1_OVERRIDES = {
+    "Kansas City Chiefs": ["Isiah Pacheco"],
+}
+
 
 # --- League-average baselines (tunable via env later if needed) ---
 LEAGUE_PLAYS_PER_TEAM = 64.0
@@ -1138,6 +1144,71 @@ def _espn_depth_usage(season: int, week: int, team: str) -> pd.DataFrame:
         rm = _team_roster_ids(int(season), team)
     except Exception:
         rm = pd.DataFrame()
+
+    # Validate ESPN groups against roster positions to prevent misclassified defenders from receiving offensive shares
+    def _allowed_for(pos: str) -> set[str]:
+        p = pos.upper()
+        if p == 'QB':
+            return {'QB'}
+        if p == 'RB':
+            return {'RB','HB','FB'}
+        if p == 'WR':
+            return {'WR'}
+        if p == 'TE':
+            return {'TE'}
+        return set()
+
+    def _validate_group(group_df: pd.DataFrame, expected_pos: str) -> pd.DataFrame:
+        if group_df is None or group_df.empty:
+            return group_df
+        if rm is None or rm.empty or 'player' not in rm.columns or 'position' not in rm.columns:
+            return group_df
+        try:
+            df = group_df.copy()
+            df['_nm'] = df['player'].astype(str).map(normalize_name_loose)
+            rmm = rm.copy()
+            rmm['_nm'] = rmm['player'].astype(str).map(normalize_name_loose)
+            rmm['pos_up'] = rmm['position'].astype(str).str.upper()
+            df = df.merge(rmm[['_nm','pos_up']].drop_duplicates(), on='_nm', how='left')
+            allowed = _allowed_for(expected_pos)
+            # Keep rows where roster position is missing (unknown) or in allowed set; drop clear mismatches
+            keep = df['pos_up'].isna() | df['pos_up'].isin(allowed)
+            df = df[keep].copy()
+            return df.drop(columns=['_nm','pos_up'], errors='ignore')
+        except Exception:
+            return group_df
+
+    qb = _validate_group(qb, 'QB')
+    rb = _validate_group(rb, 'RB')
+    wr = _validate_group(wr, 'WR')
+    te = _validate_group(te, 'TE')
+
+    # If any critical group is empty or still clearly invalid, fallback to roster-based depth for safety
+    def _group_ok(gdf: pd.DataFrame, pos: str) -> bool:
+        if gdf is None or gdf.empty:
+            return False
+        if rm is None or rm.empty:
+            # Without roster, trust ESPN group non-empty
+            return True
+        try:
+            gg = gdf.copy()
+            gg['_nm'] = gg['player'].astype(str).map(normalize_name_loose)
+            rmm = rm.copy(); rmm['_nm'] = rmm['player'].astype(str).map(normalize_name_loose)
+            rmm['pos_up'] = rmm['position'].astype(str).str.upper()
+            gg = gg.merge(rmm[['_nm','pos_up']].drop_duplicates(), on='_nm', how='left')
+            allowed = _allowed_for(pos)
+            # ok if at least one row has allowed position or unknown (NaN) that we'll backfill later
+            has_allowed = gg['pos_up'].isna().any() or gg['pos_up'].isin(allowed).any()
+            return bool(has_allowed)
+        except Exception:
+            return len(gdf) > 0
+
+    if (not _group_ok(rb, 'RB')) or (not _group_ok(wr, 'WR')) or (not _group_ok(te, 'TE')):
+        try:
+            return _roster_based_depth(int(season), team)
+        except Exception:
+            # If fallback fails, continue with current and let backfill/weights handle
+            pass
     def backfill(group_df: pd.DataFrame, pos: str, need: int) -> pd.DataFrame:
         cur = group_df.copy()
         if len(cur) >= need:
@@ -3489,6 +3560,52 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         if t_sum > 0:
             depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / t_sum
         _dump_depth(team, '05_after_t_eff', depth)
+
+        # RB1 override enforcement: ensure the configured RB1 leads rushing allocation
+        try:
+            if RB1_OVERRIDES and team in RB1_OVERRIDES:
+                rb_mask = depth['pos_up'].eq('RB')
+                if rb_mask.any():
+                    # Build alias helpers if not present
+                    if 'player_alias' not in depth.columns:
+                        try:
+                            depth['player_alias'] = depth['player'].astype(str).map(normalize_alias_init_last)
+                        except Exception:
+                            depth['player_alias'] = depth['player'].astype(str)
+                    cand_names = RB1_OVERRIDES.get(team) or []
+                    if isinstance(cand_names, str):
+                        cand_names = [cand_names]
+                    cand_alias = set(); cand_lnames = set()
+                    for nm in cand_names:
+                        try:
+                            cand_alias.add(normalize_alias_init_last(str(nm)))
+                        except Exception:
+                            pass
+                        parts = str(nm).split()
+                        if parts:
+                            cand_lnames.add(parts[-1].lower())
+                    m_alias = depth['player_alias'].astype(str).isin(cand_alias) if cand_alias else pd.Series([False]*len(depth), index=depth.index)
+                    pl = depth['player'].astype(str).str.lower()
+                    m_lname = pl.apply(lambda x: any(ln in x for ln in cand_lnames)) if cand_lnames else pd.Series([False]*len(depth), index=depth.index)
+                    m_override = rb_mask & (m_alias | m_lname)
+                    if m_override.any():
+                        # Promote override to top rushing rank and increase r_blend/rush_share slightly above current max
+                        base_col = 'r_blend' if 'r_blend' in depth.columns else 'rush_share'
+                        rb_vals = pd.to_numeric(depth.loc[rb_mask, base_col], errors='coerce').fillna(0.0)
+                        rb_max = float(rb_vals.max())
+                        cur = pd.to_numeric(depth.loc[m_override, base_col], errors='coerce').fillna(0.0)
+                        bump = max(rb_max, float(cur.max()))
+                        depth.loc[m_override, base_col] = float(min(1.0, bump * 1.02))
+                        # Keep rush_strength aligned
+                        if 'rush_strength' in depth.columns:
+                            depth.loc[m_override, 'rush_strength'] = depth.loc[m_override, base_col]
+                        # Force rush_rank=1 for override; demote other RBs if tied
+                        depth.loc[m_override, 'rush_rank'] = 1
+                        dup_ones = rb_mask & (depth['rush_rank'] == 1) & (~m_override)
+                        if dup_ones.any():
+                            depth.loc[dup_ones, 'rush_rank'] = 2
+        except Exception:
+            pass
 
         # Week 1: hard-cap any single TE's t_eff and redistribute excess to WRs proportionally
         try:
