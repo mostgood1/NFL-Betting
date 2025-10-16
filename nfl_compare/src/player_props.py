@@ -1112,6 +1112,13 @@ def _espn_depth_usage(season: int, week: int, team: str) -> pd.DataFrame:
     d = dc[dc['team'] == team].copy()
     if d is None or d.empty or 'position' not in d.columns:
         return pd.DataFrame()
+    # Canonicalize player names to collapse known nicknames (e.g., Hollywood -> Marquise)
+    try:
+        from .name_normalizer import canonical_player_name  # type: ignore
+        if 'player' in d.columns:
+            d['player'] = d['player'].astype(str).apply(canonical_player_name)
+    except Exception:
+        pass
     # Prefer active players but keep inactives available for backfill if counts are short
     d_all = d.copy()
     d_all['__act__'] = d_all.get('active', pd.Series([1]*len(d_all))).astype(bool).astype(int)
@@ -2366,9 +2373,12 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             depth = depth.merge(espn_act[['_nm','is_active_espn']].rename(columns={'_nm':'_nm'}), on='_nm', how='left', suffixes=(None,'_nm2'))
                             depth['is_active_espn'] = depth['is_active_espn'].fillna(depth.get('is_active_espn_nm2'))
                         depth = depth.drop(columns=[c for c in depth.columns if c.endswith('_nm2') or c=='_nm_espn'], errors='ignore')
+                        # Prefer ESPN flag when present (it directly reflects the weekly depth chart for this team)
                         c = pd.to_numeric(depth.get('is_active_espn'), errors='coerce')
                         if c is not None:
-                            depth['is_active'] = np.minimum(pd.to_numeric(depth['is_active'], errors='coerce').fillna(1), c.fillna(1)).astype(int)
+                            # Where ESPN flag is available, use it; otherwise keep existing is_active
+                            base = pd.to_numeric(depth['is_active'], errors='coerce').fillna(1)
+                            depth['is_active'] = base.where(c.isna(), c.fillna(1)).astype(int)
                 except Exception:
                     pass
                 # Week 1 stricter rule: if player not found on this team's weekly roster (both maps NaN), mark inactive
@@ -2678,6 +2688,53 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
                             depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
                             _dump_depth(team, '02c_after_add_roster_fringe', depth)
+        except Exception:
+            pass
+
+        # Safety net: ensure primary roster WR/TE starters are present even if not captured above
+        try:
+            rm = roster_map.copy() if roster_map is not None else pd.DataFrame()
+            if rm is not None and not rm.empty and 'position' in rm.columns:
+                rm['pos_up'] = rm['position'].astype(str).str.upper()
+                # Prefer entries with the smallest depth_chart_order (i.e., starters)
+                if 'depth_chart_order' in rm.columns:
+                    rm['_ord'] = pd.to_numeric(rm['depth_chart_order'], errors='coerce').fillna(99).astype(int)
+                else:
+                    rm['_ord'] = 99
+                # Current presence signals
+                present_ids = set(depth['player_id'].dropna().astype(str).tolist()) if 'player_id' in depth.columns else set()
+                present_nm = set(depth['player'].astype(str).map(normalize_name_loose)) if 'player' in depth.columns else set()
+                # Check WR/TE starters
+                add_rows = []
+                for pos in ['WR','TE']:
+                    starters = rm[rm['pos_up'] == pos].sort_values(['_ord','player']).head(3)
+                    for _, rr in starters.iterrows():
+                        pid = str(rr.get('player_id') or '')
+                        nm = str(rr.get('player') or '').strip()
+                        if not nm:
+                            continue
+                        nm_key = normalize_name_loose(nm)
+                        if (pid and pid in present_ids) or (nm_key in present_nm):
+                            continue
+                        add_rows.append({
+                            'season': int(tr.get('season')),
+                            'team': team,
+                            'player': nm,
+                            'player_id': pid,
+                            'position': pos,
+                            'rush_share': 0.0,
+                            'target_share': 0.0,
+                            'rz_rush_share': 0.0,
+                            'rz_target_share': 0.0,
+                        })
+                if add_rows:
+                    depth = pd.concat([depth, pd.DataFrame(add_rows)], ignore_index=True)
+                    depth['pos_up'] = depth['position'].astype(str).str.upper()
+                    depth['t_base'] = pd.to_numeric(depth['target_share'], errors='coerce').fillna(0.0)
+                    depth['r_base'] = pd.to_numeric(depth['rush_share'], errors='coerce').fillna(0.0)
+                    depth['recv_strength'] = np.where(depth['pos_up'].isin(['WR','TE','RB']), depth['t_base'], 0.0)
+                    depth['rush_strength'] = np.where(depth['pos_up'].isin(['RB','QB']), depth['r_base'], 0.0)
+                    _dump_depth(team, '02d_after_ensure_roster_starters', depth)
         except Exception:
             pass
 
@@ -4418,6 +4475,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     out = pd.DataFrame(rows)
     if out.empty:
         return out
+    # Canonicalize names in the final output as well
+    try:
+        from .name_normalizer import canonical_player_name  # type: ignore
+        if 'player' in out.columns:
+            out['player'] = out['player'].astype(str).apply(canonical_player_name)
+    except Exception:
+        pass
     # Post-process: enforce team-level QB override names in final output and consolidate to a single QB row
     try:
         if QB_OVERRIDE_BY_TEAM and not out.empty:
@@ -4477,7 +4541,7 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                             out.loc[mask, col_dst] = pd.to_numeric(out.loc[mask, col_src], errors='coerce')
     except Exception:
         pass
-    # Attach is_active from weekly rosters
+    # Attach is_active from weekly rosters (and ESPN depth map as override when present)
     try:
         act = _active_roster(int(season), int(week))
         if act is not None and not act.empty:
@@ -4503,6 +4567,33 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 # combine with b via minimum, treating NaN as 1.0
                 bv = b.astype(float).fillna(1.0)
                 is_active_vals = np.minimum(is_active_vals.fillna(1.0), bv)
+            # If ESPN depth chart is present, overlay ESPN active by normalized name
+            try:
+                espn_act = _espn_team_active_map(int(season), int(week), None)  # we'll filter per-team below
+            except Exception:
+                espn_act = pd.DataFrame()
+            try:
+                if espn_act is None or espn_act.empty:
+                    # Load and filter per team on the fly
+                    dc = _load_weekly_depth_chart(int(season), int(week))
+                    if dc is not None and not dc.empty and 'player' in dc.columns:
+                        tmp = dc.copy(); tmp['_nm'] = tmp['player'].astype(str).map(normalize_name_loose)
+                        tmp['team'] = tmp['team'].astype(str).apply(normalize_team_name)
+                        tmp['is_active_espn'] = tmp.get('active', pd.Series([1]*len(tmp))).astype(bool).astype(int)
+                        espn_act = tmp[['team','_nm','is_active_espn']].drop_duplicates()
+                    else:
+                        espn_act = pd.DataFrame()
+                if espn_act is not None and not espn_act.empty:
+                    espn_act = espn_act.rename(columns={'_nm':'_nm_espn'})
+                    out = out.merge(espn_act, left_on=['team','_nm'], right_on=['team','_nm_espn'], how='left')
+                    c = pd.to_numeric(out.get('is_active_espn'), errors='coerce')
+                    if c is not None:
+                        # Where ESPN flag is available, use it; else keep current
+                        base = pd.to_numeric(is_active_vals, errors='coerce').fillna(1.0)
+                        is_active_vals = base.where(c.isna(), c.fillna(1.0))
+                    out = out.drop(columns=['_nm_espn','is_active_espn'], errors='ignore')
+            except Exception:
+                pass
             out['is_active'] = pd.to_numeric(is_active_vals, errors='coerce').fillna(1.0)
             # Week 1: be cautious with missing weekly roster coverage. Only mark as inactive
             # when the team has weekly roster entries and the player is explicitly missing.
@@ -4551,6 +4642,19 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         keep_inactive = str(os.environ.get('PROPS_KEEP_INACTIVE', '0')).strip().lower() in {'1','true','yes'}
         if (not keep_inactive) and ('is_active' in out.columns) and (int(week) > 1):
             out = out[out['is_active'].astype('Int64').fillna(1) == 1].copy()
+    except Exception:
+        pass
+    # Consolidate duplicate players after canonicalization (sum usage and averages where appropriate)
+    try:
+        key_cols = [c for c in ['season','week','game_id','team','player','position','player_id'] if c in out.columns]
+        if key_cols:
+            num_cols = [c for c in out.columns if c not in key_cols and out[c].dtype.kind in 'fc' and c not in {'is_active'}]
+            if num_cols:
+                agg = {c: 'sum' for c in num_cols}
+                # For flags like is_active, take max
+                if 'is_active' in out.columns:
+                    agg['is_active'] = 'max'
+                out = out.groupby(key_cols, as_index=False).agg(agg)
     except Exception:
         pass
     # Optional: enforce per-team consistency by scaling player sums to match team totals

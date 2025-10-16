@@ -78,6 +78,32 @@ def main() -> int:
     game_bov_csv = DATA_DIR / f"bovada_game_props_{season}_wk{week}.csv"
     game_edges_csv = DATA_DIR / f"edges_game_props_{season}_wk{week}.csv"
 
+    # 0) Refresh depth chart and player props for this week
+    # Rebuild weekly depth chart to capture latest actives/injuries
+    dc_csv = DATA_DIR / f"depth_chart_{season}_wk{week}.csv"
+    props_csv = DATA_DIR / f"player_props_{season}_wk{week}.csv"
+    print("Pre-step: refresh depth chart and player props")
+    rc = run([
+        sys.executable,
+        "scripts/build_depth_chart.py",
+        str(season),
+        str(week),
+    ])
+    if rc != 0:
+        print(f"WARNING: build_depth_chart returned {rc}")
+    rc = run([
+        sys.executable,
+        "scripts/gen_props.py",
+        str(season),
+        str(week),
+    ])
+    if rc != 0:
+        print(f"WARNING: gen_props returned {rc} (may be locked or failed)")
+    # Require props to exist for downstream edges join
+    if not _csv_has_data(props_csv):
+        print(f"ERROR: Missing or empty props CSV: {props_csv}")
+        return 3
+
     # 1) Fetch Bovada (player props)
     rc = run([
         sys.executable,

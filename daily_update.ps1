@@ -174,6 +174,8 @@ try {
   $env:PROPS_POS_TE_REC       = '0.98'
   $env:PROPS_POS_QB_PASS_YDS  = '0.97'
   $env:PROPS_POS_QB_PASS_TDS  = '0.95'
+  # Enforce per-team usage scaling so player targets sum to team attempts
+  $env:PROPS_ENFORCE_TEAM_USAGE = '1'
   & $Python -m nfl_compare.src.daily_updater | Tee-Object -FilePath $LogFile -Append
   $ExitCode = $LASTEXITCODE
 } catch {

@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from typing import Iterable
+from typing import Iterable, Optional
 
 
 _SUFFIXES: set[str] = {"jr", "sr", "ii", "iii", "iv", "v"}
@@ -112,3 +112,33 @@ __all__ = [
     "normalize_name_loose",
     "normalize_alias_init_last",
 ]
+
+# --- Canonical alias mapping for known nicknames ---
+# Keys should be lowercase strict names; values are preferred display names
+_CANONICAL_NAME_ALIASES: dict[str, str] = {
+    # Hollywood Brown -> Marquise Brown
+    "hollywood brown": "Marquise Brown",
+    # Common variants (defensive, in case upstream sends dotted/football names)
+    "hollywoodbrown": "Marquise Brown",
+}
+
+
+def canonical_player_name(name: Optional[str]) -> str:
+    """Return a canonical display name for a player if a known alias is used.
+
+    - Keeps original name when no mapping exists
+    - Strips accents and normalizes whitespace before matching
+    """
+    if not name:
+        return ""
+    raw = _normalize_ws(_strip_accents(str(name)))
+    key_strict = raw.lower()
+    if key_strict in _CANONICAL_NAME_ALIASES:
+        return _CANONICAL_NAME_ALIASES[key_strict]
+    # Try loose key (alnum only)
+    key_loose = normalize_name_loose(raw)
+    if key_loose in _CANONICAL_NAME_ALIASES:
+        return _CANONICAL_NAME_ALIASES[key_loose]
+    return raw
+
+__all__.append("canonical_player_name")

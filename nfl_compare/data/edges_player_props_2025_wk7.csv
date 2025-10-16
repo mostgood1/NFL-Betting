@@ -1,241 +1,592 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Joe Flacco,CIN,Passing Yards,150.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,157.8,0.06666318583485506,,,157.8
-Aaron Rodgers,PIT,Passing Yards,350.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-153.5,-0.9999075153719366,,,153.5
-Joe Flacco,CIN,Passing Yards,175.0,-650.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,132.8,0.1537607293685165,,,132.8
-Aaron Rodgers,PIT,Passing Yards,325.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-128.5,-0.9987940075440507,,,128.5
-Joe Flacco,CIN,Passing Yards,200.0,-325.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,107.80000000000001,0.3063388422637194,,,107.80000000000001
-Aaron Rodgers,PIT,Passing Yards,300.0,625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-103.5,-0.9887442219429563,,,103.5
-Ja'Marr Chase,CIN,Receiving Yards,150.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-92.1,-0.9999996074749147,,,92.1
-Joe Flacco,CIN,Passing Yards,225.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,82.80000000000001,0.5572893867386142,,,82.80000000000001
-Tee Higgins,CIN,Receiving Yards,125.0,1400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-81.7,-0.9999884447137629,,,81.7
-Aaron Rodgers,PIT,Passing Yards,275.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-78.5,-0.9439614365821622,,,78.5
-Aaron Rodgers,PIT,Passing Yards,125.0,-1400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,71.5,0.04942861683783577,,,71.5
-Joe Flacco,CIN,Passing Yards,375.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,-67.19999999999999,-0.5611368047386112,,,67.19999999999999
-Ja'Marr Chase,CIN,Receiving Yards,125.0,625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-67.1,-0.9997132004266647,,,67.1
-Tee Higgins,CIN,Receiving Yards,110.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-66.7,-0.9995636944663968,,,66.7
-Jaylen Warren,PIT,Rushing Yards,125.0,1600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-66.7,-0.9999838904767387,,,66.7
-Joe Flacco,CIN,Passing Yards,250.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,57.80000000000001,0.9964163505032396,,,57.80000000000001
-Tee Higgins,CIN,Receiving Yards,100.0,750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-56.7,-0.9963786079819632,,,56.7
-Aaron Rodgers,PIT,Passing Yards,250.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-53.5,-0.8167624509217414,,,53.5
-Ja'Marr Chase,CIN,Receiving Yards,110.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-52.1,-0.9948252514027596,,,52.1
-Jaylen Warren,PIT,Rushing Yards,110.0,950.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-51.7,-0.9988358198336027,,,51.7
-Andrei Iosivas,CIN,Receiving Yards,80.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,-48.9,-0.967828026316516,,,48.9
-Tee Higgins,CIN,Receiving Yards,90.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-46.7,-0.9804569867467423,,,46.7
-Aaron Rodgers,PIT,Passing Yards,150.0,-650.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,46.5,0.047698421071948854,,,46.5
-Joe Flacco,CIN,Passing Yards,350.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,-42.19999999999999,0.1396383741009113,,,42.19999999999999
-Ja'Marr Chase,CIN,Receiving Yards,100.0,275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-42.1,-0.9751208955462977,,,42.1
-Jaylen Warren,PIT,Rushing Yards,100.0,700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-41.7,-0.988416179118579,,,41.7
-Noah Fant,CIN,Receiving Yards,10.0,-900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,39.2,0.09937932947409789,,,39.2
-Andrei Iosivas,CIN,Receiving Yards,70.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,-38.9,-0.8561951545285698,,,38.9
-Chase Brown,CIN,Rushing Yards,15.0,-1800.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,37.8,0.051895972096790484,,,37.8
-Tee Higgins,CIN,Receiving Yards,80.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-36.7,-0.9266983317416797,,,36.7
-Noah Fant,CIN,Receiving Yards,15.0,-450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,34.2,0.19518376629172943,,,34.2
-Jaylen Warren,PIT,Rushing Yards,25.0,-1000.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,33.3,0.09044107185328532,,,33.3
-Joe Flacco,CIN,Passing Yards,275.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,32.80000000000001,1.3944066358548306,,,32.80000000000001
-Chase Brown,CIN,Rushing Yards,20.0,-700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,32.8,0.13192188065479415,,,32.8
-Ja'Marr Chase,CIN,Receiving Yards,90.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-32.1,-0.9144581640789508,,,32.1
-Jaylen Warren,PIT,Rushing Yards,90.0,525.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-31.700000000000003,-0.9263857885997916,,,31.700000000000003
-Noah Fant,CIN,Receiving Yards,80.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,-30.799999999999997,-0.5448533551070757,,,30.799999999999997
-Noah Fant,CIN,Receiving Yards,20.0,-275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,29.200000000000003,0.30509476505227584,,,29.200000000000003
-Andrei Iosivas,CIN,Receiving Yards,60.0,875.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,-28.9,-0.5654867381042052,,,28.9
-Aaron Rodgers,PIT,Passing Yards,225.0,105.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-28.5,-0.5741316760155288,,,28.5
-Jaylen Warren,PIT,Rushing Yards,30.0,-600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,28.299999999999997,0.1414460052698744,,,28.299999999999997
-Tee Higgins,CIN,Receiving Yards,15.0,-1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,28.299999999999997,0.031348798542064835,,,28.299999999999997
-Ja'Marr Chase,CIN,Receiving Yards,30.0,-1400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,27.9,0.01744957759367685,,,27.9
-Chase Brown,CIN,Rushing Yards,25.0,-425.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,27.799999999999997,0.20622452309330908,,,27.799999999999997
-Chase Brown,CIN,Rushing Yards,80.0,575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,-27.200000000000003,-0.8243872029073022,,,27.200000000000003
-Tee Higgins,CIN,Receiving Yards,70.0,250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-26.700000000000003,-0.7965129322558232,,,26.700000000000003
-Noah Fant,CIN,Receiving Yards,25.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,24.200000000000003,0.44997070255789084,,,24.200000000000003
-Tee Higgins,CIN,Receiving Yards,20.0,-675.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,23.299999999999997,0.050266593962319,,,23.299999999999997
-Chase Brown,CIN,Rushing Yards,30.0,-275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,22.799999999999997,0.29313378856658046,,,22.799999999999997
-Kenneth Gainwell,PIT,Rushing Yards,10.0,-600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,22.299999999999997,0.10180452519868602,,,22.299999999999997
-Ja'Marr Chase,CIN,Receiving Yards,80.0,130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-22.1,-0.7773588854530963,,,22.1
-Jaylen Warren,PIT,Rushing Yards,80.0,325.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-21.700000000000003,-0.7425742784912491,,,21.700000000000003
-Aaron Rodgers,PIT,Passing Yards,175.0,-330.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,21.5,-0.04815365549430348,,,21.5
-Andrei Iosivas,CIN,Receiving Yards,10.0,-200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,21.1,0.3390945762854591,,,21.1
-Noah Fant,CIN,Receiving Yards,70.0,850.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,-20.799999999999997,0.050366561217791816,,,20.799999999999997
-Noah Fant,CIN,Receiving Yards,30.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,19.200000000000003,0.62771436075297,,,19.200000000000003
-Andrei Iosivas,CIN,Receiving Yards,50.0,575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,-18.9,-0.10144225920126404,,,18.9
-Jaylen Warren,PIT,Rushing Yards,40.0,-250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,18.299999999999997,0.2661850612006525,,,18.299999999999997
-Tee Higgins,CIN,Receiving Yards,25.0,-450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,18.299999999999997,0.05006192628812975,,,18.299999999999997
-Ja'Marr Chase,CIN,Receiving Yards,40.0,-575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,17.9,0.0023057668978511137,,,17.9
-Kenneth Gainwell,PIT,Rushing Yards,50.0,500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,-17.700000000000003,-0.38161751435579583,,,17.700000000000003
-Kenneth Gainwell,PIT,Rushing Yards,15.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,17.299999999999997,0.1889568096777483,,,17.299999999999997
-Chase Brown,CIN,Rushing Yards,70.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,-17.200000000000003,-0.4793227334568342,,,17.200000000000003
-Joe Flacco,CIN,Passing Yards,325.0,625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,-17.19999999999999,1.2588221815266105,,,17.19999999999999
-Tee Higgins,CIN,Receiving Yards,60.0,165.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-16.700000000000003,-0.5681480481962706,,,16.700000000000003
-Andrei Iosivas,CIN,Receiving Yards,15.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,16.1,0.46526913377542223,,,16.1
-Tee Higgins,CIN,Receiving Yards,30.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,13.299999999999997,0.04399521217776042,,,13.299999999999997
-Chase Brown,CIN,Rushing Yards,40.0,-135.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,12.799999999999997,0.42691413797071887,,,12.799999999999997
-Kenneth Gainwell,PIT,Rushing Yards,20.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,12.299999999999997,0.2731449554955069,,,12.299999999999997
-Ja'Marr Chase,CIN,Receiving Yards,70.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-12.100000000000001,-0.554472801321127,,,12.100000000000001
-Jaylen Warren,PIT,Rushing Yards,70.0,220.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-11.700000000000003,-0.3546949494485218,,,11.700000000000003
-Andrei Iosivas,CIN,Receiving Yards,20.0,115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,11.100000000000001,0.597671233063468,,,11.100000000000001
-Noah Fant,CIN,Receiving Yards,60.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,-10.799999999999997,0.7070189803943638,,,10.799999999999997
-Noah Fant,CIN,Receiving Yards,40.0,175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,9.200000000000003,0.9409693135132177,,,9.200000000000003
-Andrei Iosivas,CIN,Receiving Yards,40.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,-8.899999999999999,0.4264389864417193,,,8.899999999999999
-Jaylen Warren,PIT,Rushing Yards,50.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,8.299999999999997,0.27979363387890444,,,8.299999999999997
-Ja'Marr Chase,CIN,Receiving Yards,50.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,7.899999999999999,-0.0947613968656279,,,7.899999999999999
-Joe Flacco,CIN,Passing Yards,300.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,307.8,7.800000000000011,1.6467949416854613,,,7.800000000000011
-Kenneth Gainwell,PIT,Rushing Yards,40.0,275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,-7.700000000000003,0.0918488254562988,,,7.700000000000003
-Kenneth Gainwell,PIT,Rushing Yards,25.0,-105.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,7.299999999999997,0.3646476584924301,,,7.299999999999997
-Chase Brown,CIN,Rushing Yards,60.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,-7.200000000000003,-0.013540096884616881,,,7.200000000000003
-Tee Higgins,CIN,Receiving Yards,50.0,105.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,-6.700000000000003,-0.2891684626301354,,,6.700000000000003
-Andrei Iosivas,CIN,Receiving Yards,25.0,165.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,6.100000000000001,0.6963615801040844,,,6.100000000000001
-Ja'Marr Chase,CIN,Receptions,11.0,650.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,-4.23,-0.9957304779770536,,,4.23
-Noah Fant,CIN,Receptions,2.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,4.03,0.06563455657256699,,,4.03
-Aaron Rodgers,PIT,Passing Yards,200.0,-180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,196.5,-3.5,-0.2841766357642673,,,3.5
-Tee Higgins,CIN,Receptions,8.0,750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,-3.4299999999999997,-0.9646046625020473,,,3.4299999999999997
-Tee Higgins,CIN,Receiving Yards,40.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,43.3,3.299999999999997,-0.06244305832214325,,,3.299999999999997
-Ja'Marr Chase,CIN,Receptions,10.0,400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,-3.2300000000000004,-0.9675771322202328,,,3.2300000000000004
-Noah Fant,CIN,Receptions,3.0,-375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,3.0300000000000002,0.2541484967779798,,,3.0300000000000002
-Chase Brown,CIN,Rushing Yards,50.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.8,2.799999999999997,0.3902233026538471,,,2.799999999999997
-Ja'Marr Chase,CIN,Receptions,4.0,-1400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,2.7699999999999996,0.05369205799890743,,,2.7699999999999996
-Aaron Rodgers,PIT,Passing TDs,4.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.56,-2.44,-0.7845722714577732,,,2.44
-Tee Higgins,CIN,Receptions,7.0,400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,-2.4299999999999997,-0.8460232120172225,,,2.4299999999999997
-Kenneth Gainwell,PIT,Rushing Yards,30.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.3,2.299999999999997,0.35659252730603375,,,2.299999999999997
-Ja'Marr Chase,CIN,Receptions,9.0,240.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,-2.2300000000000004,-0.8533329519317061,,,2.2300000000000004
-Ja'Marr Chase,CIN,Receiving Yards,60.0,-185.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,57.9,-2.1000000000000014,-0.30545662879506547,,,2.1000000000000014
-Noah Fant,CIN,Receptions,4.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,2.0300000000000002,0.5288026354663162,,,2.0300000000000002
-Noah Fant,CIN,Receptions,8.0,850.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,-1.9699999999999998,-0.38404360203998433,,,1.9699999999999998
-Andrei Iosivas,CIN,Receptions,1.0,-450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.81,1.81,0.12210435141328713,,,1.81
-Ja'Marr Chase,CIN,Receptions,5.0,-475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,1.7699999999999996,0.105607828595809,,,1.7699999999999996
-Jaylen Warren,PIT,Rushing Yards,60.0,135.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,58.3,-1.7000000000000028,0.06143811541755817,,,1.7000000000000028
-Tee Higgins,CIN,Receptions,3.0,-475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,1.5700000000000003,0.07303132439008331,,,1.5700000000000003
-Aaron Rodgers,PIT,Passing TDs,3.0,275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.56,-1.44,-0.7247596407187574,,,1.44
-Tee Higgins,CIN,Receptions,6.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,-1.4299999999999997,-0.5590853019242562,,,1.4299999999999997
-Joe Flacco,CIN,Passing TDs,1.0,-350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.33,1.33,-0.1308505057533282,,,1.33
-Ja'Marr Chase,CIN,Receptions,8.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,-1.2300000000000004,-0.5871158524853399,,,1.2300000000000004
-Andrei Iosivas,CIN,Receptions,4.0,800.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.81,-1.19,0.6199538841663672,,,1.19
-Andrei Iosivas,CIN,Receiving Yards,30.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,31.1,1.1000000000000014,0.7088367088003213,,,1.1000000000000014
-Noah Fant,CIN,Receptions,5.0,135.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,1.0300000000000002,0.8468869871719569,,,1.0300000000000002
-Noah Fant,CIN,Receptions,7.0,475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,-0.9699999999999998,0.3097766445264618,,,0.9699999999999998
-Andrei Iosivas,CIN,Receptions,2.0,,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.81,0.81,,,,0.81
-Noah Fant,CIN,Receiving Yards,50.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,49.2,-0.7999999999999972,0.9249326900389481,,,0.7999999999999972
-Ja'Marr Chase,CIN,Receptions,6.0,-250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,0.7699999999999996,0.012448803939347608,,,0.7699999999999996
-Joe Flacco,CIN,Passing TDs,3.0,575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.33,-0.6699999999999999,0.395762339853995,,,0.6699999999999999
-Tee Higgins,CIN,Receptions,4.0,-195.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,0.5700000000000003,0.012794192674535687,,,0.5700000000000003
-Aaron Rodgers,PIT,Passing TDs,1.0,-675.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.56,0.56,-0.46949624483306257,,,0.56
-Aaron Rodgers,PIT,Passing TDs,2.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.56,-0.43999999999999995,-0.6349049242580084,,,0.43999999999999995
-Tee Higgins,CIN,Receptions,5.0,115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.57,-0.4299999999999997,-0.20361978555869836,,,0.4299999999999997
-Joe Flacco,CIN,Passing TDs,2.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.33,0.33000000000000007,-0.011438268388783146,,,0.33000000000000007
-Ja'Marr Chase,CIN,Receptions,7.0,-125.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.77,-0.23000000000000043,-0.2263880693839384,,,0.23000000000000043
-Andrei Iosivas,CIN,Receptions,3.0,325.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.81,-0.18999999999999995,0.8780748717749638,,,0.18999999999999995
-Noah Fant,CIN,Receptions,6.0,260.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,6.03,0.03000000000000025,0.8331399556987528,,,0.03000000000000025
-DK Metcalf,PIT,Receptions,4.5,130.0,-170.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Darnell Washington (PIT) - 1Q,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Anytime TD,,140.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Drew Sample (CIN) - 1Q,,Anytime TD,,6000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Receiving Yards,58.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Drew Sample (CIN) - 1H,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf & Cincinnati Bengals,,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf & Pittsburgh Steelers,,Anytime TD,,190.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Drew Sample,CIN,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1Q,,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1H,,Anytime TD,,300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Washington & Pittsburgh Steelers,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Washington (PIT) - 1H,,Anytime TD,,800.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Pittsburgh D/ST,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Washington & Cincinnati Bengals,,Anytime TD,,1700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1Q,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Passing Yards,216.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
-Aaron Rodgers (PIT) - 1H,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers (PIT) - 1Q,,Anytime TD,,12500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Receiving Yards,15.5,-120.0,-110.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Receptions,1.5,-110.0,-120.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Andrei Iosivas (CIN) - 1H,,Anytime TD,,1400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Andrei Iosivas (CIN) - 1Q,,Anytime TD,,3300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ben Skowronek,PIT,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Ben Skowronek (PIT) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ben Skowronek (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III & Cincinnati Bengals,,Anytime TD,,1300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III & Pittsburgh Steelers,,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1H,,Anytime TD,,650.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Cam Grandy,CIN,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Darnell Washington,PIT,Anytime TD,,330.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Charlie Jones,CIN,Anytime TD,,1900.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Anytime TD,,110.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Receiving Yards,16.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Receptions,2.5,-170.0,130.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Rushing Attempts,13.5,105.0,-135.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Rushing Yards,42.5,-145.0,110.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Chase Brown & Cincinnati Bengals,,Anytime TD,,500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown & Pittsburgh Steelers,,Anytime TD,,250.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown (CIN) - 1H,,Anytime TD,,325.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown (CIN) - 1Q,,Anytime TD,,850.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Cincinnati D/ST - 1H,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Cincinnati D/ST - 1Q,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1Q,,Anytime TD,,2500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Connor Heyward,PIT,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Ja'Marr Chase & Cincinnati Bengals,,Anytime TD,,475.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Anytime TD,,140.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1Q,,Anytime TD,,2500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Receptions,4.5,115.0,-150.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Passing Yards,350.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-162.9,-0.9999739915408057,,,162.9
+Joe Flacco,CIN,Passing Yards,150.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,143.2,0.06664380138667737,,,143.2
+Aaron Rodgers,PIT,Passing Yards,325.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-137.9,-0.9995925919544142,,,137.9
+Joe Flacco,CIN,Passing Yards,175.0,-650.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,118.19999999999999,0.15342359808008582,,,118.19999999999999
+Aaron Rodgers,PIT,Passing Yards,300.0,625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-112.9,-0.9954448710336887,,,112.9
+DK Metcalf,PIT,Receiving Yards,150.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-111.5,-0.9999999996474793,,,111.5
+Joe Flacco,CIN,Passing Yards,200.0,-325.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,93.19999999999999,0.30262628807381375,,,93.19999999999999
+Ja'Marr Chase,CIN,Receiving Yards,150.0,1000.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-88.6,-0.9999989712101488,,,88.6
+Aaron Rodgers,PIT,Passing Yards,275.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-87.9,-0.9729451861214301,,,87.9
+DK Metcalf,PIT,Receiving Yards,125.0,600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-86.5,-0.9999987350622289,,,86.5
+Joe Flacco,CIN,Passing Yards,375.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,-81.80000000000001,-0.8445459421796713,,,81.80000000000001
+Tee Higgins,CIN,Receiving Yards,125.0,1400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-78.2,-0.9999683131794626,,,78.2
+DK Metcalf,PIT,Receiving Yards,110.0,400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-71.5,-0.999934983624722,,,71.5
+Joe Flacco,CIN,Passing Yards,225.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,68.19999999999999,0.5310847931052214,,,68.19999999999999
+Jaylen Warren,PIT,Rushing Yards,125.0,1600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-65.9,-0.999978646906327,,,65.9
+Jonnu Smith,PIT,Receiving Yards,80.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-65.5,-0.9992414016686585,,,65.5
+Ja'Marr Chase,CIN,Receiving Yards,125.0,500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-63.6,-0.9994505174460864,,,63.6
+Tee Higgins,CIN,Receiving Yards,110.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-63.2,-0.9989945653267853,,,63.2
+Aaron Rodgers,PIT,Passing Yards,250.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-62.900000000000006,-0.8951462320023836,,,62.900000000000006
+Aaron Rodgers,PIT,Passing Yards,125.0,-1600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,62.099999999999994,0.02211655187736511,,,62.099999999999994
+DK Metcalf,PIT,Receiving Yards,100.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-61.5,-0.9994054131625765,,,61.5
+Joe Flacco,CIN,Passing Yards,350.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,-56.80000000000001,-0.47690026529193985,,,56.80000000000001
+Jonnu Smith,PIT,Receiving Yards,70.0,800.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-55.5,-0.9950689992218233,,,55.5
+Tee Higgins,CIN,Receiving Yards,100.0,750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-53.2,-0.9925558415887761,,,53.2
+DK Metcalf,PIT,Receiving Yards,90.0,210.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-51.5,-0.9962020277583655,,,51.5
+Jaylen Warren,PIT,Rushing Yards,110.0,1000.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-50.9,-0.9984753370420197,,,50.9
+Ja'Marr Chase,CIN,Receiving Yards,110.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-48.6,-0.9914956947946727,,,48.6
+Andrei Iosivas,CIN,Receiving Yards,80.0,1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,-47.3,-0.9568269468273991,,,47.3
+Jonnu Smith,PIT,Receiving Yards,60.0,500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-45.5,-0.9776793712780665,,,45.5
+Tee Higgins,CIN,Receiving Yards,90.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-43.2,-0.9640939540731243,,,43.2
+Joe Flacco,CIN,Passing Yards,250.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,43.19999999999999,0.8720487198338853,,,43.19999999999999
+DK Metcalf,PIT,Receiving Yards,80.0,150.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-41.5,-0.9817006261462999,,,41.5
+Noah Fant,CIN,Receiving Yards,10.0,-900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,40.9,0.10214807815405386,,,40.9
+Jaylen Warren,PIT,Rushing Yards,100.0,750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-40.9,-0.9851917181338388,,,40.9
+Jaylen Warren,PIT,Rushing Yards,20.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,39.1,0.06388027950949274,,,39.1
+Ja'Marr Chase,CIN,Receiving Yards,100.0,220.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-38.6,-0.9629249338821219,,,38.6
+Aaron Rodgers,PIT,Passing Yards,225.0,,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-37.900000000000006,,,,37.900000000000006
+Andrei Iosivas,CIN,Receiving Yards,70.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,-37.3,-0.8165248060018326,,,37.3
+Chase Brown,CIN,Rushing Yards,15.0,-2500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,37.3,0.035988095831582745,,,37.3
+Aaron Rodgers,PIT,Passing Yards,150.0,-700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,37.099999999999994,-0.022368342473039607,,,37.099999999999994
+Noah Fant,CIN,Receiving Yards,15.0,-450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,35.9,0.20101261136702506,,,35.9
+Jonnu Smith,PIT,Receiving Yards,50.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-35.5,-0.926446769918055,,,35.5
+Jaylen Warren,PIT,Rushing Yards,25.0,-700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,34.1,0.13436433220087649,,,34.1
+Tee Higgins,CIN,Receiving Yards,80.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-33.2,-0.8792869062085463,,,33.2
+Chase Brown,CIN,Rushing Yards,20.0,-1000.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,32.3,0.08842422840971569,,,32.3
+Joe Flacco,CIN,Passing Yards,325.0,625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,-31.80000000000001,0.3179644277126532,,,31.80000000000001
+Tee Higgins,CIN,Receiving Yards,15.0,-1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,31.799999999999997,0.05007382104856177,,,31.799999999999997
+DK Metcalf,PIT,Receiving Yards,70.0,,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-31.5,,,,31.5
+Ja'Marr Chase,CIN,Receiving Yards,30.0,-1800.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,31.4,0.021387952991247426,,,31.4
+Jaylen Warren,PIT,Rushing Yards,90.0,500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-30.9,-0.918087758636464,,,30.9
+Noah Fant,CIN,Receiving Yards,20.0,-275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,30.9,0.316510390336227,,,30.9
+Jaylen Warren,PIT,Rushing Yards,30.0,-550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,29.1,0.15956646038985225,,,29.1
+Noah Fant,CIN,Receiving Yards,80.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,-29.1,-0.4348897482037921,,,29.1
+Ja'Marr Chase,CIN,Receiving Yards,90.0,160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-28.6,-0.8797494528701242,,,28.6
+Chase Brown,CIN,Receiving Yards,60.0,1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,-28.1,-0.36077156692942214,,,28.1
+Chase Brown,CIN,Rushing Yards,80.0,450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,-27.700000000000003,-0.8683732323901758,,,27.700000000000003
+Andrei Iosivas,CIN,Receiving Yards,60.0,875.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,-27.299999999999997,-0.472038662195162,,,27.299999999999997
+Chase Brown,CIN,Rushing Yards,25.0,-500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,27.299999999999997,0.16929432857403354,,,27.299999999999997
+Tee Higgins,CIN,Receiving Yards,20.0,-675.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,26.799999999999997,0.08217705285077037,,,26.799999999999997
+Noah Fant,CIN,Receiving Yards,25.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,25.9,0.47115075792586714,,,25.9
+Jonnu Smith,PIT,Receiving Yards,40.0,170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-25.5,-0.8196205565740832,,,25.5
+Tee Higgins,CIN,Receiving Yards,70.0,250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-23.200000000000003,-0.6983953573684896,,,23.200000000000003
+Andrei Iosivas,CIN,Receiving Yards,10.0,-200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,22.700000000000003,0.3636649226589787,,,22.700000000000003
+Kenneth Gainwell,PIT,Rushing Yards,10.0,-600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,22.6,0.10456181073144438,,,22.6
+Chase Brown,CIN,Rushing Yards,30.0,-330.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,22.299999999999997,0.23058687229983105,,,22.299999999999997
+Chase Brown,CIN,Receiving Yards,10.0,-275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,21.9,0.22886540713459286,,,21.9
+Tee Higgins,CIN,Receiving Yards,25.0,-450.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,21.799999999999997,0.10017180518341562,,,21.799999999999997
+DK Metcalf,PIT,Receiving Yards,60.0,-150.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-21.5,-0.8283526829025553,,,21.5
+Ja'Marr Chase,CIN,Receiving Yards,40.0,-700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,21.4,0.023946240231768973,,,21.4
+Noah Fant,CIN,Receiving Yards,30.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,20.9,0.6649249816330027,,,20.9
+Jaylen Warren,PIT,Rushing Yards,80.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-20.9,-0.6951821823994908,,,20.9
+Samaje Perine,CIN,Rushing Yards,10.0,-290.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,20.3,0.2459434094904729,,,20.3
+Jaylen Warren,PIT,Rushing Yards,40.0,-220.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,19.1,0.32910715617326425,,,19.1
+Noah Fant,CIN,Receiving Yards,70.0,850.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,-19.1,0.24076040302076174,,,19.1
+Kenneth Gainwell,PIT,Receiving Yards,30.0,200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,11.1,-18.9,-0.6006410040894506,,,18.9
+Ja'Marr Chase,CIN,Receiving Yards,80.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-18.6,-0.712401447121481,,,18.6
+Joe Flacco,CIN,Passing Yards,275.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,18.19999999999999,1.0255578161137977,,,18.19999999999999
+Chase Brown,CIN,Receiving Yards,50.0,800.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,-18.1,0.2915407128834757,,,18.1
+Chase Brown,CIN,Rushing Yards,70.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,-17.700000000000003,-0.5877450095705306,,,17.700000000000003
+Andrei Iosivas,CIN,Receiving Yards,15.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,17.700000000000003,0.5057979216003803,,,17.700000000000003
+Kenneth Gainwell,PIT,Rushing Yards,15.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,17.6,0.19419872621842882,,,17.6
+Kenneth Gainwell,PIT,Rushing Yards,50.0,500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,-17.4,-0.35823855721031506,,,17.4
+Andrei Iosivas,CIN,Receiving Yards,50.0,575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,-17.299999999999997,0.04235428796389806,,,17.299999999999997
+Chase Brown,CIN,Receiving Yards,15.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,16.9,0.36486545413553606,,,16.9
+Tee Higgins,CIN,Receiving Yards,30.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,16.799999999999997,0.11797504889435023,,,16.799999999999997
+Jonnu Smith,PIT,Receiving Yards,30.0,-120.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-15.5,-0.6682651226650141,,,15.5
+Samaje Perine,CIN,Rushing Yards,15.0,-150.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,15.3,0.4379528935731003,,,15.3
+Kenneth Gainwell,PIT,Receiving Yards,25.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,11.1,-13.9,-0.5037295019919767,,,13.9
+DK Metcalf,PIT,Receiving Yards,25.0,-1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,13.5,-0.14802709525960936,,,13.5
+Tee Higgins,CIN,Receiving Yards,60.0,165.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-13.200000000000003,-0.4203506861163611,,,13.200000000000003
+Aaron Rodgers,PIT,Passing Yards,200.0,-190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,-12.900000000000006,-0.456290298424538,,,12.900000000000006
+Andrei Iosivas,CIN,Receiving Yards,20.0,115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,12.700000000000003,0.660844841908059,,,12.700000000000003
+Kenneth Gainwell,PIT,Rushing Yards,20.0,-175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,12.600000000000001,0.2821912315979493,,,12.600000000000001
+Chase Brown,CIN,Rushing Yards,40.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,12.299999999999997,0.3165476244328538,,,12.299999999999997
+Aaron Rodgers,PIT,Passing Yards,175.0,-350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,187.1,12.099999999999994,-0.18328693027112783,,,12.099999999999994
+Chase Brown,CIN,Receiving Yards,20.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,11.899999999999999,0.5918763303315467,,,11.899999999999999
+Jaylen Warren,PIT,Receiving Yards,30.0,250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,18.4,-11.600000000000001,-0.133722342043604,,,11.600000000000001
+DK Metcalf,PIT,Receiving Yards,50.0,-240.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-11.5,-0.6467244778665628,,,11.5
+Ja'Marr Chase,CIN,Receiving Yards,50.0,-375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,11.399999999999999,-0.05157249017761628,,,11.399999999999999
+Jaylen Warren,PIT,Rushing Yards,70.0,220.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-10.899999999999999,-0.3020284559063797,,,10.899999999999999
+Noah Fant,CIN,Receiving Yards,40.0,175.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,10.899999999999999,1.0330639518087898,,,10.899999999999999
+Jonnu Smith,PIT,Receiving Yards,25.0,-180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-10.5,-0.5824826534592057,,,10.5
+Samaje Perine,CIN,Rushing Yards,20.0,115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,10.3,0.6534525615517276,,,10.3
+Samaje Perine,CIN,Rushing Yards,40.0,525.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,-9.7,0.5262475230776459,,,9.7
+Jaylen Warren,PIT,Rushing Yards,50.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,9.100000000000001,0.38750509718903536,,,9.100000000000001
+Noah Fant,CIN,Receiving Yards,60.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,-9.100000000000001,0.9254511032888793,,,9.100000000000001
+Kenneth Gainwell,PIT,Receiving Yards,20.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,11.1,-8.9,-0.43856406025634853,,,8.9
+Ja'Marr Chase,CIN,Receiving Yards,70.0,-145.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,-8.600000000000001,-0.482172020202078,,,8.600000000000001
+DK Metcalf,PIT,Receiving Yards,30.0,-750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,8.5,-0.21634254388945195,,,8.5
+Jaylen Warren,PIT,Receiving Yards,10.0,-275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,18.4,8.399999999999999,-0.05992483791258618,,,8.399999999999999
+Chase Brown,CIN,Receiving Yards,40.0,475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,-8.100000000000001,0.8220000740980935,,,8.100000000000001
+Chase Brown,CIN,Rushing Yards,60.0,190.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,-7.700000000000003,-0.15563690831379562,,,7.700000000000003
+Andrei Iosivas,CIN,Receiving Yards,25.0,165.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,7.700000000000003,0.7879667930182922,,,7.700000000000003
+Kenneth Gainwell,PIT,Rushing Yards,25.0,-105.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,7.600000000000001,0.37913440961322,,,7.600000000000001
+Kenneth Gainwell,PIT,Rushing Yards,40.0,275.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,-7.399999999999999,0.11956772134673788,,,7.399999999999999
+Andrei Iosivas,CIN,Receiving Yards,40.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,-7.299999999999997,0.5856060348967438,,,7.299999999999997
+Chase Brown,CIN,Receiving Yards,25.0,170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,6.899999999999999,0.7754807892439302,,,6.899999999999999
+Joe Flacco,CIN,Passing Yards,300.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_yards,293.2,-6.800000000000011,0.9033923844365851,,,6.800000000000011
+Tee Higgins,CIN,Receiving Yards,40.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,6.799999999999997,0.06506033011677659,,,6.799999999999997
+Jaylen Warren,PIT,Receiving Yards,25.0,170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,18.4,-6.600000000000001,-0.057913412538846076,,,6.600000000000001
+Jonnu Smith,PIT,Receiving Yards,20.0,-280.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-5.5,-0.49358598573313095,,,5.5
+Samaje Perine,CIN,Rushing Yards,25.0,180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,5.300000000000001,0.8129914007353976,,,5.300000000000001
+Jonnu Smith,PIT,Receiving Yards,10.0,-1100.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,4.5,-0.34067420671098536,,,4.5
+Jonnu Smith,PIT,Receptions,7.0,600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,-4.38,-0.9973617598316539,,,4.38
+Ja'Marr Chase,CIN,Receptions,11.0,575.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,-4.28,-0.9966463019777746,,,4.28
+Noah Fant,CIN,Receptions,2.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,3.9699999999999998,0.0654617178179426,,,3.9699999999999998
+Kenneth Gainwell,PIT,Receptions,6.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,2.09,-3.91,-0.9914447157865636,,,3.91
+Kenneth Gainwell,PIT,Receiving Yards,15.0,-180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,11.1,-3.9000000000000004,-0.3633508609492171,,,3.9000000000000004
+DK Metcalf,PIT,Receptions,8.0,600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,-3.46,-0.9727754411924122,,,3.46
+Jaylen Warren,PIT,Receiving Yards,15.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,18.4,3.3999999999999986,-0.058702972161457645,,,3.3999999999999986
+Jonnu Smith,PIT,Receptions,6.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,-3.38,-0.9813552479051251,,,3.38
+Tee Higgins,CIN,Receptions,8.0,750.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,-3.38,-0.9603799017983907,,,3.38
+Ja'Marr Chase,CIN,Receptions,10.0,375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,-3.2800000000000002,-0.9723709242686192,,,3.2800000000000002
+Tee Higgins,CIN,Receiving Yards,50.0,105.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,46.8,-3.200000000000003,-0.1280404885707851,,,3.200000000000003
+Noah Fant,CIN,Receptions,3.0,-375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,2.9699999999999998,0.2525209196422964,,,2.9699999999999998
+Kenneth Gainwell,PIT,Receptions,5.0,280.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,2.09,-2.91,-0.9521371515513227,,,2.91
+Ja'Marr Chase,CIN,Receptions,4.0,-1500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,2.7199999999999998,0.04724746664315492,,,2.7199999999999998
+Andrei Iosivas,CIN,Receiving Yards,30.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,32.7,2.700000000000003,0.8300621457327931,,,2.700000000000003
+Kenneth Gainwell,PIT,Rushing Yards,30.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,32.6,2.6000000000000014,0.37679741019984136,,,2.6000000000000014
+Jaylen Warren,PIT,Receptions,6.0,700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,3.51,-2.49,-0.7782261132758683,,,2.49
+DK Metcalf,PIT,Receptions,7.0,350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,-2.46,-0.8684875075669558,,,2.46
+Jonnu Smith,PIT,Receptions,5.0,170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,-2.38,-0.9093677570828347,,,2.38
+Tee Higgins,CIN,Receptions,7.0,400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,-2.38,-0.8321625131163606,,,2.38
+Chase Brown,CIN,Receptions,2.0,-500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,4.34,2.34,0.1568836170644889,,,2.34
+Aaron Rodgers,PIT,Passing TDs,4.0,900.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.68,-2.3200000000000003,-0.7163952217794958,,,2.3200000000000003
+Chase Brown,CIN,Rushing Yards,50.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,52.3,2.299999999999997,0.18701846139277967,,,2.299999999999997
+Ja'Marr Chase,CIN,Receptions,9.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,-2.2800000000000002,-0.8708825827071823,,,2.2800000000000002
+Noah Fant,CIN,Receptions,8.0,850.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,-2.0300000000000002,-0.43761540734154103,,,2.0300000000000002
+Noah Fant,CIN,Receptions,4.0,-160.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,1.9699999999999998,0.51963903719105,,,1.9699999999999998
+Kenneth Gainwell,PIT,Receptions,4.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,2.09,-1.9100000000000001,-0.8298757512685149,,,1.9100000000000001
+Chase Brown,CIN,Receiving Yards,30.0,250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,31.9,1.8999999999999986,0.9057325476581615,,,1.8999999999999986
+Andrei Iosivas,CIN,Receptions,1.0,-625.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.76,1.7599999999999998,0.058044430075420456,,,1.7599999999999998
+Ja'Marr Chase,CIN,Receptions,5.0,-550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,1.7199999999999998,0.07202148292417473,,,1.7199999999999998
+Chase Brown,CIN,Receptions,6.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,4.34,-1.6600000000000001,-0.34470443047146215,,,1.6600000000000001
+Tee Higgins,CIN,Receptions,3.0,-475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,1.62,0.0817820486464085,,,1.62
+Jaylen Warren,PIT,Receiving Yards,20.0,110.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,18.4,-1.6000000000000014,-0.02873351260602064,,,1.6000000000000014
+DK Metcalf,PIT,Receptions,3.0,-650.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,1.54,0.017594489566850946,,,1.54
+Jaylen Warren,PIT,Receptions,2.0,-350.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,3.51,1.5099999999999998,0.1279423626504897,,,1.5099999999999998
+Joe Flacco,CIN,Passing TDs,1.0,-400.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.51,1.5099999999999998,-0.10656439966941234,,,1.5099999999999998
+DK Metcalf,PIT,Receiving Yards,40.0,-375.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,38.5,-1.5,-0.41119654483373985,,,1.5
+Jaylen Warren,PIT,Receptions,5.0,370.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,3.51,-1.4900000000000002,-0.4084309725929016,,,1.4900000000000002
+DK Metcalf,PIT,Receptions,6.0,170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,-1.46,-0.6471034847703484,,,1.46
+Ja'Marr Chase,CIN,Receiving Yards,60.0,-230.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,rec_yards,61.4,1.3999999999999986,-0.23552347522872158,,,1.3999999999999986
+Jonnu Smith,PIT,Receptions,4.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,-1.38,-0.7448368823547037,,,1.38
+Tee Higgins,CIN,Receptions,6.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,-1.38,-0.5312764469341839,,,1.38
+Chase Brown,CIN,Receptions,3.0,-180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,4.34,1.3399999999999999,0.3201618495904202,,,1.3399999999999999
+Aaron Rodgers,PIT,Passing TDs,3.0,290.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.68,-1.32,-0.6481394477036972,,,1.32
+Ja'Marr Chase,CIN,Receptions,8.0,130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,-1.2800000000000002,-0.6264650156882241,,,1.2800000000000002
+Andrei Iosivas,CIN,Receptions,4.0,600.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.76,-1.2400000000000002,0.19056533049896995,,,1.2400000000000002
+Kenneth Gainwell,PIT,Receiving Yards,10.0,-330.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rec_yards,11.1,1.0999999999999996,-0.31487199553926515,,,1.0999999999999996
+Noah Fant,CIN,Receptions,7.0,475.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,-1.0300000000000002,0.23102120160053108,,,1.0300000000000002
+Noah Fant,CIN,Receptions,5.0,135.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,0.9699999999999998,0.8146999800630983,,,0.9699999999999998
+Kenneth Gainwell,PIT,Receptions,3.0,-170.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,2.09,-0.9100000000000001,-0.6157047876457075,,,0.9100000000000001
+Jaylen Warren,PIT,Rushing Yards,60.0,150.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,59.1,-0.8999999999999986,0.18592841034225327,,,0.8999999999999986
+Noah Fant,CIN,Receiving Yards,50.0,300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,50.9,0.8999999999999986,1.0844424473980845,,,0.8999999999999986
+Andrei Iosivas,CIN,Receptions,2.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.76,0.7599999999999998,0.27490206551007235,,,0.7599999999999998
+Ja'Marr Chase,CIN,Receptions,6.0,-260.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,0.7199999999999998,-0.016704403697134163,,,0.7199999999999998
+Aaron Rodgers,PIT,Passing TDs,1.0,-700.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.68,0.6799999999999999,-0.42797972089784997,,,0.6799999999999999
+Chase Brown,CIN,Receptions,5.0,280.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,4.34,-0.6600000000000001,0.16217137334148113,,,0.6600000000000001
+Tee Higgins,CIN,Receptions,4.0,-195.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,0.6200000000000001,0.03369747418915353,,,0.6200000000000001
+Jonnu Smith,PIT,Receptions,2.0,-1200.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,0.6200000000000001,-0.2597674867035299,,,0.6200000000000001
+DK Metcalf,PIT,Receptions,4.0,-250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,0.54,-0.07450225702119001,,,0.54
+Jaylen Warren,PIT,Receptions,3.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,3.51,0.5099999999999998,0.15457268250890033,,,0.5099999999999998
+Joe Flacco,CIN,Passing TDs,2.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.51,0.5099999999999998,0.10099871178487818,,,0.5099999999999998
+Jonnu Smith,PIT,Receiving Yards,15.0,-500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,rec_yards,14.5,-0.5,-0.4140782860082662,,,0.5
+Jaylen Warren,PIT,Receptions,4.0,180.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,3.51,-0.4900000000000002,-0.011276920300989923,,,0.4900000000000002
+Joe Flacco,CIN,Passing TDs,3.0,550.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,2.51,-0.4900000000000002,0.5896635235194194,,,0.4900000000000002
+DK Metcalf,PIT,Receptions,5.0,-115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.54,-0.45999999999999996,-0.323727612018342,,,0.45999999999999996
+Jonnu Smith,PIT,Receptions,3.0,-300.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,2.62,-0.3799999999999999,-0.4866324147203843,,,0.3799999999999999
+Tee Higgins,CIN,Receptions,5.0,115.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,4.62,-0.3799999999999999,-0.1721947687366197,,,0.3799999999999999
+Chase Brown,CIN,Receptions,4.0,140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,4.34,0.33999999999999986,0.44758724801913286,,,0.33999999999999986
+Aaron Rodgers,PIT,Passing TDs,2.0,-130.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,QB,pass_tds,1.68,-0.32000000000000006,-0.5797956805973833,,,0.32000000000000006
+Samaje Perine,CIN,Rushing Yards,30.0,250.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,rush_yards,30.3,0.3000000000000007,0.779918381340545,,,0.3000000000000007
+Ja'Marr Chase,CIN,Receptions,7.0,-140.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,6.72,-0.28000000000000025,-0.28902788827115183,,,0.28000000000000025
+Andrei Iosivas,CIN,Receptions,3.0,225.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,WR,receptions,2.76,-0.2400000000000002,0.3869874170621591,,,0.2400000000000002
+Kenneth Gainwell,PIT,Receptions,2.0,-500.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,RB,receptions,2.09,0.08999999999999986,-0.36688355893129243,,,0.08999999999999986
+Noah Fant,CIN,Receptions,6.0,260.0,,True,Pittsburgh Steelers @ Cincinnati Bengals,Bengals,Steelers,1760660100000,Bovada,TE,receptions,5.97,-0.03000000000000025,0.7668600443012477,,,0.03000000000000025
+Pittsburgh D/ST - 1Q,,Anytime TD,,2200.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Samaje Perine (CIN) - 1Q,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Scotty Miller,PIT,Anytime TD,,625.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Scotty Miller (PIT) - 1H,,Anytime TD,,1100.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Scotty Miller (PIT) - 1Q,,Anytime TD,,2800.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Anytime TD,,440.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Sione Vaki,DET,Anytime TD,,2800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,140.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Tahj Brooks,CIN,Anytime TD,,2500.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Tahj Washington,MIA,Anytime TD,,2000.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Defense,,Anytime TD,,625.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tanner Conner,MIA,Anytime TD,,2000.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+Tanner Hudson (CIN) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Tanner Hudson (CIN) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Tee Higgins,CIN,Anytime TD,,220.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Tee Higgins,CIN,Receiving Yards,45.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Tee Higgins,CIN,Receptions,4.5,140.0,-185.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
 Tee Higgins & Cincinnati Bengals,,Anytime TD,,675.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Tee Higgins & Pittsburgh Steelers,,Anytime TD,,375.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Tee Higgins (CIN) - 1H,,Anytime TD,,475.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Tee Higgins (CIN) - 1Q,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Passing Attempts,29.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley (CIN) - 1H,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth,PIT,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Noah Fant Total,CIN,Receiving Yards,27.5,,-130.0,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Fant (CIN) - 1Q,,Anytime TD,,2200.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Fant (CIN) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Noah Fant,CIN,Receptions,3.5,-105.0,-125.0,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Noah Fant,CIN,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Receiving Yards,45.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Tee Higgins,CIN,Anytime TD,,220.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Tanner Hudson (CIN) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Hudson (CIN) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Tahj Brooks,CIN,Anytime TD,,3000.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Scotty Miller (PIT) - 1Q,,Anytime TD,,2800.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Scotty Miller (PIT) - 1H,,Anytime TD,,1100.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Scotty Miller,PIT,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Samaje Perine (CIN) - 1Q,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Terrance Ferguson,LAR,Anytime TD,,900.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1H,,Anytime TD,,1500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley,PHI,Receiving Yards,88.5,-115.0,-115.0,False,,Vikings,Eagles,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
 Samaje Perine (CIN) - 1H,,Anytime TD,,1700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Samaje Perine,CIN,Anytime TD,,625.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1Q,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1H,,Anytime TD,,650.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson & Pittsburgh Steelers,,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Receiving Yards,51.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Samaje Perine,CIN,Rushing Yards,,1400.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Quinshon Judkins & Cleveland Browns,,Anytime TD,,140.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Quinshon Judkins & Miami Dolphins,,Anytime TD,,350.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,-114.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Rachaad White,TB,Receiving Yards,76.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Raheim Sanders,CLE,Anytime TD,,1300.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,NE,Receiving Yards,62.5,-110.0,-120.0,False,,Titans,Patriots,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Rico Dowdle & Carolina Panthers,,Anytime TD,,230.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle & New York Jets,,Anytime TD,,420.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey,DEN,Anytime TD,,275.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Roman Wilson,PIT,Anytime TD,,500.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Roman Wilson,PIT,Receiving Yards,9.5,,-130.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
 Roman Wilson & Cincinnati Bengals,,Anytime TD,,1300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson,PIT,Anytime TD,,350.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Pittsburgh D/ST - 1Q,,Anytime TD,,2200.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley (CIN) - 1Q,,Anytime TD,,12500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley,CIN,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Receiving Yards,70.5,-135.0,105.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Warren & Cincinnati Bengals,,Anytime TD,,600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Joe Flacco,CIN,Passing Attempts,36.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
-Joe Flacco,CIN,Anytime TD,,2200.0,,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
-Jermaine Burton,CIN,Anytime TD,,1900.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1Q,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1H,,Anytime TD,,210.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren & Pittsburgh Steelers,,Anytime TD,,120.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Rushing Yards,50.5,-105.0,-125.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Roman Wilson & Pittsburgh Steelers,,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Roman Wilson (PIT) - 1H,,Anytime TD,,650.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Roman Wilson (PIT) - 1Q,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Rome Odunze,CHI,Receiving Yards,68.5,-110.0,-120.0,False,,Bears,Saints,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Ross Dwelley,DET,Anytime TD,,625.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Ryan Miller,TB,Anytime TD,,330.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Anytime TD,,160.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Samaje Perine,CIN,Anytime TD,,600.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Samaje Perine,CIN,Receiving Yards,33.5,-115.0,-115.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1Q,,Anytime TD,,4500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan & Carolina Panthers,,Anytime TD,,300.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan & New York Jets,,Anytime TD,,550.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson,TB,Anytime TD,,220.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Troy Franklin,DEN,Anytime TD,,275.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Anytime TD,,2500.0,,False,,Browns,Dolphins,1760893200000,Bovada,QB,,,,,,unsupported_market,0.0
+TuTu Atwell,LAR,Anytime TD,,350.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Tutu Atwell & Jacksonville Jaguars,,Anytime TD,,1000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tutu Atwell & Los Angeles Rams,,Anytime TD,,600.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+TuTu Atwell (LAR) - 1H,,Anytime TD,,700.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+TuTu Atwell (LAR) - 1Q,,Anytime TD,,2000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Badie,DEN,Anytime TD,,2000.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Higbee,LAR,Anytime TD,,275.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyler Higbee & Jacksonville Jaguars,,Anytime TD,,850.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee & Los Angeles Rams,,Anytime TD,,425.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee (LAR) - 1H,,Anytime TD,,575.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee (LAR) - 1Q,,Anytime TD,,1500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr.,NYG,Anytime TD,,700.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Under - 1Q,PIT,Passing Yards,46.5,-115.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,CIN,Receiving Yards,6.5,-115.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,CIN,Rushing Yards,8.5,-105.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Wan'dale Robinson,NYG,Anytime TD,,350.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Smith,LAR,Anytime TD,,725.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Smith (LAR) - 1H,,Anytime TD,,1400.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Smith (LAR) - 1Q,,Anytime TD,,4000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Trevor Lawrence (JAX) - 1Q,,Anytime TD,,1600.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Trevor Lawrence (JAX) - 1H,,Anytime TD,,700.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Trevor Lawrence & Los Angeles Rams,,Anytime TD,,725.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Etienne (JAX) - 1H,,Anytime TD,,220.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Theo Johnson,NYG,Anytime TD,,500.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Thomas Fidone II,NYG,Anytime TD,,4000.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Tim Patrick,JAX,Anytime TD,,600.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Tim Patrick (JAX) - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tim Patrick (JAX) - 1Q,,Anytime TD,,3300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Tony Pollard,TEN,Receiving Yards,56.5,-120.0,-110.0,False,,Titans,Patriots,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Etienne,JAX,Anytime TD,,,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Etienne & Jacksonville Jaguars,,Anytime TD,,250.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Etienne & Los Angeles Rams,,Anytime TD,,250.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Etienne (JAX) - 1Q,,Anytime TD,,525.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Trevor Lawrence & Jacksonville Jaguars,,Anytime TD,,750.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Hunter,JAX,Anytime TD,,300.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Travis Hunter,JAX,Receiving Yards,41.5,-110.0,-120.0,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Travis Hunter & Jacksonville Jaguars,,Anytime TD,,625.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Hunter & Los Angeles Rams,,Anytime TD,,625.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Hunter (JAX) - 1H,,Anytime TD,,575.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Travis Hunter (JAX) - 1Q,,Anytime TD,,1300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Trent Sherfield,DEN,Anytime TD,,1800.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+TreVeyon Henderson,NE,Receiving Yards,54.5,-120.0,-110.0,False,,Titans,Patriots,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Trevor Lawrence,JAX,Anytime TD,,350.0,,False,,Jaguars,Rams,1760880600000,Bovada,QB,,,,,,unsupported_market,0.0
+Quinshon Judkins,CLE,Anytime TD,,-125.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Passing Attempts,29.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+De'Von Achane,MIA,Receiving Yards,98.5,-115.0,-115.0,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Darren Waller & Cleveland Browns,,Anytime TD,,350.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Darren Waller & Miami Dolphins,,Anytime TD,,500.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Anytime TD,,-125.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Davante Adams & Jacksonville Jaguars,,Anytime TD,,340.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams & Los Angeles Rams,,Anytime TD,,150.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1H,,Anytime TD,,190.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1Q,,Anytime TD,,475.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Anytime TD,,-152.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+David Montgomery,DET,Receiving Yards,57.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+David Njoku,CLE,Anytime TD,,250.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+David Njoku & Cleveland Browns,,Anytime TD,,400.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+David Njoku & Miami Dolphins,,Anytime TD,,800.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen,LAR,Anytime TD,,725.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1H,,Anytime TD,,1400.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1Q,,Anytime TD,,4000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Darren Waller,MIA,Anytime TD,,220.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+Darnell Washington (PIT) - 1Q,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Washington (PIT) - 1H,,Anytime TD,,800.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Craig Reynolds,DET,Anytime TD,,2800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1H,,Anytime TD,,1500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1Q,,Anytime TD,,4500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Connor Heyward,PIT,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Connor Heyward (PIT) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Connor Heyward (PIT) - 1Q,,Anytime TD,,2500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton,DEN,Anytime TD,,150.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+D'Andre Swift,CHI,Receiving Yards,76.5,-115.0,-115.0,False,,Bears,Saints,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Darnell Washington & Pittsburgh Steelers,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Bellinger,NYG,Anytime TD,,1600.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Darius Slayton,NYG,Anytime TD,,625.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Darnell Washington,PIT,Anytime TD,,350.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Darnell Washington,PIT,Receiving Yards,22.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Darnell Washington,PIT,Receptions,2.5,-105.0,-125.0,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Darnell Washington & Cincinnati Bengals,,Anytime TD,,1700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+De'Von Achane,MIA,Anytime TD,,,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+De'Von Achane & Cleveland Browns,,Anytime TD,,250.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Cody Schrader (JAX) - 1Q,,Anytime TD,,10000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+De'Von Achane & Miami Dolphins,,Anytime TD,,250.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Dwayne Eskridge,MIA,Anytime TD,,2200.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Dyami Brown,JAX,Anytime TD,,300.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Dyami Brown,JAX,Receiving Yards,25.5,-110.0,-120.0,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Dyami Brown & Jacksonville Jaguars,,Anytime TD,,650.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Dyami Brown & Los Angeles Rams,,Anytime TD,,625.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Dyami Brown (JAX) - 1H,,Anytime TD,,625.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Dyami Brown (JAX) - 1Q,,Anytime TD,,1800.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Dylan Sampson,CLE,Anytime TD,,1300.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Evan Engram,DEN,Anytime TD,,330.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Gage Larvadain,CLE,Anytime TD,,1400.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Gunner Olszewski,NYG,Anytime TD,,2500.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Harold Fannin Jr.,CLE,Anytime TD,,250.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+Harold Fannin Jr. & Cleveland Browns,,Anytime TD,,400.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Harold Fannin Jr. & Miami Dolphins,,Anytime TD,,800.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Long,JAX,Anytime TD,,400.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Drew Sample (CIN) - 1Q,,Anytime TD,,6000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Drew Sample (CIN) - 1H,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Drew Sample,CIN,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Dillon Gabriel & Miami Dolphins,,Anytime TD,,1000.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Denver Defense,,Anytime TD,,700.0,,False,,Broncos,Giants,1760904300000,Bovada,,,,,,,unsupported_market,0.0
+Detroit Lions Defense,,Anytime TD,,440.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp,TB,Anytime TD,,800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Devin Singletary,NYG,Anytime TD,,1600.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Dillon Gabriel,CLE,Anytime TD,,600.0,,False,,Browns,Dolphins,1760893200000,Bovada,QB,,,,,,unsupported_market,0.0
+Dillon Gabriel & Cleveland Browns,,Anytime TD,,800.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+DK Metcalf,PIT,Anytime TD,,140.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Dominic Lovett,DET,Anytime TD,,3000.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+DK Metcalf,PIT,Receiving Yards,60.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+DK Metcalf,PIT,Receptions,4.5,110.0,-145.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+DK Metcalf & Cincinnati Bengals,,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+DK Metcalf & Pittsburgh Steelers,,Anytime TD,,190.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+DK Metcalf (PIT) - 1H,,Anytime TD,,300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+DK Metcalf (PIT) - 1Q,,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson,LAR,Anytime TD,,900.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Cody Schrader (JAX) - 1H,,Anytime TD,,3300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Long (JAX) - 1Q,,Anytime TD,,2500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Anytime TD,,275.0,,False,,Broncos,Giants,1760904300000,Bovada,QB,,,,,,unsupported_market,0.0
+Arian Smith & Carolina Panthers,,Anytime TD,,900.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Arian Smith & New York Jets,,Anytime TD,,750.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Ashton Jeanty,LV,Receiving Yards,78.5,-115.0,-115.0,False,,Chiefs,Raiders,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,625.0,,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Beaux Collins,NYG,Anytime TD,,1300.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Ben Skowronek,PIT,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Ben Skowronek (PIT) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Ben Skowronek (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Bhayshul Tuten,JAX,Anytime TD,,400.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Bhayshul Tuten (JAX) - 1H,,Anytime TD,,775.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Bhayshul Tuten (JAX) - 1Q,,Anytime TD,,1600.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Receiving Yards,117.5,-115.0,-115.0,False,,49ers,Falcons,1760919600000,Bovada,RB,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Anytime TD,,400.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1H,,Anytime TD,,950.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1Q,,Anytime TD,,2500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas (CIN) - 1Q,,Anytime TD,,3300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas (CIN) - 1H,,Anytime TD,,1400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas,CIN,Receptions,1.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Adam Trautman,DEN,Anytime TD,,1000.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Passing TDs,1.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Passing Yards,215.5,-160.0,120.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Rushing Yards,223.5,-115.0,-115.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Aaron Rodgers (PIT) - 1H,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Aaron Rodgers (PIT) - 1Q,,Anytime TD,,12500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Adam Prentice,DEN,Anytime TD,,2200.0,,False,,Broncos,Giants,1760904300000,Bovada,,,,,,,unsupported_market,0.0
+Alec Ingold,MIA,Anytime TD,,2500.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas,CIN,Receiving Yards,15.5,-150.0,115.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Allen Lazard & Carolina Panthers,,Anytime TD,,850.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Allen Lazard & New York Jets,,Anytime TD,,750.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Alvin Kamara,NO,Receiving Yards,70.5,-120.0,-110.0,False,,Bears,Saints,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Anytime TD,,-122.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Receiving Yards,81.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Andrei Iosivas,CIN,Anytime TD,,625.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Blake Whiteheart,CLE,Anytime TD,,825.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+Breece Hall,NYJ,Receiving Yards,95.5,-115.0,-115.0,False,,Jets,Panthers,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Cody Schrader,JAX,Anytime TD,,1800.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Breece Hall & Carolina Panthers,,Anytime TD,,230.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Receiving Yards,16.5,-115.0,-115.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Receptions,2.5,-180.0,135.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Rushing Attempts,13.5,130.0,-170.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Rushing Yards,44.5,-115.0,-115.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Chase Brown & Cincinnati Bengals,,Anytime TD,,500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown & Pittsburgh Steelers,,Anytime TD,,250.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown (CIN) - 1H,,Anytime TD,,325.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown (CIN) - 1Q,,Anytime TD,,850.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Chris Manhertz,NYG,Anytime TD,,4000.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+Chris Olave,NO,Receiving Yards,57.5,-120.0,-110.0,False,,Bears,Saints,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Chuba Hubbard & Carolina Panthers,,Anytime TD,,250.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard & New York Jets,,Anytime TD,,450.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Cincinnati D/ST - 1H,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Cincinnati D/ST - 1Q,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Cleveland Browns Defense,,Anytime TD,,625.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Anytime TD,,,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Charlie Jones,CIN,Anytime TD,,1700.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Cedrick Wilson Jr.,MIA,Anytime TD,,1000.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Brock Wright,DET,Anytime TD,,625.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Breece Hall & New York Jets,,Anytime TD,,200.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas,JAX,Anytime TD,,160.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas (JAX) - 1H,,Anytime TD,,350.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas (JAX) - 1Q,,Anytime TD,,775.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas Jr. & Jacksonville Jaguars,,Anytime TD,,350.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas Jr. & Los Angeles Rams,,Anytime TD,,350.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton,TB,Anytime TD,,-114.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Cam Skattebo,NYG,Receiving Yards,70.5,-110.0,-120.0,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Calvin Austin III & Cincinnati Bengals,,Anytime TD,,1300.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Calvin Austin III & Pittsburgh Steelers,,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Calvin Austin III (PIT) - 1H,,Anytime TD,,650.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Calvin Austin III (PIT) - 1Q,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Cam Grandy,CIN,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Cam Skattebo,NYG,Anytime TD,,-114.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Hunter Long (JAX) - 1H,,Anytime TD,,850.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa,DET,Anytime TD,,725.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Pittsburgh D/ST,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+LeQuint Allen Jr. - 1H,,Anytime TD,,3300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell (PIT) - 1H,,Anytime TD,,425.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Kenneth Gainwell (PIT) - 1Q,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Anytime TD,,-122.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Ja'Marr Chase (CIN) - 1Q,,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase (CIN) - 1H,,Anytime TD,,325.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Receiving Yards,58.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kimani Vidal,LAC,Receiving Yards,73.5,-115.0,-115.0,False,,Chargers,Colts,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Konata Mumpfield,LAR,Anytime TD,,725.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Konata Mumpfield (LAR) - 1H,,Anytime TD,,1400.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield (LAR) - 1Q,,Anytime TD,,4000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Anytime TD,,-139.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyren Williams & Jacksonville Jaguars,,Anytime TD,,330.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams & Los Angeles Rams,,Anytime TD,,140.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1H,,Anytime TD,,190.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1Q,,Anytime TD,,475.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+LA Rams D/ST,,Anytime TD,,600.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+LA Rams D/ST - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+LA Rams D/ST - 1Q,,Anytime TD,,2200.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell & Pittsburgh Steelers,,Anytime TD,,250.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell & Cincinnati Bengals,,Anytime TD,,900.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Rushing Yards,23.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Kalif Raymond,DET,Anytime TD,,800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Reynolds & Carolina Panthers,,Anytime TD,,650.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Josh Reynolds & New York Jets,,Anytime TD,,550.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Julian Hill,MIA,Anytime TD,,900.0,,False,,Browns,Dolphins,1760893200000,Bovada,TE,,,,,,unsupported_market,0.0
+Kaleb Johnson,PIT,Anytime TD,,800.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Kaleb Johnson (PIT) - 1H,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kaleb Johnson (PIT) - 1Q,,Anytime TD,,6000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson,TB,Anytime TD,,330.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Receptions,2.5,-160.0,120.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Kareem Hunt,KC,Receiving Yards,34.5,-120.0,-110.0,False,,Chiefs,Raiders,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Ke'Shawn Williams,PIT,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Ke'Shawn Williams (PIT) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Ke'Shawn Williams (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Anytime TD,,180.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Receiving Yards,17.5,-160.0,120.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+LeQuint Allen Jr.,JAX,Anytime TD,,1800.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+LeQuint Allen Jr. - 1Q,,Anytime TD,,10000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington (LAR) - 1H,,Anytime TD,,575.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Lil'Jordan Humphrey,NYG,Anytime TD,,625.0,,False,,Broncos,Giants,1760904300000,Bovada,,,,,,,unsupported_market,0.0
+Noah Fant (CIN) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Noah Fant (CIN) - 1Q,,Anytime TD,,2200.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Noah Fant Total,CIN,Receiving Yards,27.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Ollie Gordon II,MIA,Anytime TD,,500.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Over - 1Q,PIT,Passing Yards,46.5,-115.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,CIN,Receiving Yards,6.5,-115.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,CIN,Rushing Yards,8.5,-125.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Parker Washington,JAX,Anytime TD,,600.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Parker Washington (JAX) - 1H,,Anytime TD,,1100.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Parker Washington (JAX) - 1Q,,Anytime TD,,3300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Pat Bryant,DEN,Anytime TD,,825.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Pat Freiermuth,PIT,Anytime TD,,725.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Pat Freiermuth (PIT) - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Pat Freiermuth (PIT) - 1Q,,Anytime TD,,2500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham,TB,Anytime TD,,800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Receptions,3.5,-110.0,-120.0,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Receiving Yards,,1800.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Anytime TD,,400.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Matthew Stafford (LAR) - 1Q,,Anytime TD,,12000.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Malachi Corley,CLE,Anytime TD,,1400.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Malik Washington,MIA,Anytime TD,,625.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Marvin Mims Jr.,DEN,Anytime TD,,350.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Mason Taylor & Carolina Panthers,,Anytime TD,,550.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor & New York Jets,,Anytime TD,,500.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Anytime TD,,2500.0,,False,,Jaguars,Rams,1760880600000,Bovada,QB,,,,,,unsupported_market,0.0
+Miami Dolphins Defense,,Anytime TD,,900.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Nick Westbrook-Ikhine,MIA,Anytime TD,,1000.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Mike Evans,TB,Anytime TD,,-114.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Mitchell Tinsley,CIN,Anytime TD,,1800.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Mitchell Tinsley (CIN) - 1H,,Anytime TD,,4500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Tinsley (CIN) - 1Q,,Anytime TD,,12500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Nate Adkins,DEN,Anytime TD,,1400.0,,False,,Broncos,Giants,1760904300000,Bovada,TE,,,,,,unsupported_market,0.0
+New York Giants Defense,,Anytime TD,,1100.0,,False,,Broncos,Giants,1760904300000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington (LAR) - 1Q,,Anytime TD,,1600.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington & Los Angeles Rams,,Anytime TD,,425.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Bond,CLE,Anytime TD,,275.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylen Waddle & Cleveland Browns,,Anytime TD,,350.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jakobi Meyers,LV,Receiving Yards,53.5,-115.0,-115.0,False,,Chiefs,Raiders,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaleel McLaughlin,DEN,Anytime TD,,1300.0,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jalen Coker & Carolina Panthers,,Anytime TD,,600.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker & New York Jets,,Anytime TD,,900.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jalin Hyatt,NYG,Anytime TD,,900.0,,False,,Broncos,Giants,1760904300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jamari Thrash,CLE,Anytime TD,,900.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Anytime TD,,175.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Receiving Yards,48.5,-110.0,-120.0,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jared Goff,DET,Anytime TD,,1400.0,,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jarquez Hunter,LAR,Anytime TD,,400.0,,False,,Jaguars,Rams,1760880600000,Bovada,RB,,,,,,unsupported_market,0.0
+Jarquez Hunter (LAR) - 1H,,Anytime TD,,950.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jarquez Hunter (LAR) - 1Q,,Anytime TD,,3300.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+JAX Jaguars D/ST - 1H,,Anytime TD,,1500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+JAX Jaguars D/ST - 1Q,,Anytime TD,,3500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jaxson Dart,NYG,Anytime TD,,330.0,,False,,Broncos,Giants,1760904300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receiving Yards,87.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Anytime TD,,-230.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jacob Saylors,DET,Anytime TD,,2800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+J.K. Dobbins,DEN,Receiving Yards,69.5,-115.0,-115.0,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Isaiah Bond & Cleveland Browns,,Anytime TD,,450.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Bond & Miami Dolphins,,Anytime TD,,800.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Davis & Carolina Panthers,,Anytime TD,,950.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Davis & New York Jets,,Anytime TD,,850.0,,False,,Jets,Panthers,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco,KC,Receiving Yards,58.5,-115.0,-115.0,False,,Chiefs,Raiders,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+J.K. Dobbins,DEN,Anytime TD,,,,False,,Broncos,Giants,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Ja'Marr Chase,CIN,Anytime TD,,140.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Jacksonville Jaguars Defense,,Anytime TD,,825.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Ja'Marr Chase,CIN,Receiving Yards,74.5,-135.0,105.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Ja'Marr Chase,CIN,Receptions,6.5,-150.0,115.0,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Ja'Marr Chase & Cincinnati Bengals,,Anytime TD,,475.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Ja'Marr Chase & Pittsburgh Steelers,,Anytime TD,,250.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Pittsburgh D/ST - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Receptions,6.5,-130.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Joe Flacco,CIN,Passing Yards,234.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
-Jonnu Smith,PIT,Anytime TD,,350.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Ja'Marr Chase (CIN) - 1H,,Anytime TD,,325.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Ja'Marr Chase (CIN) - 1Q,,Anytime TD,,700.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Waddle,MIA,Anytime TD,,150.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylen Waddle & Miami Dolphins,,Anytime TD,,375.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington & Jacksonville Jaguars,,Anytime TD,,850.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Anytime TD,,-152.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Passing TDs,1.5,135.0,-180.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Passing Yards,237.5,-105.0,-125.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Rushing Yards,,15000.0,,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Johnny Mundt,JAX,Anytime TD,,725.0,,False,,Jaguars,Rams,1760880600000,Bovada,TE,,,,,,unsupported_market,0.0
+Johnny Mundt (JAX) - 1H,,Anytime TD,,1500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Johnny Mundt (JAX) - 1Q,,Anytime TD,,4500.0,,False,,Jaguars,Rams,1760880600000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor,IND,Receiving Yards,112.5,-115.0,-115.0,False,,Chargers,Colts,1760904300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Anytime TD,,320.0,,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Receiving Yards,28.5,-110.0,-120.0,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Receptions,3.5,105.0,-135.0,False,,Bengals,Steelers,1760660100000,Bovada,TE,,,,,,unsupported_market,0.0
 Jonnu Smith & Cincinnati Bengals,,Anytime TD,,1400.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Jonnu Smith & Pittsburgh Steelers,,Anytime TD,,450.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Jonnu Smith (PIT) - 1H,,Anytime TD,,650.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
 Jonnu Smith (PIT) - 1Q,,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Kaleb Johnson,PIT,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kaleb Johnson (PIT) - 1H,,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Kaleb Johnson (PIT) - 1Q,,Anytime TD,,6000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ke'Shawn Williams,PIT,Anytime TD,,825.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
-Ke'Shawn Williams (PIT) - 1H,,Anytime TD,,1500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Ke'Shawn Williams (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Anytime TD,,200.0,,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Rushing Yards,23.5,-105.0,-125.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell & Cincinnati Bengals,,Anytime TD,,900.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell & Pittsburgh Steelers,,Anytime TD,,250.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell (PIT) - 1H,,Anytime TD,,425.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Anytime TD,,1600.0,,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Anytime TD,,275.0,,False,,Jaguars,Rams,1760880600000,Bovada,WR,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Passing Attempts,36.5,-125.0,-105.0,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Anytime TD,,2000.0,,False,,Bengals,Steelers,1760660100000,Bovada,QB,,,,,,unsupported_market,0.0
+Jerry Jeudy & Miami Dolphins,,Anytime TD,,650.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Warren (PIT) - 1H,,Anytime TD,,210.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Receiving Yards,16.5,-145.0,110.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Receptions,2.5,-135.0,105.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Rushing Attempts,14.5,150.0,-200.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Rushing Yards,49.0,,-130.0,False,,Bengals,Steelers,1760660100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Warren & Cincinnati Bengals,,Anytime TD,,600.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Warren & Pittsburgh Steelers,,Anytime TD,,120.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Warren (PIT) - 1Q,,Anytime TD,,525.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0
+Jerry Jeudy & Cleveland Browns,,Anytime TD,,300.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jaylen Wright,MIA,Anytime TD,,2500.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jermaine Burton,CIN,Anytime TD,,1700.0,,False,,Bengals,Steelers,1760660100000,Bovada,WR,,,,,,unsupported_market,0.0
+Jerome Ford,CLE,Anytime TD,,440.0,,False,,Browns,Dolphins,1760893200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jerome Ford & Cleveland Browns,,Anytime TD,,675.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jerome Ford & Miami Dolphins,,Anytime TD,,1100.0,,False,,Browns,Dolphins,1760893200000,Bovada,,,,,,,unsupported_market,0.0
+Jerry Jeudy,CLE,Anytime TD,,185.0,,False,,Browns,Dolphins,1760893200000,Bovada,WR,,,,,,unsupported_market,0.0
+Pittsburgh D/ST - 1H,,Anytime TD,,1000.0,,False,,Bengals,Steelers,1760660100000,Bovada,,,,,,,unsupported_market,0.0

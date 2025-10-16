@@ -43,6 +43,7 @@ try:
     from nfl_compare.src.name_normalizer import (
         normalize_name_loose as _nm_loose,
         normalize_alias_init_last as _nm_alias,
+        canonical_player_name as _canonical_name,
     )
 except Exception:
     # Fallbacks if module not importable in some environments
@@ -61,6 +62,10 @@ except Exception:
         first = parts[0][:1]
         last = parts[-1]
         return f"{first}{''.join(ch for ch in last if ch.isalnum())}"
+
+    def _canonical_name(name: Optional[str]) -> str:
+        # Identity fallback when canonical map unavailable
+        return str(name or "").strip()
 
 
 # ----------------------------- Helpers ---------------------------------
@@ -271,6 +276,12 @@ def load_bovada(path: Path) -> pd.DataFrame:
         raise ValueError("Bovada CSV must contain a player column (e.g., 'player').")
     # Strip trailing team tags like "(MIA)" from player names for robust matches
     df[pcol] = df[pcol].astype(str).str.replace(r"\s*\([A-Za-z]{2,4}\)\s*$", "", regex=True).str.strip()
+    # Canonicalize known nickname variants (e.g., "Hollywood Brown" -> "Marquise Brown")
+    try:
+        df[pcol] = df[pcol].astype(str).apply(_canonical_name)
+    except Exception:
+        # Be forgiving if any unexpected types
+        df[pcol] = df[pcol].astype(str)
     df["key_player"] = df[pcol].astype(str).str.strip().str.lower()
     df["key_player_loose"] = df[pcol].astype(str).map(_nm_loose)
     df["key_player_alias"] = df[pcol].astype(str).map(_nm_alias)
@@ -338,6 +349,11 @@ def compute_edges(
     preds = preds.copy()
     # Add a merge marker to detect unmatched rows reliably (Bovada also has a 'player' column)
     preds["_pred_marker"] = 1
+    # Canonicalize prediction player display names to align with Bovada normalization
+    try:
+        preds[p_pcol] = preds[p_pcol].astype(str).apply(_canonical_name)
+    except Exception:
+        preds[p_pcol] = preds[p_pcol].astype(str)
     preds["key_player"] = preds[p_pcol].astype(str).str.strip().str.lower()
     preds["key_player_loose"] = preds[p_pcol].astype(str).map(_nm_loose)
     preds["key_player_alias"] = preds[p_pcol].astype(str).map(_nm_alias)
