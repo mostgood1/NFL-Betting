@@ -1,0 +1,392 @@
+player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,150.0,-1100.0,,1761012000000,Seahawks,Texans,True,217.5,67.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,175.0,-475.0,,1761012000000,Seahawks,Texans,True,217.5,42.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,200.0,-240.0,,1761012000000,Seahawks,Texans,True,217.5,17.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,225.0,-125.0,,1761012000000,Seahawks,Texans,True,217.5,-7.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,250.0,150.0,,1761012000000,Seahawks,Texans,True,217.5,-32.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,275.0,275.0,,1761012000000,Seahawks,Texans,True,217.5,-57.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,300.0,475.0,,1761012000000,Seahawks,Texans,True,217.5,-82.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,325.0,800.0,,1761012000000,Seahawks,Texans,True,217.5,-107.5
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Passing Yards,350.0,1200.0,,1761012000000,Seahawks,Texans,True,217.5,-132.5
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,150.0,-900.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,175.0,-425.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,200.0,-220.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,225.0,-110.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,250.0,170.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,275.0,300.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,300.0,550.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,325.0,875.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Passing Yards,350.0,1400.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,-1600.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-750.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,-440.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,-275.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,-195.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,170.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,275.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,400.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,625.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,90.0,875.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,100.0,1200.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,110.0,1500.0,,1761012000000,Seahawks,Texans,True,,
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-1000.0,,1761012000000,Seahawks,Texans,True,27.9,12.899999999999999
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,-500.0,,1761012000000,Seahawks,Texans,True,27.9,7.899999999999999
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,-325.0,,1761012000000,Seahawks,Texans,True,27.9,2.8999999999999986
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,-220.0,,1761012000000,Seahawks,Texans,True,27.9,-2.1000000000000014
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,-105.0,,1761012000000,Seahawks,Texans,True,27.9,-12.100000000000001
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,165.0,,1761012000000,Seahawks,Texans,True,27.9,-22.1
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,275.0,,1761012000000,Seahawks,Texans,True,27.9,-32.1
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,450.0,,1761012000000,Seahawks,Texans,True,27.9,-42.1
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,700.0,,1761012000000,Seahawks,Texans,True,27.9,-52.1
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,90.0,1000.0,,1761012000000,Seahawks,Texans,True,27.9,-62.1
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,100.0,1400.0,,1761012000000,Seahawks,Texans,True,27.9,-72.1
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,-1200.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,-600.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,-350.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,-225.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,-145.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,90.0,,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,100.0,145.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,110.0,195.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,125.0,325.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,150.0,650.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,175.0,1200.0,,1761012000000,Seahawks,Texans,True,,
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,-900.0,,1761012000000,Seahawks,Texans,True,30.1,20.1
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-450.0,,1761012000000,Seahawks,Texans,True,30.1,15.100000000000001
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,-280.0,,1761012000000,Seahawks,Texans,True,30.1,10.100000000000001
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,-190.0,,1761012000000,Seahawks,Texans,True,30.1,5.100000000000001
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,-135.0,,1761012000000,Seahawks,Texans,True,30.1,0.10000000000000142
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,140.0,,1761012000000,Seahawks,Texans,True,30.1,-9.899999999999999
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,225.0,,1761012000000,Seahawks,Texans,True,30.1,-19.9
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,375.0,,1761012000000,Seahawks,Texans,True,30.1,-29.9
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,550.0,,1761012000000,Seahawks,Texans,True,30.1,-39.9
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,850.0,,1761012000000,Seahawks,Texans,True,30.1,-49.9
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,90.0,1100.0,,1761012000000,Seahawks,Texans,True,30.1,-59.9
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,100.0,1500.0,,1761012000000,Seahawks,Texans,True,30.1,-69.9
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,115.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,200.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,325.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,175.0,-1000.0,,1761012000000,Seahawks,Texans,True,,
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,-1500.0,,1761012000000,Seahawks,Texans,True,38.8,8.799999999999997
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,-650.0,,1761012000000,Seahawks,Texans,True,38.8,-1.2000000000000028
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,-350.0,,1761012000000,Seahawks,Texans,True,38.8,-11.200000000000003
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,-220.0,,1761012000000,Seahawks,Texans,True,38.8,-21.200000000000003
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,-140.0,,1761012000000,Seahawks,Texans,True,38.8,-31.200000000000003
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,105.0,,1761012000000,Seahawks,Texans,True,38.8,-41.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,90.0,150.0,,1761012000000,Seahawks,Texans,True,38.8,-51.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,100.0,220.0,,1761012000000,Seahawks,Texans,True,38.8,-61.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,110.0,275.0,,1761012000000,Seahawks,Texans,True,38.8,-71.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,125.0,450.0,,1761012000000,Seahawks,Texans,True,38.8,-86.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,150.0,875.0,,1761012000000,Seahawks,Texans,True,38.8,-111.2
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,175.0,1500.0,,1761012000000,Seahawks,Texans,True,38.8,-136.2
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,-260.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-160.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,-105.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,135.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,190.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,325.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,525.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,750.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,1100.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receiving Yards,80.0,1500.0,,1761012000000,Seahawks,Texans,True,,
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,-225.0,,1761012000000,Seahawks,Texans,True,11.0,1.0
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-130.0,,1761012000000,Seahawks,Texans,True,11.0,-4.0
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,120.0,,1761012000000,Seahawks,Texans,True,11.0,-9.0
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,185.0,,1761012000000,Seahawks,Texans,True,11.0,-14.0
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,250.0,,1761012000000,Seahawks,Texans,True,11.0,-19.0
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,10.0,-325.0,,1761012000000,Seahawks,Texans,True,33.8,23.799999999999997
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,15.0,-185.0,,1761012000000,Seahawks,Texans,True,33.8,18.799999999999997
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,20.0,-115.0,,1761012000000,Seahawks,Texans,True,33.8,13.799999999999997
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,25.0,130.0,,1761012000000,Seahawks,Texans,True,33.8,8.799999999999997
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,30.0,185.0,,1761012000000,Seahawks,Texans,True,33.8,3.799999999999997
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,40.0,350.0,,1761012000000,Seahawks,Texans,True,33.8,-6.200000000000003
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,50.0,575.0,,1761012000000,Seahawks,Texans,True,33.8,-16.200000000000003
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,60.0,875.0,,1761012000000,Seahawks,Texans,True,33.8,-26.200000000000003
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receiving Yards,70.0,1200.0,,1761012000000,Seahawks,Texans,True,33.8,-36.2
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,2.0,-1400.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,3.0,-350.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,4.0,-150.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,5.0,145.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,6.0,275.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,7.0,550.0,,1761012000000,Seahawks,Texans,True,,
+Cooper Kupp,SEA,Houston Texans @ Seattle Seahawks,Receptions,8.0,875.0,,1761012000000,Seahawks,Texans,True,,
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,3.0,-600.0,,1761012000000,Seahawks,Texans,True,3.77,0.77
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,4.0,-240.0,,1761012000000,Seahawks,Texans,True,3.77,-0.22999999999999998
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,5.0,-105.0,,1761012000000,Seahawks,Texans,True,3.77,-1.23
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,6.0,180.0,,1761012000000,Seahawks,Texans,True,3.77,-2.23
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,7.0,325.0,,1761012000000,Seahawks,Texans,True,3.77,-3.23
+Dalton Schultz,HOU,Houston Texans @ Seattle Seahawks,Receptions,8.0,575.0,,1761012000000,Seahawks,Texans,True,3.77,-4.23
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,4.0,-1200.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,5.0,-450.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,6.0,-220.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,7.0,-115.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,8.0,150.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,9.0,275.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,10.0,450.0,,1761012000000,Seahawks,Texans,True,,
+Jaxon Smith-Njigba,SEA,Houston Texans @ Seattle Seahawks,Receptions,11.0,750.0,,1761012000000,Seahawks,Texans,True,,
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,2.0,-650.0,,1761012000000,Seahawks,Texans,True,2.62,0.6200000000000001
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,3.0,-200.0,,1761012000000,Seahawks,Texans,True,2.62,-0.3799999999999999
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,4.0,120.0,,1761012000000,Seahawks,Texans,True,2.62,-1.38
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,5.0,250.0,,1761012000000,Seahawks,Texans,True,2.62,-2.38
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,6.0,525.0,,1761012000000,Seahawks,Texans,True,2.62,-3.38
+Jayden Higgins,HOU,Houston Texans @ Seattle Seahawks,Receptions,7.0,875.0,,1761012000000,Seahawks,Texans,True,2.62,-4.38
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receptions,1.0,-400.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receptions,2.0,115.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receptions,3.0,325.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Receptions,4.0,750.0,,1761012000000,Seahawks,Texans,True,,
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,3.0,-1500.0,,1761012000000,Seahawks,Texans,True,4.83,1.83
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,4.0,-450.0,,1761012000000,Seahawks,Texans,True,4.83,0.8300000000000001
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,5.0,-200.0,,1761012000000,Seahawks,Texans,True,4.83,-0.16999999999999993
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,6.0,105.0,,1761012000000,Seahawks,Texans,True,4.83,-1.17
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,7.0,200.0,,1761012000000,Seahawks,Texans,True,4.83,-2.17
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,8.0,375.0,,1761012000000,Seahawks,Texans,True,4.83,-3.17
+Nico Collins,HOU,Houston Texans @ Seattle Seahawks,Receptions,9.0,625.0,,1761012000000,Seahawks,Texans,True,4.83,-4.17
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receptions,1.0,-675.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receptions,2.0,-140.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receptions,3.0,225.0,,1761012000000,Seahawks,Texans,True,,
+Tory Horton,SEA,Houston Texans @ Seattle Seahawks,Receptions,4.0,550.0,,1761012000000,Seahawks,Texans,True,,
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receptions,1.0,-1400.0,,1761012000000,Seahawks,Texans,True,1.45,0.44999999999999996
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receptions,2.0,-250.0,,1761012000000,Seahawks,Texans,True,1.45,-0.55
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receptions,3.0,115.0,,1761012000000,Seahawks,Texans,True,1.45,-1.55
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receptions,4.0,275.0,,1761012000000,Seahawks,Texans,True,1.45,-2.55
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Receptions,5.0,550.0,,1761012000000,Seahawks,Texans,True,1.45,-3.55
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receptions,1.0,-1500.0,,1761012000000,Seahawks,Texans,True,3.08,2.08
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receptions,2.0,-275.0,,1761012000000,Seahawks,Texans,True,3.08,1.08
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receptions,3.0,110.0,,1761012000000,Seahawks,Texans,True,3.08,0.08000000000000007
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receptions,4.0,275.0,,1761012000000,Seahawks,Texans,True,3.08,-0.9199999999999999
+Xavier Hutchinson,HOU,Houston Texans @ Seattle Seahawks,Receptions,5.0,575.0,,1761012000000,Seahawks,Texans,True,3.08,-1.92
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,10.0,-325.0,,1761012000000,Seahawks,Texans,True,17.2,7.199999999999999
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,15.0,-165.0,,1761012000000,Seahawks,Texans,True,17.2,2.1999999999999993
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,110.0,,1761012000000,Seahawks,Texans,True,17.2,-2.8000000000000007
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,180.0,,1761012000000,Seahawks,Texans,True,17.2,-7.800000000000001
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,275.0,,1761012000000,Seahawks,Texans,True,17.2,-12.8
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,40.0,575.0,,1761012000000,Seahawks,Texans,True,17.2,-22.8
+C.J. Stroud,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,50.0,1100.0,,1761012000000,Seahawks,Texans,True,17.2,-32.8
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,-1400.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,-700.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,-425.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,40.0,-200.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,50.0,-110.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,60.0,155.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,70.0,240.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,80.0,375.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,90.0,575.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,100.0,800.0,,1761012000000,Seahawks,Texans,True,,
+Kenneth Walker III,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,110.0,1100.0,,1761012000000,Seahawks,Texans,True,,
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,15.0,-900.0,,1761012000000,Seahawks,Texans,True,53.9,38.9
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,-450.0,,1761012000000,Seahawks,Texans,True,53.9,33.9
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,-275.0,,1761012000000,Seahawks,Texans,True,53.9,28.9
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,-185.0,,1761012000000,Seahawks,Texans,True,53.9,23.9
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,40.0,115.0,,1761012000000,Seahawks,Texans,True,53.9,13.899999999999999
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,50.0,200.0,,1761012000000,Seahawks,Texans,True,53.9,3.8999999999999986
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,60.0,325.0,,1761012000000,Seahawks,Texans,True,53.9,-6.100000000000001
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,70.0,525.0,,1761012000000,Seahawks,Texans,True,53.9,-16.1
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,80.0,800.0,,1761012000000,Seahawks,Texans,True,53.9,-26.1
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,90.0,1200.0,,1761012000000,Seahawks,Texans,True,53.9,-36.1
+Nick Chubb,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,100.0,1500.0,,1761012000000,Seahawks,Texans,True,53.9,-46.1
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,10.0,165.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,15.0,300.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,550.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,850.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,1200.0,,1761012000000,Seahawks,Texans,True,,
+Sam Darnold,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,175.0,-1000.0,,1761012000000,Seahawks,Texans,True,,
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,10.0,-1400.0,,1761012000000,Seahawks,Texans,True,33.1,23.1
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,15.0,-500.0,,1761012000000,Seahawks,Texans,True,33.1,18.1
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,-300.0,,1761012000000,Seahawks,Texans,True,33.1,13.100000000000001
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,-180.0,,1761012000000,Seahawks,Texans,True,33.1,8.100000000000001
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,-115.0,,1761012000000,Seahawks,Texans,True,33.1,3.1000000000000014
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,40.0,175.0,,1761012000000,Seahawks,Texans,True,33.1,-6.899999999999999
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,50.0,325.0,,1761012000000,Seahawks,Texans,True,33.1,-16.9
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,60.0,550.0,,1761012000000,Seahawks,Texans,True,33.1,-26.9
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,70.0,850.0,,1761012000000,Seahawks,Texans,True,33.1,-36.9
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,80.0,1200.0,,1761012000000,Seahawks,Texans,True,33.1,-46.9
+Woody Marks,HOU,Houston Texans @ Seattle Seahawks,Rushing Yards,90.0,1700.0,,1761012000000,Seahawks,Texans,True,33.1,-56.9
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,15.0,-900.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,20.0,-475.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,25.0,-300.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,30.0,-195.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,40.0,,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,50.0,185.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,60.0,300.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,70.0,475.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,80.0,700.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,90.0,900.0,,1761012000000,Seahawks,Texans,True,,
+Zach Charbonnet,SEA,Houston Texans @ Seattle Seahawks,Rushing Yards,100.0,1200.0,,1761012000000,Seahawks,Texans,True,,
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,150.0,-1400.0,,1761001200000,Lions,Buccaneers,True,220.8,70.80000000000001
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,175.0,-650.0,,1761001200000,Lions,Buccaneers,True,220.8,45.80000000000001
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,200.0,-325.0,,1761001200000,Lions,Buccaneers,True,220.8,20.80000000000001
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,225.0,-180.0,,1761001200000,Lions,Buccaneers,True,220.8,-4.199999999999989
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,250.0,,,1761001200000,Lions,Buccaneers,True,220.8,-29.19999999999999
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,275.0,175.0,,1761001200000,Lions,Buccaneers,True,220.8,-54.19999999999999
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,300.0,300.0,,1761001200000,Lions,Buccaneers,True,220.8,-79.19999999999999
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,325.0,550.0,,1761001200000,Lions,Buccaneers,True,220.8,-104.19999999999999
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,350.0,875.0,,1761001200000,Lions,Buccaneers,True,220.8,-129.2
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,375.0,1200.0,,1761001200000,Lions,Buccaneers,True,220.8,-154.2
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,175.0,-1100.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,200.0,-500.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,225.0,-250.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,250.0,-140.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,275.0,135.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,300.0,225.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,325.0,400.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,350.0,700.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,375.0,1200.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Passing Yards,400.0,1600.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,-800.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,-425.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,60.0,-250.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,70.0,-150.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,80.0,-130.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,90.0,125.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,100.0,170.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,110.0,240.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,125.0,375.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,150.0,700.0,,1761001200000,Lions,Buccaneers,True,,
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,15.0,-800.0,,1761001200000,Lions,Buccaneers,True,29.7,14.7
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,20.0,-450.0,,1761001200000,Lions,Buccaneers,True,29.7,9.7
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,-300.0,,1761001200000,Lions,Buccaneers,True,29.7,4.699999999999999
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,-205.0,,1761001200000,Lions,Buccaneers,True,29.7,-0.3000000000000007
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,,,1761001200000,Lions,Buccaneers,True,29.7,-10.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,175.0,,1761001200000,Lions,Buccaneers,True,29.7,-20.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,60.0,275.0,,1761001200000,Lions,Buccaneers,True,29.7,-30.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,70.0,425.0,,1761001200000,Lions,Buccaneers,True,29.7,-40.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,80.0,625.0,,1761001200000,Lions,Buccaneers,True,29.7,-50.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,90.0,900.0,,1761001200000,Lions,Buccaneers,True,29.7,-60.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,100.0,1200.0,,1761001200000,Lions,Buccaneers,True,29.7,-70.3
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,10.0,-550.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,15.0,-300.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,20.0,-175.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,-115.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,125.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,225.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,400.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,15.0,-1000.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,20.0,-600.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,-400.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,-300.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,-175.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,-105.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,60.0,140.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,70.0,200.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,80.0,275.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,90.0,400.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,100.0,575.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,110.0,750.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,125.0,1200.0,,1761001200000,Lions,Buccaneers,True,,
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,-1400.0,,1761001200000,Lions,Buccaneers,True,38.9,13.899999999999999
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,-800.0,,1761001200000,Lions,Buccaneers,True,38.9,8.899999999999999
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,-400.0,,1761001200000,Lions,Buccaneers,True,38.9,-1.1000000000000014
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,-250.0,,1761001200000,Lions,Buccaneers,True,38.9,-11.100000000000001
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,60.0,-155.0,,1761001200000,Lions,Buccaneers,True,38.9,-21.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,70.0,,,1761001200000,Lions,Buccaneers,True,38.9,-31.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,80.0,150.0,,1761001200000,Lions,Buccaneers,True,38.9,-41.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,90.0,210.0,,1761001200000,Lions,Buccaneers,True,38.9,-51.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,100.0,275.0,,1761001200000,Lions,Buccaneers,True,38.9,-61.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,110.0,400.0,,1761001200000,Lions,Buccaneers,True,38.9,-71.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,125.0,650.0,,1761001200000,Lions,Buccaneers,True,38.9,-86.1
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,150.0,1200.0,,1761001200000,Lions,Buccaneers,True,38.9,-111.1
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,10.0,-400.0,,1761001200000,Lions,Buccaneers,True,14.1,4.1
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,15.0,-210.0,,1761001200000,Lions,Buccaneers,True,14.1,-0.9000000000000004
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,20.0,-125.0,,1761001200000,Lions,Buccaneers,True,14.1,-5.9
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,120.0,,1761001200000,Lions,Buccaneers,True,14.1,-10.9
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,175.0,,1761001200000,Lions,Buccaneers,True,14.1,-15.9
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,325.0,,1761001200000,Lions,Buccaneers,True,14.1,-25.9
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,15.0,-1600.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,20.0,-800.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,25.0,-500.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,30.0,-325.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,40.0,-180.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,50.0,,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,60.0,165.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,70.0,250.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,80.0,375.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,90.0,575.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,100.0,800.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,110.0,1100.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receiving Yards,125.0,1700.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-1800.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,-600.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,-290.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,-155.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,8.0,120.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,9.0,200.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,10.0,325.0,,1761001200000,Lions,Buccaneers,True,,
+Amon-Ra St. Brown,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,11.0,550.0,,1761001200000,Lions,Buccaneers,True,,
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,2.0,-1800.0,,1761001200000,Lions,Buccaneers,True,3.7,1.7000000000000002
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-425.0,,1761001200000,Lions,Buccaneers,True,3.7,0.7000000000000002
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-175.0,,1761001200000,Lions,Buccaneers,True,3.7,-0.2999999999999998
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,120.0,,1761001200000,Lions,Buccaneers,True,3.7,-1.2999999999999998
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,225.0,,1761001200000,Lions,Buccaneers,True,3.7,-2.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,400.0,,1761001200000,Lions,Buccaneers,True,3.7,-3.3
+Cade Otton,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,8.0,750.0,,1761001200000,Lions,Buccaneers,True,3.7,-4.3
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,2.0,-750.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-250.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-105.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,190.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,350.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,625.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,2.0,-600.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-195.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,130.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,290.0,,1761001200000,Lions,Buccaneers,True,,
+Jameson Williams,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,625.0,,1761001200000,Lions,Buccaneers,True,,
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-1000.0,,1761001200000,Lions,Buccaneers,True,4.34,1.3399999999999999
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-325.0,,1761001200000,Lions,Buccaneers,True,4.34,0.33999999999999986
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,-150.0,,1761001200000,Lions,Buccaneers,True,4.34,-0.6600000000000001
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,135.0,,1761001200000,Lions,Buccaneers,True,4.34,-1.6600000000000001
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,240.0,,1761001200000,Lions,Buccaneers,True,4.34,-2.66
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,8.0,425.0,,1761001200000,Lions,Buccaneers,True,4.34,-3.66
+Mike Evans,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,9.0,750.0,,1761001200000,Lions,Buccaneers,True,4.34,-4.66
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,2.0,-1000.0,,1761001200000,Lions,Buccaneers,True,2.8,0.7999999999999998
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-300.0,,1761001200000,Lions,Buccaneers,True,2.8,-0.20000000000000018
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-130.0,,1761001200000,Lions,Buccaneers,True,2.8,-1.2000000000000002
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,160.0,,1761001200000,Lions,Buccaneers,True,2.8,-2.2
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,300.0,,1761001200000,Lions,Buccaneers,True,2.8,-3.2
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,550.0,,1761001200000,Lions,Buccaneers,True,2.8,-4.2
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Receptions,8.0,875.0,,1761001200000,Lions,Buccaneers,True,2.8,-5.2
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,3.0,-550.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,4.0,-220.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,5.0,,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,6.0,195.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,7.0,350.0,,1761001200000,Lions,Buccaneers,True,,
+Sam LaPorta,DET,Tampa Bay Buccaneers @ Detroit Lions,Receptions,8.0,625.0,,1761001200000,Lions,Buccaneers,True,,
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,10.0,-360.0,,1761001200000,Lions,Buccaneers,True,18.8,8.8
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,15.0,-190.0,,1761001200000,Lions,Buccaneers,True,18.8,3.8000000000000007
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,20.0,-105.0,,1761001200000,Lions,Buccaneers,True,18.8,-1.1999999999999993
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,25.0,160.0,,1761001200000,Lions,Buccaneers,True,18.8,-6.199999999999999
+Baker Mayfield,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,30.0,250.0,,1761001200000,Lions,Buccaneers,True,18.8,-11.2
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,20.0,-850.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,25.0,-475.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,30.0,-300.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,40.0,-150.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,50.0,125.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,60.0,205.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,70.0,325.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,80.0,525.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,90.0,750.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,100.0,1000.0,,1761001200000,Lions,Buccaneers,True,,
+David Montgomery,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,110.0,1400.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,30.0,-1100.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,40.0,-425.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,50.0,-225.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,60.0,-125.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,70.0,135.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,80.0,210.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,90.0,300.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,100.0,475.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,110.0,625.0,,1761001200000,Lions,Buccaneers,True,,
+Jahmyr Gibbs,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,125.0,1100.0,,1761001200000,Lions,Buccaneers,True,,
+Jared Goff,DET,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,10.0,375.0,,1761001200000,Lions,Buccaneers,True,,
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,20.0,-1800.0,,1761001200000,Lions,Buccaneers,True,52.7,32.7
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,25.0,-800.0,,1761001200000,Lions,Buccaneers,True,52.7,27.700000000000003
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,30.0,-500.0,,1761001200000,Lions,Buccaneers,True,52.7,22.700000000000003
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,40.0,-225.0,,1761001200000,Lions,Buccaneers,True,52.7,12.700000000000003
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,50.0,-125.0,,1761001200000,Lions,Buccaneers,True,52.7,2.700000000000003
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,60.0,140.0,,1761001200000,Lions,Buccaneers,True,52.7,-7.299999999999997
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,70.0,225.0,,1761001200000,Lions,Buccaneers,True,52.7,-17.299999999999997
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,80.0,350.0,,1761001200000,Lions,Buccaneers,True,52.7,-27.299999999999997
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,90.0,525.0,,1761001200000,Lions,Buccaneers,True,52.7,-37.3
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,100.0,750.0,,1761001200000,Lions,Buccaneers,True,52.7,-47.3
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,110.0,900.0,,1761001200000,Lions,Buccaneers,True,52.7,-57.3
+Rachaad White,TB,Tampa Bay Buccaneers @ Detroit Lions,Rushing Yards,125.0,1500.0,,1761001200000,Lions,Buccaneers,True,52.7,-72.3

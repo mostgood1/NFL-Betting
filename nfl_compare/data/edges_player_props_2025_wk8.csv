@@ -1,0 +1,664 @@
+player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
+Baker Mayfield,TB,Passing Yards,375.0,1200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-154.2,-0.9999314666893846,,,154.2
+Nico Collins,HOU,Receiving Yards,175.0,1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-136.2,-0.9999999999999911,,,136.2
+C.J. Stroud,HOU,Passing Yards,350.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-132.5,-0.999003759988971,,,132.5
+Baker Mayfield,TB,Passing Yards,350.0,875.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-129.2,-0.9989128846308055,,,129.2
+Amon-Ra St. Brown,DET,Receiving Yards,150.0,700.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-112.1,-0.9999999998288831,,,112.1
+Nico Collins,HOU,Receiving Yards,150.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-111.2,-0.9999999997024459,,,111.2
+Mike Evans,TB,Receiving Yards,150.0,1200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-111.1,-0.9999999995873496,,,111.1
+Jameson Williams,DET,Receiving Yards,125.0,1200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-110.5,-0.9999999994779202,,,110.5
+C.J. Stroud,HOU,Passing Yards,325.0,800.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-107.5,-0.9904133292091505,,,107.5
+Baker Mayfield,TB,Passing Yards,325.0,550.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-104.19999999999999,-0.9905441768366217,,,104.19999999999999
+Jameson Williams,DET,Receiving Yards,110.0,750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-95.5,-0.9999999177304545,,,95.5
+Amon-Ra St. Brown,DET,Receiving Yards,125.0,375.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-87.1,-0.9999992878114936,,,87.1
+Nico Collins,HOU,Receiving Yards,125.0,450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-86.2,-0.9999989093830195,,,86.2
+Mike Evans,TB,Receiving Yards,125.0,650.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-86.1,-0.9999984661323741,,,86.1
+Jameson Williams,DET,Receiving Yards,100.0,575.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-85.5,-0.9999983395444294,,,85.5
+C.J. Stroud,HOU,Passing Yards,300.0,475.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-82.5,-0.947053538343126,,,82.5
+Baker Mayfield,TB,Passing Yards,300.0,300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-79.19999999999999,-0.9527110059450778,,,79.19999999999999
+Jameson Williams,DET,Receiving Yards,90.0,400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-75.5,-0.9999776329039741,,,75.5
+Rachaad White,TB,Rushing Yards,125.0,1500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-72.3,-0.9999980691296386,,,72.3
+Dalton Schultz,HOU,Receiving Yards,100.0,1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-72.1,-0.999833236582136,,,72.1
+Amon-Ra St. Brown,DET,Receiving Yards,110.0,240.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-72.1,-0.9999622002919508,,,72.1
+Nico Collins,HOU,Receiving Yards,110.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-71.2,-0.9999472877567097,,,71.2
+Mike Evans,TB,Receiving Yards,110.0,400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-71.1,-0.999927873092363,,,71.1
+Baker Mayfield,TB,Passing Yards,150.0,-1400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,70.80000000000001,0.048345779525898455,,,70.80000000000001
+Cade Otton,TB,Receiving Yards,100.0,1200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-70.3,-0.9997695747969007,,,70.3
+Jayden Higgins,HOU,Receiving Yards,100.0,1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-69.9,-0.9996858829181043,,,69.9
+C.J. Stroud,HOU,Passing Yards,150.0,-1100.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,67.5,0.06157231516596444,,,67.5
+Jameson Williams,DET,Receiving Yards,80.0,275.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-65.5,-0.9997811735582669,,,65.5
+Amon-Ra St. Brown,DET,Receiving Yards,100.0,170.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-62.1,-0.9996500075885739,,,62.1
+Dalton Schultz,HOU,Receiving Yards,90.0,1000.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-62.1,-0.9985741049904862,,,62.1
+Nico Collins,HOU,Receiving Yards,100.0,220.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-61.2,-0.9994908525114958,,,61.2
+Mike Evans,TB,Receiving Yards,100.0,275.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-61.1,-0.9993897010968349,,,61.1
+Cade Otton,TB,Receiving Yards,90.0,900.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-60.3,-0.9980522119951898,,,60.3
+Jayden Higgins,HOU,Receiving Yards,90.0,1100.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-59.9,-0.9974449610115574,,,59.9
+C.J. Stroud,HOU,Passing Yards,275.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-57.5,-0.8117265737760568,,,57.5
+Rachaad White,TB,Rushing Yards,110.0,900.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-57.3,-0.9997869548751455,,,57.3
+Woody Marks,HOU,Rushing Yards,90.0,1700.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-56.9,-0.9995663819894061,,,56.9
+Jameson Williams,DET,Receiving Yards,70.0,200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-55.5,-0.9983563330739411,,,55.5
+Baker Mayfield,TB,Passing Yards,275.0,175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-54.19999999999999,-0.8329584293602499,,,54.19999999999999
+Dalton Schultz,HOU,Receiving Yards,80.0,700.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-52.1,-0.9912846339414898,,,52.1
+Amon-Ra St. Brown,DET,Receiving Yards,90.0,125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-52.1,-0.997548803296044,,,52.1
+Nico Collins,HOU,Receiving Yards,90.0,150.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-51.2,-0.9967533270328057,,,51.2
+Mike Evans,TB,Receiving Yards,90.0,210.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-51.1,-0.9958954227945723,,,51.1
+Cade Otton,TB,Receiving Yards,80.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-50.3,-0.9888054239947083,,,50.3
+Jayden Higgins,HOU,Receiving Yards,80.0,850.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-49.9,-0.9841714959080475,,,49.9
+Rachaad White,TB,Rushing Yards,100.0,750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-47.3,-0.9969033012072661,,,47.3
+Woody Marks,HOU,Rushing Yards,80.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-46.9,-0.9947472485757676,,,46.9
+Nick Chubb,HOU,Rushing Yards,100.0,1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,-46.1,-0.9920660118712021,,,46.1
+Baker Mayfield,TB,Passing Yards,175.0,-650.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,45.80000000000001,0.04383871285971272,,,45.80000000000001
+Jameson Williams,DET,Receiving Yards,60.0,140.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-45.5,-0.9910717485112266,,,45.5
+C.J. Stroud,HOU,Passing Yards,175.0,-475.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,42.5,0.07456082380929091,,,42.5
+Amon-Ra St. Brown,DET,Receiving Yards,80.0,-130.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-42.1,-0.9882621661038943,,,42.1
+Dalton Schultz,HOU,Receiving Yards,70.0,450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-42.1,-0.9635106468012365,,,42.1
+Nico Collins,HOU,Receiving Yards,80.0,105.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-41.2,-0.9842452287192552,,,41.2
+Mike Evans,TB,Receiving Yards,80.0,150.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-41.1,-0.9804734745419648,,,41.1
+Cade Otton,TB,Receiving Yards,70.0,425.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-40.3,-0.9533805136998249,,,40.3
+Jayden Higgins,HOU,Receiving Yards,70.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-39.9,-0.9385026317232887,,,39.9
+Nick Chubb,HOU,Rushing Yards,15.0,-900.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,38.9,0.10807786067615105,,,38.9
+Rachaad White,TB,Rushing Yards,90.0,525.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-37.3,-0.9758899989878772,,,37.3
+Woody Marks,HOU,Rushing Yards,70.0,850.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-36.9,-0.960118812848855,,,36.9
+Xavier Hutchinson,HOU,Receiving Yards,70.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,-36.2,-0.784068648295271,,,36.2
+Nick Chubb,HOU,Rushing Yards,90.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,-36.1,-0.9355136387426013,,,36.1
+Jameson Williams,DET,Receiving Yards,50.0,-105.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-35.5,-0.9640990186504792,,,35.5
+Nick Chubb,HOU,Rushing Yards,20.0,-450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,33.9,0.21277466510059592,,,33.9
+C.J. Stroud,HOU,Rushing Yards,50.0,1100.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,-32.8,-0.88517974687534,,,32.8
+Rachaad White,TB,Rushing Yards,20.0,-1800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,32.7,0.04526064968170242,,,32.7
+C.J. Stroud,HOU,Passing Yards,250.0,150.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-32.5,-0.5586109568674931,,,32.5
+Amon-Ra St. Brown,DET,Receiving Yards,70.0,-150.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-32.1,-0.9508380253327303,,,32.1
+Dalton Schultz,HOU,Receiving Yards,60.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-32.1,-0.8893855569986432,,,32.1
+Nico Collins,HOU,Receiving Yards,70.0,-140.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-31.200000000000003,-0.9430324666954587,,,31.200000000000003
+Mike Evans,TB,Receiving Yards,70.0,,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-31.1,,,,31.1
+Cade Otton,TB,Receiving Yards,60.0,275.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-30.3,-0.8599530729522898,,,30.3
+Jayden Higgins,HOU,Receiving Yards,60.0,375.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-29.9,-0.8133072184299964,,,29.9
+Baker Mayfield,TB,Passing Yards,250.0,,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-29.19999999999999,,,,29.19999999999999
+Nick Chubb,HOU,Rushing Yards,25.0,-275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,28.9,0.33705183998271865,,,28.9
+Rachaad White,TB,Rushing Yards,25.0,-800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,27.700000000000003,0.09807634298889956,,,27.700000000000003
+Rachaad White,TB,Rushing Yards,80.0,350.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-27.299999999999997,-0.8848537321526257,,,27.299999999999997
+Woody Marks,HOU,Rushing Yards,60.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-26.9,-0.8222974769661132,,,26.9
+Xavier Hutchinson,HOU,Receiving Yards,60.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,-26.200000000000003,-0.3990400181147782,,,26.200000000000003
+Nick Chubb,HOU,Rushing Yards,80.0,800.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,-26.1,-0.7197328364905105,,,26.1
+Rachaad White,TB,Receiving Yards,40.0,325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,-25.9,-0.7287940952995042,,,25.9
+Jameson Williams,DET,Receiving Yards,40.0,-175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-25.5,-0.8950172551489373,,,25.5
+Nick Chubb,HOU,Rushing Yards,30.0,-185.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,23.9,0.4729142747237346,,,23.9
+Xavier Hutchinson,HOU,Receiving Yards,10.0,-325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,23.799999999999997,0.20208744561737618,,,23.799999999999997
+Woody Marks,HOU,Rushing Yards,10.0,-1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,23.1,0.01842342710680557,,,23.1
+C.J. Stroud,HOU,Rushing Yards,40.0,575.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,-22.8,-0.6510122534045728,,,22.8
+Rachaad White,TB,Rushing Yards,30.0,-500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,22.700000000000003,0.1370445455982559,,,22.700000000000003
+Dalton Schultz,HOU,Receiving Yards,50.0,165.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-22.1,-0.7434787158481326,,,22.1
+Amon-Ra St. Brown,DET,Receiving Yards,60.0,-250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-22.1,-0.8644793215801456,,,22.1
+Nico Collins,HOU,Receiving Yards,60.0,-220.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-21.200000000000003,-0.8455447784731871,,,21.200000000000003
+Mike Evans,TB,Receiving Yards,60.0,-155.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-21.1,-0.8235230836679228,,,21.1
+Baker Mayfield,TB,Passing Yards,200.0,-325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,20.80000000000001,-0.053440674669183286,,,20.80000000000001
+Cade Otton,TB,Receiving Yards,50.0,175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-20.3,-0.6804060672152561,,,20.3
+Jayden Higgins,HOU,Receiving Yards,10.0,-900.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,20.1,-0.020592048485400957,,,20.1
+Jayden Higgins,HOU,Receiving Yards,50.0,225.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-19.9,-0.607132966216477,,,19.9
+Woody Marks,HOU,Receiving Yards,30.0,250.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rec_yards,11.0,-19.0,-0.5384939167910306,,,19.0
+Xavier Hutchinson,HOU,Receiving Yards,15.0,-185.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,18.799999999999997,0.3335092661783135,,,18.799999999999997
+Woody Marks,HOU,Rushing Yards,15.0,-500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,18.1,0.08236371650037291,,,18.1
+C.J. Stroud,HOU,Passing Yards,200.0,-240.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,17.5,-0.020428179861814832,,,17.5
+Rachaad White,TB,Rushing Yards,70.0,225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-17.299999999999997,-0.6480822235895116,,,17.299999999999997
+Woody Marks,HOU,Rushing Yards,50.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-16.9,-0.5168235935906644,,,16.9
+Xavier Hutchinson,HOU,Receiving Yards,50.0,575.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,-16.200000000000003,0.14959208028972637,,,16.200000000000003
+Nick Chubb,HOU,Rushing Yards,70.0,525.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,-16.1,-0.218300402267811,,,16.1
+Rachaad White,TB,Receiving Yards,30.0,175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,-15.9,-0.5192494743064457,,,15.9
+Jameson Williams,DET,Receiving Yards,30.0,-300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-15.5,-0.7587382710291012,,,15.5
+Jayden Higgins,HOU,Receiving Yards,15.0,-450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,15.100000000000001,-0.006586453961262673,,,15.100000000000001
+Cade Otton,TB,Receiving Yards,15.0,-800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,14.7,-0.09280013501619247,,,14.7
+Woody Marks,HOU,Receiving Yards,25.0,185.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rec_yards,11.0,-14.0,-0.4154550268635303,,,14.0
+Nick Chubb,HOU,Rushing Yards,40.0,115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,13.899999999999999,0.8051619538231793,,,13.899999999999999
+Mike Evans,TB,Receiving Yards,25.0,-1400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,13.899999999999999,-0.15012075803929611,,,13.899999999999999
+Xavier Hutchinson,HOU,Receiving Yards,20.0,-115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,13.799999999999997,0.4798294287245588,,,13.799999999999997
+Woody Marks,HOU,Rushing Yards,20.0,-300.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,13.100000000000001,0.1003864577894833,,,13.100000000000001
+Dalton Schultz,HOU,Receiving Yards,15.0,-1000.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,12.899999999999999,-0.14637697060980537,,,12.899999999999999
+C.J. Stroud,HOU,Rushing Yards,30.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,-12.8,-0.3239373716922405,,,12.8
+Rachaad White,TB,Rushing Yards,40.0,-225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,12.700000000000003,0.18131631434134504,,,12.700000000000003
+Amon-Ra St. Brown,DET,Receiving Yards,50.0,-425.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-12.100000000000001,-0.7056229316526735,,,12.100000000000001
+Dalton Schultz,HOU,Receiving Yards,40.0,-105.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-12.100000000000001,-0.5347373772378989,,,12.100000000000001
+Nico Collins,HOU,Receiving Yards,50.0,-350.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-11.200000000000003,-0.6721370097093727,,,11.200000000000003
+Baker Mayfield,TB,Rushing Yards,30.0,250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,rush_yards,18.8,-11.2,-0.2585061049581111,,,11.2
+Mike Evans,TB,Receiving Yards,50.0,-250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-11.100000000000001,-0.6403440587390026,,,11.100000000000001
+Rachaad White,TB,Receiving Yards,25.0,120.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,-10.9,-0.426451161447032,,,10.9
+Jameson Williams,DET,Receiving Yards,25.0,-400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-10.5,-0.6644949893868617,,,10.5
+Cade Otton,TB,Receiving Yards,40.0,,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-10.3,,,,10.3
+Jayden Higgins,HOU,Receiving Yards,20.0,-280.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,10.100000000000001,-0.01772268368050889,,,10.100000000000001
+Jayden Higgins,HOU,Receiving Yards,40.0,140.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,-9.899999999999999,-0.3276052332048612,,,9.899999999999999
+Cade Otton,TB,Receiving Yards,20.0,-450.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,9.7,-0.1250592637419172,,,9.7
+Woody Marks,HOU,Receiving Yards,20.0,120.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rec_yards,11.0,-9.0,-0.3438281774007204,,,9.0
+Mike Evans,TB,Receiving Yards,30.0,-800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,8.899999999999999,-0.21284081257830192,,,8.899999999999999
+Baker Mayfield,TB,Rushing Yards,10.0,-360.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,rush_yards,18.8,8.8,-0.060596733794853086,,,8.8
+Xavier Hutchinson,HOU,Receiving Yards,25.0,130.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,8.799999999999997,0.6045897766688313,,,8.799999999999997
+Nico Collins,HOU,Receiving Yards,30.0,-1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,8.799999999999997,-0.255842422414455,,,8.799999999999997
+Woody Marks,HOU,Rushing Yards,25.0,-180.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,8.100000000000001,0.11776125381004071,,,8.100000000000001
+Dalton Schultz,HOU,Receiving Yards,20.0,-500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,7.899999999999999,-0.1852852571790651,,,7.899999999999999
+C.J. Stroud,HOU,Rushing Yards,25.0,180.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,-7.800000000000001,-0.19159824077258125,,,7.800000000000001
+C.J. Stroud,HOU,Passing Yards,225.0,-125.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_yards,217.5,-7.5,-0.25270816810978414,,,7.5
+Rachaad White,TB,Rushing Yards,60.0,140.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,-7.299999999999997,-0.2775180972687434,,,7.299999999999997
+C.J. Stroud,HOU,Rushing Yards,10.0,-325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,7.199999999999999,-0.08922646989258032,,,7.199999999999999
+Woody Marks,HOU,Rushing Yards,40.0,175.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,-6.899999999999999,-0.1445938946032871,,,6.899999999999999
+Amon-Ra St. Brown,DET,Receptions,11.0,550.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-6.4,-0.999997231196802,,,6.4
+Xavier Hutchinson,HOU,Receiving Yards,40.0,350.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,-6.200000000000003,0.6094946760857786,,,6.200000000000003
+Baker Mayfield,TB,Rushing Yards,25.0,160.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,rush_yards,18.8,-6.199999999999999,-0.14477021142681135,,,6.199999999999999
+Nick Chubb,HOU,Rushing Yards,60.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,-6.100000000000001,0.4089685840757754,,,6.100000000000001
+Rachaad White,TB,Receiving Yards,20.0,-125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,-5.9,-0.34430758559152747,,,5.9
+Jameson Williams,DET,Receiving Yards,20.0,-600.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-5.5,-0.5646616368583055,,,5.5
+Amon-Ra St. Brown,DET,Receptions,10.0,325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-5.4,-0.9999305267316878,,,5.4
+Rachaad White,TB,Receptions,8.0,875.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-5.2,-0.9996912053921271,,,5.2
+Jayden Higgins,HOU,Receiving Yards,25.0,-190.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,5.100000000000001,-0.056872039816861786,,,5.100000000000001
+Cade Otton,TB,Receiving Yards,25.0,-300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,4.699999999999999,-0.18812443120047184,,,4.699999999999999
+Mike Evans,TB,Receptions,9.0,750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,-4.66,-0.9985653049665426,,,4.66
+Amon-Ra St. Brown,DET,Receptions,9.0,200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-4.4,-0.9989308291927156,,,4.4
+Jayden Higgins,HOU,Receptions,7.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,-4.38,-0.9963253083369464,,,4.38
+Cade Otton,TB,Receptions,8.0,750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,-4.3,-0.9960021056987591,,,4.3
+Dalton Schultz,HOU,Receptions,8.0,575.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,-4.23,-0.9961574301793482,,,4.23
+Rachaad White,TB,Receptions,7.0,550.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-4.2,-0.9959876288949163,,,4.2
+Baker Mayfield,TB,Passing Yards,225.0,-180.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_yards,220.8,-4.199999999999989,-0.2965131071431302,,,4.199999999999989
+Nico Collins,HOU,Receptions,9.0,625.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,-4.17,-0.9951495843571501,,,4.17
+Rachaad White,TB,Receiving Yards,10.0,-400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,4.1,-0.2558864665416778,,,4.1
+Woody Marks,HOU,Receiving Yards,15.0,-130.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rec_yards,11.0,-4.0,-0.2799403619388802,,,4.0
+Nick Chubb,HOU,Rushing Yards,50.0,200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,53.9,3.8999999999999986,0.8291393874111417,,,3.8999999999999986
+Baker Mayfield,TB,Rushing Yards,15.0,-190.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,rush_yards,18.8,3.8000000000000007,-0.07357319637459137,,,3.8000000000000007
+Xavier Hutchinson,HOU,Receiving Yards,30.0,185.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,33.8,3.799999999999997,0.6770490198096258,,,3.799999999999997
+Mike Evans,TB,Receptions,8.0,425.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,-3.66,-0.9872112918201749,,,3.66
+Jameson Williams,DET,Receptions,6.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.35,-3.65,-0.981912019460008,,,3.65
+Woody Marks,HOU,Receptions,5.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,receptions,1.45,-3.55,-0.9794643227811126,,,3.55
+Amon-Ra St. Brown,DET,Receptions,8.0,120.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-3.4000000000000004,-0.9901960267683777,,,3.4000000000000004
+Jayden Higgins,HOU,Receptions,6.0,525.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,-3.38,-0.9708675748517579,,,3.38
+Cade Otton,TB,Receptions,7.0,400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,-3.3,-0.9721647398856752,,,3.3
+Dalton Schultz,HOU,Receptions,7.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,-3.23,-0.9724405623871979,,,3.23
+Rachaad White,TB,Receptions,6.0,300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-3.2,-0.9723314872285822,,,3.2
+Nico Collins,HOU,Receptions,8.0,375.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,-3.17,-0.9649689204795449,,,3.17
+Woody Marks,HOU,Rushing Yards,30.0,-115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rush_yards,33.1,3.1000000000000014,0.09859508364384484,,,3.1000000000000014
+Dalton Schultz,HOU,Receiving Yards,25.0,-325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,2.8999999999999986,-0.25758878216982684,,,2.8999999999999986
+C.J. Stroud,HOU,Rushing Yards,20.0,110.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,-2.8000000000000007,-0.11644538982211627,,,2.8000000000000007
+Rachaad White,TB,Rushing Yards,50.0,-125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rush_yards,52.7,2.700000000000003,0.03763623508956282,,,2.700000000000003
+Baker Mayfield,TB,Passing TDs,5.0,1500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_tds,2.32,-2.68,-0.5029783940973687,,,2.68
+Mike Evans,TB,Receptions,7.0,240.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,-2.66,-0.9307398977179518,,,2.66
+Jameson Williams,DET,Receptions,5.0,290.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.35,-2.65,-0.919067595036171,,,2.65
+Woody Marks,HOU,Receptions,4.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,receptions,1.45,-2.55,-0.9065945445337837,,,2.55
+Amon-Ra St. Brown,DET,Receptions,7.0,-155.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-2.4000000000000004,-0.946639300253582,,,2.4000000000000004
+Jayden Higgins,HOU,Receptions,5.0,250.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,-2.38,-0.8825137591814524,,,2.38
+Cade Otton,TB,Receptions,6.0,225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,-2.3,-0.8751100215531316,,,2.3
+Dalton Schultz,HOU,Receptions,6.0,180.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,-2.23,-0.8792153721790518,,,2.23
+Rachaad White,TB,Receptions,5.0,160.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-2.2,-0.8822364815020323,,,2.2
+C.J. Stroud,HOU,Rushing Yards,15.0,-165.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,rush_yards,17.2,2.1999999999999993,-0.0966971195045006,,,2.1999999999999993
+Nico Collins,HOU,Receptions,7.0,200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,-2.17,-0.8573925183708988,,,2.17
+Dalton Schultz,HOU,Receiving Yards,30.0,-220.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,rec_yards,27.9,-2.1000000000000014,-0.3442269924189454,,,2.1000000000000014
+Amon-Ra St. Brown,DET,Receiving Yards,40.0,-800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,37.9,-2.1000000000000014,-0.4928005644490281,,,2.1000000000000014
+Xavier Hutchinson,HOU,Receptions,1.0,-1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,3.08,2.08,0.00821408885380491,,,2.08
+Xavier Hutchinson,HOU,Receptions,5.0,575.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,3.08,-1.92,-0.5285251285303589,,,1.92
+Nico Collins,HOU,Receptions,3.0,-1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,1.83,-0.018251840311124583,,,1.83
+Cade Otton,TB,Receptions,2.0,-1800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,1.7000000000000002,-0.0452382271080359,,,1.7000000000000002
+Baker Mayfield,TB,Passing TDs,4.0,700.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_tds,2.32,-1.6800000000000002,-0.3111519049173559,,,1.6800000000000002
+Mike Evans,TB,Receptions,6.0,135.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,-1.6600000000000001,-0.7630854479396825,,,1.6600000000000001
+Jameson Williams,DET,Receptions,4.0,130.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.35,-1.65,-0.7649874145991261,,,1.65
+Woody Marks,HOU,Receptions,3.0,115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,receptions,1.45,-1.55,-0.7493738341145103,,,1.55
+Amon-Ra St. Brown,DET,Receptions,6.0,-290.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-1.4000000000000004,-0.8107056781398123,,,1.4000000000000004
+Jayden Higgins,HOU,Receptions,4.0,120.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,-1.38,-0.6827102102323706,,,1.38
+Mike Evans,TB,Receptions,3.0,-1000.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,1.3399999999999999,-0.06645697778963137,,,1.3399999999999999
+Baker Mayfield,TB,Passing TDs,1.0,-900.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_tds,2.32,1.3199999999999998,-0.25140922689608913,,,1.3199999999999998
+Cade Otton,TB,Receptions,5.0,120.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,-1.2999999999999998,-0.6509584413507943,,,1.2999999999999998
+Dalton Schultz,HOU,Receptions,5.0,-105.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,-1.23,-0.6641220228551377,,,1.23
+Nico Collins,HOU,Receiving Yards,40.0,-650.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,38.8,-1.2000000000000028,-0.4555429958091349,,,1.2000000000000028
+Rachaad White,TB,Receptions,4.0,-130.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-1.2000000000000002,-0.6851060094663148,,,1.2000000000000002
+Baker Mayfield,TB,Rushing Yards,20.0,-105.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,rush_yards,18.8,-1.1999999999999993,-0.0904896340895801,,,1.1999999999999993
+Nico Collins,HOU,Receptions,6.0,105.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,-1.17,-0.622676743039143,,,1.17
+C.J. Stroud,HOU,Passing TDs,3.0,525.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_tds,1.84,-1.16,-0.2798745474452786,,,1.16
+Mike Evans,TB,Receiving Yards,40.0,-400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,rec_yards,38.9,-1.1000000000000014,-0.4072448880001236,,,1.1000000000000014
+Xavier Hutchinson,HOU,Receptions,2.0,-275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,3.08,1.08,0.08674726732740468,,,1.08
+Woody Marks,HOU,Receiving Yards,10.0,-225.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,rec_yards,11.0,1.0,-0.24390025960648432,,,1.0
+Xavier Hutchinson,HOU,Receptions,4.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,3.08,-0.9199999999999999,-0.10161933367115716,,,0.9199999999999999
+Rachaad White,TB,Receiving Yards,15.0,-210.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.1,-0.9000000000000004,-0.2930680460635789,,,0.9000000000000004
+C.J. Stroud,HOU,Passing TDs,1.0,-425.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_tds,1.84,0.8400000000000001,-0.3218747819421618,,,0.8400000000000001
+Nico Collins,HOU,Receptions,4.0,-450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,0.8300000000000001,-0.09749478413887086,,,0.8300000000000001
+Rachaad White,TB,Receptions,2.0,-1000.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,0.7999999999999998,-0.19606541196029761,,,0.7999999999999998
+Dalton Schultz,HOU,Receptions,3.0,-600.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,0.77,-0.15629266338387676,,,0.77
+Cade Otton,TB,Receptions,3.0,-425.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,0.7000000000000002,-0.12927727875324146,,,0.7000000000000002
+Baker Mayfield,TB,Passing TDs,3.0,225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_tds,2.32,-0.6800000000000002,-0.3346230800615721,,,0.6800000000000002
+Mike Evans,TB,Receptions,5.0,-150.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,-0.6600000000000001,-0.49027571344671883,,,0.6600000000000001
+Jameson Williams,DET,Receptions,3.0,-195.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.35,-0.6499999999999999,-0.5332380824401736,,,0.6499999999999999
+Jayden Higgins,HOU,Receptions,2.0,-650.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,0.6200000000000001,-0.21158667222861177,,,0.6200000000000001
+Amon-Ra St. Brown,DET,Receptions,4.0,-1800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,0.5999999999999996,-0.2845509539340673,,,0.5999999999999996
+Woody Marks,HOU,Receptions,2.0,-250.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,receptions,1.45,-0.55,-0.5294326028912772,,,0.55
+Jameson Williams,DET,Receiving Yards,15.0,-1000.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,rec_yards,14.5,-0.5,-0.4629050955075773,,,0.5
+Woody Marks,HOU,Receptions,1.0,-1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,RB,receptions,1.45,0.44999999999999996,-0.31922880272319387,,,0.44999999999999996
+Amon-Ra St. Brown,DET,Receptions,5.0,-600.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.6,-0.40000000000000036,-0.5576487237763307,,,0.40000000000000036
+Jayden Higgins,HOU,Receptions,3.0,-200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,2.62,-0.3799999999999999,-0.4224614665604323,,,0.3799999999999999
+Jameson Williams,DET,Receptions,2.0,-600.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.35,0.3500000000000001,-0.2928553938334446,,,0.3500000000000001
+Mike Evans,TB,Receptions,4.0,-325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,WR,receptions,4.34,0.33999999999999986,-0.21125053793829296,,,0.33999999999999986
+Baker Mayfield,TB,Passing TDs,2.0,-165.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,QB,pass_tds,2.32,0.31999999999999984,-0.34270713401823377,,,0.31999999999999984
+Cade Otton,TB,Receiving Yards,30.0,-205.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,rec_yards,29.7,-0.3000000000000007,-0.2665713985981363,,,0.3000000000000007
+Cade Otton,TB,Receptions,4.0,-175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,TE,receptions,3.7,-0.2999999999999998,-0.3576832178573437,,,0.2999999999999998
+Dalton Schultz,HOU,Receptions,4.0,-240.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,TE,receptions,3.77,-0.22999999999999998,-0.39113875831143285,,,0.22999999999999998
+Rachaad White,TB,Receptions,3.0,-300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,RB,receptions,2.8,-0.20000000000000018,-0.41484597233218934,,,0.20000000000000018
+Nico Collins,HOU,Receptions,5.0,-200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,4.83,-0.16999999999999993,-0.3280316018317069,,,0.16999999999999993
+C.J. Stroud,HOU,Passing TDs,2.0,130.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,QB,pass_tds,1.84,-0.15999999999999992,-0.3557415468321352,,,0.15999999999999992
+Jayden Higgins,HOU,Receiving Yards,30.0,-135.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,rec_yards,30.1,0.10000000000000142,-0.12554462330146304,,,0.10000000000000142
+Xavier Hutchinson,HOU,Receptions,3.0,110.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,WR,receptions,3.08,0.08000000000000007,0.10152309621601685,,,0.08000000000000007
+Kenneth Walker III,SEA,Rushing Yards,50.0,-110.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,20.0,-800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dareke Young,SEA,Anytime TD,,3000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receiving Yards,25.0,-500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,30.0,-325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,3.5,-210.0,155.0,False,,Seahawks,Texans,1761012000000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Schultz & Houston Texans,,Anytime TD,,700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale,HOU,Anytime TD,,2200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III,SEA,Rushing Yards,20.0,-1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,40.0,-180.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,50.0,,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,60.0,165.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,70.0,250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,25.0,-700.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,30.0,-425.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Anytime TD,,-139.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,300.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,325.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,15.0,-1600.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp & Houston Texans,,Anytime TD,,850.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & Seattle Seahawks,,Anytime TD,,375.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1H,,Anytime TD,,500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1Q,,Anytime TD,,1200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Rushing Yards,175.0,-1000.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Rushing Yards,30.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Rushing Yards,25.0,850.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,350.0,1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Rushing Yards,20.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Rushing Yards,15.0,300.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Rushing Yards,10.0,165.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Craig Reynolds,DET,Anytime TD,,3300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Anytime TD,,350.0,,False,,Seahawks,Texans,1761012000000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Receiving Yards,35.5,-130.0,,False,,Seahawks,Texans,1761012000000,Bovada,TE,,,,,,unsupported_market,0.0
+Kenneth Walker III,SEA,Rushing Yards,40.0,-200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,80.0,375.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Montgomery (DET) - 1H,,Anytime TD,,190.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receiving Yards,90.0,575.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,175.0,-425.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Receiving Yards,8.5,-130.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,150.0,-900.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing TDs,2.0,125.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing TDs,3.0,525.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_tds,,,,,projection_missing,0.0
+DET Lions D/ST - 1Q,,Anytime TD,,2000.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Dameon Pierce (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Receptions,1.5,115.0,-150.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Rushing Attempts,10.5,-135.0,105.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Rushing Yards,,300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Receptions,3.5,-135.0,105.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery & Detroit Lions,,Anytime TD,,,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery & Tampa Bay Buccaneers,,Anytime TD,,550.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+DET Lions D/ST - 1H,,Anytime TD,,900.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery (DET) - 1Q,,Anytime TD,,550.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing TDs,1.0,-450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Dameon Pierce,HOU,Anytime TD,,2200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1Q,,Anytime TD,,1400.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receiving Yards,125.0,1700.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,275.0,300.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,100.0,800.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,60.0,155.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,70.0,240.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,80.0,375.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receiving Yards,110.0,1100.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,90.0,575.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,200.0,-220.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Dalton Schultz & Seattle Seahawks,,Anytime TD,,575.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1H,,Anytime TD,,600.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III,SEA,Rushing Yards,100.0,800.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Rushing Yards,110.0,1100.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,250.0,170.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Sam Darnold,SEA,Passing Yards,225.0,-110.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Kenneth Walker,SEA,Anytime TD,,160.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Receptions,6.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,38.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Passing Attempts,31.5,-135.0,105.0,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+Braxton Berrios (HOU) - 1H,,Anytime TD,,3300.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III,SEA,Receiving Yards,175.0,-1000.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receiving Yards,20.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receiving Yards,15.0,200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receiving Yards,10.0,115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Braxton Berrios (HOU) - 1Q,,Anytime TD,,10000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+British Brooks,HOU,Anytime TD,,5000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Brock Wright,DET,Anytime TD,,825.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Brock Wright (DET) - 1H,,Anytime TD,,1200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Brock Wright (DET) - 1Q,,Anytime TD,,4500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Anytime TD,,900.0,,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Interceptions,0.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Passing TDs,1.5,130.0,-170.0,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield (TB) - 1Q,,Anytime TD,,3300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Passing Yards,228.5,,-130.0,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,175.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,150.0,650.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,125.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,110.0,195.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,100.0,145.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,90.0,,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,80.0,-145.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,70.0,-225.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,60.0,-350.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,50.0,-600.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,40.0,-1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Braxton Berrios,HOU,Anytime TD,,800.0,,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Baker Mayfield (TB) - 1H,,Anytime TD,,1300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,260.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receiving Yards,60.0,750.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+AJ Barner,SEA,Receptions,2.5,-145.0,110.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & Houston Texans,,Anytime TD,,1100.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & Seattle Seahawks,,Anytime TD,,500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1H,,Anytime TD,,650.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1Q,,Anytime TD,,1500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Anytime TD,,-125.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Receiving Yards,79.5,-130.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Receptions,7.5,-105.0,-125.0,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown & Detroit Lions,,Anytime TD,,120.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown & Tampa Bay Buccaneers,,Anytime TD,,600.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receiving Yards,80.0,1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,70.0,1100.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,50.0,525.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Baker Mayfield,TB,Rushing Yards,275.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receiving Yards,40.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,30.0,190.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,25.0,135.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,20.0,-105.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,15.0,-160.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receiving Yards,10.0,-260.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Amon-Ra St. Brown (DET) - 1H,,Anytime TD,,200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown (DET) - 1Q,,Anytime TD,,500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,525.0,,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Interceptions,0.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Attempts,32.5,-160.0,120.0,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Yards,242.5,-150.0,115.0,False,,Lions,Buccaneers,1761001200000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Rushing Yards,17.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1H,,Anytime TD,,2000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1Q,,Anytime TD,,5000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Rushing Yards,100.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,8.0,150.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,7.0,-115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,6.0,-220.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,5.0,-450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,4.0,-1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receptions,8.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receptions,7.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Devin Culp,TB,Anytime TD,,2500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Receptions,5.0,145.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receptions,4.0,-150.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receptions,3.0,-350.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receptions,2.0,-1400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,90.0,900.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Cade Otton,TB,Anytime TD,,140.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Rushing Yards,80.0,700.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,70.0,475.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,60.0,300.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,50.0,185.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,40.0,,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,30.0,-195.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,25.0,-300.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,20.0,-475.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Zach Charbonnet,SEA,Rushing Yards,15.0,-900.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Christian Kirk & Seattle Seahawks,,Anytime TD,,625.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1H,,Anytime TD,,650.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1Q,,Anytime TD,,1500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Receptions,9.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,10.0,450.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Jaxon Smith-Njigba,SEA,Receptions,11.0,750.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receptions,1.0,-400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cade Otton & Detroit Lions,,Anytime TD,,175.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1H,,Anytime TD,,270.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1Q,,Anytime TD,,700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk & Houston Texans,,Anytime TD,,775.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Receiving Yards,110.0,1500.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,100.0,1200.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,90.0,875.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,80.0,625.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,70.0,400.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,60.0,275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,50.0,170.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,40.0,,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,30.0,-195.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,25.0,-275.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,20.0,-440.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,15.0,-750.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cooper Kupp,SEA,Receiving Yards,10.0,-1600.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tory Horton,SEA,Receptions,4.0,550.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Tory Horton,SEA,Receptions,3.0,225.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Tory Horton,SEA,Receptions,2.0,-140.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Tory Horton,SEA,Receptions,1.0,-675.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receptions,4.0,750.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receptions,3.0,325.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Kenneth Walker III,SEA,Receptions,2.0,115.0,,True,Houston Texans @ Seattle Seahawks,Seahawks,Texans,1761012000000,Bovada,,receptions,,,,,projection_missing,0.0
+Detroit Lions Defense,,Anytime TD,,440.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1Q,,Anytime TD,,3300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp (TB) - 1H,,Anytime TD,,1400.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard (TB) - 1Q,,Anytime TD,,900.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton (SEA) - 1H,,Anytime TD,,1000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receptions,1.5,-150.0,115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Receiving Yards,20.5,-125.0,-105.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton,SEA,Anytime TD,,500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson (TB) - 1Q,,Anytime TD,,1300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson (TB) - 1H,,Anytime TD,,500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson & Tampa Bay Buccaneers,,Anytime TD,,675.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson & Detroit Lions,,Anytime TD,,275.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson,TB,Anytime TD,,440.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1Q,,Anytime TD,,2500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1H,,Anytime TD,,1200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Defense,,Anytime TD,,625.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard (TB) - 1H,,Anytime TD,,370.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta & Tampa Bay Buccaneers,,Anytime TD,,825.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard & Tampa Bay Buccaneers,,Anytime TD,,500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard & Detroit Lions,,Anytime TD,,250.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,250.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Seattle Seahawks Defense,,Anytime TD,,900.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1Q,,Anytime TD,,2200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1H,,Anytime TD,,950.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Rushing Yards,,2800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Receiving Yards,19.5,-120.0,-110.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Anytime TD,,600.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1Q,,Anytime TD,,4000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1H,,Anytime TD,,1700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta (DET) - 1Q,,Anytime TD,,800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Tory Horton (SEA) - 1Q,,Anytime TD,,2200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Anytime TD,,250.0,,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Receiving Yards,13.5,-170.0,130.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Receptions,2.5,115.0,-150.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing TDs,5.0,1400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Jared Goff,DET,Passing TDs,4.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Jared Goff,DET,Passing TDs,3.0,190.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Jared Goff,DET,Passing TDs,2.0,-210.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Jared Goff,DET,Passing TDs,1.0,-1500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_tds,,,,,projection_missing,0.0
+Zach Charbonnet Total Receptions,,Receptions,1.5,120.0,-160.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1Q,,Anytime TD,,750.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1H,,Anytime TD,,320.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & Seattle Seahawks,,Anytime TD,,220.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & Houston Texans,,Anytime TD,,600.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Rushing Yards,37.5,,-130.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Rushing Attempts,11.5,105.0,-135.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Receiving Yards,7.5,-110.0,-120.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,140.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1H,,Anytime TD,,1200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Receptions,2.5,115.0,-150.0,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Receiving Yards,21.5,-125.0,-105.0,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Anytime TD,,400.0,,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1Q,,Anytime TD,,1200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1H,,Anytime TD,,550.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & Seattle Seahawks,,Anytime TD,,475.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & Houston Texans,,Anytime TD,,600.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Rushing Yards,29.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Rushing Attempts,8.5,-145.0,110.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Sam LaPorta (DET) - 1H,,Anytime TD,,350.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta & Detroit Lions,,Anytime TD,,210.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp (TB) - 1Q,,Anytime TD,,3300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Anytime TD,,260.0,,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Nico Collins & Houston Texans,,Anytime TD,,400.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Receptions,5.5,110.0,-145.0,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Receiving Yards,69.5,-130.0,,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Anytime TD,,150.0,,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Nick Kallerup,SEA,Anytime TD,,2500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1Q,,Anytime TD,,1300.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1H,,Anytime TD,,550.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb & Seattle Seahawks,,Anytime TD,,525.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb & Houston Texans,,Anytime TD,,650.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Rushing Yards,35.5,-125.0,-105.0,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Rushing Attempts,10.5,-130.0,,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Receiving Yards,6.5,-130.0,,False,,Seahawks,Texans,1761012000000,Bovada,RB,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1Q,,Anytime TD,,700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receptions,4.5,,-130.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1H,,Anytime TD,,270.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans & Detroit Lions,,Anytime TD,,175.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans,TB,Receiving Yards,64.5,-120.0,-110.0,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Mike Evans,TB,Anytime TD,,110.0,,False,,Lions,Buccaneers,1761001200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kenneth Walker III & Seattle Seahawks,,Anytime TD,,250.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Houston Texans,,Anytime TD,,650.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1Q,,Anytime TD,,850.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1H,,Anytime TD,,390.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Rushing Yards,47.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Rushing Attempts,11.5,-170.0,130.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Receptions,1.5,130.0,-170.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins & Seattle Seahawks,,Anytime TD,,325.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1H,,Anytime TD,,350.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1Q,,Anytime TD,,750.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham,TB,Anytime TD,,1300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,TE,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receiving Yards,45.5,-130.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Anytime TD,,170.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1Q,,Anytime TD,,5000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1H,,Anytime TD,,1900.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Rushing Yards,4.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,227.5,110.0,-145.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing TDs,1.5,120.0,-160.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Attempts,30.5,120.0,-160.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Interceptions,0.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,1000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller (TB) - 1Q,,Anytime TD,,1700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller (TB) - 1H,,Anytime TD,,700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller,TB,Anytime TD,,1000.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Ross Dwelley (DET) - 1Q,,Anytime TD,,4500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Ross Dwelley (DET) - 1H,,Anytime TD,,1200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Ross Dwelley,DET,Anytime TD,,1700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1Q,,Anytime TD,,550.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1H,,Anytime TD,,220.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White & Tampa Bay Buccaneers,,Anytime TD,,350.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White & Detroit Lions,,Anytime TD,,175.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White,TB,Rushing Yards,,170.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Rachaad White,TB,Receiving Yards,73.5,-110.0,-120.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,-114.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Payne Durham (TB) - 1Q,,Anytime TD,,3300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham (TB) - 1H,,Anytime TD,,1400.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson (TB) - 1Q,,Anytime TD,,1700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson (TB) - 1H,,Anytime TD,,700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson,TB,Anytime TD,,700.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams & Tampa Bay Buccaneers,,Anytime TD,,875.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receiving Yards,10.0,-550.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,60.5,-125.0,-105.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Detroit Lions,,Anytime TD,,-120.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Tampa Bay Buccaneers,,Anytime TD,,475.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs (DET) - 1H,,Anytime TD,,130.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs (DET) - 1Q,,Anytime TD,,400.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,1700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1H,,Anytime TD,,3500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Anytime TD,,180.0,,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Receiving Yards,45.5,-150.0,115.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Receptions,3.5,125.0,-165.0,False,,Lions,Buccaneers,1761001200000,Bovada,RB,,,,,,unsupported_market,0.0
+Jameson Williams & Detroit Lions,,Anytime TD,,225.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1H,,Anytime TD,,350.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kalif Raymond (DET) - 1Q,,Anytime TD,,4500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1Q,,Anytime TD,,800.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Anytime TD,,1600.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Interceptions,0.5,110.0,-145.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing Attempts,32.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing TDs,1.5,-185.0,140.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Sam LaPorta,DET,Receptions,8.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receptions,7.0,350.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receptions,6.0,195.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receptions,5.0,,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receptions,4.0,-220.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Sam LaPorta,DET,Receptions,3.0,-550.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,7.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receiving Yards,15.0,-300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receiving Yards,20.0,-175.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receiving Yards,25.0,-115.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receiving Yards,30.0,125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dominic Lovett,DET,Anytime TD,,5000.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Anytime TD,,625.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Receiving Yards,13.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Receptions,1.5,115.0,-150.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1H,,Anytime TD,,1100.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1Q,,Anytime TD,,2700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert,SEA,Anytime TD,,2500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+George Holani,SEA,Anytime TD,,2000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+George Holani (SEA) - 1H,,Anytime TD,,4000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+George Holani (SEA) - 1Q,,Anytime TD,,12500.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Harrison Bryant,HOU,Anytime TD,,1700.0,,False,,Seahawks,Texans,1761012000000,Bovada,TE,,,,,,unsupported_market,0.0
+Harrison Bryant (HOU) - 1H,,Anytime TD,,3000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Harrison Bryant (HOU) - 1Q,,Anytime TD,,8000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+HOU Texans D/ST - 1H,,Anytime TD,,1300.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+HOU Texans D/ST - 1Q,,Anytime TD,,2700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Houston D/ST,,Anytime TD,,725.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa,DET,Anytime TD,,600.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1H,,Anytime TD,,1300.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Receiving Yards,7.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Anytime TD,,-200.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receiving Yards,25.5,-130.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receptions,3.5,-115.0,-115.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Rushing Attempts,13.5,,-130.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receiving Yards,50.0,400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receiving Yards,40.0,225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,6.0,350.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,5.0,190.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,4.0,-105.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,90.0,750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,70.0,325.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,60.0,205.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,50.0,125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,40.0,-150.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,30.0,-300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,25.0,-475.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,20.0,-850.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jayden Higgins,HOU,Receiving Yards,30.5,-105.0,-125.0,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1H,,Anytime TD,,1100.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1Q,,Anytime TD,,2700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing Yards,400.0,1600.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,375.0,1200.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,350.0,700.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,325.0,400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,300.0,225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,275.0,135.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,250.0,-140.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,225.0,-250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,200.0,-500.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,175.0,-1100.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Jaylin Noel,HOU,Anytime TD,,800.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1H,,Anytime TD,,3300.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1Q,,Anytime TD,,10000.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Kalif Raymond,DET,Anytime TD,,900.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Kalif Raymond (DET) - 1H,,Anytime TD,,1500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Rushing Yards,80.0,525.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,100.0,1000.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,3.0,-250.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+David Montgomery,DET,Rushing Yards,110.0,1400.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Receptions,2.0,-750.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,receptions,,,,,projection_missing,0.0
+Jared Goff,DET,Passing Yards,265.5,-105.0,-125.0,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Receiving Yards,24.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Rushing Yards,,12500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1H,,Anytime TD,,2500.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1Q,,Anytime TD,,7000.0,,False,,Lions,Buccaneers,1761001200000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,130.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Receiving Yards,86.5,-135.0,105.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Receptions,6.5,-115.0,-115.0,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Houston Texans,,Anytime TD,,575.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Seattle Seahawks,,Anytime TD,,200.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1H,,Anytime TD,,300.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1Q,,Anytime TD,,700.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Anytime TD,,275.0,,False,,Seahawks,Texans,1761012000000,Bovada,WR,,,,,,unsupported_market,0.0
+Jared Goff,DET,Rushing Yards,10.0,375.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,125.0,1100.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,110.0,625.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,100.0,475.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,90.0,300.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,80.0,210.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,70.0,135.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,60.0,-125.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,50.0,-225.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,40.0,-425.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Jahmyr Gibbs,DET,Rushing Yards,30.0,-1100.0,,True,Tampa Bay Buccaneers @ Detroit Lions,Lions,Buccaneers,1761001200000,Bovada,,rush_yards,,,,,projection_missing,0.0
+AJ Barner,SEA,Anytime TD,,350.0,,False,,Seahawks,Texans,1761012000000,Bovada,,,,,,,unsupported_market,0.0
