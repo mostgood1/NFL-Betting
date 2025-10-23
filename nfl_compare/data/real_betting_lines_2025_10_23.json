@@ -2,8 +2,8 @@
   "lines": {
     "Minnesota Vikings @ Los Angeles Chargers": {
       "moneyline": {
-        "home": -170,
-        "away": 142
+        "home": -175,
+        "away": 145
       },
       "total_runs": {
         "line": 44.5,
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Los Angeles Chargers",
-              "price": -170
+              "price": -175
             },
             {
               "name": "Minnesota Vikings",
-              "price": 142
+              "price": 145
             }
           ]
         },
@@ -1595,5 +1595,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-10-23T23:01:45.444576+00:00"
+  "fetched_at": "2025-10-23T23:22:55.929210+00:00"
 }

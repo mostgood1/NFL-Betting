@@ -1,1126 +1,375 @@
-player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Justin Herbert,LAC,Passing Yards,375.0,1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-161.7,-0.9999750568971402,,,161.7
-Carson Wentz,MIN,Passing Yards,350.0,1400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-142.1,-0.999631954630504,,,142.1
-Justin Herbert,LAC,Passing Yards,350.0,800.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-136.7,-0.999577236415506,,,136.7
-Justin Jefferson,MIN,Receiving Yards,175.0,1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-135.1,-0.9999999999999878,,,135.1
-Carson Wentz,MIN,Passing Yards,325.0,875.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-117.1,-0.9959990428468029,,,117.1
-Justin Herbert,LAC,Passing Yards,325.0,475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-111.69999999999999,-0.9959298305519197,,,111.69999999999999
-Justin Jefferson,MIN,Receiving Yards,150.0,725.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-110.1,-0.9999999996126918,,,110.1
-Jordan Addison,MIN,Receiving Yards,125.0,900.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-95.3,-0.9999998964016639,,,95.3
-Keenan Allen,LAC,Receiving Yards,125.0,1400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-95.3,-0.9999998446024959,,,95.3
-Carson Wentz,MIN,Passing Yards,300.0,550.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-92.1,-0.9723663100433404,,,92.1
-Justin Herbert,LAC,Passing Yards,300.0,275.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-86.69999999999999,-0.9751677099090956,,,86.69999999999999
-Justin Jefferson,MIN,Receiving Yards,125.0,350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-85.1,-0.9999987488489368,,,85.1
-Ladd McConkey,LAC,Receiving Yards,125.0,1000.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-80.9,-0.9999892901479018,,,80.9
-Carson Wentz,MIN,Rushing Yards,90.0,3300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-80.8,-0.9999998663761294,,,80.8
-Keenan Allen,LAC,Receiving Yards,110.0,900.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-80.3,-0.99998841067903,,,80.3
-Jordan Addison,MIN,Receiving Yards,110.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-80.3,-0.9999915977422967,,,80.3
-Justin Herbert,LAC,Rushing Yards,100.0,4000.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-79.6,-0.9999997329525943,,,79.6
-Oronde Gadsden II,LAC,Receiving Yards,110.0,1100.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-71.9,-0.999859418109027,,,71.9
-Carson Wentz,MIN,Rushing Yards,80.0,2200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-70.8,-0.9999951057790112,,,70.8
-Keenan Allen,LAC,Receiving Yards,100.0,675.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-70.3,-0.9998626311289216,,,70.3
-Jordan Addison,MIN,Receiving Yards,100.0,475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-70.3,-0.9998980811601677,,,70.3
-Justin Jefferson,MIN,Receiving Yards,110.0,230.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-70.1,-0.999938436719282,,,70.1
-Justin Herbert,LAC,Rushing Yards,90.0,2500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-69.6,-0.9999913600244406,,,69.6
-Kimani Vidal,LAC,Rushing Yards,125.0,1400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-69.2,-0.9999942260576998,,,69.2
-Carson Wentz,MIN,Passing Yards,275.0,275.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-67.1,-0.8964629026630051,,,67.1
-Ladd McConkey,LAC,Receiving Yards,110.0,675.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-65.9,-0.9995893173693536,,,65.9
-Oronde Gadsden II,LAC,Receiving Yards,100.0,900.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-61.9,-0.9986430248850415,,,61.9
-Justin Herbert,LAC,Passing Yards,275.0,150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-61.69999999999999,-0.9025942664330131,,,61.69999999999999
-Carson Wentz,MIN,Rushing Yards,70.0,1500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-60.8,-0.999887486726287,,,60.8
-Jordan Addison,MIN,Receiving Yards,90.0,330.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-60.3,-0.9991624511579316,,,60.3
-Keenan Allen,LAC,Receiving Yards,90.0,475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-60.3,-0.9988800218972341,,,60.3
-Justin Jefferson,MIN,Receiving Yards,100.0,170.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-60.1,-0.9994501159546981,,,60.1
-Justin Herbert,LAC,Rushing Yards,80.0,1900.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-59.6,-0.9997929439435174,,,59.6
-Carson Wentz,MIN,Passing Yards,150.0,-800.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,57.900000000000006,0.06983592076193126,,,57.900000000000006
-Ladd McConkey,LAC,Receiving Yards,100.0,500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-55.9,-0.996975473750928,,,55.9
-Kimani Vidal,LAC,Rushing Yards,110.0,800.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-54.2,-0.9995131028594512,,,54.2
-Oronde Gadsden II,LAC,Receiving Yards,90.0,675.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-51.9,-0.9912188487590874,,,51.9
-Carson Wentz,MIN,Rushing Yards,60.0,1000.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-50.8,-0.9984325335398024,,,50.8
-Keenan Allen,LAC,Receiving Yards,80.0,300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-50.3,-0.993823682203977,,,50.3
-Jordan Addison,MIN,Receiving Yards,80.0,230.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-50.3,-0.9949045378182809,,,50.3
-Justin Jefferson,MIN,Receiving Yards,90.0,115.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-50.1,-0.9965512691774652,,,50.1
-Justin Herbert,LAC,Rushing Yards,70.0,1300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-49.6,-0.997229280592139,,,49.6
-Jalen Nailor,MIN,Receiving Yards,70.0,1600.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-48.5,-0.9631808568755725,,,48.5
-Ladd McConkey,LAC,Receiving Yards,90.0,350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-45.9,-0.984398617886317,,,45.9
-Kimani Vidal,LAC,Rushing Yards,100.0,575.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-44.2,-0.9946228396034551,,,44.2
-Kimani Vidal,LAC,Receiving Yards,60.0,1400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-42.9,-0.9128624941259158,,,42.9
-T.J. Hockenson,MIN,Receiving Yards,70.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,-42.7,-0.9564531813621842,,,42.7
-Carson Wentz,MIN,Passing Yards,250.0,160.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-42.099999999999994,-0.7022589103696418,,,42.099999999999994
-Oronde Gadsden II,LAC,Receiving Yards,80.0,475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-41.9,-0.9605763441550442,,,41.9
-Carson Wentz,MIN,Rushing Yards,50.0,700.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-40.8,-0.9857398614765875,,,40.8
-Jordan Addison,MIN,Receiving Yards,70.0,150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-40.3,-0.9778002446189642,,,40.3
-Keenan Allen,LAC,Receiving Yards,70.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-40.3,-0.9715843131122742,,,40.3
-Justin Jefferson,MIN,Receiving Yards,80.0,-125.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-40.1,-0.9835003256441449,,,40.1
-Justin Herbert,LAC,Rushing Yards,60.0,850.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-39.6,-0.9777907737017965,,,39.6
-Jalen Nailor,MIN,Receiving Yards,60.0,1100.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-38.5,-0.8588155943755797,,,38.5
-Justin Herbert,LAC,Passing Yards,175.0,-850.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,38.30000000000001,-0.0353754143074024,,,38.30000000000001
-Justin Herbert,LAC,Passing Yards,250.0,-125.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-36.69999999999999,-0.7350621296541763,,,36.69999999999999
-Ladd McConkey,LAC,Receiving Yards,80.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-35.9,-0.9444693824882107,,,35.9
-Kimani Vidal,LAC,Rushing Yards,90.0,400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-34.2,-0.9635712399912681,,,34.2
-Carson Wentz,MIN,Passing Yards,175.0,-400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,32.900000000000006,0.03298902457671926,,,32.900000000000006
-Kimani Vidal,LAC,Receiving Yards,50.0,950.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-32.9,-0.7219903776548718,,,32.9
-T.J. Hockenson,MIN,Receiving Yards,60.0,375.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,-32.7,-0.870767708518949,,,32.7
-Oronde Gadsden II,LAC,Receiving Yards,70.0,300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-31.9,-0.8788186206105328,,,31.9
-Carson Wentz,MIN,Rushing Yards,40.0,475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-30.8,-0.9200551767973831,,,30.8
-Kimani Vidal,LAC,Rushing Yards,25.0,-1600.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,30.799999999999997,0.04772758701690763,,,30.799999999999997
-Keenan Allen,LAC,Receiving Yards,60.0,140.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-30.3,-0.9103699666894655,,,30.3
-Jordan Addison,MIN,Receiving Yards,60.0,105.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-30.3,-0.9234410132139185,,,30.3
-Justin Jefferson,MIN,Receiving Yards,70.0,-190.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-30.1,-0.9415198212483298,,,30.1
-Justin Herbert,LAC,Rushing Yards,50.0,550.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-29.6,-0.887904666767106,,,29.6
-Jalen Nailor,MIN,Receiving Yards,50.0,700.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-28.5,-0.6254157897773736,,,28.5
-Ladd McConkey,LAC,Receiving Yards,70.0,150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-25.9,-0.8404671148820613,,,25.9
-Kimani Vidal,LAC,Rushing Yards,30.0,-700.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,25.799999999999997,0.10551435939601886,,,25.799999999999997
-Kimani Vidal,LAC,Rushing Yards,80.0,250.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-24.200000000000003,-0.8531998029842114,,,24.200000000000003
-Ladd McConkey,LAC,Receiving Yards,20.0,-1500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,24.1,-0.016690044656816158,,,24.1
-Oronde Gadsden II,LAC,Receiving Yards,15.0,-1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,23.1,-0.011026362522630867,,,23.1
-Kimani Vidal,LAC,Receiving Yards,40.0,575.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-22.9,-0.39938065192687877,,,22.9
-T.J. Hockenson,MIN,Receiving Yards,50.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,-22.7,-0.7091518350058212,,,22.7
-Oronde Gadsden II,LAC,Receiving Yards,60.0,200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-21.9,-0.703503895696104,,,21.9
-Keenan Allen,LAC,Receiving Yards,50.0,-120.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-20.3,-0.7869373781435041,,,20.3
-Jordan Addison,MIN,Receiving Yards,50.0,-150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-20.3,-0.8063067074031856,,,20.3
-Justin Jefferson,MIN,Receiving Yards,60.0,-290.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-20.1,-0.8405937620056009,,,20.1
-Justin Herbert,LAC,Rushing Yards,40.0,350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-19.6,-0.6365950334480301,,,19.6
-Ladd McConkey,LAC,Receiving Yards,25.0,-825.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,19.1,-0.02522531072334354,,,19.1
-Jalen Nailor,MIN,Receiving Yards,40.0,425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-18.5,-0.2742104755226201,,,18.5
-Oronde Gadsden II,LAC,Receiving Yards,20.0,-625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,18.1,-0.006465247438314781,,,18.1
-T.J. Hockenson,MIN,Receiving Yards,10.0,-1500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,17.3,-0.09805104797454192,,,17.3
-Carson Wentz,MIN,Passing Yards,225.0,-110.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,-17.099999999999994,-0.4032705435304734,,,17.099999999999994
-Ladd McConkey,LAC,Receiving Yards,60.0,105.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-15.899999999999999,-0.6416223353920777,,,15.899999999999999
-Carson Wentz,MIN,Rushing Yards,25.0,230.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-15.8,-0.5725201959478516,,,15.8
-Kimani Vidal,LAC,Rushing Yards,40.0,-325.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,15.799999999999997,0.13829471634297136,,,15.799999999999997
-Kimani Vidal,LAC,Rushing Yards,70.0,165.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-14.200000000000003,-0.5886584687269607,,,14.200000000000003
-Ladd McConkey,LAC,Receiving Yards,30.0,-525.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,14.100000000000001,-0.05170919439454222,,,14.100000000000001
-Justin Herbert,LAC,Passing Yards,200.0,-400.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,13.300000000000011,-0.18996588446979637,,,13.300000000000011
-Oronde Gadsden II,LAC,Receiving Yards,25.0,-425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,13.100000000000001,-0.0370579932627548,,,13.100000000000001
-Kimani Vidal,LAC,Receiving Yards,30.0,310.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-12.899999999999999,-0.08168583681799801,,,12.899999999999999
-T.J. Hockenson,MIN,Receiving Yards,40.0,130.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,-12.7,-0.476717737855133,,,12.7
-T.J. Hockenson,MIN,Receiving Yards,15.0,-625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,12.3,-0.11222572082493457,,,12.3
-Oronde Gadsden II,LAC,Receiving Yards,50.0,130.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-11.899999999999999,-0.443483599886932,,,11.899999999999999
-Justin Herbert,LAC,Passing Yards,225.0,-225.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,213.3,-11.699999999999989,-0.4668815776817532,,,11.699999999999989
-Jalen Nailor,MIN,Receiving Yards,10.0,-210.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,11.5,0.10807144472370145,,,11.5
-Keenan Allen,LAC,Receiving Yards,40.0,-225.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-10.3,-0.6066829209902715,,,10.3
-Jordan Addison,MIN,Receiving Yards,40.0,-275.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-10.3,-0.6286866736621445,,,10.3
-Justin Jefferson,MIN,Receiving Yards,50.0,-490.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-10.100000000000001,-0.6674125276905474,,,10.100000000000001
-Jordan Addison,MIN,Receiving Yards,20.0,-1300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,9.7,-0.22907319742294813,,,9.7
-Keenan Allen,LAC,Receiving Yards,20.0,-1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,9.7,-0.22448434740760853,,,9.7
-Jalen Nailor,MIN,Receiving Yards,30.0,240.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-8.5,0.049027631668355665,,,8.5
-Oronde Gadsden II,LAC,Receiving Yards,30.0,-275.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,8.100000000000001,-0.06845851559638574,,,8.100000000000001
-Carson Wentz,MIN,Passing Yards,200.0,-215.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_yards,207.9,7.900000000000006,-0.13662429911087004,,,7.900000000000006
-Kimani Vidal,LAC,Receiving Yards,25.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-7.899999999999999,0.027427352477506828,,,7.899999999999999
-T.J. Hockenson,MIN,Receiving Yards,20.0,-375.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,7.300000000000001,-0.15616160930579823,,,7.300000000000001
-Kimani Vidal,LAC,Receiving Yards,10.0,-210.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,7.100000000000001,-0.02291335074838391,,,7.100000000000001
-Jalen Nailor,MIN,Receiving Yards,15.0,-125.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,6.5,0.1680203682131327,,,6.5
-Keenan Allen,LAC,Receptions,10.0,850.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-6.26,-0.9999930214597224,,,6.26
-Ladd McConkey,LAC,Receiving Yards,50.0,-160.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,-5.899999999999999,-0.4080554592145734,,,5.899999999999999
-Carson Wentz,MIN,Rushing Yards,15.0,110.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,9.2,-5.800000000000001,-0.2874018814511225,,,5.800000000000001
-Kimani Vidal,LAC,Rushing Yards,50.0,-175.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,5.799999999999997,0.03819188407907109,,,5.799999999999997
-Justin Herbert,LAC,Rushing Yards,15.0,-150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,5.399999999999999,0.08357643201374798,,,5.399999999999999
-Keenan Allen,LAC,Receptions,9.0,525.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-5.26,-0.9998372936822268,,,5.26
-Justin Jefferson,MIN,Receptions,10.0,600.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,-4.77,-0.999148515107518,,,4.77
-Jordan Addison,MIN,Receiving Yards,25.0,-690.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,4.699999999999999,-0.30284597896562254,,,4.699999999999999
-Keenan Allen,LAC,Receiving Yards,25.0,-625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,4.699999999999999,-0.29366825514441053,,,4.699999999999999
-Justin Herbert,LAC,Rushing Yards,25.0,140.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,rush_yards,20.4,-4.600000000000001,-0.10902442392044587,,,4.600000000000001
-Jordan Addison,MIN,Receptions,8.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,-4.37,-0.9971902784102257,,,4.37
-Keenan Allen,LAC,Receptions,8.0,300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-4.26,-0.9979011008750869,,,4.26
-Kimani Vidal,LAC,Rushing Yards,60.0,105.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rush_yards,55.8,-4.200000000000003,-0.2167184154873532,,,4.200000000000003
-Ladd McConkey,LAC,Receiving Yards,40.0,-290.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,44.1,4.100000000000001,-0.19943647434828765,,,4.100000000000001
-Ladd McConkey,LAC,Receptions,9.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,-3.8099999999999996,-0.9877430101748657,,,3.8099999999999996
-Justin Jefferson,MIN,Receptions,9.0,350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,-3.7699999999999996,-0.9916038401482719,,,3.7699999999999996
-Oronde Gadsden II,LAC,Receptions,8.0,725.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,-3.7199999999999998,-0.9826093981813773,,,3.7199999999999998
-Jalen Nailor,MIN,Receiving Yards,25.0,180.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,-3.5,0.171635934649918,,,3.5
-Jordan Addison,MIN,Receptions,7.0,350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,-3.37,-0.9785497455962625,,,3.37
-Keenan Allen,LAC,Receptions,7.0,190.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-3.26,-0.982379246905447,,,3.26
-T.J. Hockenson,MIN,Receptions,7.0,450.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,-3.15,-0.9576784142049368,,,3.15
-Kimani Vidal,LAC,Receiving Yards,20.0,140.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,-2.8999999999999986,0.03745705904109409,,,2.8999999999999986
-Ladd McConkey,LAC,Receptions,8.0,375.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,-2.8099999999999996,-0.9271972980010291,,,2.8099999999999996
-Justin Jefferson,MIN,Receptions,8.0,200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,-2.7699999999999996,-0.950337762396941,,,2.7699999999999996
-Oronde Gadsden II,LAC,Receptions,7.0,425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,-2.7199999999999998,-0.904421124884278,,,2.7199999999999998
-T.J. Hockenson,MIN,Receiving Yards,30.0,-160.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,-2.6999999999999993,-0.29003107286639634,,,2.6999999999999993
-Jordan Addison,MIN,Receptions,6.0,190.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,-2.37,-0.9009769752634895,,,2.37
-T.J. Hockenson,MIN,Receiving Yards,25.0,-245.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,27.3,2.3000000000000007,-0.22014463435862616,,,2.3000000000000007
-Oronde Gadsden II,LAC,Receptions,2.0,-1900.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,2.2800000000000002,0.010812172536739106,,,2.2800000000000002
-Keenan Allen,LAC,Receptions,6.0,,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-2.26,,,,2.26
-Ladd McConkey,LAC,Receptions,3.0,-1100.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,2.1900000000000004,0.04069301753997377,,,2.1900000000000004
-T.J. Hockenson,MIN,Receptions,6.0,250.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,-2.15,-0.8282221427504989,,,2.15
-Justin Herbert,LAC,Passing TDs,4.0,750.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.87,-2.13,-0.6456752771064133,,,2.13
-Carson Wentz,MIN,Passing TDs,4.0,1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.88,-2.12,-0.44782479534545905,,,2.12
-Kimani Vidal,LAC,Receiving Yards,15.0,-114.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,RB,rec_yards,17.1,2.1000000000000014,0.030871897014362715,,,2.1000000000000014
-Oronde Gadsden II,LAC,Receiving Yards,40.0,-145.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,rec_yards,38.1,-1.8999999999999986,-0.23035364369704342,,,1.8999999999999986
-T.J. Hockenson,MIN,Receptions,2.0,-1700.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,1.85,-0.02308380679864353,,,1.85
-Ladd McConkey,LAC,Receptions,7.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,-1.8099999999999996,-0.7378732109729698,,,1.8099999999999996
-Justin Jefferson,MIN,Receptions,7.0,120.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,-1.7699999999999996,-0.8093220537089051,,,1.7699999999999996
-Oronde Gadsden II,LAC,Receptions,6.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,-1.7199999999999998,-0.7027043229946882,,,1.7199999999999998
-Jalen Nailor,MIN,Receptions,4.0,600.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,2.41,-1.5899999999999999,-0.22544774656243816,,,1.5899999999999999
-Jalen Nailor,MIN,Receiving Yards,20.0,125.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,21.5,1.5,0.20409912569151178,,,1.5
-Jalen Nailor,MIN,Receptions,1.0,-600.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,2.41,1.4100000000000001,0.004446311032939632,,,1.4100000000000001
-Jordan Addison,MIN,Receptions,5.0,-105.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,-1.37,-0.7149979116554156,,,1.37
-Oronde Gadsden II,LAC,Receptions,3.0,-450.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,1.2800000000000002,0.023725370655578032,,,1.2800000000000002
-Keenan Allen,LAC,Receptions,5.0,-200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-1.2599999999999998,-0.7506774532522746,,,1.2599999999999998
-Justin Jefferson,MIN,Receptions,4.0,-825.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,1.2300000000000004,-0.07167567497528321,,,1.2300000000000004
-Ladd McConkey,LAC,Receptions,4.0,-350.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,1.1900000000000004,0.05429230226194737,,,1.1900000000000004
-T.J. Hockenson,MIN,Receptions,5.0,130.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,-1.15,-0.5671812778507033,,,1.15
-Justin Herbert,LAC,Passing TDs,3.0,225.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.87,-1.13,-0.6093069197187378,,,1.13
-Carson Wentz,MIN,Passing TDs,3.0,375.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.88,-1.12,-0.4209842150317852,,,1.12
-Carson Wentz,MIN,Passing TDs,1.0,-550.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.88,0.8799999999999999,-0.3375430508670666,,,0.8799999999999999
-Justin Herbert,LAC,Passing TDs,1.0,-1000.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.87,0.8700000000000001,-0.38656840035036977,,,0.8700000000000001
-T.J. Hockenson,MIN,Receptions,3.0,-425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,0.8500000000000001,-0.08168910251163164,,,0.8500000000000001
-Ladd McConkey,LAC,Receptions,6.0,115.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,-0.8099999999999996,-0.4267734782701056,,,0.8099999999999996
-Justin Jefferson,MIN,Receptions,6.0,-160.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,-0.7699999999999996,-0.5501637902867429,,,0.7699999999999996
-Keenan Allen,LAC,Receptions,3.0,-1500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,0.7400000000000002,-0.23690642247985366,,,0.7400000000000002
-Oronde Gadsden II,LAC,Receptions,5.0,120.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,-0.7199999999999998,-0.3623474474589979,,,0.7199999999999998
-Jordan Addison,MIN,Receptions,3.0,-625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,0.6299999999999999,-0.20421053514414322,,,0.6299999999999999
-Jalen Nailor,MIN,Receptions,3.0,230.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,2.41,-0.5899999999999999,0.0724002767248294,,,0.5899999999999999
-Jalen Nailor,MIN,Receptions,2.0,-130.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,2.41,0.41000000000000014,0.10358454357258917,,,0.41000000000000014
-Jordan Addison,MIN,Receptions,4.0,-230.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.63,-0.3700000000000001,-0.44334823544242313,,,0.3700000000000001
-Jordan Addison,MIN,Receiving Yards,30.0,-490.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-0.3000000000000007,-0.40643566852087376,,,0.3000000000000007
-Keenan Allen,LAC,Receiving Yards,30.0,-425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,29.7,-0.3000000000000007,-0.3910491554416541,,,0.3000000000000007
-Oronde Gadsden II,LAC,Receptions,4.0,-180.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,4.28,0.28000000000000025,-0.08958580508728808,,,0.28000000000000025
-Keenan Allen,LAC,Receptions,4.0,-450.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,3.74,-0.2599999999999998,-0.4857618670922369,,,0.2599999999999998
-Justin Jefferson,MIN,Receptions,5.0,-330.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.23,0.23000000000000043,-0.2569918016244217,,,0.23000000000000043
-Ladd McConkey,LAC,Receptions,5.0,-175.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,receptions,5.19,0.1900000000000004,-0.12298566687477624,,,0.1900000000000004
-T.J. Hockenson,MIN,Receptions,4.0,-170.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,TE,receptions,3.85,-0.1499999999999999,-0.278829783477921,,,0.1499999999999999
-Justin Herbert,LAC,Passing TDs,2.0,-170.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.87,-0.1299999999999999,-0.5422903235042663,,,0.1299999999999999
-Carson Wentz,MIN,Passing TDs,2.0,,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,QB,pass_tds,1.88,-0.1200000000000001,,,,0.1200000000000001
-Justin Jefferson,MIN,Receiving Yards,40.0,-925.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,WR,rec_yards,39.9,-0.10000000000000142,-0.44854634962925843,,,0.10000000000000142
-Nyheim Hines,LAC,Anytime TD,,1100.0,,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Nyheim Hines (LAC) - 1H,,Anytime TD,,1900.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Nyheim Hines (LAC) - 1Q,,Anytime TD,,7000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II,MIA,Anytime TD,,440.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Ollie Gordon II (MIA) - 1H,,Anytime TD,,1100.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ollie Gordon II (MIA) - 1Q,,Anytime TD,,2200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Oronde Gadsden & Los Angeles Chargers,,Anytime TD,,290.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Oronde Gadsden & Minnesota Vikings,,Anytime TD,,450.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-NY Giants D/ST - 1H,,Anytime TD,,1000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Oronde Gadsden II,LAC,Anytime TD,,185.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Oronde Gadsden II,LAC,Receiving Yards,42.5,-120.0,-110.0,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Oronde Gadsden II,LAC,Receptions,3.5,-170.0,130.0,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Oronde Gadsden II (LAC) - 1H,,Anytime TD,,375.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Oronde Gadsden II (LAC) - 1Q,,Anytime TD,,850.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,MIN,Passing Yards,47.5,-115.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,MIN,Receiving Yards,8.5,-115.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,LAC,Rushing Yards,0.5,-110.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Pat Bryant,DEN,Anytime TD,,1000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Pat Bryant (DEN) - 1H,,Anytime TD,,1300.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Pat Bryant (DEN) - 1Q,,Anytime TD,,2200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth,PIT,Anytime TD,,260.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-NY Giants D/ST - 1Q,,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Reggie Gilliam (BUF) - 1Q,,Anytime TD,,5500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Noah Gray,KC,Anytime TD,,400.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-New Orleans Saints Defense,,Anytime TD,,825.0,,False,,Saints,Buccaneers,1761509100000,Bovada,,,,,,,unsupported_market,0.0
-Nate Adkins,DEN,Anytime TD,,725.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Nate Adkins (DEN) - 1H,,Anytime TD,,1600.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Nate Adkins (DEN) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Nathan Carter,ATL,Anytime TD,,2000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Nathan Carter (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nathan Carter (ATL) - 1Q,,Anytime TD,,6000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-NE Patriots D/ST - 1H,,Anytime TD,,900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-NE Patriots D/ST - 1Q,,Anytime TD,,1900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-New England Defense,,Anytime TD,,625.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-New York Giants Defense,,Anytime TD,,1000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nikko Remigio,KC,Anytime TD,,3300.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Nick Chubb,HOU,Anytime TD,,230.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Nick Chubb (HOU) - 1H,,Anytime TD,,475.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nick Chubb (HOU) - 1Q,,Anytime TD,,1000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine,MIA,Anytime TD,,725.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine (MIA) - 1H,,Anytime TD,,1400.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nick Westbrook-Ikhine (MIA) - 1Q,,Anytime TD,,2800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins (HOU) - 1H,,Anytime TD,,400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins (HOU) - 1Q,,Anytime TD,,950.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1Q,,Anytime TD,,1500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1H,,Anytime TD,,700.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-PHI Eagles D/ST - 1Q,,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Anytime TD,,275.0,,False,,Chiefs,Commanders,1761610500000,Bovada,QB,,,,,,unsupported_market,0.0
-Ricky Pearsall (SF) - 1H,,Anytime TD,,500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rashid Shaheed,NO,Anytime TD,,230.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Rico Dowdle & Buffalo Bills,,Anytime TD,,265.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rico Dowdle & Carolina Panthers,,Anytime TD,,550.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rico Dowdle (CAR) - 1H,,Anytime TD,,320.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rico Dowdle (CAR) - 1Q,,Anytime TD,,750.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey,DEN,Anytime TD,,275.0,,False,,Broncos,Cowboys,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-RJ Harvey (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Rico Dowdle,CAR,Anytime TD,,160.0,,False,,Panthers,Bills,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Ricky Pearsall (SF) - 1Q,,Anytime TD,,1100.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ricky Pearsall,SF,Anytime TD,,260.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Payne Durham,TB,Anytime TD,,725.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Ray Davis,BUF,Anytime TD,,900.0,,False,,Panthers,Bills,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,600.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mo Alie-Cox (IND) - 1Q,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1H,,Anytime TD,,250.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & New England Patriots,,Anytime TD,,120.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & Cleveland Browns,,Anytime TD,,850.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ray Davis (BUF) - 1H,,Anytime TD,,2000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ray Davis (BUF) - 1Q,,Anytime TD,,4000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Reggie Gilliam (BUF) - 1H,,Anytime TD,,3500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rashee Rice,KC,Anytime TD,,-114.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Raheim Sanders (CLE) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Raheim Sanders (CLE) - 1H,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Raheim Sanders,CLE,Anytime TD,,1600.0,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-PHI Eagles D/ST,,Anytime TD,,525.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-PHI Eagles D/ST - 1H,,Anytime TD,,950.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson,NE,Anytime TD,,,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-PIT Steelers D/ST - 1H,,Anytime TD,,950.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-PIT Steelers D/ST - 1Q,,Anytime TD,,1900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Pittsburgh D/ST,,Anytime TD,,725.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnston,LAC,Anytime TD,,160.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Quentin Johnston,LAC,Receiving Yards,47.5,-135.0,105.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Quentin Johnston,LAC,Receptions,3.5,-165.0,125.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Quentin Johnston & Los Angeles Chargers,,Anytime TD,,250.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnston & Minnesota Vikings,,Anytime TD,,575.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnston (LAC) - 1H,,Anytime TD,,330.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnston (LAC) - 1Q,,Anytime TD,,700.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Quinshon Judkins,CLE,Anytime TD,,-122.0,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Quinshon Judkins & Cleveland Browns,,Anytime TD,,420.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Quinshon Judkins & New England Patriots,,Anytime TD,,150.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Quinshon Judkins (CLE) - 1H,,Anytime TD,,230.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Quinshon Judkins (CLE) - 1Q,,Anytime TD,,500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Rachaad White,TB,Anytime TD,,-139.0,,False,,Saints,Buccaneers,1761509100000,Bovada,RB,,,,,,unsupported_market,0.0
-Myles Price,MIN,Anytime TD,,3300.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Ladd McConkey,LAC,Anytime TD,,160.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Mo Alie-Cox (IND) - 1H,,Anytime TD,,1700.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ladd McConkey & Minnesota Vikings,,Anytime TD,,550.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams (NE) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kylen Granson,PHI,Anytime TD,,900.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Kylen Granson (PHI) - 1H,,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kylen Granson (PHI) - 1Q,,Anytime TD,,4000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-LA Chargers D/ST - 1H,,Anytime TD,,1100.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-LA Chargers D/ST - 1Q,,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Ladd McConkey,LAC,Receiving Yards,55.5,-120.0,-110.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Ladd McConkey,LAC,Receptions,5.5,115.0,-150.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Ladd McConkey & Los Angeles Chargers,,Anytime TD,,250.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Ladd McConkey (LAC) - 1H,,Anytime TD,,330.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams,NE,Anytime TD,,2200.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Ladd McConkey (LAC) - 1Q,,Anytime TD,,700.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Laquon Treadwell (IND) - 1H,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Laquon Treadwell (IND) - 1Q,,Anytime TD,,5500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Lil'Jordan Humphrey (NYG) - 1H,,Anytime TD,,1500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Lil'Jordan Humphrey (NYG) - 1Q,,Anytime TD,,3000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Los Angeles Chargers Defense,,Anytime TD,,625.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Luke Farrell,SF,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Luke Farrell (SF) - 1H,,Anytime TD,,2500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Luke Farrell (SF) - 1Q,,Anytime TD,,4500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams (NE) - 1H,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1Q,,Anytime TD,,900.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mo Alie-Cox,IND,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Kimani Vidal,LAC,Receiving Yards,15.5,-105.0,-125.0,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kimani Vidal (LAC) - 1H,,Anytime TD,,280.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kimani Vidal (LAC) - 1Q,,Anytime TD,,625.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Juszczyk,SF,Anytime TD,,1200.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Juszczyk (SF) - 1H,,Anytime TD,,1900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Juszczyk (SF) - 1Q,,Anytime TD,,3500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Anytime TD,,185.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kimani Vidal & Minnesota Vikings,,Anytime TD,,350.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kimani Vidal & Los Angeles Chargers,,Anytime TD,,225.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kimani Vidal,LAC,Rushing Yards,55.5,-135.0,105.0,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kimani Vidal,LAC,Anytime TD,,120.0,,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1H,,Anytime TD,,370.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir (BUF) - 1Q,,Anytime TD,,900.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir (BUF) - 1H,,Anytime TD,,370.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir & Carolina Panthers,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir & Buffalo Bills,,Anytime TD,,240.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir,BUF,Anytime TD,,185.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Khadarel Hodge (ATL) - 1Q,,Anytime TD,,5500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khadarel Hodge (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Khadarel Hodge,ATL,Anytime TD,,2200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Robert Tonyan,KC,Anytime TD,,2200.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Luke McCaffrey,WAS,Anytime TD,,400.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Luke Musgrave,GB,Anytime TD,,900.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Luke Musgrave (GB) - 1H,,Anytime TD,,1900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Michael Penix Jr. (ATL) - 1H,,Anytime TD,,1200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims Jr.,DEN,Anytime TD,,250.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Mason Tipton,NO,Anytime TD,,2500.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Matthew Golden,GB,Anytime TD,,185.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Matthew Golden (GB) - 1H,,Anytime TD,,400.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Golden (GB) - 1Q,,Anytime TD,,1000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-MIA Dolphins D/ST - 1H,,Anytime TD,,950.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-MIA Dolphins D/ST - 1Q,,Anytime TD,,1900.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Miami Dolphins Defense,,Anytime TD,,1000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Michael Penix Jr.,ATL,Anytime TD,,525.0,,False,,Falcons,Dolphins,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Michael Penix Jr. (ATL) - 1Q,,Anytime TD,,2200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Luke Musgrave (GB) - 1Q,,Anytime TD,,3500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Michael Pittman,IND,Anytime TD,,150.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Michael Pittman (IND) - 1H,,Anytime TD,,280.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Michael Pittman (IND) - 1Q,,Anytime TD,,650.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Minnesota D/ST - 1H,,Anytime TD,,1300.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Minnesota D/ST - 1Q,,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Minnesota Defense,,Anytime TD,,800.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Evans,CAR,Anytime TD,,700.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Mitchell Evans (CAR) - 1H,,Anytime TD,,1600.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Evans (CAR) - 1Q,,Anytime TD,,3500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Marvin Mims (DEN) - 1H,,Anytime TD,,500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Marquise Brown,KC,Anytime TD,,275.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Marcus Mariota,WAS,Anytime TD,,400.0,,False,,Chiefs,Commanders,1761610500000,Bovada,QB,,,,,,unsupported_market,0.0
-Luke Schoonmaker,DAL,Anytime TD,,900.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Luke Schoonmaker (DAL) - 1H,,Anytime TD,,2000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Luke Schoonmaker (DAL) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Mac Jones,SF,Anytime TD,,825.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mac Jones (SF) - 1H,,Anytime TD,,1500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mac Jones (SF) - 1Q,,Anytime TD,,3000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins,NE,Anytime TD,,700.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1Q,,Anytime TD,,2800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Malachi Corley,CLE,Anytime TD,,1700.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Malachi Corley (CLE) - 1H,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Malachi Corley (CLE) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Malik Heath,GB,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Malik Heath (GB) - 1H,,Anytime TD,,3000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Malik Heath (GB) - 1Q,,Anytime TD,,6000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Malik Turner,SF,Anytime TD,,3300.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington,MIA,Anytime TD,,440.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Malik Washington (MIA) - 1H,,Anytime TD,,1100.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Malik Washington (MIA) - 1Q,,Anytime TD,,2200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey (DEN) - 1Q,,Anytime TD,,1300.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson (NE) - 1H,,Anytime TD,,550.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson,PIT,Anytime TD,,1000.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyrell Shavers (BUF) - 1H,,Anytime TD,,1400.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Conklin (LAC) - 1Q,,Anytime TD,,10000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Goodson,IND,Anytime TD,,700.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyler Goodson (IND) - 1H,,Anytime TD,,1300.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Goodson (IND) - 1Q,,Anytime TD,,2200.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Warren,IND,Anytime TD,,110.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Tyler Warren (IND) - 1H,,Anytime TD,,210.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Warren (IND) - 1Q,,Anytime TD,,500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyquan Thornton,KC,Anytime TD,,800.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyrell Shavers,BUF,Anytime TD,,500.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyrell Shavers (BUF) - 1Q,,Anytime TD,,3000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Conklin,LAC,Anytime TD,,1800.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Anytime TD,,625.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr. (NYG) - 1H,,Anytime TD,,1200.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr. (NYG) - 1Q,,Anytime TD,,2500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,MIN,Passing Yards,47.5,-115.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,MIN,Receiving Yards,8.5,-115.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,LAC,Rushing Yards,0.5,-120.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Van Jefferson,TEN,Anytime TD,,500.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Van Jefferson (TEN) - 1H,,Anytime TD,,1200.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Van Jefferson (TEN) - 1Q,,Anytime TD,,2500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Conklin (LAC) - 1H,,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Badie (DEN) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Etienne (CAR) - 1Q,,Anytime TD,,7500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tucker Kraft (GB) - 1Q,,Anytime TD,,800.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin (DEN) - 1H,,Anytime TD,,475.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa,MIA,Anytime TD,,2200.0,,False,,Falcons,Dolphins,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Tua Tagovailoa (MIA) - 1H,,Anytime TD,,5500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tua Tagovailoa (MIA) - 1Q,,Anytime TD,,8000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tucker Fisk,LAC,Anytime TD,,1600.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Tucker Fisk (LAC) - 1H,,Anytime TD,,2700.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Tucker Kraft,GB,Anytime TD,,135.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Tucker Kraft (GB) - 1H,,Anytime TD,,325.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson,BUF,Anytime TD,,525.0,,False,,Panthers,Bills,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyler Badie (DEN) - 1H,,Anytime TD,,1600.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson (BUF) - 1H,,Anytime TD,,1500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson (BUF) - 1Q,,Anytime TD,,3000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyjae Spears,TEN,Anytime TD,,320.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyjae Spears (TEN) - 1H,,Anytime TD,,700.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyjae Spears (TEN) - 1Q,,Anytime TD,,1600.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Anytime TD,,130.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1H,,Anytime TD,,300.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1Q,,Anytime TD,,700.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Badie,DEN,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Wan'dale Robinson,NYG,Anytime TD,,275.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Wan'dale Robinson (NYG) - 1H,,Anytime TD,,700.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Wan'dale Robinson (NYG) - 1Q,,Anytime TD,,1500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnson,LAC,Receiving Yards,25.0,-475.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Zavier Scott (MIN) - 1Q,,Anytime TD,,4500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnson,LAC,Receptions,2.0,-1500.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receptions,3.0,-330.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receptions,4.0,-135.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receptions,5.0,170.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receptions,6.0,300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receptions,7.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,receptions,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,15.0,-1300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,20.0,-690.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,30.0,-330.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Washington D/ST,,Anytime TD,,1000.0,,False,,Chiefs,Commanders,1761610500000,Bovada,,,,,,,unsupported_market,0.0
-Quentin Johnson,LAC,Receiving Yards,40.0,-190.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,50.0,-110.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,60.0,150.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,70.0,220.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,80.0,300.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,90.0,425.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,100.0,625.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,110.0,850.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Quentin Johnson,LAC,Receiving Yards,125.0,1200.0,,True,Minnesota Vikings @ Los Angeles Chargers,Chargers,Vikings,1761264900000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Zavier Scott (MIN) - 1H,,Anytime TD,,1500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Zavier Scott,MIN,Anytime TD,,700.0,,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Zach Ertz,WAS,Anytime TD,,230.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Xavier Worthy,KC,Anytime TD,,150.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Will Dissly,LAC,Anytime TD,,1300.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Will Dissly (LAC) - 1H,,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Will Dissly (LAC) - 1Q,,Anytime TD,,10000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Will Mallory,IND,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Will Shipley,PHI,Anytime TD,,625.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Will Shipley (PHI) - 1H,,Anytime TD,,1400.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Will Shipley (PHI) - 1Q,,Anytime TD,,2800.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Anytime TD,,180.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Woody Marks (HOU) - 1H,,Anytime TD,,400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks (HOU) - 1Q,,Anytime TD,,950.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Gipson,PHI,Anytime TD,,700.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Gipson (PHI) - 1H,,Anytime TD,,2500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Gipson (PHI) - 1Q,,Anytime TD,,5000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Hutchinson,HOU,Anytime TD,,275.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Hutchinson (HOU) - 1H,,Anytime TD,,600.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Legette,CAR,Anytime TD,,300.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Legette (CAR) - 1H,,Anytime TD,,700.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Legette (CAR) - 1Q,,Anytime TD,,1800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Troy Franklin,DEN,Anytime TD,,230.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Trevor Etienne (CAR) - 1H,,Anytime TD,,5000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1H,,Anytime TD,,1500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-T.J. Hockenson,MIN,Receiving Yards,33.5,-115.0,-115.0,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Skyy Moore (SF) - 1Q,,Anytime TD,,5000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Spencer Rattler,NO,Anytime TD,,525.0,,False,,Saints,Buccaneers,1761509100000,Bovada,QB,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Anytime TD,,160.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Stefon Diggs & Cleveland Browns,,Anytime TD,,1000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs & New England Patriots,,Anytime TD,,1800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1H,,Anytime TD,,350.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1Q,,Anytime TD,,850.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Sterling Shepard,TB,Anytime TD,,210.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-T.J. Hockenson,MIN,Anytime TD,,210.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-T.J. Hockenson,MIN,Receptions,3.5,-170.0,130.0,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Skyy Moore,SF,Anytime TD,,1800.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-T.J. Hockenson & Los Angeles Chargers,,Anytime TD,,475.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-T.J. Hockenson & Minnesota Vikings,,Anytime TD,,525.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-T.J. Hockenson (MIN) - 1H,,Anytime TD,,475.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-T.J. Hockenson (MIN) - 1Q,,Anytime TD,,1100.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Tahj Washington,MIA,Anytime TD,,2500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Tahj Washington (MIA) - 1H,,Anytime TD,,3500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tahj Washington (MIA) - 1Q,,Anytime TD,,6500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tai Felton,MIN,Anytime TD,,3300.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Tampa Bay Buccaneers Defense,,Anytime TD,,600.0,,False,,Saints,Buccaneers,1761509100000,Bovada,,,,,,,unsupported_market,0.0
-Skyy Moore (SF) - 1H,,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-SF 49ers D/ST - 1Q,,Anytime TD,,1900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Trevor Etienne,CAR,Anytime TD,,2200.0,,False,,Panthers,Bills,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Saquon Barkley,PHI,Anytime TD,,-168.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1Q,,Anytime TD,,3000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Romeo Doubs,GB,Anytime TD,,185.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Romeo Doubs (GB) - 1H,,Anytime TD,,425.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Romeo Doubs (GB) - 1Q,,Anytime TD,,1100.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Flournoy,DAL,Anytime TD,,800.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Ryan Flournoy (DAL) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Flournoy (DAL) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Miller,TB,Anytime TD,,1200.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-San Francisco 49ers Defense,,Anytime TD,,800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Saquon Barkley (PHI) - 1H,,Anytime TD,,160.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-SF 49ers D/ST - 1H,,Anytime TD,,900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Saquon Barkley (PHI) - 1Q,,Anytime TD,,450.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Savion Williams,GB,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Savion Williams (GB) - 1H,,Anytime TD,,3000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Savion Williams (GB) - 1Q,,Anytime TD,,6000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Scott Matlock,LAC,Anytime TD,,5000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Scott Miller (PIT) - 1H,,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Scott Miller (PIT) - 1Q,,Anytime TD,,4000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Scotty Miller,PIT,Anytime TD,,1000.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Sean Tucker,TB,Anytime TD,,600.0,,False,,Saints,Buccaneers,1761509100000,Bovada,RB,,,,,,unsupported_market,0.0
-Tank Bigsby,PHI,Anytime TD,,625.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Tank Bigsby (PHI) - 1H,,Anytime TD,,1400.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tank Bigsby (PHI) - 1Q,,Anytime TD,,2800.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tre Harris,LAC,Receiving Yards,7.5,-110.0,-120.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Thomas Fidone II (NYG) - 1Q,,Anytime TD,,8000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tommy Tremble,CAR,Anytime TD,,825.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Tommy Tremble (CAR) - 1H,,Anytime TD,,1600.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tommy Tremble (CAR) - 1Q,,Anytime TD,,3500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tony Pollard,TEN,Anytime TD,,170.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Tony Pollard (TEN) - 1H,,Anytime TD,,400.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tony Pollard (TEN) - 1Q,,Anytime TD,,950.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce,KC,Anytime TD,,-114.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Tre Harris,LAC,Anytime TD,,1200.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Tre Harris (LAC) - 1H,,Anytime TD,,1700.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner,MIA,Anytime TD,,600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Tre Harris (LAC) - 1Q,,Anytime TD,,10000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Trent Sherfield,DEN,Anytime TD,,1800.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Trent Sherfield (DEN) - 1H,,Anytime TD,,2800.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Trent Sherfield (DEN) - 1Q,,Anytime TD,,5500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Anytime TD,,260.0,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-TreVeyon Henderson & Cleveland Browns,,Anytime TD,,1400.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson & New England Patriots,,Anytime TD,,300.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman (BUF) - 1H,,Anytime TD,,425.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson (NE) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Thomas Fidone II (NYG) - 1H,,Anytime TD,,4500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Thomas Fidone II,NYG,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Theo Johnson (NYG) - 1Q,,Anytime TD,,1600.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson (NYG) - 1H,,Anytime TD,,750.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner (MIA) - 1H,,Anytime TD,,950.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tanner Conner (MIA) - 1Q,,Anytime TD,,2000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Taysom Hill,NO,Anytime TD,,250.0,,False,,Saints,Buccaneers,1761509100000,Bovada,,,,,,,unsupported_market,0.0
-Teagan Quitoriano,ATL,Anytime TD,,2000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Teagan Quitoriano (ATL) - 1H,,Anytime TD,,2800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Teagan Quitoriano (ATL) - 1Q,,Anytime TD,,5500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-TEN Titans D/ST - 1H,,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-TEN Titans D/ST - 1Q,,Anytime TD,,1900.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Tennessee D/ST,,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Terrell Jennings (NE) - 1H,,Anytime TD,,4000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Terrell Jennings (NE) - 1Q,,Anytime TD,,7500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Terry McLaurin,WAS,Anytime TD,,225.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tetairoa McMillan,CAR,Anytime TD,,185.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Tetairoa McMillan & Buffalo Bills,,Anytime TD,,300.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tetairoa McMillan & Carolina Panthers,,Anytime TD,,625.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tetairoa McMillan (CAR) - 1H,,Anytime TD,,450.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tetairoa McMillan (CAR) - 1Q,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Tez Johnson,TB,Anytime TD,,350.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Theo Johnson,NYG,Anytime TD,,275.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Keon Coleman (BUF) - 1Q,,Anytime TD,,1000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-A.J. Brown,PHI,Anytime TD,,180.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-A.J. Brown (PHI) - 1H,,Anytime TD,,370.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid (BUF) - 1Q,,Anytime TD,,1000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dameon Pierce (HOU) - 1Q,,Anytime TD,,4500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dameon Pierce (HOU) - 1H,,Anytime TD,,2500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dameon Pierce,HOU,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Dalton Schultz (HOU) - 1Q,,Anytime TD,,850.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz (HOU) - 1H,,Anytime TD,,370.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz,HOU,Anytime TD,,160.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Kincaid (BUF) - 1H,,Anytime TD,,425.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Bellinger (NYG) - 1H,,Anytime TD,,1500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid & Carolina Panthers,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid & Buffalo Bills,,Anytime TD,,300.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid,BUF,Anytime TD,,210.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Dallas Goedert (PHI) - 1Q,,Anytime TD,,950.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Goedert (PHI) - 1H,,Anytime TD,,375.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Goedert,PHI,Anytime TD,,175.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Daniel Bellinger,NYG,Anytime TD,,525.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Daniel Bellinger (NYG) - 1Q,,Anytime TD,,2800.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chris Manhertz (NYG) - 1H,,Anytime TD,,4000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1Q,,Anytime TD,,1400.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Martin-Robinson (TEN) - 1Q,,Anytime TD,,6500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-David Martin-Robinson (TEN) - 1H,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-David Martin-Robinson,TEN,Anytime TD,,2000.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Darnell Washington (PIT) - 1Q,,Anytime TD,,1500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Washington (PIT) - 1H,,Anytime TD,,700.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Washington,PIT,Anytime TD,,275.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1H,,Anytime TD,,600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Jones,IND,Anytime TD,,230.0,,False,,Colts,Titans,1761510300000,Bovada,QB,,,,,,unsupported_market,0.0
-Darnell Mooney,ATL,Anytime TD,,320.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Dare Ogunbowale (HOU) - 1Q,,Anytime TD,,4000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dare Ogunbowale (HOU) - 1H,,Anytime TD,,2200.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dare Ogunbowale,HOU,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Daniel Jones (IND) - 1Q,,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Jones (IND) - 1H,,Anytime TD,,475.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Cowboys Defense,,Anytime TD,,725.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-DAL Cowboys D/ST - 1Q,,Anytime TD,,2000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-DAL Cowboys D/ST - 1H,,Anytime TD,,1000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Christian McCaffrey (SF) - 1Q,,Anytime TD,,375.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chuba Hubbard & Carolina Panthers,,Anytime TD,,650.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chuba Hubbard & Buffalo Bills,,Anytime TD,,350.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chuba Hubbard,CAR,Anytime TD,,230.0,,False,,Panthers,Bills,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Christian Watson (GB) - 1Q,,Anytime TD,,1200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Christian Watson (GB) - 1H,,Anytime TD,,500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Christian Watson,GB,Anytime TD,,350.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Christian McCaffrey (SF) - 1H,,Anytime TD,,150.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott (DAL) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Christian McCaffrey,SF,Anytime TD,,-152.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Christian Kirk (HOU) - 1Q,,Anytime TD,,1900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Christian Kirk (HOU) - 1H,,Anytime TD,,800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chris Rodriguez Jr.,WAS,Anytime TD,,1000.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Chris Olave,NO,Anytime TD,,160.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Chris Moore,WAS,Anytime TD,,400.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Chuba Hubbard (CAR) - 1H,,Anytime TD,,400.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chuba Hubbard (CAR) - 1Q,,Anytime TD,,950.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-CLE Browns D/ST - 1H,,Anytime TD,,900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-CLE Browns D/ST - 1Q,,Anytime TD,,1900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cleveland Browns Defense,,Anytime TD,,800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Colson Yankoff,WAS,Anytime TD,,2000.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Connor Heyward,PIT,Anytime TD,,1000.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1H,,Anytime TD,,1900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton,DEN,Anytime TD,,130.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Courtland Sutton (DEN) - 1H,,Anytime TD,,280.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Courtland Sutton (DEN) - 1Q,,Anytime TD,,700.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Curtis Samuel,BUF,Anytime TD,,500.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Curtis Samuel (BUF) - 1H,,Anytime TD,,950.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Curtis Samuel (BUF) - 1Q,,Anytime TD,,2200.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Anytime TD,,725.0,,False,,Broncos,Cowboys,1761510300000,Bovada,QB,,,,,,unsupported_market,0.0
-Dak Prescott (DAL) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-David Njoku,CLE,Anytime TD,,300.0,,False,,Patriots,Browns,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-David Njoku & Cleveland Browns,,Anytime TD,,900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Njoku & New England Patriots,,Anytime TD,,450.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DJ Giddens (IND) - 1H,,Anytime TD,,1300.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Dontayvion Wicks (GB) - 1H,,Anytime TD,,1100.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Dontayvion Wicks,GB,Anytime TD,,350.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1Q,,Anytime TD,,850.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1H,,Anytime TD,,350.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Anytime TD,,140.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-DJ Giddens (IND) - 1Q,,Anytime TD,,2500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-DJ Giddens,IND,Anytime TD,,700.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Devon Achane (MIA) - 1H,,Anytime TD,,260.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dillon Gabriel (CLE) - 1Q,,Anytime TD,,2800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dillon Gabriel (CLE) - 1H,,Anytime TD,,1600.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dillon Gabriel,CLE,Anytime TD,,1000.0,,False,,Patriots,Browns,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-DeVonta Smith (PHI) - 1Q,,Anytime TD,,1000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DeVonta Smith (PHI) - 1H,,Anytime TD,,400.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DeVonta Smith,PHI,Anytime TD,,180.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Dontayvion Wicks (GB) - 1Q,,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Drake London,ATL,Anytime TD,,110.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Drake London (ATL) - 1H,,Anytime TD,,230.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drake London (ATL) - 1Q,,Anytime TD,,600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Anytime TD,,300.0,,False,,Patriots,Browns,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Drake Maye & Cleveland Browns,,Anytime TD,,1700.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye & New England Patriots,,Anytime TD,,350.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1Q,,Anytime TD,,1500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Drew Ogletree,IND,Anytime TD,,1200.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Dwayne Eskridge,MIA,Anytime TD,,2500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Dylan Sampson,CLE,Anytime TD,,1600.0,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Dylan Sampson (CLE) - 1H,,Anytime TD,,2500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dylan Sampson (CLE) - 1Q,,Anytime TD,,4500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-E.J. Jenkins,PHI,Anytime TD,,900.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-E.J. Jenkins (PHI) - 1H,,Anytime TD,,3500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-E.J. Jenkins (PHI) - 1Q,,Anytime TD,,6500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Devon Achane (MIA) - 1Q,,Anytime TD,,600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary (NYG) - 1Q,,Anytime TD,,2500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Njoku (CLE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) - 1H,,Anytime TD,,475.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DeeJay Dallas (CAR) - 1H,,Anytime TD,,5000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Deebo Samuel Sr.,WAS,Anytime TD,,225.0,,False,,Chiefs,Commanders,1761610500000,Bovada,,,,,,,unsupported_market,0.0
-Dee Eskridge - 1Q,,Anytime TD,,7500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dee Eskridge - 1H,,Anytime TD,,4000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-De'Von Achane,MIA,Anytime TD,,-122.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox & Carolina Panthers,,Anytime TD,,1200.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary (NYG) - 1H,,Anytime TD,,1300.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox & Buffalo Bills,,Anytime TD,,300.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox,BUF,Anytime TD,,210.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1Q,,Anytime TD,,6000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Sills,ATL,Anytime TD,,1700.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-David Njoku (CLE) - 1Q,,Anytime TD,,1500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DeeJay Dallas (CAR) - 1Q,,Anytime TD,,8000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Demarcus Robinson,SF,Anytime TD,,900.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Demarcus Robinson (SF) - 1H,,Anytime TD,,1600.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Demarcus Robinson (SF) - 1Q,,Anytime TD,,3000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas,NE,Anytime TD,,500.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1H,,Anytime TD,,1000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1Q,,Anytime TD,,2200.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-DEN Broncos D/ST - 1H,,Anytime TD,,900.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-DEN Broncos D/ST - 1Q,,Anytime TD,,1800.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Denver Defense,,Anytime TD,,525.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Derius Davis,LAC,Anytime TD,,1100.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Derius Davis (LAC) - 1H,,Anytime TD,,1900.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Derius Davis (LAC) - 1Q,,Anytime TD,,7000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Devaughn Vele,NO,Anytime TD,,1300.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Devin Culp,TB,Anytime TD,,3000.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Devin Neal,NO,Anytime TD,,1400.0,,False,,Saints,Buccaneers,1761509100000,Bovada,RB,,,,,,unsupported_market,0.0
-Devin Singletary,NYG,Anytime TD,,625.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Chris Manhertz (NYG) - 1Q,,Anytime TD,,6000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chris Manhertz,NYG,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Keon Coleman & Buffalo Bills,,Anytime TD,,250.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1H,,Anytime TD,,1100.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ben Sims,GB,Anytime TD,,1300.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Beaux Collins (NYG) - 1Q,,Anytime TD,,4000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Beaux Collins (NYG) - 1H,,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Beaux Collins,NYG,Anytime TD,,1100.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Baker Mayfield,TB,Anytime TD,,600.0,,False,,Saints,Buccaneers,1761509100000,Bovada,QB,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1Q,,Anytime TD,,2200.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper,NE,Anytime TD,,525.0,,False,,Patriots,Browns,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Ben Sims (GB) - 1Q,,Anytime TD,,4500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Atlanta Falcons Defense,,Anytime TD,,525.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-ATL Falcons D/ST - 1Q,,Anytime TD,,1900.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-ATL Falcons D/ST - 1H,,Anytime TD,,950.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Dulin (IND) - 1Q,,Anytime TD,,1800.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Dulin (IND) - 1H,,Anytime TD,,800.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Dulin,IND,Anytime TD,,440.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Ben Sims (GB) - 1H,,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ben Sinnott,WAS,Anytime TD,,2000.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Chris Brooks (GB) - 1Q,,Anytime TD,,1600.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Blake Whiteheart (CLE) - 1H,,Anytime TD,,2500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brashard Smith,KC,Anytime TD,,240.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Brandin Cooks,NO,Anytime TD,,700.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Bo Nix (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix (DEN) - 1H,,Anytime TD,,500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Bo Nix,DEN,Anytime TD,,220.0,,False,,Broncos,Cowboys,1761510300000,Bovada,QB,,,,,,unsupported_market,0.0
-Blake Whiteheart (CLE) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Blake Whiteheart,CLE,Anytime TD,,1200.0,,False,,Patriots,Browns,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Ben Skowronek,PIT,Anytime TD,,1400.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Bijan Robinson (ATL) - 1Q,,Anytime TD,,320.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson (ATL) - 1H,,Anytime TD,,120.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Anytime TD,,-250.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Ben Yurosek,MIN,Anytime TD,,3300.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Ben Skowronek (PIT) - 1Q,,Anytime TD,,5000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ben Skowronek (PIT) - 1H,,Anytime TD,,2800.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Gould (IND) - 1Q,,Anytime TD,,3500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Gould (IND) - 1H,,Anytime TD,,1900.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Gould,IND,Anytime TD,,1100.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Adam Thielen,MIN,Anytime TD,,1300.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Adonai Mitchell,IND,Anytime TD,,440.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Adam Trautman (DEN) - 1Q,,Anytime TD,,2500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Trautman (DEN) - 1H,,Anytime TD,,1400.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Trautman,DEN,Anytime TD,,700.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Adam Thielen (MIN) - 1Q,,Anytime TD,,7500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Adam Thielen (MIN) - 1H,,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Adam Prentice (DEN) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Andy Dalton (CAR) - 1Q,,Anytime TD,,5500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Adam Prentice (DEN) - 1H,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Adam Prentice,DEN,Anytime TD,,2200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers (PIT) - 1Q,,Anytime TD,,6500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers (PIT) - 1H,,Anytime TD,,4000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Anytime TD,,3300.0,,False,,Steelers,Packers,1761524400000,Bovada,QB,,,,,,unsupported_market,0.0
-A.J. Brown (PHI) - 1Q,,Anytime TD,,900.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Adonai Mitchell (IND) - 1H,,Anytime TD,,750.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Adonai Mitchell (IND) - 1Q,,Anytime TD,,1600.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-AJ Dillon (PHI) - 1H,,Anytime TD,,3000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-AJ Dillon (PHI) - 1Q,,Anytime TD,,5500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Alec Ingold,MIA,Anytime TD,,1600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Alec Ingold (MIA) - 1H,,Anytime TD,,2800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Alec Ingold (MIA) - 1Q,,Anytime TD,,5500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Alec Pierce,IND,Anytime TD,,230.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Alec Pierce (IND) - 1H,,Anytime TD,,400.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Alec Pierce (IND) - 1Q,,Anytime TD,,900.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Alvin Kamara,NO,Anytime TD,,130.0,,False,,Saints,Buccaneers,1761509100000,Bovada,RB,,,,,,unsupported_market,0.0
-Ameer Abdullah,LV,Anytime TD,,275.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Ameer Abdullah (LV) - 1H,,Anytime TD,,500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Ameer Abdullah (LV) - 1Q,,Anytime TD,,1100.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Andrew Ogletree (IND) - 1H,,Anytime TD,,1600.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Andrew Ogletree (IND) - 1Q,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Andy Dalton (CAR) - 1H,,Anytime TD,,3000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Braxton Berrios,HOU,Anytime TD,,725.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Braxton Berrios (HOU) - 1H,,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Braxton Berrios (HOU) - 1Q,,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Passing Yards,227.5,-145.0,110.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Casey Washington (ATL) - 1H,,Anytime TD,,1500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Casey Washington,ATL,Anytime TD,,1000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Carson Wentz (MIN) - 1Q,,Anytime TD,,5000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Carson Wentz (MIN) - 1H,,Anytime TD,,2000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Rushing Yards,11.5,-135.0,105.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Rushing Attempts,2.5,-170.0,130.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Passing TDs,1.5,110.0,-145.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Cameron Ward (TEN) - 1H,,Anytime TD,,1300.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Passing Attempts,32.5,-115.0,-115.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Interceptions,0.5,-135.0,105.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Carson Wentz,MIN,Anytime TD,,900.0,,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Carolina Panthers Defense,,Anytime TD,,825.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-CAR Panthers D/ST - 1Q,,Anytime TD,,1800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-CAR Panthers D/ST - 1H,,Anytime TD,,900.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Casey Washington (ATL) - 1Q,,Anytime TD,,3000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cedrick Wilson Jr. (MIA) - 1H,,Anytime TD,,1300.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cedrick Wilson Jr. (MIA) - 1Q,,Anytime TD,,2800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-CeeDee Lamb,DAL,Anytime TD,,150.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-CeeDee Lamb (DAL) - 1H,,Anytime TD,,350.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-CeeDee Lamb (DAL) - 1Q,,Anytime TD,,900.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Woerner,ATL,Anytime TD,,725.0,,False,,Falcons,Dolphins,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1H,,Anytime TD,,1400.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1Q,,Anytime TD,,3000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Chig Okonkwo,TEN,Anytime TD,,500.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Chigoziem Okonkwo (TEN) - 1H,,Anytime TD,,1000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Chigoziem Okonkwo (TEN) - 1Q,,Anytime TD,,2500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Chimere Dike,TEN,Anytime TD,,400.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Chimere Dike (TEN) - 1H,,Anytime TD,,1100.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Chimere Dike (TEN) - 1Q,,Anytime TD,,2500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Chris Brooks,GB,Anytime TD,,440.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Chris Brooks (GB) - 1H,,Anytime TD,,750.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Cameron Ward (TEN) - 1Q,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Cameron Skattebo - 1Q,,Anytime TD,,500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brendan Bates,,Anytime TD,,2500.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Brian Robinson (SF) - 1Q,,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brycen Tremayne (CAR) - 1Q,,Anytime TD,,10000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brycen Tremayne (CAR) - 1H,,Anytime TD,,5000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brycen Tremayne,CAR,Anytime TD,,1400.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Bryce Oliver (TEN) - 1Q,,Anytime TD,,5500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Bryce Oliver (TEN) - 1H,,Anytime TD,,3000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-British Brooks,HOU,Anytime TD,,4000.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Brian Robinson (SF) - 1H,,Anytime TD,,1500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cameron Skattebo - 1H,,Anytime TD,,230.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brian Robinson,SF,Anytime TD,,900.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford (DAL) - 1Q,,Anytime TD,,7000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford (DAL) - 1H,,Anytime TD,,4500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford,DAL,Anytime TD,,2000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Brenden Bates (CHI) - 1Q,,Anytime TD,,10000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Brenden Bates (CHI) - 1H,,Anytime TD,,6000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1H,,Anytime TD,,800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1Q,,Anytime TD,,1800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Buffalo Bills Defense,,Anytime TD,,525.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Anytime TD,,725.0,,False,,Texans,49ers,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-C.J. Stroud (HOU) - 1H,,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-C.J. Stroud (HOU) - 1Q,,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton,TB,Anytime TD,,180.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Calvin Austin III,PIT,Anytime TD,,260.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1H,,Anytime TD,,700.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1Q,,Anytime TD,,1400.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Ridley (TEN) - 1H,,Anytime TD,,750.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Ridley (TEN) - 1Q,,Anytime TD,,1700.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Cam Skattebo,NYG,Anytime TD,,-114.0,,False,,Eagles,Giants,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Cam Ward,TEN,Anytime TD,,900.0,,False,,Colts,Titans,1761510300000,Bovada,QB,,,,,,unsupported_market,0.0
-Cameron Latu,PHI,Anytime TD,,1400.0,,False,,Eagles,Giants,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Cameron Latu (PHI) - 1H,,Anytime TD,,3500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Cameron Latu (PHI) - 1Q,,Anytime TD,,7000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism,NE,Anytime TD,,2800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism (NE) - 1H,,Anytime TD,,4500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism (NE) - 1Q,,Anytime TD,,7500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Addison,MIN,Receiving Yards,54.5,-125.0,-105.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jordan James,SF,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Jordan Addison (MIN) - 1Q,,Anytime TD,,900.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Addison (MIN) - 1H,,Anytime TD,,400.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Addison & Minnesota Vikings,,Anytime TD,,450.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Addison & Los Angeles Chargers,,Anytime TD,,300.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Addison,MIN,Receptions,4.5,105.0,-135.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jordan Addison,MIN,Anytime TD,,200.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jordan James (SF) - 1Q,,Anytime TD,,9000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith (PIT) - 1Q,,Anytime TD,,1400.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith (PIT) - 1H,,Anytime TD,,600.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith,PIT,Anytime TD,,250.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-Jonathan Taylor (IND) - 1Q,,Anytime TD,,200.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Taylor (IND) - 1H,,Anytime TD,,-135.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Taylor,IND,Anytime TD,,-460.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Jordan James (SF) - 1H,,Anytime TD,,5500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Love,GB,Anytime TD,,825.0,,False,,Steelers,Packers,1761524400000,Bovada,QB,,,,,,unsupported_market,0.0
-Elic Ayomanor,TEN,Anytime TD,,350.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Jordan Watkins,SF,Anytime TD,,3300.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Josh Allen (BUF) - 1H,,Anytime TD,,220.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen & Carolina Panthers,,Anytime TD,,900.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen & Buffalo Bills,,Anytime TD,,150.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Anytime TD,,110.0,,False,,Panthers,Bills,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Jordan Watkins (SF) - 1Q,,Anytime TD,,9000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Watkins (SF) - 1H,,Anytime TD,,5500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Mason (MIN) - 1Q,,Anytime TD,,625.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Love (GB) - 1H,,Anytime TD,,1200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Mason (MIN) - 1H,,Anytime TD,,275.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Mason & Minnesota Vikings,,Anytime TD,,300.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Mason & Los Angeles Chargers,,Anytime TD,,250.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Mason,MIN,Receiving Yards,70.5,-115.0,-115.0,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jordan Mason,MIN,Anytime TD,,125.0,,False,,Chargers,Vikings,1761264900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jordan Love (GB) - 1Q,,Anytime TD,,2200.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Mingo (DAL) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Mingo (DAL) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Mingo,DAL,Anytime TD,,800.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Wright (MIA) - 1H,,Anytime TD,,3500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jeremy McNichols,WAS,Anytime TD,,900.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylin Noel (HOU) - 1Q,,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylin Noel (HOU) - 1H,,Anytime TD,,600.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylin Noel,HOU,Anytime TD,,320.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylin Lane,WAS,Anytime TD,,440.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Wright (MIA) - 1Q,,Anytime TD,,6000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Wright,MIA,Anytime TD,,1600.0,,False,,Falcons,Dolphins,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-John Metchie III (PHI) - 1Q,,Anytime TD,,3000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1Q,,Anytime TD,,700.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1H,,Anytime TD,,300.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Anytime TD,,130.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylen Waddle (MIA) - 1Q,,Anytime TD,,1000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle (MIA) - 1H,,Anytime TD,,450.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Waddle,MIA,Anytime TD,,180.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jerome Ford,CLE,Anytime TD,,1000.0,,False,,Patriots,Browns,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Jerome Ford (CLE) - 1H,,Anytime TD,,1800.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jerome Ford (CLE) - 1Q,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jerry Jeudy,CLE,Anytime TD,,275.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jerry Jeudy & Cleveland Browns,,Anytime TD,,850.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jerry Jeudy & New England Patriots,,Anytime TD,,410.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jerry Jeudy (CLE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jerry Jeudy (CLE) - 1Q,,Anytime TD,,1500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jimmy Horn Jr.,CAR,Anytime TD,,1000.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jimmy Horn Jr. (CAR) - 1H,,Anytime TD,,1600.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jimmy Horn Jr. (CAR) - 1Q,,Anytime TD,,3500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-John Bates,WAS,Anytime TD,,1300.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-John FitzPatrick,GB,Anytime TD,,1300.0,,False,,Steelers,Packers,1761524400000,Bovada,TE,,,,,,unsupported_market,0.0
-John FitzPatrick (GB) - 1H,,Anytime TD,,2500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-John FitzPatrick (GB) - 1Q,,Anytime TD,,4500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-John Metchie III,PHI,Anytime TD,,625.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-John Metchie III (PHI) - 1H,,Anytime TD,,1400.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen (BUF) - 1Q,,Anytime TD,,550.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Josh Downs,IND,Anytime TD,,230.0,,False,,Colts,Titans,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Josh Downs (IND) - 1H,,Anytime TD,,375.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte & Cleveland Browns,,Anytime TD,,1500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ke'Shawn Williams (PIT) - 1Q,,Anytime TD,,4000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ke'Shawn Williams (PIT) - 1H,,Anytime TD,,1900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Ke'Shawn Williams,PIT,Anytime TD,,1400.0,,False,,Steelers,Packers,1761524400000,Bovada,WR,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1H,,Anytime TD,,550.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte & New England Patriots,,Anytime TD,,330.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte,NE,Anytime TD,,275.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Kaleb Johnson (PIT) - 1H,,Anytime TD,,3000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin (DAL) - 1Q,,Anytime TD,,2200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin (DAL) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin,DAL,Anytime TD,,525.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Anytime TD,,240.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Kansas City Chiefs Defense,,Anytime TD,,440.0,,False,,Chiefs,Commanders,1761610500000,Bovada,,,,,,,unsupported_market,0.0
-Kameron Johnson,TB,Anytime TD,,725.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-KeAndre Lambert-Smith,LAC,Anytime TD,,2500.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-KeAndre Lambert-Smith (LAC) - 1H,,Anytime TD,,1700.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-KeAndre Lambert-Smith (LAC) - 1Q,,Anytime TD,,10000.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Keenan Allen,LAC,Anytime TD,,160.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Keenan Allen,LAC,Receiving Yards,49.5,-125.0,-105.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Keenan Allen,LAC,Receptions,5.5,105.0,-135.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Keenan Allen & Los Angeles Chargers,,Anytime TD,,250.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Keenan Allen & Minnesota Vikings,,Anytime TD,,575.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Keenan Allen (LAC) - 1H,,Anytime TD,,320.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Keenan Allen (LAC) - 1Q,,Anytime TD,,775.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Kendrick Bourne,SF,Anytime TD,,350.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Kendrick Bourne (SF) - 1H,,Anytime TD,,650.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kendrick Bourne (SF) - 1Q,,Anytime TD,,1500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Anytime TD,,440.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell (PIT) - 1H,,Anytime TD,,900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell (PIT) - 1Q,,Anytime TD,,1800.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman,BUF,Anytime TD,,200.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Kaleb Johnson (PIT) - 1Q,,Anytime TD,,5500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Kaleb Johnson,PIT,Anytime TD,,2000.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Josh Downs (IND) - 1Q,,Anytime TD,,850.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Josh Palmer (BUF) - 1Q,,Anytime TD,,1800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Julius Chestnut (TEN) - 1H,,Anytime TD,,4000.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Julius Chestnut,TEN,Anytime TD,,2500.0,,False,,Colts,Titans,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Julian Hill (MIA) - 1Q,,Anytime TD,,1800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Julian Hill (MIA) - 1H,,Anytime TD,,900.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Julian Hill,MIA,Anytime TD,,350.0,,False,,Falcons,Dolphins,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster,KC,Anytime TD,,525.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Josh Palmer (BUF) - 1H,,Anytime TD,,800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Juwan Johnson,NO,Anytime TD,,275.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Josh Oliver (MIN) - 1Q,,Anytime TD,,4500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Oliver (MIN) - 1H,,Anytime TD,,1500.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Josh Oliver,MIN,Anytime TD,,525.0,,False,,Chargers,Vikings,1761264900000,Bovada,TE,,,,,,unsupported_market,0.0
-Josh Jacobs (GB) - 1Q,,Anytime TD,,400.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Josh Jacobs (GB) - 1H,,Anytime TD,,140.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Josh Jacobs,GB,Anytime TD,,-190.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Julius Chestnut (TEN) - 1Q,,Anytime TD,,7500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Anytime TD,,500.0,,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Interceptions,0.5,-115.0,-115.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Passing Attempts,34.5,-130.0,,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Passing TDs,1.5,-165.0,125.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Passing Yards,252.5,-130.0,,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Rushing Attempts,3.5,-160.0,120.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert,LAC,Rushing Yards,277.5,-115.0,-115.0,False,,Chargers,Vikings,1761264900000,Bovada,QB,,,,,,unsupported_market,0.0
-Justin Herbert (LAC) - 1H,,Anytime TD,,950.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Herbert (LAC) - 1Q,,Anytime TD,,2300.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Jefferson,MIN,Anytime TD,,140.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Justin Jefferson,MIN,Receiving Yards,80.5,-120.0,-110.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Justin Jefferson,MIN,Receptions,5.5,-180.0,135.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Justin Jefferson & Los Angeles Chargers,,Anytime TD,,325.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Jefferson & Minnesota Vikings,,Anytime TD,,350.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Jefferson (MIN) - 1H,,Anytime TD,,300.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Jefferson (MIN) - 1Q,,Anytime TD,,675.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jaydon Blue (DAL) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jaydon Blue (DAL) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jaydon Blue,DAL,Anytime TD,,1000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-HOU Texans D/ST - 1H,,Anytime TD,,900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1H,,Anytime TD,,350.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & New England Patriots,,Anytime TD,,210.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & Cleveland Browns,,Anytime TD,,1100.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry,NE,Anytime TD,,180.0,,False,,Patriots,Browns,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Houston D/ST,,Anytime TD,,725.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-HOU Texans D/ST - 1Q,,Anytime TD,,1900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harrison Bryant (HOU) - 1Q,,Anytime TD,,3000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Gunner Olszewski (NYG) - 1Q,,Anytime TD,,5500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harrison Bryant (HOU) - 1H,,Anytime TD,,1500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harrison Bryant,HOU,Anytime TD,,800.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Harold Fannin Jr. (CLE) - 1Q,,Anytime TD,,1500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harold Fannin Jr. (CLE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harold Fannin Jr. & New England Patriots,,Anytime TD,,450.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Harold Fannin Jr. & Cleveland Browns,,Anytime TD,,900.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1Q,,Anytime TD,,850.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Luepke,DAL,Anytime TD,,1900.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Luepke (DAL) - 1H,,Anytime TD,,2500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Luepke (DAL) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Renfrow,CAR,Anytime TD,,1000.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Hunter Renfrow (CAR) - 1H,,Anytime TD,,3500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Renfrow (CAR) - 1Q,,Anytime TD,,5500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-IND Colts D/ST - 1H,,Anytime TD,,950.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-IND Colts D/ST - 1Q,,Anytime TD,,1900.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Indianapolis Colts Defense,,Anytime TD,,500.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Isaac Guerendo,SF,Anytime TD,,2800.0,,False,,Texans,49ers,1761498000000,Bovada,RB,,,,,,unsupported_market,0.0
-Isaac Guerendo (SF) - 1H,,Anytime TD,,4500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Isaac Guerendo (SF) - 1Q,,Anytime TD,,7000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Bond,CLE,Anytime TD,,440.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Isaiah Bond (CLE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Bond (CLE) - 1Q,,Anytime TD,,2500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Anytime TD,,160.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Harold Fannin Jr.,CLE,Anytime TD,,300.0,,False,,Patriots,Browns,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Gunner Olszewski (NYG) - 1H,,Anytime TD,,3000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins (DEN) - 1H,,Anytime TD,,190.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Emanuel Wilson (GB) - 1Q,,Anytime TD,,1500.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Feleipe Franks (ATL) - 1H,,Anytime TD,,2500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Feleipe Franks,ATL,Anytime TD,,2000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Evan Engram (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram (DEN) - 1H,,Anytime TD,,450.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Evan Engram,DEN,Anytime TD,,200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Emeka Egbuka,TB,Anytime TD,,-114.0,,False,,Saints,Buccaneers,1761509100000,Bovada,WR,,,,,,unsupported_market,0.0
-Emanuel Wilson (GB) - 1H,,Anytime TD,,750.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Gunner Olszewski,NYG,Anytime TD,,2200.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Emanuel Wilson,GB,Anytime TD,,440.0,,False,,Steelers,Packers,1761524400000,Bovada,RB,,,,,,unsupported_market,0.0
-Elijah Moore (BUF) - 1Q,,Anytime TD,,2200.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Elijah Moore (BUF) - 1H,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Elijah Moore,BUF,Anytime TD,,525.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Elic Ayomanor (TEN) - 1Q,,Anytime TD,,1800.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Elic Ayomanor (TEN) - 1H,,Anytime TD,,750.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Feleipe Franks (ATL) - 1Q,,Anytime TD,,5500.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Foster Moreau,NO,Anytime TD,,725.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Gage Larvadain,CLE,Anytime TD,,1700.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Gage Larvadain (CLE) - 1H,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Gage Larvadain (CLE) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-GB Packers D/ST - 1H,,Anytime TD,,1000.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-GB Packers D/ST - 1Q,,Anytime TD,,1900.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-George Kittle,SF,Anytime TD,,185.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-George Kittle (SF) - 1H,,Anytime TD,,390.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-George Kittle (SF) - 1Q,,Anytime TD,,900.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens,DAL,Anytime TD,,180.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-George Pickens (DAL) - 1H,,Anytime TD,,375.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens (DAL) - 1Q,,Anytime TD,,950.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Green Bay Packers Defense,,Anytime TD,,600.0,,False,,Steelers,Packers,1761524400000,Bovada,,,,,,,unsupported_market,0.0
-Gunnar Helm,TEN,Anytime TD,,400.0,,False,,Colts,Titans,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Gunnar Helm (TEN) - 1H,,Anytime TD,,950.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Gunnar Helm (TEN) - 1Q,,Anytime TD,,1900.0,,False,,Colts,Titans,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-J.K. Dobbins,DEN,Anytime TD,,-122.0,,False,,Broncos,Cowboys,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-J.K. Dobbins (DEN) - 1Q,,Anytime TD,,475.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins (HOU) - 1Q,,Anytime TD,,1400.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jamal Agnew (ATL) - 1Q,,Anytime TD,,5000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Cook & Carolina Panthers,,Anytime TD,,650.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Cook & Buffalo Bills,,Anytime TD,,105.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Cook,BUF,Anytime TD,,-152.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jamari Thrash (CLE) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jamari Thrash (CLE) - 1H,,Anytime TD,,2200.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jamari Thrash,CLE,Anytime TD,,1300.0,,False,,Patriots,Browns,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jamal Agnew (ATL) - 1H,,Anytime TD,,2800.0,,False,,Falcons,Dolphins,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Royals,KC,Anytime TD,,3300.0,,False,,Chiefs,Commanders,1761610500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jamal Agnew,ATL,Anytime TD,,2000.0,,False,,Falcons,Dolphins,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalin Hyatt (NYG) - 1Q,,Anytime TD,,3000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalin Hyatt (NYG) - 1H,,Anytime TD,,1600.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalin Hyatt,NYG,Anytime TD,,900.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Tolbert (DAL) - 1Q,,Anytime TD,,2200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Tolbert (DAL) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-James Cook (BUF) - 1H,,Anytime TD,,175.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Cook (BUF) - 1Q,,Anytime TD,,425.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Mitchell (CAR) - 1H,,Anytime TD,,5500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-James Mitchell (CAR) - 1Q,,Anytime TD,,10000.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jared Wayne,,Anytime TD,,725.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jared Wiley,KC,Anytime TD,,2200.0,,False,,Chiefs,Commanders,1761610500000,Bovada,TE,,,,,,unsupported_market,0.0
-Jauan Jennings,SF,Anytime TD,,260.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jauan Jennings (SF) - 1H,,Anytime TD,,500.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jauan Jennings (SF) - 1Q,,Anytime TD,,1200.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Anytime TD,,-139.0,,False,,Broncos,Cowboys,1761510300000,Bovada,RB,,,,,,unsupported_market,0.0
-Javonte Williams (DAL) - 1H,,Anytime TD,,200.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams (DAL) - 1Q,,Anytime TD,,500.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Anytime TD,,230.0,,False,,Eagles,Giants,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Jaxson Dart (NYG) - 1H,,Anytime TD,,475.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart (NYG) - 1Q,,Anytime TD,,1000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Anytime TD,,300.0,,False,,Texans,49ers,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jayden Higgins (HOU) - 1H,,Anytime TD,,600.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Tolbert,DAL,Anytime TD,,625.0,,False,,Broncos,Cowboys,1761510300000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Nailor (MIN) - 1Q,,Anytime TD,,2800.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Tavion Sanders,CAR,Anytime TD,,700.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) - 1Q,,Anytime TD,,2500.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson (DAL) - 1H,,Anytime TD,,400.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson,DAL,Anytime TD,,170.0,,False,,Broncos,Cowboys,1761510300000,Bovada,TE,,,,,,unsupported_market,0.0
-Jahan Dotson (PHI) - 1Q,,Anytime TD,,2000.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jahan Dotson (PHI) - 1H,,Anytime TD,,850.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jahan Dotson,PHI,Anytime TD,,400.0,,False,,Eagles,Giants,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jacory Croskey-Merritt,WAS,Anytime TD,,210.0,,False,,Chiefs,Commanders,1761610500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) - 1H,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Nailor (MIN) - 1H,,Anytime TD,,900.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes,BUF,Anytime TD,,440.0,,False,,Panthers,Bills,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Jack Westover (NE) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jack Westover (NE) - 1H,,Anytime TD,,3000.0,,False,,Patriots,Browns,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jack Stoll,NO,Anytime TD,,1300.0,,False,,Saints,Buccaneers,1761509100000,Bovada,TE,,,,,,unsupported_market,0.0
-Ja'Tavion Sanders (CAR) - 1Q,,Anytime TD,,2800.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Tavion Sanders (CAR) - 1H,,Anytime TD,,1300.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson (DAL) - 1Q,,Anytime TD,,950.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Tonges,SF,Anytime TD,,1200.0,,False,,Texans,49ers,1761498000000,Bovada,TE,,,,,,unsupported_market,0.0
-Jake Tonges (SF) - 1H,,Anytime TD,,2000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jake Tonges (SF) - 1Q,,Anytime TD,,4000.0,,False,,Texans,49ers,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jaleel McLaughlin (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jaleel McLaughlin (DEN) - 1Q,,Anytime TD,,1400.0,,False,,Broncos,Cowboys,1761510300000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Coker,CAR,Anytime TD,,525.0,,False,,Panthers,Bills,1761498000000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Coker (CAR) - 1H,,Anytime TD,,1100.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Coker (CAR) - 1Q,,Anytime TD,,2200.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Hurts,PHI,Anytime TD,,-152.0,,False,,Eagles,Giants,1761498000000,Bovada,QB,,,,,,unsupported_market,0.0
-Jalen Hurts (PHI) - 1H,,Anytime TD,,190.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Hurts (PHI) - 1Q,,Anytime TD,,500.0,,False,,Eagles,Giants,1761498000000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Nailor,MIN,Anytime TD,,525.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Nailor,MIN,Receiving Yards,16.5,-135.0,105.0,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Nailor,MIN,Receptions,1.5,-130.0,,False,,Chargers,Vikings,1761264900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalen Nailor & Los Angeles Chargers,,Anytime TD,,800.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Nailor & Minnesota Vikings,,Anytime TD,,875.0,,False,,Chargers,Vikings,1761264900000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman & Carolina Panthers,,Anytime TD,,1200.0,,False,,Panthers,Bills,1761498000000,Bovada,,,,,,,unsupported_market,0.0
+player,team,line,is_ladder,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
+Josh Allen,Buffalo Bills,,,QB,,,,,,unsupported_market,0.0
+Jeremy Ruckert,New York Jets,,,TE,,,,,,unsupported_market,0.0
+C.J. Stroud,Houston Texans,,,QB,,,,,,unsupported_market,0.0
+Tyler Johnson,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Isaiah Williams,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Allen Lazard,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Arian Smith,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Josh Reynolds,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Garrett Wilson,New York Jets,,,WR,,,,,,unsupported_market,0.0
+Stone Smartt,New York Jets,,,TE,,,,,,unsupported_market,0.0
+Jelani Woods,New York Jets,,,TE,,,,,,unsupported_market,0.0
+Mason Taylor,New York Jets,,,TE,,,,,,unsupported_market,0.0
+Tee Higgins,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Khalil Herbert,New York Jets,,,RB,,,,,,unsupported_market,0.0
+Kene Nwangwu,New York Jets,,,RB,,,,,,unsupported_market,0.0
+Isaiah Davis,New York Jets,,,RB,,,,,,unsupported_market,0.0
+Breece Hall,New York Jets,,,RB,,,,,,unsupported_market,0.0
+Justin Fields,New York Jets,,,QB,,,,,,unsupported_market,0.0
+Mitchell Tinsley,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Jermaine Burton,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Cole Burgess,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Charlie Jones,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Nick Chubb,Houston Texans,,,RB,,,,,,unsupported_market,0.0
+Woody Marks,Houston Texans,,,RB,,,,,,unsupported_market,0.0
+British Brooks,Houston Texans,,,RB,,,,,,unsupported_market,0.0
+Dameon Pierce,Houston Texans,,,RB,,,,,,unsupported_market,0.0
+Jake Tonges,San Francisco 49ers,,,TE,,,,,,unsupported_market,0.0
+Luke Farrell,San Francisco 49ers,,,TE,,,,,,unsupported_market,0.0
+George Kittle,San Francisco 49ers,,,TE,,,,,,unsupported_market,0.0
+Jordan James,San Francisco 49ers,,,RB,,,,,,unsupported_market,0.0
+Isaac Guerendo,San Francisco 49ers,,,RB,,,,,,unsupported_market,0.0
+Brian Robinson Jr.,San Francisco 49ers,,,RB,,,,,,unsupported_market,0.0
+Christian McCaffrey,San Francisco 49ers,,,RB,,,,,,unsupported_market,0.0
+Brock Purdy,San Francisco 49ers,,,QB,,,,,,unsupported_market,0.0
+Jaylin Noel,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Jayden Higgins,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Cornell Powell,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Braxton Berrios,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Christian Kirk,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Nico Collins,Houston Texans,,,WR,,,,,,unsupported_market,0.0
+Brenden Bates,Houston Texans,,,TE,,,,,,unsupported_market,0.0
+Harrison Bryant,Houston Texans,,,TE,,,,,,unsupported_market,0.0
+Dalton Schultz,Houston Texans,,,TE,,,,,,unsupported_market,0.0
+Dare Ogunbowale,Houston Texans,,,RB,,,,,,unsupported_market,0.0
+Andrei Iosivas,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Ja'Marr Chase,Cincinnati Bengals,,,WR,,,,,,unsupported_market,0.0
+Ricky Pearsall,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+Tyrone Tracy Jr.,New York Giants,,,RB,,,,,,unsupported_market,0.0
+Jalin Hyatt,New York Giants,,,WR,,,,,,unsupported_market,0.0
+Darius Slayton,New York Giants,,,WR,,,,,,unsupported_market,0.0
+Wan'Dale Robinson,New York Giants,,,WR,,,,,,unsupported_market,0.0
+Thomas Fidone II,New York Giants,,,TE,,,,,,unsupported_market,0.0
+Jermaine Terry,New York Giants,,,TE,,,,,,unsupported_market,0.0
+Chris Manhertz,New York Giants,,,TE,,,,,,unsupported_market,0.0
+Daniel Bellinger,New York Giants,,,TE,,,,,,unsupported_market,0.0
+Theo Johnson,New York Giants,,,TE,,,,,,unsupported_market,0.0
+Devin Singletary,New York Giants,,,RB,,,,,,unsupported_market,0.0
+Cam Skattebo,New York Giants,,,RB,,,,,,unsupported_market,0.0
+Tanner Hudson,Cincinnati Bengals,,,TE,,,,,,unsupported_market,0.0
+Jaxson Dart,New York Giants,,,QB,,,,,,unsupported_market,0.0
+Tai Felton,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Myles Price,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Adam Thielen,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Jalen Nailor,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Jordan Addison,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Justin Jefferson,Minnesota Vikings,,,WR,,,,,,unsupported_market,0.0
+Ben Yurosek,Minnesota Vikings,,,TE,,,,,,unsupported_market,0.0
+Josh Oliver,Minnesota Vikings,,,TE,,,,,,unsupported_market,0.0
+Beaux Collins,New York Giants,,,WR,,,,,,unsupported_market,0.0
+Gunner Olszewski,New York Giants,,,WR,,,,,,unsupported_market,0.0
+Jalen Hurts,Philadelphia Eagles,,,QB,,,,,,unsupported_market,0.0
+Saquon Barkley,Philadelphia Eagles,,,RB,,,,,,unsupported_market,0.0
+Cam Grandy,Cincinnati Bengals,,,TE,,,,,,unsupported_market,0.0
+Drew Sample,Cincinnati Bengals,,,TE,,,,,,unsupported_market,0.0
+Noah Fant,Cincinnati Bengals,,,TE,,,,,,unsupported_market,0.0
+Tahj Brooks,Cincinnati Bengals,,,RB,,,,,,unsupported_market,0.0
+Samaje Perine,Cincinnati Bengals,,,RB,,,,,,unsupported_market,0.0
+Chase Brown,Cincinnati Bengals,,,RB,,,,,,unsupported_market,0.0
+Joe Flacco,Cincinnati Bengals,,,QB,,,,,,unsupported_market,0.0
+Xavier Gipson,Philadelphia Eagles,,,WR,,,,,,unsupported_market,0.0
+John Metchie III,Philadelphia Eagles,,,WR,,,,,,unsupported_market,0.0
+Jahan Dotson,Philadelphia Eagles,,,WR,,,,,,unsupported_market,0.0
+DeVonta Smith,Philadelphia Eagles,,,WR,,,,,,unsupported_market,0.0
+A.J. Brown,Philadelphia Eagles,,,WR,,,,,,unsupported_market,0.0
+Kylen Granson,Philadelphia Eagles,,,TE,,,,,,unsupported_market,0.0
+Cameron Latu,Philadelphia Eagles,,,TE,,,,,,unsupported_market,0.0
+Grant Calcaterra,Philadelphia Eagles,,,TE,,,,,,unsupported_market,0.0
+Dallas Goedert,Philadelphia Eagles,,,TE,,,,,,unsupported_market,0.0
+Tank Bigsby,Philadelphia Eagles,,,RB,,,,,,unsupported_market,0.0
+AJ Dillon,Philadelphia Eagles,,,RB,,,,,,unsupported_market,0.0
+Will Shipley,Philadelphia Eagles,,,RB,,,,,,unsupported_market,0.0
+Jauan Jennings,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+Kendrick Bourne,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+James Cook III,Buffalo Bills,,,RB,,,,,,unsupported_market,0.0
+Patrick Mahomes,Kansas City Chiefs,,,QB,,,,,,unsupported_market,0.0
+Robert Tonyan,Kansas City Chiefs,,,TE,,,,,,unsupported_market,0.0
+Jared Wiley,Kansas City Chiefs,,,TE,,,,,,unsupported_market,0.0
+Geor'Quarius Spivey,Kansas City Chiefs,,,TE,,,,,,unsupported_market,0.0
+Noah Gray,Kansas City Chiefs,,,TE,,,,,,unsupported_market,0.0
+Travis Kelce,Kansas City Chiefs,,,TE,,,,,,unsupported_market,0.0
+Elijah Mitchell,Kansas City Chiefs,,,RB,,,,,,unsupported_market,0.0
+Brashard Smith,Kansas City Chiefs,,,RB,,,,,,unsupported_market,0.0
+Kareem Hunt,Kansas City Chiefs,,,RB,,,,,,unsupported_market,0.0
+Isiah Pacheco,Kansas City Chiefs,,,RB,,,,,,unsupported_market,0.0
+Tyler Lockett,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Tyjae Spears,Tennessee Titans,,,RB,,,,,,unsupported_market,0.0
+Chimere Dike,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Bryce Oliver,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Van Jefferson,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Elic Ayomanor,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Calvin Ridley,Tennessee Titans,,,WR,,,,,,unsupported_market,0.0
+Drake Dabney,Tennessee Titans,,,TE,,,,,,unsupported_market,0.0
+David Martin-Robinson,Tennessee Titans,,,TE,,,,,,unsupported_market,0.0
+Gunnar Helm,Tennessee Titans,,,TE,,,,,,unsupported_market,0.0
+Chig Okonkwo,Tennessee Titans,,,TE,,,,,,unsupported_market,0.0
+Rashee Rice,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Xavier Worthy,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Marquise Brown,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Elijhah Badger,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Jaylin Lane,Washington Commanders,,,WR,,,,,,unsupported_market,0.0
+Braylon Sanders,Washington Commanders,,,WR,,,,,,unsupported_market,0.0
+Chris Moore,Washington Commanders,,,WR,,,,,,unsupported_market,0.0
+Deebo Samuel,Washington Commanders,,,WR,,,,,,unsupported_market,0.0
+Terry McLaurin,Washington Commanders,,,WR,,,,,,unsupported_market,0.0
+Colson Yankoff,Washington Commanders,,,TE,,,,,,unsupported_market,0.0
+Cole Turner,Washington Commanders,,,TE,,,,,,unsupported_market,0.0
+Ben Sinnott,Washington Commanders,,,TE,,,,,,unsupported_market,0.0
+John Bates,Washington Commanders,,,TE,,,,,,unsupported_market,0.0
+Zach Ertz,Washington Commanders,,,TE,,,,,,unsupported_market,0.0
+Chris Rodriguez Jr.,Washington Commanders,,,RB,,,,,,unsupported_market,0.0
+Jeremy McNichols,Washington Commanders,,,RB,,,,,,unsupported_market,0.0
+Jacory Croskey-Merritt,Washington Commanders,,,RB,,,,,,unsupported_market,0.0
+Marcus Mariota,Washington Commanders,,,QB,,,,,,unsupported_market,0.0
+Tyquan Thornton,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Nikko Remigio,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Jalen Royals,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Hal Presley,Kansas City Chiefs,,,WR,,,,,,unsupported_market,0.0
+Julius Chestnut,Tennessee Titans,,,RB,,,,,,unsupported_market,0.0
+Tony Pollard,Tennessee Titans,,,RB,,,,,,unsupported_market,0.0
+Demarcus Robinson,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+Rashid Shaheed,New Orleans Saints,,,WR,,,,,,unsupported_market,0.0
+Payne Durham,Tampa Bay Buccaneers,,,TE,,,,,,unsupported_market,0.0
+Cade Otton,Tampa Bay Buccaneers,,,TE,,,,,,unsupported_market,0.0
+Josh Williams,Tampa Bay Buccaneers,,,RB,,,,,,unsupported_market,0.0
+Sean Tucker,Tampa Bay Buccaneers,,,RB,,,,,,unsupported_market,0.0
+Rachaad White,Tampa Bay Buccaneers,,,RB,,,,,,unsupported_market,0.0
+Baker Mayfield,Tampa Bay Buccaneers,,,QB,,,,,,unsupported_market,0.0
+Mason Tipton,New Orleans Saints,,,WR,,,,,,unsupported_market,0.0
+Devaughn Vele,New Orleans Saints,,,WR,,,,,,unsupported_market,0.0
+Brandin Cooks,New Orleans Saints,,,WR,,,,,,unsupported_market,0.0
+Chris Olave,New Orleans Saints,,,WR,,,,,,unsupported_market,0.0
+Cam Ward,Tennessee Titans,,,QB,,,,,,unsupported_market,0.0
+Jack Stoll,New Orleans Saints,,,TE,,,,,,unsupported_market,0.0
+Foster Moreau,New Orleans Saints,,,TE,,,,,,unsupported_market,0.0
+Juwan Johnson,New Orleans Saints,,,TE,,,,,,unsupported_market,0.0
+Velus Jones Jr.,New Orleans Saints,,,RB,,,,,,unsupported_market,0.0
+Devin Neal,New Orleans Saints,,,RB,,,,,,unsupported_market,0.0
+Alvin Kamara,New Orleans Saints,,,RB,,,,,,unsupported_market,0.0
+Spencer Rattler,New Orleans Saints,,,QB,,,,,,unsupported_market,0.0
+Skyy Moore,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+Jordan Watkins,San Francisco 49ers,,,WR,,,,,,unsupported_market,0.0
+Caden Prieskorn,Tampa Bay Buccaneers,,,TE,,,,,,unsupported_market,0.0
+Devin Culp,Tampa Bay Buccaneers,,,TE,,,,,,unsupported_market,0.0
+Emeka Egbuka,Tampa Bay Buccaneers,,,WR,,,,,,unsupported_market,0.0
+Sterling Shepard,Tampa Bay Buccaneers,,,WR,,,,,,unsupported_market,0.0
+Ashton Dulin,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Anthony Gould,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Ajou Ajou,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Adonai Mitchell,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Alec Pierce,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Josh Downs,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Michael Pittman Jr.,Indianapolis Colts,,,WR,,,,,,unsupported_market,0.0
+Will Mallory,Indianapolis Colts,,,TE,,,,,,unsupported_market,0.0
+Andrew Ogletree,Indianapolis Colts,,,TE,,,,,,unsupported_market,0.0
+Mo Alie-Cox,Indianapolis Colts,,,TE,,,,,,unsupported_market,0.0
+Tyler Warren,Indianapolis Colts,,,TE,,,,,,unsupported_market,0.0
+Tyler Goodson,Indianapolis Colts,,,RB,,,,,,unsupported_market,0.0
+DJ Giddens,Indianapolis Colts,,,RB,,,,,,unsupported_market,0.0
+Ameer Abdullah,Indianapolis Colts,,,RB,,,,,,unsupported_market,0.0
+Jonathan Taylor,Indianapolis Colts,,,RB,,,,,,unsupported_market,0.0
+Daniel Jones,Indianapolis Colts,,,QB,,,,,,unsupported_market,0.0
+Ryan Miller,Tampa Bay Buccaneers,,,WR,,,,,,unsupported_market,0.0
+Kameron Johnson,Tampa Bay Buccaneers,,,WR,,,,,,unsupported_market,0.0
+Tez Johnson,Tampa Bay Buccaneers,,,WR,,,,,,unsupported_market,0.0
+T.J. Hockenson,Minnesota Vikings,,,TE,,,,,,unsupported_market,0.0
+Zavier Scott,Minnesota Vikings,,,RB,,,,,,unsupported_market,0.0
+Aaron Jones Sr.,Minnesota Vikings,,,RB,,,,,,unsupported_market,0.0
+Devin Duvernay,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Harold Fannin Jr.,Cleveland Browns,,,TE,,,,,,unsupported_market,0.0
+David Njoku,Cleveland Browns,,,TE,,,,,,unsupported_market,0.0
+Raheim Sanders,Cleveland Browns,,,RB,,,,,,unsupported_market,0.0
+Dylan Sampson,Cleveland Browns,,,RB,,,,,,unsupported_market,0.0
+Jerome Ford,Cleveland Browns,,,RB,,,,,,unsupported_market,0.0
+Quinshon Judkins,Cleveland Browns,,,RB,,,,,,unsupported_market,0.0
+Dillon Gabriel,Cleveland Browns,,,QB,,,,,,unsupported_market,0.0
+Luther Burden III,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Jahdae Walker,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Olamide Zaccheaus,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Tylan Wallace,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+DJ Moore,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Rome Odunze,Chicago Bears,,,WR,,,,,,unsupported_market,0.0
+Durham Smythe,Chicago Bears,,,TE,,,,,,unsupported_market,0.0
+Colston Loveland,Chicago Bears,,,TE,,,,,,unsupported_market,0.0
+Cole Kmet,Chicago Bears,,,TE,,,,,,unsupported_market,0.0
+Travis Homer,Chicago Bears,,,RB,,,,,,unsupported_market,0.0
+Roschon Johnson,Chicago Bears,,,RB,,,,,,unsupported_market,0.0
+Kyle Monangai,Chicago Bears,,,RB,,,,,,unsupported_market,0.0
+D'Andre Swift,Chicago Bears,,,RB,,,,,,unsupported_market,0.0
+Blake Whiteheart,Cleveland Browns,,,TE,,,,,,unsupported_market,0.0
+Jerry Jeudy,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Isaiah Bond,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Jamari Thrash,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Jaydon Blue,Dallas Cowboys,,,RB,,,,,,unsupported_market,0.0
+Javonte Williams,Dallas Cowboys,,,RB,,,,,,unsupported_market,0.0
+Dak Prescott,Dallas Cowboys,,,QB,,,,,,unsupported_market,0.0
+Kyle Williams,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+Efton Chism III,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+DeMario Douglas,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+Mack Hollins,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+Kayshon Boutte,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+Stefon Diggs,New England Patriots,,,WR,,,,,,unsupported_market,0.0
+Cole Fotheringham,New England Patriots,,,TE,,,,,,unsupported_market,0.0
+Austin Hooper,New England Patriots,,,TE,,,,,,unsupported_market,0.0
+Hunter Henry,New England Patriots,,,TE,,,,,,unsupported_market,0.0
+TreVeyon Henderson,New England Patriots,,,RB,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,New England Patriots,,,RB,,,,,,unsupported_market,0.0
+Drake Maye,New England Patriots,,,QB,,,,,,unsupported_market,0.0
+Malachi Corley,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Gage Larvadain,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+David Bell,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Chase Cota,Cleveland Browns,,,WR,,,,,,unsupported_market,0.0
+Caleb Williams,Chicago Bears,,,QB,,,,,,unsupported_market,0.0
+LaJohntay Wester,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+Jordan Mason,Minnesota Vikings,,,RB,,,,,,unsupported_market,0.0
+Deon Cain,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Tommy Tremble,Carolina Panthers,,,TE,,,,,,unsupported_market,0.0
+Ja'Tavion Sanders,Carolina Panthers,,,TE,,,,,,unsupported_market,0.0
+Trevor Etienne,Carolina Panthers,,,RB,,,,,,unsupported_market,0.0
+DeeJay Dallas,Carolina Panthers,,,RB,,,,,,unsupported_market,0.0
+Rico Dowdle,Carolina Panthers,,,RB,,,,,,unsupported_market,0.0
+Chuba Hubbard,Carolina Panthers,,,RB,,,,,,unsupported_market,0.0
+Bryce Young,Carolina Panthers,,,QB,,,,,,unsupported_market,0.0
+Tyrell Shavers,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Elijah Moore,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+David White,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Devontez Walker,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+Curtis Samuel,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Joshua Palmer,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Khalil Shakir,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Keon Coleman,Buffalo Bills,,,WR,,,,,,unsupported_market,0.0
+Jackson Hawes,Buffalo Bills,,,TE,,,,,,unsupported_market,0.0
+Dawson Knox,Buffalo Bills,,,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid,Buffalo Bills,,,TE,,,,,,unsupported_market,0.0
+Ray Davis,Buffalo Bills,,,RB,,,,,,unsupported_market,0.0
+Ty Johnson,Buffalo Bills,,,RB,,,,,,unsupported_market,0.0
+Dominique Dafney,Carolina Panthers,,,TE,,,,,,unsupported_market,0.0
+James Mitchell,Carolina Panthers,,,TE,,,,,,unsupported_market,0.0
+Mitchell Evans,Carolina Panthers,,,TE,,,,,,unsupported_market,0.0
+Tetairoa McMillan,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Anthony Miller,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+DeAndre Hopkins,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+Rashod Bateman,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+Zay Flowers,Baltimore Ravens,,,WR,,,,,,unsupported_market,0.0
+Zaire Mitchell-Paden,Baltimore Ravens,,,TE,,,,,,unsupported_market,0.0
+Charlie Kolar,Baltimore Ravens,,,TE,,,,,,unsupported_market,0.0
+Baylor Cupp,Baltimore Ravens,,,TE,,,,,,unsupported_market,0.0
+Isaiah Likely,Baltimore Ravens,,,TE,,,,,,unsupported_market,0.0
+Mark Andrews,Baltimore Ravens,,,TE,,,,,,unsupported_market,0.0
+Rasheen Ali,Baltimore Ravens,,,RB,,,,,,unsupported_market,0.0
+Keaton Mitchell,Baltimore Ravens,,,RB,,,,,,unsupported_market,0.0
+Justice Hill,Baltimore Ravens,,,RB,,,,,,unsupported_market,0.0
+Derrick Henry,Baltimore Ravens,,,RB,,,,,,unsupported_market,0.0
+Lamar Jackson,Baltimore Ravens,,,QB,,,,,,unsupported_market,0.0
+Jimmy Horn Jr.,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Hunter Renfrow,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Brycen Tremayne,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Jalen Coker,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Xavier Legette,Carolina Panthers,,,WR,,,,,,unsupported_market,0.0
+Jake Ferguson,Dallas Cowboys,,,TE,,,,,,unsupported_market,0.0
+Luke Schoonmaker,Dallas Cowboys,,,TE,,,,,,unsupported_market,0.0
+Brevyn Spann-Ford,Dallas Cowboys,,,TE,,,,,,unsupported_market,0.0
+Darnell Mooney,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+Julian Hill,Miami Dolphins,,,TE,,,,,,unsupported_market,0.0
+Jaylen Wright,Miami Dolphins,,,RB,,,,,,unsupported_market,0.0
+Ollie Gordon II,Miami Dolphins,,,RB,,,,,,unsupported_market,0.0
+De'Von Achane,Miami Dolphins,,,RB,,,,,,unsupported_market,0.0
+Tua Tagovailoa,Miami Dolphins,,,QB,,,,,,unsupported_market,0.0
+KhaDarel Hodge,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+Jamal Agnew,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+Casey Washington,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+David Sills V,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+Drake London,Atlanta Falcons,,,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+Teagan Quitoriano,Atlanta Falcons,,,TE,,,,,,unsupported_market,0.0
+Feleipe Franks,Atlanta Falcons,,,TE,,,,,,unsupported_market,0.0
+Charlie Woerner,Atlanta Falcons,,,TE,,,,,,unsupported_market,0.0
+Kyle Pitts Sr.,Atlanta Falcons,,,TE,,,,,,unsupported_market,0.0
+Nate Carter,Atlanta Falcons,,,RB,,,,,,unsupported_market,0.0
+Tyler Allgeier,Atlanta Falcons,,,RB,,,,,,unsupported_market,0.0
+Bijan Robinson,Atlanta Falcons,,,RB,,,,,,unsupported_market,0.0
+Michael Penix Jr.,Atlanta Falcons,,,QB,,,,,,unsupported_market,0.0
+Scott Miller,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Tanner Conner,Miami Dolphins,,,TE,,,,,,unsupported_market,0.0
+Greg Dulcich,Miami Dolphins,,,TE,,,,,,unsupported_market,0.0
+Jaylen Waddle,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Malik Washington,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Carson Wentz,Minnesota Vikings,,,QB,,,,,,unsupported_market,0.0
+Tre Harris,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Derius Davis,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Brenden Rice,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Quentin Johnston,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Keenan Allen,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Ladd McConkey,Los Angeles Chargers,,,WR,,,,,,unsupported_market,0.0
+Tyler Conklin,Los Angeles Chargers,,,TE,,,,,,unsupported_market,0.0
+Stevo Klotz,Los Angeles Chargers,,,TE,,,,,,unsupported_market,0.0
+Tucker Fisk,Los Angeles Chargers,,,TE,,,,,,unsupported_market,0.0
+Oronde Gadsden II,Los Angeles Chargers,,,TE,,,,,,unsupported_market,0.0
+Nyheim Hines,Los Angeles Chargers,,,RB,,,,,,unsupported_market,0.0
+Kimani Vidal,Los Angeles Chargers,,,RB,,,,,,unsupported_market,0.0
+Justin Herbert,Los Angeles Chargers,,,QB,,,,,,unsupported_market,0.0
+Tahj Washington,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Dee Eskridge,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Cedrick Wilson Jr.,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Andrew Armstrong,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Nick Westbrook-Ikhine,Miami Dolphins,,,WR,,,,,,unsupported_market,0.0
+Ke'Shawn Williams,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Ben Skowronek,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Roman Wilson,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Josh Jacobs,Green Bay Packers,,,RB,,,,,,unsupported_market,0.0
+Trent Sherfield,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Pat Bryant,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Jerjuan Newton,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Marvin Mims Jr.,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Troy Franklin,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Courtland Sutton,Denver Broncos,,,WR,,,,,,unsupported_market,0.0
+Adam Trautman,Denver Broncos,,,TE,,,,,,unsupported_market,0.0
+Nate Adkins,Denver Broncos,,,TE,,,,,,unsupported_market,0.0
+Evan Engram,Denver Broncos,,,TE,,,,,,unsupported_market,0.0
+Tyler Badie,Denver Broncos,,,RB,,,,,,unsupported_market,0.0
+Jaleel McLaughlin,Denver Broncos,,,RB,,,,,,unsupported_market,0.0
+RJ Harvey,Denver Broncos,,,RB,,,,,,unsupported_market,0.0
+J.K. Dobbins,Denver Broncos,,,RB,,,,,,unsupported_market,0.0
+Bo Nix,Denver Broncos,,,QB,,,,,,unsupported_market,0.0
+Ryan Flournoy,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+KaVontae Turpin,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+Jonathan Mingo,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+Jalen Tolbert,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+George Pickens,Dallas Cowboys,,,WR,,,,,,unsupported_market,0.0
+Jordan Love,Green Bay Packers,,,QB,,,,,,unsupported_market,0.0
+Emanuel Wilson,Green Bay Packers,,,RB,,,,,,unsupported_market,0.0
+Calvin Austin III,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Chris Brooks,Green Bay Packers,,,RB,,,,,,unsupported_market,0.0
+DK Metcalf,Pittsburgh Steelers,,,WR,,,,,,unsupported_market,0.0
+Darnell Washington,Pittsburgh Steelers,,,TE,,,,,,unsupported_market,0.0
+Connor Heyward,Pittsburgh Steelers,,,TE,,,,,,unsupported_market,0.0
+Pat Freiermuth,Pittsburgh Steelers,,,TE,,,,,,unsupported_market,0.0
+Jonnu Smith,Pittsburgh Steelers,,,TE,,,,,,unsupported_market,0.0
+Kaleb Johnson,Pittsburgh Steelers,,,RB,,,,,,unsupported_market,0.0
+Kenneth Gainwell,Pittsburgh Steelers,,,RB,,,,,,unsupported_market,0.0
+Jaylen Warren,Pittsburgh Steelers,,,RB,,,,,,unsupported_market,0.0
+Aaron Rodgers,Pittsburgh Steelers,,,QB,,,,,,unsupported_market,0.0
+Savion Williams,Green Bay Packers,,,WR,,,,,,unsupported_market,0.0
+Malik Heath,Green Bay Packers,,,WR,,,,,,unsupported_market,0.0
+Dontayvion Wicks,Green Bay Packers,,,WR,,,,,,unsupported_market,0.0
+Romeo Doubs,Green Bay Packers,,,WR,,,,,,unsupported_market,0.0
+Matthew Golden,Green Bay Packers,,,WR,,,,,,unsupported_market,0.0
+Johnny Lumpkin,Green Bay Packers,,,TE,,,,,,unsupported_market,0.0
+John FitzPatrick,Green Bay Packers,,,TE,,,,,,unsupported_market,0.0
+Ben Sims,Green Bay Packers,,,TE,,,,,,unsupported_market,0.0
+Luke Musgrave,Green Bay Packers,,,TE,,,,,,unsupported_market,0.0
+Tucker Kraft,Green Bay Packers,,,TE,,,,,,unsupported_market,0.0
+Luke McCaffrey,Washington Commanders,,,WR,,,,,,unsupported_market,0.0

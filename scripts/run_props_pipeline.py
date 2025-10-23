@@ -70,8 +70,8 @@ def main() -> int:
     cw = json.loads(cw_path.read_text())
     season = int(cw.get("season"))
     week = int(cw.get("week"))
-    # Player props artifacts
-    bov_csv = DATA_DIR / f"bovada_player_props_{season}_wk{week}.csv"
+    # Player props artifacts (now sourced from OddsAPI)
+    props_csv = DATA_DIR / f"oddsapi_player_props_{season}_wk{week}.csv"
     edges_csv = DATA_DIR / f"edges_player_props_{season}_wk{week}.csv"
     ladders_csv = DATA_DIR / f"ladder_options_{season}_wk{week}.csv"
     # Game props artifacts
@@ -104,39 +104,16 @@ def main() -> int:
         print(f"ERROR: Missing or empty props CSV: {props_csv}")
         return 3
 
-    # 1) Fetch Bovada (player props)
+    # 1) Fetch player props from OddsAPI
     rc = run([
         sys.executable,
-        "scripts/fetch_bovada_props.py",
+        "scripts/fetch_oddsapi_props.py",
         "--season", str(season),
         "--week", str(week),
-        "--out", str(bov_csv),
+        "--out", str(props_csv),
     ])
     if rc != 0:
-        print(f"WARNING: fetch_bovada_props exited with {rc} for players. Will try archive fallback if available.")
-
-    # Fallback to archive if live CSV has no data
-    if not _csv_has_data(bov_csv):
-        arch = DATA_DIR / f"bovada_player_props_{season}_wk{week}.archive.csv"
-        if arch.exists():
-            tmp = DATA_DIR / f"bovada_player_props_{season}_wk{week}.fallback.csv"
-            ok = _normalize_csv_encoding(arch, tmp)
-            if ok and _csv_has_data(tmp):
-                print(f"INFO: Using archived player props fallback: {arch.name} -> {tmp.name}")
-                # Replace target path with normalized fallback to keep downstream args stable
-                try:
-                    tmp.replace(bov_csv)
-                except Exception:
-                    # If replace fails (e.g., on Windows), copy via pandas rewrite
-                    try:
-                        df = pd.read_csv(tmp)
-                        df.to_csv(bov_csv, index=False)
-                    except Exception:
-                        pass
-            else:
-                print(f"WARNING: Archive present but could not be normalized or has no data: {arch}")
-        else:
-            print(f"WARNING: No archived player props found at {arch}")
+        print(f"WARNING: fetch_oddsapi_props exited with {rc} for players.")
 
     # 2) Join edges
     rc = run([
@@ -144,7 +121,8 @@ def main() -> int:
         "scripts/props_edges_join.py",
         "--season", str(season),
         "--week", str(week),
-        "--bovada", str(bov_csv),
+        # The join script expects --bovada=<csv>; it accepts any props CSV with the expected columns
+        "--bovada", str(props_csv),
         "--out", str(edges_csv),
     ])
     if rc != 0:
@@ -156,7 +134,7 @@ def main() -> int:
         "scripts/gen_ladder_options.py",
         "--season", str(season),
         "--week", str(week),
-        "--bovada", str(bov_csv),
+    "--bovada", str(props_csv),
         "--out", str(ladders_csv),
         "--synthesize",
         "--max-rungs", "6",
@@ -210,7 +188,7 @@ def main() -> int:
         return rc
 
     print("Pipeline complete:")
-    print(" -", bov_csv)
+    print(" -", props_csv)
     print(" -", edges_csv)
     print(" -", ladders_csv)
     print(" -", game_bov_csv)

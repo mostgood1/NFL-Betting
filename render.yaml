@@ -36,6 +36,9 @@ services:
         value: "1"
       - key: NUMEXPR_MAX_THREADS
         value: "1"
+      # The Odds API premium key (set this as a secret in Render Dashboard)
+      - key: ODDS_API_KEY
+        sync: false
       # When admin daily-update runs, also run props pipeline (fetch Bovada -> edges -> ladders)
       - key: RUN_PROPS_PIPELINE_ON_CRON
         value: "1"

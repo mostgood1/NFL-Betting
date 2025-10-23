@@ -127,6 +127,11 @@ Invoke-Step "Fetch odds + seed lines (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/seed_lines_for_week.py --season $Season --week $TargetWeek | Write-Host
 }
 
+# 3c) Build weekly depth chart BEFORE generating props (ensures latest starters/actives)
+Invoke-Step "Build depth chart (Season=$Season Week=$TargetWeek)" {
+  & $venvPy scripts/build_depth_chart.py $Season $TargetWeek | Write-Host
+}
+
 # 4) Generate props for target week
 Invoke-Step "Generate props (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/gen_props.py $Season $TargetWeek | Write-Host

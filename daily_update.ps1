@@ -68,6 +68,20 @@ if ($envReconGames) {
   elseif ($envReconGames -match '^(1|true|yes|on)$') { $ReconcileGames = $true }
 }
 
+# Odds/prediction pipeline toggles (defaults ON)
+$FullOdds = $true
+if ($env:DAILY_UPDATE_FULL_ODDS) {
+  if ($env:DAILY_UPDATE_FULL_ODDS -match '^(0|false|no|off)$') { $FullOdds = $false }
+}
+$FullPredict = $true
+if ($env:DAILY_UPDATE_FULL_PREDICT) {
+  if ($env:DAILY_UPDATE_FULL_PREDICT -match '^(0|false|no|off)$') { $FullPredict = $false }
+}
+$PredictNext = $true
+if ($env:DAILY_UPDATE_PREDICT_NEXT) {
+  if ($env:DAILY_UPDATE_PREDICT_NEXT -match '^(0|false|no|off)$') { $PredictNext = $false }
+}
+
 # Defaults: reconciliation ON unless explicitly disabled
 $ReconcilePropsFinal = $true
 $ReconcileGamesFinal = $true
@@ -156,6 +170,30 @@ if (-not $NoTrain) {
   Write-Log 'Skipping training per --NoTrain'
 }
 
+# Full odds fetch + seed lines (ensures freshest markets regardless of snapshot state)
+if ($FullOdds) {
+  try {
+    $cur = Resolve-CurrentWeek
+    if ($null -eq $cur) { throw 'Unable to resolve current week for odds/seed lines' }
+    $Season = [int]$cur.Season
+    $Week = [int]$cur.Week
+    Write-Log "Full odds fetch (python -m nfl_compare.src.odds_api_client)"
+    if (-not $env:ODDS_API_REGION) { $env:ODDS_API_REGION = 'us' }
+    & $Python -m nfl_compare.src.odds_api_client | Tee-Object -FilePath $LogFile -Append
+    Write-Log "Seed/enrich lines for current week (scripts/seed_lines_for_week.py --season $Season --week $Week)"
+    & $Python scripts/seed_lines_for_week.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append
+    if ($PredictNext) {
+      $NextWeek = [int]($Week + 1)
+      Write-Log "Seed/enrich lines for next week (scripts/seed_lines_for_week.py --season $Season --week $NextWeek)"
+      & $Python scripts/seed_lines_for_week.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append
+    }
+  } catch {
+    Write-Log "Full odds/seed lines step failed: $($_.Exception.Message)"
+  }
+} else {
+  Write-Log 'Full odds fetch disabled via DAILY_UPDATE_FULL_ODDS; using snapshot check later'
+}
+
 # Run the daily updater
 $ExitCode = 0
 try {
@@ -191,6 +229,28 @@ Get-ChildItem -Path $LogPath -Filter 'daily_update_*.log' | Sort-Object LastWrit
 if ($ExitCode -ne 0) {
   Write-Log 'Completed with errors'
   exit $ExitCode
+}
+
+# Full prediction backfill for uncompleted games (current and optionally next week)
+if ($FullPredict) {
+  try {
+    $cur = Resolve-CurrentWeek
+    if ($null -eq $cur) { throw 'Unable to resolve current week for predictions' }
+    $Season = [int]$cur.Season
+    $Week = [int]$cur.Week
+    Write-Log "Backfill predictions for current week (scripts/backfill_missing_week_predictions.py --season $Season --week $Week)"
+    & $Python scripts/backfill_missing_week_predictions.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append | Out-Null
+    if ($PredictNext) {
+      $NextWeek = [int]($Week + 1)
+      Write-Log "Backfill predictions for next week (scripts/backfill_missing_week_predictions.py --season $Season --week $NextWeek)"
+      & $Python scripts/backfill_missing_week_predictions.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
+    }
+  } catch {
+    Write-Log "Predictions backfill failed: $($_.Exception.Message)"
+    if ($FailOnPipeline) { exit 1 }
+  }
+} else {
+  Write-Log 'Full prediction backfill disabled via DAILY_UPDATE_FULL_PREDICT'
 }
 
 # Verify today's odds snapshot exists; if missing or stale, attempt direct fetch
@@ -247,6 +307,36 @@ try {
     } else {
       Write-Log 'Continuing despite props pipeline exception'
     }
+}
+
+# Optional: Smoke check that ESPN WR/TE starters appear in weekly props
+try {
+  $runSmoke = $true
+  $envSmoke = $env:DAILY_UPDATE_SMOKE_STARTERS
+  if ($envSmoke) {
+    if ($envSmoke -match '^(0|false|no|off)$') { $runSmoke = $false }
+    elseif ($envSmoke -match '^(1|true|yes|on)$') { $runSmoke = $true }
+  }
+  if ($runSmoke) {
+    Write-Log 'Smoke: WR/TE starters present in props (scripts/smoke_depth_starters_in_props.py)'
+    & $Python scripts/smoke_depth_starters_in_props.py | Tee-Object -FilePath $LogFile -Append
+    $SmokeExit = $LASTEXITCODE
+    Write-Log "smoke_depth_starters_in_props exit code: $SmokeExit"
+    if ($SmokeExit -ne 0) {
+      Write-Log 'Smoke starters check failed'
+      if ($FailOnPipeline) {
+        Write-Log 'FailOnPipeline is set; exiting due to smoke failure'
+        exit $SmokeExit
+      } else {
+        Write-Log 'Continuing despite smoke failure'
+      }
+    }
+  } else {
+    Write-Log 'Smoke starters check disabled via DAILY_UPDATE_SMOKE_STARTERS'
+  }
+} catch {
+  Write-Log "Smoke starters check exception: $($_.Exception.Message)"
+  if ($FailOnPipeline) { exit 1 }
 }
 
   # Optional: Reconcile props vs actuals for prior week
