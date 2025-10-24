@@ -3623,6 +3623,67 @@ def api_player_props():
     if df is None or df.empty:
         return jsonify({"rows": 0, "data": []})
 
+    # Enrich missing context fields (opponent, date, is_home) from schedule when serving older caches
+    try:
+        need_opponent = ("opponent" not in df.columns) or df.get("opponent") is None or ("opponent" in df.columns and df["opponent"].isna().any())
+        need_date = ("date" not in df.columns) or df.get("date") is None or ("date" in df.columns and df["date"].isna().any())
+        need_is_home = ("is_home" not in df.columns) or df.get("is_home") is None or ("is_home" in df.columns and df["is_home"].isna().any())
+        if (need_opponent or need_date or need_is_home) and (games_df is not None and not games_df.empty):
+            g = games_df.copy()
+            # Minimal column subset and type coercion
+            keep_g = [c for c in ["game_id","home_team","away_team","date","game_date"] if c in g.columns]
+            if keep_g:
+                g = g[keep_g].copy()
+                # Unify date column name
+                if "date" not in g.columns and "game_date" in g.columns:
+                    g = g.rename(columns={"game_date": "date"})
+                # Merge on game_id when available; fallback to string join if necessary
+                if "game_id" in df.columns and "game_id" in g.columns:
+                    merged = df.merge(g, on="game_id", how="left", suffixes=("", "_g"))
+                else:
+                    merged = df.copy()
+                # Compute opponent/is_home when team and home/away available
+                if {"team","home_team","away_team"}.issubset(merged.columns):
+                    try:
+                        # Normalize to string for comparison
+                        merged["team_str"] = merged["team"].astype(str)
+                        merged["home_str"] = merged["home_team"].astype(str)
+                        merged["away_str"] = merged["away_team"].astype(str)
+                        # is_home: 1 if team matches home_team, 0 if matches away_team, else keep NA
+                        is_home_calc = pd.Series(pd.NA, index=merged.index)
+                        is_home_calc = is_home_calc.mask(merged["team_str"] == merged["home_str"], other=1)
+                        is_home_calc = is_home_calc.mask(merged["team_str"] == merged["away_str"], other=0)
+                        if "is_home" not in merged.columns or merged["is_home"].isna().any():
+                            merged["is_home"] = merged.get("is_home", pd.NA)
+                            merged["is_home"] = merged["is_home"].where(merged["is_home"].notna(), is_home_calc)
+                        # opponent: away if team is home, else home if team is away, else NA
+                        opp_calc = merged["away_str"].where(merged["team_str"] == merged["home_str"])
+                        opp_alt = merged["home_str"].where(merged["team_str"] == merged["away_str"])
+                        opp_calc = opp_calc.where(opp_calc.notna(), opp_alt)
+                        if "opponent" not in merged.columns or merged["opponent"].isna().any():
+                            merged["opponent"] = merged.get("opponent", pd.NA)
+                            merged["opponent"] = merged["opponent"].where(merged["opponent"].notna(), opp_calc)
+                    except Exception:
+                        pass
+                # Backfill date
+                if "date" in g.columns:
+                    try:
+                        if "date" not in merged.columns or merged["date"].isna().any():
+                            merged["date"] = merged.get("date", None)
+                            merged["date"] = merged["date"].where(merged["date"].notna(), merged.get("date_g", merged.get("date", None)))
+                    except Exception:
+                        pass
+                # Drop helper columns
+                for c in ["team_str","home_str","away_str","date_g"]:
+                    if c in merged.columns:
+                        try:
+                            merged.drop(columns=[c], inplace=True)
+                        except Exception:
+                            pass
+                df = merged
+    except Exception:
+        pass
+
     # Defensive sanitation: coerce numeric projections and backfill obvious missing fields
     fixes_applied = []
     try:
