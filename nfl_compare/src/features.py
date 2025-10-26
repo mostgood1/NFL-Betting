@@ -257,4 +257,126 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
 
+    # Injury features (optional): derive team-level starter activity and compute diffs
+    try:
+        use_inj = str(os.environ.get('INJURY_FEATURES_OFF', '0')).strip().lower() not in {'1','true','yes','on'}
+    except Exception:
+        use_inj = True
+    if use_inj:
+        try:
+            # We will aggregate by (season, week, team) using ESPN weekly depth charts if present
+            from .player_props import _load_weekly_depth_chart  # type: ignore
+        except Exception:
+            _load_weekly_depth_chart = None  # type: ignore
+        try:
+            from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+        except Exception:
+            _norm_team = lambda s: str(s)
+        if _load_weekly_depth_chart is not None:
+            try:
+                # Build a union map across present (season, week) pairs in df
+                sw = df[['season','week']].dropna().drop_duplicates()
+                inj_rows = []
+                for _, row in sw.iterrows():
+                    try:
+                        s = int(pd.to_numeric(row['season'], errors='coerce'))
+                        w = int(pd.to_numeric(row['week'], errors='coerce'))
+                    except Exception:
+                        continue
+                    try:
+                        dc = _load_weekly_depth_chart(s, w)
+                    except Exception:
+                        dc = None
+                    if dc is None or dc.empty:
+                        continue
+                    d = dc.copy()
+                    # Normalize
+                    if 'team' in d.columns:
+                        d['team'] = d['team'].astype(str).apply(_norm_team)
+                    pos_col = 'position' if 'position' in d.columns else None
+                    if not pos_col:
+                        continue
+                    if 'active' not in d.columns:
+                        d['active'] = True
+                    dr_col = 'depth_rank' if 'depth_rank' in d.columns else None
+                    if dr_col is None:
+                        d['_rn'] = d.groupby(['team', pos_col]).cumcount() + 1
+                        dr_col = '_rn'
+                    d['pos_up'] = d[pos_col].astype(str).str.upper()
+                    # starter per position
+                    starters = (
+                        d.sort_values(['team','pos_up', dr_col, 'player'])
+                         .groupby(['team','pos_up'], as_index=False)
+                         .first()[['team','pos_up','active']]
+                         .rename(columns={'active':'starter_active'})
+                    )
+                    # WR top-2 activity list
+                    wr2 = d[d['pos_up']=='WR'].copy()
+                    if not wr2.empty:
+                        wr2 = wr2.sort_values(['team', dr_col, 'player'])
+                        wr2['_rn2'] = wr2.groupby('team').cumcount()+1
+                        wr2_agg = wr2[wr2['_rn2']<=2].groupby('team')['active'].apply(lambda s: list(s.astype(bool))).reset_index()
+                        wr2_agg = wr2_agg.rename(columns={'active':'wr_top2_active'})
+                    else:
+                        wr2_agg = pd.DataFrame(columns=['team','wr_top2_active'])
+                    # Pivot starters and compute booleans
+                    piv = starters.pivot(index='team', columns='pos_up', values='starter_active').reset_index()
+                    for c in ['QB','WR','TE','RB']:
+                        if c not in piv.columns:
+                            piv[c] = True
+                    if not wr2_agg.empty:
+                        piv = piv.merge(wr2_agg, on='team', how='left')
+                    else:
+                        piv['wr_top2_active'] = [[] for _ in range(len(piv))]
+                    # Build row per team
+                    for _, tr in piv.iterrows():
+                        team = str(tr['team'])
+                        qb_out = 0 if bool(tr.get('QB', True)) else 1
+                        wr1_out = 0 if bool(tr.get('WR', True)) else 1
+                        te1_out = 0 if bool(tr.get('TE', True)) else 1
+                        rb1_out = 0 if bool(tr.get('RB', True)) else 1
+                        wr2_arr = tr.get('wr_top2_active')
+                        wr_top2_out = 0
+                        if isinstance(wr2_arr, list):
+                            wr_top2_out = int(sum([0 if bool(x) else 1 for x in wr2_arr]))
+                        starters_out = qb_out + wr1_out + te1_out + rb1_out
+                        inj_rows.append({
+                            'season': s, 'week': w, 'team': team,
+                            'inj_qb_out': qb_out,
+                            'inj_wr1_out': wr1_out,
+                            'inj_te1_out': te1_out,
+                            'inj_rb1_out': rb1_out,
+                            'inj_wr_top2_out': wr_top2_out,
+                            'inj_starters_out': starters_out,
+                        })
+                inj = pd.DataFrame(inj_rows)
+                if not inj.empty:
+                    # Merge home/away flags
+                    for side in ['home','away']:
+                        key = f'{side}_team'
+                        cols = ['season','week','team','inj_qb_out','inj_wr1_out','inj_te1_out','inj_rb1_out','inj_wr_top2_out','inj_starters_out']
+                        df = df.merge(inj[cols].rename(columns={'team': key, 'inj_qb_out': f'{side}_inj_qb_out', 'inj_wr1_out': f'{side}_inj_wr1_out', 'inj_te1_out': f'{side}_inj_te1_out', 'inj_rb1_out': f'{side}_inj_rb1_out', 'inj_wr_top2_out': f'{side}_inj_wr_top2_out', 'inj_starters_out': f'{side}_inj_starters_out'}),
+                                       on=['season','week', key], how='left')
+                    # Compute diffs (home - away)
+                    df['inj_qb_out_diff'] = df.get('home_inj_qb_out', 0).fillna(0) - df.get('away_inj_qb_out', 0).fillna(0)
+                    df['inj_wr1_out_diff'] = df.get('home_inj_wr1_out', 0).fillna(0) - df.get('away_inj_wr1_out', 0).fillna(0)
+                    df['inj_te1_out_diff'] = df.get('home_inj_te1_out', 0).fillna(0) - df.get('away_inj_te1_out', 0).fillna(0)
+                    df['inj_rb1_out_diff'] = df.get('home_inj_rb1_out', 0).fillna(0) - df.get('away_inj_rb1_out', 0).fillna(0)
+                    df['inj_wr_top2_out_diff'] = df.get('home_inj_wr_top2_out', 0).fillna(0) - df.get('away_inj_wr_top2_out', 0).fillna(0)
+                    df['inj_starters_out_diff'] = df.get('home_inj_starters_out', 0).fillna(0) - df.get('away_inj_starters_out', 0).fillna(0)
+                else:
+                    # Ensure columns exist with zeros
+                    for c in ['inj_qb_out_diff','inj_wr1_out_diff','inj_te1_out_diff','inj_rb1_out_diff','inj_wr_top2_out_diff','inj_starters_out_diff']:
+                        if c not in df.columns:
+                            df[c] = 0
+            except Exception:
+                # Fail-safe: add zeros if anything goes wrong
+                for c in ['inj_qb_out_diff','inj_wr1_out_diff','inj_te1_out_diff','inj_rb1_out_diff','inj_wr_top2_out_diff','inj_starters_out_diff']:
+                    if c not in df.columns:
+                        df[c] = 0
+        else:
+            for c in ['inj_qb_out_diff','inj_wr1_out_diff','inj_te1_out_diff','inj_rb1_out_diff','inj_wr_top2_out_diff','inj_starters_out_diff']:
+                if c not in df.columns:
+                    df[c] = 0
+
     return df

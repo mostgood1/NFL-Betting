@@ -748,6 +748,11 @@ def _auto_advance_current_week_marker() -> Dict[str, Any]:
         if _write_current_week_marker(s, w):
             out['changed'] = True
             out['new'] = [int(s), int(w)]
+        # Optional: apply injury-based adjustment to predicted points
+        try:
+            out = _injury_adjust_predictions(out)
+        except Exception:
+            pass
         return out
     except Exception as e:
         _log_once('auto-advance-error', f'auto-advance failed: {e}')
@@ -2020,6 +2025,175 @@ def _derive_predictions_from_market(df: pd.DataFrame) -> pd.DataFrame:
     return work
 
 
+def _injury_adjust_predictions(df: pd.DataFrame) -> pd.DataFrame:
+    """Lightweight, optional injury-based adjustment to team points.
+    - Uses ESPN weekly depth chart (if present) to detect inactive starters per team.
+    - Applies configurable per-position penalties to predicted points.
+    - Controlled by env GAME_INJURY_ADJUST (default off). Safe no-op if data missing.
+
+    Env knobs (defaults):
+      GAME_INJURY_ADJUST: 0/1 (off/on)
+      GAME_INJURY_QB_PENALTY: 3.5
+      GAME_INJURY_WR1_PENALTY: 0.8
+      GAME_INJURY_TE1_PENALTY: 0.5
+      GAME_INJURY_RB1_PENALTY: 0.4
+      GAME_INJURY_EXTRA_WR_PENALTY: 0.3  # for additional WR among top-2 inactive
+      GAME_INJURY_MAX_PENALTY: 7.0
+    """
+    try:
+        import pandas as _pd
+        on = str(os.environ.get('GAME_INJURY_ADJUST', '0')).strip().lower() in {'1','true','yes','on'}
+        if (df is None) or getattr(df, 'empty', True) or not on:
+            return df
+        work = df.copy()
+        # Only adjust non-final rows
+        try:
+            finals = _pd.Series(False, index=work.index)
+            if {'home_score','away_score'}.issubset(work.columns):
+                finals = _pd.to_numeric(work['home_score'], errors='coerce').notna() & _pd.to_numeric(work['away_score'], errors='coerce').notna()
+        except Exception:
+            finals = _pd.Series(False, index=work.index)
+        # Identify season/week for loading depth chart
+        season_val = None; week_val = None
+        try:
+            if 'season' in work.columns:
+                sv = _pd.to_numeric(work['season'], errors='coerce').dropna()
+                season_val = int(sv.iloc[0]) if not sv.empty else None
+            if 'week' in work.columns:
+                wv = _pd.to_numeric(work['week'], errors='coerce').dropna()
+                week_val = int(wv.iloc[0]) if not wv.empty else None
+        except Exception:
+            season_val = None; week_val = None
+        if season_val is None or week_val is None:
+            try:
+                sw = _infer_current_season_week()
+                season_val = season_val or sw.get('season')
+                week_val = week_val or sw.get('week')
+            except Exception:
+                pass
+        # Load ESPN weekly depth chart (fast, file-based)
+        try:
+            from nfl_compare.src.player_props import _load_weekly_depth_chart  # type: ignore
+        except Exception:
+            _load_weekly_depth_chart = None  # type: ignore
+        dc = None
+        if _load_weekly_depth_chart and season_val and week_val:
+            try:
+                dc = _load_weekly_depth_chart(int(season_val), int(week_val))
+            except Exception:
+                dc = None
+        if dc is None or getattr(dc, 'empty', True):
+            return work
+        d = dc.copy()
+        # Normalize
+        try:
+            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+            if 'team' in d.columns:
+                d['team'] = d['team'].astype(str).apply(_norm_team)
+        except Exception:
+            if 'team' in d.columns:
+                d['team'] = d['team'].astype(str)
+        pos_col = 'position' if 'position' in d.columns else None
+        if not pos_col:
+            return work
+        if 'active' not in d.columns:
+            d['active'] = True
+        # Depth rank column
+        dr_col = 'depth_rank' if 'depth_rank' in d.columns else None
+        if dr_col is None:
+            # Assign depth 1 for first occurrence per team/position as a crude fallback
+            d['_rn'] = d.groupby(['team', pos_col]).cumcount()+1
+            dr_col = '_rn'
+        # Build per-team starter activity map
+        d['pos_up'] = d[pos_col].astype(str).str.upper()
+        starters = (
+            d.sort_values([ 'team', 'pos_up', dr_col, 'player' ])
+             .groupby(['team','pos_up'], as_index=False)
+             .first()[['team','pos_up','active']]
+             .rename(columns={'active':'starter_active'})
+        )
+        # Top-2 WR activity
+        wr2 = d[d['pos_up']=='WR'].copy()
+        if not wr2.empty:
+            wr2 = wr2.sort_values(['team', dr_col, 'player'])
+            wr2['_rn2'] = wr2.groupby('team').cumcount()+1
+            wr2_agg = wr2[wr2['_rn2']<=2].groupby('team')['active'].apply(lambda s: list(s.astype(bool))).reset_index()
+            wr2_agg = wr2_agg.rename(columns={'active':'wr_top2_active'})
+        else:
+            wr2_agg = _pd.DataFrame(columns=['team','wr_top2_active'])
+        # Penalties
+        p_qb = float(os.environ.get('GAME_INJURY_QB_PENALTY', '3.5'))
+        p_wr1 = float(os.environ.get('GAME_INJURY_WR1_PENALTY', '0.8'))
+        p_te1 = float(os.environ.get('GAME_INJURY_TE1_PENALTY', '0.5'))
+        p_rb1 = float(os.environ.get('GAME_INJURY_RB1_PENALTY', '0.4'))
+        p_wr_extra = float(os.environ.get('GAME_INJURY_EXTRA_WR_PENALTY', '0.3'))
+        p_max = float(os.environ.get('GAME_INJURY_MAX_PENALTY', '7.0'))
+        # Aggregate team penalties
+        pen = starters.pivot(index='team', columns='pos_up', values='starter_active').reset_index()
+        for c in ['QB','WR','TE','RB']:
+            if c not in pen.columns:
+                pen[c] = True
+        # Merge WR top2 list
+        if not wr2_agg.empty:
+            pen = pen.merge(wr2_agg, on='team', how='left')
+        else:
+            pen['wr_top2_active'] = _pd.Series([[]]*len(pen))
+        def _team_pen(row):
+            try:
+                tot = 0.0
+                if not bool(row.get('QB', True)):
+                    tot += p_qb
+                if not bool(row.get('WR', True)):
+                    tot += p_wr1
+                if not bool(row.get('TE', True)):
+                    tot += p_te1
+                if not bool(row.get('RB', True)):
+                    tot += p_rb1
+                arr = row.get('wr_top2_active')
+                if isinstance(arr, list):
+                    # Count additional inactive WR among top-2 beyond WR1
+                    inactives = [a for a in arr if (a is not None) and (not bool(a))]
+                    extra = max(0, len(inactives) - (0 if bool(row.get('WR', True)) else 1))
+                    if extra > 0:
+                        tot += min(extra, 2) * p_wr_extra
+                return float(min(max(tot, 0.0), p_max))
+            except Exception:
+                return 0.0
+        pen['inj_penalty'] = pen.apply(_team_pen, axis=1)
+        team2pen = dict(zip(pen['team'].astype(str), pen['inj_penalty'].astype(float)))
+        # Apply to predictions safely
+        for side in [('home_team','pred_home_points'), ('away_team','pred_away_points')]:
+            tcol, pcol = side
+            if tcol in work.columns and pcol in work.columns:
+                base = _pd.to_numeric(work[pcol], errors='coerce')
+                adj = work[tcol].astype(str).map(team2pen).fillna(0.0)
+                # No adjust for finals
+                adj = adj.where(~finals, 0.0)
+                newv = base - adj
+                work[pcol] = _pd.to_numeric(newv, errors='coerce').clip(lower=0.0)
+        # Recompute totals/margin when changed
+        if {'pred_home_points','pred_away_points'}.issubset(work.columns):
+            try:
+                hp = _pd.to_numeric(work['pred_home_points'], errors='coerce')
+                ap = _pd.to_numeric(work['pred_away_points'], errors='coerce')
+                work['pred_total'] = (hp + ap).where(work.get('pred_total').isna() if 'pred_total' in work.columns else True, work.get('pred_total'))
+                work['pred_total'] = hp + ap  # override to keep consistent
+                work['pred_margin'] = hp - ap
+            except Exception:
+                pass
+        # Mark source hint (non-destructive)
+        try:
+            if 'prediction_source' not in work.columns:
+                work['prediction_source'] = None
+            work['prediction_source'] = work['prediction_source'].astype(object)
+            work['prediction_source'] = work['prediction_source'].apply(lambda s: ('injury_adj' if (s is None or not isinstance(s, str) or s.strip()=='' ) else (s if 'injury' in s else f"{s}+inj")))
+        except Exception:
+            pass
+        return work
+    except Exception:
+        return df
+
+
 def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
     """Best-effort: fill missing prediction columns for the given rows using trained models.
     - Skips when running on Render (RENDER env true).
@@ -2092,6 +2266,69 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             line_cols = ['spread_home','total','moneyline_home','moneyline_away',
                          'spread_home_price','spread_away_price','total_over_price','total_under_price',
                          'close_spread_home','close_total']
+            # Helper: choose latest odds row per key, preferring explicit timestamp columns, else game date, else file order
+            def _dedupe_latest(df_in: pd.DataFrame, key_cols: list, cols_present: list) -> pd.DataFrame:
+                import pandas as _pd
+                import numpy as _np
+                if df_in is None or getattr(df_in, 'empty', True) or not key_cols:
+                    return _pd.DataFrame(columns=key_cols + cols_present)
+                keep = list(dict.fromkeys(key_cols + cols_present + [c for c in ['fetched_at','updated_at','collected_at','retrieved_at','timestamp','ts','scraped_at','created_at','date','game_date'] if c in df_in.columns]))
+                d = df_in[keep].copy()
+                # Non-null score as a tiebreaker (last)
+                if cols_present:
+                    try:
+                        d['_nn'] = d[cols_present].notna().sum(axis=1)
+                    except Exception:
+                        d['_nn'] = 0
+                else:
+                    d['_nn'] = 0
+                # Build a best-effort recency timestamp
+                d['_ts'] = _pd.NaT
+                ts_candidates_dt = [c for c in ['fetched_at','updated_at','collected_at','retrieved_at','scraped_at','created_at'] if c in d.columns]
+                for c in ts_candidates_dt:
+                    try:
+                        t = _pd.to_datetime(d[c], errors='coerce')
+                        d['_ts'] = d['_ts'].where(d['_ts'].notna(), t)
+                        # where both present, take the max
+                        both = d['_ts'].notna() & t.notna()
+                        d.loc[both, '_ts'] = _np.maximum(d.loc[both, '_ts'].values.astype('datetime64[ns]'), t.loc[both].values.astype('datetime64[ns]'))
+                    except Exception:
+                        pass
+                # Fallback to numeric/epoch timestamp columns
+                if d['_ts'].isna().all():
+                    for c in [c for c in ['timestamp','ts'] if c in d.columns]:
+                        try:
+                            tn = _pd.to_numeric(d[c], errors='coerce')
+                            # interpret as unix seconds if in plausible range
+                            t = _pd.to_datetime(tn, unit='s', errors='coerce')
+                            d['_ts'] = d['_ts'].where(d['_ts'].notna(), t)
+                            both = d['_ts'].notna() & t.notna()
+                            d.loc[both, '_ts'] = _np.maximum(d.loc[both, '_ts'].values.astype('datetime64[ns]'), t.loc[both].values.astype('datetime64[ns]'))
+                        except Exception:
+                            pass
+                # If still NaT, use game date as weak recency (identical across rows but keeps behavior stable)
+                if d['_ts'].isna().all():
+                    dcol = 'date' if 'date' in d.columns else ('game_date' if 'game_date' in d.columns else None)
+                    if dcol:
+                        try:
+                            d['_ts'] = _pd.to_datetime(d[dcol], errors='coerce')
+                        except Exception:
+                            d['_ts'] = _pd.NaT
+                # Preserve read order as a final tiebreaker (assumes appends = newer at bottom)
+                try:
+                    d['_row'] = _np.arange(len(d))
+                except Exception:
+                    d['_row'] = 0
+                # Sort by: explicit timestamp desc -> game date desc -> row desc -> non-null desc
+                try:
+                    d = d.sort_values(['_ts','_row','_nn'], ascending=[False, False, False])
+                except Exception:
+                    d = d.sort_values(['_row','_nn'], ascending=[False, False])
+                # Drop duplicates keeping latest
+                d = d.drop_duplicates(key_cols, keep='first')
+                # Clean helper cols
+                d = d.drop(columns=[c for c in ['_ts','_row','_nn'] if c in d.columns])
+                return d
             # Merge lines by game_id (preferred), fallback to team-based
             try:
                 lines = load_lines()
@@ -2101,22 +2338,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 cols_present = [c for c in line_cols if c in lines.columns]
                 # Deduplicate right-hand lines by game_id, preferring rows with most filled values
                 if 'game_id' in lines.columns:
-                    # Prefer newest odds by date when available; tie-break by non-null count
-                    keep_cols = ['game_id'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
-                    _r_gid = lines[keep_cols].copy()
-                    try:
-                        import pandas as _pd
-                        _r_gid['_nn'] = _r_gid[cols_present].notna().sum(axis=1)
-                        if 'date' in _r_gid.columns or 'game_date' in _r_gid.columns:
-                            dcol = 'date' if 'date' in _r_gid.columns else 'game_date'
-                            _r_gid['_dt'] = _pd.to_datetime(_r_gid[dcol], errors='coerce')
-                            _r_gid = _r_gid.sort_values(['_dt','_nn'], ascending=[False, False])
-                            _r_gid = _r_gid.drop(columns=['_dt'])
-                        else:
-                            _r_gid = _r_gid.sort_values(['_nn'], ascending=False)
-                        _r_gid = _r_gid.drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
-                    except Exception:
-                        _r_gid = _r_gid.drop_duplicates(['game_id'], keep='first')
+                    _r_gid = _dedupe_latest(lines, ['game_id'], cols_present)
                 else:
                     _r_gid = None
                 if 'game_id' in out_base.columns and _r_gid is not None:
@@ -2124,36 +2346,10 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 # Supplement by season/week + (home_team, away_team) when possible; else by teams only.
                 if {'home_team','away_team'}.issubset(set(lines.columns)):
                     if {'season','week'}.issubset(set(lines.columns)) and {'season','week'}.issubset(set(out_base.columns)):
-                        keep_cols = ['season','week','home_team','away_team'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
-                        sup = lines[keep_cols].copy()
-                        try:
-                            import pandas as _pd
-                            sup['_nn'] = sup[cols_present].notna().sum(axis=1)
-                            if 'date' in sup.columns or 'game_date' in sup.columns:
-                                dcol = 'date' if 'date' in sup.columns else 'game_date'
-                                sup['_dt'] = _pd.to_datetime(sup[dcol], errors='coerce')
-                                sup = sup.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
-                            else:
-                                sup = sup.sort_values(['_nn'], ascending=False)
-                            sup = sup.drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
-                        except Exception:
-                            sup = sup.drop_duplicates(['season','week','home_team','away_team'], keep='first')
+                        sup = _dedupe_latest(lines, ['season','week','home_team','away_team'], cols_present)
                         out_base = out_base.merge(sup, on=['season','week','home_team','away_team'], how='left', suffixes=('', '_ln2'))
                     else:
-                        keep_cols = ['home_team','away_team'] + cols_present + ([c for c in ['date','game_date'] if c in lines.columns])
-                        sup = lines[keep_cols].copy()
-                        try:
-                            import pandas as _pd
-                            sup['_nn'] = sup[cols_present].notna().sum(axis=1)
-                            if 'date' in sup.columns or 'game_date' in sup.columns:
-                                dcol = 'date' if 'date' in sup.columns else 'game_date'
-                                sup['_dt'] = _pd.to_datetime(sup[dcol], errors='coerce')
-                                sup = sup.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
-                            else:
-                                sup = sup.sort_values(['_nn'], ascending=False)
-                            sup = sup.drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
-                        except Exception:
-                            sup = sup.drop_duplicates(['home_team','away_team'], keep='first')
+                        sup = _dedupe_latest(lines, ['home_team','away_team'], cols_present)
                         out_base = out_base.merge(sup, on=['home_team','away_team'], how='left', suffixes=('', '_ln2'))
                 # Fill from any suffix variants (and create columns if missing)
                 for c in line_cols:
@@ -2220,20 +2416,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         df_csv_fb['game_id'] = df_csv_fb['game_id'].astype(str)
                     # Prepare de-duplicated right-hand slices with priority by non-null counts
                     if 'game_id' in df_csv_fb.columns:
-                        keep_cols = ['game_id'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
-                        _fb_gid = df_csv_fb[keep_cols].copy()
-                        try:
-                            import pandas as _pd
-                            _fb_gid['_nn'] = _fb_gid[cols_present_fb].notna().sum(axis=1)
-                            if 'date' in _fb_gid.columns or 'game_date' in _fb_gid.columns:
-                                dcol = 'date' if 'date' in _fb_gid.columns else 'game_date'
-                                _fb_gid['_dt'] = _pd.to_datetime(_fb_gid[dcol], errors='coerce')
-                                _fb_gid = _fb_gid.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
-                            else:
-                                _fb_gid = _fb_gid.sort_values(['_nn'], ascending=False)
-                            _fb_gid = _fb_gid.drop_duplicates(['game_id'], keep='first').drop(columns=['_nn'])
-                        except Exception:
-                            _fb_gid = _fb_gid.drop_duplicates(['game_id'], keep='first')
+                        _fb_gid = _dedupe_latest(df_csv_fb, ['game_id'], cols_present_fb)
                     else:
                         _fb_gid = None
                     if 'game_id' in out_base.columns and _fb_gid is not None:
@@ -2245,20 +2428,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         )
                     # Also try season/week/home/away even if game_id merge ran
                     if {'season','week','home_team','away_team'}.issubset(set(df_csv_fb.columns)) and {'season','week','home_team','away_team'}.issubset(set(out_base.columns)):
-                        keep_cols = ['season','week','home_team','away_team'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
-                        _fb_sw = df_csv_fb[keep_cols].copy()
-                        try:
-                            import pandas as _pd
-                            _fb_sw['_nn'] = _fb_sw[cols_present_fb].notna().sum(axis=1)
-                            if 'date' in _fb_sw.columns or 'game_date' in _fb_sw.columns:
-                                dcol = 'date' if 'date' in _fb_sw.columns else 'game_date'
-                                _fb_sw['_dt'] = _pd.to_datetime(_fb_sw[dcol], errors='coerce')
-                                _fb_sw = _fb_sw.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
-                            else:
-                                _fb_sw = _fb_sw.sort_values(['_nn'], ascending=False)
-                            _fb_sw = _fb_sw.drop_duplicates(['season','week','home_team','away_team'], keep='first').drop(columns=['_nn'])
-                        except Exception:
-                            _fb_sw = _fb_sw.drop_duplicates(['season','week','home_team','away_team'], keep='first')
+                        _fb_sw = _dedupe_latest(df_csv_fb, ['season','week','home_team','away_team'], cols_present_fb)
                         out_base = out_base.merge(
                             _fb_sw,
                             on=['season','week','home_team','away_team'],
@@ -2267,20 +2437,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         )
                     # Finally try by teams only
                     if {'home_team','away_team'}.issubset(df_csv_fb.columns):
-                        keep_cols = ['home_team','away_team'] + cols_present_fb + ([c for c in ['date','game_date'] if c in df_csv_fb.columns])
-                        _fb_h2h = df_csv_fb[keep_cols].copy()
-                        try:
-                            import pandas as _pd
-                            _fb_h2h['_nn'] = _fb_h2h[cols_present_fb].notna().sum(axis=1)
-                            if 'date' in _fb_h2h.columns or 'game_date' in _fb_h2h.columns:
-                                dcol = 'date' if 'date' in _fb_h2h.columns else 'game_date'
-                                _fb_h2h['_dt'] = _pd.to_datetime(_fb_h2h[dcol], errors='coerce')
-                                _fb_h2h = _fb_h2h.sort_values(['_dt','_nn'], ascending=[False, False]).drop(columns=['_dt'])
-                            else:
-                                _fb_h2h = _fb_h2h.sort_values(['_nn'], ascending=False)
-                            _fb_h2h = _fb_h2h.drop_duplicates(['home_team','away_team'], keep='first').drop(columns=['_nn'])
-                        except Exception:
-                            _fb_h2h = _fb_h2h.drop_duplicates(['home_team','away_team'], keep='first')
+                        _fb_h2h = _dedupe_latest(df_csv_fb, ['home_team','away_team'], cols_present_fb)
                         out_base = out_base.merge(
                             _fb_h2h,
                             on=['home_team','away_team'],

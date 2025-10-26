@@ -23,10 +23,46 @@ TARGETS = {
 }
 
 FEATURES = [
+    # Core diffs
     'elo_diff', 'off_epa_diff', 'def_epa_diff', 'pace_secs_play_diff',
     'pass_rate_diff', 'rush_rate_diff', 'qb_adj_diff', 'sos_diff',
-    'spread_home', 'total'
+    # Market anchors
+    'spread_home', 'total',
+    # Injury diffs (new; safe to ignore when models expect old shape)
+    'inj_qb_out_diff', 'inj_wr1_out_diff', 'inj_te1_out_diff', 'inj_rb1_out_diff',
+    'inj_wr_top2_out_diff', 'inj_starters_out_diff'
 ]
+
+
+def _select_X(df: pd.DataFrame, model: object, fallback_features: list[str]) -> pd.DataFrame:
+    """Select feature matrix aligned to the model.
+    - Prefer model.feature_names_in_ if available.
+    - Else use fallback_features present in df.
+    - If model.n_features_in_ exists and count mismatches, trim or zero-pad as needed.
+    """
+    Xdf = df.copy()
+    # Prefer named features stored in the estimator
+    names = getattr(model, 'feature_names_in_', None)
+    if names is not None and len(names) > 0:
+        # Ensure all required columns exist; fill missing with 0
+        for c in names:
+            if c not in Xdf.columns:
+                Xdf[c] = 0.0
+        return Xdf[names].fillna(0)
+    # Fallback: use provided feature order
+    cols = [f for f in fallback_features if f in Xdf.columns]
+    n_expected = getattr(model, 'n_features_in_', None)
+    if isinstance(n_expected, int):
+        if len(cols) >= n_expected:
+            cols = cols[:n_expected]
+        else:
+            # pad with synthetic zero columns
+            need = n_expected - len(cols)
+            for i in range(need):
+                pad = f'__pad_{i}'
+                Xdf[pad] = 0.0
+                cols.append(pad)
+    return Xdf[cols].fillna(0)
 
 @dataclass
 class TrainedModels:
@@ -38,7 +74,8 @@ class TrainedModels:
 def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, pd.Series]:
     df = df.copy()
     df['home_win'] = (df['home_margin'] > 0).astype(int)
-    X = df[FEATURES].fillna(0)
+    # Use all FEATURES (DataFrame to capture names for feature_names_in_)
+    X = df[[c for c in FEATURES if c in df.columns]].fillna(0)
     y_margin = df['home_margin']
     y_total = df['total_points']
     y_homewin = df['home_win']
@@ -109,11 +146,19 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
 
 def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     df = df_future.copy()
-    X = df[FEATURES].fillna(0)
-    df['pred_margin'] = models.regressors['home_margin'].predict(X)
-    df['pred_total'] = models.regressors['total_points'].predict(X)
-    if models.classifiers.get('home_win') is not None:
-        df['prob_home_win'] = models.classifiers['home_win'].predict_proba(X)[:, 1]
+    # Build X aligned to the margin regressor (assumes all models trained with same features)
+    reg_m = models.regressors['home_margin']
+    Xm = _select_X(df, reg_m, FEATURES)
+    df['pred_margin'] = reg_m.predict(Xm)
+    # Total regressor
+    reg_t = models.regressors['total_points']
+    Xt = _select_X(df, reg_t, FEATURES)
+    df['pred_total'] = reg_t.predict(Xt)
+    # Classifier
+    clf = models.classifiers.get('home_win')
+    if clf is not None:
+        Xc = _select_X(df, clf, FEATURES)
+        df['prob_home_win'] = clf.predict_proba(Xc)[:, 1]
     else:
         # Fallback: convert predicted margin to probability via logistic link
         # tuned slope roughly for NFL margins
