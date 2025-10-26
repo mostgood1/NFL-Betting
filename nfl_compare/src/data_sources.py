@@ -128,7 +128,8 @@ def _parse_real_lines_json(blob: Dict[str, Any]) -> pd.DataFrame:
 
 
 def _try_load_latest_real_lines() -> pd.DataFrame:
-    """Load the latest real_betting_lines_*.json snapshot into a normalized DataFrame.
+    """Load the most recent non-empty real_betting_lines_*.json snapshot.
+    Prefer the newest file that parses to at least one event; if none, return the newest snapshot (may be empty).
     Returns empty DataFrame if none are found or parsing fails.
     """
     snaps = sorted(DATA_DIR.glob("real_betting_lines_*.json"))
@@ -137,13 +138,28 @@ def _try_load_latest_real_lines() -> pd.DataFrame:
             "home_team","away_team","spread_home","total","moneyline_home","moneyline_away",
             "spread_home_price","spread_away_price","total_over_price","total_under_price"
         ])
-    latest = snaps[-1]
+    # Iterate newest to oldest to find a snapshot with events
+    chosen_blob = None
+    for p in reversed(snaps):
+        try:
+            blob = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        try:
+            df_test = _parse_real_lines_json(blob)
+            if df_test is not None and not df_test.empty:
+                chosen_blob = blob
+                break
+        except Exception:
+            continue
+    # Fallback: use newest snapshot even if empty
+    if chosen_blob is None:
+        try:
+            chosen_blob = json.loads(snaps[-1].read_text(encoding="utf-8"))
+        except Exception:
+            return pd.DataFrame()
     try:
-        blob = json.loads(latest.read_text(encoding="utf-8"))
-    except Exception:
-        return pd.DataFrame()
-    try:
-        df = _parse_real_lines_json(blob)
+        df = _parse_real_lines_json(chosen_blob)
     except Exception:
         return pd.DataFrame()
     # Coerce numeric columns
