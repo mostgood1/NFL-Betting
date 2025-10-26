@@ -194,6 +194,26 @@ if ($FullOdds) {
   Write-Log 'Full odds fetch disabled via DAILY_UPDATE_FULL_ODDS; using snapshot check later'
 }
 
+# Post-odds smoke: verify odds freshness and lines seeding for current week
+try {
+  Write-Log 'Smoke: odds freshness and lines seeding (scripts/smoke_odds_update.py)'
+  & $Python scripts/smoke_odds_update.py | Tee-Object -FilePath $LogFile -Append
+  $SmokeOddsExit = $LASTEXITCODE
+  Write-Log "smoke_odds_update exit code: $SmokeOddsExit"
+  if ($SmokeOddsExit -ne 0) {
+    Write-Log 'Smoke odds update failed'
+    if ($FailOnPipeline) {
+      Write-Log 'FailOnPipeline is set; exiting due to smoke failure'
+      exit $SmokeOddsExit
+    } else {
+      Write-Log 'Continuing despite smoke failure'
+    }
+  }
+} catch {
+  Write-Log "smoke_odds_update exception: $($_.Exception.Message)"
+  if ($FailOnPipeline) { exit 1 }
+}
+
 # Run the daily updater
 $ExitCode = 0
 try {
