@@ -310,23 +310,26 @@ def _apply_totals_calibration_to_view(df: pd.DataFrame) -> pd.DataFrame:
             mask = mask & (~work['derived_from_market'].fillna(False))
         # Compute adjusted
         try:
-            adj = work.loc[mask, 'pred_total'] * scale + shift
+            base = pd.to_numeric(work.loc[mask, 'pred_total'], errors='coerce')
+            adj = (base.astype(float) * float(scale)) + float(shift)
         except Exception:
-            adj = work.loc[mask, 'pred_total']
+            adj = pd.to_numeric(work.loc[mask, 'pred_total'], errors='coerce').astype(float)
         if blend is not None and 0.0 <= blend <= 1.0 and 'market_total' in work.columns:
             try:
-                mt = work.loc[mask, 'market_total']
+                mt = pd.to_numeric(work.loc[mask, 'market_total'], errors='coerce').astype(float)
                 # Only blend where market_total is available
                 have_m = mt.notna()
                 adj_blend = adj.copy()
-                adj_blend.loc[have_m] = (1.0 - blend) * adj.loc[have_m] + blend * mt.loc[have_m]
-                adj = adj_blend
+                # Ensure numeric arrays to avoid dtype assignment warnings
+                adj_blend.loc[have_m] = (1.0 - float(blend)) * adj.loc[have_m].astype(float) + float(blend) * mt.loc[have_m].astype(float)
+                adj = pd.to_numeric(adj_blend, errors='coerce').astype(float)
             except Exception:
                 pass
         # Write pred_total_cal and provenance
-        work['pred_total_cal'] = work.get('pred_total')
+        work['pred_total_cal'] = pd.to_numeric(work.get('pred_total'), errors='coerce')
         try:
-            work.loc[mask, 'pred_total_cal'] = adj
+            # Assign as float to compatible dtype
+            work.loc[mask, 'pred_total_cal'] = pd.to_numeric(adj, errors='coerce').astype(float).values
             work['pred_total_cal_source'] = f"scale={scale},shift={shift},blend={blend if blend is not None else 0.0}"
         except Exception:
             pass
@@ -5833,9 +5836,12 @@ def api_cards():
         cards.sort(key=lambda c: (abs(c.get("edge_spread")) if c.get("edge_spread") is not None else float('-inf')), reverse=True)
     elif sort_param == "total":
         cards.sort(key=lambda c: (abs(c.get("edge_total")) if c.get("edge_total") is not None else float('-inf')), reverse=True)
+    # Maintain backward-compat: include both (rows,data) and (total_rows,cards)
     return jsonify({
         "season": season_param,
         "week": week_param,
+        "rows": len(cards),
+        "data": cards,
         "total_rows": len(cards),
         "cards": cards,
     })
