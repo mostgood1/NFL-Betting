@@ -6,9 +6,9 @@
         "away": 500
       },
       "total_runs": {
-        "line": 47.5,
-        "over": -115,
-        "under": -105
+        "line": 48.5,
+        "over": -105,
+        "under": -115
       },
       "run_line": {
         "home": -10.5
@@ -47,13 +47,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -115,
-              "point": 47.5
+              "price": -105,
+              "point": 48.5
             },
             {
               "name": "Under",
-              "price": -105,
-              "point": 47.5
+              "price": -115,
+              "point": 48.5
             }
           ]
         }
@@ -61,8 +61,8 @@
     },
     "Baltimore Ravens @ Miami Dolphins": {
       "moneyline": {
-        "home": 320,
-        "away": -410
+        "home": 310,
+        "away": -395
       },
       "total_runs": {
         "line": 50.5,
@@ -78,11 +78,11 @@
           "outcomes": [
             {
               "name": "Baltimore Ravens",
-              "price": -410
+              "price": -395
             },
             {
               "name": "Miami Dolphins",
-              "price": 320
+              "price": 310
             }
           ]
         },
@@ -887,5 +887,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-10-27T20:13:33.306520+00:00"
+  "fetched_at": "2025-10-27T20:29:25.504194+00:00"
 }
