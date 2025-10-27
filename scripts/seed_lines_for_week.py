@@ -121,7 +121,8 @@ def main() -> None:
         for c in merge_cols:
             jc = f'{c}_json'
             if jc in merged.columns:
-                merged[c] = merged[c].where(merged[c].notna(), merged[jc])
+                # Prefer latest JSON value when available; otherwise keep existing
+                merged[c] = merged[jc].where(merged[jc].notna(), merged[c])
         drop = [c for c in merged.columns if c.endswith('_json')]
         if drop:
             merged = merged.drop(columns=drop)

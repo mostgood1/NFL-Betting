@@ -244,6 +244,57 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
                     return data
             except Exception:
                 pass
+            # Authoritative override: for upcoming games, force market_* from latest lines.csv by team keys
+            try:
+                import pandas as _pd
+                csv_fp_auth = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
+                if csv_fp_auth.exists():
+                    dfl = _pd.read_csv(csv_fp_auth)
+                    if not dfl.empty:
+                        # Normalize team names to match
+                        try:
+                            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                            if 'home_team' in dfl.columns:
+                                dfl['home_team'] = dfl['home_team'].astype(str).apply(_norm_team)
+                            if 'away_team' in dfl.columns:
+                                dfl['away_team'] = dfl['away_team'].astype(str).apply(_norm_team)
+                        except Exception:
+                            pass
+                        # Build a simple key for fast lookups
+                        key_cols = [c for c in ['season','week','home_team','away_team'] if c in dfl.columns]
+                        if len(key_cols) == 4:
+                            dfl_key = dfl.set_index(key_cols)
+                            # Determine upcoming mask
+                            if {'home_score','away_score'}.issubset(out_base.columns):
+                                upcoming_mask = out_base['home_score'].isna() | out_base['away_score'].isna()
+                            else:
+                                upcoming_mask = _pd.Series([True]*len(out_base), index=out_base.index)
+                            for i in out_base.index[out_base.index.isin(out_base.index[upcoming_mask])]:
+                                try:
+                                    k = (out_base.at[i, 'season'], out_base.at[i, 'week'], out_base.at[i, 'home_team'], out_base.at[i, 'away_team'])
+                                except Exception:
+                                    continue
+                                if all(x is not None for x in k) and k in dfl_key.index:
+                                    cand = dfl_key.loc[k]
+                                    if isinstance(cand, _pd.DataFrame):
+                                        cand = cand.iloc[-1]
+                                    # Overwrite market_* directly from authoritative spread/total when present
+                                    if 'spread_home' in cand.index and _pd.notna(cand.get('spread_home')):
+                                        if 'market_spread_home' in out_base.columns:
+                                            out_base.at[i, 'market_spread_home'] = cand.get('spread_home')
+                                        if 'spread_home' in out_base.columns:
+                                            out_base.at[i, 'spread_home'] = cand.get('spread_home')
+                                    if 'total' in cand.index and _pd.notna(cand.get('total')):
+                                        if 'market_total' in out_base.columns:
+                                            out_base.at[i, 'market_total'] = cand.get('total')
+                                        if 'total' in out_base.columns:
+                                            out_base.at[i, 'total'] = cand.get('total')
+                                    if 'moneyline_home' in cand.index and _pd.notna(cand.get('moneyline_home')) and 'moneyline_home' in out_base.columns:
+                                        out_base.at[i, 'moneyline_home'] = cand.get('moneyline_home')
+                                    if 'moneyline_away' in cand.index and _pd.notna(cand.get('moneyline_away')) and 'moneyline_away' in out_base.columns:
+                                        out_base.at[i, 'moneyline_away'] = cand.get('moneyline_away')
+            except Exception:
+                pass
         # Env fallback
         s = os.environ.get('NFL_TOTAL_SCALE'); h = os.environ.get('NFL_TOTAL_SHIFT'); b = os.environ.get('NFL_MARKET_TOTAL_BLEND')
         any_env = any(v is not None for v in (s, h, b))
@@ -4799,6 +4850,33 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
     assets = _load_team_assets()
     stad_map = _load_stadium_meta_map()
     if view_df is not None and not view_df.empty:
+        # Load authoritative lines.csv once for display overrides (spread/total)
+        lines_by_key: Dict[tuple, Dict[str, Any]] = {}
+        try:
+            import pandas as _pd
+            csv_fp = DATA_DIR / 'lines.csv'
+            if csv_fp.exists():
+                dfl = _pd.read_csv(csv_fp)
+                if not dfl.empty:
+                    try:
+                        from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                        if 'home_team' in dfl.columns:
+                            dfl['home_team'] = dfl['home_team'].astype(str).apply(_norm_team)
+                        if 'away_team' in dfl.columns:
+                            dfl['away_team'] = dfl['away_team'].astype(str).apply(_norm_team)
+                    except Exception:
+                        pass
+                    for _, rr in dfl.iterrows():
+                        try:
+                            key = (int(rr.get('season')), int(rr.get('week')), str(rr.get('home_team')), str(rr.get('away_team')))
+                        except Exception:
+                            continue
+                        lines_by_key[key] = {
+                            'spread_home': rr.get('spread_home'),
+                            'total': rr.get('total')
+                        }
+        except Exception:
+            lines_by_key = {}
         # Backward compatibility mapping: model earlier produced pred_home_score/pred_away_score
         # but card logic prefers pred_home_points/pred_away_points. Populate points if missing.
         try:
@@ -4892,6 +4970,17 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 m_total = g("market_total", "total", "open_total", "close_total")
                 if m_total is None:
                     m_total = g("close_total")
+                # Authoritative override for upcoming: prefer lines.csv values when present
+                try:
+                    kkey = (int(g('season')), int(g('week')), str(g('home_team')), str(g('away_team')))
+                    auth = lines_by_key.get(kkey)
+                    if auth:
+                        if auth.get('spread_home') is not None and not (isinstance(auth.get('spread_home'), float) and pd.isna(auth.get('spread_home'))):
+                            m_spread = auth.get('spread_home')
+                        if auth.get('total') is not None and not (isinstance(auth.get('total'), float) and pd.isna(auth.get('total'))):
+                            m_total = auth.get('total')
+                except Exception:
+                    pass
             edge_spread = None
             edge_total = None
             try:
