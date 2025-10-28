@@ -640,6 +640,42 @@ def main() -> None:
     except Exception as e:
         print(f"Lock predictions step failed: {e}")
 
+    # 8) Reconcile prior week props vs actuals and persist CSV for server endpoint/cache
+    try:
+        prior_week = int(cur_week) - 1
+        if prior_week >= 1:
+            try:
+                from .reconciliation import reconcile_props, summarize_errors  # lazy import
+            except Exception as e:
+                print(f"Reconciliation unavailable: {e}")
+                raise
+            try:
+                df_recon = reconcile_props(int(season), int(prior_week))
+            except Exception as e:
+                print(f"Reconciliation compute failed: {e}")
+                df_recon = None
+            if df_recon is not None and not df_recon.empty:
+                out_fp = DATA_DIR / f"player_props_vs_actuals_{int(season)}_wk{int(prior_week)}.csv"
+                try:
+                    df_recon.to_csv(out_fp, index=False)
+                    print(f"Reconciliation: wrote {out_fp.name} with {len(df_recon)} rows (season={season}, week={prior_week}).")
+                except Exception as e:
+                    print(f"Reconciliation write failed: {e}")
+                # Optional: print a brief summary
+                try:
+                    summ = summarize_errors(df_recon)
+                    if summ is not None and not summ.empty:
+                        print("Reconciliation summary (MAE by position):")
+                        print(summ.to_string(index=False))
+                except Exception:
+                    pass
+            else:
+                print(f"Reconciliation: no rows for season={season}, week={prior_week}.")
+        else:
+            print("Reconciliation: no prior week to reconcile.")
+    except Exception as e:
+        print(f"Reconciliation step skipped: {e}")
+
 
 def _lock_predictions(current_season: int) -> None:
     """Maintain a cumulative predictions_locked.csv that:

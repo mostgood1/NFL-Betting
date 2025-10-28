@@ -12,6 +12,7 @@ Usage (from nfl_compare):
 """
 
 from pathlib import Path
+from datetime import date as _date
 
 from .config import load_env
 from .odds_api_client import main as fetch_odds
@@ -173,6 +174,51 @@ def main() -> None:
         print(f"Daily update complete. Predictions at {out_fp}")
     else:
         print("Daily update complete, but predictions file was not found.")
+
+    # Light reconciliation: attempt to write prior-week props vs actuals CSV for server endpoint
+    try:
+        g = load_games()
+        if g is not None and not g.empty:
+            gg = g.copy()
+            gg['date'] = pd.to_datetime(gg.get('date'), errors='coerce').dt.date
+            seasons = sorted(gg.get('season').dropna().astype(int).unique())
+            if seasons:
+                season = int(seasons[-1])
+                gs = gg[gg['season'] == season]
+                today = _date.today()
+                try:
+                    cur_week = int(gs.loc[gs['date'] <= today, 'week'].dropna().astype(int).max())
+                except Exception:
+                    cur_week = int(gs.get('week').dropna().astype(int).max()) if not gs.empty else 1
+                prior_week = max(1, cur_week - 1)
+                try:
+                    from .reconciliation import reconcile_props, summarize_errors  # lazy import
+                except Exception as e:
+                    print(f"Reconciliation unavailable (light updater): {e}")
+                    raise
+                try:
+                    df_recon = reconcile_props(int(season), int(prior_week))
+                except Exception as e:
+                    print(f"Reconciliation compute failed (light updater): {e}")
+                    df_recon = None
+                if df_recon is not None and not df_recon.empty:
+                    rfp = DATA_DIR / f"player_props_vs_actuals_{int(season)}_wk{int(prior_week)}.csv"
+                    try:
+                        df_recon.to_csv(rfp, index=False)
+                        print(f"Reconciliation (light): wrote {rfp.name} with {len(df_recon)} rows (season={season}, week={prior_week}).")
+                    except Exception as e:
+                        print(f"Reconciliation write failed (light): {e}")
+                    try:
+                        summ = summarize_errors(df_recon)
+                        if summ is not None and not summ.empty:
+                            print("Reconciliation summary (light):")
+                            print(summ.to_string(index=False))
+                    except Exception:
+                        pass
+                else:
+                    print(f"Reconciliation (light): no rows for season={season}, week={prior_week}.")
+    except Exception as e:
+        print(f"Light reconciliation step skipped: {e}")
 
 
 if __name__ == "__main__":
