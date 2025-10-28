@@ -667,6 +667,32 @@ def main() -> None:
                     if summ is not None and not summ.empty:
                         print("Reconciliation summary (MAE by position):")
                         print(summ.to_string(index=False))
+                        # Persist summary to rolling history for week-over-week tracking
+                        try:
+                            hist_fp = DATA_DIR / 'recon_summary_history.csv'
+                            summ2 = summ.copy()
+                            summ2['season'] = int(season)
+                            summ2['week'] = int(prior_week)
+                            summ2['ts'] = datetime.utcnow().isoformat()
+                            if hist_fp.exists():
+                                try:
+                                    prev = pd.read_csv(hist_fp)
+                                except Exception:
+                                    prev = pd.DataFrame()
+                                combined = pd.concat([prev, summ2], ignore_index=True)
+                                # Drop duplicates on season/week/position, keep latest
+                                if set(['season','week','position']).issubset(combined.columns):
+                                    combined = (
+                                        combined
+                                        .sort_values('ts')
+                                        .drop_duplicates(subset=['season','week','position'], keep='last')
+                                    )
+                                combined.to_csv(hist_fp, index=False)
+                            else:
+                                summ2.to_csv(hist_fp, index=False)
+                            print(f"Reconciliation: updated {hist_fp.name}.")
+                        except Exception as e:
+                            print(f"Reconciliation history write failed: {e}")
                 except Exception:
                     pass
             else:
