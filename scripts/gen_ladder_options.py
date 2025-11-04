@@ -51,6 +51,21 @@ def _pick_col(df: pd.DataFrame, candidates: List[str]) -> Optional[str]:
     return None
 
 
+def _is_ladder_mask(df: pd.DataFrame) -> pd.Series:
+    """Return a boolean mask for rows marked as ladder.
+    If the 'is_ladder' column is missing, return all-False mask aligned to df.index.
+    If present, coerce to bool and fillna(False).
+    """
+    if "is_ladder" in df.columns:
+        s = df["is_ladder"]
+        try:
+            return s.fillna(False).astype(bool)
+        except Exception:
+            # Any unexpected dtype issues -> conservative False
+            return pd.Series([False] * len(df), index=df.index)
+    return pd.Series([False] * len(df), index=df.index)
+
+
 def _ensure_market_norm(df: pd.DataFrame) -> pd.DataFrame:
     """Guarantee a lowercase/stripped 'market_norm' column exists.
     If 'market' is missing, fill with empty string to keep downstream filters safe.
@@ -89,7 +104,7 @@ def load_bovada(path: Path) -> pd.DataFrame:
     # Normalize market
     df = _ensure_market_norm(df)
     # Keep only ladders for the markets we care about
-    df = df[df.get("is_ladder").fillna(False) == True].copy()
+    df = df[_is_ladder_mask(df)].copy()
     df = df[df["market_norm"].isin(MARKET_KEEP.keys())].copy()
 
     # Normalize player and team
@@ -142,13 +157,17 @@ def main() -> int:
     bov_all = pd.read_csv(Path(args.bovada))
     # Event filter (regex)
     if args.filter_event:
-        mask_evt = bov_all.get("event", "").astype(str).str.contains(args.filter_event, case=False, na=False, regex=True)
+        if "event" in bov_all.columns:
+            ev = bov_all["event"].astype(str)
+        else:
+            ev = pd.Series([""] * len(bov_all), index=bov_all.index)
+        mask_evt = ev.str.contains(args.filter_event, case=False, na=False, regex=True)
         bov_all = bov_all[mask_evt].copy()
 
     # Explicit ladders first
     bov = bov_all.copy()
     bov = _ensure_market_norm(bov)
-    bov = bov[bov.get("is_ladder").fillna(False) == True]
+    bov = bov[_is_ladder_mask(bov)]
     bov = bov[bov["market_norm"].isin(MARKET_KEEP.keys())].copy()
     # Normalize names
     if not bov.empty:
@@ -290,7 +309,9 @@ def main() -> int:
 
     # Order rows by event, market, player, line
     out_df["line"] = pd.to_numeric(out_df.get("line"), errors="coerce")
-    out_df = out_df.sort_values(["event", "market", "player", "line"], na_position="last")
+    sort_cols = [c for c in ["event", "market", "player", "line"] if c in out_df.columns]
+    if sort_cols:
+        out_df = out_df.sort_values(sort_cols, na_position="last")
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)

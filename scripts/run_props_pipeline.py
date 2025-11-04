@@ -70,8 +70,9 @@ def main() -> int:
     cw = json.loads(cw_path.read_text())
     season = int(cw.get("season"))
     week = int(cw.get("week"))
-    # Player props artifacts (now sourced from OddsAPI)
-    props_csv = DATA_DIR / f"oddsapi_player_props_{season}_wk{week}.csv"
+    # Player props artifacts
+    predictions_csv = DATA_DIR / f"player_props_{season}_wk{week}.csv"  # model predictions we generate
+    oddsapi_csv = DATA_DIR / f"oddsapi_player_props_{season}_wk{week}.csv"  # market lines fetched from OddsAPI
     edges_csv = DATA_DIR / f"edges_player_props_{season}_wk{week}.csv"
     ladders_csv = DATA_DIR / f"ladder_options_{season}_wk{week}.csv"
     # Game props artifacts
@@ -81,7 +82,8 @@ def main() -> int:
     # 0) Refresh depth chart and player props for this week
     # Rebuild weekly depth chart to capture latest actives/injuries
     dc_csv = DATA_DIR / f"depth_chart_{season}_wk{week}.csv"
-    props_csv = DATA_DIR / f"player_props_{season}_wk{week}.csv"
+    # predictions output path
+    props_csv = predictions_csv
     print("Pre-step: refresh depth chart and player props")
     rc = run([
         sys.executable,
@@ -100,8 +102,8 @@ def main() -> int:
     if rc != 0:
         print(f"WARNING: gen_props returned {rc} (may be locked or failed)")
     # Require props to exist for downstream edges join
-    if not _csv_has_data(props_csv):
-        print(f"ERROR: Missing or empty props CSV: {props_csv}")
+    if not _csv_has_data(predictions_csv):
+        print(f"ERROR: Missing or empty props CSV: {predictions_csv}")
         return 3
 
     # 1) Fetch player props from OddsAPI
@@ -110,10 +112,27 @@ def main() -> int:
         "scripts/fetch_oddsapi_props.py",
         "--season", str(season),
         "--week", str(week),
-        "--out", str(props_csv),
+        "--out", str(oddsapi_csv),
     ])
     if rc != 0:
         print(f"WARNING: fetch_oddsapi_props exited with {rc} for players.")
+    # Determine source CSV for edges/ladders: prefer OddsAPI if it has data; else fall back to Bovada scrape
+    props_source_csv = oddsapi_csv
+    if not _csv_has_data(props_source_csv):
+        print("INFO: OddsAPI player props missing/empty; attempting Bovada player props as fallback…")
+        bov_p_csv = DATA_DIR / f"bovada_player_props_{season}_wk{week}.csv"
+        rc_b = run([
+            sys.executable,
+            "scripts/fetch_bovada_props.py",
+            "--season", str(season),
+            "--week", str(week),
+            "--out", str(bov_p_csv),
+        ])
+        if rc_b == 0 and _csv_has_data(bov_p_csv):
+            print(f"INFO: Using Bovada player props fallback: {bov_p_csv.name}")
+            props_source_csv = bov_p_csv
+        else:
+            print("WARNING: Bovada player props fallback failed or empty. Edges and ladders may be empty.")
 
     # 2) Join edges
     rc = run([
@@ -122,7 +141,7 @@ def main() -> int:
         "--season", str(season),
         "--week", str(week),
         # The join script expects --bovada=<csv>; it accepts any props CSV with the expected columns
-        "--bovada", str(props_csv),
+        "--bovada", str(props_source_csv),
         "--out", str(edges_csv),
     ])
     if rc != 0:
@@ -134,7 +153,7 @@ def main() -> int:
         "scripts/gen_ladder_options.py",
         "--season", str(season),
         "--week", str(week),
-    "--bovada", str(props_csv),
+        "--bovada", str(props_source_csv),
         "--out", str(ladders_csv),
         "--synthesize",
         "--max-rungs", "6",
@@ -188,9 +207,10 @@ def main() -> int:
         return rc
 
     print("Pipeline complete:")
-    print(" -", props_csv)
+    print(" -", predictions_csv)
     print(" -", edges_csv)
     print(" -", ladders_csv)
+    print(" -", props_source_csv)
     print(" -", game_bov_csv)
     print(" -", game_edges_csv)
     return 0

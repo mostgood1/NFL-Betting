@@ -32,6 +32,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 from datetime import datetime, timezone
 
 import requests
+from requests.exceptions import HTTPError
 import pandas as pd
 import numpy as np
 
@@ -123,6 +124,28 @@ def fetch_player_props(api_key: str, sport_key: str = "americanfootball_nfl", re
     resp = requests.get(url, params=params, timeout=20)
     resp.raise_for_status()
     return resp.json()
+
+
+def fetch_player_props_chunked(api_key: str, sport_key: str = "americanfootball_nfl", region: str = "us", markets: Optional[List[str]] = None) -> List[Dict[str, Any]]:
+    """Fetch events by requesting markets individually to bypass 422s for specific markets.
+    Returns concatenated events lists (may contain duplicate events across markets which is okay for row parsing).
+    """
+    agg_events: List[Dict[str, Any]] = []
+    markets_list = markets or _player_markets()
+    for m in markets_list:
+        try:
+            ev = fetch_player_props(api_key=api_key, sport_key=sport_key, region=region, markets=[m])
+            agg_events.extend(ev)
+        except HTTPError as he:
+            code = getattr(getattr(he, 'response', None), 'status_code', None)
+            if code == 422:
+                print(f"WARNING: OddsAPI returned 422 for market '{m}'. Skipping this market.")
+                continue
+            raise
+        except Exception as e:
+            print(f"WARNING: Failed fetching market '{m}': {e}")
+            continue
+    return agg_events
 
 
 def _is_side_str(s: str) -> bool:
@@ -274,9 +297,25 @@ def main() -> int:
     if not api_key:
         print("ERROR: Missing ODDS_API_KEY; set in environment or .env")
         return 2
+    # Masked key fingerprint for confirmation (avoid printing full secret)
+    masked = f"***{api_key[-6:]}" if len(api_key) >= 6 else "(set)"
+    print(f"Using OddsAPI key: {masked}")
     region = os.environ.get("ODDS_API_REGION", "us")
     try:
         events = fetch_player_props(api_key=api_key, region=region)
+    except HTTPError as he:
+        code = getattr(getattr(he, 'response', None), 'status_code', None)
+        if code == 422:
+            # Fall back to chunked market requests to salvage available markets
+            print("INFO: OddsAPI 422 on combined request; retrying markets individually…")
+            try:
+                events = fetch_player_props_chunked(api_key=api_key, region=region)
+            except Exception as e2:
+                print(f"ERROR fetching OddsAPI player props (chunked) after 422: {e2}")
+                return 2
+        else:
+            print(f"ERROR fetching OddsAPI player props: HTTP {code} {he}")
+            return 2
     except Exception as e:
         print(f"ERROR fetching OddsAPI player props: {e}")
         return 2
