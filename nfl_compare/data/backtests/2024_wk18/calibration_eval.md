@@ -2,7 +2,7 @@
 
 ## Moneyline
 
-- Brier (raw): 0.21428  |  Brier (cal): 0.41336  |  Δ: -0.19908
+- Brier (raw): 0.21428  |  Brier (cal): 0.21428  |  Δ: 0.00000
 
 
 ## Ats

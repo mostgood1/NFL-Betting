@@ -350,7 +350,48 @@ def _apply_prob_calibration(p: Optional[float], which: str = 'moneyline') -> Opt
         cal = _load_prob_calibration()
         if not cal or which not in cal:
             return p
-        spec = cal.get(which) or {}
+        base = cal.get(which) or {}
+        # Season-aware selection: support structures
+        # 1) Direct mapping {xs, ys}
+        # 2) {'by_season': {'2024': {...}, '2025': {...}, 'default': {...}}}
+        # 3) {'2024': {...}, '2025': {...}, 'default': {...}}
+        season_env = os.environ.get('CURRENT_SEASON') or os.environ.get('CALIB_SEASON_OVERRIDE')
+        season_key = str(season_env).strip() if season_env else None
+        spec = None
+        used_direct_base = False
+        try:
+            if isinstance(base, dict):
+                if ('xs' in base) and ('ys' in base):
+                    spec = base
+                    used_direct_base = True
+                else:
+                    # Case 2
+                    bys = base.get('by_season') if isinstance(base.get('by_season'), dict) else None
+                    pick = None
+                    if bys and season_key:
+                        pick = bys.get(season_key)
+                    if pick is None and bys:
+                        pick = bys.get('default')
+                    # Case 3
+                    if pick is None and season_key and season_key in base and isinstance(base.get(season_key), dict):
+                        pick = base.get(season_key)
+                    if pick is None and 'default' in base and isinstance(base.get('default'), dict):
+                        pick = base.get('default')
+                    # If still None, try any dict with xs/ys inside base
+                    if pick is None:
+                        for k, v in base.items():
+                            if isinstance(v, dict) and ('xs' in v) and ('ys' in v):
+                                pick = v
+                                break
+                    spec = pick
+        except Exception:
+            spec = None
+        # If no suitable spec found, fall back to identity
+        if not spec:
+            return p
+        # If strict season required and we only have a default (non-seasonal) mapping, skip calibration
+        if season_key and used_direct_base and str(os.environ.get('PROB_CAL_SEASON_REQUIRED','')).strip().lower() in {'1','true','yes'}:
+            return p
         xs = spec.get('xs'); ys = spec.get('ys')
         if not isinstance(xs, list) or not isinstance(ys, list) or len(xs) < 2 or len(xs) != len(ys):
             return p
@@ -359,7 +400,14 @@ def _apply_prob_calibration(p: Optional[float], which: str = 'moneyline') -> Opt
         # Ensure sorted pairs
         pairs = sorted(zip(xs, ys), key=lambda t: float(t[0]))
         xs_s = [float(a) for a, _ in pairs]
-        ys_s = [float(b) for _, b in pairs]
+        ys_s = [float(max(0.0, min(1.0, b))) for _, b in pairs]
+        # Enforce weak monotonicity to avoid pathological mappings
+        try:
+            for i in range(1, len(ys_s)):
+                if ys_s[i] < ys_s[i-1]:
+                    ys_s[i] = ys_s[i-1]
+        except Exception:
+            pass
         # Edge cases
         if x <= xs_s[0]:
             return max(0.0, min(1.0, ys_s[0]))
@@ -3014,7 +3062,7 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             # If predictions disabled, return enriched odds-only frame now
             if disable_flag:
                 return out_base
-            return out_base
+            # else: continue below to attach model predictions
 
         # Lazy imports from package
         from nfl_compare.src.data_sources import load_games as ds_load_games, load_team_stats, load_lines
