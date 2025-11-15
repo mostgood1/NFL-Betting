@@ -137,6 +137,22 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
     except Exception:
         bov_main = pd.DataFrame()
 
+    # Source C: Historical lines.csv (broad coverage across seasons)
+    try:
+        lines_fp = DATA_DIR / 'lines.csv'
+        if lines_fp.exists():
+            lines = pd.read_csv(lines_fp)
+            for col in ('home_team','away_team'):
+                if col in lines.columns:
+                    lines[col] = lines[col].astype(str).apply(_norm_team)
+            # Select main columns if present
+            keep = [c for c in ['home_team','away_team','spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price'] if c in lines.columns]
+            lines_main = lines[keep].drop_duplicates() if keep else pd.DataFrame()
+        else:
+            lines_main = pd.DataFrame()
+    except Exception:
+        lines_main = pd.DataFrame()
+
     # Merge sources into a single per-game table keyed by (home, away)
     def _coalesce(a: Optional[pd.Series], b: Optional[pd.Series]) -> pd.Series:
         if a is None or a.empty:
@@ -162,6 +178,12 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
             merged = merged.merge(bov_main, on=['home_team','away_team'], how='left', suffixes=('', '_bov'))
         except Exception:
             pass
+    if lines_main is not None and not lines_main.empty:
+        sources_used += 1
+        try:
+            merged = merged.merge(lines_main, on=['home_team','away_team'], how='left', suffixes=('', '_lines'))
+        except Exception:
+            pass
 
     # Compute consensus lines using medians across available sources (odds snapshot and bovada)
     def _median_row(row: pd.Series, names: list[str]) -> float:
@@ -178,14 +200,14 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
 
     cols = merged.columns
     # Determine candidate column names prefixed by source suffixes
-    spread_candidates = [c for c in ['spread_home','spread_home_odds','spread_home_bov'] if c in cols]
-    total_candidates = [c for c in ['total','total_odds','total_bov'] if c in cols]
-    mlh_candidates = [c for c in ['moneyline_home','moneyline_home_odds','moneyline_home_bov'] if c in cols]
-    mla_candidates = [c for c in ['moneyline_away','moneyline_away_odds','moneyline_away_bov'] if c in cols]
-    shp_candidates = [c for c in ['spread_home_price','spread_home_price_odds','spread_home_price_bov'] if c in cols]
-    sap_candidates = [c for c in ['spread_away_price','spread_away_price_odds','spread_away_price_bov'] if c in cols]
-    top_candidates = [c for c in ['total_over_price','total_over_price_odds','total_over_price_bov'] if c in cols]
-    tup_candidates = [c for c in ['total_under_price','total_under_price_odds','total_under_price_bov'] if c in cols]
+    spread_candidates = [c for c in ['spread_home','spread_home_odds','spread_home_bov','spread_home_lines'] if c in cols]
+    total_candidates = [c for c in ['total','total_odds','total_bov','total_lines'] if c in cols]
+    mlh_candidates = [c for c in ['moneyline_home','moneyline_home_odds','moneyline_home_bov','moneyline_home_lines'] if c in cols]
+    mla_candidates = [c for c in ['moneyline_away','moneyline_away_odds','moneyline_away_bov','moneyline_away_lines'] if c in cols]
+    shp_candidates = [c for c in ['spread_home_price','spread_home_price_odds','spread_home_price_bov','spread_home_price_lines'] if c in cols]
+    sap_candidates = [c for c in ['spread_away_price','spread_away_price_odds','spread_away_price_bov','spread_away_price_lines'] if c in cols]
+    top_candidates = [c for c in ['total_over_price','total_over_price_odds','total_over_price_bov','total_over_price_lines'] if c in cols]
+    tup_candidates = [c for c in ['total_under_price','total_under_price_odds','total_under_price_bov','total_under_price_lines'] if c in cols]
 
     merged['cons_spread_home'] = merged.apply(lambda r: _median_row(r, spread_candidates), axis=1) if spread_candidates else np.nan
     merged['cons_total'] = merged.apply(lambda r: _median_row(r, total_candidates), axis=1) if total_candidates else np.nan
