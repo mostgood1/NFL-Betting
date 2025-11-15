@@ -28,6 +28,7 @@ from app import (
     _load_games,
     _build_week_view,
     _attach_model_predictions,
+    _derive_predictions_from_market,
     _apply_totals_calibration_to_view,
     _apply_prob_calibration,
     _load_sigma_calibration,
@@ -59,7 +60,11 @@ def reliability_table(p: pd.Series, y: pd.Series, n_bins: int = 10) -> pd.DataFr
         edges = np.array([0.0, 1.0])
     bins = pd.cut(p[m], bins=edges, include_lowest=True, duplicates='drop')
     df = pd.DataFrame({'p': p[m], 'y': y[m], 'bin': bins})
-    g = df.groupby('bin')
+    # Explicit observed=False for compatibility across pandas versions
+    try:
+        g = df.groupby('bin', observed=False)
+    except TypeError:
+        g = df.groupby('bin')
     out = g.agg(count=('y','size'), pred_mean=('p','mean'), obs_rate=('y','mean')).reset_index(drop=False)
     # Expand interval bounds
     out['bin_low'] = out['bin'].apply(lambda x: float(x.left) if hasattr(x, 'left') else np.nan)
@@ -120,22 +125,43 @@ def compute_probs(v: pd.DataFrame, ats_sigma: float, total_sigma: float, prob_sh
 
 
 def build_window(season: int, end_week: int, lookback: int) -> pd.DataFrame:
+    """Build a multi-week evaluation window for the given season.
+
+    We concatenate the week views for weeks [end_week - lookback + 1 .. end_week]
+    so calibration has enough rows, instead of evaluating a single week only.
+    """
     pred = _load_predictions()
     games = _load_games()
-    v = _build_week_view(pred, games, season, end_week)
-    v = _attach_model_predictions(v)
-    try:
-        v = _apply_totals_calibration_to_view(v)
-    except Exception:
-        pass
-    if v is None or v.empty:
+    start_week = max(1, int(end_week) - int(lookback) + 1)
+
+    frames = []
+    for wk in range(start_week, end_week + 1):
+        try:
+            v_w = _build_week_view(pred, games, int(season), int(wk))
+            v_w = _attach_model_predictions(v_w)
+            # If predictions are disabled (odds-only), derive minimal preds from markets
+            try:
+                v_w = _derive_predictions_from_market(v_w)
+            except Exception:
+                pass
+            try:
+                v_w = _apply_totals_calibration_to_view(v_w)
+            except Exception:
+                pass
+            if v_w is not None and not v_w.empty:
+                frames.append(v_w)
+        except Exception:
+            continue
+
+    if not frames:
         return pd.DataFrame()
-    # Restrict to training window and finals
-    v = v.copy()
+    v = pd.concat(frames, ignore_index=True)
+
+    # Restrict to target season and finals within the window
     try:
         v['season'] = pd.to_numeric(v['season'], errors='coerce').astype('Int64')
         v['week'] = pd.to_numeric(v['week'], errors='coerce').astype('Int64')
-        m = (v['season'].eq(int(season))) & v['week'].notna() & v['week'].between(max(1, end_week - lookback + 1), end_week)
+        m = (v['season'].eq(int(season))) & v['week'].notna() & v['week'].between(start_week, end_week)
         v = v[m].copy()
     except Exception:
         pass
