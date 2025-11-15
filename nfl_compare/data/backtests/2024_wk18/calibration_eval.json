@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "season": 2024,
+    "end_week": 18,
+    "lookback": 18,
+    "rows": 16
+  },
+  "moneyline": {
+    "brier_raw": NaN,
+    "brier_cal": NaN,
+    "brier_improvement": null,
+    "counts_raw": 0,
+    "counts_cal": 0,
+    "reliability_raw": [],
+    "reliability_cal": []
+  },
+  "ats": {
+    "brier_raw": NaN,
+    "brier_cal": NaN,
+    "brier_improvement": null,
+    "counts_raw": 0,
+    "counts_cal": 0,
+    "reliability_raw": [],
+    "reliability_cal": []
+  },
+  "total": {
+    "brier_raw": NaN,
+    "brier_cal": NaN,
+    "brier_improvement": null,
+    "counts_raw": 0,
+    "counts_cal": 0,
+    "reliability_raw": [],
+    "reliability_cal": []
+  }
+}

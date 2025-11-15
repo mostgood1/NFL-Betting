@@ -1,4 +1,4 @@
-# Calibration Uplift (Season 2025, Weeks 5–10)
+# Calibration Uplift (Season 2025, Weeks 1–10)
 
 ## Moneyline
 
@@ -12,5 +12,5 @@
 
 ## Total
 
-- Brier (raw): 0.25098  |  Brier (cal): 0.25098  |  Δ: 0.00000
+- Brier (raw): 0.25041  |  Brier (cal): 0.25041  |  Δ: 0.00000
 
