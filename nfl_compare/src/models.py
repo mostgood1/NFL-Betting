@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Tuple, Dict, Optional
+from typing import Tuple, Dict, Optional, List, Union
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -26,6 +26,8 @@ FEATURES = [
     # Core diffs
     'elo_diff', 'off_epa_diff', 'def_epa_diff', 'pace_secs_play_diff',
     'pass_rate_diff', 'rush_rate_diff', 'qb_adj_diff', 'sos_diff',
+    # Team ratings diffs (EMA-based priors; attached when available)
+    'off_ppg_diff', 'def_ppg_diff', 'net_margin_diff',
     # Market anchors
     'spread_home', 'total',
     # Injury diffs (new; safe to ignore when models expect old shape)
@@ -66,9 +68,11 @@ def _select_X(df: pd.DataFrame, model: object, fallback_features: list[str]) -> 
 
 @dataclass
 class TrainedModels:
-    # Use loose typing so either xgboost or sklearn estimators can be stored
-    regressors: Dict[str, object]
-    classifiers: Dict[str, Optional[object]]
+    """Container for trained estimators.
+    Values can be a single estimator or a list of estimators (ensemble bagging).
+    """
+    regressors: Dict[str, Union[object, List[object]]]
+    classifiers: Dict[str, Optional[Union[object, List[object]]]]
 
 
 def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, pd.Series]:
@@ -89,34 +93,69 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
         X, y_margin, y_total, y_homewin, test_size=0.2, random_state=42
     )
 
+    # Optional simple bagging: train multiple seeds and average at inference
+    try:
+        n_ens = int(float(__import__('os').environ.get('GAME_MODEL_N_ENSEMBLE', '1')))
+    except Exception:
+        n_ens = 1
+    n_ens = max(1, min(8, n_ens))
+
     # Choose estimators based on availability
     if HAVE_XGB:
-        reg_margin = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)  # type: ignore
-        reg_total = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=42)  # type: ignore
-        reg_margin.fit(X_train, ym_train)
-        reg_total.fit(X_train, yt_train)
-        clf_home: Optional[object] = None
-        if len(np.unique(yh_train)) > 1:
-            clf_home = XGBClassifier(  # type: ignore
-                n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9,
-                random_state=42, objective='binary:logistic', eval_metric='logloss'
-            )
-            clf_home.fit(X_train, yh_train)
+        regs_margin: List[object] = []
+        regs_total: List[object] = []
+        clfs_home: List[object] = []
+        seeds = [42 + i*17 for i in range(n_ens)]
+        for rs in seeds:
+            rm = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=rs)  # type: ignore
+            rt = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=rs)  # type: ignore
+            rm.fit(X_train, ym_train)
+            rt.fit(X_train, yt_train)
+            regs_margin.append(rm)
+            regs_total.append(rt)
+            if len(np.unique(yh_train)) > 1:
+                ch = XGBClassifier(  # type: ignore
+                    n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9,
+                    random_state=rs, objective='binary:logistic', eval_metric='logloss'
+                )
+                ch.fit(X_train, yh_train)
+                clfs_home.append(ch)
+        reg_margin = regs_margin if n_ens > 1 else regs_margin[0]
+        reg_total = regs_total if n_ens > 1 else regs_total[0]
+        clf_home: Optional[Union[object, List[object]]] = (clfs_home if (n_ens > 1 and clfs_home) else (clfs_home[0] if clfs_home else None))
     else:
         # Sklearn fallbacks: relatively light and available across platforms
-        reg_margin = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=42, n_jobs=-1)
-        reg_total = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=42, n_jobs=-1)
-        reg_margin.fit(X_train, ym_train)
-        reg_total.fit(X_train, yt_train)
-        clf_home = None
-        if len(np.unique(yh_train)) > 1:
-            # Use liblinear for small-ish datasets; ensure probability output
-            clf_home = LogisticRegression(max_iter=1000, solver='lbfgs')
-            clf_home.fit(X_train, yh_train)
+        regs_margin = []
+        regs_total = []
+        clfs_home: List[object] = []
+        seeds = [42 + i*17 for i in range(n_ens)]
+        for rs in seeds:
+            rm = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=rs, n_jobs=-1)
+            rt = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=rs, n_jobs=-1)
+            rm.fit(X_train, ym_train)
+            rt.fit(X_train, yt_train)
+            regs_margin.append(rm)
+            regs_total.append(rt)
+            if len(np.unique(yh_train)) > 1:
+                ch = LogisticRegression(max_iter=1000, solver='lbfgs')
+                ch.fit(X_train, yh_train)
+                clfs_home.append(ch)
+        reg_margin = regs_margin if n_ens > 1 else regs_margin[0]
+        reg_total = regs_total if n_ens > 1 else regs_total[0]
+        clf_home = (clfs_home if (n_ens > 1 and clfs_home) else (clfs_home[0] if clfs_home else None))
 
     # basic metrics (safe)
-    ym_pred = reg_margin.predict(X_val)
-    yt_pred = reg_total.predict(X_val)
+    def _avg_pred(est_or_list, Xn):
+        try:
+            if isinstance(est_or_list, list):
+                preds = [e.predict(Xn) for e in est_or_list]
+                return np.mean(preds, axis=0)
+            return est_or_list.predict(Xn)
+        except Exception:
+            return np.zeros(len(Xn))
+
+    ym_pred = _avg_pred(reg_margin, X_val)
+    yt_pred = _avg_pred(reg_total, X_val)
     try:
         mae_margin = float(mean_absolute_error(ym_val, ym_pred))
     except Exception:
@@ -127,7 +166,11 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
         mae_total = None
     if clf_home is not None and len(np.unique(yh_val)) > 1:
         try:
-            yh_pred = clf_home.predict_proba(X_val)[:, 1]
+            if isinstance(clf_home, list):
+                probs = [c.predict_proba(X_val)[:, 1] for c in clf_home]
+                yh_pred = np.mean(probs, axis=0)
+            else:
+                yh_pred = clf_home.predict_proba(X_val)[:, 1]
             auc_home = float(roc_auc_score(yh_val, yh_pred))
         except Exception:
             auc_home = None
@@ -148,17 +191,29 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     df = df_future.copy()
     # Build X aligned to the margin regressor (assumes all models trained with same features)
     reg_m = models.regressors['home_margin']
-    Xm = _select_X(df, reg_m, FEATURES)
-    df['pred_margin'] = reg_m.predict(Xm)
+    Xm = _select_X(df, reg_m[0] if isinstance(reg_m, list) else reg_m, FEATURES)
+    if isinstance(reg_m, list):
+        preds = [m.predict(Xm) for m in reg_m]
+        df['pred_margin'] = np.mean(preds, axis=0)
+    else:
+        df['pred_margin'] = reg_m.predict(Xm)
     # Total regressor
     reg_t = models.regressors['total_points']
-    Xt = _select_X(df, reg_t, FEATURES)
-    df['pred_total'] = reg_t.predict(Xt)
+    Xt = _select_X(df, reg_t[0] if isinstance(reg_t, list) else reg_t, FEATURES)
+    if isinstance(reg_t, list):
+        preds_t = [m.predict(Xt) for m in reg_t]
+        df['pred_total'] = np.mean(preds_t, axis=0)
+    else:
+        df['pred_total'] = reg_t.predict(Xt)
     # Classifier
     clf = models.classifiers.get('home_win')
     if clf is not None:
-        Xc = _select_X(df, clf, FEATURES)
-        df['prob_home_win'] = clf.predict_proba(Xc)[:, 1]
+        Xc = _select_X(df, clf[0] if isinstance(clf, list) else clf, FEATURES)
+        if isinstance(clf, list):
+            probs = [c.predict_proba(Xc)[:, 1] for c in clf]
+            df['prob_home_win'] = np.mean(probs, axis=0)
+        else:
+            df['prob_home_win'] = clf.predict_proba(Xc)[:, 1]
     else:
         # Fallback: convert predicted margin to probability via logistic link
         # tuned slope roughly for NFL margins

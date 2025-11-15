@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 # ELO and rolling features
 
@@ -378,5 +379,22 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
             for c in ['inj_qb_out_diff','inj_wr1_out_diff','inj_te1_out_diff','inj_rb1_out_diff','inj_wr_top2_out_diff','inj_starters_out_diff']:
                 if c not in df.columns:
                     df[c] = 0
+
+    # Optional: attach team ratings (EMA-based) for additional priors/features
+    try:
+        from .team_ratings import attach_team_ratings_to_view as _attach_ratings  # type: ignore
+    except Exception:
+        _attach_ratings = None  # type: ignore
+    # Respect TEAM_RATINGS_OFF env toggle
+    try:
+        ratings_off = str(os.environ.get('TEAM_RATINGS_OFF', '0')).strip().lower() in {'1','true','yes','on'}
+    except Exception:
+        ratings_off = False
+    if (not ratings_off) and (_attach_ratings is not None):
+        try:
+            df = _attach_ratings(df)
+        except Exception:
+            # Non-fatal: keep base features
+            pass
 
     return df

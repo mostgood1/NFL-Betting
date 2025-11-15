@@ -82,6 +82,16 @@ if ($env:DAILY_UPDATE_PREDICT_NEXT) {
   if ($env:DAILY_UPDATE_PREDICT_NEXT -match '^(0|false|no|off)$') { $PredictNext = $false }
 }
 
+# Totals calibration/retune toggles
+$FitTotalsCal = $true
+if ($env:DAILY_UPDATE_FIT_TOTALS_CAL) {
+  if ($env:DAILY_UPDATE_FIT_TOTALS_CAL -match '^(0|false|no|off)$') { $FitTotalsCal = $false }
+}
+$RunBacktests = $false
+if ($env:DAILY_UPDATE_RUN_BACKTESTS) {
+  if ($env:DAILY_UPDATE_RUN_BACKTESTS -match '^(1|true|yes|on)$') { $RunBacktests = $true }
+}
+
 # Defaults: reconciliation ON unless explicitly disabled
 $ReconcilePropsFinal = $true
 $ReconcileGamesFinal = $true
@@ -265,12 +275,128 @@ if ($FullPredict) {
       Write-Log "Backfill predictions for next week (scripts/backfill_missing_week_predictions.py --season $Season --week $NextWeek)"
       & $Python scripts/backfill_missing_week_predictions.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
     }
+    # Build team ratings artifacts for current and next week (optional, fast)
+    try {
+      Write-Log ("Build team ratings (scripts/build_team_ratings.py --season {0} --week {1})" -f $Season, $Week)
+      & $Python scripts/build_team_ratings.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append | Out-Null
+      if ($PredictNext) {
+        Write-Log ("Build team ratings (scripts/build_team_ratings.py --season {0} --week {1})" -f $Season, $NextWeek)
+        & $Python scripts/build_team_ratings.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
+      }
+    } catch {
+      Write-Log ("Build team ratings failed: {0}" -f $_.Exception.Message)
+    }
   } catch {
     Write-Log "Predictions backfill failed: $($_.Exception.Message)"
     if ($FailOnPipeline) { exit 1 }
   }
 } else {
   Write-Log 'Full prediction backfill disabled via DAILY_UPDATE_FULL_PREDICT'
+}
+
+# Fit totals calibration (and optional backtests) using midseason retune orchestrator
+try {
+  if ($FitTotalsCal) {
+    $cur = Resolve-CurrentWeek
+    if ($null -eq $cur) { throw 'Unable to resolve current week for calibration' }
+    $Season = [int]$cur.Season
+    $Week = [int]$cur.Week
+    $CalibWeeks = 4
+    $btFlag = if ($RunBacktests) { '--run-backtests' } else { '' }
+    $PropsEndWeek = [int]([Math]::Max(1, $Week - 1))
+    Write-Log ("Totals calibration (scripts/retune_midseason.py --season {0} --week {1} --calib-weeks {2} {3} --props-end-week {4})" -f $Season, $Week, $CalibWeeks, $btFlag, $PropsEndWeek)
+    & $Python scripts/retune_midseason.py --season $Season --week $Week --calib-weeks $CalibWeeks $btFlag --props-end-week $PropsEndWeek | Tee-Object -FilePath $LogFile -Append
+    $CalibExit = $LASTEXITCODE
+    Write-Log "totals_calibration exit code: $CalibExit"
+    if ($CalibExit -ne 0 -and $FailOnPipeline) {
+      Write-Log 'FailOnPipeline is set; exiting due to calibration failure'
+      exit $CalibExit
+    }
+  } else {
+    Write-Log 'Totals calibration step disabled via DAILY_UPDATE_FIT_TOTALS_CAL'
+  }
+} catch {
+  Write-Log ("Totals calibration step failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
+}
+
+# Fit sigma calibration (ATS/TOTAL) from recent completed weeks
+try {
+  $cur = Resolve-CurrentWeek
+  if ($null -eq $cur) { throw 'Unable to resolve current week for sigma calibration' }
+  $Season = [int]$cur.Season
+  $Week = [int]$cur.Week
+  $Lookback = 4
+  Write-Log ("Sigma calibration (scripts/fit_sigma_calibration.py --season {0} --week {1} --lookback {2})" -f $Season, $Week, $Lookback)
+  & $Python scripts/fit_sigma_calibration.py --season $Season --week $Week --lookback $Lookback | Tee-Object -FilePath $LogFile -Append
+  $SigExit = $LASTEXITCODE
+  Write-Log "sigma_calibration exit code: $SigExit"
+  if ($SigExit -ne 0 -and $FailOnPipeline) {
+    Write-Log 'FailOnPipeline is set; exiting due to sigma calibration failure'
+    exit $SigExit
+  }
+} catch {
+  Write-Log ("Sigma calibration step failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
+}
+
+# Fit probability calibration (moneyline, ATS, totals) from recent finalized weeks
+try {
+  $cur = Resolve-CurrentWeek
+  if ($null -eq $cur) { throw 'Unable to resolve current week for probability calibration' }
+  $Season = [int]$cur.Season
+  $Week = [int]$cur.Week
+  $Lookback = 6
+  Write-Log ("Probability calibration (scripts/fit_prob_calibration.py --season {0} --end-week {1} --lookback {2})" -f $Season, $Week, $Lookback)
+  & $Python scripts/fit_prob_calibration.py --season $Season --end-week $Week --lookback $Lookback | Tee-Object -FilePath $LogFile -Append
+  $ProbExit = $LASTEXITCODE
+  Write-Log "prob_calibration exit code: $ProbExit"
+  if ($ProbExit -ne 0 -and $FailOnPipeline) {
+    Write-Log 'FailOnPipeline is set; exiting due to prob calibration failure'
+    exit $ProbExit
+  }
+  # Evaluate calibration uplift and write artifacts for weekly report
+  $EvalLookback = 8
+  Write-Log ("Calibration uplift eval (scripts/eval_calibration_uplift.py --season {0} --end-week {1} --lookback {2})" -f $Season, $Week, $EvalLookback)
+  & $Python scripts/eval_calibration_uplift.py --season $Season --end-week $Week --lookback $EvalLookback | Tee-Object -FilePath $LogFile -Append
+  $CalEvalExit = $LASTEXITCODE
+  Write-Log "calibration_eval exit code: $CalEvalExit"
+  if ($CalEvalExit -ne 0 -and $FailOnPipeline) {
+    Write-Log 'FailOnPipeline is set; exiting due to calibration eval failure'
+    exit $CalEvalExit
+  }
+} catch {
+  Write-Log ("Probability calibration step failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
+}
+
+# Optional: Standardized backtests + weekly report
+try {
+  if ($RunBacktests) {
+    $cur = Resolve-CurrentWeek
+    if ($null -eq $cur) { throw 'Unable to resolve current week for backtests' }
+    $Season = [int]$cur.Season
+    $Week = [int]$cur.Week
+    $BtOutDir = Join-Path (Join-Path $Root 'nfl_compare/data/backtests') ("{0}_wk{1}" -f $Season, $Week)
+    Write-Log ("Backtest games (scripts/backtest_games.py --season {0} --start-week 1 --end-week {1} --include-same-season --out-dir {2})" -f $Season, ($Week - 1), $BtOutDir)
+    & $Python scripts/backtest_games.py --season $Season --start-week 1 --end-week ($Week - 1) --include-same-season --out-dir $BtOutDir | Tee-Object -FilePath $LogFile -Append
+    $BtGamesExit = $LASTEXITCODE
+    Write-Log "backtest_games exit code: $BtGamesExit"
+    Write-Log ("Backtest props (scripts/backtest_props.py --season {0} --start-week 1 --end-week {1} --out-dir {2})" -f $Season, ($Week - 1), $BtOutDir)
+    & $Python scripts/backtest_props.py --season $Season --start-week 1 --end-week ($Week - 1) --out-dir $BtOutDir | Tee-Object -FilePath $LogFile -Append
+    $BtPropsExit = $LASTEXITCODE
+    Write-Log "backtest_props exit code: $BtPropsExit"
+    # Generate markdown report
+    Write-Log ("Generate weekly report (scripts/generate_weekly_report.py --season {0} --week {1})" -f $Season, $Week)
+    & $Python scripts/generate_weekly_report.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append
+    $BtRptExit = $LASTEXITCODE
+    Write-Log "weekly_report exit code: $BtRptExit"
+  } else {
+    Write-Log 'Standardized backtests/report disabled (enable with DAILY_UPDATE_RUN_BACKTESTS=1)'
+  }
+} catch {
+  Write-Log ("Standardized backtests/report failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
 }
 
 # Verify today's odds snapshot exists; if missing or stale, attempt direct fetch

@@ -119,6 +119,10 @@ Checklist:
 | `RENDER` | Deployment flag (truthy on Render) | Used to gate expensive ops |
 | `ADMIN_TOKEN` | Protect admin endpoints | Required for sensitive routes |
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
+| `RECS_MARKET_BLEND_MARGIN` | Blend model margin toward market-implied margin (-spread_home) for upcoming games | Default 0.0 (off); range 0–1 |
+| `RECS_MARKET_BLEND_TOTAL` | Blend model total toward market total for upcoming games | Default 0.0 (off); range 0–1 |
+| `TEAM_RATING_EMA` | Exponential smoothing alpha for team ratings (off/def/net) | Default 0.60 (range 0–1) |
+| `TEAM_RATINGS_OFF` | Disable attaching team ratings to weekly view/features | Default 0 (off/false) |
 | `PROPS_QB_RZ_BASE` | Baseline QB red-zone rush rate for biasing | Default 0.10; affects QB any-time TD via RZ bias |
 | `PROPS_QB_RZ_CAP` | Max QB RZ rush bias multiplier | Default 1.30 (was 1.25 hard-coded) |
 | `PROPS_QB_RZ_SHARE_SCALE` | Scale to convert QB non-RZ rush share to RZ rush share | Default 0.95 (was 0.80 hard-coded) |

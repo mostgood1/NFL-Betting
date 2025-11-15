@@ -106,6 +106,21 @@ def main() -> int:
         print(f"ERROR: Missing or empty props CSV: {predictions_csv}")
         return 3
 
+    # Optional: supervised ML adjustment for WR receiving yards
+    import os as _os
+    if str(_os.environ.get('PROPS_USE_SUPERVISED', '0')).strip().lower() in {'1','true','yes','on'}:
+        print("Supervised adjust: WR rec yards")
+        rc = run([
+            sys.executable,
+            "scripts/props_supervised_adjust.py",
+            "--season", str(season),
+            "--week", str(week),
+            "--lookback", str(_os.environ.get('PROPS_ML_LOOKBACK', '4')),
+            "--blend", str(_os.environ.get('PROPS_ML_BLEND', '0.5')),
+        ])
+        if rc != 0:
+            print("WARNING: props_supervised_adjust failed; continuing without ML adjustments")
+
     # 1) Fetch player props from OddsAPI
     rc = run([
         sys.executable,

@@ -2,7 +2,7 @@
 
 Server-rendered NFL predictions and betting recommendations app.
 
-- Pages: cards, table, recommendations
+ Pages: cards, table, recommendations
 - EV-based picks for Moneyline, Spread, Total with Low/Medium/High confidence
 - Real odds support, venue overrides (neutral-site), weather display
 - Deployed on Render (Gunicorn)
@@ -53,6 +53,18 @@ python app.py  # http://localhost:5050
     - NFL_TOTAL_SHIFT (default 0.0) — additive shift (points) applied before blending
     - NFL_MARKET_TOTAL_BLEND (default 0.60) — 0=no market anchor, 1=fully market total
   - NFL_TOTAL_SCALE=1.03
+
+#### Game model ensembles
+
+- Set `GAME_MODEL_N_ENSEMBLE` (default 1) to train multiple estimators with different seeds and average their predictions.
+  - Works for both XGBoost (if available) and sklearn fallbacks.
+
+#### Supervised props adjustment (WR rec yards)
+
+- Enable with `PROPS_USE_SUPERVISED=1` to train a light Ridge model on the last N completed weeks and adjust this week’s WR receiving yards.
+  - `PROPS_ML_LOOKBACK` (default 4)
+  - `PROPS_ML_BLEND` (default 0.5) — blend weight for ML prediction vs heuristic
+  - Output CSV: `nfl_compare/data/player_props_ml_<season>_wk<week>.csv`
 ### Render Cron Job (server-side daily refresh)
 
 If you want the live app to refresh odds, weather, predictions, and props daily without a redeploy, set up a Render Cron Job to call the built-in admin endpoint.
@@ -123,3 +135,35 @@ Validate it’s picked up:
 
 - GET `/api/health/calibration` should show the loaded values
 - `/api/debug-week-view` should include `pred_total_cal` rows when predictions are present
+
+## Standardized backtests and weekly report
+
+We emit backtest artifacts in a predictable folder and a simple markdown report you can commit or share.
+
+- Output directory: `nfl_compare/data/backtests/<season>_wk<week>/`
+  - `games_summary.csv` — single-row summary (n_games, MAE margin/total, home-win accuracy)
+  - `games_details.csv` — per-game predictions vs actuals with residuals and market lines
+  - `props_summary.csv` — MAE by position aggregated across evaluated weeks
+  - `props_weekly.csv` — per-week MAE by position
+  - `metrics.json` — compact combined metrics for quick consumption
+- Report: `reports/weekly_report_<season>_wk<week>.md`
+
+Quick run (evaluate through previous week):
+
+```powershell
+# Games
+./.venv/Scripts/python.exe scripts/backtest_games.py --season 2025 --start-week 1 --end-week 9 --include-same-season --out-dir nfl_compare/data/backtests/2025_wk10
+# Props
+./.venv/Scripts/python.exe scripts/backtest_props.py --season 2025 --start-week 1 --end-week 9 --out-dir nfl_compare/data/backtests/2025_wk10
+# Report
+./.venv/Scripts/python.exe scripts/generate_weekly_report.py --season 2025 --week 10
+```
+
+The daily automation can run these when `DAILY_UPDATE_RUN_BACKTESTS=1`.
+
+### Team-level Ratings
+Lightweight team ratings (offense/defense/net margin) are computed as exponential moving averages of finalized games and attached to the weekly view and model features. They provide a stable prior signal and are aligned to avoid leakage (for week W, ratings use weeks < W).
+
+- Env knobs:
+  - `TEAM_RATING_EMA` (default 0.60): EMA alpha.
+  - `TEAM_RATINGS_OFF` (default 0): disable attaching ratings in the app.

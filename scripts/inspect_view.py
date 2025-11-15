@@ -13,6 +13,7 @@ from app import (
     _build_week_view,
     _attach_model_predictions,
     _derive_predictions_from_market,
+    _apply_totals_calibration_to_view,
 )
 parser = argparse.ArgumentParser(description="Inspect merged week view with predictions and market synthesis.")
 parser.add_argument('--season', type=int, help='Season to inspect (defaults to latest available)')
@@ -33,13 +34,18 @@ week_i = args.week or 1
 
 view = _build_week_view(pred_df, games_df, season_i, week_i)
 view = _attach_model_predictions(view)
+# Apply totals calibration (adds pred_total_cal when configured)
+try:
+    view = _apply_totals_calibration_to_view(view)
+except Exception:
+    pass
 view = _derive_predictions_from_market(view)
 print(f'Season {season_i} Week {week_i} rows in view:', 0 if view is None else len(view))
 if view is None or view.empty:
     sys.exit(0)
 
 cols = [
-    'home_team','away_team','game_date','pred_home_points','pred_away_points','pred_total','pred_home_win_prob',
+    'home_team','away_team','game_date','pred_home_points','pred_away_points','pred_total','pred_total_cal','pred_home_win_prob',
     'spread_home','market_spread_home','open_spread_home','close_spread_home',
     'total','market_total','open_total','close_total',
     'moneyline_home','moneyline_away'
@@ -63,3 +69,17 @@ if 'prediction_source' in view.columns:
 if 'derived_from_market' in view.columns:
     print('derived_from_market counts:')
     print(view['derived_from_market'].value_counts(dropna=False))
+
+# Team ratings quick peek if present
+ratings_cols = [
+    'home_off_ppg','home_def_ppg','home_net_margin',
+    'away_off_ppg','away_def_ppg','away_net_margin',
+    'off_ppg_diff','def_ppg_diff','net_margin_diff'
+]
+ratings_present = [c for c in ratings_cols if c in view.columns]
+if ratings_present:
+    print('Ratings columns present:', ratings_present)
+    try:
+        print(view[['home_team','away_team'] + [c for c in ratings_present if c.endswith('_diff')]].head(5))
+    except Exception:
+        print(view[ratings_present].head(5))

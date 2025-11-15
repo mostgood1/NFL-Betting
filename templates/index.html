@@ -97,6 +97,10 @@
   .odds{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
   .odds .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
   .odds .muted{color:var(--muted)}
+  /* Ratings panel mirrors odds styles */
+  .ratings{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
+  .ratings .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
+  .ratings .muted{color:var(--muted)}
   .venue{color:var(--muted);font-size:12px;margin-top:6px}
   .status{font-weight:700;font-size:12px;color:var(--text)}
   .team-block{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
@@ -139,6 +143,7 @@
     .pred{flex-direction:column;align-items:flex-start;gap:2px;font-size:11px}
     .kpi{flex-wrap:wrap}
     .odds .row{font-size:11px}
+    .ratings .row{font-size:11px}
     .venue{font-size:11px}
     .status{font-size:11px}
   }
@@ -146,7 +151,7 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="toggleAllRatings" title="Show/Hide all ratings panels">Hide All Ratings</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
   <div id="adminPanel">
     <div class="admin-row">
       <label class="label-sm">Key: <input id="adminKeyInput" type="password" placeholder="ADMIN_KEY" /></label>
@@ -348,6 +353,7 @@
                 <span class="chip">Home {{ '%+.1f' % g.market_spread_home }}</span>
               {% endif %}
               <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
+              <span class="chip ratings-toggle" role="button" tabindex="0">Show Ratings</span>
             </div>
 
             <div class="odds">
@@ -366,6 +372,31 @@
               </span></div>
               <div class="row"><span class="muted">Total</span><span>
                 {% if g.market_total is number %}{{ '%.1f' % g.market_total }}{% else %}-{% endif %}
+              </span></div>
+            </div>
+            
+            <div class="ratings">
+              <div class="row"><span class="muted">Off PPG (Away / Home)</span><span>
+                {% if g.away_off_ppg is number %}{{ '%.1f' % g.away_off_ppg }}{% else %}-{% endif %}
+                /
+                {% if g.home_off_ppg is number %}{{ '%.1f' % g.home_off_ppg }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Def PPG (Away / Home)</span><span>
+                {% if g.away_def_ppg is number %}{{ '%.1f' % g.away_def_ppg }}{% else %}-{% endif %}
+                /
+                {% if g.home_def_ppg is number %}{{ '%.1f' % g.home_def_ppg }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Net Margin (Away / Home)</span><span>
+                {% if g.away_net_margin is number %}{{ '%.1f' % g.away_net_margin }}{% else %}-{% endif %}
+                /
+                {% if g.home_net_margin is number %}{{ '%.1f' % g.home_net_margin }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Diffs (Off / Def / Net)</span><span>
+                {% if g.off_ppg_diff is number %}{{ '%+.1f' % g.off_ppg_diff }}{% else %}-{% endif %}
+                /
+                {% if g.def_ppg_diff is number %}{{ '%+.1f' % g.def_ppg_diff }}{% else %}-{% endif %}
+                /
+                {% if g.net_margin_diff is number %}{{ '%+.1f' % g.net_margin_diff }}{% else %}-{% endif %}
               </span></div>
             </div>
           </div>
@@ -495,6 +526,32 @@
               // will be managed by global restore later
             }
           }
+
+          // Ratings toggle per-card
+          var rtoggle = card.querySelector('.ratings-toggle');
+          var rpanel = card.querySelector('.ratings');
+          if (rtoggle && rpanel){
+            function rflip(){
+              var isOpen = rpanel.style.display === 'block';
+              rpanel.style.display = isOpen ? 'none' : 'block';
+              rtoggle.textContent = isOpen ? 'Show Ratings' : 'Hide Ratings';
+              updateGlobalRatingsButton();
+            }
+            rtoggle.addEventListener('click', rflip);
+            rtoggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); rflip(); }});
+            var rstored = localStorage.getItem('ratingsAllOpen');
+            if(rstored === null){
+              if(isMobile){
+                rpanel.style.display = 'none';
+                rtoggle.textContent = 'Show Ratings';
+              } else {
+                rpanel.style.display = 'block';
+                rtoggle.textContent = 'Hide Ratings';
+              }
+            } else {
+              // managed by global restore later
+            }
+          }
         });
         function allOddsOpen(){
           return Array.from(document.querySelectorAll('.card .odds')).every(p=>p.style.display==='block');
@@ -535,6 +592,48 @@
               setAllOdds(false);
             } else {
               updateGlobalOddsButton();
+            }
+          }
+        }
+
+        // Ratings global helpers and handlers
+        function allRatingsOpen(){
+          return Array.from(document.querySelectorAll('.card .ratings')).every(p=>p.style.display==='block');
+        }
+        function anyRatingsOpen(){
+          return Array.from(document.querySelectorAll('.card .ratings')).some(p=>p.style.display==='block');
+        }
+        function setAllRatings(open){
+          document.querySelectorAll('.card').forEach(function(card){
+            var panel = card.querySelector('.ratings');
+            var toggle = card.querySelector('.ratings-toggle');
+            if(panel && toggle){
+              panel.style.display = open ? 'block' : 'none';
+              toggle.textContent = open ? 'Hide Ratings' : 'Show Ratings';
+            }
+          });
+          localStorage.setItem('ratingsAllOpen', open ? '1' : '0');
+          updateGlobalRatingsButton();
+        }
+        function updateGlobalRatingsButton(){
+          var btn = document.getElementById('toggleAllRatings');
+          if(!btn) return;
+          if (allRatingsOpen()) btn.textContent = 'Hide All Ratings'; else if (anyRatingsOpen()) btn.textContent = 'Show All Ratings'; else btn.textContent = 'Show All Ratings';
+        }
+        var globalBtnR = document.getElementById('toggleAllRatings');
+        if(globalBtnR){
+          globalBtnR.addEventListener('click', function(){
+            var open = !allRatingsOpen();
+            setAllRatings(open);
+          });
+          var rstored = localStorage.getItem('ratingsAllOpen');
+          if(rstored === '0'){
+            setAllRatings(false);
+          } else {
+            if(rstored === null && isMobile){
+              setAllRatings(false);
+            } else {
+              updateGlobalRatingsButton();
             }
           }
         }

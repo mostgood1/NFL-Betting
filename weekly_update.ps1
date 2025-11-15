@@ -119,6 +119,11 @@ if (-not $NoRetrain.IsPresent) {
   Write-Host "[SKIP] Retrain models (NoRetrain flag)" -ForegroundColor Yellow
 }
 
+# 3a) Build team ratings artifacts for TargetWeek (EMA priors)
+Invoke-Step "Build team ratings (Season=$Season Week=$TargetWeek)" {
+  & $venvPy scripts/build_team_ratings.py --season $Season --week $TargetWeek | Write-Host
+}
+
 # 3b) Fetch latest odds snapshot and seed/enrich lines for the target week
 Invoke-Step "Fetch odds + seed lines (Season=$Season Week=$TargetWeek)" {
   # Ensure region default; ODDS_API_KEY should be in env or .env
@@ -148,9 +153,14 @@ Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
   & $venvPy -c "from nfl_compare.src.reconciliation import reconcile_props, summarize_errors; import pandas as pd; m=reconcile_props($Season,$PriorWeek); s=summarize_errors(m); fp=f'nfl_compare/data/player_props_vs_actuals_{Season}_wk{PriorWeek}.csv'; m.to_csv(fp, index=False); print(f'Wrote {fp} ({len(m)} rows)'); print(s.to_string(index=False))" | Write-Host
 }
 
+# 5b) Evaluate calibration uplift on recent weeks (quick summary for reports)
+Invoke-Step "Calibration uplift eval (Season=$Season end=$PriorWeek lookback=8)" {
+  & $venvPy scripts/eval_calibration_uplift.py --season $Season --end-week $PriorWeek --lookback 8 | Write-Host
+}
+
 # 6) Stage and optionally commit/pull --rebase/push with safety
 Invoke-Step "Stage updated data" {
-  git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv | Write-Host
+  git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv nfl_compare/data/team_ratings_${Season}_wk${TargetWeek}.csv | Write-Host
   if (Test-Path 'nfl_compare/data/lines.csv') { git add -- nfl_compare/data/lines.csv | Write-Host }
   $todayJson = (Get-ChildItem -Path (Join-Path (Join-Path $PSScriptRoot 'nfl_compare') 'data') -Filter "real_betting_lines_*.json" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
   if ($todayJson) { git add -- $todayJson.FullName | Write-Host }
@@ -159,7 +169,7 @@ Invoke-Step "Stage updated data" {
 }
 
 if ($Commit.IsPresent -or $Push.IsPresent) {
-  $msg = "weekly: season $Season, prior wk $PriorWeek reconciled; wk $TargetWeek props generated"
+  $msg = "weekly: season $Season; built team ratings wk $TargetWeek; reconciled wk $PriorWeek; generated wk $TargetWeek props; calibration uplift eval"
   # Detect if anything is staged to commit
   $cached = git diff --cached --name-only
   if ($cached) {

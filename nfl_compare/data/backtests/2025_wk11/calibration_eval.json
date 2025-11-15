@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "season": 2025,
+    "end_week": 11,
+    "lookback": 8,
+    "rows": 1
+  },
+  "moneyline": {
+    "brier_raw": 0.017995192962583808,
+    "brier_cal": 0.13236538698257735,
+    "brier_improvement": -0.11437019401999354,
+    "counts_raw": 1,
+    "counts_cal": 1,
+    "reliability_raw": [
+      {
+        "bin_low": -0.001,
+        "bin_high": 1.0,
+        "count": 1,
+        "pred_mean": 0.8658538373169631,
+        "obs_rate": 1.0
+      }
+    ],
+    "reliability_cal": [
+      {
+        "bin_low": -0.001,
+        "bin_high": 1.0,
+        "count": 1,
+        "pred_mean": 0.6361794577232103,
+        "obs_rate": 1.0
+      }
+    ]
+  },
+  "ats": {
+    "brier_raw": NaN,
+    "brier_cal": NaN,
+    "brier_improvement": null,
+    "counts_raw": 0,
+    "counts_cal": 0,
+    "reliability_raw": [],
+    "reliability_cal": []
+  },
+  "total": {
+    "brier_raw": 0.1687637540653967,
+    "brier_cal": 0.1687637540653967,
+    "brier_improvement": 0.0,
+    "counts_raw": 1,
+    "counts_cal": 1,
+    "reliability_raw": [
+      {
+        "bin_low": -0.001,
+        "bin_high": 1.0,
+        "count": 1,
+        "pred_mean": 0.41080865870304717,
+        "obs_rate": 0.0
+      }
+    ],
+    "reliability_cal": [
+      {
+        "bin_low": -0.001,
+        "bin_high": 1.0,
+        "count": 1,
+        "pred_mean": 0.41080865870304717,
+        "obs_rate": 0.0
+      }
+    ]
+  }
+}

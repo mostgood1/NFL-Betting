@@ -144,12 +144,52 @@ def api_ping():
 def health_root():
     return jsonify({'status': 'ok'})
 
-# Calibration health: expose currently loaded totals calibration
+# Calibration health: expose currently loaded totals and sigma calibration with file metadata
 @app.route('/api/health/calibration')
 def api_health_calibration():
     try:
-        calib = _load_totals_calibration()
-        return jsonify({'ok': True, 'calibration': calib})
+        totals = _load_totals_calibration()
+        sigma = _load_sigma_calibration() if '_load_sigma_calibration' in globals() else None
+        # File metadata
+        try:
+            t_fp = DATA_DIR / 'totals_calibration.json'
+            t_meta = None
+            if t_fp.exists():
+                st = t_fp.stat()
+                t_meta = {
+                    'path': str(t_fp),
+                    'mtime': int(st.st_mtime),
+                    'size': int(st.st_size),
+                }
+        except Exception:
+            t_meta = None  # type: ignore
+        try:
+            s_fp = DATA_DIR / 'sigma_calibration.json'
+            s_meta = None
+            if s_fp.exists():
+                st = s_fp.stat()
+                s_meta = {
+                    'path': str(s_fp),
+                    'mtime': int(st.st_mtime),
+                    'size': int(st.st_size),
+                }
+        except Exception:
+            s_meta = None  # type: ignore
+        # Probability calibration metadata (moneyline)
+        pcal = None; p_meta = None
+        try:
+            pcal = _load_prob_calibration()
+            if pcal is not None:
+                p_fp = DATA_DIR / 'prob_calibration.json'
+                if p_fp.exists():
+                    p_meta = {
+                        'path': str(p_fp),
+                        'mtime': datetime.utcfromtimestamp(p_fp.stat().st_mtime).isoformat() + 'Z',
+                        'size': p_fp.stat().st_size,
+                    }
+        except Exception:
+            pcal = None; p_meta = None
+        return jsonify({'ok': True, 'totals_calibration': totals, 'totals_file': t_meta, 'sigma_calibration': sigma, 'sigma_file': s_meta, 'prob_calibration': pcal, 'prob_file': p_meta})
     except Exception as e:
         return jsonify({'ok': False, 'error': str(e)})
 
@@ -240,59 +280,8 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
             try:
                 data = json.loads(fp.read_text(encoding='utf-8'))
                 # minimal validation
-                if isinstance(data, dict) and any(k in data for k in ('scale','shift','market_blend')):
+                if isinstance(data, dict) and any(k in data for k in ('scale', 'shift', 'market_blend')):
                     return data
-            except Exception:
-                pass
-            # Authoritative override: for upcoming games, force market_* from latest lines.csv by team keys
-            try:
-                import pandas as _pd
-                csv_fp_auth = BASE_DIR / 'nfl_compare' / 'data' / 'lines.csv'
-                if csv_fp_auth.exists():
-                    dfl = _pd.read_csv(csv_fp_auth)
-                    if not dfl.empty:
-                        # Normalize team names to match
-                        try:
-                            from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
-                            if 'home_team' in dfl.columns:
-                                dfl['home_team'] = dfl['home_team'].astype(str).apply(_norm_team)
-                            if 'away_team' in dfl.columns:
-                                dfl['away_team'] = dfl['away_team'].astype(str).apply(_norm_team)
-                        except Exception:
-                            pass
-                        # Build a simple key for fast lookups
-                        key_cols = [c for c in ['season','week','home_team','away_team'] if c in dfl.columns]
-                        if len(key_cols) == 4:
-                            dfl_key = dfl.set_index(key_cols)
-                            # Determine upcoming mask
-                            if {'home_score','away_score'}.issubset(out_base.columns):
-                                upcoming_mask = out_base['home_score'].isna() | out_base['away_score'].isna()
-                            else:
-                                upcoming_mask = _pd.Series([True]*len(out_base), index=out_base.index)
-                            for i in out_base.index[out_base.index.isin(out_base.index[upcoming_mask])]:
-                                try:
-                                    k = (out_base.at[i, 'season'], out_base.at[i, 'week'], out_base.at[i, 'home_team'], out_base.at[i, 'away_team'])
-                                except Exception:
-                                    continue
-                                if all(x is not None for x in k) and k in dfl_key.index:
-                                    cand = dfl_key.loc[k]
-                                    if isinstance(cand, _pd.DataFrame):
-                                        cand = cand.iloc[-1]
-                                    # Overwrite market_* directly from authoritative spread/total when present
-                                    if 'spread_home' in cand.index and _pd.notna(cand.get('spread_home')):
-                                        if 'market_spread_home' in out_base.columns:
-                                            out_base.at[i, 'market_spread_home'] = cand.get('spread_home')
-                                        if 'spread_home' in out_base.columns:
-                                            out_base.at[i, 'spread_home'] = cand.get('spread_home')
-                                    if 'total' in cand.index and _pd.notna(cand.get('total')):
-                                        if 'market_total' in out_base.columns:
-                                            out_base.at[i, 'market_total'] = cand.get('total')
-                                        if 'total' in out_base.columns:
-                                            out_base.at[i, 'total'] = cand.get('total')
-                                    if 'moneyline_home' in cand.index and _pd.notna(cand.get('moneyline_home')) and 'moneyline_home' in out_base.columns:
-                                        out_base.at[i, 'moneyline_home'] = cand.get('moneyline_home')
-                                    if 'moneyline_away' in cand.index and _pd.notna(cand.get('moneyline_away')) and 'moneyline_away' in out_base.columns:
-                                        out_base.at[i, 'moneyline_away'] = cand.get('moneyline_away')
             except Exception:
                 pass
         # Env fallback
@@ -320,6 +309,74 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
         pass
     return None
 
+
+# --- Probability calibration (moneyline, optional) ---
+_prob_calibration_cache: Optional[Dict[str, Any]] = None
+
+def _load_prob_calibration() -> Optional[Dict[str, Any]]:
+    """Load probability calibration curves if present.
+    Expected file: nfl_compare/data/prob_calibration.json with optional keys like 'moneyline'.
+    Schema example:
+      {
+        "moneyline": {"xs": [...], "ys": [...], "method": "bin-linear", "n_bins": 20},
+        "meta": {"generated_at": "...", ...}
+      }
+    Returns a dict or None.
+    """
+    global _prob_calibration_cache
+    try:
+        if _prob_calibration_cache is not None:
+            return _prob_calibration_cache
+        fp = DATA_DIR / 'prob_calibration.json'
+        if not fp.exists():
+            return None
+        data = json.loads(fp.read_text(encoding='utf-8'))
+        if isinstance(data, dict):
+            _prob_calibration_cache = data
+            return data
+    except Exception:
+        return None
+    return None
+
+
+def _apply_prob_calibration(p: Optional[float], which: str = 'moneyline') -> Optional[float]:
+    """Apply probability calibration for the given market type ('moneyline').
+    Uses piecewise-linear interpolation between provided xs in [0,1].
+    Returns calibrated probability or original p if calibration missing/invalid.
+    """
+    try:
+        if p is None or (isinstance(p, float) and pd.isna(p)):
+            return p
+        cal = _load_prob_calibration()
+        if not cal or which not in cal:
+            return p
+        spec = cal.get(which) or {}
+        xs = spec.get('xs'); ys = spec.get('ys')
+        if not isinstance(xs, list) or not isinstance(ys, list) or len(xs) < 2 or len(xs) != len(ys):
+            return p
+        # Clamp inputs
+        x = float(max(0.0, min(1.0, float(p))))
+        # Ensure sorted pairs
+        pairs = sorted(zip(xs, ys), key=lambda t: float(t[0]))
+        xs_s = [float(a) for a, _ in pairs]
+        ys_s = [float(b) for _, b in pairs]
+        # Edge cases
+        if x <= xs_s[0]:
+            return max(0.0, min(1.0, ys_s[0]))
+        if x >= xs_s[-1]:
+            return max(0.0, min(1.0, ys_s[-1]))
+        # Locate interval
+        import bisect
+        i = bisect.bisect_left(xs_s, x)
+        x0, y0 = xs_s[i-1], ys_s[i-1]
+        x1, y1 = xs_s[i], ys_s[i]
+        if x1 == x0:
+            return max(0.0, min(1.0, y0))
+        t = (x - x0) / (x1 - x0)
+        y = y0 + t * (y1 - y0)
+        return max(0.0, min(1.0, y))
+    except Exception:
+        return p
 
 def _apply_totals_calibration_to_view(df: pd.DataFrame) -> pd.DataFrame:
     """Apply totals calibration to produce pred_total_cal, leaving original intact.
@@ -1967,6 +2024,19 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
         # Non-fatal: return as-is if dedup hits an unexpected issue
         pass
 
+    # Attach consensus market lines as a final enrichment pass to fill gaps
+    try:
+        from nfl_compare.src.market_aggregator import build_consensus_for_view as _consensus_attach
+        merged = _consensus_attach(merged, season, week)
+    except Exception:
+        pass
+
+    # Attach team ratings (EMA-based offense/defense/net) to the view
+    try:
+        merged = _attach_team_ratings_to_view(merged)
+    except Exception:
+        pass
+
     return merged
 
 
@@ -3184,6 +3254,77 @@ def _load_location_overrides() -> Dict[str, Dict[str, Any]]:
         pass
     return out
 
+# Sigma calibration loader (ATS and TOTAL standard deviations)
+_sigma_cache: Dict[str, Any] = {"loaded": False, "ats_sigma": None, "total_sigma": None}
+
+def _load_sigma_calibration() -> Dict[str, float]:
+    global _sigma_cache
+    if _sigma_cache.get("loaded"):
+        return {
+            "ats_sigma": _sigma_cache.get("ats_sigma"),
+            "total_sigma": _sigma_cache.get("total_sigma"),
+        }
+    # Defaults
+    ats_default = 9.0
+    total_default = 10.0
+    # Env overrides take precedence when set
+    try:
+        ats_env = os.environ.get('NFL_ATS_SIGMA')
+        total_env = os.environ.get('NFL_TOTAL_SIGMA')
+        ats = float(ats_env) if ats_env not in (None, "") else None
+    except Exception:
+        ats = None
+    try:
+        total = float(total_env) if total_env not in (None, "") else None
+    except Exception:
+        total = None
+    # If not in env, try file nfl_compare/data/sigma_calibration.json
+    if ats is None or total is None:
+        try:
+            fp = DATA_DIR / 'sigma_calibration.json'
+            if fp.exists():
+                import json as _json
+                with open(fp, 'r', encoding='utf-8') as f:
+                    obj = _json.load(f)
+                if ats is None:
+                    v = obj.get('ats_sigma')
+                    ats = float(v) if v is not None else None
+                if total is None:
+                    v = obj.get('total_sigma')
+                    total = float(v) if v is not None else None
+        except Exception:
+            pass
+    _sigma_cache["ats_sigma"] = ats if isinstance(ats, float) else ats_default
+    _sigma_cache["total_sigma"] = total if isinstance(total, float) else total_default
+    _sigma_cache["loaded"] = True
+    return {
+        "ats_sigma": _sigma_cache["ats_sigma"],
+        "total_sigma": _sigma_cache["total_sigma"],
+    }
+
+
+# Optional: attach team ratings (EMA-based) to weekly view
+def _attach_team_ratings_to_view(df: pd.DataFrame) -> pd.DataFrame:
+    try:
+        off = str(os.environ.get('TEAM_RATINGS_OFF', '0')).strip().lower() in {'1','true','yes','on'}
+    except Exception:
+        off = False
+    if off:
+        return df
+    if df is None or df.empty:
+        return df
+    try:
+        from nfl_compare.src.team_ratings import attach_team_ratings_to_view as _attach_ratings  # type: ignore
+    except Exception:
+        _attach_ratings = None  # type: ignore
+    if _attach_ratings is None:
+        return df
+    try:
+        out = _attach_ratings(df)
+        return out if out is not None else df
+    except Exception:
+        return df
+
 
 def _infer_current_season_week(df: pd.DataFrame) -> Optional[tuple[int, int]]:
     """Infer the current (season, week) to display based on game completeness and dates.
@@ -3475,6 +3616,13 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         margin_implies_home = (model_winner_by_margin == home)
         if prob_implies_home != margin_implies_home:
             p_home_eff = 1.0 - p_home_eff
+    # Optional probability calibration (moneyline) from prob_calibration.json
+    try:
+        p_home_eff_cal = _apply_prob_calibration(p_home_eff, which='moneyline')
+        if p_home_eff_cal is not None:
+            p_home_eff = p_home_eff_cal
+    except Exception:
+        pass
     # Compute EV ONLY for margin-based winner (if available); fallback to probability winner if margin missing
     rec_model_winner = model_winner_by_margin
     model_winner_prob = None
@@ -3537,7 +3685,12 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     if margin is not None and spread is not None and not pd.isna(spread):
         try:
             edge_pts = float(margin) + float(spread)
-            scale_margin = float(os.environ.get('NFL_ATS_SIGMA', '9.0'))
+            # Prefer calibrated sigma from file/cache; fallback to env/default
+            try:
+                sig = _load_sigma_calibration() if '_load_sigma_calibration' in globals() else None
+                scale_margin = float(sig.get('ats_sigma')) if (sig and sig.get('ats_sigma') is not None) else float(os.environ.get('NFL_ATS_SIGMA', '9.0'))
+            except Exception:
+                scale_margin = float(os.environ.get('NFL_ATS_SIGMA', '9.0'))
         except Exception:
             edge_pts, scale_margin = None, 9.0
         if edge_pts is not None:
@@ -3547,6 +3700,13 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             except Exception:
                 shrink = 0.35
             p_home_cover = 0.5 + (p_home_cover - 0.5) * (1.0 - shrink)
+            # Optional ATS probability calibration
+            try:
+                p_cal = _apply_prob_calibration(p_home_cover, which='ats')
+                if p_cal is not None:
+                    p_home_cover = p_cal
+            except Exception:
+                pass
             # Use market prices if available; fallback to -110
             sh_price = g("spread_home_price")
             sa_price = g("spread_away_price")
@@ -3607,7 +3767,12 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     if total_pred is not None and not pd.isna(total_pred) and m_total is not None and not pd.isna(m_total):
         try:
             edge_t = float(total_pred) - float(m_total)
-            scale_total = float(os.environ.get('NFL_TOTAL_SIGMA', '10.0'))
+            # Prefer calibrated total sigma from file/cache; fallback to env/default
+            try:
+                sig = _load_sigma_calibration() if '_load_sigma_calibration' in globals() else None
+                scale_total = float(sig.get('total_sigma')) if (sig and sig.get('total_sigma') is not None) else float(os.environ.get('NFL_TOTAL_SIGMA', '10.0'))
+            except Exception:
+                scale_total = float(os.environ.get('NFL_TOTAL_SIGMA', '10.0'))
         except Exception:
             edge_t, scale_total = None, 10.0
         if edge_t is not None:
@@ -3617,6 +3782,13 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             except Exception:
                 shrink = 0.35
             p_over = 0.5 + (p_over - 0.5) * (1.0 - shrink)
+            # Optional Totals probability calibration
+            try:
+                p_cal = _apply_prob_calibration(p_over, which='total')
+                if p_cal is not None:
+                    p_over = p_cal
+            except Exception:
+                pass
             # Use market prices if available; fallback to -110
             to_price = g("total_over_price")
             tu_price = g("total_under_price")
@@ -3802,6 +3974,45 @@ def api_player_props():
                 pass
         except Exception as e:
             return jsonify({"error": str(e)}), 500
+    # Optional supervised ML adoption:
+    # - WR rec_yards: replace rec_yards with rec_yards_blend
+    # - WR receptions: replace receptions with receptions_blend
+    # - RB rush_yards: replace rush_yards with rush_yards_blend
+    try:
+        use_ml = str(request.args.get('ml', os.environ.get('PROPS_USE_SUPERVISED', '0'))).strip().lower() in {'1','true','yes','y','on'}
+        if use_ml:
+            ml_fp = DATA_DIR / f"player_props_ml_{season_i}_wk{week_i}.csv"
+            if ml_fp.exists():
+                try:
+                    dml = pd.read_csv(ml_fp)
+                    # Merge on stable keys if present; else by index
+                    join_keys = [c for c in ['player','team','game_id'] if c in df.columns and c in dml.columns]
+                    cols_needed = ['position','rec_yards_blend','receptions_blend','rush_yards_blend']
+                    cols_have = [c for c in cols_needed if c in dml.columns]
+                    if join_keys:
+                        merged = df.merge(dml[join_keys + cols_have], on=join_keys, how='left', suffixes=('', '_ml'))
+                    else:
+                        dml['_row_id'] = dml.index
+                        df['_row_id'] = df.index
+                        merged = df.merge(dml[['_row_id'] + cols_have], on='_row_id', how='left', suffixes=('', '_ml'))
+                    pos_up = merged.get('position', pd.Series('')).astype(str).str.upper()
+                    # WR rec_yards
+                    if 'rec_yards_blend' in merged.columns and 'rec_yards' in merged.columns:
+                        mask_wr_recyds = pos_up.eq('WR') & merged['rec_yards_blend'].notna()
+                        merged.loc[mask_wr_recyds, 'rec_yards'] = pd.to_numeric(merged.loc[mask_wr_recyds, 'rec_yards_blend'], errors='coerce')
+                    # WR receptions
+                    if 'receptions_blend' in merged.columns and 'receptions' in merged.columns:
+                        mask_wr_rec = pos_up.eq('WR') & merged['receptions_blend'].notna()
+                        merged.loc[mask_wr_rec, 'receptions'] = pd.to_numeric(merged.loc[mask_wr_rec, 'receptions_blend'], errors='coerce')
+                    # RB rush_yards
+                    if 'rush_yards_blend' in merged.columns and 'rush_yards' in merged.columns:
+                        mask_rb_rush = pos_up.eq('RB') & merged['rush_yards_blend'].notna()
+                        merged.loc[mask_rb_rush, 'rush_yards'] = pd.to_numeric(merged.loc[mask_rb_rush, 'rush_yards_blend'], errors='coerce')
+                    df = merged.drop(columns=[c for c in ['_row_id'] if c in merged.columns])
+                except Exception:
+                    pass
+    except Exception:
+        pass
     # Sanity check: if cache contained stale/malformed rows (e.g., QB rushing NaN), recompute and refresh cache
     try:
         if df is not None and not df.empty and 'position' in df.columns:
@@ -4135,6 +4346,30 @@ def api_player_props_csv():
                 pass
         except Exception as e:
             return jsonify({"error": str(e)}), 500
+    # Optional supervised ML adoption: replace rec_yards with blended values for WR
+    try:
+        use_ml = str(request.args.get('ml', os.environ.get('PROPS_USE_SUPERVISED', '0'))).strip().lower() in {'1','true','yes','y','on'}
+        if use_ml:
+            ml_fp = DATA_DIR / f"player_props_ml_{season_i}_wk{week_i}.csv"
+            if ml_fp.exists():
+                try:
+                    dml = pd.read_csv(ml_fp)
+                    join_keys = [c for c in ['player','team','game_id'] if c in df.columns and c in dml.columns]
+                    if join_keys:
+                        merged = df.merge(dml[join_keys + ['rec_yards_blend','position']], on=join_keys, how='left', suffixes=('', '_ml'))
+                    else:
+                        dml['_row_id'] = dml.index
+                        df['_row_id'] = df.index
+                        merged = df.merge(dml[['_row_id','rec_yards_blend','position']], on='_row_id', how='left', suffixes=('', '_ml'))
+                    pos_up = merged.get('position', pd.Series('')).astype(str).str.upper()
+                    mask_wr = pos_up.eq('WR') & merged['rec_yards_blend'].notna()
+                    if 'rec_yards' in merged.columns:
+                        merged.loc[mask_wr, 'rec_yards'] = pd.to_numeric(merged.loc[mask_wr, 'rec_yards_blend'], errors='coerce')
+                    df = merged.drop(columns=[c for c in ['_row_id'] if c in merged.columns])
+                except Exception:
+                    pass
+    except Exception:
+        pass
     if df is None or df.empty:
         return jsonify({"rows": 0, "data": []})
 
@@ -4981,6 +5216,33 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                             m_total = auth.get('total')
                 except Exception:
                     pass
+
+                # Optional market anchoring for upcoming games (blend model with market)
+                # Controlled via env:
+                #   RECS_MARKET_BLEND_MARGIN in [0,1] to blend model margin with -spread_home
+                #   RECS_MARKET_BLEND_TOTAL in [0,1] to blend model total with market total
+                try:
+                    bm_raw = os.environ.get("RECS_MARKET_BLEND_MARGIN", "0")
+                    bt_raw = os.environ.get("RECS_MARKET_BLEND_TOTAL", "0")
+                    bm = float(bm_raw) if bm_raw not in (None, "") else 0.0
+                    bt = float(bt_raw) if bt_raw not in (None, "") else 0.0
+                    bm = max(0.0, min(1.0, bm))
+                    bt = max(0.0, min(1.0, bt))
+                    # Blend only when we have both sides of the signal
+                    if bm > 0.0 and (margin is not None) and (m_spread is not None) and pd.notna(m_spread):
+                        try:
+                            ms = float(m_spread)
+                            mmkt = -ms  # market-implied home margin
+                            margin = (1.0 - bm) * float(margin) + bm * mmkt
+                        except Exception:
+                            pass
+                    if bt > 0.0 and (total_pred is not None) and (m_total is not None) and pd.notna(m_total):
+                        try:
+                            total_pred = (1.0 - bt) * float(total_pred) + bt * float(m_total)
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
             edge_spread = None
             edge_total = None
             try:
@@ -5288,6 +5550,16 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 "venue_text": venue_text,
                 "weather_text": weather_text,
                 "total_diff": total_diff,
+                # Team ratings (EMA-based)
+                "home_off_ppg": g("home_off_ppg"),
+                "home_def_ppg": g("home_def_ppg"),
+                "home_net_margin": g("home_net_margin"),
+                "away_off_ppg": g("away_off_ppg"),
+                "away_def_ppg": g("away_def_ppg"),
+                "away_net_margin": g("away_net_margin"),
+                "off_ppg_diff": g("off_ppg_diff"),
+                "def_ppg_diff": g("def_ppg_diff"),
+                "net_margin_diff": g("net_margin_diff"),
                 # Extended weather (precip type / sky)
                 "wx_precip_type": g("wx_precip_type"),
                 "wx_sky": g("wx_sky"),
@@ -5439,6 +5711,11 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 except Exception:
                     edge_pts, scale_margin = None, 9.0
                 if edge_pts is not None:
+                    try:
+                        _sig = _load_sigma_calibration()
+                        scale_margin = float(_sig.get('ats_sigma', scale_margin))
+                    except Exception:
+                        pass
                     p_home_cover = _cover_prob_from_edge(edge_pts, scale_margin)
                     # Shrink toward 0.5 to reduce overconfidence
                     try:
@@ -5474,6 +5751,11 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 except Exception:
                     edge_t, scale_total = None, 10.0
                 if edge_t is not None:
+                    try:
+                        _sig = _load_sigma_calibration()
+                        scale_total = float(_sig.get('total_sigma', scale_total))
+                    except Exception:
+                        pass
                     p_over = _cover_prob_from_edge(edge_t, scale_total)
                     try:
                         shrink = float(os.environ.get('RECS_PROB_SHRINK', '0.35'))
