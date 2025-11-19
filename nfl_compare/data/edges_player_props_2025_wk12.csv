@@ -1,313 +1,690 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Dak Prescott,DAL,Passing Yards,375.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-157.1,-0.9999533934510255,,,157.1
-CeeDee Lamb,DAL,Receiving Yards,175.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-139.1,-0.9999999999999978,,,139.1
-Geno Smith,LV,Passing Yards,350.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-137.6,-0.9994511231913014,,,137.6
-Dak Prescott,DAL,Passing Yards,350.0,750.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-132.1,-0.9993180162261409,,,132.1
-George Pickens,DAL,Receiving Yards,150.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-123.5,-0.9999999999975702,,,123.5
-Brock Bowers,LV,Receiving Yards,150.0,1100.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-121.4,-0.9999999999944478,,,121.4
-CeeDee Lamb,DAL,Receiving Yards,150.0,625.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-114.1,-0.9999999999302966,,,114.1
-Geno Smith,LV,Passing Yards,325.0,675.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-112.6,-0.9949828781349335,,,112.6
-Dak Prescott,DAL,Passing Yards,325.0,425.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-107.1,-0.9941899039736015,,,107.1
-George Pickens,DAL,Receiving Yards,125.0,625.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-98.5,-0.9999999751030277,,,98.5
-Brock Bowers,LV,Receiving Yards,125.0,550.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-96.4,-0.9999999537498824,,,96.4
-Ashton Jeanty,LV,Rushing Yards,150.0,1700.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-93.0,-0.9999999997231064,,,93.0
-Javonte Williams,DAL,Rushing Yards,150.0,1100.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-90.3,-0.9999999993288988,,,90.3
-CeeDee Lamb,DAL,Receiving Yards,125.0,310.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-89.1,-0.9999996729101355,,,89.1
-Geno Smith,LV,Passing Yards,300.0,400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-87.6,-0.9692011851494644,,,87.6
-Tre Tucker,LV,Receiving Yards,125.0,1400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-84.7,-0.9999952888205185,,,84.7
-George Pickens,DAL,Receiving Yards,110.0,410.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-83.5,-0.99999769836163,,,83.5
-Dak Prescott,DAL,Passing Yards,300.0,250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-82.1,-0.9667663472087654,,,82.1
-Brock Bowers,LV,Receiving Yards,110.0,350.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-81.4,-0.9999962142780878,,,81.4
-CeeDee Lamb,DAL,Receiving Yards,110.0,190.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-74.1,-0.9999810392923923,,,74.1
-George Pickens,DAL,Receiving Yards,100.0,310.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-73.5,-0.9999685217055092,,,73.5
-Brock Bowers,LV,Receiving Yards,100.0,240.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-71.4,-0.9999546244533459,,,71.4
-Tre Tucker,LV,Receiving Yards,110.0,900.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-69.7,-0.9997934249308744,,,69.7
-Ashton Jeanty,LV,Rushing Yards,125.0,850.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-68.0,-0.9999943431454396,,,68.0
-Javonte Williams,DAL,Rushing Yards,125.0,550.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-65.3,-0.999989935047318,,,65.3
-CeeDee Lamb,DAL,Receiving Yards,100.0,140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-64.1,-0.9998045641532814,,,64.1
-Jake Ferguson,DAL,Receiving Yards,90.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-63.8,-0.9988639827982582,,,63.8
-George Pickens,DAL,Receiving Yards,90.0,225.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-63.5,-0.9996953191267584,,,63.5
-Geno Smith,LV,Passing Yards,275.0,225.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-62.599999999999994,-0.8802637231814955,,,62.599999999999994
-Geno Smith,LV,Passing Yards,150.0,-1100.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,62.400000000000006,0.05021296670873067,,,62.400000000000006
-Brock Bowers,LV,Receiving Yards,90.0,170.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-61.4,-0.9995894374023145,,,61.4
-Tre Tucker,LV,Receiving Yards,100.0,750.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-59.7,-0.9981081468549259,,,59.7
-Dak Prescott,DAL,Passing Yards,275.0,140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-57.099999999999994,-0.876640095697095,,,57.099999999999994
-CeeDee Lamb,DAL,Receiving Yards,90.0,-105.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-54.1,-0.9985739450208215,,,54.1
-Jake Ferguson,DAL,Receiving Yards,80.0,850.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-53.8,-0.9926261100300968,,,53.8
-George Pickens,DAL,Receiving Yards,80.0,160.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-53.5,-0.9978560168693453,,,53.5
-Ashton Jeanty,LV,Rushing Yards,110.0,500.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-53.0,-0.9995401969179867,,,53.0
-Brock Bowers,LV,Receiving Yards,80.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-51.4,-0.9973141690282746,,,51.4
-Javonte Williams,DAL,Rushing Yards,110.0,320.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-50.3,-0.9993131489671617,,,50.3
-Tre Tucker,LV,Receiving Yards,90.0,550.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-49.7,-0.9887521553528332,,,49.7
-CeeDee Lamb,DAL,Receiving Yards,80.0,-155.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-44.1,-0.9921991362384823,,,44.1
-Jake Ferguson,DAL,Receiving Yards,70.0,550.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-43.8,-0.9675602235188918,,,43.8
-George Pickens,DAL,Receiving Yards,70.0,105.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-43.5,-0.9892347282729903,,,43.5
-Ashton Jeanty,LV,Rushing Yards,100.0,370.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-43.0,-0.9949936274758897,,,43.0
-Dak Prescott,DAL,Passing Yards,175.0,-1100.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,42.900000000000006,-0.029257934018061704,,,42.900000000000006
-Brock Bowers,LV,Receiving Yards,70.0,-130.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-41.4,-0.9868371977054086,,,41.4
-Javonte Williams,DAL,Rushing Yards,100.0,225.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-40.3,-0.9935084369335203,,,40.3
-Tre Tucker,LV,Receiving Yards,80.0,370.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-39.7,-0.9541090560362492,,,39.7
-Geno Smith,LV,Passing Yards,250.0,130.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-37.599999999999994,-0.6749011573291427,,,37.599999999999994
-Geno Smith,LV,Passing Yards,175.0,-500.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,37.400000000000006,0.02884230284758732,,,37.400000000000006
-CeeDee Lamb,DAL,Receiving Yards,70.0,-235.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-34.1,-0.9680190457568318,,,34.1
-Jake Ferguson,DAL,Receiving Yards,60.0,350.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-33.8,-0.8947322351606751,,,33.8
-George Pickens,DAL,Receiving Yards,60.0,-145.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-33.5,-0.9587969193784783,,,33.5
-Ashton Jeanty,LV,Rushing Yards,90.0,260.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-33.0,-0.9668509109626527,,,33.0
-Dak Prescott,DAL,Passing Yards,250.0,-140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-32.099999999999994,-0.6922276121664035,,,32.099999999999994
-Brock Bowers,LV,Receiving Yards,60.0,-210.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-31.4,-0.9522167362634488,,,31.4
-Javonte Williams,DAL,Receiving Yards,50.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,-30.8,-0.5448533551070771,,,30.8
-Dak Prescott,DAL,Rushing Yards,40.0,1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-30.7,-0.8159351232517073,,,30.7
-Javonte Williams,DAL,Rushing Yards,90.0,155.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-30.299999999999997,-0.9611859037499026,,,30.299999999999997
-Tre Tucker,LV,Receiving Yards,70.0,260.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-29.700000000000003,-0.8548711570391005,,,29.700000000000003
-Ashton Jeanty,LV,Rushing Yards,30.0,-1400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,27.0,0.04261566668085798,,,27.0
-Tre Tucker,LV,Receiving Yards,15.0,-1000.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,25.299999999999997,0.024821131134923277,,,25.299999999999997
-CeeDee Lamb,DAL,Receiving Yards,60.0,-360.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-24.1,-0.900145606227078,,,24.1
-Jake Ferguson,DAL,Receiving Yards,50.0,205.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-23.8,-0.7536921893369983,,,23.8
-George Pickens,DAL,Receiving Yards,50.0,-235.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-23.5,-0.8810654789542082,,,23.5
-Ashton Jeanty,LV,Rushing Yards,80.0,175.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-23.0,-0.8619328207691084,,,23.0
-Brock Bowers,LV,Receiving Yards,50.0,-350.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-21.4,-0.8662252345464545,,,21.4
-Javonte Williams,DAL,Receiving Yards,40.0,800.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,-20.8,-0.004915889372618887,,,20.8
-Dak Prescott,DAL,Rushing Yards,30.0,625.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-20.7,-0.49520101078834716,,,20.7
-Javonte Williams,DAL,Rushing Yards,80.0,,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-20.299999999999997,,,,20.299999999999997
-Tre Tucker,LV,Receiving Yards,20.0,-600.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,20.299999999999997,0.031081361848896427,,,20.299999999999997
-Javonte Williams,DAL,Rushing Yards,40.0,-1000.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,19.700000000000003,0.012338232408949198,,,19.700000000000003
-Tre Tucker,LV,Receiving Yards,60.0,170.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-19.700000000000003,-0.6671870319466922,,,19.700000000000003
-Dak Prescott,DAL,Passing Yards,200.0,-475.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,17.900000000000006,-0.15810981136949342,,,17.900000000000006
-Ashton Jeanty,LV,Rushing Yards,40.0,-470.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,17.0,0.07654891043983547,,,17.0
-Dak Prescott,DAL,Rushing Yards,25.0,400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-15.7,-0.3447362998573885,,,15.7
-Tre Tucker,LV,Receiving Yards,25.0,-400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,15.299999999999997,0.01992484331655059,,,15.299999999999997
-CeeDee Lamb,DAL,Receiving Yards,50.0,-650.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-14.100000000000001,-0.7652664731252898,,,14.100000000000001
-Jake Ferguson,DAL,Receiving Yards,40.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-13.8,-0.551803843033243,,,13.8
-George Pickens,DAL,Receiving Yards,40.0,-400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-13.5,-0.7330456593158354,,,13.5
-Ashton Jeanty,LV,Rushing Yards,70.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-13.0,-0.6204054229060441,,,13.0
-Geno Smith,LV,Passing Yards,225.0,-140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,-12.599999999999994,-0.38384531408798483,,,12.599999999999994
-Geno Smith,LV,Passing Yards,200.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,212.4,12.400000000000006,-0.10618734089462017,,,12.400000000000006
-Brock Bowers,LV,Receiving Yards,40.0,-650.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-11.399999999999999,-0.710106031214722,,,11.399999999999999
-Jake Ferguson,DAL,Receiving Yards,15.0,-800.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,11.2,-0.161880116504299,,,11.2
-Ashton Jeanty,LV,Receiving Yards,10.0,-260.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,21.1,11.100000000000001,0.028911706445167273,,,11.100000000000001
-Javonte Williams,DAL,Receiving Yards,30.0,425.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,-10.8,0.37874609954929317,,,10.8
-Dak Prescott,DAL,Rushing Yards,20.0,240.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-10.7,-0.24401510559474138,,,10.7
-Tre Tucker,LV,Receiving Yards,30.0,-270.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,10.299999999999997,-0.0027766020234747946,,,10.299999999999997
-Javonte Williams,DAL,Rushing Yards,70.0,-155.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-10.299999999999997,-0.6200462211423571,,,10.299999999999997
-Javonte Williams,DAL,Rushing Yards,50.0,-440.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,9.700000000000003,-0.07242678634979224,,,9.700000000000003
-Tre Tucker,LV,Receiving Yards,50.0,110.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,-9.700000000000003,-0.40330726502525144,,,9.700000000000003
-Javonte Williams,DAL,Receiving Yards,10.0,-155.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,9.2,0.16116639283488654,,,9.2
-Ashton Jeanty,LV,Receiving Yards,30.0,250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,21.1,-8.899999999999999,0.05106030579916154,,,8.899999999999999
-Dak Prescott,DAL,Passing Yards,225.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_yards,217.9,-7.099999999999994,-0.41252731504261375,,,7.099999999999994
-Ashton Jeanty,LV,Rushing Yards,50.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,7.0,-0.03195255421638188,,,7.0
-Brock Bowers,LV,Receptions,11.0,750.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-6.91,-0.999999547662829,,,6.91
-Jake Ferguson,DAL,Receiving Yards,20.0,-440.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,6.199999999999999,-0.21168036620521247,,,6.199999999999999
-CeeDee Lamb,DAL,Receptions,11.0,675.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-6.19,-0.9999925552464358,,,6.19
-Ashton Jeanty,LV,Receiving Yards,15.0,-140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,21.1,6.100000000000001,0.09737676340965051,,,6.100000000000001
-Brock Bowers,LV,Receptions,10.0,475.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-5.91,-0.9999842924066291,,,5.91
-Javonte Williams,DAL,Receiving Yards,25.0,310.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,-5.800000000000001,0.5025900077955914,,,5.800000000000001
-George Pickens,DAL,Receptions,9.0,875.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-5.779999999999999,-0.9999573820910177,,,5.779999999999999
-Dak Prescott,DAL,Rushing Yards,15.0,145.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-5.699999999999999,-0.162218741724785,,,5.699999999999999
-CeeDee Lamb,DAL,Receptions,10.0,400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-5.19,-0.9998364165184381,,,5.19
-Brock Bowers,LV,Receptions,9.0,275.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-4.91,-0.9997022917321787,,,4.91
-Jake Ferguson,DAL,Receptions,9.0,850.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,-4.86,-0.9991205383973801,,,4.86
-George Pickens,DAL,Receptions,8.0,525.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-4.779999999999999,-0.9992622994142953,,,4.779999999999999
-Javonte Williams,DAL,Receiving Yards,15.0,120.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,4.199999999999999,0.31465102987662685,,,4.199999999999999
-CeeDee Lamb,DAL,Receptions,9.0,250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-4.19,-0.9977806239032734,,,4.19
-CeeDee Lamb,DAL,Receiving Yards,40.0,-1450.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,35.9,-4.100000000000001,-0.5673798493022895,,,4.100000000000001
-Brock Bowers,LV,Receptions,8.0,165.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-3.91,-0.9965120764360605,,,3.91
-Ashton Jeanty,LV,Receiving Yards,25.0,175.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,21.1,-3.8999999999999986,0.12550472796477707,,,3.8999999999999986
-Jake Ferguson,DAL,Receptions,8.0,525.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,-3.8600000000000003,-0.9906704281622226,,,3.8600000000000003
-Jake Ferguson,DAL,Receiving Yards,30.0,-180.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,-3.8000000000000007,-0.35979283732299283,,,3.8000000000000007
-George Pickens,DAL,Receptions,7.0,275.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-3.78,-0.993173005085519,,,3.78
-George Pickens,DAL,Receiving Yards,30.0,-800.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,-3.5,-0.5292534191138722,,,3.5
-CeeDee Lamb,DAL,Receptions,8.0,145.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-3.1900000000000004,-0.982686164194434,,,3.1900000000000004
-Ashton Jeanty,LV,Receptions,6.0,575.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.97,-3.03,-0.9332913315142347,,,3.03
-Ashton Jeanty,LV,Rushing Yards,60.0,-145.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,57.0,-3.0,-0.29851916163562114,,,3.0
-Brock Bowers,LV,Receptions,7.0,-110.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-2.91,-0.9759540713535354,,,2.91
-Jake Ferguson,DAL,Receptions,7.0,300.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,-2.8600000000000003,-0.9443862099460056,,,2.8600000000000003
-George Pickens,DAL,Receptions,6.0,150.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-2.78,-0.959400871846307,,,2.78
-Tre Tucker,LV,Receptions,7.0,625.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,-2.74,-0.8729161524483989,,,2.74
-Geno Smith,LV,Passing TDs,4.0,1000.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.43,-2.5700000000000003,-0.8298224142861985,,,2.5700000000000003
-Tre Tucker,LV,Receptions,2.0,-1200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,2.26,0.038846509185461425,,,2.26
-Dak Prescott,DAL,Passing TDs,4.0,850.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.78,-2.2199999999999998,-0.6677063927262212,,,2.2199999999999998
-CeeDee Lamb,DAL,Receptions,7.0,-125.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-2.1900000000000004,-0.9171434789409569,,,2.1900000000000004
-Javonte Williams,DAL,Receptions,5.0,550.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.89,-2.11,-0.6601378732774346,,,2.11
-Ashton Jeanty,LV,Receptions,5.0,300.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.97,-2.03,-0.763206487301701,,,2.03
-Brock Bowers,LV,Receptions,6.0,-200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-1.9100000000000001,-0.8936723445428217,,,1.9100000000000001
-Javonte Williams,DAL,Receptions,1.0,-1400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.89,1.8900000000000001,-0.006779802264038598,,,1.8900000000000001
-Jake Ferguson,DAL,Receptions,6.0,165.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,-1.8600000000000003,-0.7979423173739847,,,1.8600000000000003
-George Pickens,DAL,Receptions,5.0,-140.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-1.7799999999999998,-0.853491013600522,,,1.7799999999999998
-Tre Tucker,LV,Receptions,6.0,325.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,-1.7400000000000002,-0.6159146861529277,,,1.7400000000000002
-Geno Smith,LV,Passing TDs,3.0,325.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.43,-1.57,-0.7570426280098275,,,1.57
-George Pickens,DAL,Receiving Yards,25.0,-1400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,26.5,1.5,-0.426619463956423,,,1.5
-Brock Bowers,LV,Receiving Yards,30.0,-1600.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,28.6,-1.3999999999999986,-0.5036180325484277,,,1.3999999999999986
-Tre Tucker,LV,Receptions,3.0,-325.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,1.2599999999999998,0.09033419001480353,,,1.2599999999999998
-Dak Prescott,DAL,Passing TDs,3.0,225.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.78,-1.22,-0.6570713436873241,,,1.22
-Jake Ferguson,DAL,Receiving Yards,25.0,-270.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,rec_yards,26.2,1.1999999999999993,-0.27625634324890413,,,1.1999999999999993
-CeeDee Lamb,DAL,Receptions,6.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-1.1900000000000004,-0.7480071735741206,,,1.1900000000000004
-Jake Ferguson,DAL,Receptions,3.0,-675.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,1.1399999999999997,-0.07030335270024389,,,1.1399999999999997
-Javonte Williams,DAL,Receptions,4.0,275.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.89,-1.1099999999999999,-0.2627683041386353,,,1.1099999999999999
-Ashton Jeanty,LV,Receiving Yards,20.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,21.1,1.1000000000000014,0.1304612073602125,,,1.1000000000000014
-Ashton Jeanty,LV,Receptions,4.0,150.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.97,-1.0299999999999998,-0.46477339060846456,,,1.0299999999999998
-Ashton Jeanty,LV,Receptions,2.0,-450.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.97,0.9700000000000002,-0.056184407532194724,,,0.9700000000000002
-Brock Bowers,LV,Receptions,5.0,-425.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,-0.9100000000000001,-0.7011037237244392,,,0.9100000000000001
-Javonte Williams,DAL,Receptions,2.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.89,0.8900000000000001,0.054489340585145374,,,0.8900000000000001
-Jake Ferguson,DAL,Receptions,5.0,-120.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,-0.8600000000000003,-0.5340885305783545,,,0.8600000000000003
-CeeDee Lamb,DAL,Receptions,4.0,-1500.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,0.8099999999999996,-0.21772478597452127,,,0.8099999999999996
-Javonte Williams,DAL,Receiving Yards,20.0,200.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rec_yards,19.2,-0.8000000000000007,0.4436995175292108,,,0.8000000000000007
-Dak Prescott,DAL,Passing TDs,1.0,-1000.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.78,0.78,-0.415695454347365,,,0.78
-George Pickens,DAL,Receptions,4.0,-300.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,-0.7799999999999998,-0.6343291763332352,,,0.7799999999999998
-Tre Tucker,LV,Receptions,5.0,170.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,-0.7400000000000002,-0.23158061809787045,,,0.7400000000000002
-Dak Prescott,DAL,Rushing Yards,10.0,-135.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,rush_yards,9.3,-0.6999999999999993,-0.16433792127420394,,,0.6999999999999993
-Geno Smith,LV,Passing TDs,2.0,-120.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.43,-0.5700000000000001,-0.6813704957674922,,,0.5700000000000001
-Geno Smith,LV,Passing TDs,1.0,-650.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.43,0.42999999999999994,-0.5171392473680656,,,0.42999999999999994
-Tre Tucker,LV,Receiving Yards,40.0,-155.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,rec_yards,40.3,0.29999999999999716,-0.16583776072517037,,,0.29999999999999716
-Javonte Williams,DAL,Rushing Yards,60.0,-250.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,rush_yards,59.7,-0.29999999999999716,-0.3119673525362181,,,0.29999999999999716
-Tre Tucker,LV,Receptions,4.0,-130.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.26,0.2599999999999998,0.024844101315336042,,,0.2599999999999998
-George Pickens,DAL,Receptions,3.0,-850.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,3.22,0.2200000000000002,-0.36607904238407046,,,0.2200000000000002
-Dak Prescott,DAL,Passing TDs,2.0,-160.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,QB,pass_tds,1.78,-0.21999999999999997,-0.5709522287531072,,,0.21999999999999997
-CeeDee Lamb,DAL,Receptions,5.0,-500.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,WR,receptions,4.81,-0.1900000000000004,-0.46972003620471636,,,0.1900000000000004
-Jake Ferguson,DAL,Receptions,4.0,-260.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.14,0.13999999999999968,-0.24831984187535922,,,0.13999999999999968
-Javonte Williams,DAL,Receptions,3.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.89,-0.10999999999999988,0.0025097053629230537,,,0.10999999999999988
-Brock Bowers,LV,Receptions,4.0,-1100.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,TE,receptions,4.09,0.08999999999999986,-0.4244395990284477,,,0.08999999999999986
-Ashton Jeanty,LV,Receptions,3.0,-160.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,RB,receptions,2.97,-0.029999999999999805,-0.2024590077806867,,,0.029999999999999805
-CeeDee Lamb (DAL) - 1Q,,Anytime TD,,500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Jeanty (LV) - 1Q,,Anytime TD,,450.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Jeanty (LV) - 1H,,Anytime TD,,165.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Jeanty & Las Vegas Raiders,,Anytime TD,,225.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-CeeDee Lamb & Las Vegas Raiders,,Anytime TD,,500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-CeeDee Lamb (DAL) - 1H,,Anytime TD,,240.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Carter Runyon,LV,Anytime TD,,2000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Anytime TD,,700.0,,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-CeeDee Lamb & Dallas Cowboys,,Anytime TD,,200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Passing Attempts,35.5,-110.0,-120.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Ashton Jeanty & Dallas Cowboys,,Anytime TD,,150.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Jeanty,LV,Rushing Yards,63.5,-135.0,105.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Ashton Jeanty,LV,Rushing Attempts,17.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Ashton Jeanty,LV,Receiving Yards,15.5,-145.0,110.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Interceptions,0.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford,DAL,Anytime TD,,1400.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Brock Bowers (LV) - 1Q,,Anytime TD,,550.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Carter Runyon (LV) - 1H,,Anytime TD,,4500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Brock Bowers (LV) - 1H,,Anytime TD,,240.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,10.0,-135.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,15.0,115.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,20.0,165.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,30.0,290.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,40.0,450.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,50.0,750.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,60.0,1000.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-CeeDee Lamb,DAL,Anytime TD,,,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford (DAL) - 1H,,Anytime TD,,3500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,70.0,1400.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-CeeDee Lamb,DAL,Receiving Yards,88.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Brock Bowers & Las Vegas Raiders,,Anytime TD,,350.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Brock Bowers & Dallas Cowboys,,Anytime TD,,200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Brock Bowers,LV,Receptions,6.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Brock Bowers,LV,Receiving Yards,74.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Brock Bowers,LV,Anytime TD,,-114.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-CeeDee Lamb,DAL,Receptions,6.5,-125.0,-105.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,25.0,225.0,,True,Dallas Cowboys @ Las Vegas Raiders,Raiders,Cowboys,1763428500000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Geno Smith (LV) - 1H,,Anytime TD,,1700.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Passing TDs,1.5,-200.0,150.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Rushing Attempts,17.5,-130.0,,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Javonte Williams & Dallas Cowboys,,Anytime TD,,115.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams & Las Vegas Raiders,,Anytime TD,,350.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams (DAL) - 1H,,Anytime TD,,135.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams (DAL) - 1Q,,Anytime TD,,340.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jaydon Blue,DAL,Anytime TD,,1200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaydon Blue (DAL) - 1H,,Anytime TD,,1800.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jaydon Blue (DAL) - 1Q,,Anytime TD,,5000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Mingo,DAL,Anytime TD,,1200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jonathan Mingo (DAL) - 1H,,Anytime TD,,2200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin,DAL,Anytime TD,,525.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-KaVontae Turpin,DAL,Receiving Yards,14.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-KaVontae Turpin,DAL,Receptions,1.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-KaVontae Turpin & Dallas Cowboys,,Anytime TD,,650.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-KaVontae Turpin & Las Vegas Raiders,,Anytime TD,,1400.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin (DAL) - 1H,,Anytime TD,,900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin (DAL) - 1Q,,Anytime TD,,2000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Las Vegas Raiders Def/ST,LV,Anytime TD,,900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Luke Schoonmaker,DAL,Anytime TD,,825.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Luke Schoonmaker (DAL) - 1H,,Anytime TD,,2000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-LV Raiders D/ST - 1H,,Anytime TD,,1500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-LV Raiders D/ST - 1Q,,Anytime TD,,3500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Michael Mayer,LV,Anytime TD,,320.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Michael Mayer,LV,Receiving Yards,25.5,-120.0,-110.0,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Rushing Yards,75.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Receptions,2.5,105.0,-135.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Passing Yards,257.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Receiving Yards,93.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-George Pickens,DAL,Anytime TD,,140.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-George Pickens,DAL,Receiving Yards,64.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-George Pickens,DAL,Receptions,4.5,-135.0,105.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-George Pickens & Dallas Cowboys,,Anytime TD,,250.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens & Las Vegas Raiders,,Anytime TD,,600.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens (DAL) - 1H,,Anytime TD,,300.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens (DAL) - 1Q,,Anytime TD,,650.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Luepke,DAL,Anytime TD,,1000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Luepke (DAL) - 1H,,Anytime TD,,4500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ian Thomas,LV,Anytime TD,,2000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ian Thomas (LV) - 1H,,Anytime TD,,4500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jack Bech,LV,Anytime TD,,1100.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Jack Bech (LV) - 1H,,Anytime TD,,2200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson,DAL,Anytime TD,,160.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Jake Ferguson,DAL,Receiving Yards,35.5,-120.0,-110.0,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Jake Ferguson,DAL,Receptions,4.5,-130.0,,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Jake Ferguson & Dallas Cowboys,,Anytime TD,,275.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson & Las Vegas Raiders,,Anytime TD,,600.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson (DAL) - 1H,,Anytime TD,,350.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson (DAL) - 1Q,,Anytime TD,,800.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Tolbert,DAL,Anytime TD,,1200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Tolbert (DAL) - 1H,,Anytime TD,,2200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Anytime TD,,-176.0,,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Michael Mayer,LV,Receptions,2.5,-180.0,135.0,False,,Raiders,Cowboys,1763428500000,Bovada,TE,,,,,,unsupported_market,0.0
-Michael Mayer & Dallas Cowboys,,Anytime TD,,600.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Michael Mayer & Las Vegas Raiders,,Anytime TD,,750.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Michael Mayer (LV) - 1H,,Anytime TD,,650.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,LV,Rushing Yards,16.5,-110.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Zamir White,LV,Anytime TD,,900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Zamir White (LV) - 1H,,Anytime TD,,1900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Zamir White (LV) - 1Q,,Anytime TD,,7000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Geno Smith,LV,Rushing Yards,10.5,-110.0,-120.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Geno Smith,LV,Passing Yards,234.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Geno Smith,LV,Passing TDs,1.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Geno Smith,LV,Passing Attempts,32.5,-105.0,-125.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Geno Smith,LV,Interceptions,0.5,-160.0,120.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Geno Smith,LV,Anytime TD,,900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Dylan Laube,LV,Anytime TD,,2500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ashton Jeanty,LV,Anytime TD,,-168.0,,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr. (LV) - 1Q,,Anytime TD,,2200.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr. (LV) - 1H,,Anytime TD,,1100.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr.,LV,Receiving Yards,9.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dont'e Thornton Jr.,LV,Anytime TD,,625.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Defense - 1Q,,Anytime TD,,3000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Defense - 1H,,Anytime TD,,1400.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dallas Cowboys Def/ST,DAL,Anytime TD,,800.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott (DAL) - 1Q,,Anytime TD,,2700.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Geno Smith (LV) - 1Q,,Anytime TD,,4500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott (DAL) - 1H,,Anytime TD,,1100.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Rushing Yards,10.5,-115.0,-115.0,False,,Raiders,Cowboys,1763428500000,Bovada,QB,,,,,,unsupported_market,0.0
-Under - 1Q,DAL,Receiving Yards,12.5,-115.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,LV,Passing Yards,48.5,-120.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Lockett (LV) - 1Q,,Anytime TD,,1600.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker,LV,Anytime TD,,230.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Michael Mayer (LV) - 1Q,,Anytime TD,,1600.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,LV,Passing Yards,48.5,-110.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,DAL,Receiving Yards,12.5,-115.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,LV,Rushing Yards,16.5,-120.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Raheem Mostert,LV,Anytime TD,,900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,RB,,,,,,unsupported_market,0.0
-Raheem Mostert (LV) - 1H,,Anytime TD,,1900.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Raheem Mostert (LV) - 1Q,,Anytime TD,,7000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Flournoy,DAL,Anytime TD,,525.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Ryan Flournoy (DAL) - 1H,,Anytime TD,,1300.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Flournoy (DAL) - 1Q,,Anytime TD,,10000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker,LV,Receiving Yards,,950.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Lockett (LV) - 1H,,Anytime TD,,700.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker,LV,Receptions,3.5,-135.0,105.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tre Tucker & Dallas Cowboys,,Anytime TD,,500.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker & Las Vegas Raiders,,Anytime TD,,700.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker (LV) - 1H,,Anytime TD,,475.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tre Tucker (LV) - 1Q,,Anytime TD,,1000.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Lockett,LV,Anytime TD,,350.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Lockett,LV,Receiving Yards,25.5,-135.0,105.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Lockett,LV,Receptions,2.5,-180.0,135.0,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
-Tyler Lockett & Dallas Cowboys,,Anytime TD,,650.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Lockett & Las Vegas Raiders,,Anytime TD,,850.0,,False,,Raiders,Cowboys,1763428500000,Bovada,,,,,,,unsupported_market,0.0
-Alex Bachman,LV,Anytime TD,,2800.0,,False,,Raiders,Cowboys,1763428500000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Yards,40.0,-230.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,169.2,0.43478165008471836,,,169.2
+Josh Allen,BUF,Passing Yards,45.0,-170.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,164.2,0.5882331396447783,,,164.2
+Josh Allen,BUF,Passing Yards,50.0,-130.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,159.2,0.7692259913070848,,,159.2
+Josh Allen,BUF,Passing Yards,55.0,105.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,154.2,1.0499891928240952,,,154.2
+Josh Allen,BUF,Passing Yards,60.0,135.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,149.2,1.3499762850270005,,,149.2
+Josh Allen,BUF,Passing Yards,65.0,170.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,144.2,1.699948852226134,,,144.2
+Josh Allen,BUF,Passing Yards,70.0,220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,139.2,2.1998884027742633,,,139.2
+Nico Collins,HOU,Receiving Yards,175.0,1500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-136.4,-0.999999999999992,,,136.4
+Davis Mills,HOU,Passing Yards,40.0,-165.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,135.9,0.605977704243127,,,135.9
+Josh Allen,BUF,Passing Yards,75.0,270.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,134.2,2.6997670300573597,,,134.2
+Davis Mills,HOU,Passing Yards,45.0,-125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,130.9,0.7998343817705466,,,130.9
+Josh Allen,BUF,Passing Yards,80.0,320.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,129.2,3.1995317041486553,,,129.2
+Davis Mills,HOU,Passing Yards,50.0,105.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,125.9,1.0496702249027288,,,125.9
+Josh Allen,BUF,Passing Yards,85.0,410.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,124.19999999999999,4.099012316327842,,,124.19999999999999
+Davis Mills,HOU,Passing Yards,55.0,135.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,120.9,1.3493516908164096,,,120.9
+Josh Allen,BUF,Passing Yards,90.0,530.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,119.19999999999999,5.297921277130979,,,119.19999999999999
+Davis Mills,HOU,Passing Yards,60.0,180.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,115.9,1.798700506938634,,,115.9
+Josh Allen,BUF,Passing Yards,95.0,650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,114.19999999999999,6.495863933652522,,,114.19999999999999
+Nico Collins,HOU,Receiving Yards,150.0,880.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-111.4,-0.9999999997235676,,,111.4
+Davis Mills,HOU,Passing Yards,65.0,225.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,110.9,2.2475106608505815,,,110.9
+Josh Allen,BUF,Passing Yards,100.0,750.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,209.2,109.19999999999999,7.49231383080151,,,109.19999999999999
+Davis Mills,HOU,Passing Yards,70.0,280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,105.9,2.795287115155709,,,105.9
+Davis Mills,HOU,Passing Yards,75.0,350.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,100.9,3.4911330623257877,,,100.9
+Davis Mills,HOU,Passing Yards,80.0,455.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,95.9,4.532950626336489,,,95.9
+Davis Mills,HOU,Passing Yards,85.0,550.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,90.9,5.469449083775988,,,90.9
+Nico Collins,HOU,Receiving Yards,125.0,480.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-86.4,-0.9999989189150745,,,86.4
+Davis Mills,HOU,Passing Yards,90.0,650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,85.9,6.44706321092935,,,85.9
+Davis Mills,HOU,Passing Yards,95.0,800.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,QB,pass_yards,175.9,80.9,7.9063586255857805,,,80.9
+Dalton Schultz,HOU,Receiving Yards,100.0,1400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-73.7,-0.999890825979805,,,73.7
+Khalil Shakir,BUF,Receiving Yards,110.0,1300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-73.3,-0.9998866302881946,,,73.3
+Nico Collins,HOU,Receiving Yards,110.0,300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-71.4,-0.9999466170039364,,,71.4
+Dalton Schultz,HOU,Receiving Yards,90.0,1000.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-63.7,-0.9990159392310333,,,63.7
+Khalil Shakir,BUF,Receiving Yards,100.0,930.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-63.3,-0.9989882466437102,,,63.3
+Dawson Knox,BUF,Receiving Yards,90.0,1500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-61.9,-0.9978288398160666,,,61.9
+Nico Collins,HOU,Receiving Yards,100.0,220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-61.4,-0.9995134072916321,,,61.4
+Dalton Schultz,HOU,Receiving Yards,80.0,700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-53.7,-0.9936637049005945,,,53.7
+Khalil Shakir,BUF,Receiving Yards,90.0,700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-53.3,-0.9931327244235688,,,53.3
+Dawson Knox,BUF,Receiving Yards,80.0,1200.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-51.9,-0.9852703269507272,,,51.9
+Jayden Higgins,HOU,Receiving Yards,90.0,1300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-51.5,-0.9828478672958443,,,51.5
+Nico Collins,HOU,Receiving Yards,90.0,155.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-51.4,-0.9968144795451629,,,51.4
+Keon Coleman,BUF,Receiving Yards,80.0,1300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-51.2,-0.9818186313837121,,,51.2
+Dalton Schultz,HOU,Receiving Yards,70.0,450.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-43.7,-0.9720803609532216,,,43.7
+Khalil Shakir,BUF,Receiving Yards,80.0,480.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-43.3,-0.9684958153828935,,,43.3
+Dawson Knox,BUF,Receiving Yards,70.0,850.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-41.9,-0.93486526425616,,,41.9
+Jayden Higgins,HOU,Receiving Yards,80.0,930.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-41.5,-0.9246065797227558,,,41.5
+Nico Collins,HOU,Receiving Yards,80.0,110.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-41.4,-0.9843763259720719,,,41.4
+Keon Coleman,BUF,Receiving Yards,70.0,930.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-41.2,-0.920841880882112,,,41.2
+Dalton Schultz,HOU,Receiving Yards,60.0,280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-33.7,-0.909864470077284,,,33.7
+Nico Collins,HOU,Receiving Yards,5.0,-330.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,33.6,0.271691444562904,,,33.6
+Jayden Higgins,HOU,Receiving Yards,5.0,130.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,33.5,1.2439133576029489,,,33.5
+Khalil Shakir,BUF,Receiving Yards,70.0,310.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-33.3,-0.8972264130891918,,,33.3
+Dawson Knox,BUF,Receiving Yards,60.0,550.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-31.9,-0.8030802584921158,,,31.9
+Khalil Shakir,BUF,Receiving Yards,5.0,-180.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,31.700000000000003,0.5071601674886721,,,31.700000000000003
+Jayden Higgins,HOU,Receiving Yards,70.0,700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-31.5,-0.7444368385085993,,,31.5
+Nico Collins,HOU,Receiving Yards,70.0,-150.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-31.4,-0.9460511538458293,,,31.4
+Keon Coleman,BUF,Receiving Yards,60.0,650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-31.2,-0.750767041792632,,,31.2
+Nico Collins,HOU,Receiving Yards,10.0,-190.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,28.6,0.45572336302092287,,,28.6
+Jayden Higgins,HOU,Receiving Yards,10.0,220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,28.5,2.0501663159109498,,,28.5
+Jayden Higgins,HOU,Receiving Yards,10.0,-550.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,28.5,0.12648187803529387,,,28.5
+Khalil Shakir,BUF,Receiving Yards,10.0,110.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,26.700000000000003,0.9779077593534939,,,26.700000000000003
+Keon Coleman,BUF,Receiving Yards,5.0,140.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,23.8,1.2061840178389494,,,23.8
+Dalton Schultz,HOU,Receiving Yards,50.0,175.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-23.7,-0.7754871385874691,,,23.7
+Nico Collins,HOU,Receiving Yards,15.0,-120.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,23.6,0.6820233757610474,,,23.6
+Jayden Higgins,HOU,Receiving Yards,15.0,-330.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,23.5,0.19431629713543852,,,23.5
+Jayden Higgins,HOU,Receiving Yards,15.0,320.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,23.5,2.849586948441204,,,23.5
+Khalil Shakir,BUF,Receiving Yards,60.0,200.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-23.299999999999997,-0.744244971320898,,,23.299999999999997
+Dawson Knox,BUF,Receiving Yards,5.0,150.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,23.1,1.282246855717006,,,23.1
+Dawson Knox,BUF,Receiving Yards,50.0,350.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-21.9,-0.5552558435441561,,,21.9
+Khalil Shakir,BUF,Receiving Yards,15.0,-1200.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,21.700000000000003,-0.025969159399031425,,,21.700000000000003
+Khalil Shakir,BUF,Receiving Yards,15.0,180.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,21.700000000000003,1.5174950957071187,,,21.700000000000003
+Jayden Higgins,HOU,Receiving Yards,60.0,450.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-21.5,-0.43356385357843236,,,21.5
+Nico Collins,HOU,Receiving Yards,60.0,-220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-21.4,-0.8486588512040697,,,21.4
+Dalton Schultz,HOU,Receiving Yards,5.0,-150.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,21.3,0.4914774040938058,,,21.3
+Keon Coleman,BUF,Receiving Yards,50.0,400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-21.2,-0.4690601760015808,,,21.2
+Keon Coleman,BUF,Receiving Yards,10.0,-350.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,18.8,0.1129287860585925,,,18.8
+Keon Coleman,BUF,Receiving Yards,10.0,235.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,18.8,1.8997977814526663,,,18.8
+Nico Collins,HOU,Receiving Yards,20.0,125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,18.6,0.9418586933444439,,,18.6
+Jayden Higgins,HOU,Receiving Yards,20.0,520.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,18.5,4.342877132998141,,,18.5
+Jayden Higgins,HOU,Receiving Yards,20.0,-210.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,18.5,0.27211360309479565,,,18.5
+Dawson Knox,BUF,Receiving Yards,10.0,-400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,18.1,0.07061934543285053,,,18.1
+Dawson Knox,BUF,Receiving Yards,10.0,235.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,18.1,1.8692598457600393,,,18.1
+Khalil Shakir,BUF,Receiving Yards,20.0,-650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,16.700000000000003,-0.0341880777084454,,,16.700000000000003
+Khalil Shakir,BUF,Receiving Yards,20.0,280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,16.700000000000003,2.1807405974135197,,,16.700000000000003
+Nico Collins,HOU,Receiving Yards,55.0,800.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-16.4,0.5061146664829244,,,16.4
+Dalton Schultz,HOU,Receiving Yards,10.0,140.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,16.3,0.9948228156563816,,,16.3
+Keon Coleman,BUF,Receiving Yards,15.0,-225.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,13.8,0.1433307472574759,,,13.8
+Keon Coleman,BUF,Receiving Yards,15.0,350.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,13.8,2.561915020302137,,,13.8
+Dalton Schultz,HOU,Receiving Yards,40.0,-110.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-13.7,-0.5987943438297615,,,13.7
+Nico Collins,HOU,Receiving Yards,25.0,180.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,13.600000000000001,1.2068048839664889,,,13.600000000000001
+Jayden Higgins,HOU,Receiving Yards,25.0,-140.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,13.5,0.34817690420457437,,,13.5
+Jayden Higgins,HOU,Receiving Yards,25.0,700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,13.5,5.291492219621347,,,13.5
+Khalil Shakir,BUF,Receiving Yards,50.0,125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-13.299999999999997,-0.5117419205499707,,,13.299999999999997
+Dawson Knox,BUF,Receiving Yards,15.0,370.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,13.100000000000001,2.663765063728852,,,13.100000000000001
+Dawson Knox,BUF,Receiving Yards,15.0,-250.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,13.100000000000001,0.09133427430221108,,,13.100000000000001
+Dawson Knox,BUF,Receiving Yards,40.0,220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-11.899999999999999,-0.22571631288616611,,,11.899999999999999
+Woody Marks,HOU,Receiving Yards,10.0,-150.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,rec_yards,21.8,11.8,0.26032630623540665,,,11.8
+Khalil Shakir,BUF,Receiving Yards,25.0,-450.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,11.700000000000003,-0.07801949090638904,,,11.700000000000003
+Khalil Shakir,BUF,Receiving Yards,25.0,400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,11.700000000000003,2.7717384462920442,,,11.700000000000003
+Jayden Higgins,HOU,Receiving Yards,50.0,300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-11.5,-0.0025161727997069505,,,11.5
+Nico Collins,HOU,Receiving Yards,50.0,650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-11.399999999999999,0.8843107971043065,,,11.399999999999999
+Nico Collins,HOU,Receiving Yards,50.0,-350.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-11.399999999999999,-0.6769752919249761,,,11.399999999999999
+Dalton Schultz,HOU,Receiving Yards,15.0,-900.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,11.3,-0.17013257261461529,,,11.3
+Dalton Schultz,HOU,Receiving Yards,15.0,230.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,11.3,1.4647062593345925,,,11.3
+Keon Coleman,BUF,Receiving Yards,40.0,240.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-11.2,-0.1329845367870075,,,11.2
+Keon Coleman,BUF,Receiving Yards,20.0,600.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,8.8,3.883534102905139,,,8.8
+Keon Coleman,BUF,Receiving Yards,20.0,-145.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,8.8,0.1787840938046888,,,8.8
+Nico Collins,HOU,Receiving Yards,30.0,230.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,8.600000000000001,1.2886502517007932,,,8.600000000000001
+Nico Collins,HOU,Receiving Yards,30.0,-1500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,8.600000000000001,-0.2602342620765113,,,8.600000000000001
+Jayden Higgins,HOU,Receiving Yards,30.0,,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,8.5,,,,8.5
+Woody Marks,HOU,Receiving Yards,30.0,420.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,rec_yards,21.8,-8.2,0.6368436364116703,,,8.2
+Dawson Knox,BUF,Receiving Yards,20.0,550.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,8.100000000000001,3.4403477423238944,,,8.100000000000001
+Dawson Knox,BUF,Receiving Yards,20.0,-165.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,8.100000000000001,0.09714885940870105,,,8.100000000000001
+Woody Marks,HOU,Receiving Yards,15.0,125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,rec_yards,21.8,6.800000000000001,0.47469891862322944,,,6.800000000000001
+Khalil Shakir,BUF,Receiving Yards,30.0,580.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,6.700000000000003,3.442119778480449,,,6.700000000000003
+Khalil Shakir,BUF,Receiving Yards,30.0,-300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,6.700000000000003,-0.1289961218665787,,,6.700000000000003
+Nico Collins,HOU,Receiving Yards,45.0,530.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-6.399999999999999,1.2256862928963295,,,6.399999999999999
+Dalton Schultz,HOU,Receiving Yards,20.0,-500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,6.300000000000001,-0.2265665475860842,,,6.300000000000001
+Dalton Schultz,HOU,Receiving Yards,20.0,370.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,6.300000000000001,2.029281021954504,,,6.300000000000001
+Nico Collins,HOU,Receptions,10.0,800.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-5.27,-0.99977327939312,,,5.27
+Dalton Schultz,HOU,Receptions,8.0,580.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,-4.34,-0.9971357144708772,,,4.34
+Nico Collins,HOU,Receptions,9.0,500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-4.27,-0.9969363497999455,,,4.27
+Keon Coleman,BUF,Receiving Yards,25.0,750.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,3.8000000000000007,4.00172514680064,,,3.8000000000000007
+Keon Coleman,BUF,Receiving Yards,25.0,105.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,3.8000000000000007,0.2062984177578011,,,3.8000000000000007
+Dalton Schultz,HOU,Receiving Yards,30.0,-220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-3.6999999999999993,-0.3980333704277559,,,3.6999999999999993
+Dalton Schultz,HOU,Receiving Yards,30.0,800.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,-3.6999999999999993,2.7246685204782604,,,3.6999999999999993
+Khalil Shakir,BUF,Receptions,9.0,880.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,-3.6500000000000004,-0.975550040097666,,,3.6500000000000004
+Nico Collins,HOU,Receiving Yards,35.0,310.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,3.6000000000000014,1.3938042604581171,,,3.6000000000000014
+Dalton Schultz,HOU,Receptions,7.0,320.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,-3.34,-0.9785958429175655,,,3.34
+Khalil Shakir,BUF,Receiving Yards,40.0,-150.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,-3.299999999999997,-0.2949301965926738,,,3.299999999999997
+Nico Collins,HOU,Receptions,8.0,270.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-3.2699999999999996,-0.9780030207172344,,,3.2699999999999996
+Woody Marks,HOU,Receiving Yards,25.0,300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,rec_yards,21.8,-3.1999999999999993,0.7013844125448099,,,3.1999999999999993
+Dawson Knox,BUF,Receiving Yards,25.0,-115.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,3.1000000000000014,0.07004027339669194,,,3.1000000000000014
+Dawson Knox,BUF,Receiving Yards,25.0,750.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,3.1000000000000014,3.8649505453268214,,,3.1000000000000014
+Dawson Knox,BUF,Receptions,1.0,-1400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.72,2.72,0.05192267854781185,,,2.72
+Khalil Shakir,BUF,Receptions,8.0,500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,-2.6500000000000004,-0.875488607747956,,,2.6500000000000004
+Jayden Higgins,HOU,Receptions,6.0,800.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,3.47,-2.53,-0.7676368205211404,,,2.53
+Khalil Shakir,BUF,Receptions,3.0,-700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,2.3499999999999996,0.10248319858468269,,,2.3499999999999996
+Dalton Schultz,HOU,Receptions,6.0,190.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,-2.34,-0.895802074572515,,,2.34
+Woody Marks,HOU,Receptions,5.0,880.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,receptions,2.72,-2.28,-0.6106613263170426,,,2.28
+Nico Collins,HOU,Receptions,7.0,155.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-2.2699999999999996,-0.897000116572138,,,2.2699999999999996
+Keon Coleman,BUF,Receptions,5.0,630.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,2.8,-2.2,-0.6693562749864752,,,2.2
+Dawson Knox,BUF,Receiving Yards,30.0,120.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,28.1,-1.8999999999999986,0.002110970043441407,,,1.8999999999999986
+Woody Marks,HOU,Receiving Yards,20.0,200.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,rec_yards,21.8,1.8000000000000007,0.6264864565029912,,,1.8000000000000007
+Keon Coleman,BUF,Receptions,1.0,-1500.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,2.8,1.7999999999999998,-0.021957389164200702,,,1.7999999999999998
+Woody Marks,HOU,Receptions,1.0,-700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,receptions,2.72,1.7200000000000002,0.03668011535524579,,,1.7200000000000002
+Dawson Knox,BUF,Receptions,2.0,-240.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.72,1.7200000000000002,0.28505139299244026,,,1.7200000000000002
+Khalil Shakir,BUF,Receiving Yards,35.0,750.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,36.7,1.7000000000000028,3.5885366168547472,,,1.7000000000000028
+Khalil Shakir,BUF,Receptions,7.0,280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,-1.6500000000000004,-0.6117183371637737,,,1.6500000000000004
+Jayden Higgins,HOU,Receptions,5.0,400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,3.47,-1.5299999999999998,-0.4019344741838917,,,1.5299999999999998
+Jayden Higgins,HOU,Receiving Yards,40.0,180.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.5,-1.5,0.3015655324727855,,,1.5
+Jayden Higgins,HOU,Receptions,2.0,-400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,3.47,1.4700000000000002,0.08865485392143455,,,1.4700000000000002
+Nico Collins,HOU,Receiving Yards,40.0,400.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-1.3999999999999986,1.335915140948575,,,1.3999999999999986
+Nico Collins,HOU,Receiving Yards,40.0,-650.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,38.6,-1.3999999999999986,-0.4609426597810981,,,1.3999999999999986
+Khalil Shakir,BUF,Receptions,4.0,-280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,1.3499999999999996,0.1542125207985765,,,1.3499999999999996
+Dalton Schultz,HOU,Receptions,5.0,-105.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,-1.3399999999999999,-0.7045568792478404,,,1.3399999999999999
+Dalton Schultz,HOU,Receiving Yards,25.0,-330.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,1.3000000000000007,-0.30877155519737476,,,1.3000000000000007
+Dalton Schultz,HOU,Receiving Yards,25.0,600.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,rec_yards,26.3,1.3000000000000007,2.71334350580015,,,1.3000000000000007
+Woody Marks,HOU,Receptions,4.0,410.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,receptions,2.72,-1.2799999999999998,-0.17172677391736624,,,1.2799999999999998
+Dawson Knox,BUF,Receptions,5.0,700.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.72,-1.2799999999999998,0.29925211934530793,,,1.2799999999999998
+Nico Collins,HOU,Receptions,6.0,-125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-1.2699999999999996,-0.7042534874957861,,,1.2699999999999996
+Keon Coleman,BUF,Receptions,4.0,280.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,2.8,-1.2000000000000002,-0.323662472505911,,,1.2000000000000002
+Keon Coleman,BUF,Receiving Yards,30.0,145.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,rec_yards,28.8,-1.1999999999999993,0.1560637055652705,,,1.1999999999999993
+Keon Coleman,BUF,Receptions,2.0,-250.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,2.8,0.7999999999999998,0.02318947568689378,,,0.7999999999999998
+Nico Collins,HOU,Receptions,4.0,-600.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,0.7300000000000004,-0.16841780237762863,,,0.7300000000000004
+Dawson Knox,BUF,Receptions,3.0,130.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.72,0.7200000000000002,0.6333632405253165,,,0.7200000000000002
+Woody Marks,HOU,Receptions,2.0,-155.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,receptions,2.72,0.7200000000000002,0.1683243375426527,,,0.7200000000000002
+Dalton Schultz,HOU,Receptions,3.0,-600.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,0.6600000000000001,-0.19014033392063012,,,0.6600000000000001
+Khalil Shakir,BUF,Receptions,6.0,155.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,-0.6500000000000004,-0.2132292762487335,,,0.6500000000000004
+Jayden Higgins,HOU,Receptions,4.0,190.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,3.47,-0.5299999999999998,-0.00892560091115513,,,0.5299999999999998
+Jayden Higgins,HOU,Receptions,3.0,-130.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,3.47,0.4700000000000002,0.13434499835007713,,,0.4700000000000002
+Khalil Shakir,BUF,Receptions,5.0,-130.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,5.35,0.34999999999999964,0.07237313902180897,,,0.34999999999999964
+Dalton Schultz,HOU,Receptions,4.0,-225.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.66,-0.33999999999999986,-0.4267886214929967,,,0.33999999999999986
+Woody Marks,HOU,Receptions,3.0,190.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,RB,receptions,2.72,-0.2799999999999998,0.20272782234130193,,,0.2799999999999998
+Dawson Knox,BUF,Receptions,4.0,310.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,TE,receptions,3.72,-0.2799999999999998,0.7004083005514958,,,0.2799999999999998
+Nico Collins,HOU,Receptions,5.0,-250.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,4.73,-0.2699999999999996,-0.41517154299785153,,,0.2699999999999996
+Keon Coleman,BUF,Receptions,3.0,120.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,WR,receptions,2.8,-0.20000000000000018,-0.03449585434811231,,,0.20000000000000018
+Rashod Bateman (BAL) - 1H,,Anytime TD,,525.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashod Bateman & New York Jets,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Reggie Gilliam,BUF,Anytime TD,,1700.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Rasheen Ali (BAL) - 1Q,,Anytime TD,,12000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashod Bateman (BAL) - 1Q,,Anytime TD,,1500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Ray Davis,BUF,Anytime TD,,1700.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Rashod Bateman & Baltimore Ravens,,Anytime TD,,350.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashod Bateman,BAL,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,NE,Anytime TD,,-200.0,,False,,Bengals,Patriots,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+New York Jets Def/ST,NYJ,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rasheen Ali (BAL) - 1H,,Anytime TD,,3300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rasheen Ali,BAL,Anytime TD,,1800.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Rico Dowdle,CAR,Anytime TD,,-139.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1Q,,Anytime TD,,675.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1H,,Anytime TD,,250.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice & Kansas City Chiefs,,Anytime TD,,200.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice & Indianapolis Colts,,Anytime TD,,450.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice,KC,Anytime TD,,,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,180.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+Ricky Pearsall,SF,Anytime TD,,210.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Tahj Brooks,CIN,Anytime TD,,1000.0,,False,,Bengals,Patriots,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Robert Tonyan,KC,Anytime TD,,2500.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Ronnie Rivers,LAR,Anytime TD,,3000.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+Terrance Ferguson,LAR,Anytime TD,,625.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Tee Higgins,CIN,Anytime TD,,130.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Teagan Quitoriano,ATL,Anytime TD,,2500.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Taysom Hill,NOR,Anytime TD,,320.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Tanner Hudson,CIN,Anytime TD,,440.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Tank Bigsby,PHI,Anytime TD,,825.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Def/ST,TB,Anytime TD,,1000.0,,False,,Rams,Buccaneers,1763947200000,Bovada,,,,,,,unsupported_market,0.0
+Philadelphia Eagles Def/ST,PHI,Anytime TD,,700.0,,False,,Cowboys,Eagles,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Stone Smartt,NYJ,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,350.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Stefon Diggs,NE,Anytime TD,,110.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Skyy Moore,SF,Anytime TD,,1300.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Anytime TD,,180.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+Saquon Barkley,PHI,Anytime TD,,-122.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+San Francisco 49ers Def/ST,SF,Anytime TD,,700.0,,False,,49ers,Panthers,1764033300000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller,TB,Anytime TD,,1300.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Ryan Flournoy,DAL,Anytime TD,,700.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Anytime TD,,-122.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Noah Gray (KC) - 1Q,,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham,TB,Anytime TD,,1200.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Nico Collins & Houston Texans,,Anytime TD,,440.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Receiving Yards,76.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Anytime TD,,140.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1Q,,Anytime TD,,2200.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1H,,Anytime TD,,950.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Rushing Yards,20.5,-130.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Anytime TD,,500.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+New York Jets Def/ST (NYJ) - 1Q,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Evans,CAR,Anytime TD,,1400.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Mitchell Tinsley,CIN,Anytime TD,,400.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Mo Alie-Cox,IND,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Mo Alie-Cox (IND) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+New York Jets Def/ST (NYJ) - 1H,,Anytime TD,,1700.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan,CAR,Anytime TD,,140.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Mo Alie-Cox (IND) - 1Q,,Anytime TD,,5000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Nathan Carter,ATL,Anytime TD,,6000.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+New England Patriots Def/ST,NE,Anytime TD,,500.0,,False,,Bengals,Patriots,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+New Orleans Saints Def/ST,NOR,Anytime TD,,900.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins & Buffalo Bills,,Anytime TD,,230.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1H,,Anytime TD,,300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Ricard,BAL,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1Q,,Anytime TD,,650.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1Q,,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Michael Pittman Jr. & Kansas City Chiefs,,Anytime TD,,500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1H,,Anytime TD,,625.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes & Kansas City Chiefs,,Anytime TD,,400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes & Indianapolis Colts,,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Interceptions,0.5,-110.0,-120.0,False,,Chiefs,Colts,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Anytime TD,,275.0,,False,,Chiefs,Colts,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Owen Wright,TB,Anytime TD,,2800.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+Over - 1Q,HOU,Rushing Yards,15.5,-115.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,BUF,Receiving Yards,0.5,125.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,HOU,Passing Yards,45.5,-115.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Noah Gray (KC) - 1H,,Anytime TD,,950.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Noah Gray,KC,Anytime TD,,525.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Anytime TD,,350.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Nikko Remigio (KC) - 1Q,,Anytime TD,,6000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Nikko Remigio (KC) - 1H,,Anytime TD,,2500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Nikko Remigio,KC,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Terrell Jennings,NE,Anytime TD,,210.0,,False,,Bengals,Patriots,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Will Mallory (IND) - 1Q,,Anytime TD,,8000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson,TB,Anytime TD,,275.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1H,,Anytime TD,,290.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy,KC,Anytime TD,,220.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Smith,LAR,Anytime TD,,1300.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Legette,CAR,Anytime TD,,350.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,6000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1H,,Anytime TD,,1700.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Anytime TD,,825.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Gipson,PHI,Anytime TD,,2000.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1Q,,Anytime TD,,650.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & Houston Texans,,Anytime TD,,440.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Tommy Tremble,CAR,Anytime TD,,725.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Woody Marks & Buffalo Bills,,Anytime TD,,230.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Rushing Yards,63.5,-105.0,-125.0,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Rushing Attempts,15.5,-105.0,-125.0,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Receptions,1.5,-165.0,125.0,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Receiving Yards,11.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Anytime TD,,125.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Will Shipley,PHI,Anytime TD,,1700.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Will Mallory (IND) - 1H,,Anytime TD,,3300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy & Indianapolis Colts,,Anytime TD,,750.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy & Kansas City Chiefs,,Anytime TD,,250.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1H,,Anytime TD,,450.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1Q,,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Receiving Yards,30.0,300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,rec_yards,,,,,projection_missing,0.0
+James Cook,BUF,Receiving Yards,25.0,210.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,rec_yards,,,,,projection_missing,0.0
+James Cook,BUF,Receiving Yards,20.0,145.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,rec_yards,,,,,projection_missing,0.0
+James Cook,BUF,Receiving Yards,15.0,-115.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,rec_yards,,,,,projection_missing,0.0
+James Cook,BUF,Receiving Yards,10.0,-220.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,rec_yards,,,,,projection_missing,0.0
+James Cook,BUF,Receptions,5.0,590.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,receptions,,,,,projection_missing,0.0
+James Cook,BUF,Receptions,4.0,300.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,receptions,,,,,projection_missing,0.0
+James Cook,BUF,Receptions,3.0,125.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,receptions,,,,,projection_missing,0.0
+James Cook,BUF,Receptions,2.0,-250.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,receptions,,,,,projection_missing,0.0
+James Cook,BUF,Receptions,1.0,-1200.0,,True,Buffalo Bills @ Houston Texans,Texans,Bills,1763687700000,Bovada,,receptions,,,,,projection_missing,0.0
+Michael Pittman (IND) - 1Q,,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers (BAL) - 1Q,,Anytime TD,,625.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers (BAL) - 1H,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers & New York Jets,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers & Baltimore Ravens,,Anytime TD,,190.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers,BAL,Anytime TD,,170.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Zaire Mitchell-Paden,NOR,Anytime TD,,1700.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Will Mallory,IND,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Under - 1Q,HOU,Rushing Yards,15.5,-115.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,BUF,Receiving Yards,0.5,-165.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee,LAR,Anytime TD,,260.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyler Goodson (IND) - 1H,,Anytime TD,,3000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Goodson,IND,Anytime TD,,1900.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Allgeier,ATL,Anytime TD,,210.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Tylan Wallace (BAL) - 1Q,,Anytime TD,,3500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tylan Wallace (BAL) - 1H,,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tylan Wallace,BAL,Anytime TD,,825.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Ty Johnson (BUF) - 1Q,,Anytime TD,,3300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Ty Johnson (BUF) - 1H,,Anytime TD,,1200.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Ty Johnson,BUF,Anytime TD,,600.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Trevor Etienne,CAR,Anytime TD,,2800.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+TreVeyon Henderson,NE,Anytime TD,,-200.0,,False,,Bengals,Patriots,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1Q,,Anytime TD,,775.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1H,,Anytime TD,,300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce & Kansas City Chiefs,,Anytime TD,,230.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce & Indianapolis Colts,,Anytime TD,,500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce,KC,Anytime TD,,130.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Travis Etienne,JAX,Receiving Yards,79.5,-115.0,-115.0,False,,Cardinals,Jaguars,1763931900000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Goodson (IND) - 1Q,,Anytime TD,,7000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Johnson,NYJ,Anytime TD,,1300.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Under - 1Q,HOU,Passing Yards,45.5,-115.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Johnson (NYJ) - 1H,,Anytime TD,,2000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyrod Taylor (NYJ) - 1Q,,Anytime TD,,3000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyrod Taylor (NYJ) - 1H,,Anytime TD,,1000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyrod Taylor,NYJ,Interceptions,0.5,-145.0,110.0,False,,Ravens,Jets,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Tyrod Taylor,NYJ,Anytime TD,,500.0,,False,,Ravens,Jets,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Tyrell Shavers (BUF) - 1Q,,Anytime TD,,2700.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Tyrell Shavers (BUF) - 1H,,Anytime TD,,1100.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Tyrell Shavers,BUF,Anytime TD,,525.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyquan Thornton (KC) - 1Q,,Anytime TD,,3300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyquan Thornton (KC) - 1H,,Anytime TD,,1300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyquan Thornton,KC,Anytime TD,,800.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyler Warren (IND) - 1Q,,Anytime TD,,1000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Warren (IND) - 1H,,Anytime TD,,400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Warren & Kansas City Chiefs,,Anytime TD,,400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Warren & Indianapolis Colts,,Anytime TD,,500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Warren,IND,Anytime TD,,185.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyler Shough,NOR,Anytime TD,,800.0,,False,,Saints,Falcons,1763933100000,Bovada,QB,,,,,,unsupported_market,0.0
+Tyler Johnson (NYJ) - 1Q,,Anytime TD,,5500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Michael Pittman Jr. & Indianapolis Colts,,Anytime TD,,600.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Brown,PHI,Anytime TD,,130.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Adonai Mitchell,NYJ,Anytime TD,,400.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Dawson Knox & Houston Texans,,Anytime TD,,1300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Passing TDs,1.5,125.0,-165.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Passing Yards,210.5,-145.0,110.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Rushing Yards,,10000.0,,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Davis Mills (HOU) - 1H,,Anytime TD,,3000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Davis Mills (HOU) - 1Q,,Anytime TD,,8000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox,BUF,Anytime TD,,350.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Dawson Knox,BUF,Receiving Yards,,1300.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Dawson Knox & Buffalo Bills,,Anytime TD,,425.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1H,,Anytime TD,,650.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Interceptions,0.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1Q,,Anytime TD,,1500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+DeAndre Hopkins,BAL,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+DeAndre Hopkins & Baltimore Ravens,,Anytime TD,,350.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+DeAndre Hopkins & New York Jets,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+DeAndre Hopkins (BAL) - 1H,,Anytime TD,,525.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+DeAndre Hopkins (BAL) - 1Q,,Anytime TD,,1500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Demarcus Robinson,SF,Anytime TD,,825.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Demario Douglas,NE,Anytime TD,,350.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Passing Attempts,31.5,-160.0,120.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Davis Mills,HOU,Anytime TD,,1200.0,,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Michael Pittman,IND,Anytime TD,,260.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Jones (IND) - 1H,,Anytime TD,,625.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz & Houston Texans,,Anytime TD,,850.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1H,,Anytime TD,,600.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1Q,,Anytime TD,,1300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dameon Pierce,HOU,Anytime TD,,2000.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Dameon Pierce (HOU) - 1H,,Anytime TD,,4000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dameon Pierce (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Jones,IND,Anytime TD,,350.0,,False,,Chiefs,Colts,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Daniel Jones,IND,Interceptions,0.5,-130.0,,False,,Chiefs,Colts,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Daniel Jones (IND) - 1Q,,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen,LAR,Anytime TD,,500.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Dante Pettis,NOR,Anytime TD,,2500.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale,HOU,Anytime TD,,2000.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Dare Ogunbowale (HOU) - 1H,,Anytime TD,,4000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Darius Cooper,PHI,Anytime TD,,2000.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Darnell Mooney,ATL,Anytime TD,,260.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Anytime TD,,-152.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+David Sills,ATL,Anytime TD,,600.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Derrick Henry,BAL,Anytime TD,,-280.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Derrick Henry & Baltimore Ravens,,Anytime TD,,-210.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Derrick Henry & New York Jets,,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST,HOU,Anytime TD,,825.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Moore (BUF) - 1H,,Anytime TD,,1400.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Moore (BUF) - 1Q,,Anytime TD,,3300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Anytime TD,,130.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Feleipe Franks,ATL,Anytime TD,,2500.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Foster Moreau,NOR,Anytime TD,,900.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+George Kittle,SF,Anytime TD,,130.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+George Pickens,DAL,Anytime TD,,160.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Grant Calcaterra,PHI,Anytime TD,,1000.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1H,,Anytime TD,,1000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Derrick Henry (BAL) - 1H,,Anytime TD,,-110.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1Q,,Anytime TD,,2500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry,NE,Anytime TD,,130.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Hunter Luepke,DAL,Anytime TD,,1600.0,,False,,Cowboys,Eagles,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Renfrow,CAR,Anytime TD,,2000.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+IND Colts D/ST - 1H,,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+IND Colts D/ST - 1Q,,Anytime TD,,3300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Indianapolis Colts Def/ST,IND,Anytime TD,,825.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaac Guerendo,SF,Anytime TD,,2200.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+Elijah Moore,BUF,Anytime TD,,825.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Elijah Mitchell (KC) - 1Q,,Anytime TD,,5500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Mitchell (KC) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Mitchell,KC,Anytime TD,,1300.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Derrick Henry (BAL) - 1Q,,Anytime TD,,250.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Devaughn Vele,NOR,Anytime TD,,400.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Devin Culp,TB,Anytime TD,,2500.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Devin Neal,NOR,Anytime TD,,440.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+DeVonta Smith,PHI,Anytime TD,,170.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Devontez Walker,BAL,Anytime TD,,1400.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Devontez Walker (BAL) - 1H,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Devontez Walker (BAL) - 1Q,,Anytime TD,,7000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+DJ Giddens,IND,Anytime TD,,1300.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+DJ Giddens (IND) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+DJ Giddens (IND) - 1Q,,Anytime TD,,4500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye,NE,Anytime TD,,175.0,,False,,Bengals,Patriots,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Drew Ogletree,IND,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Drew Ogletree (IND) - 1H,,Anytime TD,,3300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Drew Ogletree (IND) - 1Q,,Anytime TD,,8000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Drew Sample,CIN,Anytime TD,,1200.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Efton Chism,NE,Anytime TD,,1400.0,,False,,Bengals,Patriots,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz & Buffalo Bills,,Anytime TD,,475.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Receiving Yards,,700.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Anytime TD,,300.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Baltimore Defense - 1Q,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Ashton Dulin (IND) - 1H,,Anytime TD,,1800.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Ashton Dulin (IND) - 1Q,,Anytime TD,,4000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta Falcons Def/ST,ATL,Anytime TD,,1000.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Audric Estime,DEN,Anytime TD,,2200.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Austin Hooper,NE,Anytime TD,,400.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,725.0,,False,,Rams,Buccaneers,1763947200000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Interceptions,0.5,-120.0,-110.0,False,,Rams,Buccaneers,1763947200000,Bovada,QB,,,,,,unsupported_market,0.0
+Baltimore Defense - 1H,,Anytime TD,,1000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Baltimore Ravens Def/ST,BAL,Anytime TD,,525.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Breece Hall & Baltimore Ravens,,Anytime TD,,170.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Anytime TD,,-152.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Anytime TD,,275.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+Brandin Cooks,NOR,Anytime TD,,500.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Brashard Smith,KC,Anytime TD,,400.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Brashard Smith (KC) - 1H,,Anytime TD,,725.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Brashard Smith (KC) - 1Q,,Anytime TD,,1800.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Braxton Berrios,HOU,Anytime TD,,2800.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Breece Hall,NYJ,Anytime TD,,130.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Ashton Dulin,IND,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Arian Smith (NYJ) - 1Q,,Anytime TD,,10000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Arian Smith,NYJ,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Anthony Gould (IND) - 1Q,,Anytime TD,,4000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Adonai Mitchell (NYJ) - 1H,,Anytime TD,,775.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Adonai Mitchell (NYJ) - 1Q,,Anytime TD,,2000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Alec Pierce,IND,Anytime TD,,275.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Alec Pierce & Indianapolis Colts,,Anytime TD,,600.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Alec Pierce & Kansas City Chiefs,,Anytime TD,,550.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Alec Pierce (IND) - 1H,,Anytime TD,,525.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Alec Pierce (IND) - 1Q,,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Allen Lazard,NYJ,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Allen Lazard (NYJ) - 1Q,,Anytime TD,,10000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Alvin Kamara,NOR,Anytime TD,,160.0,,False,,Saints,Falcons,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Ameer Abdullah,IND,Anytime TD,,1300.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Ameer Abdullah (IND) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Ameer Abdullah (IND) - 1Q,,Anytime TD,,4500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas,CIN,Anytime TD,,260.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Andrew Beck,NYJ,Anytime TD,,5000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Anthony Gould,IND,Anytime TD,,1100.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Anthony Gould (IND) - 1H,,Anytime TD,,1800.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Breece Hall,NYJ,Receiving Yards,81.5,-110.0,-120.0,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Breece Hall & New York Jets,,Anytime TD,,1000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert,PHI,Anytime TD,,180.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1Q,,Anytime TD,,4500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Kolar,BAL,Anytime TD,,800.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Charlie Kolar (BAL) - 1H,,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Kolar (BAL) - 1Q,,Anytime TD,,3500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Woerner,ATL,Anytime TD,,1400.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Anytime TD,,-114.0,,False,,Bengals,Patriots,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Chris Olave,NOR,Anytime TD,,220.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian Kirk,HOU,Anytime TD,,800.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1H,,Anytime TD,,1500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Anytime TD,,-400.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+Breece Hall (NYJ) - 1H,,Anytime TD,,275.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard,CAR,Anytime TD,,525.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+Colby Parkinson,LAR,Anytime TD,,625.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Curtis Samuel & Buffalo Bills,,Anytime TD,,500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Curtis Samuel & Houston Texans,,Anytime TD,,1000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Curtis Samuel (BUF) - 1H,,Anytime TD,,750.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Curtis Samuel (BUF) - 1Q,,Anytime TD,,2000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Anytime TD,,900.0,,False,,Cowboys,Eagles,1763933100000,Bovada,QB,,,,,,unsupported_market,0.0
+Dallas Cowboys Def/ST,DAL,Anytime TD,,800.0,,False,,Cowboys,Eagles,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Jones,CIN,Anytime TD,,1200.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,DAL,Receiving Yards,76.5,-115.0,-115.0,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,DAL,Anytime TD,,140.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Casey Washington,ATL,Anytime TD,,1400.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Breece Hall (NYJ) - 1Q,,Anytime TD,,575.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Brevyn Spann-Ford,DAL,Anytime TD,,1800.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Brian Robinson,SF,Anytime TD,,440.0,,False,,49ers,Panthers,1764033300000,Bovada,RB,,,,,,unsupported_market,0.0
+British Brooks,HOU,Anytime TD,,2800.0,,False,,Texans,Bills,1763687700000,Bovada,RB,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Anytime TD,,400.0,,False,,49ers,Panthers,1764033300000,Bovada,QB,,,,,,unsupported_market,0.0
+Bryce Young,CAR,Anytime TD,,900.0,,False,,49ers,Panthers,1764033300000,Bovada,QB,,,,,,unsupported_market,0.0
+Brycen Tremayne,CAR,Anytime TD,,1000.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1H,,Anytime TD,,1000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1Q,,Anytime TD,,2500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Buffalo Bills Def/ST,BUF,Anytime TD,,800.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton,TB,Anytime TD,,240.0,,False,,Rams,Buccaneers,1763947200000,Bovada,TE,,,,,,unsupported_market,0.0
+Cade Stover,HOU,Anytime TD,,1100.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1H,,Anytime TD,,2200.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1Q,,Anytime TD,,7500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Cam Grandy,CIN,Anytime TD,,1200.0,,False,,Bengals,Patriots,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Cameron Latu,PHI,Anytime TD,,2500.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Carolina Panthers Def/ST,CAR,Anytime TD,,1000.0,,False,,49ers,Panthers,1764033300000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Davis,NYJ,Anytime TD,,700.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Isaiah Davis (NYJ) - 1H,,Anytime TD,,1400.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Davis (NYJ) - 1Q,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman,BUF,Receiving Yards,,1500.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Keaton Mitchell,BAL,Anytime TD,,330.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Keaton Mitchell & Baltimore Ravens,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Keaton Mitchell & New York Jets,,Anytime TD,,5000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Keaton Mitchell (BAL) - 1H,,Anytime TD,,875.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Keaton Mitchell (BAL) - 1Q,,Anytime TD,,3000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne,SF,Anytime TD,,1100.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Kene Nwangwu,NYJ,Anytime TD,,2800.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Keon Coleman,BUF,Anytime TD,,350.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Keon Coleman & Buffalo Bills,,Anytime TD,,470.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir & Buffalo Bills,,Anytime TD,,330.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman & Houston Texans,,Anytime TD,,1500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1H,,Anytime TD,,650.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1Q,,Anytime TD,,1400.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Khadarel Hodge,ATL,Anytime TD,,1800.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Khalil Herbert,NYJ,Anytime TD,,700.0,,False,,Ravens,Jets,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Khalil Herbert (NYJ) - 1H,,Anytime TD,,1400.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Herbert (NYJ) - 1Q,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Anytime TD,,260.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1Q,,Anytime TD,,3000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1H,,Anytime TD,,1200.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte,NE,Anytime TD,,350.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Kavontae Turpin,DAL,Anytime TD,,700.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Palmer & Houston Texans,,Anytime TD,,1600.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Palmer (BUF) - 1H,,Anytime TD,,750.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Palmer (BUF) - 1Q,,Anytime TD,,2000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Reynolds,NYJ,Anytime TD,,1300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Josh Reynolds (NYJ) - 1H,,Anytime TD,,2000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Josh Reynolds (NYJ) - 1Q,,Anytime TD,,5500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster,KC,Anytime TD,,800.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster (KC) - 1H,,Anytime TD,,1300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster (KC) - 1Q,,Anytime TD,,3300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Juwan Johnson,NOR,Anytime TD,,260.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Kameron Johnson,TB,Anytime TD,,1300.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kansas City Chiefs Def/ST,KC,Anytime TD,,725.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt,KC,Anytime TD,,-122.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Kareem Hunt & Indianapolis Colts,,Anytime TD,,450.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt & Kansas City Chiefs,,Anytime TD,,160.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1H,,Anytime TD,,210.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1Q,,Anytime TD,,575.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Receiving Yards,44.5,-120.0,-110.0,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Khalil Shakir & Houston Texans,,Anytime TD,,1100.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Palmer,BUF,Receiving Yards,26.5,-120.0,-110.0,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Mason Taylor,NYJ,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Mark Andrews,BAL,Anytime TD,,170.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Mark Andrews & Baltimore Ravens,,Anytime TD,,180.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mark Andrews & New York Jets,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mark Andrews (BAL) - 1H,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mark Andrews (BAL) - 1Q,,Anytime TD,,725.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Marquise Brown,KC,Anytime TD,,400.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1H,,Anytime TD,,725.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1Q,,Anytime TD,,1800.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor & Baltimore Ravens,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1H,,Anytime TD,,490.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor & New York Jets,,Anytime TD,,3300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor (NYJ) - 1H,,Anytime TD,,675.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor (NYJ) - 1Q,,Anytime TD,,1500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Mason Tipton,NOR,Anytime TD,,2000.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Anytime TD,,1600.0,,False,,Rams,Buccaneers,1763947200000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Interceptions,0.5,130.0,-170.0,False,,Rams,Buccaneers,1763947200000,Bovada,QB,,,,,,unsupported_market,0.0
+Mecole Hardman (BUF) - 1H,,Anytime TD,,1400.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Mecole Hardman (BUF) - 1Q,,Anytime TD,,3300.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Malik Davis,DAL,Anytime TD,,1200.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Mack Hollins,NE,Anytime TD,,300.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Luke Schoonmaker,DAL,Anytime TD,,1000.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Luke Farrell,SF,Anytime TD,,1600.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Anytime TD,,1900.0,,False,,Saints,Falcons,1763933100000,Bovada,QB,,,,,,unsupported_market,0.0
+Konata Mumpfield,LAR,Anytime TD,,1300.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyle Juszczyk,SF,Anytime TD,,900.0,,False,,49ers,Panthers,1764033300000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts,ATL,Anytime TD,,260.0,,False,,Saints,Falcons,1763933100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Williams,NE,Anytime TD,,600.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Kylen Granson,PHI,Anytime TD,,2500.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Anytime TD,,-176.0,,False,,Rams,Buccaneers,1763947200000,Bovada,RB,,,,,,unsupported_market,0.0
+LaJohntay Wester,BAL,Anytime TD,,2800.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Anytime TD,,150.0,,False,,Ravens,Jets,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Interceptions,0.5,150.0,-200.0,False,,Ravens,Jets,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+Lamar Jackson & Baltimore Ravens,,Anytime TD,,170.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Lamar Jackson & New York Jets,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Lamar Jackson (BAL) - 1H,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Lamar Jackson (BAL) - 1Q,,Anytime TD,,725.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Laquon Treadwell,IND,Anytime TD,,3000.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Los Angeles Rams Def/ST,LAR,Anytime TD,,700.0,,False,,Rams,Buccaneers,1763947200000,Bovada,,,,,,,unsupported_market,0.0
+Josh Palmer & Buffalo Bills,,Anytime TD,,500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Palmer,BUF,Anytime TD,,400.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaiah Likely,BAL,Anytime TD,,275.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+James Cook,BUF,Receiving Yards,15.5,-110.0,-120.0,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker,CAR,Anytime TD,,350.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Anytime TD,,-122.0,,False,,Cowboys,Eagles,1763933100000,Bovada,QB,,,,,,unsupported_market,0.0
+Jalen Royals,KC,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Royals (KC) - 1H,,Anytime TD,,2500.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Royals (KC) - 1Q,,Anytime TD,,6000.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Tolbert,DAL,Anytime TD,,2200.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Jamal Agnew,ATL,Anytime TD,,2500.0,,False,,Saints,Falcons,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+James Cook,BUF,Anytime TD,,-122.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Receptions,2.5,125.0,-165.0,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Anytime TD,,-114.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+James Cook,BUF,Rushing Attempts,17.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Rushing Yards,73.5,-125.0,-105.0,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook & Buffalo Bills,,Anytime TD,,120.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook & Houston Texans,,Anytime TD,,550.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1H,,Anytime TD,,200.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1Q,,Anytime TD,,500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+James Mitchell,CAR,Anytime TD,,1400.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jared Wiley,KC,Anytime TD,,2500.0,,False,,Chiefs,Colts,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jakob Johnson,HOU,Anytime TD,,2800.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Tonges,SF,Anytime TD,,1100.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Ferguson,DAL,Anytime TD,,210.0,,False,,Cowboys,Eagles,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Jahan Dotson,PHI,Anytime TD,,625.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaiah Likely & Baltimore Ravens,,Anytime TD,,300.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Likely & New York Jets,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Likely (BAL) - 1H,,Anytime TD,,525.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Likely (BAL) - 1Q,,Anytime TD,,1500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Williams,NYJ,Anytime TD,,900.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaiah Williams (NYJ) - 1H,,Anytime TD,,1700.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Williams (NYJ) - 1Q,,Anytime TD,,4000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco,KC,Anytime TD,,-122.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Isiah Pacheco & Indianapolis Colts,,Anytime TD,,450.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco & Kansas City Chiefs,,Anytime TD,,160.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1H,,Anytime TD,,210.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1Q,,Anytime TD,,575.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Ja'Tavion Sanders,CAR,Anytime TD,,400.0,,False,,49ers,Panthers,1764033300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jack Stoll,NOR,Anytime TD,,1700.0,,False,,Saints,Falcons,1763933100000,Bovada,TE,,,,,,unsupported_market,0.0
+Jackson Hawes,BUF,Anytime TD,,900.0,,False,,Texans,Bills,1763687700000,Bovada,TE,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1H,,Anytime TD,,1500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1Q,,Anytime TD,,4000.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings,SF,Anytime TD,,185.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Anytime TD,,500.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Downs (IND) - 1Q,,Anytime TD,,1400.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing TDs,1.5,125.0,-165.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Jonathan Taylor & Indianapolis Colts,,Anytime TD,,190.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor & Kansas City Chiefs,,Anytime TD,,160.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor (IND) - 1H,,Anytime TD,,110.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor (IND) - 1Q,,Anytime TD,,300.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Anytime TD,,825.0,,False,,Rams,Buccaneers,1763947200000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Anytime TD,,-125.0,,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Interceptions,0.5,-120.0,-110.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Attempts,30.5,-105.0,-125.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Yards,224.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Receiving Yards,27.5,-120.0,-110.0,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Rushing Attempts,6.5,105.0,-135.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Rushing Yards,33.5,-115.0,-115.0,False,,Texans,Bills,1763687700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen & Buffalo Bills,,Anytime TD,,120.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen & Houston Texans,,Anytime TD,,550.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1H,,Anytime TD,,220.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1Q,,Anytime TD,,600.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Josh Downs,IND,Anytime TD,,330.0,,False,,Chiefs,Colts,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Downs (IND) - 1H,,Anytime TD,,625.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor,IND,Anytime TD,,-250.0,,False,,Chiefs,Colts,1763920800000,Bovada,RB,,,,,,unsupported_market,0.0
+Jonathan Mingo,DAL,Anytime TD,,2200.0,,False,,Cowboys,Eagles,1763933100000,Bovada,WR,,,,,,unsupported_market,0.0
+John Metchie III (NYJ) - 1Q,,Anytime TD,,2500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+John Metchie III (NYJ) - 1H,,Anytime TD,,1000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Receptions,2.5,-105.0,-125.0,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1H,,Anytime TD,,900.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1Q,,Anytime TD,,1900.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jaydon Blue,DAL,Anytime TD,,1200.0,,False,,Cowboys,Eagles,1763933100000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylin Noel,HOU,Anytime TD,,1000.0,,False,,Texans,Bills,1763687700000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1H,,Anytime TD,,2200.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1Q,,Anytime TD,,6500.0,,False,,Texans,Bills,1763687700000,Bovada,,,,,,,unsupported_market,0.0
+Jelani Woods,NYJ,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jelani Woods (NYJ) - 1H,,Anytime TD,,2000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jelani Woods (NYJ) - 1Q,,Anytime TD,,5500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jeremy Ruckert,NYJ,Anytime TD,,1200.0,,False,,Ravens,Jets,1763920800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jeremy Ruckert (NYJ) - 1H,,Anytime TD,,2000.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jeremy Ruckert (NYJ) - 1Q,,Anytime TD,,5500.0,,False,,Ravens,Jets,1763920800000,Bovada,,,,,,,unsupported_market,0.0
+Jermaine Burton,CIN,Anytime TD,,1200.0,,False,,Bengals,Patriots,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jimmy Horn Jr.,CAR,Anytime TD,,2000.0,,False,,49ers,Panthers,1764033300000,Bovada,WR,,,,,,unsupported_market,0.0
+Joe Flacco,CIN,Anytime TD,,2800.0,,False,,Bengals,Patriots,1763920800000,Bovada,QB,,,,,,unsupported_market,0.0
+John Metchie III,NYJ,Anytime TD,,525.0,,False,,Ravens,Jets,1763920800000,Bovada,WR,,,,,,unsupported_market,0.0
+Michael Pittman (IND) - 1H,,Anytime TD,,475.0,,False,,Chiefs,Colts,1763920800000,Bovada,,,,,,,unsupported_market,0.0
