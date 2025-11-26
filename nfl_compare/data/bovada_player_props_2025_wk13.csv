@@ -1,462 +1,1115 @@
 player,team,market,line,over_price,under_price,book,event,game_time,home_team,away_team,is_ladder
-Christian McCaffrey,SF,Anytime TD,,-385.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Anytime TD,,-148.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Chuba Hubbard,CAR,Anytime TD,,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker,CAR,Anytime TD,,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-James Mitchell,CAR,Anytime TD,,1600.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jimmy Horn Jr.,CAR,Anytime TD,,1800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Anytime TD,,440.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle,SF,Anytime TD,,120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders,CAR,Anytime TD,,420.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brycen Tremayne,CAR,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tommy Tremble,CAR,Anytime TD,,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-San Francisco 49ers Def/ST,SF,Anytime TD,,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Trevor Etienne,CAR,Anytime TD,,2800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Hunter Renfrow,CAR,Anytime TD,,1800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan,CAR,Anytime TD,,145.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Mitchell Evans,CAR,Anytime TD,,1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Luke Farrell,SF,Anytime TD,,1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kyle Juszczyk,SF,Anytime TD,,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Anytime TD,,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Skyy Moore,SF,Anytime TD,,1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Isaac Guerendo,SF,Anytime TD,,2000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson,SF,Anytime TD,,360.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings,SF,Anytime TD,,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette,CAR,Anytime TD,,360.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kendrick Bourne,SF,Anytime TD,,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jake Tonges,SF,Anytime TD,,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Demarcus Robinson,SF,Anytime TD,,825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall,SF,Anytime TD,,215.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jordan Watkins,SF,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jordan James,SF,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey (SF) - 1H,,Anytime TD,,-125.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle (CAR) - 1H,,Anytime TD,,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle (SF) - 1H,,Anytime TD,,270.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan (CAR) - 1H,,Anytime TD,,350.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings (SF) - 1H,,Anytime TD,,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall (SF) - 1H,,Anytime TD,,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette (CAR) - 1H,,Anytime TD,,800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker (CAR) - 1H,,Anytime TD,,750.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders (CAR) - 1H,,Anytime TD,,800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy (SF) - 1H,,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson (SF) - 1H,,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Chuba Hubbard (CAR) - 1H,,Anytime TD,,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Demarcus Robinson (SF) - 1H,,Anytime TD,,1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tommy Tremble (CAR) - 1H,,Anytime TD,,1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-San Francisco Defense - 1H,,Anytime TD,,1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kyle Juszczyk (SF) - 1H,,Anytime TD,,1600.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-CAR Panthers D/ST - 1H,,Anytime TD,,1700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kendrick Bourne (SF) - 1H,,Anytime TD,,1700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brycen Tremayne (CAR) - 1H,,Anytime TD,,1800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jake Tonges (SF) - 1H,,Anytime TD,,1700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young (CAR) - 1H,,Anytime TD,,1900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Luke Farrell (SF) - 1H,,Anytime TD,,2000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Skyy Moore (SF) - 1H,,Anytime TD,,2000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-James Mitchell (CAR) - 1H,,Anytime TD,,2700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Mitchell Evans (CAR) - 1H,,Anytime TD,,2700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jimmy Horn Jr. (CAR) - 1H,,Anytime TD,,3500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Hunter Renfrow (CAR) - 1H,,Anytime TD,,3500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Isaac Guerendo (SF) - 1H,,Anytime TD,,4500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey (SF) - 1Q,,Anytime TD,,240.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle (CAR) - 1Q,,Anytime TD,,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle (SF) - 1Q,,Anytime TD,,650.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan (CAR) - 1Q,,Anytime TD,,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings (SF) - 1Q,,Anytime TD,,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall (SF) - 1Q,,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker (CAR) - 1Q,,Anytime TD,,1800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders (CAR) - 1Q,,Anytime TD,,1900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette (CAR) - 1Q,,Anytime TD,,1900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson (SF) - 1Q,,Anytime TD,,2500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy (SF) - 1Q,,Anytime TD,,2700.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-San Francisco Defense - 1Q,,Anytime TD,,3000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Chuba Hubbard (CAR) - 1Q,,Anytime TD,,3000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Demarcus Robinson (SF) - 1Q,,Anytime TD,,3000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tommy Tremble (CAR) - 1Q,,Anytime TD,,3300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-CAR Panthers D/ST - 1Q,,Anytime TD,,3500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kyle Juszczyk (SF) - 1Q,,Anytime TD,,4000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Kendrick Bourne (SF) - 1Q,,Anytime TD,,4000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jake Tonges (SF) - 1Q,,Anytime TD,,4000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brycen Tremayne (CAR) - 1Q,,Anytime TD,,4500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young (CAR) - 1Q,,Anytime TD,,5500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Luke Farrell (SF) - 1Q,,Anytime TD,,5500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Skyy Moore (SF) - 1Q,,Anytime TD,,5500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Mitchell Evans (CAR) - 1Q,,Anytime TD,,6500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-James Mitchell (CAR) - 1Q,,Anytime TD,,6500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Hunter Renfrow (CAR) - 1Q,,Anytime TD,,8000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jimmy Horn Jr. (CAR) - 1Q,,Anytime TD,,8000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Isaac Guerendo (SF) - 1Q,,Anytime TD,,10000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey & San Francisco 49ers,,Anytime TD,,-245.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey & Carolina Panthers,,Anytime TD,,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle & San Francisco 49ers,,Anytime TD,,120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle & Carolina Panthers,,Anytime TD,,350.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle & San Francisco 49ers,,Anytime TD,,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle & Carolina Panthers,,Anytime TD,,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan & San Francisco 49ers,,Anytime TD,,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan & Carolina Panthers,,Anytime TD,,575.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings & San Francisco 49ers,,Anytime TD,,220.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings & Carolina Panthers,,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall & San Francisco 49ers,,Anytime TD,,240.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall & Carolina Panthers,,Anytime TD,,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette & San Francisco 49ers,,Anytime TD,,550.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette & Carolina Panthers,,Anytime TD,,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker & San Francisco 49ers,,Anytime TD,,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker & Carolina Panthers,,Anytime TD,,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy & San Francisco 49ers,,Anytime TD,,475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy & Carolina Panthers,,Anytime TD,,2000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson Jr. & San Francisco 49ers,,Anytime TD,,475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson Jr. & Carolina Panthers,,Anytime TD,,2200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Passing TDs,1.5,-165.0,125.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Passing TDs,1.5,120.0,-160.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Passing TDs,1.0,-1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing TDs,2.0,-180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing TDs,3.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing TDs,4.0,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing TDs,1.0,-460.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing TDs,2.0,120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing TDs,3.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing TDs,4.0,1400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Attempts,31.5,-125.0,-105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Passing Attempts,33.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Interceptions,0.5,105.0,-135.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Passing Yards,252.5,-135.0,105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Passing Yards,206.5,-145.0,110.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,SF,Passing Yards,58.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,SF,Passing Yards,58.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Passing Yards,40.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Passing Yards,40.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Passing Yards,175.0,-1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,200.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,225.0,-230.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,250.0,-120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,275.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,300.0,275.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,325.0,475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,350.0,825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,375.0,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,125.0,-1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,150.0,-525.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,175.0,-260.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,200.0,-135.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,225.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,250.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,275.0,425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,300.0,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Passing Yards,325.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Passing Yards,,-260.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Passing Yards,,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Rushing Attempts,17.5,105.0,-135.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Rushing Attempts,18.5,105.0,-135.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson,SF,Rushing Yards,23.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brock Purdy,SF,Rushing Yards,8.5,-145.0,110.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Rushing Yards,6.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Rushing Yards,73.5,,-130.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Chuba Hubbard,CAR,Rushing Yards,14.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Rushing Yards,74.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Rushing Yards,0.5,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Rushing Yards,0.5,-310.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,SF,Rushing Yards,18.5,-120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,SF,Rushing Yards,18.5,-110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Rushing Yards,20.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Rushing Yards,20.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson Jr.,SF,Rushing Yards,10.0,-625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,15.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,20.0,-180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,25.0,-110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,30.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,40.0,250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,50.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,60.0,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,70.0,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brian Robinson Jr.,SF,Rushing Yards,80.0,1400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,10.0,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,15.0,160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,20.0,275.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,25.0,425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,30.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,40.0,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Rushing Yards,10.0,110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Rushing Yards,15.0,220.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Rushing Yards,20.0,375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Rushing Yards,25.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Bryce Young,CAR,Rushing Yards,30.0,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,40.0,-925.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,50.0,-425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,60.0,-225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,70.0,-130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,80.0,120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,90.0,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,100.0,275.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,110.0,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,125.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Rushing Yards,150.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,10.0,-230.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,15.0,-120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,20.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,25.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,30.0,300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,40.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,50.0,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Chuba Hubbard,CAR,Rushing Yards,60.0,1400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,40.0,-1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,50.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,60.0,-250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,70.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,80.0,105.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,90.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,100.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,110.0,325.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,125.0,525.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,150.0,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Rushing Yards,,-130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Rushing Yards,,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Brian Robinson,SF,Rushing Yards,,1900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receptions,5.5,105.0,-135.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle,SF,Receptions,4.5,-135.0,105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders,CAR,Receptions,2.5,110.0,-145.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker,CAR,Receptions,2.5,-135.0,105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings,SF,Receptions,3.5,-160.0,120.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall,SF,Receptions,3.5,110.0,-145.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Receptions,2.5,-170.0,130.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan,CAR,Receptions,4.5,-165.0,125.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette,CAR,Receptions,2.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receptions,3.0,-1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,4.0,-400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,5.0,-190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,6.0,,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,7.0,180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,8.0,300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,9.0,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receptions,10.0,775.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,3.0,-825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,4.0,-310.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,5.0,-145.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,6.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,7.0,250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,8.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receptions,9.0,725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receptions,2.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receptions,3.0,,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receptions,4.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receptions,5.0,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receptions,2.0,-475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receptions,3.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receptions,4.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receptions,5.0,330.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receptions,6.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,2.0,-1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,3.0,-425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,4.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,5.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,6.0,250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,7.0,500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receptions,8.0,850.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,2.0,-725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,3.0,-245.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,4.0,110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,5.0,230.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,6.0,475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receptions,7.0,850.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receptions,2.0,-525.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receptions,3.0,-180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receptions,4.0,130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receptions,5.0,260.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receptions,6.0,525.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,3.0,-1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,4.0,-375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,5.0,-180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,6.0,115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,7.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receptions,8.0,375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receptions,2.0,-375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receptions,3.0,-125.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receptions,4.0,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receptions,5.0,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receptions,6.0,825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,,180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle,SF,Receiving Yards,,340.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings,SF,Receiving Yards,,550.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receiving Yards,,600.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall,SF,Receiving Yards,,600.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker,CAR,Receiving Yards,,1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Receiving Yards,,4500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders,CAR,Receiving Yards,,6500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,SF,Receiving Yards,9.5,-110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,SF,Receiving Yards,9.5,-120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,SF,Receiving Yards,12.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,SF,Receiving Yards,12.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Receiving Yards,0.5,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Receiving Yards,0.5,-185.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,SF,Receiving Yards,8.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,SF,Receiving Yards,8.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Receiving Yards,12.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Receiving Yards,12.5,-115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Over - 1Q,CAR,Receiving Yards,0.5,120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Under - 1Q,CAR,Receiving Yards,0.5,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receiving Yards,43.5,-125.0,-105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-George Kittle,SF,Receiving Yards,56.5,-120.0,-110.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ja'Tavion Sanders,CAR,Receiving Yards,17.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jalen Coker,CAR,Receiving Yards,29.5,-130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings,SF,Receiving Yards,46.5,-120.0,-110.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Ricky Pearsall,SF,Receiving Yards,40.5,-125.0,-105.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Receiving Yards,17.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Tetairoa McMillan,CAR,Receiving Yards,63.5,-130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Xavier Legette,CAR,Receiving Yards,23.5,-120.0,-110.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receiving Yards,15.0,-1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,20.0,-690.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,25.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,30.0,-290.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,40.0,-150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,50.0,115.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,60.0,190.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,70.0,300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,80.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,90.0,675.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,100.0,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Christian McCaffrey,SF,Receiving Yards,110.0,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,20.0,-1800.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,25.0,-1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,30.0,-600.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,40.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,50.0,-170.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,60.0,-105.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,70.0,155.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,80.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,90.0,350.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,100.0,475.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,110.0,675.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-George Kittle,SF,Receiving Yards,125.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,10.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,15.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,20.0,,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,25.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,30.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,40.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,50.0,825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ja'Tavion Sanders,CAR,Receiving Yards,60.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,10.0,-675.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,15.0,-375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,20.0,-250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,25.0,-170.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,30.0,-120.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,40.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,50.0,250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,60.0,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,70.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,80.0,850.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,90.0,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jalen Coker,CAR,Receiving Yards,100.0,1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,15.0,-1300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,20.0,-675.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,25.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,30.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,40.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,50.0,110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,60.0,180.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,70.0,250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,80.0,375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,90.0,575.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,100.0,775.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,110.0,1000.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Jauan Jennings,SF,Receiving Yards,125.0,1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,10.0,-1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,15.0,-725.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,20.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,25.0,-310.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,30.0,-230.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,40.0,-130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,50.0,140.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,60.0,200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,70.0,300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,80.0,450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,90.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,100.0,850.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Ricky Pearsall,SF,Receiving Yards,110.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,10.0,-300.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,15.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,20.0,105.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,25.0,160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,30.0,225.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Rico Dowdle,CAR,Receiving Yards,40.0,425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,25.0,-1500.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,30.0,-825.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,40.0,-425.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,50.0,-250.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,60.0,-155.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,70.0,,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,80.0,150.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,90.0,200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,100.0,275.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,110.0,400.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,125.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Tetairoa McMillan,CAR,Receiving Yards,150.0,1200.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,10.0,-450.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,15.0,-260.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,20.0,-160.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,25.0,-110.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,30.0,130.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,40.0,230.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,50.0,375.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,60.0,625.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,70.0,900.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Xavier Legette,CAR,Receiving Yards,80.0,1100.0,,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,True
-Brock Purdy,SF,Rushing Yards,269.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Bryce Young,CAR,Rushing Yards,219.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Christian McCaffrey,SF,Receiving Yards,123.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Jauan Jennings,SF,Receiving Yards,47.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Rico Dowdle,CAR,Receiving Yards,96.5,-115.0,-115.0,Bovada,Carolina Panthers @ San Francisco 49ers,1764033300000,49ers,Panthers,False
-Josh Whyle,GB,Anytime TD,,900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Jahmyr Gibbs,DET,Anytime TD,,-213.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Whyle,GB,Anytime TD,,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs,DET,Anytime TD,,-193.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
 Josh Jacobs,GB,Anytime TD,,-162.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Brock Wright,DET,Anytime TD,,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Christian Watson,GB,Anytime TD,,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Brock Wright,DET,Anytime TD,,310.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Christian Watson,GB,Anytime TD,,210.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
 Malik Heath,GB,Anytime TD,,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Kalif Raymond,DET,Anytime TD,,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Emanuel Wilson,GB,Anytime TD,,-117.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Ross Dwelley,DET,Anytime TD,,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Sione Vaki,DET,Anytime TD,,2200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-John FitzPatrick,GB,Anytime TD,,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Isaac TeSlaa,DET,Anytime TD,,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Jared Goff,DET,Anytime TD,,1400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Luke Musgrave,GB,Anytime TD,,460.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Craig Reynolds,DET,Anytime TD,,1800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Jordan Love,GB,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Jameson Williams,DET,Anytime TD,,175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Amon-Ra St. Brown,DET,Anytime TD,,,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Romeo Doubs,GB,Anytime TD,,160.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Kalif Raymond,DET,Anytime TD,,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Ross Dwelley,DET,Anytime TD,,825.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Sione Vaki,DET,Anytime TD,,2000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+John FitzPatrick,GB,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Isaac TeSlaa,DET,Anytime TD,,460.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jared Goff,DET,Anytime TD,,2000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Luke Musgrave,GB,Anytime TD,,625.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Craig Reynolds,DET,Anytime TD,,1700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jordan Love,GB,Anytime TD,,525.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jameson Williams,DET,Anytime TD,,195.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Amon-Ra St. Brown,DET,Anytime TD,,110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Romeo Doubs,GB,Anytime TD,,170.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
 David Montgomery,DET,Anytime TD,,135.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Dominic Lovett,DET,Anytime TD,,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Savion Williams,GB,Anytime TD,,900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Anthony Firkser,DET,Anytime TD,,1200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Matthew Golden,GB,Anytime TD,,295.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dominic Lovett,DET,Anytime TD,,1400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Savion Williams,GB,Anytime TD,,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Anthony Firkser,DET,Anytime TD,,800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Matthew Golden,GB,Anytime TD,,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
 Dontayvion Wicks,GB,Anytime TD,,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Chris Brooks,GB,Anytime TD,,460.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Green Bay Packers Def/ST,GB,Anytime TD,,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
-Jacob Saylors,DET,Anytime TD,,2200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Chris Brooks,GB,Anytime TD,,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Detroit Lions Def/ST,DET,Anytime TD,,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Green Bay Packers Def/ST,GB,Anytime TD,,460.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jacob Saylors,DET,Anytime TD,,1700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs (DET) - 1H,,Anytime TD,,140.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Emanuel Wilson (GB) - 1H,,Anytime TD,,170.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Jacobs (GB) - 1H,,Anytime TD,,170.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Amon-Ra St. Brown (DET) - 1H,,Anytime TD,,210.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Romeo Doubs (GB) - 1H,,Anytime TD,,340.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+David Montgomery (DET) - 1H,,Anytime TD,,340.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jameson Williams (DET) - 1H,,Anytime TD,,350.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Christian Watson (GB) - 1H,,Anytime TD,,420.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Matthew Golden (GB) - 1H,,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dontayvion Wicks (GB) - 1H,,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Brock Wright (DET) - 1H,,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Chris Brooks (GB) - 1H,,Anytime TD,,800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Isaac TeSlaa (DET) - 1H,,Anytime TD,,850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Kalif Raymond (DET) - 1H,,Anytime TD,,850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Luke Musgrave (GB) - 1H,,Anytime TD,,950.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+John FitzPatrick (GB) - 1H,,Anytime TD,,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jordan Love (GB) - 1H,,Anytime TD,,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+GB Packers D/ST - 1H,,Anytime TD,,1300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Detroit Defense - 1H,,Anytime TD,,1400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Malik Heath (GB) - 1H,,Anytime TD,,1600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Savion Williams (GB) - 1H,,Anytime TD,,1900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Whyle (GB) - 1H,,Anytime TD,,2000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Ross Dwelley (DET) - 1H,,Anytime TD,,2000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dominic Lovett (DET) - 1H,,Anytime TD,,2200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jared Goff (DET) - 1H,,Anytime TD,,4000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Anthony Firkser (DET) - 1H,,Anytime TD,,4000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Sione Vaki (DET) - 1H,,Anytime TD,,4500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs (DET) - 1Q,,Anytime TD,,370.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Emanuel Wilson (GB) - 1Q,,Anytime TD,,430.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Jacobs (GB) - 1Q,,Anytime TD,,430.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Amon-Ra St. Brown (DET) - 1Q,,Anytime TD,,470.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jameson Williams (DET) - 1Q,,Anytime TD,,700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Romeo Doubs (GB) - 1Q,,Anytime TD,,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+David Montgomery (DET) - 1Q,,Anytime TD,,800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Christian Watson (GB) - 1Q,,Anytime TD,,900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Matthew Golden (GB) - 1Q,,Anytime TD,,1700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dontayvion Wicks (GB) - 1Q,,Anytime TD,,1700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Chris Brooks (GB) - 1Q,,Anytime TD,,2200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Brock Wright (DET) - 1Q,,Anytime TD,,2200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Luke Musgrave (GB) - 1Q,,Anytime TD,,2700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jordan Love (GB) - 1Q,,Anytime TD,,2700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+John FitzPatrick (GB) - 1Q,,Anytime TD,,2700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+GB Packers D/ST - 1Q,,Anytime TD,,2700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Isaac TeSlaa (DET) - 1Q,,Anytime TD,,3000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Kalif Raymond (DET) - 1Q,,Anytime TD,,3000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Detroit Defense - 1Q,,Anytime TD,,3300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Malik Heath (GB) - 1Q,,Anytime TD,,4500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Savion Williams (GB) - 1Q,,Anytime TD,,5500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Whyle (GB) - 1Q,,Anytime TD,,6000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Ross Dwelley (DET) - 1Q,,Anytime TD,,8000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dominic Lovett (DET) - 1Q,,Anytime TD,,10000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jared Goff (DET) - 1Q,,Anytime TD,,10000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs & Detroit Lions,,Anytime TD,,-190.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs & Green Bay Packers,,Anytime TD,,-150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Jacobs & Detroit Lions,,Anytime TD,,-150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Josh Jacobs & Green Bay Packers,,Anytime TD,,-105.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Emanuel Wilson & Detroit Lions,,Anytime TD,,140.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Emanuel Wilson & Green Bay Packers,,Anytime TD,,160.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Amon-Ra St. Brown & Detroit Lions,,Anytime TD,,175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Amon-Ra St. Brown & Green Bay Packers,,Anytime TD,,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+David Montgomery & Detroit Lions,,Anytime TD,,275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+David Montgomery & Green Bay Packers,,Anytime TD,,275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Romeo Doubs & Detroit Lions,,Anytime TD,,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Romeo Doubs & Green Bay Packers,,Anytime TD,,325.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jameson Williams & Detroit Lions,,Anytime TD,,425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jameson Williams & Green Bay Packers,,Anytime TD,,425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Christian Watson & Detroit Lions,,Anytime TD,,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Christian Watson & Green Bay Packers,,Anytime TD,,550.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dontayvion Wicks & Detroit Lions,,Anytime TD,,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Dontayvion Wicks & Green Bay Packers,,Anytime TD,,650.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Matthew Golden & Detroit Lions,,Anytime TD,,650.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Matthew Golden & Green Bay Packers,,Anytime TD,,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jared Goff,DET,Passing TDs,1.0,-1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing TDs,2.0,-175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing TDs,3.0,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing TDs,4.0,800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing TDs,1.0,-700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing TDs,2.0,-125.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing TDs,3.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing TDs,4.0,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Interceptions,0.5,-110.0,-120.0,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jordan Love,GB,Interceptions,0.5,,-130.0,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Over - 1Q,DET,Passing Yards,51.5,-120.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Under - 1Q,DET,Passing Yards,51.5,-110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Over - 1Q,GB,Passing Yards,48.5,-115.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Under - 1Q,GB,Passing Yards,48.5,-115.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jared Goff,DET,Passing Yards,150.0,-1500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,175.0,-700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,200.0,-325.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,225.0,-175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,250.0,,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,275.0,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,300.0,350.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,325.0,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,350.0,900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,375.0,1400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,150.0,-1200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,175.0,-500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,200.0,-275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,225.0,-145.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,250.0,135.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,275.0,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,300.0,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,325.0,700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Passing Yards,350.0,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jared Goff,DET,Passing Yards,,-140.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jordan Love,GB,Passing Yards,,110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+David Montgomery,DET,Rushing Yards,15.0,-1500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,20.0,-700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,25.0,-425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,30.0,-275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,40.0,-125.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,50.0,150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,60.0,275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,70.0,425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,80.0,650.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,90.0,900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Rushing Yards,100.0,1200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,40.0,-900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,50.0,-400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,60.0,-200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,70.0,-125.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,80.0,135.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,90.0,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,100.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,110.0,450.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,125.0,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Rushing Yards,150.0,1500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,10.0,-140.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,15.0,140.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,20.0,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,25.0,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,30.0,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jordan Love,GB,Rushing Yards,40.0,1200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,5.0,-750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,6.0,-300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,7.0,-170.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,8.0,110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,9.0,180.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,10.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receptions,11.0,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receptions,2.0,-700.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receptions,3.0,-210.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receptions,4.0,125.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receptions,5.0,260.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receptions,6.0,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,2.0,-1800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,3.0,-500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,4.0,-190.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,5.0,105.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,6.0,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receptions,7.0,375.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,2.0,-900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,3.0,-275.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,4.0,-110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,5.0,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,6.0,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receptions,7.0,850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,2.0,-1450.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,3.0,-400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,4.0,-170.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,5.0,125.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,6.0,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,7.0,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receptions,8.0,850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,40.0,-800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,50.0,-425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,60.0,-250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,70.0,-150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,80.0,,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,90.0,150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,100.0,225.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,110.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,125.0,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Amon-Ra St. Brown,DET,Receiving Yards,150.0,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,10.0,-1800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,15.0,-900.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,20.0,-600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,25.0,-425.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,30.0,-300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,40.0,-175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,50.0,-110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,60.0,145.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,70.0,200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,80.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,90.0,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,100.0,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,110.0,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Christian Watson,GB,Receiving Yards,125.0,1200.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,10.0,-800.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,15.0,-400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,20.0,-250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,25.0,-155.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,30.0,-110.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,40.0,175.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,50.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,60.0,500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,70.0,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,80.0,1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jahmyr Gibbs,DET,Receiving Yards,90.0,1400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,15.0,-1600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,20.0,-850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,25.0,-600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,30.0,-400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,40.0,-250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,50.0,-150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,60.0,,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,70.0,150.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,80.0,225.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,90.0,300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,100.0,400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,110.0,600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,125.0,850.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Jameson Williams,DET,Receiving Yards,150.0,1500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,15.0,-1100.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,20.0,-600.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,25.0,-400.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,30.0,-300.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,40.0,-165.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,50.0,105.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,60.0,165.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,70.0,250.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,80.0,350.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,90.0,550.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,100.0,750.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,110.0,1000.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+Romeo Doubs,GB,Receiving Yards,125.0,1500.0,,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,True
+David Montgomery,DET,Receiving Yards,51.5,-120.0,-110.0,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
+Jahmyr Gibbs,DET,Receiving Yards,107.5,-115.0,-115.0,Bovada,Green Bay Packers @ Detroit Lions,1764266400000,Lions,Packers,False
 Xavier Worthy,KC,Anytime TD,,170.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Jalen Royals,KC,Anytime TD,,2000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Jonathan Mingo,DAL,Anytime TD,,2000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Luke Schoonmaker,DAL,Anytime TD,,900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Patrick Mahomes,KC,Anytime TD,,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Kareem Hunt,KC,Anytime TD,,-110.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Javonte Williams,DAL,Anytime TD,,-157.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Dak Prescott,DAL,Anytime TD,,625.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jalen Royals,KC,Anytime TD,,2500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jonathan Mingo,DAL,Anytime TD,,1900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Luke Schoonmaker,DAL,Anytime TD,,825.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Patrick Mahomes,KC,Anytime TD,,370.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt,KC,Anytime TD,,135.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams,DAL,Anytime TD,,-174.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Anytime TD,,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Nikko Remigio,KC,Anytime TD,,2000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Malik Davis,DAL,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Ryan Flournoy,DAL,Anytime TD,,625.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Jared Wiley,KC,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Robert Tonyan,KC,Anytime TD,,525.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Brashard Smith,KC,Anytime TD,,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Malik Davis,DAL,Anytime TD,,725.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Ryan Flournoy,DAL,Anytime TD,,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jared Wiley,KC,Anytime TD,,725.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Robert Tonyan,KC,Anytime TD,,700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Brashard Smith,KC,Anytime TD,,625.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Elijah Mitchell,KC,Anytime TD,,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Rashee Rice,KC,Anytime TD,,-136.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-George Pickens,DAL,Anytime TD,,145.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Jake Ferguson,DAL,Anytime TD,,220.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Jalen Tolbert,DAL,Anytime TD,,1900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Isiah Pacheco,KC,Anytime TD,,110.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens,DAL,Anytime TD,,140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson,DAL,Anytime TD,,210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jalen Tolbert,DAL,Anytime TD,,2000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco,KC,Anytime TD,,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Hunter Luepke,DAL,Anytime TD,,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Brevyn Spann-Ford,DAL,Anytime TD,,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-JuJu Smith-Schuster,KC,Anytime TD,,900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+JuJu Smith-Schuster,KC,Anytime TD,,1000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Marquise Brown,KC,Anytime TD,,360.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-CeeDee Lamb,DAL,Anytime TD,,140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Tyquan Thornton,KC,Anytime TD,,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb,DAL,Anytime TD,,130.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Tyquan Thornton,KC,Anytime TD,,725.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
 Travis Kelce,KC,Anytime TD,,110.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
-Kavontae Turpin,DAL,Anytime TD,,700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kavontae Turpin,DAL,Anytime TD,,625.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dallas Cowboys Def/ST,DAL,Anytime TD,,440.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams (DAL) - 1H,,Anytime TD,,155.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Rashee Rice (KC) - 1H,,Anytime TD,,175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Travis Kelce (KC) - 1H,,Anytime TD,,250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb (DAL) - 1H,,Anytime TD,,290.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens (DAL) - 1H,,Anytime TD,,320.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Xavier Worthy (KC) - 1H,,Anytime TD,,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt (KC) - 1H,,Anytime TD,,420.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson (DAL) - 1H,,Anytime TD,,460.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco (KC) - 1H,,Anytime TD,,460.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Marquise Brown (KC) - 1H,,Anytime TD,,700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Patrick Mahomes (KC) - 1H,,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kavontae Turpin (DAL) - 1H,,Anytime TD,,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott (DAL) - 1H,,Anytime TD,,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Robert Tonyan (KC) - 1H,,Anytime TD,,1300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+KC Chiefs D/ST - 1H,,Anytime TD,,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jalen Tolbert (DAL) - 1H,,Anytime TD,,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Ryan Flournoy (DAL) - 1H,,Anytime TD,,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Tyquan Thornton (KC) - 1H,,Anytime TD,,1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dallas Defense - 1H,,Anytime TD,,1600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+JuJu Smith-Schuster (KC) - 1H,,Anytime TD,,1600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jared Wiley (KC) - 1H,,Anytime TD,,1600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Brashard Smith (KC) - 1H,,Anytime TD,,1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Malik Davis (DAL) - 1H,,Anytime TD,,1800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Luke Schoonmaker (DAL) - 1H,,Anytime TD,,1900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Brevyn Spann-Ford (DAL) - 1H,,Anytime TD,,2000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Hunter Luepke (DAL) - 1H,,Anytime TD,,2700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Elijah Mitchell (KC) - 1H,,Anytime TD,,3500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jonathan Mingo (DAL) - 1H,,Anytime TD,,4500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams (DAL) - 1Q,,Anytime TD,,390.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Rashee Rice (KC) - 1Q,,Anytime TD,,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Travis Kelce (KC) - 1Q,,Anytime TD,,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb (DAL) - 1Q,,Anytime TD,,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens (DAL) - 1Q,,Anytime TD,,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Xavier Worthy (KC) - 1Q,,Anytime TD,,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson (DAL) - 1Q,,Anytime TD,,1000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt (KC) - 1Q,,Anytime TD,,1000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco (KC) - 1Q,,Anytime TD,,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Marquise Brown (KC) - 1Q,,Anytime TD,,1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Patrick Mahomes (KC) - 1Q,,Anytime TD,,1900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kavontae Turpin (DAL) - 1Q,,Anytime TD,,2700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott (DAL) - 1Q,,Anytime TD,,3000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+KC Chiefs D/ST - 1Q,,Anytime TD,,3000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dallas Defense - 1Q,,Anytime TD,,4000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Malik Davis (DAL) - 1Q,,Anytime TD,,6500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Robert Tonyan (KC) - 1Q,,Anytime TD,,7500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Tyquan Thornton (KC) - 1Q,,Anytime TD,,7500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+JuJu Smith-Schuster (KC) - 1Q,,Anytime TD,,2500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jared Wiley (KC) - 1Q,,Anytime TD,,10000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jalen Tolbert (DAL) - 1Q,,Anytime TD,,10000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Brashard Smith (KC) - 1Q,,Anytime TD,,10000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Ryan Flournoy (DAL) - 1Q,,Anytime TD,,10000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Luke Schoonmaker (DAL) - 1Q,,Anytime TD,,10000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Hunter Luepke (DAL) - 1Q,,Anytime TD,,12500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Brevyn Spann-Ford (DAL) - 1Q,,Anytime TD,,12500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams & Dallas Cowboys,,Anytime TD,,-160.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams & Kansas City Chiefs,,Anytime TD,,-135.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Rashee Rice & Dallas Cowboys,,Anytime TD,,120.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Rashee Rice & Kansas City Chiefs,,Anytime TD,,130.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Travis Kelce & Dallas Cowboys,,Anytime TD,,150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Travis Kelce & Kansas City Chiefs,,Anytime TD,,165.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb & Dallas Cowboys,,Anytime TD,,190.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb & Kansas City Chiefs,,Anytime TD,,210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens & Dallas Cowboys,,Anytime TD,,210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens & Kansas City Chiefs,,Anytime TD,,375.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt & Dallas Cowboys,,Anytime TD,,475.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt & Kansas City Chiefs,,Anytime TD,,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Xavier Worthy & Dallas Cowboys,,Anytime TD,,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Xavier Worthy & Kansas City Chiefs,,Anytime TD,,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson & Dallas Cowboys,,Anytime TD,,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson & Kansas City Chiefs,,Anytime TD,,700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco & Dallas Cowboys,,Anytime TD,,700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco & Kansas City Chiefs,,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Marquise Brown & Dallas Cowboys,,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Marquise Brown & Kansas City Chiefs,,Anytime TD,,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Passing TDs,1.0,-800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing TDs,2.0,-145.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing TDs,3.0,250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing TDs,4.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing TDs,1.0,-1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing TDs,2.0,-275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing TDs,3.0,150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing TDs,4.0,475.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing TDs,5.0,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Interceptions,0.5,-150.0,115.0,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Patrick Mahomes,KC,Interceptions,0.5,-105.0,-125.0,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Passing Yards,150.0,-1800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,175.0,-800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,200.0,-450.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,225.0,-225.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,250.0,-125.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,275.0,160.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,300.0,275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,325.0,475.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,350.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Passing Yards,375.0,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,175.0,-1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,200.0,-700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,225.0,-350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,250.0,-195.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,275.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,300.0,170.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,325.0,300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,350.0,500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,375.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,400.0,1300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Passing Yards,,-160.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Passing Yards,,120.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Rushing Yards,10.0,-150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Rushing Yards,15.0,135.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Rushing Yards,20.0,250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Rushing Yards,25.0,390.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Dak Prescott,DAL,Rushing Yards,30.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,15.0,-1000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,20.0,-475.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,25.0,-300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,30.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,40.0,105.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,50.0,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,60.0,320.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,70.0,500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,80.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,90.0,1150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Isiah Pacheco,KC,Rushing Yards,100.0,1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,40.0,-700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,50.0,-350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,60.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,70.0,-125.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,80.0,135.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,90.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,100.0,300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,110.0,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,125.0,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,150.0,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,15.0,-800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,20.0,-400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,25.0,-260.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,30.0,-175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,40.0,115.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,50.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,60.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,70.0,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,80.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,90.0,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Kareem Hunt,KC,Rushing Yards,100.0,1600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,10.0,-600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,15.0,-275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,20.0,-150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,25.0,105.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,30.0,170.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,40.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,50.0,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Patrick Mahomes,KC,Rushing Yards,60.0,1000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Rushing Yards,,-210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Isiah Pacheco,KC,Rushing Yards,,360.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kareem Hunt,KC,Rushing Yards,,500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Patrick Mahomes,KC,Rushing Yards,,1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Dak Prescott,DAL,Rushing Yards,,7000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb,DAL,Receptions,4.0,-950.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,5.0,-400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,6.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,7.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,8.0,175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,9.0,300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,10.0,500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receptions,11.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,3.0,-1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,4.0,-500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,5.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,6.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,7.0,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,8.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receptions,9.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,3.0,-700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,4.0,-275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,5.0,-125.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,6.0,150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,7.0,275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,8.0,475.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receptions,9.0,750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receptions,1.0,-750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receptions,2.0,-165.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receptions,3.0,170.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receptions,4.0,390.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receptions,5.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receptions,1.0,-750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receptions,2.0,-140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receptions,3.0,220.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receptions,4.0,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receptions,1.0,-800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receptions,2.0,-175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receptions,3.0,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receptions,4.0,460.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,4.0,-850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,5.0,-350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,6.0,-175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,7.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,8.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,9.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,10.0,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receptions,11.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,3.0,-1300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,4.0,-450.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,5.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,6.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,7.0,175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,8.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receptions,9.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,2.0,-750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,3.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,4.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,5.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,6.0,425.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receptions,7.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,,210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+George Pickens,DAL,Receiving Yards,,220.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Rashee Rice,KC,Receiving Yards,,280.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Travis Kelce,KC,Receiving Yards,,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Xavier Worthy,KC,Receiving Yards,,1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Jake Ferguson,DAL,Receiving Yards,,3300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Marquise Brown,KC,Receiving Yards,,6500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Kavontae Turpin,DAL,Receiving Yards,,7000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+Javonte Williams,DAL,Receiving Yards,,15000.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+CeeDee Lamb,DAL,Receiving Yards,30.0,-1800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,40.0,-800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,50.0,-425.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,60.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,70.0,-175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,80.0,-110.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,90.0,140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,100.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,110.0,275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,125.0,425.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,150.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+CeeDee Lamb,DAL,Receiving Yards,175.0,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,30.0,-1600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,40.0,-700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,50.0,-375.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,60.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,70.0,-150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,80.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,90.0,140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,100.0,200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,110.0,275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,125.0,425.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,150.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+George Pickens,DAL,Receiving Yards,175.0,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,10.0,-1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,15.0,-750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,20.0,-400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,25.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,30.0,-165.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,40.0,125.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,50.0,225.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,60.0,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,70.0,650.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,80.0,950.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Jake Ferguson,DAL,Receiving Yards,90.0,1400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,10.0,-105.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,15.0,170.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,20.0,280.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,25.0,425.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,30.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,10.0,-140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,15.0,110.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,20.0,160.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,25.0,220.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,30.0,300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,40.0,500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,50.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,60.0,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+JuJu Smith-Schuster,KC,Receiving Yards,70.0,1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,10.0,-250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,15.0,-150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,20.0,105.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,25.0,150.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,30.0,210.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,40.0,360.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,50.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,60.0,900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+KaVontae Turpin,DAL,Receiving Yards,70.0,1250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,10.0,-275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,15.0,-160.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,20.0,-105.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,25.0,140.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,30.0,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,40.0,330.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,50.0,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,60.0,850.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,70.0,1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Marquise Brown,KC,Receiving Yards,80.0,1700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,30.0,-1500.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,40.0,-600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,50.0,-325.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,60.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,70.0,-125.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,80.0,130.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,90.0,175.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,100.0,250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,110.0,350.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,125.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Rashee Rice,KC,Receiving Yards,150.0,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,25.0,-1200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,30.0,-750.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,40.0,-375.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,50.0,-225.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,60.0,-135.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,70.0,130.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,80.0,180.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,90.0,275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,100.0,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,110.0,550.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Travis Kelce,KC,Receiving Yards,125.0,900.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,15.0,-700.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,20.0,-450.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,25.0,-275.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,30.0,-200.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,40.0,,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,50.0,165.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,60.0,250.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,70.0,400.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,80.0,600.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,90.0,800.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,100.0,1100.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Xavier Worthy,KC,Receiving Yards,110.0,1300.0,,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,True
+Javonte Williams,DAL,Receiving Yards,82.5,-115.0,-115.0,Bovada,Kansas City Chiefs @ Dallas Cowboys,1764279000000,Cowboys,Chiefs,False
+LaJohntay Wester,BAL,Anytime TD,,2200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rashod Bateman,BAL,Anytime TD,,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Andrei Iosivas,CIN,Anytime TD,,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Ja'Marr Chase,CIN,Anytime TD,,-114.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Devontez Walker,BAL,Anytime TD,,2000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Drew Sample,CIN,Anytime TD,,1700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Tanner Hudson,CIN,Anytime TD,,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mitchell Tinsley,CIN,Anytime TD,,420.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Derrick Henry,BAL,Anytime TD,,-225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mark Andrews,BAL,Anytime TD,,115.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Kolar,BAL,Anytime TD,,800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Jermaine Burton,CIN,Anytime TD,,1000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson,BAL,Anytime TD,,240.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow,CIN,Anytime TD,,825.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Zay Flowers,BAL,Anytime TD,,115.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+DeAndre Hopkins,BAL,Anytime TD,,280.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Isaiah Likely,BAL,Anytime TD,,210.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Tylan Wallace,BAL,Anytime TD,,1400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Jones,CIN,Anytime TD,,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown,CIN,Anytime TD,,-136.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rasheen Ali,BAL,Anytime TD,,625.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Keaton Mitchell,BAL,Anytime TD,,440.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Justice Hill,BAL,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Noah Fant,CIN,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mike Gesicki,CIN,Anytime TD,,370.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Cincinnati Bengals Def/ST,CIN,Anytime TD,,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Baltimore Ravens Def/ST,BAL,Anytime TD,,440.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Patrick Ricard,BAL,Anytime TD,,2500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Cam Grandy,CIN,Anytime TD,,1700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Derrick Henry (BAL) - 1H,,Anytime TD,,120.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown (CIN) - 1H,,Anytime TD,,190.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Ja'Marr Chase (CIN) - 1H,,Anytime TD,,220.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Zay Flowers (BAL) - 1H,,Anytime TD,,240.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mark Andrews (BAL) - 1H,,Anytime TD,,250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Isaiah Likely (BAL) - 1H,,Anytime TD,,400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson (BAL) - 1H,,Anytime TD,,490.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Andrei Iosivas (CIN) - 1H,,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rashod Bateman (BAL) - 1H,,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+DeAndre Hopkins (BAL) - 1H,,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mike Gesicki (CIN) - 1H,,Anytime TD,,750.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Keaton Mitchell (BAL) - 1H,,Anytime TD,,800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mitchell Tinsley (CIN) - 1H,,Anytime TD,,850.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Justice Hill (BAL) - 1H,,Anytime TD,,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rasheen Ali (BAL) - 1H,,Anytime TD,,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Baltimore Defense - 1H,,Anytime TD,,1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Noah Fant (CIN) - 1H,,Anytime TD,,1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Kolar (BAL) - 1H,,Anytime TD,,1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow (CIN) - 1H,,Anytime TD,,1600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Cincinnati D/ST - 1H,,Anytime TD,,1800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Tylan Wallace (BAL) - 1H,,Anytime TD,,1800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Jermaine Burton (CIN) - 1H,,Anytime TD,,2200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Jones (CIN) - 1H,,Anytime TD,,2200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Tanner Hudson (CIN) - 1H,,Anytime TD,,2200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Devontez Walker (BAL) - 1H,,Anytime TD,,3500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+LaJohntay Wester (BAL) - 1H,,Anytime TD,,3500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Patrick Ricard (BAL) - 1H,,Anytime TD,,4000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Derrick Henry (BAL) - 1Q,,Anytime TD,,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown (CIN) - 1Q,,Anytime TD,,450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Ja'Marr Chase (CIN) - 1Q,,Anytime TD,,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Zay Flowers (BAL) - 1Q,,Anytime TD,,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mark Andrews (BAL) - 1Q,,Anytime TD,,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Isaiah Likely (BAL) - 1Q,,Anytime TD,,950.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson (BAL) - 1Q,,Anytime TD,,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Andrei Iosivas (CIN) - 1Q,,Anytime TD,,1400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rashod Bateman (BAL) - 1Q,,Anytime TD,,1600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+DeAndre Hopkins (BAL) - 1Q,,Anytime TD,,1600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mike Gesicki (CIN) - 1Q,,Anytime TD,,1700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mitchell Tinsley (CIN) - 1Q,,Anytime TD,,2000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Keaton Mitchell (BAL) - 1Q,,Anytime TD,,2000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Baltimore Defense - 1Q,,Anytime TD,,2500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Noah Fant (CIN) - 1Q,,Anytime TD,,3000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Justice Hill (BAL) - 1Q,,Anytime TD,,3300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rasheen Ali (BAL) - 1Q,,Anytime TD,,3300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Kolar (BAL) - 1Q,,Anytime TD,,3500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow (CIN) - 1Q,,Anytime TD,,3500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Cincinnati D/ST - 1Q,,Anytime TD,,4000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Tylan Wallace (BAL) - 1Q,,Anytime TD,,5000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Jermaine Burton (CIN) - 1Q,,Anytime TD,,10000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Charlie Jones (CIN) - 1Q,,Anytime TD,,10000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Devontez Walker (BAL) - 1Q,,Anytime TD,,10000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+LaJohntay Wester (BAL) - 1Q,,Anytime TD,,12500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+. - 1Q,,Anytime TD,,-1000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Derrick Henry & Baltimore Ravens,,Anytime TD,,-150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Derrick Henry & Cincinnati Bengals,,Anytime TD,,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown & Baltimore Ravens,,Anytime TD,,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown & Cincinnati Bengals,,Anytime TD,,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Ja'Marr Chase & Baltimore Ravens,,Anytime TD,,175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Ja'Marr Chase & Cincinnati Bengals,,Anytime TD,,400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mark Andrews & Baltimore Ravens,,Anytime TD,,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Mark Andrews & Cincinnati Bengals,,Anytime TD,,750.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Zay Flowers & Baltimore Ravens,,Anytime TD,,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Zay Flowers & Cincinnati Bengals,,Anytime TD,,850.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Isaiah Likely & Baltimore Ravens,,Anytime TD,,275.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Isaiah Likely & Cincinnati Bengals,,Anytime TD,,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson & Baltimore Ravens,,Anytime TD,,275.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson & Cincinnati Bengals,,Anytime TD,,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Andrei Iosivas & Baltimore Ravens,,Anytime TD,,450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Andrei Iosivas & Cincinnati Bengals,,Anytime TD,,850.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+DeAndre Hopkins & Baltimore Ravens,,Anytime TD,,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+DeAndre Hopkins & Cincinnati Bengals,,Anytime TD,,1500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rashod Bateman & Baltimore Ravens,,Anytime TD,,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Rashod Bateman & Cincinnati Bengals,,Anytime TD,,1500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow,CIN,Passing TDs,1.0,-800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing TDs,2.0,-135.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing TDs,3.0,280.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing TDs,4.0,850.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing TDs,1.0,-1800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing TDs,2.0,-275.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing TDs,3.0,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing TDs,4.0,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Interceptions,0.5,-120.0,-110.0,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson,BAL,Interceptions,0.5,150.0,-200.0,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow,CIN,Passing Yards,175.0,-900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,200.0,-450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,225.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,250.0,-135.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,275.0,140.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,300.0,250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,325.0,425.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,350.0,700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,375.0,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,150.0,-1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,175.0,-600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,200.0,-300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,225.0,-165.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,250.0,115.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,275.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,300.0,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,325.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,350.0,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Passing Yards,375.0,1500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Passing Yards,,-150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson,BAL,Passing Yards,,115.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown,CIN,Rushing Yards,30.0,-1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,40.0,-500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,50.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,60.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,70.0,130.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,80.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,90.0,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,100.0,425.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,110.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Rushing Yards,125.0,950.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,50.0,-1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,60.0,-600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,70.0,-325.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,80.0,-200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,90.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,100.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,110.0,175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,125.0,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,150.0,650.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,175.0,1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Rushing Yards,10.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Rushing Yards,15.0,400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Joe Burrow,CIN,Rushing Yards,20.0,650.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,10.0,-425.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,15.0,-200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,20.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,25.0,130.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,30.0,190.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,40.0,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Keaton Mitchell,BAL,Rushing Yards,50.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,10.0,-800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,15.0,-375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,20.0,-225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,25.0,-140.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,30.0,110.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,40.0,225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,50.0,450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,60.0,700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Lamar Jackson,BAL,Rushing Yards,70.0,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Derrick Henry,BAL,Rushing Yards,,-280.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown,CIN,Rushing Yards,,220.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Lamar Jackson,BAL,Rushing Yards,,2200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Keaton Mitchell,BAL,Rushing Yards,,3000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Joe Burrow,CIN,Rushing Yards,,15000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,False
+Chase Brown,CIN,Receptions,2.0,-600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receptions,3.0,-200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receptions,4.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receptions,5.0,250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receptions,6.0,450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receptions,2.0,-500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receptions,3.0,-150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receptions,4.0,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receptions,5.0,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receptions,6.0,650.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,5.0,-1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,6.0,-500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,7.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,8.0,-135.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,9.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,10.0,225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receptions,11.0,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,3.0,-500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,4.0,-175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,5.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,6.0,225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,7.0,425.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receptions,8.0,700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,2.0,-1500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,3.0,-400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,4.0,-160.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,5.0,130.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,6.0,250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,7.0,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receptions,8.0,800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receptions,2.0,-350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receptions,3.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receptions,4.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receptions,5.0,400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receptions,6.0,800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,3.0,-1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,4.0,-450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,5.0,-200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,6.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,7.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,8.0,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receptions,9.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,10.0,-350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,15.0,-200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,20.0,-115.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,25.0,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,30.0,200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,40.0,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Chase Brown,CIN,Receiving Yards,50.0,650.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,10.0,-700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,15.0,-375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,20.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,25.0,-150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,30.0,,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,40.0,180.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,50.0,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,60.0,500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,70.0,800.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Isaiah Likely,BAL,Receiving Yards,80.0,1100.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,50.0,-750.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,60.0,-450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,70.0,-275.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,80.0,-175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,90.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,100.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,110.0,175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,125.0,275.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,150.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Ja'Marr Chase,CIN,Receiving Yards,175.0,1000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,10.0,-2000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,15.0,-900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,20.0,-500.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,25.0,-300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,30.0,-225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,40.0,-125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,50.0,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,60.0,250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,70.0,450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,80.0,650.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,90.0,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mark Andrews,BAL,Receiving Yards,100.0,1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,10.0,-1300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,15.0,-700.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,20.0,-375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,25.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,30.0,-175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,40.0,125.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,50.0,225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,60.0,375.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,70.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,80.0,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Mike Gesicki,CIN,Receiving Yards,90.0,1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,10.0,-425.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,15.0,-225.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,20.0,-140.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,25.0,120.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,30.0,175.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,40.0,350.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,50.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,60.0,900.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Noah Fant,CIN,Receiving Yards,70.0,1400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,30.0,-1000.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,40.0,-450.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,50.0,-250.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,60.0,-160.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,70.0,,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,80.0,150.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,90.0,220.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,100.0,300.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,110.0,400.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,125.0,600.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Zay Flowers,BAL,Receiving Yards,150.0,1200.0,,Bovada,Cincinnati Bengals @ Baltimore Ravens,1764292800000,Ravens,Bengals,True
+Brittain Brown,CHI,Anytime TD,,2500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts,PHI,Anytime TD,,-117.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert,PHI,Anytime TD,,205.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jahan Dotson,PHI,Anytime TD,,625.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Olamide Zaccheaus,CHI,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kylen Granson,PHI,Anytime TD,,2000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DJ Moore,CHI,Anytime TD,,350.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Cole Kmet,CHI,Anytime TD,,825.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Will Shipley,PHI,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Devin Duvernay,CHI,Anytime TD,,2200.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Durham Smythe,CHI,Anytime TD,,2500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Luther Burden III,CHI,Anytime TD,,500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley,PHI,Anytime TD,,-122.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kyle Monangai,CHI,Anytime TD,,220.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Caleb Williams,CHI,Anytime TD,,440.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland,CHI,Anytime TD,,370.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown,PHI,Anytime TD,,125.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze,CHI,Anytime TD,,255.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Darius Cooper,PHI,Anytime TD,,1600.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Grant Calcaterra,PHI,Anytime TD,,1000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Tank Bigsby,PHI,Anytime TD,,900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift,CHI,Anytime TD,,175.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Xavier Gipson,PHI,Anytime TD,,1700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Cameron Latu,PHI,Anytime TD,,1900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith,PHI,Anytime TD,,175.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+AJ Dillon,PHI,Anytime TD,,1300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jahdae Walker,CHI,Anytime TD,,1700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Chicago Bears Def/ST,CHI,Anytime TD,,525.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Philadelphia Eagles Def/ST,PHI,Anytime TD,,500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley (PHI) - 1H,,Anytime TD,,195.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts (PHI) - 1H,,Anytime TD,,250.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown (PHI) - 1H,,Anytime TD,,300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith (PHI) - 1H,,Anytime TD,,330.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift (CHI) - 1H,,Anytime TD,,380.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert (PHI) - 1H,,Anytime TD,,390.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze (CHI) - 1H,,Anytime TD,,500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kyle Monangai (CHI) - 1H,,Anytime TD,,500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D.J. Moore (CHI) - 1H,,Anytime TD,,650.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland (CHI) - 1H,,Anytime TD,,750.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Caleb Williams (CHI) - 1H,,Anytime TD,,800.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Luther Burden III (CHI) - 1H,,Anytime TD,,900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Philadelphia Eagles Def/ST (PHI) - 1H,,Anytime TD,,1300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jahan Dotson (PHI) - 1H,,Anytime TD,,1300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Cole Kmet (CHI) - 1H,,Anytime TD,,1600.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+CHI Bears D/ST - 1H,,Anytime TD,,1800.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Grant Calcaterra (PHI) - 1H,,Anytime TD,,1900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Olamide Zaccheaus (CHI) - 1H,,Anytime TD,,2200.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Tank Bigsby (PHI) - 1H,,Anytime TD,,2200.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Will Shipley (PHI) - 1H,,Anytime TD,,2700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Darius Cooper (PHI) - 1H,,Anytime TD,,3000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kylen Granson (PHI) - 1H,,Anytime TD,,3500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Cameron Latu (PHI) - 1H,,Anytime TD,,3500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Durham Smythe (CHI) - 1H,,Anytime TD,,4500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Nikola Kalinic - 1H,,Anytime TD,,4500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley (PHI) - 1Q,,Anytime TD,,480.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown (PHI) - 1Q,,Anytime TD,,550.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts (PHI) - 1Q,,Anytime TD,,650.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith (PHI) - 1Q,,Anytime TD,,700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift (CHI) - 1Q,,Anytime TD,,850.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert (PHI) - 1Q,,Anytime TD,,900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze (CHI) - 1Q,,Anytime TD,,950.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kyle Monangai (CHI) - 1Q,,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D.J. Moore (CHI) - 1Q,,Anytime TD,,1500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland (CHI) - 1Q,,Anytime TD,,1600.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Caleb Williams (CHI) - 1Q,,Anytime TD,,1800.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Luther Burden III (CHI) - 1Q,,Anytime TD,,1900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Philadelphia Eagles Def/ST (PHI) - 1Q,,Anytime TD,,3000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+CHI Bears D/ST - 1Q,,Anytime TD,,4500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Cole Kmet (CHI) - 1Q,,Anytime TD,,6000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Olamide Zaccheaus (CHI) - 1Q,,Anytime TD,,8000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley & Philadelphia Eagles,,Anytime TD,,,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley & Chicago Bears,,Anytime TD,,700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts & Philadelphia Eagles,,Anytime TD,,120.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts & Chicago Bears,,Anytime TD,,750.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown & Philadelphia Eagles,,Anytime TD,,175.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown & Chicago Bears,,Anytime TD,,900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift & Philadelphia Eagles,,Anytime TD,,275.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift & Chicago Bears,,Anytime TD,,650.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith & Philadelphia Eagles,,Anytime TD,,220.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith & Chicago Bears,,Anytime TD,,1000.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert & Philadelphia Eagles,,Anytime TD,,240.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert & Chicago Bears,,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kyle Monangai & Philadelphia Eagles,,Anytime TD,,375.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Kyle Monangai & Chicago Bears,,Anytime TD,,800.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze & Philadelphia Eagles,,Anytime TD,,375.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze & Chicago Bears,,Anytime TD,,800.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D.J. Moore & Philadelphia Eagles,,Anytime TD,,550.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D.J. Moore & Chicago Bears,,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland & Philadelphia Eagles,,Anytime TD,,550.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland & Chicago Bears,,Anytime TD,,1100.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Caleb Williams,CHI,Passing Yards,,-120.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts,PHI,Passing Yards,,-110.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley,PHI,Rushing Yards,,-230.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift,CHI,Rushing Yards,,380.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Jalen Hurts,PHI,Rushing Yards,,850.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Caleb Williams,CHI,Rushing Yards,,2700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+A.J. Brown,PHI,Receiving Yards,,250.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+DeVonta Smith,PHI,Receiving Yards,,290.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Rome Odunze,CHI,Receiving Yards,,330.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D.J. Moore,CHI,Receiving Yards,,700.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Luther Burden III,CHI,Receiving Yards,,900.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Dallas Goedert,PHI,Receiving Yards,,1300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Colston Loveland,CHI,Receiving Yards,,1300.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Saquon Barkley,PHI,Receiving Yards,,3500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+D'Andre Swift,CHI,Receiving Yards,,6500.0,,Bovada,Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,False
+Tyler Goodson,IND,Anytime TD,,1300.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Jaylin Noel,HOU,Anytime TD,,1100.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Ameer Abdullah,IND,Anytime TD,,1000.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Nico Collins,HOU,Anytime TD,,140.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Woody Marks,HOU,Anytime TD,,140.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Cade Stover,HOU,Anytime TD,,1000.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Michael Pittman,IND,Anytime TD,,195.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Nick Chubb,HOU,Anytime TD,,600.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+C.J. Stroud,HOU,Anytime TD,,1100.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Christian Kirk,HOU,Anytime TD,,400.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Xavier Hutchinson,HOU,Anytime TD,,800.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Daniel Jones,IND,Anytime TD,,330.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Jonathan Taylor,IND,Anytime TD,,-230.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Tyler Warren,IND,Anytime TD,,185.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Anthony Gould,IND,Anytime TD,,1300.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Dalton Schultz,HOU,Anytime TD,,255.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Mo Alie-Cox,IND,Anytime TD,,1300.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Josh Downs,IND,Anytime TD,,270.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Alec Pierce,IND,Anytime TD,,290.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Jayden Higgins,HOU,Anytime TD,,310.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Drew Ogletree,IND,Anytime TD,,1600.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Laquon Treadwell,IND,Anytime TD,,1200.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Houston Texans Def/ST,HOU,Anytime TD,,460.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Braxton Berrios,HOU,Anytime TD,,2800.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+DJ Giddens,IND,Anytime TD,,1100.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Will Mallory,IND,Anytime TD,,1700.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Dare Ogunbowale,HOU,Anytime TD,,1300.0,,Bovada,Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,False
+Johnny Mundt,JAX,Anytime TD,,1400.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Chimere Dike,TEN,Anytime TD,,250.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Brenton Strange,JAX,Anytime TD,,420.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Julius Chestnut,TEN,Anytime TD,,1900.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Parker Washington,JAX,Anytime TD,,235.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Brian Thomas,JAX,Anytime TD,,210.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Quintin Morris,JAX,Anytime TD,,1300.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Van Jefferson,TEN,Anytime TD,,360.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Trevor Lawrence,JAX,Anytime TD,,280.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+James Proche II,TEN,Anytime TD,,700.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Gunnar Helm,TEN,Anytime TD,,500.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Cam Ward,TEN,Anytime TD,,825.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Jakobi Meyers,JAX,Anytime TD,,205.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Dyami Brown,JAX,Anytime TD,,1100.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+LeQuint Allen Jr.,JAX,Anytime TD,,1700.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Austin Trammell,JAX,Anytime TD,,1400.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Tyjae Spears,TEN,Anytime TD,,285.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Travis Etienne,JAX,Anytime TD,,-114.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Tony Pollard,TEN,Anytime TD,,265.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Mason Kinsey,TEN,Anytime TD,,2000.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Kalel Mullings,TEN,Anytime TD,,1600.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Bhayshul Tuten,JAX,Anytime TD,,185.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Chig Okonkwo,TEN,Anytime TD,,440.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Elic Ayomanor,TEN,Anytime TD,,260.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Tim Patrick,JAX,Anytime TD,,525.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+David Martin-Robinson,TEN,Anytime TD,,1800.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Jacksonville Def/ST,JAX,Anytime TD,,460.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Xavier Restrepo,TEN,Anytime TD,,825.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Tennessee Titans Def/ST,TEN,Anytime TD,,500.0,,Bovada,Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,False
+Jaylen Wright,MIA,Anytime TD,,1300.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Devin Neal,NOR,Anytime TD,,290.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Jaylen Waddle,MIA,Anytime TD,,,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Juwan Johnson,NOR,Anytime TD,,320.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Kevin Austin Jr.,NOR,Anytime TD,,1800.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Greg Dulcich,MIA,Anytime TD,,380.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Devaughn Vele,NOR,Anytime TD,,420.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Alec Ingold,MIA,Anytime TD,,1300.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Audric Estime,DEN,Anytime TD,,1100.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Zaire Mitchell-Paden,NOR,Anytime TD,,2000.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Tyler Shough,NOR,Anytime TD,,1300.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+De'Von Achane,MIA,Anytime TD,,-162.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Chris Olave,NOR,Anytime TD,,195.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Julian Hill,MIA,Anytime TD,,460.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Nick Westbrook-Ikhine,MIA,Anytime TD,,500.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Malik Washington,MIA,Anytime TD,,285.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Tahj Washington,MIA,Anytime TD,,1300.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Ollie Gordon II,MIA,Anytime TD,,255.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Tua Tagovailoa,MIA,Anytime TD,,2500.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Foster Moreau,NOR,Anytime TD,,800.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Jack Stoll,NOR,Anytime TD,,2200.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Mason Tipton,NOR,Anytime TD,,825.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Taysom Hill,NOR,Anytime TD,,170.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Cedrick Wilson Jr.,MIA,Anytime TD,,1400.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Miami Dolphins Def/ST,MIA,Anytime TD,,440.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Hayden Rucci,MIA,Anytime TD,,1500.0,,Bovada,New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,False
+Hunter Henry,NE,Anytime TD,,215.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+TreVeyon Henderson,NE,Anytime TD,,-132.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Stefon Diggs,NE,Anytime TD,,120.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Tyrone Tracy Jr.,NYG,Anytime TD,,220.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Kyle Williams,NE,Anytime TD,,1100.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Jack Westover,NE,Anytime TD,,2200.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Darius Slayton,NYG,Anytime TD,,350.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Efton Chism,NE,Anytime TD,,1600.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Terrell Jennings,NE,Anytime TD,,900.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Wan'dale Robinson,NYG,Anytime TD,,235.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Gunner Olszewski,NYG,Anytime TD,,1600.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Demario Douglas,NE,Anytime TD,,600.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Daniel Bellinger,NYG,Anytime TD,,700.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Jalin Hyatt,NYG,Anytime TD,,1500.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Theo Johnson,NYG,Anytime TD,,265.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Eric Gray,NYG,Anytime TD,,2500.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Austin Hooper,NE,Anytime TD,,625.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Chris Manhertz,NYG,Anytime TD,,1800.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Mack Hollins,NE,Anytime TD,,310.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+CJ Dippre,NE,Anytime TD,,2200.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Isaiah Hodgins,NYG,Anytime TD,,500.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Jaxson Dart,NYG,Anytime TD,,310.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Kayshon Boutte,NE,Anytime TD,,285.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Rhamondre Stevenson,NE,Anytime TD,,145.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Drake Maye,NE,Anytime TD,,225.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+Devin Singletary,NYG,Anytime TD,,220.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
+New England Patriots Def/ST,NE,Anytime TD,,460.0,,Bovada,New York Giants @ New England Patriots,1764638100000,Patriots,Giants,False
