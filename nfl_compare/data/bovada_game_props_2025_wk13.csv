@@ -1,353 +1,51 @@
 event,game_time,home_team,away_team,market_key,market_name,period,team_side,line,price_home,price_away,over_price,under_price,is_alternate
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,moneyline,Moneyline,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,moneyline,Moneyline,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,moneyline,Moneyline,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,moneyline,Moneyline,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,moneyline,Moneyline,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,33.5,,,-470.0,315.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,34.5,,,-400.0,275.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,35.5,,,-350.0,245.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,36.5,,,-300.0,215.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,37.5,,,-240.0,175.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,38.5,,,-215.0,160.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,39.5,,,-190.0,145.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,40.5,,,-165.0,125.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,41.0,,,-150.0,115.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,41.5,,,-145.0,110.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,42.0,,,-135.0,105.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,42.5,,,-130.0,,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,43.0,,,-120.0,-110.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,44.0,,,,-130.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,44.5,,,105.0,-135.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,45.0,,,110.0,-145.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,45.5,,,115.0,-150.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,46.5,,,130.0,-170.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,47.5,,,150.0,-200.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,48.5,,,170.0,-230.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,49.5,,,185.0,-250.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,50.5,,,210.0,-290.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,51.5,,,240.0,-340.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,52.5,,,265.0,-380.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Chicago Bears,G,,19.5,,,110.0,-145.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Philadelphia Eagles,G,,26.5,,,-110.0,-120.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,20.5,,,-145.0,110.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,21.0,,,-130.0,,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,22.0,,,-110.0,-120.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,22.5,,,-105.0,-125.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,23.0,,,105.0,-135.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,23.5,,,120.0,-160.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,24.0,,,135.0,-180.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points,G,,24.5,,,155.0,-210.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Chicago Bears,G,,7.5,,,-105.0,-125.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Philadelphia Eagles,G,,13.5,,,-110.0,-120.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Chicago Bears,G,,0.5,,,-150.0,115.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,alt_total,Total Points - Philadelphia Eagles,G,,6.5,,,-110.0,-120.0,True
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -10.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 37.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 37.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 43.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 43.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 49.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -7.5 and O/U 49.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 17.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 17.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 21.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 21.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 25.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -6.5 and O/U 25.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 6.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 6.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 6.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 6.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 9.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 9.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 9.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread -1.5 and O/U 9.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 6.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 6.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 6.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 6.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 9.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 9.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 9.5 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,spread_total_combo,Point Spread 1.5 and O/U 9.5 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,total_range,Total Points Range,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,ht_ft,Half Time / Full Time,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,double_chance,Double Chance,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,win_to_nil,To Win and Allow 0 Points,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,odd_even,Odd/Even Total Points,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,overtime,Will the game go to Overtime?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,overtime,Will the game go to Overtime?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,first_to_score,First Team To Score,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,first_to_score,First Team To Score,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 10,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 10,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 15,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 15,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 20,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 5,G,away,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,race_to_points,Race To 5,G,home,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 13 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 13 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 14 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 14 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 17 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 17 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 21 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 21 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 24 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 24 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 27 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 27 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 30 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 30 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 34 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 34 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 14 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 14 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 17 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 17 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 15 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 15 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 20 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 20 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 25 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 25 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 30 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 30 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 14 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 14 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 17 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 17 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
-Chicago Bears @ Philadelphia Eagles,1764360000000,Eagles,Bears,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,moneyline,Moneyline,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,moneyline,Moneyline,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,moneyline,Moneyline,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,moneyline,Moneyline,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,moneyline,Moneyline,G,,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,34.5,,,-460.0,305.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,35.5,,,-400.0,275.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,36.5,,,-330.0,235.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,37.5,,,-275.0,200.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,38.5,,,-245.0,180.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,39.5,,,-215.0,160.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,40.5,,,-185.0,140.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,41.5,,,-160.0,120.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,42.0,,,-150.0,115.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,42.5,,,-145.0,110.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,43.0,,,-135.0,105.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,43.5,,,-125.0,-105.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,44.5,,,-105.0,-125.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,45.0,,,,-130.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,45.5,,,105.0,-135.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,46.0,,,110.0,-145.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,46.5,,,115.0,-150.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,47.5,,,135.0,-180.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,48.5,,,150.0,-200.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,49.5,,,165.0,-220.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,50.5,,,185.0,-250.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,51.5,,,220.0,-300.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,52.5,,,235.0,-330.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,53.5,,,265.0,-380.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Arizona Cardinals,G,,20.5,,,-120.0,-110.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,23.5,,,-115.0,-115.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Arizona Cardinals,G,,9.5,,,-135.0,105.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,10.5,,,-110.0,-120.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,34.5,,,-500.0,330.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,35.5,,,-440.0,295.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,36.5,,,-360.0,250.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,37.5,,,-290.0,210.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,38.5,,,-260.0,190.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,39.5,,,-230.0,170.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,40.5,,,-200.0,150.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,41.5,,,-170.0,130.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,42.5,,,-160.0,120.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,43.0,,,-145.0,110.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,43.5,,,-130.0,,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,44.0,,,-125.0,-105.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,45.0,,,-110.0,-120.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,45.5,,,-105.0,-125.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,46.0,,,105.0,-135.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,46.5,,,105.0,-135.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,47.5,,,125.0,-165.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,48.5,,,140.0,-185.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,49.5,,,155.0,-210.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,50.5,,,175.0,-240.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,51.5,,,205.0,-280.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,52.5,,,225.0,-310.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,53.5,,,245.0,-350.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points,G,,54.5,,,275.0,-400.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Arizona Cardinals,G,,20.5,,,-110.0,-120.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,23.5,,,-135.0,105.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Arizona Cardinals,G,,9.5,,,-125.0,-105.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,12.5,,,-110.0,-120.0,True
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Arizona Cardinals,G,,2.5,,,-165.0,125.0,True
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,3.5,,,120.0,-160.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,alt_total,Total Points - Tampa Bay Buccaneers,G,,3.5,,,110.0,-145.0,True
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 38.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 38.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 38.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 38.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 44.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 44.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 44.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 44.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 50.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 50.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 50.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 50.5 Points,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 38.5 Points,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 38.5 Points,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 38.5 Points,G,home,,,,,,False
@@ -384,30 +82,30 @@ Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spre
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 25.5 Points,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 25.5 Points,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 25.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 17.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 17.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 17.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 17.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 21.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 21.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 21.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 21.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 25.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 25.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 25.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -3.5 and O/U 25.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 17.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 21.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -2.5 and O/U 25.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 17.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 21.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -4.5 and O/U 25.5 Points,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
@@ -481,6 +179,15 @@ Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winn
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
@@ -490,15 +197,6 @@ Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winn
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,total_range,Total Points Range,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,total_range,Total Points Range,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,total_range,Total Points Range,G,,,,,,,False
@@ -546,13 +244,12 @@ Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,odd_
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,odd_even,Odd/Even Total Points,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,overtime,Will the game go to Overtime?,G,,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,overtime,Will the game go to Overtime?,G,,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,first_to_score,First Team To Score,G,away,,,,,,False
-Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,first_to_score,First Team To Score,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 10,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 10,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 15,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 15,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 20,G,away,,,,,,False
+Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 20,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 5,G,away,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,race_to_points,Race To 5,G,home,,,,,,False
 Arizona Cardinals @ Tampa Bay Buccaneers,1764525600000,Buccaneers,Cardinals,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
@@ -633,17 +330,17 @@ Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Point
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,42.5,,,130.0,-170.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,43.5,,,155.0,-210.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,44.5,,,175.0,-240.0,True
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,45.5,,,200.0,-275.0,True
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,45.5,,,190.0,-260.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,46.5,,,215.0,-300.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,47.5,,,245.0,-350.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,48.5,,,275.0,-400.0,True
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,49.5,,,305.0,-460.0,True
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points,G,,49.5,,,300.0,-450.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - Atlanta Falcons,G,,20.5,,,-115.0,-115.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - New York Jets,G,,19.5,,,-105.0,-125.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - Atlanta Falcons,G,,9.5,,,-150.0,115.0,True
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - New York Jets,G,,9.5,,,-115.0,-115.0,True
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - Atlanta Falcons,G,,3.5,,,125.0,-165.0,True
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - New York Jets,G,,2.5,,,-170.0,130.0,True
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - New York Jets,G,,9.5,,,-110.0,-120.0,True
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - Atlanta Falcons,G,,3.5,,,135.0,-180.0,True
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,alt_total,Total Points - New York Jets,G,,2.5,,,-160.0,120.0,True
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,spread_total_combo,Point Spread -1.5 and O/U 33.5 Points,G,home,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,spread_total_combo,Point Spread -1.5 and O/U 33.5 Points,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,spread_total_combo,Point Spread -1.5 and O/U 33.5 Points,G,home,,,,,,False
@@ -784,12 +481,13 @@ Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Winnin
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
-Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
+Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,,,,,,,False
 Atlanta Falcons @ New York Jets,1764525600000,Jets,Falcons,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
@@ -921,32 +619,32 @@ Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,moneyline,Moneyli
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,moneyline,Moneyline,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,moneyline,Moneyline,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,moneyline,Moneyline,G,,,,,,,False
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,34.5,,,-500.0,330.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,35.5,,,-430.0,290.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,36.5,,,-360.0,250.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,37.5,,,-290.0,210.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,38.5,,,-260.0,190.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,39.5,,,-230.0,170.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,40.5,,,-200.0,150.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,41.5,,,-170.0,130.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,42.5,,,-160.0,120.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,43.0,,,-145.0,110.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,34.5,,,-475.0,320.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,35.5,,,-420.0,285.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,36.5,,,-350.0,245.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,37.5,,,-280.0,205.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,38.5,,,-250.0,185.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,39.5,,,-220.0,165.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,40.5,,,-190.0,145.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,41.5,,,-165.0,125.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,42.5,,,-150.0,115.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,43.0,,,-135.0,105.0,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,43.5,,,-130.0,,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,44.0,,,-125.0,-105.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,45.0,,,-110.0,-120.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,45.5,,,-105.0,-125.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,44.5,,,-110.0,-120.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,45.0,,,-105.0,-125.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,45.5,,,,-130.0,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,46.0,,,105.0,-135.0,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,46.5,,,110.0,-145.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,47.5,,,125.0,-165.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,48.5,,,140.0,-185.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,49.5,,,155.0,-210.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,50.5,,,175.0,-240.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,51.5,,,205.0,-280.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,52.5,,,225.0,-310.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,53.5,,,245.0,-350.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,54.5,,,275.0,-400.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Houston Texans,G,,20.5,,,-115.0,-115.0,True
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Indianapolis Colts,G,,24.5,,,110.0,-145.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,47.5,,,130.0,-170.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,48.5,,,145.0,-190.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,49.5,,,160.0,-215.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,50.5,,,180.0,-245.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,51.5,,,210.0,-290.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,52.5,,,230.0,-320.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,53.5,,,250.0,-360.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points,G,,54.5,,,285.0,-420.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Houston Texans,G,,20.5,,,-110.0,-120.0,True
+Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Indianapolis Colts,G,,24.5,,,105.0,-135.0,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Houston Texans,G,,9.5,,,-130.0,,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Indianapolis Colts,G,,12.5,,,-120.0,-110.0,True
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,alt_total,Total Points - Houston Texans,G,,2.5,,,-165.0,125.0,True
@@ -1223,8 +921,6 @@ Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both 
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 3 or more Points and Winner,G,,,,,,,False
-Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 3 or more Points and Winner,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
 Houston Texans @ Indianapolis Colts,1764525600000,Colts,Texans,btts_points,Both Teams to Score 7 or more Points and Winner,G,,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,moneyline,Moneyline,G,,,,,,,False
@@ -1232,36 +928,36 @@ Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,moneyline,M
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,moneyline,Moneyline,G,,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,moneyline,Moneyline,G,,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,moneyline,Moneyline,G,,,,,,,False
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,31.5,,,-525.0,340.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,32.5,,,-460.0,310.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,33.5,,,-370.0,260.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,34.5,,,-320.0,230.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,35.5,,,-280.0,205.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,36.5,,,-240.0,175.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,37.5,,,-190.0,145.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,38.5,,,-170.0,130.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,39.5,,,-150.0,115.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,40.0,,,-145.0,110.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,40.5,,,-130.0,,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,41.0,,,-125.0,-105.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,41.5,,,-115.0,-115.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,42.5,,,-105.0,-125.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,43.0,,,105.0,-135.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,43.5,,,115.0,-150.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,44.5,,,130.0,-170.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,45.5,,,145.0,-190.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,46.5,,,160.0,-215.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,47.5,,,185.0,-250.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,48.5,,,205.0,-280.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,49.5,,,225.0,-310.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,50.5,,,260.0,-370.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,51.5,,,290.0,-430.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,24.5,,,105.0,-135.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,16.5,,,-145.0,110.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,12.5,,,-120.0,-110.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,8.5,,,-115.0,-115.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,3.5,,,-115.0,-115.0,True
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,2.5,,,-165.0,125.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,32.5,,,-475.0,320.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,33.5,,,-390.0,270.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,34.5,,,-330.0,235.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,35.5,,,-300.0,215.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,36.5,,,-245.0,180.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,37.5,,,-200.0,150.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,38.5,,,-180.0,135.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,39.5,,,-160.0,120.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,40.0,,,-150.0,115.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,40.5,,,-135.0,105.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,41.0,,,-130.0,,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,41.5,,,-120.0,-110.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,42.5,,,-110.0,-120.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,43.0,,,,-130.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,43.5,,,110.0,-145.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,44.0,,,115.0,-150.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,44.5,,,125.0,-165.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,45.5,,,140.0,-185.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,46.5,,,150.0,-200.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,47.5,,,175.0,-240.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,48.5,,,200.0,-275.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,49.5,,,220.0,-300.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,50.5,,,245.0,-350.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points,G,,51.5,,,280.0,-410.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,24.5,,,110.0,-145.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,16.5,,,-150.0,115.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,12.5,,,-115.0,-115.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,8.5,,,-125.0,-105.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Jacksonville Jaguars,G,,3.5,,,-105.0,-125.0,True
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,alt_total,Total Points - Tennessee Titans,G,,2.5,,,-160.0,120.0,True
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,spread_total_combo,Point Spread 2.5 and O/U 36.5 Points,G,home,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,spread_total_combo,Point Spread 2.5 and O/U 36.5 Points,G,away,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,spread_total_combo,Point Spread 2.5 and O/U 36.5 Points,G,home,,,,,,False
@@ -1416,7 +1112,6 @@ Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_mar
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
@@ -1473,6 +1168,8 @@ Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,odd_even,Od
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,odd_even,Odd/Even Total Points,G,,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,overtime,Will the game go to Overtime?,G,,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,overtime,Will the game go to Overtime?,G,,,,,,,False
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,first_to_score,First Team To Score,G,away,,,,,,False
+Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,first_to_score,First Team To Score,G,home,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,race_to_points,Race To 10,G,away,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,race_to_points,Race To 10,G,home,,,,,,False
 Jacksonville Jaguars @ Tennessee Titans,1764525600000,Titans,Jaguars,race_to_points,Race To 15,G,away,,,,,,False
@@ -1570,10 +1267,10 @@ Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points,G,,54.5,,,265.0,-380.0,True
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Carolina Panthers,G,,16.5,,,-125.0,-105.0,True
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Los Angeles Rams,G,,27.5,,,-125.0,-105.0,True
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Carolina Panthers,G,,7.5,,,105.0,-135.0,True
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Los Angeles Rams,G,,13.5,,,-135.0,105.0,True
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Carolina Panthers,G,,2.5,,,-130.0,,True
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Los Angeles Rams,G,,6.5,,,-115.0,-115.0,True
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Carolina Panthers,G,,7.5,,,-115.0,-115.0,True
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Los Angeles Rams,G,,14.5,,,,-130.0,True
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Carolina Panthers,G,,2.5,,,-150.0,115.0,True
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,alt_total,Total Points - Los Angeles Rams,G,,6.5,,,-125.0,-105.0,True
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 12.5 and O/U 39.5 Points,G,home,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 12.5 and O/U 39.5 Points,G,away,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 12.5 and O/U 39.5 Points,G,home,,,,,,False
@@ -1610,42 +1307,42 @@ Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_co
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 9.5 and O/U 51.5 Points,G,away,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 9.5 and O/U 51.5 Points,G,home,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 9.5 and O/U 51.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 26.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 26.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 26.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 26.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 18.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 18.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 22.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 22.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 26.5 Points,G,away,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 26.5 Points,G,home,,,,,,False
-Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 26.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 27.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 4.5 and O/U 27.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 27.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 6.5 and O/U 27.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 19.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 19.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 23.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 23.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 27.5 Points,G,away,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 27.5 Points,G,home,,,,,,False
+Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 8.5 and O/U 27.5 Points,G,away,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,home,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,away,,,,,,False
 Los Angeles Rams @ Carolina Panthers,1764525600000,Panthers,Rams,spread_total_combo,Point Spread 1.5 and O/U 12.5 Points,G,home,,,,,,False
@@ -1867,72 +1564,72 @@ New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,moneyline,Mone
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,moneyline,Moneyline,G,,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,moneyline,Moneyline,G,,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,moneyline,Moneyline,G,,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,32.5,,,-475.0,320.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,33.5,,,-380.0,265.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,34.5,,,-330.0,235.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,35.5,,,-300.0,215.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,36.5,,,-245.0,180.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,37.5,,,-200.0,150.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,38.5,,,-180.0,135.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,39.5,,,-160.0,120.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,40.0,,,-150.0,115.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,40.5,,,-135.0,105.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,41.0,,,-130.0,,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,42.0,,,-115.0,-115.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,42.5,,,-110.0,-120.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,43.0,,,,-130.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,43.5,,,110.0,-145.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,44.0,,,120.0,-160.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,44.5,,,125.0,-165.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,45.5,,,140.0,-185.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,46.5,,,150.0,-200.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,47.5,,,175.0,-240.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,48.5,,,200.0,-275.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,49.5,,,220.0,-300.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,50.5,,,245.0,-350.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,51.5,,,285.0,-420.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,31.5,,,-525.0,340.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,32.5,,,-460.0,310.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,33.5,,,-370.0,260.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,34.5,,,-320.0,230.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,35.5,,,-280.0,205.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,36.5,,,-240.0,175.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,37.5,,,-190.0,145.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,38.5,,,-170.0,130.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,39.5,,,-150.0,115.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,40.0,,,-145.0,110.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,40.5,,,-130.0,,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,41.0,,,-125.0,-105.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,41.5,,,-115.0,-115.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,42.5,,,-105.0,-125.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,43.0,,,105.0,-135.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,43.5,,,115.0,-150.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,44.5,,,130.0,-170.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,45.5,,,145.0,-190.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,46.5,,,160.0,-215.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,47.5,,,185.0,-250.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,48.5,,,205.0,-280.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,49.5,,,225.0,-310.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,50.5,,,260.0,-370.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points,G,,51.5,,,295.0,-440.0,True
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - Miami Dolphins,G,,23.5,,,-120.0,-110.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - New Orleans Saints,G,,17.5,,,-105.0,-125.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - New Orleans Saints,G,,17.5,,,-110.0,-120.0,True
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - Miami Dolphins,G,,12.5,,,-120.0,-110.0,True
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - New Orleans Saints,G,,9.5,,,-105.0,-125.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - Miami Dolphins,G,,3.5,,,-105.0,-125.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - New Orleans Saints,G,,2.5,,,-170.0,130.0,True
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 47.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 47.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 47.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 47.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 35.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 35.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 41.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 41.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 47.5 Points,G,away,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 47.5 Points,G,home,,,,,,False
-New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 47.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - Miami Dolphins,G,,3.5,,,-120.0,-110.0,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,alt_total,Total Points - New Orleans Saints,G,,2.5,,,-130.0,,True
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 48.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -2.5 and O/U 48.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 48.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -5.5 and O/U 48.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 36.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 36.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 42.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 42.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 48.5 Points,G,away,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 48.5 Points,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -8.5 and O/U 48.5 Points,G,away,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -1.5 and O/U 16.5 Points,G,home,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -1.5 and O/U 16.5 Points,G,away,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,spread_total_combo,Point Spread -1.5 and O/U 16.5 Points,G,home,,,,,,False
@@ -2111,6 +1808,7 @@ New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 10,G,home,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 15,G,away,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 15,G,home,,,,,,False
+New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 20,G,home,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 5,G,away,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,race_to_points,Race To 5,G,home,,,,,,False
 New Orleans Saints @ Miami Dolphins,1764525600000,Dolphins,Saints,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
@@ -2172,72 +1870,72 @@ San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,moneyline,Mone
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,moneyline,Moneyline,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,moneyline,Moneyline,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,moneyline,Moneyline,G,,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,26.5,,,-575.0,360.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,27.5,,,-460.0,310.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,28.5,,,-420.0,285.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,29.5,,,-320.0,230.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,30.5,,,-260.0,190.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,31.5,,,-230.0,170.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,32.5,,,-210.0,155.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,33.5,,,-165.0,125.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,34.0,,,-160.0,120.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,34.5,,,-145.0,110.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,35.0,,,-135.0,105.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,35.5,,,-130.0,,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,36.5,,,-110.0,-120.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,37.0,,,,-130.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,37.5,,,110.0,-145.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,38.0,,,115.0,-150.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,38.5,,,120.0,-160.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,39.5,,,135.0,-180.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,40.5,,,160.0,-215.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,41.5,,,180.0,-245.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,42.5,,,200.0,-275.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,43.5,,,235.0,-330.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,44.5,,,270.0,-390.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,45.5,,,295.0,-440.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,15.5,,,-115.0,-115.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,25.5,,,-650.0,400.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,26.5,,,-500.0,330.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,27.5,,,-400.0,275.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,28.5,,,-370.0,260.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,29.5,,,-290.0,210.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,30.5,,,-230.0,170.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,31.5,,,-200.0,150.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,32.5,,,-180.0,135.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,33.5,,,-145.0,110.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,34.0,,,-135.0,105.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,34.5,,,-130.0,,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,35.0,,,-120.0,-110.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,36.0,,,-105.0,-125.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,36.5,,,105.0,-135.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,37.0,,,115.0,-150.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,37.5,,,125.0,-165.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,38.5,,,140.0,-185.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,39.5,,,155.0,-210.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,40.5,,,180.0,-245.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,41.5,,,205.0,-280.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,42.5,,,225.0,-310.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,43.5,,,265.0,-380.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,44.5,,,300.0,-450.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points,G,,45.5,,,330.0,-500.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,15.5,,,,-130.0,True
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - San Francisco 49ers,G,,21.5,,,120.0,-160.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,7.5,,,110.0,-145.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - San Francisco 49ers,G,,9.5,,,-150.0,115.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,2.5,,,-145.0,110.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - San Francisco 49ers,G,,3.5,,,135.0,-180.0,True
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 42.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 42.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 42.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 4.5 and O/U 42.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 30.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 30.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 36.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 36.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 42.5 Points,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 42.5 Points,G,home,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 7.5 and O/U 42.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,6.5,,,-125.0,-105.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - San Francisco 49ers,G,,9.5,,,-130.0,,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - Cleveland Browns,G,,2.5,,,-125.0,-105.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,alt_total,Total Points - San Francisco 49ers,G,,2.5,,,-185.0,140.0,True
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 41.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 2.5 and O/U 41.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 41.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 5.5 and O/U 41.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 29.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 29.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 35.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 35.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 41.5 Points,G,away,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 41.5 Points,G,home,,,,,,False
+San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 8.5 and O/U 41.5 Points,G,away,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 13.5 Points,G,home,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 13.5 Points,G,away,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,spread_total_combo,Point Spread 1.5 and O/U 13.5 Points,G,home,,,,,,False
@@ -2364,7 +2062,6 @@ San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,total_range,Total Points Range,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,total_range,Total Points Range,G,,,,,,,False
@@ -2449,8 +2146,6 @@ San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Bo
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 17 or more points?,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
-San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both teams to score 7 or more points?,G,,,,,,,False
 San Francisco 49ers @ Cleveland Browns,1764525600000,Browns,49ers,btts_points,Both Teams to Score 10 or more Points and Winner,G,,,,,,,False
@@ -2508,10 +2203,10 @@ Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,To
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points,G,,50.5,,,275.0,-400.0,True
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Minnesota Vikings,G,,16.5,,,135.0,-180.0,True
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Seattle Seahawks,G,,26.5,,,-125.0,-105.0,True
-Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Minnesota Vikings,G,,6.5,,,-120.0,-110.0,True
+Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Minnesota Vikings,G,,6.5,,,-125.0,-105.0,True
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Seattle Seahawks,G,,13.5,,,-115.0,-115.0,True
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Minnesota Vikings,G,,2.5,,,-125.0,-105.0,True
-Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Seattle Seahawks,G,,6.5,,,-120.0,-110.0,True
+Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,alt_total,Total Points - Seattle Seahawks,G,,6.5,,,-115.0,-115.0,True
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,spread_total_combo,Point Spread -11.5 and O/U 35.5 Points,G,home,,,,,,False
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,spread_total_combo,Point Spread -11.5 and O/U 35.5 Points,G,away,,,,,,False
 Minnesota Vikings @ Seattle Seahawks,1764536700000,Seahawks,Vikings,spread_total_combo,Point Spread -11.5 and O/U 35.5 Points,G,home,,,,,,False
@@ -2813,12 +2508,12 @@ Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points,G,,53.5,,,225.0,-310.0,True
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points,G,,54.5,,,250.0,-360.0,True
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points,G,,55.5,,,280.0,-410.0,True
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Buffalo Bills,G,,26.5,,,110.0,-145.0,True
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Buffalo Bills,G,,26.5,,,115.0,-150.0,True
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Pittsburgh Steelers,G,,21.5,,,,-130.0,True
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Buffalo Bills,G,,12.5,,,-125.0,-105.0,True
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Pittsburgh Steelers,G,,10.5,,,120.0,-160.0,True
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Buffalo Bills,G,,11.5,,,-115.0,-115.0,True
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Pittsburgh Steelers,G,,9.5,,,-160.0,120.0,True
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Buffalo Bills,G,,3.5,,,,-130.0,True
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Pittsburgh Steelers,G,,3.5,,,130.0,-170.0,True
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,alt_total,Total Points - Pittsburgh Steelers,G,,3.5,,,125.0,-165.0,True
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,spread_total_combo,Point Spread 2.5 and O/U 39.5 Points,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,spread_total_combo,Point Spread 2.5 and O/U 39.5 Points,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,spread_total_combo,Point Spread 2.5 and O/U 39.5 Points,G,home,,,,,,False
@@ -2956,19 +2651,21 @@ Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,away,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,winning_margin,Dynamic Winning Margin,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,total_range,Total Points Range,G,,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,total_range,Total Points Range,G,,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,total_range,Total Points Range,G,,,,,,,False
@@ -3016,16 +2713,14 @@ Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,odd_even,Odd/Ev
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,odd_even,Odd/Even Total Points,G,,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,overtime,Will the game go to Overtime?,G,,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,overtime,Will the game go to Overtime?,G,,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,first_to_score,First Team To Score,G,away,,,,,,False
+Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,first_to_score,First Team To Score,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 10,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 10,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 15,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 15,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 20,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 20,G,home,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 25,G,away,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 25,G,home,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 30,G,away,,,,,,False
-Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 30,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 5,G,away,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,race_to_points,Race To 5,G,home,,,,,,False
 Buffalo Bills @ Pittsburgh Steelers,1764537900000,Steelers,Bills,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
@@ -3113,9 +2808,9 @@ Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_tota
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points,G,,50.5,,,290.0,-430.0,True
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Las Vegas Raiders,G,,14.5,,,-115.0,-115.0,True
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Los Angeles Chargers,G,,25.5,,,-105.0,-125.0,True
-Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Las Vegas Raiders,G,,6.5,,,-150.0,115.0,True
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Las Vegas Raiders,G,,6.5,,,-145.0,110.0,True
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Los Angeles Chargers,G,,13.5,,,-105.0,-125.0,True
-Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Las Vegas Raiders,G,,2.5,,,-145.0,110.0,True
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Las Vegas Raiders,G,,2.5,,,-130.0,,True
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,alt_total,Total Points - Los Angeles Chargers,G,,6.5,,,-115.0,-115.0,True
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,spread_total_combo,Point Spread -11.5 and O/U 34.5 Points,G,home,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,spread_total_combo,Point Spread -11.5 and O/U 34.5 Points,G,away,,,,,,False
@@ -3344,7 +3039,14 @@ Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,first_to
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,first_to_score,First Team To Score,G,home,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 10,G,away,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 10,G,home,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 15,G,away,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 15,G,home,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 20,G,away,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 20,G,home,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 25,G,away,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 25,G,home,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 30,G,away,,,,,,False
+Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 30,G,home,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 5,G,away,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,race_to_points,Race To 5,G,home,,,,,,False
 Las Vegas Raiders @ Los Angeles Chargers,1764537900000,Chargers,Raiders,btts_points,Both teams to score 10 or more points?,G,,,,,,,False
@@ -3430,12 +3132,12 @@ Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_tota
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points,G,,50.5,,,225.0,-310.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points,G,,51.5,,,260.0,-370.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points,G,,52.5,,,285.0,-420.0,True
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Denver Broncos,G,,24.5,,,105.0,-135.0,True
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Washington Commanders,G,,18.5,,,-120.0,-110.0,True
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Denver Broncos,G,,24.5,,,,-130.0,True
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Washington Commanders,G,,18.5,,,-115.0,-115.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Denver Broncos,G,,12.5,,,-115.0,-115.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Washington Commanders,G,,9.5,,,-110.0,-120.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Denver Broncos,G,,3.5,,,-105.0,-125.0,True
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Washington Commanders,G,,2.5,,,-165.0,125.0,True
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,alt_total,Total Points - Washington Commanders,G,,2.5,,,-170.0,130.0,True
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 2.5 and O/U 37.5 Points,G,home,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 2.5 and O/U 37.5 Points,G,away,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 2.5 and O/U 37.5 Points,G,home,,,,,,False
@@ -3472,42 +3174,42 @@ Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_t
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 8.5 and O/U 49.5 Points,G,away,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 8.5 and O/U 49.5 Points,G,home,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 8.5 and O/U 49.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 25.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 25.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 25.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 17.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 17.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 21.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 21.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 25.5 Points,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 25.5 Points,G,home,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 25.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 24.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 1.5 and O/U 24.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 24.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 3.5 and O/U 24.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 16.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 16.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 20.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 20.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 24.5 Points,G,away,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 24.5 Points,G,home,,,,,,False
+Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread 5.5 and O/U 24.5 Points,G,away,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,away,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,spread_total_combo,Point Spread -1.5 and O/U 12.5 Points,G,home,,,,,,False
@@ -3646,8 +3348,6 @@ Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,odd_even
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,odd_even,Odd/Even Total Points,G,,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,overtime,Will the game go to Overtime?,G,,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,overtime,Will the game go to Overtime?,G,,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,first_to_score,First Team To Score,G,away,,,,,,False
-Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,first_to_score,First Team To Score,G,home,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,race_to_points,Race To 10,G,away,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,race_to_points,Race To 10,G,home,,,,,,False
 Denver Broncos @ Washington Commanders,1764552000000,Commanders,Broncos,race_to_points,Race To 15,G,away,,,,,,False
@@ -3741,7 +3441,7 @@ New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,T
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points,G,,56.5,,,285.0,-420.0,True
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New England Patriots,G,,27.5,,,-105.0,-125.0,True
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New York Giants,G,,19.5,,,-125.0,-105.0,True
-New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New England Patriots,G,,13.5,,,-120.0,-110.0,True
+New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New England Patriots,G,,13.5,,,-125.0,-105.0,True
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New York Giants,G,,9.5,,,-125.0,-105.0,True
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New England Patriots,G,,6.5,,,-110.0,-120.0,True
 New York Giants @ New England Patriots,1764638100000,Patriots,Giants,alt_total,Total Points - New York Giants,G,,2.5,,,-170.0,130.0,True
