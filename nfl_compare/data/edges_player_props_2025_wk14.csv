@@ -1,361 +1,688 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Theo Johnson,NYG,Receiving Yards,90.0,1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-66.1,-0.9993941457127298,,,66.1
-Theo Johnson,NYG,Receiving Yards,80.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-56.1,-0.9954074706473541,,,56.1
-Theo Johnson,NYG,Receiving Yards,70.0,625.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-46.1,-0.9757392956997312,,,46.1
-Theo Johnson,NYG,Receiving Yards,60.0,375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-36.1,-0.9199399052829423,,,36.1
-Theo Johnson,NYG,Receiving Yards,50.0,225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-26.1,-0.7973436525753288,,,26.1
-Theo Johnson,NYG,Receiving Yards,40.0,140.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-16.1,-0.5876694336431816,,,16.1
-Theo Johnson,NYG,Receiving Yards,10.0,-1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,13.899999999999999,-0.13466840818546516,,,13.899999999999999
-Theo Johnson,NYG,Receiving Yards,15.0,-500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,8.899999999999999,-0.1603635334168554,,,8.899999999999999
-Theo Johnson,NYG,Receiving Yards,30.0,-145.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-6.100000000000001,-0.3919546834756037,,,6.100000000000001
-Theo Johnson,NYG,Receptions,7.0,875.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,-4.7,-0.9985379775974783,,,4.7
-Theo Johnson,NYG,Receiving Yards,20.0,-300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,3.8999999999999986,-0.212365928710195,,,3.8999999999999986
-Theo Johnson,NYG,Receptions,6.0,475.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,-3.7,-0.9872778920378003,,,3.7
-Theo Johnson,NYG,Receptions,5.0,225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,-2.7,-0.9385609283606302,,,2.7
-Theo Johnson,NYG,Receptions,4.0,110.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,-1.7000000000000002,-0.7994734218587496,,,1.7000000000000002
-Theo Johnson,NYG,Receiving Yards,25.0,-210.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,rec_yards,23.9,-1.1000000000000014,-0.29998443916205064,,,1.1000000000000014
-Theo Johnson,NYG,Receptions,3.0,-240.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,-0.7000000000000002,-0.5819002636520365,,,0.7000000000000002
-Theo Johnson,NYG,Receptions,2.0,-750.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,WR,receptions,2.3,0.2999999999999998,-0.32991331560591586,,,0.2999999999999998
-TreVeyon Henderson,NE,Rushing Yards,80.0,175.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,125.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,70.0,105.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,100.0,375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,90.0,250.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,60.0,-160.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,110.0,575.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Anthony Firkser,DET,Anytime TD,,420.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,25.0,-775.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,50.0,-300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-TreVeyon Henderson,NE,Rushing Yards,40.0,-625.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,70.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,60.0,550.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,50.0,320.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,40.0,175.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,30.0,-125.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,25.0,-200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,20.0,-1500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,110.0,1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,30.0,-450.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,40.0,-210.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,5.0,200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,4.0,,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,3.0,-260.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,2.0,-925.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receptions,5.0,525.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receptions,4.0,230.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receptions,3.0,-110.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receptions,2.0,-345.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,15.0,-580.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,100.0,900.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,90.0,625.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,80.0,425.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,70.0,275.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,60.0,160.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,50.0,-110.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,20.0,-325.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,30.0,120.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Rushing Yards,10.0,-1450.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing TDs,4.0,725.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,250.0,-105.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,225.0,-200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,200.0,-360.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,175.0,-775.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,150.0,-2000.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing TDs,3.0,575.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing TDs,2.0,150.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing TDs,1.0,-360.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Drake Maye,NE,Passing TDs,3.0,220.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,300.0,300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing TDs,2.0,-180.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Drake Maye,NE,Passing TDs,1.0,-1200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_tds,,,,,projection_missing,0.0
-Zach Horton,IND,Anytime TD,,700.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Worthy,KC,Anytime TD,,265.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Hutchinson,HOU,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Anytime TD,,145.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
-Wan'dale Robinson (NYG) - 1Q,,Anytime TD,,950.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'dale Robinson (NYG) - 1H,,Anytime TD,,480.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Passing Yards,275.0,170.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,325.0,525.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,70.0,1200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,325.0,1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,60.0,800.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,50.0,425.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,40.0,225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,7.0,825.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,25.0,-135.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,20.0,-225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,15.0,-375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Rushing Yards,10.0,-800.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rush_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,300.0,725.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,350.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,275.0,400.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,250.0,225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,225.0,130.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,200.0,-140.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,175.0,-275.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,150.0,-525.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Jaxson Dart,NYG,Passing Yards,125.0,-1300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Drake Maye,NE,Passing Yards,375.0,1300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,pass_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receptions,6.0,425.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receptions,7.0,375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receptions,2.0,-375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,90.0,825.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,25.0,-500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,20.0,-875.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,15.0,-2000.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,110.0,1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,100.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,90.0,625.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,80.0,475.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,70.0,300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,60.0,225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,50.0,150.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,40.0,-110.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,30.0,-190.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,25.0,-250.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,20.0,-350.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,15.0,-525.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receiving Yards,10.0,-925.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,110.0,1400.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,30.0,-350.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,40.0,-200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,50.0,-115.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,40.0,-350.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,110.0,625.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,100.0,425.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,90.0,275.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,80.0,200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,70.0,130.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,60.0,-120.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,50.0,-200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,30.0,-725.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,60.0,150.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,25.0,-1300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,125.0,1400.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,110.0,1000.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,100.0,725.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,90.0,500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,80.0,350.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receiving Yards,70.0,230.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,100.0,1100.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,80.0,550.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receptions,3.0,-120.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,70.0,375.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,10.0,-725.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,10.0,850.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,9.0,500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,8.0,300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,7.0,170.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,6.0,-115.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,5.0,-245.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,4.0,-500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Wan'Dale Robinson,NYG,Receptions,3.0,-2000.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receptions,8.0,650.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Austin Hooper,NE,Anytime TD,,625.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Receptions,6.0,200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receptions,5.0,,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receptions,4.0,-240.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Stefon Diggs,NE,Receptions,3.0,-600.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receptions,5.0,475.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Kayshon Boutte,NE,Receptions,4.0,200.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,receptions,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,15.0,-450.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,20.0,-290.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,25.0,-210.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,10.0,-1500.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,60.0,250.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,50.0,150.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,40.0,-115.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,30.0,-225.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,25.0,-325.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,20.0,-450.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Hunter Henry,NE,Receiving Yards,15.0,-775.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,110.0,1300.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,30.0,-150.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,100.0,1000.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,90.0,800.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,80.0,575.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,70.0,400.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,60.0,275.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,50.0,190.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Darius Slayton,NYG,Receiving Yards,40.0,115.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Wan'Dale Robinson & New York Giants,,Anytime TD,,800.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'Dale Robinson & New England Patriots,,Anytime TD,,330.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'Dale Robinson,NYG,Receptions,5.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Passing TDs,1.5,-160.0,120.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1Q,,Anytime TD,,850.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1H,,Anytime TD,,390.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & New York Giants,,Anytime TD,,1500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & New England Patriots,,Anytime TD,,240.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry,NE,Receptions,3.5,105.0,-135.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry,NE,Receiving Yards,38.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry,NE,Anytime TD,,195.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Houston Texans Def/ST,HOU,Anytime TD,,460.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Gunner Olszewski (NYG) - 1H,,Anytime TD,,4500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Gunner Olszewski,NYG,Anytime TD,,2000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-George Pickens,DAL,Anytime TD,,-110.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Eric Gray,NYG,Anytime TD,,2800.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism (NE) - 1H,,Anytime TD,,2700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism,NE,Anytime TD,,1200.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1Q,,Anytime TD,,1000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1H,,Anytime TD,,450.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye & New York Giants,,Anytime TD,,1550.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye & New England Patriots,,Anytime TD,,250.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Rushing Yards,20.5,-145.0,110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Isaac TeSlaa,DET,Anytime TD,,200.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Isaiah Hodgins,NYG,Anytime TD,,440.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Hodgins,NYG,Receiving Yards,21.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jalin Hyatt (NYG) - 1H,,Anytime TD,,4500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Passing Yards,205.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Passing TDs,1.5,155.0,-210.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Passing Attempts,29.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Interceptions,0.5,105.0,-135.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Anytime TD,,285.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Javonte Williams,DAL,Anytime TD,,-136.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
-Jared Goff,DET,Anytime TD,,1400.0,,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
-Jameson Williams,DET,Anytime TD,,-125.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Jalin Hyatt,NYG,Anytime TD,,2000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Hodgins,NYG,Receptions,2.5,130.0,-170.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jalen Tolbert,DAL,Anytime TD,,800.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Ferguson,DAL,Anytime TD,,145.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Anytime TD,,-275.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
-Jack Westover (NE) - 1H,,Anytime TD,,4000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jack Westover,NE,Anytime TD,,2000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Isiah Pacheco,KC,Anytime TD,,340.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
-Isaiah Hodgins (NYG) - 1Q,,Anytime TD,,2000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Isaiah Hodgins (NYG) - 1H,,Anytime TD,,950.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Passing Yards,244.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Passing Attempts,29.5,-110.0,-120.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart (NYG) - 1H,,Anytime TD,,650.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Interceptions,0.5,110.0,-145.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Bellinger (NYG) - 1Q,,Anytime TD,,12500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Bellinger (NYG) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Daniel Bellinger,NYG,Anytime TD,,625.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz,HOU,Anytime TD,,340.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
-Dallas Cowboys Def/ST,DAL,Anytime TD,,500.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Dak Prescott,DAL,Anytime TD,,800.0,,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
-CJ Dippre (NE) - 1H,,Anytime TD,,4500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-CJ Dippre,NE,Anytime TD,,2500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Christian Kirk,HOU,Anytime TD,,525.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Chris Manhertz,NYG,Anytime TD,,2200.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-CeeDee Lamb,DAL,Anytime TD,,-122.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Cade Stover,HOU,Anytime TD,,825.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,QB,,,,,,unsupported_market,0.0
-British Brooks,HOU,Anytime TD,,2200.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Brevyn Spann-Ford,DAL,Anytime TD,,525.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
-Brashard Smith,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper,NE,Receiving Yards,,10000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Dare Ogunbowale,HOU,Anytime TD,,2800.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Darius Slayton,NYG,Anytime TD,,330.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Darius Slayton,NYG,Receiving Yards,33.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary,NYG,Anytime TD,,230.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Anytime TD,,270.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Dominic Lovett,DET,Anytime TD,,295.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Devin Singletary (NYG) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary (NYG) - 1H,,Anytime TD,,480.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary & New York Giants,,Anytime TD,,900.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary & New England Patriots,,Anytime TD,,320.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary,NYG,Rushing Yards,29.5,110.0,-145.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Singletary,NYG,Receiving Yards,34.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Detroit Lions Def/ST,DET,Anytime TD,,500.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Darius Slayton,NYG,Receptions,2.5,115.0,-150.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1Q,,Anytime TD,,2200.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1H,,Anytime TD,,1000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-DeMario Douglas,NE,Receptions,1.5,105.0,-135.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-DeMario Douglas,NE,Receiving Yards,16.5,,-130.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas,NE,Anytime TD,,525.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery,DET,Anytime TD,,-136.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
-Darius Slayton (NYG) - 1Q,,Anytime TD,,1300.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Darius Slayton (NYG) - 1H,,Anytime TD,,650.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart,NYG,Rushing Yards,29.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jaxson Dart (NYG) - 1Q,,Anytime TD,,1600.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,59.5,-105.0,-125.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Passing Yards,400.0,1300.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-178.4,-0.9999975862731814,,,178.4
+Dak Prescott,DAL,Passing Yards,375.0,850.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-153.4,-0.9999443618605695,,,153.4
+Jared Goff,DET,Passing Yards,375.0,1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-151.0,-0.9998959221575877,,,151.0
+George Pickens,DAL,Receiving Yards,175.0,1350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-147.6,-1.0,,,147.6
+Jameson Williams,DET,Receiving Yards,175.0,1150.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-144.9,-1.0,,,144.9
+CeeDee Lamb,DAL,Receiving Yards,175.0,1350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-137.9,-0.9999999999999968,,,137.9
+Dak Prescott,DAL,Passing Yards,350.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-128.4,-0.9992682713416348,,,128.4
+Jared Goff,DET,Passing Yards,350.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-126.0,-0.9987271312787396,,,126.0
+George Pickens,DAL,Receiving Yards,150.0,800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-122.6,-0.9999999999975144,,,122.6
+Jameson Williams,DET,Receiving Yards,150.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-119.9,-0.9999999999929932,,,119.9
+CeeDee Lamb,DAL,Receiving Yards,150.0,800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-112.9,-0.999999999859965,,,112.9
+Isaac TeSlaa,DET,Receiving Yards,110.0,1500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-110.0,-0.9999999992190229,,,110.0
+Dak Prescott,DAL,Passing Yards,325.0,330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-103.4,-0.993262035179887,,,103.4
+Jared Goff,DET,Passing Yards,325.0,400.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-101.0,-0.9902368373158703,,,101.0
+Isaac TeSlaa,DET,Receiving Yards,100.0,1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-100.0,-0.9999999737091461,,,100.0
+George Pickens,DAL,Receiving Yards,125.0,380.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-97.6,-0.9999999774349485,,,97.6
+Jameson Williams,DET,Receiving Yards,125.0,340.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-94.9,-0.9999999477970303,,,94.9
+Jahmyr Gibbs,DET,Rushing Yards,150.0,1100.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-90.7,-0.9999999994444297,,,90.7
+Isaac TeSlaa,DET,Receiving Yards,90.0,850.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-90.0,-0.9999994319359731,,,90.0
+Tom Kennedy,DET,Receiving Yards,90.0,1500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-90.0,-0.9999990432605861,,,90.0
+Javonte Williams,DAL,Rushing Yards,150.0,1550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-89.5,-0.9999999986567819,,,89.5
+CeeDee Lamb,DAL,Receiving Yards,125.0,380.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-87.9,-0.999999439940187,,,87.9
+George Pickens,DAL,Receiving Yards,110.0,250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-82.6,-0.9999979335068198,,,82.6
+Isaac TeSlaa,DET,Receiving Yards,80.0,650.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-80.0,-0.9999905211150497,,,80.0
+Tom Kennedy,DET,Receiving Yards,80.0,1100.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-80.0,-0.9999848337840795,,,80.0
+Jameson Williams,DET,Receiving Yards,110.0,215.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-79.9,-0.9999959024565201,,,79.9
+Dak Prescott,DAL,Passing Yards,300.0,170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-78.4,-0.9661272541229442,,,78.4
+Jared Goff,DET,Passing Yards,300.0,250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-76.0,-0.9476771155722986,,,76.0
+CeeDee Lamb,DAL,Receiving Yards,110.0,240.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-72.9,-0.9999693832960566,,,72.9
+George Pickens,DAL,Receiving Yards,100.0,180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-72.6,-0.9999727058703874,,,72.6
+Isaac TeSlaa,DET,Receiving Yards,70.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-70.0,-0.9998851719149473,,,70.0
+Tom Kennedy,DET,Receiving Yards,70.0,750.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-70.0,-0.9998373268795085,,,70.0
+Jameson Williams,DET,Receiving Yards,100.0,160.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-69.9,-0.999948955974192,,,69.9
+David Montgomery,DET,Rushing Yards,100.0,1350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-67.4,-0.9999892897689604,,,67.4
+Ryan Flournoy,DAL,Receiving Yards,90.0,1700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-66.6,-0.9991952425313577,,,66.6
+Jahmyr Gibbs,DET,Rushing Yards,125.0,530.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-65.7,-0.999991513407616,,,65.7
+Javonte Williams,DAL,Rushing Yards,125.0,800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-64.5,-0.9999816292205483,,,64.5
+CeeDee Lamb,DAL,Receiving Yards,100.0,175.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-62.9,-0.9997035507329372,,,62.9
+George Pickens,DAL,Receiving Yards,90.0,130.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-62.6,-0.9997342451473096,,,62.6
+Jake Ferguson,DAL,Receiving Yards,90.0,1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-60.5,-0.997578621855547,,,60.5
+Isaac TeSlaa,DET,Receiving Yards,60.0,350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-60.0,-0.9990629097374728,,,60.0
+Tom Kennedy,DET,Receiving Yards,60.0,450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-60.0,-0.9988546674569112,,,60.0
+Jameson Williams,DET,Receiving Yards,90.0,115.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-59.9,-0.9995422221812374,,,59.9
+David Montgomery,DET,Rushing Yards,90.0,1000.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-57.4,-0.9997727674239619,,,57.4
+Ryan Flournoy,DAL,Receiving Yards,80.0,1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-56.6,-0.9943430737420292,,,56.6
+Dak Prescott,DAL,Passing Yards,275.0,,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-53.400000000000006,,,,53.400000000000006
+CeeDee Lamb,DAL,Receiving Yards,90.0,125.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-52.9,-0.997907807557701,,,52.9
+George Pickens,DAL,Receiving Yards,80.0,-115.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-52.6,-0.9981547466770339,,,52.6
+Jahmyr Gibbs,DET,Receiving Yards,70.0,530.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-52.0,-0.9930004479562549,,,52.0
+Jared Goff,DET,Passing Yards,275.0,140.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-51.0,-0.8259076596545383,,,51.0
+Jahmyr Gibbs,DET,Rushing Yards,110.0,320.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-50.7,-0.99938474052757,,,50.7
+Jake Ferguson,DAL,Receiving Yards,80.0,850.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-50.5,-0.9858815746320816,,,50.5
+Isaac TeSlaa,DET,Receiving Yards,50.0,220.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-50.0,-0.9947685087796899,,,50.0
+Tom Kennedy,DET,Receiving Yards,50.0,280.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-50.0,-0.9937876041758819,,,50.0
+Jameson Williams,DET,Receiving Yards,80.0,-125.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-49.9,-0.9970009150141563,,,49.9
+Javonte Williams,DAL,Rushing Yards,110.0,480.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-49.5,-0.9988206446148773,,,49.5
+Jared Goff,DET,Passing Yards,175.0,-1000.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,49.0,0.01116767484285179,,,49.0
+David Montgomery,DET,Receiving Yards,60.0,1700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-48.9,-0.9638065296060805,,,48.9
+David Montgomery,DET,Rushing Yards,80.0,750.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-47.4,-0.9969827865633066,,,47.4
+Ryan Flournoy,DAL,Receiving Yards,70.0,800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-46.6,-0.9724511720795338,,,46.6
+Dak Prescott,DAL,Passing Yards,175.0,-1400.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,46.599999999999994,-0.02663287505015703,,,46.599999999999994
+CeeDee Lamb,DAL,Receiving Yards,80.0,-120.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-42.9,-0.9893498603931675,,,42.9
+George Pickens,DAL,Receiving Yards,70.0,-175.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-42.6,-0.9904027943197279,,,42.6
+Jahmyr Gibbs,DET,Receiving Yards,60.0,330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-42.0,-0.9709984269847404,,,42.0
+Jahmyr Gibbs,DET,Rushing Yards,100.0,210.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-40.7,-0.9943464279832643,,,40.7
+Jake Ferguson,DAL,Receiving Yards,70.0,550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-40.5,-0.9440921958060121,,,40.5
+Tom Kennedy,DET,Receiving Yards,40.0,160.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-40.0,-0.9757867456263762,,,40.0
+Isaac TeSlaa,DET,Receiving Yards,40.0,140.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-40.0,-0.9776493036551165,,,40.0
+Jameson Williams,DET,Receiving Yards,70.0,-190.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-39.9,-0.9855593224289504,,,39.9
+Javonte Williams,DAL,Rushing Yards,100.0,330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-39.5,-0.9897207890974574,,,39.5
+David Montgomery,DET,Receiving Yards,50.0,1100.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-38.9,-0.8672570657186798,,,38.9
+Ross Dwelley,DET,Receiving Yards,60.0,1100.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,-38.1,-0.8499121219386707,,,38.1
+David Montgomery,DET,Rushing Yards,70.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-37.4,-0.9773412563999819,,,37.4
+Ryan Flournoy,DAL,Receiving Yards,60.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-36.6,-0.9060300944783528,,,36.6
+Javonte Williams,DAL,Receiving Yards,50.0,1500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,-33.8,-0.6257146139046226,,,33.8
+CeeDee Lamb,DAL,Receiving Yards,70.0,-180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-32.9,-0.9588133892822032,,,32.9
+George Pickens,DAL,Receiving Yards,60.0,-270.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-32.6,-0.9622080774673163,,,32.6
+Jahmyr Gibbs,DET,Receiving Yards,50.0,205.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-32.0,-0.9088231309896422,,,32.0
+Jahmyr Gibbs,DET,Rushing Yards,90.0,145.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-30.700000000000003,-0.9653108501512833,,,30.700000000000003
+Dak Prescott,DAL,Rushing Yards,40.0,1250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-30.7,-0.8088557049152345,,,30.7
+Jake Ferguson,DAL,Receiving Yards,60.0,300.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-30.5,-0.8544112141389211,,,30.5
+Javonte Williams,DAL,Rushing Yards,30.0,-1600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,30.5,0.046900629676684534,,,30.5
+Tom Kennedy,DET,Receiving Yards,30.0,-115.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-30.0,-0.9274485215938867,,,30.0
+Isaac TeSlaa,DET,Receiving Yards,30.0,-120.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-30.0,-0.9288545579971059,,,30.0
+Jameson Williams,DET,Receiving Yards,60.0,-280.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-29.9,-0.9466592052657132,,,29.9
+Javonte Williams,DAL,Rushing Yards,90.0,220.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-29.5,-0.9438316825967895,,,29.5
+David Montgomery,DET,Receiving Yards,40.0,625.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-28.9,-0.6769003950005629,,,28.9
+Dak Prescott,DAL,Passing Yards,250.0,-195.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-28.400000000000006,-0.6844864587656998,,,28.400000000000006
+Ross Dwelley,DET,Receiving Yards,50.0,1500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,-28.1,-0.21325731314390417,,,28.1
+David Montgomery,DET,Rushing Yards,60.0,320.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-27.4,-0.8943055827173428,,,27.4
+Ryan Flournoy,DAL,Receiving Yards,50.0,300.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-26.6,-0.7646962228242851,,,26.6
+Jared Goff,DET,Passing Yards,250.0,-130.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-26.0,-0.5952281528293204,,,26.0
+Tom Kennedy,DET,Receiving Yards,25.0,-175.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-25.0,-0.888898029831947,,,25.0
+Isaac TeSlaa,DET,Receiving Yards,25.0,-170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-25.0,-0.8877097734665133,,,25.0
+Jared Goff,DET,Passing Yards,200.0,-450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,24.0,-0.07899034782422082,,,24.0
+Javonte Williams,DAL,Receiving Yards,40.0,900.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,-23.8,-0.19243340766228934,,,23.8
+CeeDee Lamb,DAL,Receiving Yards,60.0,-290.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-22.9,-0.880336375096543,,,22.9
+George Pickens,DAL,Receiving Yards,50.0,-450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-22.6,-0.8877314586617653,,,22.6
+Jahmyr Gibbs,DET,Receiving Yards,40.0,115.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-22.0,-0.7897033541155384,,,22.0
+Dak Prescott,DAL,Passing Yards,200.0,-675.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,21.599999999999994,-0.16021028855136088,,,21.599999999999994
+Jahmyr Gibbs,DET,Rushing Yards,80.0,-110.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-20.700000000000003,-0.8670748743141732,,,20.700000000000003
+Dak Prescott,DAL,Rushing Yards,30.0,625.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-20.7,-0.49520101078834716,,,20.7
+Jake Ferguson,DAL,Receiving Yards,50.0,175.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-20.5,-0.686688573170923,,,20.5
+Javonte Williams,DAL,Rushing Yards,40.0,-600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,20.5,0.08318239236519992,,,20.5
+Isaac TeSlaa,DET,Receiving Yards,20.0,-250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-20.0,-0.8324151848422474,,,20.0
+Tom Kennedy,DET,Receiving Yards,20.0,-260.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-20.0,-0.8342567762176074,,,20.0
+Jameson Williams,DET,Receiving Yards,50.0,-450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-19.9,-0.8522551325942307,,,19.9
+Javonte Williams,DAL,Rushing Yards,80.0,150.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-19.5,-0.7954212568815963,,,19.5
+Jahmyr Gibbs,DET,Rushing Yards,40.0,-1550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,19.299999999999997,-0.02491755993224435,,,19.299999999999997
+David Montgomery,DET,Receiving Yards,30.0,350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-18.9,-0.400961506134176,,,18.9
+Ross Dwelley,DET,Receiving Yards,40.0,850.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,-18.1,0.3632929747103355,,,18.1
+David Montgomery,DET,Rushing Yards,15.0,-1000.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,17.6,-0.014786050869796077,,,17.6
+David Montgomery,DET,Rushing Yards,50.0,185.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-17.4,-0.6951633146748997,,,17.4
+Ryan Flournoy,DAL,Receiving Yards,40.0,180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-16.6,-0.5396361574604527,,,16.6
+Dak Prescott,DAL,Rushing Yards,25.0,400.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-15.7,-0.3447362998573885,,,15.7
+Isaac TeSlaa,DET,Receiving Yards,15.0,-350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-15.0,-0.7572661586236973,,,15.0
+Tom Kennedy,DET,Receiving Yards,15.0,-410.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-15.0,-0.7651599420830892,,,15.0
+Jake Ferguson,DAL,Receiving Yards,15.0,-1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,14.5,-0.12991645974887658,,,14.5
+David Montgomery,DET,Receiving Yards,25.0,250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-13.9,-0.2762721904049661,,,13.9
+Javonte Williams,DAL,Receiving Yards,30.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,-13.8,0.2507799729304847,,,13.8
+Ryan Flournoy,DAL,Receiving Yards,10.0,-550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,13.399999999999999,-0.07260309750801502,,,13.399999999999999
+CeeDee Lamb,DAL,Receiving Yards,50.0,-490.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-12.899999999999999,-0.7303109227091183,,,12.899999999999999
+David Montgomery,DET,Rushing Yards,20.0,-490.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,12.600000000000001,-0.017541783580792086,,,12.600000000000001
+George Pickens,DAL,Receiving Yards,40.0,-800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,27.4,-12.600000000000001,-0.7420451229980006,,,12.600000000000001
+Jahmyr Gibbs,DET,Receiving Yards,30.0,-170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-12.0,-0.6186160242840464,,,12.0
+Ross Dwelley,DET,Receiving Yards,10.0,-170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,11.899999999999999,0.2039400817633547,,,11.899999999999999
+Jahmyr Gibbs,DET,Rushing Yards,70.0,-180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-10.700000000000003,-0.6541245581152413,,,10.700000000000003
+Dak Prescott,DAL,Rushing Yards,20.0,250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-10.7,-0.2217802557592925,,,10.7
+Javonte Williams,DAL,Rushing Yards,50.0,-295.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,10.5,0.0355328671563967,,,10.5
+Jake Ferguson,DAL,Receiving Yards,40.0,-105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-10.5,-0.4759731262804317,,,10.5
+Isaac TeSlaa,DET,Receiving Yards,10.0,-600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-10.0,-0.6754482839176377,,,10.0
+Tom Kennedy,DET,Receiving Yards,10.0,-750.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,0.0,-10.0,-0.6847211900914195,,,10.0
+Jameson Williams,DET,Receiving Yards,40.0,-800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,30.1,-9.899999999999999,-0.6848149530647787,,,9.899999999999999
+Jake Ferguson,DAL,Receiving Yards,20.0,-600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,9.5,-0.16949792817751735,,,9.5
+Javonte Williams,DAL,Rushing Yards,70.0,-105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,-9.5,-0.5144336309129948,,,9.5
+Jahmyr Gibbs,DET,Rushing Yards,50.0,-600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,9.299999999999997,-0.12879601982613448,,,9.299999999999997
+David Montgomery,DET,Receiving Yards,20.0,170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-8.9,-0.18918204981207531,,,8.9
+Javonte Williams,DAL,Receiving Yards,25.0,350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,-8.8,0.3605852195609818,,,8.8
+Ryan Flournoy,DAL,Receiving Yards,15.0,-280.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,8.399999999999999,-0.06440138630347869,,,8.399999999999999
+Ross Dwelley,DET,Receiving Yards,30.0,450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,-8.100000000000001,0.7427826795720895,,,8.100000000000001
+Jahmyr Gibbs,DET,Receiving Yards,10.0,-1600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,8.0,-0.27640286812644593,,,8.0
+Jared Goff,DET,Rushing Yards,20.0,1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,12.3,-7.699999999999999,2.7850759282485043,,,7.699999999999999
+David Montgomery,DET,Rushing Yards,25.0,-295.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,7.600000000000001,-0.05416122962036707,,,7.600000000000001
+David Montgomery,DET,Rushing Yards,40.0,105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,-7.399999999999999,-0.3879696456637834,,,7.399999999999999
+Tom Kennedy,DET,Receptions,7.0,750.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-7.0,-0.9999996914511904,,,7.0
+Jahmyr Gibbs,DET,Receiving Yards,25.0,-250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-7.0,-0.5236416749688193,,,7.0
+Ross Dwelley,DET,Receiving Yards,15.0,110.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,6.899999999999999,0.38092950274527904,,,6.899999999999999
+George Pickens,DAL,Receptions,10.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-6.74,-0.9999991341555949,,,6.74
+Ryan Flournoy,DAL,Receiving Yards,30.0,125.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-6.600000000000001,-0.21492784378237179,,,6.600000000000001
+Javonte Williams,DAL,Receiving Yards,10.0,-145.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,6.199999999999999,0.08532383809805999,,,6.199999999999999
+Tom Kennedy,DET,Receptions,6.0,425.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-6.0,-0.9999897003403168,,,6.0
+Jameson Williams,DET,Receptions,9.0,600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-5.890000000000001,-0.999979430742589,,,5.890000000000001
+George Pickens,DAL,Receptions,9.0,430.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-5.74,-0.9999732799037218,,,5.74
+Dak Prescott,DAL,Rushing Yards,15.0,140.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-5.699999999999999,-0.17931631842427925,,,5.699999999999999
+CeeDee Lamb,DAL,Receptions,10.0,650.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-5.2,-0.9997624656862516,,,5.2
+Tom Kennedy,DET,Receptions,5.0,210.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-5.0,-0.9998140210166083,,,5.0
+Isaac TeSlaa,DET,Receptions,5.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-5.0,-0.9996400406773065,,,5.0
+Jameson Williams,DET,Receptions,8.0,340.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-4.890000000000001,-0.999628482816535,,,4.890000000000001
+George Pickens,DAL,Receptions,8.0,260.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-4.74,-0.9995208496403957,,,4.74
+Jake Ferguson,DAL,Receptions,9.0,530.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,-4.52,-0.9984023095663368,,,4.52
+Jake Ferguson,DAL,Receiving Yards,25.0,-350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,4.5,-0.2229374579093756,,,4.5
+CeeDee Lamb,DAL,Receptions,9.0,380.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-4.2,-0.9970370182608613,,,4.2
+Jahmyr Gibbs,DET,Receptions,7.0,260.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.91,-4.09,-0.9970222067183172,,,4.09
+Isaac TeSlaa,DET,Receptions,4.0,225.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-4.0,-0.9966013244267241,,,4.0
+Tom Kennedy,DET,Receptions,4.0,105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-4.0,-0.9978562200230107,,,4.0
+David Montgomery,DET,Receiving Yards,15.0,,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,-3.9000000000000004,,,,3.9000000000000004
+Jameson Williams,DET,Receptions,7.0,180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-3.89,-0.9961237213451052,,,3.89
+Javonte Williams,DAL,Receiving Yards,20.0,220.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,-3.8000000000000007,0.3169975917927007,,,3.8000000000000007
+George Pickens,DAL,Receptions,7.0,140.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-3.74,-0.9951811183094684,,,3.74
+Jake Ferguson,DAL,Receptions,8.0,320.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,-3.5199999999999996,-0.9857719109390323,,,3.5199999999999996
+Dak Prescott,DAL,Passing Yards,225.0,-330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,221.6,-3.4000000000000057,-0.39890368623816097,,,3.4000000000000057
+Ryan Flournoy,DAL,Receiving Yards,20.0,-175.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,3.3999999999999986,-0.08973474230998102,,,3.3999999999999986
+CeeDee Lamb,DAL,Receptions,8.0,215.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-3.2,-0.9782110461925085,,,3.2
+David Montgomery,DET,Receptions,5.0,800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,1.86,-3.1399999999999997,-0.9292662917300362,,,3.1399999999999997
+Ross Dwelley,DET,Receiving Yards,25.0,300.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,-3.1000000000000014,0.7106115080814963,,,3.1000000000000014
+Jahmyr Gibbs,DET,Receptions,6.0,150.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.91,-3.09,-0.978177839577908,,,3.09
+Jahmyr Gibbs,DET,Receiving Yards,15.0,-700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,3.0,-0.34852814470755067,,,3.0
+Tom Kennedy,DET,Receptions,3.0,-230.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-3.0,-0.9849231205324323,,,3.0
+Isaac TeSlaa,DET,Receptions,3.0,-105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-3.0,-0.9794841308255174,,,3.0
+CeeDee Lamb,DAL,Receiving Yards,40.0,-1000.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,37.1,-2.8999999999999986,-0.5244988479394985,,,2.8999999999999986
+Jameson Williams,DET,Receptions,6.0,-150.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-2.89,-0.978157822129613,,,2.89
+George Pickens,DAL,Receptions,6.0,-140.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-2.74,-0.9699506173277003,,,2.74
+Jared Goff,DET,Rushing Yards,15.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,12.3,-2.6999999999999993,2.388283399601944,,,2.6999999999999993
+David Montgomery,DET,Rushing Yards,30.0,-195.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,32.6,2.6000000000000014,-0.13214693160480084,,,2.6000000000000014
+Jake Ferguson,DAL,Receptions,7.0,185.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,-2.5199999999999996,-0.925092112136179,,,2.5199999999999996
+Jared Goff,DET,Rushing Yards,10.0,350.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,12.3,2.3000000000000007,1.5436109886988139,,,2.3000000000000007
+Javonte Williams,DAL,Receptions,5.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.7,-2.3,-0.692578514592324,,,2.3
+CeeDee Lamb,DAL,Receptions,7.0,125.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-2.2,-0.8980892628382972,,,2.2
+David Montgomery,DET,Receptions,4.0,360.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,1.86,-2.1399999999999997,-0.7706161957959026,,,2.1399999999999997
+Jahmyr Gibbs,DET,Receptions,5.0,-135.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.91,-2.09,-0.9060847878918279,,,2.09
+Isaac TeSlaa,DET,Receptions,2.0,-310.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-2.0,-0.91804245108738,,,2.0
+Jahmyr Gibbs,DET,Receiving Yards,20.0,-390.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,18.0,-2.0,-0.430627967976571,,,2.0
+Ross Dwelley,DET,Receptions,4.0,550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,2.0,-2.0,-0.5972086315635872,,,2.0
+Tom Kennedy,DET,Receptions,2.0,-700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,0.0,-2.0,-0.9291795396155758,,,2.0
+Ross Dwelley,DET,Receiving Yards,20.0,180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,21.9,1.8999999999999986,0.524586038126529,,,1.8999999999999986
+Jameson Williams,DET,Receptions,5.0,-215.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-1.8900000000000001,-0.8930545959738263,,,1.8900000000000001
+Dak Prescott,DAL,Passing TDs,4.0,700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.16,-1.8399999999999999,-0.4540702345917449,,,1.8399999999999999
+George Pickens,DAL,Receptions,5.0,-280.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-1.7400000000000002,-0.8773509081832878,,,1.7400000000000002
+Javonte Williams,DAL,Receptions,1.0,-1000.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.7,1.7000000000000002,-0.005037731407321569,,,1.7000000000000002
+Jared Goff,DET,Passing TDs,4.0,575.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.34,-1.6600000000000001,-0.40265426801832827,,,1.6600000000000001
+Ryan Flournoy,DAL,Receiving Yards,25.0,-115.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,rec_yards,23.4,-1.6000000000000014,-0.13531140873827935,,,1.6000000000000014
+Ryan Flournoy,DAL,Receptions,4.0,500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,2.43,-1.5699999999999998,-0.31850308610736944,,,1.5699999999999998
+Jake Ferguson,DAL,Receptions,6.0,-105.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,-1.5199999999999996,-0.7634586341545014,,,1.5199999999999996
+Jake Ferguson,DAL,Receptions,3.0,-1550.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,1.4800000000000004,-0.07117125387399253,,,1.4800000000000004
+Ryan Flournoy,DAL,Receptions,1.0,-750.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,2.43,1.4300000000000002,-0.02042153573923372,,,1.4300000000000002
+Jared Goff,DET,Passing TDs,1.0,-1500.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.34,1.3399999999999999,-0.2765165991358366,,,1.3399999999999999
+Javonte Williams,DAL,Receptions,4.0,330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.7,-1.2999999999999998,-0.31778240809473435,,,1.2999999999999998
+CeeDee Lamb,DAL,Receptions,6.0,-160.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-1.2000000000000002,-0.7107767152163436,,,1.2000000000000002
+Javonte Williams,DAL,Receiving Yards,15.0,125.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,16.2,1.1999999999999993,0.18830884182781293,,,1.1999999999999993
+Dak Prescott,DAL,Passing TDs,1.0,-1200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.16,1.1600000000000001,-0.31146299768696734,,,1.1600000000000001
+David Montgomery,DET,Receptions,3.0,160.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,1.86,-1.14,-0.5053130529175123,,,1.14
+David Montgomery,DET,Receiving Yards,10.0,-180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rec_yards,11.1,1.0999999999999996,-0.1820952504887351,,,1.0999999999999996
+Jahmyr Gibbs,DET,Receptions,4.0,-280.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.91,-1.0899999999999999,-0.727369312053653,,,1.0899999999999999
+Jared Goff,DET,Passing Yards,225.0,-250.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_yards,224.0,-1.0,-0.3159555203674311,,,1.0
+Ross Dwelley,DET,Receptions,3.0,210.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,2.0,-1.0,-0.31527769249137483,,,1.0
+Ross Dwelley,DET,Receptions,1.0,-650.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,2.0,1.0,-0.10101326582206899,,,1.0
+Jameson Williams,DET,Receptions,4.0,-480.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,-0.8900000000000001,-0.7017913951478933,,,0.8900000000000001
+David Montgomery,DET,Receptions,1.0,-900.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,1.86,0.8600000000000001,-0.17125947641715888,,,0.8600000000000001
+Dak Prescott,DAL,Passing TDs,3.0,200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.16,-0.8399999999999999,-0.4814792300060088,,,0.8399999999999999
+CeeDee Lamb,DAL,Receptions,4.0,-800.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,0.7999999999999998,-0.1777941713230317,,,0.7999999999999998
+George Pickens,DAL,Receptions,4.0,-660.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.26,-0.7400000000000002,-0.6722790514895519,,,0.7400000000000002
+Jahmyr Gibbs,DET,Rushing Yards,60.0,-300.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,59.3,-0.7000000000000028,-0.3599184077844967,,,0.7000000000000028
+Javonte Williams,DAL,Receptions,2.0,-220.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.7,0.7000000000000002,0.025266580861984078,,,0.7000000000000002
+Dak Prescott,DAL,Rushing Yards,10.0,-145.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,rush_yards,9.3,-0.6999999999999993,-0.1888621202096638,,,0.6999999999999993
+Jared Goff,DET,Passing TDs,3.0,180.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.34,-0.6600000000000001,-0.4152654995416308,,,0.6600000000000001
+Ryan Flournoy,DAL,Receptions,3.0,200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,2.43,-0.5699999999999998,-0.008422382083400626,,,0.5699999999999998
+Jake Ferguson,DAL,Receptions,5.0,-200.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,-0.5199999999999996,-0.4831326124154861,,,0.5199999999999996
+Jake Ferguson,DAL,Receiving Yards,30.0,-235.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,rec_yards,29.5,-0.5,-0.30395824756301126,,,0.5
+Javonte Williams,DAL,Rushing Yards,60.0,-170.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,rush_yards,60.5,0.5,-0.1832580836941009,,,0.5
+Jake Ferguson,DAL,Receptions,4.0,-450.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,4.48,0.4800000000000004,-0.21286183082884733,,,0.4800000000000004
+Ryan Flournoy,DAL,Receptions,2.0,-155.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,2.43,0.43000000000000016,0.035778080472522455,,,0.43000000000000016
+Jared Goff,DET,Passing TDs,2.0,-220.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.34,0.33999999999999986,-0.3970329012906043,,,0.33999999999999986
+Javonte Williams,DAL,Receptions,3.0,135.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.7,-0.2999999999999998,-0.03944444852302753,,,0.2999999999999998
+CeeDee Lamb,DAL,Receptions,5.0,-330.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,4.8,-0.20000000000000018,-0.4281449275064577,,,0.20000000000000018
+Dak Prescott,DAL,Passing TDs,2.0,-195.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,QB,pass_tds,2.16,0.16000000000000014,-0.44548747860088,,,0.16000000000000014
+David Montgomery,DET,Receptions,2.0,-185.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,1.86,-0.1399999999999999,-0.29578828403957785,,,0.1399999999999999
+Jameson Williams,DET,Receptions,3.0,-1600.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,WR,receptions,3.11,0.10999999999999988,-0.4329263078828399,,,0.10999999999999988
+Jahmyr Gibbs,DET,Receptions,3.0,-700.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,RB,receptions,2.91,-0.08999999999999986,-0.46011089625591217,,,0.08999999999999986
+Ross Dwelley,DET,Receiving Yards,,15000.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1Q,,Anytime TD,,8000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1H,,Anytime TD,,1200.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Saquon Barkley,PHI,Anytime TD,,105.0,,False,,Chargers,Eagles,1765242900000,Bovada,RB,,,,,,unsupported_market,0.0
+Samaje Perine,CIN,Anytime TD,,280.0,,False,,Bills,Bengals,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Ross Dwelley & Detroit Lions,,Anytime TD,,600.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1H,,Anytime TD,,2200.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,900.0,,False,,Falcons,Seahawks,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Ryan Flournoy,DAL,Receiving Yards,,6000.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Ryan Flournoy,DAL,Anytime TD,,625.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Seattle Seahawks Def/ST,SEA,Anytime TD,,500.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1Q,,Anytime TD,,2700.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Def/ST,TB,Anytime TD,,420.0,,False,,Buccaneers,Saints,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Shedeur Sanders,CLE,Anytime TD,,600.0,,False,,Browns,Titans,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Sione Vaki,DET,Anytime TD,,2800.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,525.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Stone Smartt,NYJ,Anytime TD,,2200.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Tank Bigsby,PHI,Anytime TD,,825.0,,False,,Chargers,Eagles,1765242900000,Bovada,RB,,,,,,unsupported_market,0.0
+Taysom Hill,NOR,Anytime TD,,290.0,,False,,Buccaneers,Saints,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Teagan Quitoriano (ATL) - 1H,,Anytime TD,,2700.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Teagan Quitoriano (ATL) - 1Q,,Anytime TD,,6000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tee Higgins,CIN,Anytime TD,,135.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Tennessee Titans Def/ST,TEN,Anytime TD,,440.0,,False,,Browns,Titans,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson,TB,Anytime TD,,295.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Ross Dwelley & Dallas Cowboys,,Anytime TD,,1100.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston,LAC,Anytime TD,,250.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
 Ross Dwelley,DET,Anytime TD,,370.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Anytime TD,,-114.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Travis Kelce,KC,Anytime TD,,185.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
-Tom Kennedy,DET,Anytime TD,,250.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson (NYG) - 1Q,,Anytime TD,,1300.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson (NYG) - 1H,,Anytime TD,,550.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson & New York Giants,,Anytime TD,,950.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson & New England Patriots,,Anytime TD,,380.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Theo Johnson,NYG,Receptions,3.5,,-130.0,False,,Patriots,Giants,1764638100000,Bovada,WR,,,,,,unsupported_market,0.0
-Theo Johnson,NYG,Receiving Yards,32.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,WR,,,,,,unsupported_market,0.0
-Theo Johnson,NYG,Anytime TD,,240.0,,False,,Patriots,Giants,1764638100000,Bovada,WR,,,,,,unsupported_market,0.0
-Terrell Jennings (NE) - 1H,,Anytime TD,,3500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Terrell Jennings,NE,Anytime TD,,1500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1Q,,Anytime TD,,600.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1H,,Anytime TD,,240.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs & New York Giants,,Anytime TD,,1000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs & New England Patriots,,Anytime TD,,130.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Receptions,4.5,105.0,-135.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Receiving Yards,47.5,-130.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Anytime TD,,115.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Receiving Yards,14.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Receptions,2.5,,-130.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Rushing Attempts,15.5,120.0,-160.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Receptions,2.5,-125.0,-105.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'dale Robinson,NYG,Anytime TD,,215.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,NYG,Rushing Yards,4.5,-120.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,NYG,Receiving Yards,2.5,-110.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,NYG,Passing Yards,42.5,-110.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr. (NYG) - 1Q,,Anytime TD,,1000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr. (NYG) - 1H,,Anytime TD,,470.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Rushing Yards,47.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Rushing Attempts,13.5,110.0,-145.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Receiving Yards,17.5,-145.0,110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Rushing Yards,63.5,-130.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr.,NYG,Anytime TD,,230.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr & New York Giants,,Anytime TD,,900.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyrone Tracy Jr & New England Patriots,,Anytime TD,,320.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Tyquan Thornton,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson (NE) - 1Q,,Anytime TD,,440.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson (NE) - 1H,,Anytime TD,,185.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson & New York Giants,,Anytime TD,,900.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson & New England Patriots,,Anytime TD,,,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Flournoy,DAL,Anytime TD,,420.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1H,,Anytime TD,,480.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1H,,Anytime TD,,500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins,NE,Receptions,2.5,-145.0,110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins,NE,Receiving Yards,34.5,-110.0,-120.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins,NE,Anytime TD,,275.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Luke Schoonmaker,DAL,Anytime TD,,825.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
-Kyle Williams (NE) - 1H,,Anytime TD,,2700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams,NE,Anytime TD,,1200.0,,False,,Patriots,Giants,1764638100000,Bovada,RB,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1Q,,Anytime TD,,1000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1H,,Anytime TD,,460.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte & New York Giants,,Anytime TD,,1700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte & New England Patriots,,Anytime TD,,280.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte,NE,Receptions,2.5,120.0,-160.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte,NE,Receiving Yards,34.5,-115.0,-115.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte,NE,Anytime TD,,250.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Kavontae Turpin,DAL,Anytime TD,,420.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
-Kareem Hunt,KC,Anytime TD,,130.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
-Kansas City Chiefs Def/ST,KC,Anytime TD,,440.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-JuJu Smith-Schuster,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Jaylin Noel,HOU,Anytime TD,,725.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Malik Davis,DAL,Anytime TD,,600.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
-Marquise Brown,KC,Anytime TD,,625.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Over - 1Q,NYG,Receiving Yards,2.5,-120.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & New York Giants,,Anytime TD,,1500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & New England Patriots,,Anytime TD,,240.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson,NE,Rushing Yards,25.5,-120.0,-110.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson,NE,Receiving Yards,38.5,-110.0,-120.0,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson,NE,Anytime TD,,225.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Rashee Rice,KC,Anytime TD,,115.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
-Patrick Mahomes,KC,Anytime TD,,440.0,,False,,Chiefs,Texans,1765156800000,Bovada,QB,,,,,,unsupported_market,0.0
-Over - 1Q,NYG,Rushing Yards,4.5,-110.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,NYG,Passing Yards,42.5,-120.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-New England Patriots Def/ST,NE,Anytime TD,,500.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-NY Giants D/ST - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-NY Giants D/ST - 1H,,Anytime TD,,1800.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Nikko Remigio,KC,Anytime TD,,2800.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Romeo Doubs,GB,Anytime TD,,165.0,,False,,Packers,Bears,1765142700000,Bovada,WR,,,,,,unsupported_market,0.0
+Pittsburgh Def/ST,PIT,Anytime TD,,500.0,,False,,Ravens,Steelers,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tom Kennedy,DET,Receiving Yards,,3000.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Quinshon Judkins,CLE,Anytime TD,,-162.0,,False,,Browns,Titans,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,270.0,,False,,Buccaneers,Saints,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Rashee Rice,KC,Anytime TD,,120.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Rashee Rice & Houston Texans,,Anytime TD,,600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice & Kansas City Chiefs,,Anytime TD,,180.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1H,,Anytime TD,,260.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1Q,,Anytime TD,,600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Rasheen Ali,BAL,Anytime TD,,2000.0,,False,,Ravens,Steelers,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Rashid Shaheed,SEA,Anytime TD,,275.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Rashid Shaheed & Atlanta Falcons,,Anytime TD,,1600.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed & Seattle Seahawks,,Anytime TD,,350.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed (SEA) - 1H,,Anytime TD,,550.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed (SEA) - 1Q,,Anytime TD,,1700.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Rashod Bateman,BAL,Anytime TD,,390.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Ray Davis,BUF,Anytime TD,,500.0,,False,,Bills,Bengals,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Robbie Ouzts,SEA,Anytime TD,,2500.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Robert Tonyan,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Robert Tonyan (KC) - 1H,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Robert Tonyan (KC) - 1Q,,Anytime TD,,7000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Roman Wilson,PIT,Anytime TD,,700.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Rome Odunze,CHI,Anytime TD,,250.0,,False,,Packers,Bears,1765142700000,Bovada,WR,,,,,,unsupported_market,0.0
+Tom Kennedy,DET,Anytime TD,,285.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyler Warren,IND,Anytime TD,,180.0,,False,,Jaguars,Colts,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Tom Kennedy & Dallas Cowboys,,Anytime TD,,800.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Tom Kennedy & Detroit Lions,,Anytime TD,,450.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,DET,Passing Yards,55.5,-120.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,DAL,Receiving Yards,15.5,-115.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,DAL,Rushing Yards,17.5,-120.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Anytime TD,,160.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Woody Marks & Houston Texans,,Anytime TD,,400.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & Kansas City Chiefs,,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1H,,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1Q,,Anytime TD,,850.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Anytime TD,,800.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1H,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy,KC,Anytime TD,,285.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Worthy & Houston Texans,,Anytime TD,,1100.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy & Kansas City Chiefs,,Anytime TD,,390.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1H,,Anytime TD,,550.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1Q,,Anytime TD,,1300.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,,,False,,Falcons,Seahawks,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Zach Charbonnet & Atlanta Falcons,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & Seattle Seahawks,,Anytime TD,,140.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1H,,Anytime TD,,250.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1Q,,Anytime TD,,650.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Zay Flowers,BAL,Anytime TD,,215.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Ross Dwelley,DET,Receptions,2.0,-135.0,,True,Dallas Cowboys @ Detroit Lions,Lions,Cowboys,1764897300000,Bovada,TE,receptions,2.0,0.0,-0.12962962962962965,,,0.0
+Tyrod Taylor,NYJ,Anytime TD,,460.0,,False,,Jets,Dolphins,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Tyrell Shavers,BUF,Anytime TD,,460.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyquan Thornton (KC) - 1Q,,Anytime TD,,8000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Ty Johnson,BUF,Anytime TD,,525.0,,False,,Bills,Bengals,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Tony Pollard,TEN,Anytime TD,,300.0,,False,,Browns,Titans,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Etienne,JAX,Anytime TD,,-110.0,,False,,Jaguars,Colts,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce,KC,Anytime TD,,180.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Travis Kelce & Houston Texans,,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce & Kansas City Chiefs,,Anytime TD,,275.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1H,,Anytime TD,,420.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1Q,,Anytime TD,,950.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Tre Harris,LAC,Anytime TD,,800.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+Trevor Lawrence,JAX,Anytime TD,,350.0,,False,,Jaguars,Colts,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Anytime TD,,1800.0,,False,,Jets,Dolphins,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Tylan Wallace,BAL,Anytime TD,,1700.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyquan Thornton (KC) - 1H,,Anytime TD,,1800.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier,ATL,Anytime TD,,240.0,,False,,Falcons,Seahawks,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Allgeier & Atlanta Falcons,,Anytime TD,,750.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier & Seattle Seahawks,,Anytime TD,,350.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier (ATL) - 1H,,Anytime TD,,480.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Conklin,LAC,Anytime TD,,1200.0,,False,,Chargers,Eagles,1765242900000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyler Johnson,NYJ,Anytime TD,,2000.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Tyler Shough,NOR,Anytime TD,,1100.0,,False,,Buccaneers,Saints,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1Q,,Anytime TD,,2000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Tyquan Thornton,KC,Anytime TD,,1100.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Philadelphia Eagles Def/ST,PHI,Anytime TD,,500.0,,False,,Chargers,Eagles,1765242900000,Bovada,,,,,,,unsupported_market,0.0
+A.J. Brown,PHI,Anytime TD,,180.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Anytime TD,,2800.0,,False,,Ravens,Steelers,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+David Montgomery (DET) - 1H,,Anytime TD,,220.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Washington,PIT,Anytime TD,,420.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Darren Waller,MIA,Anytime TD,,245.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+David Montgomery,DET,Anytime TD,,-117.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+David Montgomery,DET,Receiving Yards,11.5,-120.0,-110.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+David Montgomery,DET,Receptions,1.5,-170.0,130.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+David Montgomery,DET,Rushing Yards,37.5,120.0,-160.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+David Montgomery & Dallas Cowboys,,Anytime TD,,425.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery & Detroit Lions,,Anytime TD,,150.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery (DET) - 1Q,,Anytime TD,,550.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Detroit Defense - 1H,,Anytime TD,,1200.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+David Njoku,CLE,Anytime TD,,525.0,,False,,Browns,Titans,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+David Sills,ATL,Anytime TD,,725.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+David Sills (ATL) - 1H,,Anytime TD,,1300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+David Sills (ATL) - 1Q,,Anytime TD,,2700.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+De'Von Achane,MIA,Anytime TD,,-136.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+DeAndre Hopkins,BAL,Anytime TD,,500.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Derrick Henry,BAL,Anytime TD,,-176.0,,False,,Ravens,Steelers,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Detroit Defense & Dallas Cowboys,,Anytime TD,,1900.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney (ATL) - 1Q,,Anytime TD,,1400.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney (ATL) - 1H,,Anytime TD,,650.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney,ATL,Anytime TD,,340.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Dare Ogunbowale,HOU,Anytime TD,,2800.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Passing Yards,267.5,-125.0,-105.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Rushing Yards,,12000.0,,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Dak Prescott & Dallas Cowboys,,Anytime TD,,1200.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott & Detroit Lions,,Anytime TD,,1100.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott (DAL) - 1H,,Anytime TD,,1100.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott (DAL) - 1Q,,Anytime TD,,2200.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Cowboys Def/ST,DAL,Anytime TD,,525.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Defense - 1H,,Anytime TD,,1600.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Defense - 1Q,,Anytime TD,,3500.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dallas Goedert,PHI,Anytime TD,,320.0,,False,,Chargers,Eagles,1765242900000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Anytime TD,,185.0,,False,,Bills,Bengals,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Schultz & Houston Texans,,Anytime TD,,625.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz & Kansas City Chiefs,,Anytime TD,,575.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1H,,Anytime TD,,600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1Q,,Anytime TD,,1200.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Daniel Jones,IND,Anytime TD,,600.0,,False,,Jaguars,Colts,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Detroit Defense & Detroit Lions,,Anytime TD,,900.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Detroit Defense - 1Q,,Anytime TD,,2800.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Passing Attempts,35.5,-125.0,-105.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Greg Dulcich,MIA,Anytime TD,,825.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+George Pickens,DAL,Receiving Yards,78.5,-135.0,105.0,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+George Pickens,DAL,Receptions,5.5,-130.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+George Pickens & Dallas Cowboys,,Anytime TD,,325.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+George Pickens & Detroit Lions,,Anytime TD,,275.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+George Pickens (DAL) - 1H,,Anytime TD,,275.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+George Pickens (DAL) - 1Q,,Anytime TD,,750.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Grant Calcaterra,PHI,Anytime TD,,1500.0,,False,,Chargers,Eagles,1765242900000,Bovada,TE,,,,,,unsupported_market,0.0
+Green Bay Packers Def/ST,GB,Anytime TD,,500.0,,False,,Packers,Bears,1765142700000,Bovada,,,,,,,unsupported_market,0.0
+Gunnar Helm,TEN,Anytime TD,,500.0,,False,,Browns,Titans,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Detroit Lions Def/ST,DET,Anytime TD,,525.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Harold Fannin Jr.,CLE,Anytime TD,,330.0,,False,,Browns,Titans,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Houston Texans Def/ST,HOU,Anytime TD,,440.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1H,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Luepke,DAL,Anytime TD,,1300.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Indianapolis Colts Def/ST,IND,Anytime TD,,500.0,,False,,Jaguars,Colts,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa,DET,Anytime TD,,150.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaac TeSlaa,DET,Receiving Yards,,2000.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+George Pickens,DAL,Anytime TD,,125.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Gabe Davis,BUF,Anytime TD,,360.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Anytime TD,,135.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Elijah Mitchell,KC,Anytime TD,,1900.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Devaughn Vele,NOR,Anytime TD,,340.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Devin Neal,NOR,Anytime TD,,300.0,,False,,Buccaneers,Saints,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+DeVonta Smith,PHI,Anytime TD,,235.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+Devontez Walker,BAL,Anytime TD,,1300.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+DJ Moore,CHI,Anytime TD,,340.0,,False,,Packers,Bears,1765142700000,Bovada,WR,,,,,,unsupported_market,0.0
+DK Metcalf,PIT,Anytime TD,,200.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Dominic Lovett,DET,Anytime TD,,700.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Drake London,ATL,Anytime TD,,205.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Drake London & Atlanta Falcons,,Anytime TD,,800.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Drake London & Seattle Seahawks,,Anytime TD,,300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Drake London (ATL) - 1H,,Anytime TD,,460.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Drake London (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Dwayne Eskridge,MIA,Anytime TD,,1400.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Elic Ayomanor,TEN,Anytime TD,,320.0,,False,,Browns,Titans,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Elijah Arroyo,SEA,Anytime TD,,525.0,,False,,Falcons,Seahawks,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1H,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1Q,,Anytime TD,,3300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Passing TDs,1.5,-185.0,140.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Interceptions,0.5,-160.0,120.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Isaac TeSlaa & Detroit Lions,,Anytime TD,,275.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Brenton Strange,JAX,Anytime TD,,310.0,,False,,Jaguars,Colts,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Bijan Robinson (ATL) - 1H,,Anytime TD,,185.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Bijan Robinson (ATL) - 1Q,,Anytime TD,,480.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Brady Russell,SEA,Anytime TD,,3300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Brandin Cooks,NOR,Anytime TD,,625.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Brashard Smith,KC,Anytime TD,,1100.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Brashard Smith (KC) - 1H,,Anytime TD,,2500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Brashard Smith (KC) - 1Q,,Anytime TD,,12500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Breece Hall,NYJ,Anytime TD,,-110.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Brevyn Spann-Ford,DAL,Anytime TD,,1200.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Brian Thomas,JAX,Anytime TD,,235.0,,False,,Jaguars,Colts,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+British Brooks,HOU,Anytime TD,,2500.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Anytime TD,,-122.0,,False,,Buccaneers,Saints,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Buffalo Bills Def/ST,BUF,Anytime TD,,460.0,,False,,Bills,Bengals,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1Q,,Anytime TD,,5000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton,TB,Anytime TD,,265.0,,False,,Buccaneers,Saints,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Bijan Robinson & Seattle Seahawks,,Anytime TD,,150.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Bijan Robinson & Atlanta Falcons,,Anytime TD,,400.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Anytime TD,,-132.0,,False,,Falcons,Seahawks,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Bhayshul Tuten,JAX,Anytime TD,,175.0,,False,,Jaguars,Colts,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Adonai Mitchell,NYJ,Anytime TD,,245.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,215.0,,False,,Falcons,Seahawks,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+AJ Barner & Atlanta Falcons,,Anytime TD,,1400.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & Seattle Seahawks,,Anytime TD,,280.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1H,,Anytime TD,,460.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1Q,,Anytime TD,,1300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Alec Ingold,MIA,Anytime TD,,2500.0,,False,,Jets,Dolphins,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Alec Pierce,IND,Anytime TD,,225.0,,False,,Jaguars,Colts,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Allen Lazard,NYJ,Anytime TD,,1000.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Anthony Firkser,DET,Anytime TD,,700.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Arian Smith,NYJ,Anytime TD,,1500.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Atlanta D/ST - 1H,,Anytime TD,,1800.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta D/ST - 1Q,,Anytime TD,,4000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta Falcons Def/ST,ATL,Anytime TD,,600.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,800.0,,False,,Buccaneers,Saints,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Baltimore Ravens Def/ST,BAL,Anytime TD,,500.0,,False,,Ravens,Steelers,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Ben Skowronek,PIT,Anytime TD,,2800.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cade Stover,HOU,Anytime TD,,825.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1Q,,Anytime TD,,8000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Anytime TD,,525.0,,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Cody White (SEA) - 1H,,Anytime TD,,2200.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Chris Olave,NOR,Anytime TD,,190.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian Kirk,HOU,Anytime TD,,600.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1H,,Anytime TD,,1000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1Q,,Anytime TD,,2200.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Christian Watson,GB,Anytime TD,,160.0,,False,,Packers,Bears,1765142700000,Bovada,WR,,,,,,unsupported_market,0.0
+Cincinnati Bengals Def/ST,CIN,Anytime TD,,500.0,,False,,Bills,Bengals,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cleveland Browns Def/ST,CLE,Anytime TD,,440.0,,False,,Browns,Titans,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cody White,SEA,Anytime TD,,1400.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cody White (SEA) - 1Q,,Anytime TD,,7000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Anytime TD,,360.0,,False,,Packers,Bears,1765142700000,Bovada,QB,,,,,,unsupported_market,0.0
+Colston Loveland,CHI,Anytime TD,,420.0,,False,,Packers,Bears,1765142700000,Bovada,TE,,,,,,unsupported_market,0.0
+Connor Heyward,PIT,Anytime TD,,1700.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,340.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cooper Kupp & Atlanta Falcons,,Anytime TD,,1800.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & Seattle Seahawks,,Anytime TD,,400.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1H,,Anytime TD,,650.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1Q,,Anytime TD,,1900.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+D'Andre Swift,CHI,Anytime TD,,180.0,,False,,Packers,Bears,1765142700000,Bovada,RB,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Anytime TD,,190.0,,False,,Buccaneers,Saints,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Chimere Dike,TEN,Anytime TD,,330.0,,False,,Browns,Titans,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Chig Okonkwo,TEN,Anytime TD,,600.0,,False,,Browns,Titans,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Chicago Bears Def/ST,CHI,Anytime TD,,525.0,,False,,Packers,Bears,1765142700000,Bovada,,,,,,,unsupported_market,0.0
+Calvin Austin III,PIT,Anytime TD,,525.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cam Akers (MIN) - 1H,,Anytime TD,,4000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Cam Ward,TEN,Anytime TD,,800.0,,False,,Browns,Titans,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Cedric Tillman,CLE,Anytime TD,,460.0,,False,,Browns,Titans,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cedrick Wilson Jr.,MIA,Anytime TD,,1200.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,DAL,Anytime TD,,120.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,DAL,Receiving Yards,79.5,-115.0,-115.0,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb,DAL,Receptions,5.5,-170.0,130.0,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+CeeDee Lamb & Dallas Cowboys,,Anytime TD,,300.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+CeeDee Lamb & Detroit Lions,,Anytime TD,,250.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+CeeDee Lamb (DAL) - 1H,,Anytime TD,,275.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+CeeDee Lamb (DAL) - 1Q,,Anytime TD,,650.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Kolar,BAL,Anytime TD,,1800.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Charlie Woerner,ATL,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Charlie Woerner (ATL) - 1H,,Anytime TD,,1600.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Woerner (ATL) - 1Q,,Anytime TD,,3500.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Anytime TD,,-132.0,,False,,Bills,Bengals,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Isaac TeSlaa & Dallas Cowboys,,Anytime TD,,650.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1H,,Anytime TD,,360.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Anytime TD,,525.0,,False,,Chiefs,Texans,1765156800000,Bovada,QB,,,,,,unsupported_market,0.0
+Khadarel Hodge (ATL) - 1H,,Anytime TD,,3500.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kene Nwangwu,NYJ,Anytime TD,,2800.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Anytime TD,,245.0,,False,,Ravens,Steelers,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,105.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1H,,Anytime TD,,240.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1Q,,Anytime TD,,550.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Atlanta Falcons,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Seattle Seahawks,,Anytime TD,,140.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman,BUF,Anytime TD,,285.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Khadarel Hodge (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts & Seattle Seahawks,,Anytime TD,,325.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Herbert,NYJ,Anytime TD,,2800.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Anytime TD,,195.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Kimani Vidal,LAC,Anytime TD,,320.0,,False,,Chargers,Eagles,1765242900000,Bovada,RB,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Anytime TD,,2200.0,,False,,Falcons,Seahawks,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Kirk Cousins (ATL) - 1H,,Anytime TD,,4000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kirk Cousins (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Monangai,CHI,Anytime TD,,180.0,,False,,Packers,Bears,1765142700000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyle Pitts,ATL,Anytime TD,,240.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Keenan Allen,LAC,Anytime TD,,400.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+Keaton Mitchell,BAL,Anytime TD,,390.0,,False,,Ravens,Steelers,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1Q,,Anytime TD,,4500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jonathan Taylor,IND,Anytime TD,,-275.0,,False,,Jaguars,Colts,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Anytime TD,,400.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Jordan Love,GB,Anytime TD,,525.0,,False,,Packers,Bears,1765142700000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Anytime TD,,-174.0,,False,,Bills,Bengals,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Downs,IND,Anytime TD,,340.0,,False,,Jaguars,Colts,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Jacobs,GB,Anytime TD,,-200.0,,False,,Packers,Bears,1765142700000,Bovada,RB,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster (KC) - 1H,,Anytime TD,,1400.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster (KC) - 1Q,,Anytime TD,,3000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Julian Hill,MIA,Anytime TD,,1900.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Juwan Johnson,NOR,Anytime TD,,310.0,,False,,Buccaneers,Saints,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Kareem Hunt,KC,Anytime TD,,150.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Kareem Hunt & Houston Texans,,Anytime TD,,700.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt & Kansas City Chiefs,,Anytime TD,,230.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1H,,Anytime TD,,360.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1Q,,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Kavontae Turpin,DAL,Anytime TD,,460.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyle Pitts & Atlanta Falcons,,Anytime TD,,800.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts (ATL) - 1H,,Anytime TD,,460.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+John Metchie III,NYJ,Anytime TD,,320.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Anytime TD,,525.0,,False,,Bills,Bengals,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Nick Kallerup,SEA,Anytime TD,,3300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Nick Westbrook-Ikhine,MIA,Anytime TD,,900.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
 Nico Collins,HOU,Anytime TD,,165.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Nico Collins & Houston Texans,,Anytime TD,,400.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins & Kansas City Chiefs,,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1H,,Anytime TD,,350.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins (HOU) - 1Q,,Anytime TD,,750.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nikko Remigio,KC,Anytime TD,,2800.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Noah Gray (KC) - 1H,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Noah Gray (KC) - 1Q,,Anytime TD,,7000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Ollie Gordon II,MIA,Anytime TD,,500.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Omarion Hampton,LAC,Anytime TD,,180.0,,False,,Chargers,Eagles,1765242900000,Bovada,,,,,,,unsupported_market,0.0
+Oronde Gadsden II,LAC,Anytime TD,,255.0,,False,,Chargers,Eagles,1765242900000,Bovada,TE,,,,,,unsupported_market,0.0
+Over - 1Q,DET,Passing Yards,55.5,-110.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,DAL,Receiving Yards,15.5,-115.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,DAL,Rushing Yards,17.5,-110.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Pat Freiermuth,PIT,Anytime TD,,440.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1Q,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1H,,Anytime TD,,750.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb & Kansas City Chiefs,,Anytime TD,,800.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb & Houston Texans,,Anytime TD,,850.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Ladd McConkey,LAC,Anytime TD,,245.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+LaJohntay Wester,BAL,Anytime TD,,1400.0,,False,,Ravens,Steelers,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Anytime TD,,265.0,,False,,Ravens,Steelers,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Luke Schoonmaker,DAL,Anytime TD,,1000.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Luther Burden III,CHI,Anytime TD,,460.0,,False,,Packers,Bears,1765142700000,Bovada,WR,,,,,,unsupported_market,0.0
+Malik Davis,DAL,Anytime TD,,700.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Malik Washington,MIA,Anytime TD,,330.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Mark Andrews,BAL,Anytime TD,,185.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Marquise Brown,KC,Anytime TD,,725.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1H,,Anytime TD,,1300.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1Q,,Anytime TD,,3000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Mason Taylor,NYJ,Anytime TD,,285.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Mason Tipton,NOR,Anytime TD,,600.0,,False,,Buccaneers,Saints,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Michael Pittman,IND,Anytime TD,,210.0,,False,,Jaguars,Colts,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Mike Gesicki,CIN,Anytime TD,,320.0,,False,,Bills,Bengals,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+New York Jets Def/ST,NYJ,Anytime TD,,500.0,,False,,Jets,Dolphins,1765130400000,Bovada,,,,,,,unsupported_market,0.0
 Nick Chubb,HOU,Anytime TD,,400.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
-New York Giants Def/ST,NYG,Anytime TD,,700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-New England Patriots Def/ST (NE) - 1Q,,Anytime TD,,2700.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-New England Patriots Def/ST (NE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Giants,1764638100000,Bovada,,,,,,,unsupported_market,0.0
-Wan'Dale Robinson,NYG,Receiving Yards,125.0,900.0,,True,New York Giants @ New England Patriots,Patriots,Giants,1764638100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jonathan Mingo,DAL,Anytime TD,,1600.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Joe Burrow,CIN,Anytime TD,,625.0,,False,,Bills,Bengals,1765130400000,Bovada,QB,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1Q,,Anytime TD,,900.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jake Ferguson (DAL) - 1H,,Anytime TD,,325.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,1300.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1H,,Anytime TD,,2200.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1Q,,Anytime TD,,7000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jake Ferguson,DAL,Anytime TD,,150.0,,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Ferguson,DAL,Receiving Yards,39.5,-105.0,-125.0,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Ferguson,DAL,Receptions,5.5,120.0,-160.0,False,,Lions,Cowboys,1764897300000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Ferguson & Dallas Cowboys,,Anytime TD,,375.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jake Ferguson & Detroit Lions,,Anytime TD,,300.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jake Ferguson (DAL) - 1Q,,Anytime TD,,800.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Receptions,5.5,-105.0,-125.0,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jakob Johnson,HOU,Anytime TD,,4000.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jakobi Meyers,JAX,Anytime TD,,220.0,,False,,Jaguars,Colts,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Hurts,PHI,Anytime TD,,,,False,,Chargers,Eagles,1765242900000,Bovada,QB,,,,,,unsupported_market,0.0
+Jalen Royals,KC,Anytime TD,,2500.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Tolbert,DAL,Anytime TD,,1600.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jamal Agnew (ATL) - 1Q,,Anytime TD,,12500.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Anytime TD,,-200.0,,False,,Bills,Bengals,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Anytime TD,,105.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jahmyr Gibbs (DET) - 1Q,,Anytime TD,,340.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs (DET) - 1H,,Anytime TD,,115.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Detroit Lions,,Anytime TD,,,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Dallas Cowboys,,Anytime TD,,275.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Bond,CLE,Anytime TD,,700.0,,False,,Browns,Titans,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaiah Davis,NYJ,Anytime TD,,900.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Isaiah Likely,BAL,Anytime TD,,310.0,,False,,Ravens,Steelers,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Isaiah Williams,NYJ,Anytime TD,,1400.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Isiah Pacheco,KC,Anytime TD,,400.0,,False,,Chiefs,Texans,1765156800000,Bovada,RB,,,,,,unsupported_market,0.0
+Isiah Pacheco & Houston Texans,,Anytime TD,,1300.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco & Kansas City Chiefs,,Anytime TD,,450.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1H,,Anytime TD,,700.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1Q,,Anytime TD,,1300.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Ja'Marr Chase,CIN,Anytime TD,,-143.0,,False,,Bills,Bengals,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jacksonville Def/ST,JAX,Anytime TD,,500.0,,False,,Jaguars,Colts,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jacob Saylors,DET,Anytime TD,,2200.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahan Dotson,PHI,Anytime TD,,900.0,,False,,Chargers,Eagles,1765242900000,Bovada,WR,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Anytime TD,,-250.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receiving Yards,34.5,-120.0,-110.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Receptions,4.5,-130.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Rushing Yards,76.5,-115.0,-115.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Receiving Yards,80.5,-130.0,,False,,Lions,Cowboys,1764897300000,Bovada,WR,,,,,,unsupported_market,0.0
+Jameson Williams & Dallas Cowboys,,Anytime TD,,450.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jerry Jeudy,CLE,Anytime TD,,380.0,,False,,Browns,Titans,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1H,,Anytime TD,,700.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,-110.0,,False,,Falcons,Seahawks,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Atlanta Falcons,,Anytime TD,,1000.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Seattle Seahawks,,Anytime TD,,140.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1H,,Anytime TD,,195.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1Q,,Anytime TD,,450.0,,False,,Falcons,Seahawks,1765130400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Anytime TD,,360.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins & Houston Texans,,Anytime TD,,775.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins & Kansas City Chiefs,,Anytime TD,,700.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1Q,,Anytime TD,,1500.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams & Detroit Lions,,Anytime TD,,175.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jaydon Blue,DAL,Anytime TD,,1300.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Waddle,MIA,Anytime TD,,165.0,,False,,Jets,Dolphins,1765130400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Anytime TD,,190.0,,False,,Ravens,Steelers,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylen Wright,MIA,Anytime TD,,725.0,,False,,Jets,Dolphins,1765130400000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaylin Noel,HOU,Anytime TD,,800.0,,False,,Chiefs,Texans,1765156800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1H,,Anytime TD,,1700.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1Q,,Anytime TD,,6000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jeremy Ruckert,NYJ,Anytime TD,,1000.0,,False,,Jets,Dolphins,1765130400000,Bovada,TE,,,,,,unsupported_market,0.0
+Javonte Williams (DAL) - 1Q,,Anytime TD,,475.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Javonte Williams (DAL) - 1H,,Anytime TD,,185.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Javonte Williams & Detroit Lions,,Anytime TD,,190.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Javonte Williams & Dallas Cowboys,,Anytime TD,,225.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1H,,Anytime TD,,240.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1Q,,Anytime TD,,600.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Anytime TD,,1300.0,,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Interceptions,0.5,125.0,-165.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing Attempts,32.5,-120.0,-110.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing TDs,1.5,-210.0,155.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing Yards,250.5,-160.0,120.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Rushing Yards,257.5,-115.0,-115.0,False,,Lions,Cowboys,1764897300000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1H,,Anytime TD,,2000.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1Q,,Anytime TD,,4500.0,,False,,Lions,Cowboys,1764897300000,Bovada,,,,,,,unsupported_market,0.0
+Jared Wiley,KC,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,TE,,,,,,unsupported_market,0.0
+Jared Wiley (KC) - 1H,,Anytime TD,,1600.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Jared Wiley (KC) - 1Q,,Anytime TD,,7000.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Anytime TD,,-148.0,,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Receiving Yards,78.5,-115.0,-115.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Receptions,2.5,145.0,-190.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Rushing Yards,67.5,-110.0,-120.0,False,,Lions,Cowboys,1764897300000,Bovada,RB,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1H,,Anytime TD,,900.0,,False,,Chiefs,Texans,1765156800000,Bovada,,,,,,,unsupported_market,0.0
