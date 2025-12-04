@@ -1,11 +1,11 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,175.0,-1400.0,,1764897300000,Lions,Cowboys,True,221.6,46.599999999999994
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,200.0,-675.0,,1764897300000,Lions,Cowboys,True,221.6,21.599999999999994
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,225.0,-330.0,,1764897300000,Lions,Cowboys,True,221.6,-3.4000000000000057
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,250.0,-195.0,,1764897300000,Lions,Cowboys,True,221.6,-28.400000000000006
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,275.0,,,1764897300000,Lions,Cowboys,True,221.6,-53.400000000000006
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,300.0,170.0,,1764897300000,Lions,Cowboys,True,221.6,-78.4
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,325.0,330.0,,1764897300000,Lions,Cowboys,True,221.6,-103.4
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,175.0,-1500.0,,1764897300000,Lions,Cowboys,True,221.6,46.599999999999994
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,200.0,-725.0,,1764897300000,Lions,Cowboys,True,221.6,21.599999999999994
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,225.0,-375.0,,1764897300000,Lions,Cowboys,True,221.6,-3.4000000000000057
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,250.0,-200.0,,1764897300000,Lions,Cowboys,True,221.6,-28.400000000000006
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,275.0,-115.0,,1764897300000,Lions,Cowboys,True,221.6,-53.400000000000006
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,300.0,160.0,,1764897300000,Lions,Cowboys,True,221.6,-78.4
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,325.0,300.0,,1764897300000,Lions,Cowboys,True,221.6,-103.4
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,350.0,500.0,,1764897300000,Lions,Cowboys,True,221.6,-128.4
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,375.0,850.0,,1764897300000,Lions,Cowboys,True,221.6,-153.4
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Passing Yards,400.0,1300.0,,1764897300000,Lions,Cowboys,True,221.6,-178.4
@@ -36,176 +36,182 @@ David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,250.0,,
 David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,350.0,,1764897300000,Lions,Cowboys,True,11.1,-18.9
 David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,625.0,,1764897300000,Lions,Cowboys,True,11.1,-28.9
 David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,1100.0,,1764897300000,Lions,Cowboys,True,11.1,-38.9
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,1700.0,,1764897300000,Lions,Cowboys,True,11.1,-48.9
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,-800.0,,1764897300000,Lions,Cowboys,True,27.4,-12.600000000000001
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,-450.0,,1764897300000,Lions,Cowboys,True,27.4,-22.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,-270.0,,1764897300000,Lions,Cowboys,True,27.4,-32.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,-175.0,,1764897300000,Lions,Cowboys,True,27.4,-42.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,-115.0,,1764897300000,Lions,Cowboys,True,27.4,-52.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,130.0,,1764897300000,Lions,Cowboys,True,27.4,-62.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,180.0,,1764897300000,Lions,Cowboys,True,27.4,-72.6
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,1550.0,,1764897300000,Lions,Cowboys,True,11.1,-48.9
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,-1000.0,,1764897300000,Lions,Cowboys,True,27.4,-12.600000000000001
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,-480.0,,1764897300000,Lions,Cowboys,True,27.4,-22.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,-290.0,,1764897300000,Lions,Cowboys,True,27.4,-32.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,-185.0,,1764897300000,Lions,Cowboys,True,27.4,-42.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,-125.0,,1764897300000,Lions,Cowboys,True,27.4,-52.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,120.0,,1764897300000,Lions,Cowboys,True,27.4,-62.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,175.0,,1764897300000,Lions,Cowboys,True,27.4,-72.6
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,110.0,250.0,,1764897300000,Lions,Cowboys,True,27.4,-82.6
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,125.0,380.0,,1764897300000,Lions,Cowboys,True,27.4,-97.6
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,125.0,370.0,,1764897300000,Lions,Cowboys,True,27.4,-97.6
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,150.0,800.0,,1764897300000,Lions,Cowboys,True,27.4,-122.6
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,175.0,1350.0,,1764897300000,Lions,Cowboys,True,27.4,-147.6
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-600.0,,1764897300000,Lions,Cowboys,True,0.0,-10.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-350.0,,1764897300000,Lions,Cowboys,True,0.0,-15.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-250.0,,1764897300000,Lions,Cowboys,True,0.0,-20.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-170.0,,1764897300000,Lions,Cowboys,True,0.0,-25.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-120.0,,1764897300000,Lions,Cowboys,True,0.0,-30.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,140.0,,1764897300000,Lions,Cowboys,True,0.0,-40.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,220.0,,1764897300000,Lions,Cowboys,True,0.0,-50.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,350.0,,1764897300000,Lions,Cowboys,True,0.0,-60.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,500.0,,1764897300000,Lions,Cowboys,True,0.0,-70.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,650.0,,1764897300000,Lions,Cowboys,True,0.0,-80.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,850.0,,1764897300000,Lions,Cowboys,True,0.0,-90.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,1200.0,,1764897300000,Lions,Cowboys,True,0.0,-100.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,110.0,1500.0,,1764897300000,Lions,Cowboys,True,0.0,-110.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-1600.0,,1764897300000,Lions,Cowboys,True,18.0,8.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-700.0,,1764897300000,Lions,Cowboys,True,18.0,3.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-390.0,,1764897300000,Lions,Cowboys,True,18.0,-2.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-250.0,,1764897300000,Lions,Cowboys,True,18.0,-7.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-170.0,,1764897300000,Lions,Cowboys,True,18.0,-12.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,115.0,,1764897300000,Lions,Cowboys,True,18.0,-22.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,205.0,,1764897300000,Lions,Cowboys,True,18.0,-32.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,330.0,,1764897300000,Lions,Cowboys,True,18.0,-42.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,530.0,,1764897300000,Lions,Cowboys,True,18.0,-52.0
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-880.0,,1764897300000,Lions,Cowboys,True,29.9,19.9
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-515.0,,1764897300000,Lions,Cowboys,True,29.9,14.899999999999999
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-330.0,,1764897300000,Lions,Cowboys,True,29.9,9.899999999999999
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-235.0,,1764897300000,Lions,Cowboys,True,29.9,4.899999999999999
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-170.0,,1764897300000,Lions,Cowboys,True,29.9,-0.10000000000000142
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,105.0,,1764897300000,Lions,Cowboys,True,29.9,-10.100000000000001
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,170.0,,1764897300000,Lions,Cowboys,True,29.9,-20.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,250.0,,1764897300000,Lions,Cowboys,True,29.9,-30.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,360.0,,1764897300000,Lions,Cowboys,True,29.9,-40.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,500.0,,1764897300000,Lions,Cowboys,True,29.9,-50.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,700.0,,1764897300000,Lions,Cowboys,True,29.9,-60.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,900.0,,1764897300000,Lions,Cowboys,True,29.9,-70.1
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,110.0,1150.0,,1764897300000,Lions,Cowboys,True,29.9,-80.1
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-800.0,,1764897300000,Lions,Cowboys,True,18.0,3.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-450.0,,1764897300000,Lions,Cowboys,True,18.0,-2.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-290.0,,1764897300000,Lions,Cowboys,True,18.0,-7.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-195.0,,1764897300000,Lions,Cowboys,True,18.0,-12.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,105.0,,1764897300000,Lions,Cowboys,True,18.0,-22.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,185.0,,1764897300000,Lions,Cowboys,True,18.0,-32.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,290.0,,1764897300000,Lions,Cowboys,True,18.0,-42.0
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,480.0,,1764897300000,Lions,Cowboys,True,18.0,-52.0
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-1200.0,,1764897300000,Lions,Cowboys,True,29.5,14.5
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-600.0,,1764897300000,Lions,Cowboys,True,29.5,9.5
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-615.0,,1764897300000,Lions,Cowboys,True,29.5,9.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-350.0,,1764897300000,Lions,Cowboys,True,29.5,4.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-235.0,,1764897300000,Lions,Cowboys,True,29.5,-0.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,-105.0,,1764897300000,Lions,Cowboys,True,29.5,-10.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,175.0,,1764897300000,Lions,Cowboys,True,29.5,-20.5
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,300.0,,1764897300000,Lions,Cowboys,True,29.5,-30.5
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,320.0,,1764897300000,Lions,Cowboys,True,29.5,-30.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,550.0,,1764897300000,Lions,Cowboys,True,29.5,-40.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,850.0,,1764897300000,Lions,Cowboys,True,29.5,-50.5
 Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,1200.0,,1764897300000,Lions,Cowboys,True,29.5,-60.5
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,-800.0,,1764897300000,Lions,Cowboys,True,30.1,-9.899999999999999
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,-450.0,,1764897300000,Lions,Cowboys,True,30.1,-19.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,-280.0,,1764897300000,Lions,Cowboys,True,30.1,-29.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,-190.0,,1764897300000,Lions,Cowboys,True,30.1,-39.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,-125.0,,1764897300000,Lions,Cowboys,True,30.1,-49.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,115.0,,1764897300000,Lions,Cowboys,True,30.1,-59.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,160.0,,1764897300000,Lions,Cowboys,True,30.1,-69.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,110.0,215.0,,1764897300000,Lions,Cowboys,True,30.1,-79.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,125.0,340.0,,1764897300000,Lions,Cowboys,True,30.1,-94.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,150.0,700.0,,1764897300000,Lions,Cowboys,True,30.1,-119.9
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,175.0,1150.0,,1764897300000,Lions,Cowboys,True,30.1,-144.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,-1200.0,,1764897300000,Lions,Cowboys,True,30.1,-9.899999999999999
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,-600.0,,1764897300000,Lions,Cowboys,True,30.1,-19.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,-350.0,,1764897300000,Lions,Cowboys,True,30.1,-29.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,-225.0,,1764897300000,Lions,Cowboys,True,30.1,-39.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,-150.0,,1764897300000,Lions,Cowboys,True,30.1,-49.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,,,1764897300000,Lions,Cowboys,True,30.1,-59.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,100.0,140.0,,1764897300000,Lions,Cowboys,True,30.1,-69.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,110.0,185.0,,1764897300000,Lions,Cowboys,True,30.1,-79.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,125.0,290.0,,1764897300000,Lions,Cowboys,True,30.1,-94.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,150.0,600.0,,1764897300000,Lions,Cowboys,True,30.1,-119.9
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,175.0,1100.0,,1764897300000,Lions,Cowboys,True,30.1,-144.9
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-145.0,,1764897300000,Lions,Cowboys,True,16.2,6.199999999999999
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,125.0,,1764897300000,Lions,Cowboys,True,16.2,1.1999999999999993
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,220.0,,1764897300000,Lions,Cowboys,True,16.2,-3.8000000000000007
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,350.0,,1764897300000,Lions,Cowboys,True,16.2,-8.8
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,500.0,,1764897300000,Lions,Cowboys,True,16.2,-13.8
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,900.0,,1764897300000,Lions,Cowboys,True,16.2,-23.8
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,1500.0,,1764897300000,Lions,Cowboys,True,16.2,-33.8
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-170.0,,1764897300000,Lions,Cowboys,True,21.9,11.899999999999999
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,110.0,,1764897300000,Lions,Cowboys,True,21.9,6.899999999999999
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,180.0,,1764897300000,Lions,Cowboys,True,21.9,1.8999999999999986
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,300.0,,1764897300000,Lions,Cowboys,True,21.9,-3.1000000000000014
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,450.0,,1764897300000,Lions,Cowboys,True,21.9,-8.100000000000001
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,850.0,,1764897300000,Lions,Cowboys,True,21.9,-18.1
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,1500.0,,1764897300000,Lions,Cowboys,True,21.9,-28.1
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,1100.0,,1764897300000,Lions,Cowboys,True,21.9,-38.1
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-550.0,,1764897300000,Lions,Cowboys,True,23.4,13.399999999999999
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-280.0,,1764897300000,Lions,Cowboys,True,23.4,8.399999999999999
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-175.0,,1764897300000,Lions,Cowboys,True,23.4,3.3999999999999986
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-115.0,,1764897300000,Lions,Cowboys,True,23.4,-1.6000000000000014
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,125.0,,1764897300000,Lions,Cowboys,True,23.4,-6.600000000000001
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,180.0,,1764897300000,Lions,Cowboys,True,23.4,-16.6
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,300.0,,1764897300000,Lions,Cowboys,True,23.4,-26.6
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,500.0,,1764897300000,Lions,Cowboys,True,23.4,-36.6
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,800.0,,1764897300000,Lions,Cowboys,True,23.4,-46.6
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,1200.0,,1764897300000,Lions,Cowboys,True,23.4,-56.6
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,1700.0,,1764897300000,Lions,Cowboys,True,23.4,-66.6
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-750.0,,1764897300000,Lions,Cowboys,True,0.0,-10.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-410.0,,1764897300000,Lions,Cowboys,True,0.0,-15.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-260.0,,1764897300000,Lions,Cowboys,True,0.0,-20.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-175.0,,1764897300000,Lions,Cowboys,True,0.0,-25.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-115.0,,1764897300000,Lions,Cowboys,True,0.0,-30.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,160.0,,1764897300000,Lions,Cowboys,True,0.0,-40.0
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,475.0,,1764897300000,Lions,Cowboys,True,16.2,-13.8
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,850.0,,1764897300000,Lions,Cowboys,True,16.2,-23.8
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,1350.0,,1764897300000,Lions,Cowboys,True,16.2,-33.8
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-265.0,,1764897300000,Lions,Cowboys,True,0.0,-10.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-160.0,,1764897300000,Lions,Cowboys,True,0.0,-15.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-110.0,,1764897300000,Lions,Cowboys,True,0.0,-20.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,140.0,,1764897300000,Lions,Cowboys,True,0.0,-25.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,200.0,,1764897300000,Lions,Cowboys,True,0.0,-30.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,350.0,,1764897300000,Lions,Cowboys,True,0.0,-40.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,600.0,,1764897300000,Lions,Cowboys,True,0.0,-50.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,850.0,,1764897300000,Lions,Cowboys,True,0.0,-60.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,1250.0,,1764897300000,Lions,Cowboys,True,0.0,-70.0
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-170.0,,1764897300000,Lions,Cowboys,True,44.9,34.9
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,110.0,,1764897300000,Lions,Cowboys,True,44.9,29.9
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,180.0,,1764897300000,Lions,Cowboys,True,44.9,24.9
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,280.0,,1764897300000,Lions,Cowboys,True,44.9,19.9
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,420.0,,1764897300000,Lions,Cowboys,True,44.9,14.899999999999999
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,800.0,,1764897300000,Lions,Cowboys,True,44.9,4.899999999999999
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-190.0,,1764897300000,Lions,Cowboys,True,23.4,13.399999999999999
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-115.0,,1764897300000,Lions,Cowboys,True,23.4,8.399999999999999
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,140.0,,1764897300000,Lions,Cowboys,True,23.4,3.3999999999999986
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,205.0,,1764897300000,Lions,Cowboys,True,23.4,-1.6000000000000014
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,280.0,,1764897300000,Lions,Cowboys,True,23.4,-6.600000000000001
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,525.0,,1764897300000,Lions,Cowboys,True,23.4,-16.6
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,800.0,,1764897300000,Lions,Cowboys,True,23.4,-26.6
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,1150.0,,1764897300000,Lions,Cowboys,True,23.4,-36.6
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,10.0,-660.0,,1764897300000,Lions,Cowboys,True,0.0,-10.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,15.0,-370.0,,1764897300000,Lions,Cowboys,True,0.0,-15.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,20.0,-240.0,,1764897300000,Lions,Cowboys,True,0.0,-20.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,25.0,-155.0,,1764897300000,Lions,Cowboys,True,0.0,-25.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,30.0,-110.0,,1764897300000,Lions,Cowboys,True,0.0,-30.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,40.0,170.0,,1764897300000,Lions,Cowboys,True,0.0,-40.0
 Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,50.0,280.0,,1764897300000,Lions,Cowboys,True,0.0,-50.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,450.0,,1764897300000,Lions,Cowboys,True,0.0,-60.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,750.0,,1764897300000,Lions,Cowboys,True,0.0,-70.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,1100.0,,1764897300000,Lions,Cowboys,True,0.0,-80.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,1500.0,,1764897300000,Lions,Cowboys,True,0.0,-90.0
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-800.0,,1764897300000,Lions,Cowboys,True,4.8,0.7999999999999998
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-330.0,,1764897300000,Lions,Cowboys,True,4.8,-0.20000000000000018
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-160.0,,1764897300000,Lions,Cowboys,True,4.8,-1.2000000000000002
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,7.0,125.0,,1764897300000,Lions,Cowboys,True,4.8,-2.2
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,215.0,,1764897300000,Lions,Cowboys,True,4.8,-3.2
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,380.0,,1764897300000,Lions,Cowboys,True,4.8,-4.2
-CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,10.0,650.0,,1764897300000,Lions,Cowboys,True,4.8,-5.2
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-900.0,,1764897300000,Lions,Cowboys,True,1.86,0.8600000000000001
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-185.0,,1764897300000,Lions,Cowboys,True,1.86,-0.1399999999999999
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,160.0,,1764897300000,Lions,Cowboys,True,1.86,-1.14
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,360.0,,1764897300000,Lions,Cowboys,True,1.86,-2.1399999999999997
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,60.0,475.0,,1764897300000,Lions,Cowboys,True,0.0,-60.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,70.0,700.0,,1764897300000,Lions,Cowboys,True,0.0,-70.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,80.0,1000.0,,1764897300000,Lions,Cowboys,True,0.0,-80.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receiving Yards,90.0,1350.0,,1764897300000,Lions,Cowboys,True,0.0,-90.0
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-880.0,,1764897300000,Lions,Cowboys,True,4.8,0.7999999999999998
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-350.0,,1764897300000,Lions,Cowboys,True,4.8,-0.20000000000000018
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-170.0,,1764897300000,Lions,Cowboys,True,4.8,-1.2000000000000002
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,7.0,110.0,,1764897300000,Lions,Cowboys,True,4.8,-2.2
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,200.0,,1764897300000,Lions,Cowboys,True,4.8,-3.2
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,340.0,,1764897300000,Lions,Cowboys,True,4.8,-4.2
+CeeDee Lamb,DAL,Dallas Cowboys @ Detroit Lions,Receptions,10.0,585.0,,1764897300000,Lions,Cowboys,True,4.8,-5.2
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-880.0,,1764897300000,Lions,Cowboys,True,1.86,0.8600000000000001
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-190.0,,1764897300000,Lions,Cowboys,True,1.86,-0.1399999999999999
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,165.0,,1764897300000,Lions,Cowboys,True,1.86,-1.14
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,370.0,,1764897300000,Lions,Cowboys,True,1.86,-2.1399999999999997
 David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,800.0,,1764897300000,Lions,Cowboys,True,1.86,-3.1399999999999997
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-660.0,,1764897300000,Lions,Cowboys,True,3.26,-0.7400000000000002
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-280.0,,1764897300000,Lions,Cowboys,True,3.26,-1.7400000000000002
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-700.0,,1764897300000,Lions,Cowboys,True,3.26,-0.7400000000000002
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-290.0,,1764897300000,Lions,Cowboys,True,3.26,-1.7400000000000002
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-140.0,,1764897300000,Lions,Cowboys,True,3.26,-2.74
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,7.0,140.0,,1764897300000,Lions,Cowboys,True,3.26,-3.74
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,260.0,,1764897300000,Lions,Cowboys,True,3.26,-4.74
-George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,430.0,,1764897300000,Lions,Cowboys,True,3.26,-5.74
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,250.0,,1764897300000,Lions,Cowboys,True,3.26,-4.74
+George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,440.0,,1764897300000,Lions,Cowboys,True,3.26,-5.74
 George Pickens,DAL,Dallas Cowboys @ Detroit Lions,Receptions,10.0,700.0,,1764897300000,Lions,Cowboys,True,3.26,-6.74
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-310.0,,1764897300000,Lions,Cowboys,True,0.0,-2.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-105.0,,1764897300000,Lions,Cowboys,True,0.0,-3.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,225.0,,1764897300000,Lions,Cowboys,True,0.0,-4.0
-Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,500.0,,1764897300000,Lions,Cowboys,True,0.0,-5.0
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-700.0,,1764897300000,Lions,Cowboys,True,2.91,-0.08999999999999986
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-280.0,,1764897300000,Lions,Cowboys,True,2.91,-1.0899999999999999
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-135.0,,1764897300000,Lions,Cowboys,True,2.91,-2.09
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,150.0,,1764897300000,Lions,Cowboys,True,2.91,-3.09
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,7.0,260.0,,1764897300000,Lions,Cowboys,True,2.91,-4.09
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-1550.0,,1764897300000,Lions,Cowboys,True,4.48,1.4800000000000004
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-450.0,,1764897300000,Lions,Cowboys,True,4.48,0.4800000000000004
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-200.0,,1764897300000,Lions,Cowboys,True,4.48,-0.5199999999999996
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-105.0,,1764897300000,Lions,Cowboys,True,4.48,-1.5199999999999996
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,7.0,185.0,,1764897300000,Lions,Cowboys,True,4.48,-2.5199999999999996
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,320.0,,1764897300000,Lions,Cowboys,True,4.48,-3.5199999999999996
-Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,530.0,,1764897300000,Lions,Cowboys,True,4.48,-4.52
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-1600.0,,1764897300000,Lions,Cowboys,True,3.11,0.10999999999999988
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-480.0,,1764897300000,Lions,Cowboys,True,3.11,-0.8900000000000001
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-215.0,,1764897300000,Lions,Cowboys,True,3.11,-1.8900000000000001
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-150.0,,1764897300000,Lions,Cowboys,True,3.11,-2.89
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,7.0,180.0,,1764897300000,Lions,Cowboys,True,3.11,-3.89
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,8.0,340.0,,1764897300000,Lions,Cowboys,True,3.11,-4.890000000000001
-Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,9.0,600.0,,1764897300000,Lions,Cowboys,True,3.11,-5.890000000000001
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-1000.0,,1764897300000,Lions,Cowboys,True,2.7,1.7000000000000002
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-220.0,,1764897300000,Lions,Cowboys,True,2.7,0.7000000000000002
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-440.0,,1764897300000,Lions,Cowboys,True,2.2,0.20000000000000018
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-145.0,,1764897300000,Lions,Cowboys,True,2.2,-0.7999999999999998
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,170.0,,1764897300000,Lions,Cowboys,True,2.2,-1.7999999999999998
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,340.0,,1764897300000,Lions,Cowboys,True,2.2,-2.8
+Isaac TeSlaa,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,680.0,,1764897300000,Lions,Cowboys,True,2.2,-3.8
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-770.0,,1764897300000,Lions,Cowboys,True,2.91,-0.08999999999999986
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-320.0,,1764897300000,Lions,Cowboys,True,2.91,-1.0899999999999999
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-150.0,,1764897300000,Lions,Cowboys,True,2.91,-2.09
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,130.0,,1764897300000,Lions,Cowboys,True,2.91,-3.09
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Receptions,7.0,240.0,,1764897300000,Lions,Cowboys,True,2.91,-4.09
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-1100.0,,1764897300000,Lions,Cowboys,True,4.48,1.4800000000000004
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-380.0,,1764897300000,Lions,Cowboys,True,4.48,0.4800000000000004
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-175.0,,1764897300000,Lions,Cowboys,True,4.48,-0.5199999999999996
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,6.0,115.0,,1764897300000,Lions,Cowboys,True,4.48,-1.5199999999999996
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,7.0,210.0,,1764897300000,Lions,Cowboys,True,4.48,-2.5199999999999996
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,8.0,380.0,,1764897300000,Lions,Cowboys,True,4.48,-3.5199999999999996
+Jake Ferguson,DAL,Dallas Cowboys @ Detroit Lions,Receptions,9.0,625.0,,1764897300000,Lions,Cowboys,True,4.48,-4.52
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,-600.0,,1764897300000,Lions,Cowboys,True,3.11,-0.8900000000000001
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,-255.0,,1764897300000,Lions,Cowboys,True,3.11,-1.8900000000000001
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,-120.0,,1764897300000,Lions,Cowboys,True,3.11,-2.89
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,7.0,165.0,,1764897300000,Lions,Cowboys,True,3.11,-3.89
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,8.0,300.0,,1764897300000,Lions,Cowboys,True,3.11,-4.890000000000001
+Jameson Williams,DET,Dallas Cowboys @ Detroit Lions,Receptions,9.0,530.0,,1764897300000,Lions,Cowboys,True,3.11,-5.890000000000001
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-1200.0,,1764897300000,Lions,Cowboys,True,2.7,1.7000000000000002
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-225.0,,1764897300000,Lions,Cowboys,True,2.7,0.7000000000000002
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,135.0,,1764897300000,Lions,Cowboys,True,2.7,-0.2999999999999998
-Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,330.0,,1764897300000,Lions,Cowboys,True,2.7,-1.2999999999999998
+Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,320.0,,1764897300000,Lions,Cowboys,True,2.7,-1.2999999999999998
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Receptions,5.0,700.0,,1764897300000,Lions,Cowboys,True,2.7,-2.3
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-650.0,,1764897300000,Lions,Cowboys,True,2.0,1.0
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-135.0,,1764897300000,Lions,Cowboys,True,2.0,0.0
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,210.0,,1764897300000,Lions,Cowboys,True,2.0,-1.0
-Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,550.0,,1764897300000,Lions,Cowboys,True,2.0,-2.0
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-750.0,,1764897300000,Lions,Cowboys,True,2.43,1.4300000000000002
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-155.0,,1764897300000,Lions,Cowboys,True,2.43,0.43000000000000016
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,200.0,,1764897300000,Lions,Cowboys,True,2.43,-0.5699999999999998
-Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,500.0,,1764897300000,Lions,Cowboys,True,2.43,-1.5699999999999998
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-700.0,,1764897300000,Lions,Cowboys,True,0.0,-2.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-230.0,,1764897300000,Lions,Cowboys,True,0.0,-3.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,105.0,,1764897300000,Lions,Cowboys,True,0.0,-4.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,210.0,,1764897300000,Lions,Cowboys,True,0.0,-5.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,425.0,,1764897300000,Lions,Cowboys,True,0.0,-6.0
-Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,7.0,750.0,,1764897300000,Lions,Cowboys,True,0.0,-7.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-710.0,,1764897300000,Lions,Cowboys,True,0.0,-1.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-145.0,,1764897300000,Lions,Cowboys,True,0.0,-2.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,205.0,,1764897300000,Lions,Cowboys,True,0.0,-3.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,550.0,,1764897300000,Lions,Cowboys,True,0.0,-4.0
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-600.0,,1764897300000,Lions,Cowboys,True,3.88,2.88
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-125.0,,1764897300000,Lions,Cowboys,True,3.88,1.88
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,245.0,,1764897300000,Lions,Cowboys,True,3.88,0.8799999999999999
+Ross Dwelley,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,590.0,,1764897300000,Lions,Cowboys,True,3.88,-0.1200000000000001
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,1.0,-510.0,,1764897300000,Lions,Cowboys,True,2.43,1.4300000000000002
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-110.0,,1764897300000,Lions,Cowboys,True,2.43,0.43000000000000016
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,3.0,290.0,,1764897300000,Lions,Cowboys,True,2.43,-0.5699999999999998
+Ryan Flournoy,DAL,Dallas Cowboys @ Detroit Lions,Receptions,4.0,750.0,,1764897300000,Lions,Cowboys,True,2.43,-1.5699999999999998
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,2.0,-525.0,,1764897300000,Lions,Cowboys,True,0.0,-2.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,3.0,-190.0,,1764897300000,Lions,Cowboys,True,0.0,-3.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,4.0,130.0,,1764897300000,Lions,Cowboys,True,0.0,-4.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,5.0,260.0,,1764897300000,Lions,Cowboys,True,0.0,-5.0
+Tom Kennedy,DET,Dallas Cowboys @ Detroit Lions,Receptions,6.0,500.0,,1764897300000,Lions,Cowboys,True,0.0,-6.0
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,10.0,-145.0,,1764897300000,Lions,Cowboys,True,9.3,-0.6999999999999993
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,15.0,140.0,,1764897300000,Lions,Cowboys,True,9.3,-5.699999999999999
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,20.0,250.0,,1764897300000,Lions,Cowboys,True,9.3,-10.7
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,25.0,400.0,,1764897300000,Lions,Cowboys,True,9.3,-15.7
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,20.0,240.0,,1764897300000,Lions,Cowboys,True,9.3,-10.7
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,25.0,390.0,,1764897300000,Lions,Cowboys,True,9.3,-15.7
 Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,30.0,625.0,,1764897300000,Lions,Cowboys,True,9.3,-20.7
-Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,1250.0,,1764897300000,Lions,Cowboys,True,9.3,-30.7
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,15.0,-1000.0,,1764897300000,Lions,Cowboys,True,32.6,17.6
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,20.0,-490.0,,1764897300000,Lions,Cowboys,True,32.6,12.600000000000001
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,25.0,-295.0,,1764897300000,Lions,Cowboys,True,32.6,7.600000000000001
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,30.0,-195.0,,1764897300000,Lions,Cowboys,True,32.6,2.6000000000000014
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,105.0,,1764897300000,Lions,Cowboys,True,32.6,-7.399999999999999
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,50.0,185.0,,1764897300000,Lions,Cowboys,True,32.6,-17.4
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,60.0,320.0,,1764897300000,Lions,Cowboys,True,32.6,-27.4
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,70.0,500.0,,1764897300000,Lions,Cowboys,True,32.6,-37.4
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,80.0,750.0,,1764897300000,Lions,Cowboys,True,32.6,-47.4
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,90.0,1000.0,,1764897300000,Lions,Cowboys,True,32.6,-57.4
-David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,100.0,1350.0,,1764897300000,Lions,Cowboys,True,32.6,-67.4
+Dak Prescott,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,1200.0,,1764897300000,Lions,Cowboys,True,9.3,-30.7
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,15.0,-820.0,,1764897300000,Lions,Cowboys,True,32.6,17.6
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,20.0,-440.0,,1764897300000,Lions,Cowboys,True,32.6,12.600000000000001
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,25.0,-260.0,,1764897300000,Lions,Cowboys,True,32.6,7.600000000000001
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,30.0,-170.0,,1764897300000,Lions,Cowboys,True,32.6,2.6000000000000014
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,120.0,,1764897300000,Lions,Cowboys,True,32.6,-7.399999999999999
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,50.0,210.0,,1764897300000,Lions,Cowboys,True,32.6,-17.4
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,60.0,360.0,,1764897300000,Lions,Cowboys,True,32.6,-27.4
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,70.0,600.0,,1764897300000,Lions,Cowboys,True,32.6,-37.4
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,80.0,800.0,,1764897300000,Lions,Cowboys,True,32.6,-47.4
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,90.0,1100.0,,1764897300000,Lions,Cowboys,True,32.6,-57.4
+David Montgomery,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,100.0,1550.0,,1764897300000,Lions,Cowboys,True,32.6,-67.4
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,-1550.0,,1764897300000,Lions,Cowboys,True,59.3,19.299999999999997
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,50.0,-600.0,,1764897300000,Lions,Cowboys,True,59.3,9.299999999999997
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,60.0,-300.0,,1764897300000,Lions,Cowboys,True,59.3,-0.7000000000000028
@@ -213,7 +219,7 @@ Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,70.0,-180.0,,17648
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,80.0,-110.0,,1764897300000,Lions,Cowboys,True,59.3,-20.700000000000003
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,90.0,145.0,,1764897300000,Lions,Cowboys,True,59.3,-30.700000000000003
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,100.0,210.0,,1764897300000,Lions,Cowboys,True,59.3,-40.7
-Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,110.0,320.0,,1764897300000,Lions,Cowboys,True,59.3,-50.7
+Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,110.0,300.0,,1764897300000,Lions,Cowboys,True,59.3,-50.7
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,125.0,530.0,,1764897300000,Lions,Cowboys,True,59.3,-65.7
 Jahmyr Gibbs,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,150.0,1100.0,,1764897300000,Lions,Cowboys,True,59.3,-90.7
 Jared Goff,DET,Dallas Cowboys @ Detroit Lions,Rushing Yards,10.0,350.0,,1764897300000,Lions,Cowboys,True,12.3,2.3000000000000007
@@ -230,3 +236,12 @@ Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,100.0,330.0,,1
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,110.0,480.0,,1764897300000,Lions,Cowboys,True,60.5,-49.5
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,125.0,800.0,,1764897300000,Lions,Cowboys,True,60.5,-64.5
 Javonte Williams,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,150.0,1550.0,,1764897300000,Lions,Cowboys,True,60.5,-89.5
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,10.0,185.0,,1764897300000,Lions,Cowboys,True,0.0,-10.0
+KaVontae Turpin,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,15.0,320.0,,1764897300000,Lions,Cowboys,True,0.0,-15.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,10.0,-140.0,,1764897300000,Lions,Cowboys,True,37.0,27.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,15.0,140.0,,1764897300000,Lions,Cowboys,True,37.0,22.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,20.0,220.0,,1764897300000,Lions,Cowboys,True,37.0,17.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,25.0,360.0,,1764897300000,Lions,Cowboys,True,37.0,12.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,30.0,500.0,,1764897300000,Lions,Cowboys,True,37.0,7.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,40.0,900.0,,1764897300000,Lions,Cowboys,True,37.0,-3.0
+Malik Davis,DAL,Dallas Cowboys @ Detroit Lions,Rushing Yards,50.0,1700.0,,1764897300000,Lions,Cowboys,True,37.0,-13.0

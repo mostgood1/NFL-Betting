@@ -1,0 +1,1776 @@
+{
+  "lines": {
+    "Dallas Cowboys @ Detroit Lions": {
+      "moneyline": {
+        "home": -175,
+        "away": 145
+      },
+      "total_runs": {
+        "line": 54.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -3.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Dallas Cowboys",
+              "price": 145
+            },
+            {
+              "name": "Detroit Lions",
+              "price": -175
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Dallas Cowboys",
+              "price": -108,
+              "point": 3.0
+            },
+            {
+              "name": "Detroit Lions",
+              "price": -112,
+              "point": -3.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 54.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 54.5
+            }
+          ]
+        }
+      ]
+    },
+    "Seattle Seahawks @ Atlanta Falcons": {
+      "moneyline": {
+        "home": 280,
+        "away": -355
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": 7.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Atlanta Falcons",
+              "price": 280
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -355
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Atlanta Falcons",
+              "price": -115,
+              "point": 7.0
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -105,
+              "point": -7.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Pittsburgh Steelers @ Baltimore Ravens": {
+      "moneyline": {
+        "home": -290,
+        "away": 235
+      },
+      "total_runs": {
+        "line": 42.5,
+        "over": -118,
+        "under": -102
+      },
+      "run_line": {
+        "home": -6.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Baltimore Ravens",
+              "price": -290
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "price": 235
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Baltimore Ravens",
+              "price": -108,
+              "point": -6.0
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "price": -112,
+              "point": 6.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -118,
+              "point": 42.5
+            },
+            {
+              "name": "Under",
+              "price": -102,
+              "point": 42.5
+            }
+          ]
+        }
+      ]
+    },
+    "Cincinnati Bengals @ Buffalo Bills": {
+      "moneyline": {
+        "home": -270,
+        "away": 220
+      },
+      "total_runs": {
+        "line": 53.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -5.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": -270
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "price": 220
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": -120,
+              "point": -5.5
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "price": 100,
+              "point": 5.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 53.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 53.5
+            }
+          ]
+        }
+      ]
+    },
+    "Tennessee Titans @ Cleveland Browns": {
+      "moneyline": {
+        "home": -205,
+        "away": 170
+      },
+      "total_runs": {
+        "line": 33.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": -4.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Cleveland Browns",
+              "price": -205
+            },
+            {
+              "name": "Tennessee Titans",
+              "price": 170
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Cleveland Browns",
+              "price": -105,
+              "point": -4.5
+            },
+            {
+              "name": "Tennessee Titans",
+              "price": -115,
+              "point": 4.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 33.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 33.5
+            }
+          ]
+        }
+      ]
+    },
+    "Indianapolis Colts @ Jacksonville Jaguars": {
+      "moneyline": {
+        "home": 105,
+        "away": -125
+      },
+      "total_runs": {
+        "line": 47.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": 1.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Indianapolis Colts",
+              "price": -125
+            },
+            {
+              "name": "Jacksonville Jaguars",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Indianapolis Colts",
+              "price": -112,
+              "point": -1.5
+            },
+            {
+              "name": "Jacksonville Jaguars",
+              "price": -108,
+              "point": 1.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 47.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 47.5
+            }
+          ]
+        }
+      ]
+    },
+    "Miami Dolphins @ New York Jets": {
+      "moneyline": {
+        "home": 130,
+        "away": -155
+      },
+      "total_runs": {
+        "line": 41.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 2.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Miami Dolphins",
+              "price": -155
+            },
+            {
+              "name": "New York Jets",
+              "price": 130
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Miami Dolphins",
+              "price": -120,
+              "point": -2.5
+            },
+            {
+              "name": "New York Jets",
+              "price": 100,
+              "point": 2.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 41.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 41.5
+            }
+          ]
+        }
+      ]
+    },
+    "Washington Commanders @ Minnesota Vikings": {
+      "moneyline": {
+        "home": -130,
+        "away": 110
+      },
+      "total_runs": {
+        "line": 42.5,
+        "over": -105,
+        "under": -115
+      },
+      "run_line": {
+        "home": -2.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Minnesota Vikings",
+              "price": -130
+            },
+            {
+              "name": "Washington Commanders",
+              "price": 110
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Minnesota Vikings",
+              "price": -105,
+              "point": -2.5
+            },
+            {
+              "name": "Washington Commanders",
+              "price": -115,
+              "point": 2.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -105,
+              "point": 42.5
+            },
+            {
+              "name": "Under",
+              "price": -115,
+              "point": 42.5
+            }
+          ]
+        }
+      ]
+    },
+    "New Orleans Saints @ Tampa Bay Buccaneers": {
+      "moneyline": {
+        "home": -440,
+        "away": 340
+      },
+      "total_runs": {
+        "line": 42.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -8.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "New Orleans Saints",
+              "price": 340
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "price": -440
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "New Orleans Saints",
+              "price": -112,
+              "point": 8.5
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "price": -108,
+              "point": -8.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 42.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 42.5
+            }
+          ]
+        }
+      ]
+    },
+    "Denver Broncos @ Las Vegas Raiders": {
+      "moneyline": {
+        "home": 320,
+        "away": -410
+      },
+      "total_runs": {
+        "line": 40.5,
+        "over": 102,
+        "under": -122
+      },
+      "run_line": {
+        "home": 7.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Denver Broncos",
+              "price": -410
+            },
+            {
+              "name": "Las Vegas Raiders",
+              "price": 320
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Denver Broncos",
+              "price": -108,
+              "point": -7.5
+            },
+            {
+              "name": "Las Vegas Raiders",
+              "price": -112,
+              "point": 7.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": 102,
+              "point": 40.5
+            },
+            {
+              "name": "Under",
+              "price": -122,
+              "point": 40.5
+            }
+          ]
+        }
+      ]
+    },
+    "Los Angeles Rams @ Arizona Cardinals": {
+      "moneyline": {
+        "home": 330,
+        "away": -425
+      },
+      "total_runs": {
+        "line": 47.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 7.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Arizona Cardinals",
+              "price": 330
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -425
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Arizona Cardinals",
+              "price": -105,
+              "point": 7.5
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -115,
+              "point": -7.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 47.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 47.5
+            }
+          ]
+        }
+      ]
+    },
+    "Chicago Bears @ Green Bay Packers": {
+      "moneyline": {
+        "home": -340,
+        "away": 270
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -6.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": 270
+            },
+            {
+              "name": "Green Bay Packers",
+              "price": -340
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": -105,
+              "point": 6.5
+            },
+            {
+              "name": "Green Bay Packers",
+              "price": -115,
+              "point": -6.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Houston Texans @ Kansas City Chiefs": {
+      "moneyline": {
+        "home": -192,
+        "away": 160
+      },
+      "total_runs": {
+        "line": 41.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": -3.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Houston Texans",
+              "price": 160
+            },
+            {
+              "name": "Kansas City Chiefs",
+              "price": -192
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Houston Texans",
+              "price": -115,
+              "point": 3.5
+            },
+            {
+              "name": "Kansas City Chiefs",
+              "price": -105,
+              "point": -3.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 41.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 41.5
+            }
+          ]
+        }
+      ]
+    },
+    "Philadelphia Eagles @ Los Angeles Chargers": {
+      "moneyline": {
+        "home": 130,
+        "away": -155
+      },
+      "total_runs": {
+        "line": 40.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": 3.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Los Angeles Chargers",
+              "price": 130
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "price": -155
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Los Angeles Chargers",
+              "price": -115,
+              "point": 3.0
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "price": -105,
+              "point": -3.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 40.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 40.5
+            }
+          ]
+        }
+      ]
+    },
+    "Atlanta Falcons @ Tampa Bay Buccaneers": {
+      "moneyline": {
+        "home": -250,
+        "away": 205
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -6.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Atlanta Falcons",
+              "price": 205
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "price": -250
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Atlanta Falcons",
+              "price": -112,
+              "point": 6.0
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "price": -108,
+              "point": -6.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Arizona Cardinals @ Houston Texans": {
+      "moneyline": {
+        "home": -355,
+        "away": 280
+      },
+      "total_runs": {
+        "line": 42.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -7.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Arizona Cardinals",
+              "price": 280
+            },
+            {
+              "name": "Houston Texans",
+              "price": -355
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Arizona Cardinals",
+              "price": -105,
+              "point": 7.0
+            },
+            {
+              "name": "Houston Texans",
+              "price": -115,
+              "point": -7.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 42.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 42.5
+            }
+          ]
+        }
+      ]
+    },
+    "Baltimore Ravens @ Cincinnati Bengals": {
+      "moneyline": {
+        "home": 130,
+        "away": -155
+      },
+      "total_runs": {
+        "line": 51.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 2.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Baltimore Ravens",
+              "price": -155
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "price": 130
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Baltimore Ravens",
+              "price": -120,
+              "point": -2.5
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "price": 100,
+              "point": 2.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 51.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 51.5
+            }
+          ]
+        }
+      ]
+    },
+    "Buffalo Bills @ New England Patriots": {
+      "moneyline": {
+        "home": -125,
+        "away": 105
+      },
+      "total_runs": {
+        "line": 47.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -1.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": 105
+            },
+            {
+              "name": "New England Patriots",
+              "price": -125
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": -110,
+              "point": 1.5
+            },
+            {
+              "name": "New England Patriots",
+              "price": -110,
+              "point": -1.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 47.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 47.5
+            }
+          ]
+        }
+      ]
+    },
+    "Cleveland Browns @ Chicago Bears": {
+      "moneyline": {
+        "home": -440,
+        "away": 340
+      },
+      "total_runs": {
+        "line": 39.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -7.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": -440
+            },
+            {
+              "name": "Cleveland Browns",
+              "price": 340
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": -105,
+              "point": -7.5
+            },
+            {
+              "name": "Cleveland Browns",
+              "price": -115,
+              "point": 7.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 39.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 39.5
+            }
+          ]
+        }
+      ]
+    },
+    "New York Jets @ Jacksonville Jaguars": {
+      "moneyline": {
+        "home": -470,
+        "away": 360
+      },
+      "total_runs": {
+        "line": 43.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -9.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Jacksonville Jaguars",
+              "price": -470
+            },
+            {
+              "name": "New York Jets",
+              "price": 360
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Jacksonville Jaguars",
+              "price": -108,
+              "point": -9.5
+            },
+            {
+              "name": "New York Jets",
+              "price": -112,
+              "point": 9.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 43.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 43.5
+            }
+          ]
+        }
+      ]
+    },
+    "Los Angeles Chargers @ Kansas City Chiefs": {
+      "moneyline": {
+        "home": -205,
+        "away": 170
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -4.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Kansas City Chiefs",
+              "price": -205
+            },
+            {
+              "name": "Los Angeles Chargers",
+              "price": 170
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Kansas City Chiefs",
+              "price": -112,
+              "point": -4.5
+            },
+            {
+              "name": "Los Angeles Chargers",
+              "price": -108,
+              "point": 4.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Las Vegas Raiders @ Philadelphia Eagles": {
+      "moneyline": {
+        "home": -950,
+        "away": 625
+      },
+      "total_runs": {
+        "line": 40.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": -12.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Las Vegas Raiders",
+              "price": 625
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "price": -950
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Las Vegas Raiders",
+              "price": -110,
+              "point": 12.5
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "price": -110,
+              "point": -12.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 40.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 40.5
+            }
+          ]
+        }
+      ]
+    },
+    "Washington Commanders @ New York Giants": {
+      "moneyline": {
+        "home": 110,
+        "away": -130
+      },
+      "total_runs": {
+        "line": 47.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 2.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "New York Giants",
+              "price": 110
+            },
+            {
+              "name": "Washington Commanders",
+              "price": -130
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "New York Giants",
+              "price": -115,
+              "point": 2.5
+            },
+            {
+              "name": "Washington Commanders",
+              "price": -105,
+              "point": -2.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 47.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 47.5
+            }
+          ]
+        }
+      ]
+    },
+    "Carolina Panthers @ New Orleans Saints": {
+      "moneyline": {
+        "home": 124,
+        "away": -148
+      },
+      "total_runs": {
+        "line": 39.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 2.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Carolina Panthers",
+              "price": -148
+            },
+            {
+              "name": "New Orleans Saints",
+              "price": 124
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Carolina Panthers",
+              "price": -118,
+              "point": -2.5
+            },
+            {
+              "name": "New Orleans Saints",
+              "price": -102,
+              "point": 2.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 39.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 39.5
+            }
+          ]
+        }
+      ]
+    },
+    "Green Bay Packers @ Denver Broncos": {
+      "moneyline": {
+        "home": -105,
+        "away": -115
+      },
+      "total_runs": {
+        "line": 42.5,
+        "over": -108,
+        "under": -112
+      },
+      "run_line": {
+        "home": 1.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Denver Broncos",
+              "price": -105
+            },
+            {
+              "name": "Green Bay Packers",
+              "price": -115
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Denver Broncos",
+              "price": -118,
+              "point": 1.5
+            },
+            {
+              "name": "Green Bay Packers",
+              "price": -102,
+              "point": -1.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -108,
+              "point": 42.5
+            },
+            {
+              "name": "Under",
+              "price": -112,
+              "point": 42.5
+            }
+          ]
+        }
+      ]
+    },
+    "Detroit Lions @ Los Angeles Rams": {
+      "moneyline": {
+        "home": -218,
+        "away": 180
+      },
+      "total_runs": {
+        "line": 50.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -4.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Detroit Lions",
+              "price": 180
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -218
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Detroit Lions",
+              "price": -110,
+              "point": 4.5
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -110,
+              "point": -4.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 50.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 50.5
+            }
+          ]
+        }
+      ]
+    },
+    "Indianapolis Colts @ Seattle Seahawks": {
+      "moneyline": {
+        "home": -185,
+        "away": 154
+      },
+      "total_runs": {
+        "line": 46.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": -3.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Indianapolis Colts",
+              "price": 154
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -185
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Indianapolis Colts",
+              "price": -110,
+              "point": 3.5
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -110,
+              "point": -3.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 46.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 46.5
+            }
+          ]
+        }
+      ]
+    },
+    "Tennessee Titans @ San Francisco 49ers": {
+      "moneyline": {
+        "home": -950,
+        "away": 625
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -105,
+        "under": -115
+      },
+      "run_line": {
+        "home": -12.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "San Francisco 49ers",
+              "price": -950
+            },
+            {
+              "name": "Tennessee Titans",
+              "price": 625
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "San Francisco 49ers",
+              "price": -110,
+              "point": -12.5
+            },
+            {
+              "name": "Tennessee Titans",
+              "price": -110,
+              "point": 12.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -105,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -115,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Minnesota Vikings @ Dallas Cowboys": {
+      "moneyline": {
+        "home": -395,
+        "away": 310
+      },
+      "total_runs": {
+        "line": 46.5,
+        "over": -118,
+        "under": -102
+      },
+      "run_line": {
+        "home": -7.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Dallas Cowboys",
+              "price": -395
+            },
+            {
+              "name": "Minnesota Vikings",
+              "price": 310
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Dallas Cowboys",
+              "price": -112,
+              "point": -7.0
+            },
+            {
+              "name": "Minnesota Vikings",
+              "price": -108,
+              "point": 7.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -118,
+              "point": 46.5
+            },
+            {
+              "name": "Under",
+              "price": -102,
+              "point": 46.5
+            }
+          ]
+        }
+      ]
+    },
+    "Miami Dolphins @ Pittsburgh Steelers": {
+      "moneyline": {
+        "home": -166,
+        "away": 140
+      },
+      "total_runs": {
+        "line": 43.5,
+        "over": -105,
+        "under": -115
+      },
+      "run_line": {
+        "home": -3.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Miami Dolphins",
+              "price": 140
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "price": -166
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Miami Dolphins",
+              "price": -112,
+              "point": 3.0
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "price": -108,
+              "point": -3.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -105,
+              "point": 43.5
+            },
+            {
+              "name": "Under",
+              "price": -115,
+              "point": 43.5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source": "odds_api",
+  "fetched_at": "2025-12-04T15:21:49.068897+00:00"
+}
