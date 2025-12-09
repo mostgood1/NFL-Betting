@@ -1,245 +1,66 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,125.0,-700.0,,1765242900000,Chargers,Eagles,True,204.3,79.30000000000001
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,150.0,-325.0,,1765242900000,Chargers,Eagles,True,204.3,54.30000000000001
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,175.0,-170.0,,1765242900000,Chargers,Eagles,True,204.3,29.30000000000001
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,200.0,115.0,,1765242900000,Chargers,Eagles,True,204.3,4.300000000000011
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,225.0,220.0,,1765242900000,Chargers,Eagles,True,204.3,-20.69999999999999
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,250.0,375.0,,1765242900000,Chargers,Eagles,True,204.3,-45.69999999999999
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,275.0,625.0,,1765242900000,Chargers,Eagles,True,204.3,-70.69999999999999
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,300.0,1100.0,,1765242900000,Chargers,Eagles,True,204.3,-95.69999999999999
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,125.0,-1400.0,,1765242900000,Chargers,Eagles,True,212.5,87.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,150.0,-575.0,,1765242900000,Chargers,Eagles,True,212.5,62.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,175.0,-300.0,,1765242900000,Chargers,Eagles,True,212.5,37.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,200.0,-155.0,,1765242900000,Chargers,Eagles,True,212.5,12.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,225.0,125.0,,1765242900000,Chargers,Eagles,True,212.5,-12.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,250.0,225.0,,1765242900000,Chargers,Eagles,True,212.5,-37.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,275.0,400.0,,1765242900000,Chargers,Eagles,True,212.5,-62.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,300.0,700.0,,1765242900000,Chargers,Eagles,True,212.5,-87.5
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Passing Yards,325.0,1200.0,,1765242900000,Chargers,Eagles,True,212.5,-112.5
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-1100.0,,1765242900000,Chargers,Eagles,True,39.1,14.100000000000001
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-675.0,,1765242900000,Chargers,Eagles,True,39.1,9.100000000000001
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,-350.0,,1765242900000,Chargers,Eagles,True,39.1,-0.8999999999999986
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,-200.0,,1765242900000,Chargers,Eagles,True,39.1,-10.899999999999999
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,-125.0,,1765242900000,Chargers,Eagles,True,39.1,-20.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,125.0,,1765242900000,Chargers,Eagles,True,39.1,-30.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,190.0,,1765242900000,Chargers,Eagles,True,39.1,-40.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,250.0,,1765242900000,Chargers,Eagles,True,39.1,-50.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,375.0,,1765242900000,Chargers,Eagles,True,39.1,-60.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,110.0,525.0,,1765242900000,Chargers,Eagles,True,39.1,-70.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,125.0,875.0,,1765242900000,Chargers,Eagles,True,39.1,-85.9
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,150.0,1500.0,,1765242900000,Chargers,Eagles,True,39.1,-110.9
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-900.0,,1765242900000,Chargers,Eagles,True,26.2,16.2
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,-475.0,,1765242900000,Chargers,Eagles,True,26.2,11.2
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-300.0,,1765242900000,Chargers,Eagles,True,26.2,6.199999999999999
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-195.0,,1765242900000,Chargers,Eagles,True,26.2,1.1999999999999993
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-135.0,,1765242900000,Chargers,Eagles,True,26.2,-3.8000000000000007
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,150.0,,1765242900000,Chargers,Eagles,True,26.2,-13.8
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,250.0,,1765242900000,Chargers,Eagles,True,26.2,-23.8
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,400.0,,1765242900000,Chargers,Eagles,True,26.2,-33.8
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,625.0,,1765242900000,Chargers,Eagles,True,26.2,-43.8
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,900.0,,1765242900000,Chargers,Eagles,True,26.2,-53.8
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,1400.0,,1765242900000,Chargers,Eagles,True,26.2,-63.8
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-1500.0,,1765242900000,Chargers,Eagles,True,28.8,8.8
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-800.0,,1765242900000,Chargers,Eagles,True,28.8,3.8000000000000007
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-550.0,,1765242900000,Chargers,Eagles,True,28.8,-1.1999999999999993
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,-275.0,,1765242900000,Chargers,Eagles,True,28.8,-11.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,-160.0,,1765242900000,Chargers,Eagles,True,28.8,-21.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,,,1765242900000,Chargers,Eagles,True,28.8,-31.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,155.0,,1765242900000,Chargers,Eagles,True,28.8,-41.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,225.0,,1765242900000,Chargers,Eagles,True,28.8,-51.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,325.0,,1765242900000,Chargers,Eagles,True,28.8,-61.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,475.0,,1765242900000,Chargers,Eagles,True,28.8,-71.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,110.0,625.0,,1765242900000,Chargers,Eagles,True,28.8,-81.2
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,125.0,900.0,,1765242900000,Chargers,Eagles,True,28.8,-96.2
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,115.0,,1765242900000,Chargers,Eagles,True,19.4,9.399999999999999
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,175.0,,1765242900000,Chargers,Eagles,True,19.4,4.399999999999999
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,250.0,,1765242900000,Chargers,Eagles,True,19.4,-0.6000000000000014
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,350.0,,1765242900000,Chargers,Eagles,True,19.4,-5.600000000000001
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,475.0,,1765242900000,Chargers,Eagles,True,19.4,-10.600000000000001
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,800.0,,1765242900000,Chargers,Eagles,True,19.4,-20.6
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,1200.0,,1765242900000,Chargers,Eagles,True,19.4,-30.6
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-1400.0,,1765242900000,Chargers,Eagles,True,18.1,8.100000000000001
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,-675.0,,1765242900000,Chargers,Eagles,True,18.1,3.1000000000000014
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-400.0,,1765242900000,Chargers,Eagles,True,18.1,-1.8999999999999986
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-260.0,,1765242900000,Chargers,Eagles,True,18.1,-6.899999999999999
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-180.0,,1765242900000,Chargers,Eagles,True,18.1,-11.899999999999999
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,105.0,,1765242900000,Chargers,Eagles,True,18.1,-21.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,180.0,,1765242900000,Chargers,Eagles,True,18.1,-31.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,275.0,,1765242900000,Chargers,Eagles,True,18.1,-41.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,450.0,,1765242900000,Chargers,Eagles,True,18.1,-51.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,675.0,,1765242900000,Chargers,Eagles,True,18.1,-61.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,900.0,,1765242900000,Chargers,Eagles,True,18.1,-71.9
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,1200.0,,1765242900000,Chargers,Eagles,True,18.1,-81.9
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-1000.0,,1765242900000,Chargers,Eagles,True,41.4,21.4
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-600.0,,1765242900000,Chargers,Eagles,True,41.4,16.4
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-400.0,,1765242900000,Chargers,Eagles,True,41.4,11.399999999999999
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,-220.0,,1765242900000,Chargers,Eagles,True,41.4,1.3999999999999986
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,-130.0,,1765242900000,Chargers,Eagles,True,41.4,-8.600000000000001
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,125.0,,1765242900000,Chargers,Eagles,True,41.4,-18.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,190.0,,1765242900000,Chargers,Eagles,True,41.4,-28.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,275.0,,1765242900000,Chargers,Eagles,True,41.4,-38.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,400.0,,1765242900000,Chargers,Eagles,True,41.4,-48.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,575.0,,1765242900000,Chargers,Eagles,True,41.4,-58.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,110.0,800.0,,1765242900000,Chargers,Eagles,True,41.4,-68.6
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,125.0,1200.0,,1765242900000,Chargers,Eagles,True,41.4,-83.6
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-170.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,110.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,175.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,275.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,375.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,700.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,1200.0,,1765242900000,Chargers,Eagles,True,,
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-1600.0,,1765242900000,Chargers,Eagles,True,34.1,24.1
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,-750.0,,1765242900000,Chargers,Eagles,True,34.1,19.1
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-450.0,,1765242900000,Chargers,Eagles,True,34.1,14.100000000000001
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-300.0,,1765242900000,Chargers,Eagles,True,34.1,9.100000000000001
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-210.0,,1765242900000,Chargers,Eagles,True,34.1,4.100000000000001
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,-110.0,,1765242900000,Chargers,Eagles,True,34.1,-5.899999999999999
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,160.0,,1765242900000,Chargers,Eagles,True,34.1,-15.899999999999999
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,260.0,,1765242900000,Chargers,Eagles,True,34.1,-25.9
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,400.0,,1765242900000,Chargers,Eagles,True,34.1,-35.9
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,625.0,,1765242900000,Chargers,Eagles,True,34.1,-45.9
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,875.0,,1765242900000,Chargers,Eagles,True,34.1,-55.9
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,1200.0,,1765242900000,Chargers,Eagles,True,34.1,-65.9
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,110.0,1500.0,,1765242900000,Chargers,Eagles,True,34.1,-75.9
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-1000.0,,1765242900000,Chargers,Eagles,True,29.4,19.4
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,-500.0,,1765242900000,Chargers,Eagles,True,29.4,14.399999999999999
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,-325.0,,1765242900000,Chargers,Eagles,True,29.4,9.399999999999999
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,-225.0,,1765242900000,Chargers,Eagles,True,29.4,4.399999999999999
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,-160.0,,1765242900000,Chargers,Eagles,True,29.4,-0.6000000000000014
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,115.0,,1765242900000,Chargers,Eagles,True,29.4,-10.600000000000001
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,190.0,,1765242900000,Chargers,Eagles,True,29.4,-20.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,60.0,300.0,,1765242900000,Chargers,Eagles,True,29.4,-30.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,70.0,425.0,,1765242900000,Chargers,Eagles,True,29.4,-40.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,80.0,625.0,,1765242900000,Chargers,Eagles,True,29.4,-50.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,90.0,875.0,,1765242900000,Chargers,Eagles,True,29.4,-60.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,100.0,1200.0,,1765242900000,Chargers,Eagles,True,29.4,-70.6
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,110.0,1500.0,,1765242900000,Chargers,Eagles,True,29.4,-80.6
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-260.0,,1765242900000,Chargers,Eagles,True,16.2,6.199999999999999
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,-140.0,,1765242900000,Chargers,Eagles,True,16.2,1.1999999999999993
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,115.0,,1765242900000,Chargers,Eagles,True,16.2,-3.8000000000000007
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,175.0,,1765242900000,Chargers,Eagles,True,16.2,-8.8
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,250.0,,1765242900000,Chargers,Eagles,True,16.2,-13.8
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,475.0,,1765242900000,Chargers,Eagles,True,16.2,-23.8
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,850.0,,1765242900000,Chargers,Eagles,True,16.2,-33.8
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,10.0,-130.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,15.0,135.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,20.0,200.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,25.0,300.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,30.0,400.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,40.0,750.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receiving Yards,50.0,1200.0,,1765242900000,Chargers,Eagles,True,,
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-1200.0,,1765242900000,Chargers,Eagles,True,4.76,1.7599999999999998
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,-360.0,,1765242900000,Chargers,Eagles,True,4.76,0.7599999999999998
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,-165.0,,1765242900000,Chargers,Eagles,True,4.76,-0.2400000000000002
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,125.0,,1765242900000,Chargers,Eagles,True,4.76,-1.2400000000000002
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,225.0,,1765242900000,Chargers,Eagles,True,4.76,-2.24
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,8.0,400.0,,1765242900000,Chargers,Eagles,True,4.76,-3.24
-A.J. Brown,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,9.0,750.0,,1765242900000,Chargers,Eagles,True,4.76,-4.24
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-900.0,,1765242900000,Chargers,Eagles,True,3.9,1.9
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-250.0,,1765242900000,Chargers,Eagles,True,3.9,0.8999999999999999
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,,,1765242900000,Chargers,Eagles,True,3.9,-0.10000000000000009
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,200.0,,1765242900000,Chargers,Eagles,True,3.9,-1.1
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,400.0,,1765242900000,Chargers,Eagles,True,3.9,-2.1
-Dallas Goedert,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,800.0,,1765242900000,Chargers,Eagles,True,3.9,-3.1
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-900.0,,1765242900000,Chargers,Eagles,True,4.13,1.13
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,-325.0,,1765242900000,Chargers,Eagles,True,4.13,0.1299999999999999
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,-140.0,,1765242900000,Chargers,Eagles,True,4.13,-0.8700000000000001
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,145.0,,1765242900000,Chargers,Eagles,True,4.13,-1.87
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,275.0,,1765242900000,Chargers,Eagles,True,4.13,-2.87
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,8.0,475.0,,1765242900000,Chargers,Eagles,True,4.13,-3.87
-DeVonta Smith,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,9.0,850.0,,1765242900000,Chargers,Eagles,True,4.13,-4.87
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,1.0,-200.0,,1765242900000,Chargers,Eagles,True,2.22,1.2200000000000002
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,225.0,,1765242900000,Chargers,Eagles,True,2.22,0.2200000000000002
-Jahan Dotson,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,750.0,,1765242900000,Chargers,Eagles,True,2.22,-0.7799999999999998
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-1500.0,,1765242900000,Chargers,Eagles,True,2.51,0.5099999999999998
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-375.0,,1765242900000,Chargers,Eagles,True,2.51,-0.4900000000000002
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,-150.0,,1765242900000,Chargers,Eagles,True,2.51,-1.4900000000000002
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,150.0,,1765242900000,Chargers,Eagles,True,2.51,-2.49
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,300.0,,1765242900000,Chargers,Eagles,True,2.51,-3.49
-Keenan Allen,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,500.0,,1765242900000,Chargers,Eagles,True,2.51,-4.49
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-750.0,,1765242900000,Chargers,Eagles,True,5.17,2.17
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,-300.0,,1765242900000,Chargers,Eagles,True,5.17,1.17
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,-140.0,,1765242900000,Chargers,Eagles,True,5.17,0.16999999999999993
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,150.0,,1765242900000,Chargers,Eagles,True,5.17,-0.8300000000000001
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,300.0,,1765242900000,Chargers,Eagles,True,5.17,-1.83
-Ladd McConkey,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,8.0,500.0,,1765242900000,Chargers,Eagles,True,5.17,-2.83
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,1.0,-1000.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-200.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,150.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,350.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,750.0,,1765242900000,Chargers,Eagles,True,,
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-1000.0,,1765242900000,Chargers,Eagles,True,3.81,1.81
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-275.0,,1765242900000,Chargers,Eagles,True,3.81,0.81
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,-110.0,,1765242900000,Chargers,Eagles,True,3.81,-0.18999999999999995
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,200.0,,1765242900000,Chargers,Eagles,True,3.81,-1.19
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,400.0,,1765242900000,Chargers,Eagles,True,3.81,-2.19
-Oronde Gadsden II,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,7.0,750.0,,1765242900000,Chargers,Eagles,True,3.81,-3.19
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-600.0,,1765242900000,Chargers,Eagles,True,3.26,1.2599999999999998
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-195.0,,1765242900000,Chargers,Eagles,True,3.26,0.2599999999999998
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,130.0,,1765242900000,Chargers,Eagles,True,3.26,-0.7400000000000002
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,275.0,,1765242900000,Chargers,Eagles,True,3.26,-1.7400000000000002
-Quentin Johnston,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,575.0,,1765242900000,Chargers,Eagles,True,3.26,-2.74
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,-375.0,,1765242900000,Chargers,Eagles,True,2.64,0.6400000000000001
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,-125.0,,1765242900000,Chargers,Eagles,True,2.64,-0.3599999999999999
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,190.0,,1765242900000,Chargers,Eagles,True,2.64,-1.3599999999999999
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,5.0,375.0,,1765242900000,Chargers,Eagles,True,2.64,-2.36
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Receptions,6.0,750.0,,1765242900000,Chargers,Eagles,True,2.64,-3.36
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,1.0,-450.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,2.0,105.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,3.0,325.0,,1765242900000,Chargers,Eagles,True,,
-Tre' Harris,LAC,Philadelphia Eagles @ Los Angeles Chargers,Receptions,4.0,800.0,,1765242900000,Chargers,Eagles,True,,
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,10.0,-1500.0,,1765242900000,Chargers,Eagles,True,28.7,18.7
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,15.0,-575.0,,1765242900000,Chargers,Eagles,True,28.7,13.7
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,20.0,-300.0,,1765242900000,Chargers,Eagles,True,28.7,8.7
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,25.0,-180.0,,1765242900000,Chargers,Eagles,True,28.7,3.6999999999999993
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,30.0,-115.0,,1765242900000,Chargers,Eagles,True,28.7,-1.3000000000000007
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,40.0,175.0,,1765242900000,Chargers,Eagles,True,28.7,-11.3
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,50.0,325.0,,1765242900000,Chargers,Eagles,True,28.7,-21.3
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,60.0,575.0,,1765242900000,Chargers,Eagles,True,28.7,-31.3
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,70.0,875.0,,1765242900000,Chargers,Eagles,True,28.7,-41.3
-Jalen Hurts,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,80.0,1200.0,,1765242900000,Chargers,Eagles,True,28.7,-51.3
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,10.0,-425.0,,1765242900000,Chargers,Eagles,True,20.2,10.2
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,15.0,-210.0,,1765242900000,Chargers,Eagles,True,20.2,5.199999999999999
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,20.0,-115.0,,1765242900000,Chargers,Eagles,True,20.2,0.1999999999999993
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,25.0,140.0,,1765242900000,Chargers,Eagles,True,20.2,-4.800000000000001
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,30.0,220.0,,1765242900000,Chargers,Eagles,True,20.2,-9.8
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,40.0,475.0,,1765242900000,Chargers,Eagles,True,20.2,-19.8
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,50.0,875.0,,1765242900000,Chargers,Eagles,True,20.2,-29.8
-Justin Herbert,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,60.0,1200.0,,1765242900000,Chargers,Eagles,True,20.2,-39.8
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,10.0,-1500.0,,1765242900000,Chargers,Eagles,True,54.3,44.3
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,15.0,-650.0,,1765242900000,Chargers,Eagles,True,54.3,39.3
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,20.0,-375.0,,1765242900000,Chargers,Eagles,True,54.3,34.3
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,25.0,-250.0,,1765242900000,Chargers,Eagles,True,54.3,29.299999999999997
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,30.0,-175.0,,1765242900000,Chargers,Eagles,True,54.3,24.299999999999997
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,40.0,110.0,,1765242900000,Chargers,Eagles,True,54.3,14.299999999999997
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,50.0,185.0,,1765242900000,Chargers,Eagles,True,54.3,4.299999999999997
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,60.0,275.0,,1765242900000,Chargers,Eagles,True,54.3,-5.700000000000003
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,70.0,400.0,,1765242900000,Chargers,Eagles,True,54.3,-15.700000000000003
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,80.0,625.0,,1765242900000,Chargers,Eagles,True,54.3,-25.700000000000003
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,90.0,875.0,,1765242900000,Chargers,Eagles,True,54.3,-35.7
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,100.0,1100.0,,1765242900000,Chargers,Eagles,True,54.3,-45.7
-Kimani Vidal,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,110.0,1400.0,,1765242900000,Chargers,Eagles,True,54.3,-55.7
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,15.0,-1200.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,20.0,-600.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,25.0,-400.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,30.0,-275.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,40.0,-145.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,50.0,115.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,60.0,185.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,70.0,275.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,80.0,400.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,90.0,550.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,100.0,750.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,110.0,900.0,,1765242900000,Chargers,Eagles,True,,
-Omarion Hampton,LAC,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,125.0,1400.0,,1765242900000,Chargers,Eagles,True,,
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,40.0,-900.0,,1765242900000,Chargers,Eagles,True,44.3,4.299999999999997
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,50.0,-400.0,,1765242900000,Chargers,Eagles,True,44.3,-5.700000000000003
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,60.0,-210.0,,1765242900000,Chargers,Eagles,True,44.3,-15.700000000000003
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,70.0,-125.0,,1765242900000,Chargers,Eagles,True,44.3,-25.700000000000003
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,80.0,135.0,,1765242900000,Chargers,Eagles,True,44.3,-35.7
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,90.0,205.0,,1765242900000,Chargers,Eagles,True,44.3,-45.7
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,100.0,300.0,,1765242900000,Chargers,Eagles,True,44.3,-55.7
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,110.0,425.0,,1765242900000,Chargers,Eagles,True,44.3,-65.7
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,125.0,750.0,,1765242900000,Chargers,Eagles,True,44.3,-80.7
-Saquon Barkley,PHI,Philadelphia Eagles @ Los Angeles Chargers,Rushing Yards,150.0,1500.0,,1765242900000,Chargers,Eagles,True,44.3,-105.7
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,125.0,-1800.0,,1765502100000,Buccaneers,Falcons,True,220.5,95.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,150.0,-750.0,,1765502100000,Buccaneers,Falcons,True,220.5,70.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,175.0,-375.0,,1765502100000,Buccaneers,Falcons,True,220.5,45.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,200.0,-200.0,,1765502100000,Buccaneers,Falcons,True,220.5,20.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,225.0,,,1765502100000,Buccaneers,Falcons,True,220.5,-4.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,250.0,175.0,,1765502100000,Buccaneers,Falcons,True,220.5,-29.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,275.0,325.0,,1765502100000,Buccaneers,Falcons,True,220.5,-54.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,300.0,550.0,,1765502100000,Buccaneers,Falcons,True,220.5,-79.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,325.0,900.0,,1765502100000,Buccaneers,Falcons,True,220.5,-104.5
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,350.0,1500.0,,1765502100000,Buccaneers,Falcons,True,220.5,-129.5
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,125.0,-1600.0,,1765502100000,Buccaneers,Falcons,True,224.2,99.19999999999999
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,150.0,-575.0,,1765502100000,Buccaneers,Falcons,True,224.2,74.19999999999999
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,175.0,-275.0,,1765502100000,Buccaneers,Falcons,True,224.2,49.19999999999999
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,200.0,-140.0,,1765502100000,Buccaneers,Falcons,True,224.2,24.19999999999999
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,225.0,135.0,,1765502100000,Buccaneers,Falcons,True,224.2,-0.8000000000000114
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,250.0,240.0,,1765502100000,Buccaneers,Falcons,True,224.2,-25.80000000000001
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,275.0,425.0,,1765502100000,Buccaneers,Falcons,True,224.2,-50.80000000000001
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,300.0,750.0,,1765502100000,Buccaneers,Falcons,True,224.2,-75.80000000000001
+Kirk Cousins,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Passing Yards,325.0,1200.0,,1765502100000,Buccaneers,Falcons,True,224.2,-100.80000000000001
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,10.0,-300.0,,1765502100000,Buccaneers,Falcons,True,18.7,8.7
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,15.0,-150.0,,1765502100000,Buccaneers,Falcons,True,18.7,3.6999999999999993
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,20.0,120.0,,1765502100000,Buccaneers,Falcons,True,18.7,-1.3000000000000007
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,25.0,190.0,,1765502100000,Buccaneers,Falcons,True,18.7,-6.300000000000001
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,30.0,300.0,,1765502100000,Buccaneers,Falcons,True,18.7,-11.3
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,40.0,625.0,,1765502100000,Buccaneers,Falcons,True,18.7,-21.3
+Baker Mayfield,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,50.0,1200.0,,1765502100000,Buccaneers,Falcons,True,18.7,-31.3
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,40.0,-1100.0,,1765502100000,Buccaneers,Falcons,True,59.7,19.700000000000003
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,50.0,-450.0,,1765502100000,Buccaneers,Falcons,True,59.7,9.700000000000003
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,60.0,-250.0,,1765502100000,Buccaneers,Falcons,True,59.7,-0.29999999999999716
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,70.0,-140.0,,1765502100000,Buccaneers,Falcons,True,59.7,-10.299999999999997
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,80.0,115.0,,1765502100000,Buccaneers,Falcons,True,59.7,-20.299999999999997
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,90.0,175.0,,1765502100000,Buccaneers,Falcons,True,59.7,-30.299999999999997
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,100.0,275.0,,1765502100000,Buccaneers,Falcons,True,59.7,-40.3
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,110.0,375.0,,1765502100000,Buccaneers,Falcons,True,59.7,-50.3
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,125.0,625.0,,1765502100000,Buccaneers,Falcons,True,59.7,-65.3
+Bijan Robinson,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,150.0,1200.0,,1765502100000,Buccaneers,Falcons,True,59.7,-90.3
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,30.0,-1200.0,,1765502100000,Buccaneers,Falcons,True,55.4,25.4
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,40.0,-450.0,,1765502100000,Buccaneers,Falcons,True,55.4,15.399999999999999
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,50.0,-250.0,,1765502100000,Buccaneers,Falcons,True,55.4,5.399999999999999
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,60.0,-140.0,,1765502100000,Buccaneers,Falcons,True,55.4,-4.600000000000001
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,70.0,120.0,,1765502100000,Buccaneers,Falcons,True,55.4,-14.600000000000001
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,80.0,185.0,,1765502100000,Buccaneers,Falcons,True,55.4,-24.6
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,90.0,275.0,,1765502100000,Buccaneers,Falcons,True,55.4,-34.6
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,100.0,400.0,,1765502100000,Buccaneers,Falcons,True,55.4,-44.6
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,110.0,575.0,,1765502100000,Buccaneers,Falcons,True,55.4,-54.6
+Bucky Irving,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,125.0,875.0,,1765502100000,Buccaneers,Falcons,True,55.4,-69.6
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,10.0,-225.0,,1765502100000,Buccaneers,Falcons,True,30.0,20.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,15.0,-115.0,,1765502100000,Buccaneers,Falcons,True,30.0,15.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,20.0,140.0,,1765502100000,Buccaneers,Falcons,True,30.0,10.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,25.0,220.0,,1765502100000,Buccaneers,Falcons,True,30.0,5.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,30.0,300.0,,1765502100000,Buccaneers,Falcons,True,30.0,0.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,40.0,550.0,,1765502100000,Buccaneers,Falcons,True,30.0,-10.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,50.0,875.0,,1765502100000,Buccaneers,Falcons,True,30.0,-20.0
+Rachaad White,TB,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,60.0,1200.0,,1765502100000,Buccaneers,Falcons,True,30.0,-30.0
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,10.0,-700.0,,1765502100000,Buccaneers,Falcons,True,33.2,23.200000000000003
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,15.0,-350.0,,1765502100000,Buccaneers,Falcons,True,33.2,18.200000000000003
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,20.0,-200.0,,1765502100000,Buccaneers,Falcons,True,33.2,13.200000000000003
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,25.0,-125.0,,1765502100000,Buccaneers,Falcons,True,33.2,8.200000000000003
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,30.0,115.0,,1765502100000,Buccaneers,Falcons,True,33.2,3.200000000000003
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,40.0,225.0,,1765502100000,Buccaneers,Falcons,True,33.2,-6.799999999999997
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,50.0,375.0,,1765502100000,Buccaneers,Falcons,True,33.2,-16.799999999999997
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,60.0,625.0,,1765502100000,Buccaneers,Falcons,True,33.2,-26.799999999999997
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,70.0,875.0,,1765502100000,Buccaneers,Falcons,True,33.2,-36.8
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,80.0,1200.0,,1765502100000,Buccaneers,Falcons,True,33.2,-46.8
+Tyler Allgeier,ATL,Atlanta Falcons @ Tampa Bay Buccaneers,Rushing Yards,90.0,1700.0,,1765502100000,Buccaneers,Falcons,True,33.2,-56.8
