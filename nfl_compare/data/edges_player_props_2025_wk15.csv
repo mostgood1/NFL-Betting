@@ -1,423 +1,806 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
+Jacoby Brissett,ARI,Passing Yards,350.0,1100.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-167.9,-0.9999903433108124,,,167.9
+Jacoby Brissett,ARI,Passing Yards,325.0,650.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-142.9,-0.9998331798574511,,,142.9
+Nico Collins,HOU,Receiving Yards,175.0,1350.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-135.4,-0.9999999999999879,,,135.4
+C.J. Stroud,HOU,Passing Yards,350.0,1250.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-132.7,-0.9989889632076758,,,132.7
 Baker Mayfield,TB,Passing Yards,350.0,1500.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-129.5,-0.9982752042643614,,,129.5
+Jacoby Brissett,ARI,Passing Yards,300.0,370.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-117.9,-0.998224367823405,,,117.9
+Nico Collins,HOU,Receiving Yards,150.0,800.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-110.4,-0.9999999996241536,,,110.4
+C.J. Stroud,HOU,Passing Yards,325.0,800.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-107.69999999999999,-0.9905952198805297,,,107.69999999999999
 Baker Mayfield,TB,Passing Yards,325.0,900.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-104.5,-0.9858541579302447,,,104.5
 Kirk Cousins,ATL,Passing Yards,325.0,1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,-100.80000000000001,-0.974151113886374,,,100.80000000000001
 Kirk Cousins,ATL,Passing Yards,125.0,-1600.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,99.19999999999999,0.06006006179122299,,,99.19999999999999
 Baker Mayfield,TB,Passing Yards,125.0,-1800.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,95.5,0.05219839738706429,,,95.5
+Jacoby Brissett,ARI,Passing Yards,275.0,205.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-92.9,-0.9878798336407028,,,92.9
+Emeka Egbuka,TB,Receiving Yards,125.0,1250.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-91.4,-0.9999994872693205,,,91.4
 Bijan Robinson,ATL,Rushing Yards,150.0,1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-90.3,-0.9999999992729738,,,90.3
+Nico Collins,HOU,Receiving Yards,125.0,400.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-85.4,-0.9999987317387096,,,85.4
+Mike Evans,TB,Receiving Yards,125.0,1150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-84.8,-0.9999961916669886,,,84.8
+C.J. Stroud,HOU,Passing Yards,300.0,480.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-82.69999999999999,-0.9474094900439559,,,82.69999999999999
 Baker Mayfield,TB,Passing Yards,300.0,550.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-79.5,-0.924856599084115,,,79.5
+Emeka Egbuka,TB,Receiving Yards,110.0,850.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-76.4,-0.9999668169746186,,,76.4
 Kirk Cousins,ATL,Passing Yards,300.0,750.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,-75.80000000000001,-0.8710846365097403,,,75.80000000000001
 Kirk Cousins,ATL,Passing Yards,150.0,-575.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,74.19999999999999,0.1539529734136484,,,74.19999999999999
 Baker Mayfield,TB,Passing Yards,150.0,-750.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,70.5,0.10841159119404623,,,70.5
+Nico Collins,HOU,Receiving Yards,110.0,270.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-70.4,-0.9999360771374108,,,70.4
+Mike Evans,TB,Receiving Yards,110.0,850.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-69.8,-0.9998086821369392,,,69.8
 Bucky Irving,TB,Rushing Yards,125.0,875.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-69.6,-0.9999967600091652,,,69.6
+Darnell Mooney,ATL,Receiving Yards,110.0,1100.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-68.6,-0.9996727963540568,,,68.6
+Jacoby Brissett,ARI,Passing Yards,250.0,110.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-67.9,-0.9450013256250492,,,67.9
+C.J. Stroud,HOU,Passing Yards,150.0,-1100.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,67.30000000000001,0.06118291272650596,,,67.30000000000001
+Emeka Egbuka,TB,Receiving Yards,100.0,700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-66.4,-0.9996244712702591,,,66.4
 Bijan Robinson,ATL,Rushing Yards,125.0,625.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-65.3,-0.999988773706624,,,65.3
+Nico Collins,HOU,Receiving Yards,100.0,190.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-60.4,-0.9994476230223468,,,60.4
+Mike Evans,TB,Receiving Yards,100.0,650.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-59.8,-0.9983672836453321,,,59.8
+Darnell Mooney,ATL,Receiving Yards,100.0,900.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-58.6,-0.9971663741318189,,,58.6
+C.J. Stroud,HOU,Passing Yards,275.0,270.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-57.69999999999999,-0.8164143877174019,,,57.69999999999999
 Tyler Allgeier,ATL,Rushing Yards,90.0,1700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-56.8,-0.9995529097122131,,,56.8
+Emeka Egbuka,TB,Receiving Yards,90.0,500.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-56.4,-0.9972766265859647,,,56.4
 Bucky Irving,TB,Rushing Yards,110.0,575.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-54.6,-0.9996753496778813,,,54.6
 Baker Mayfield,TB,Passing Yards,275.0,325.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-54.5,-0.7461972850395053,,,54.5
+Bijan Robinson,ATL,Receiving Yards,70.0,450.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-52.3,-0.9942396584124743,,,52.3
 Kirk Cousins,ATL,Passing Yards,275.0,425.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,-50.80000000000001,-0.6150160336132784,,,50.80000000000001
+Nico Collins,HOU,Receiving Yards,90.0,140.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-50.4,-0.9963643307517154,,,50.4
 Bijan Robinson,ATL,Rushing Yards,110.0,375.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-50.3,-0.999223204189052,,,50.3
+Mike Evans,TB,Receiving Yards,90.0,480.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-49.8,-0.9901514777546292,,,49.8
 Kirk Cousins,ATL,Passing Yards,175.0,-275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,49.19999999999999,0.2546756933023473,,,49.19999999999999
+Darnell Mooney,ATL,Receiving Yards,90.0,700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-48.6,-0.9829913895893454,,,48.6
 Tyler Allgeier,ATL,Rushing Yards,80.0,1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-46.8,-0.9946101625645023,,,46.8
+Emeka Egbuka,TB,Receiving Yards,80.0,340.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-46.4,-0.9860415663453861,,,46.4
 Baker Mayfield,TB,Passing Yards,175.0,-375.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,45.5,0.14405271952489357,,,45.5
 Bucky Irving,TB,Rushing Yards,100.0,400.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-44.6,-0.9963900719047644,,,44.6
+Jacoby Brissett,ARI,Passing Yards,225.0,-170.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-42.900000000000006,-0.8250509490031162,,,42.900000000000006
+C.J. Stroud,HOU,Passing Yards,175.0,-450.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,42.30000000000001,0.08360539306427806,,,42.30000000000001
+Bijan Robinson,ATL,Receiving Yards,60.0,280.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-42.3,-0.9756080344917734,,,42.3
+Bucky Irving,TB,Receiving Yards,60.0,850.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-41.9,-0.93486526425616,,,41.9
+Nico Collins,HOU,Receiving Yards,80.0,-105.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-40.4,-0.9829370155352706,,,40.4
 Bijan Robinson,ATL,Rushing Yards,100.0,275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-40.3,-0.9925097349232926,,,40.3
+Mike Evans,TB,Receiving Yards,80.0,330.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-39.8,-0.9586703811000669,,,39.8
+Darnell Mooney,ATL,Receiving Yards,80.0,500.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-38.6,-0.9304842510289786,,,38.6
 Tyler Allgeier,ATL,Rushing Yards,70.0,875.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-36.8,-0.9581996312708617,,,36.8
+Emeka Egbuka,TB,Receiving Yards,70.0,230.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-36.4,-0.9467713139074878,,,36.4
 Bucky Irving,TB,Rushing Yards,90.0,275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-34.6,-0.9747672939271208,,,34.6
+C.J. Stroud,HOU,Passing Yards,250.0,155.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-32.69999999999999,-0.5535504224887907,,,32.69999999999999
+Bijan Robinson,ATL,Receiving Yards,50.0,175.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-32.3,-0.9210294605059949,,,32.3
+Jacoby Brissett,ARI,Passing Yards,150.0,-1600.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,32.099999999999994,-0.12825476120936452,,,32.099999999999994
+Bucky Irving,TB,Receiving Yards,50.0,525.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-31.9,-0.8106540947039576,,,31.9
+Darnell Mooney,ATL,Receiving Yards,10.0,-925.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,31.4,0.07223941580019999,,,31.4
 Baker Mayfield,TB,Rushing Yards,50.0,1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,-31.3,-0.8350917977466508,,,31.3
+Nico Collins,HOU,Receiving Yards,70.0,-150.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-30.4,-0.9385516214208269,,,30.4
 Bijan Robinson,ATL,Rushing Yards,90.0,175.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-30.299999999999997,-0.9581416609067578,,,30.299999999999997
 Rachaad White,TB,Rushing Yards,60.0,1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,-30.0,-0.7911902871502317,,,30.0
+Mike Evans,TB,Receiving Yards,70.0,220.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-29.799999999999997,-0.8726206325125311,,,29.799999999999997
 Baker Mayfield,TB,Passing Yards,250.0,175.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-29.5,-0.4509510257848462,,,29.5
+Darnell Mooney,ATL,Receiving Yards,70.0,325.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-28.6,-0.8034366056530875,,,28.6
 Tyler Allgeier,ATL,Rushing Yards,60.0,625.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-26.799999999999997,-0.7985092369559632,,,26.799999999999997
+Darnell Mooney,ATL,Receiving Yards,15.0,-500.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,26.4,0.1277376869630053,,,26.4
+Emeka Egbuka,TB,Receiving Yards,60.0,155.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-26.4,-0.8464425847963863,,,26.4
 Kirk Cousins,ATL,Passing Yards,250.0,240.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,-25.80000000000001,-0.21623968565169083,,,25.80000000000001
 Bucky Irving,TB,Rushing Yards,30.0,-1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,25.4,0.04561505220524223,,,25.4
+Mike Evans,TB,Receiving Yards,15.0,-1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,25.200000000000003,0.008449862077224299,,,25.200000000000003
 Bucky Irving,TB,Rushing Yards,80.0,185.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-24.6,-0.8875768161950073,,,24.6
 Kirk Cousins,ATL,Passing Yards,200.0,-140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,24.19999999999999,0.2948889250428369,,,24.19999999999999
 Tyler Allgeier,ATL,Rushing Yards,10.0,-700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,23.200000000000003,0.08714823074159542,,,23.200000000000003
+Bijan Robinson,ATL,Receiving Yards,40.0,-105.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-22.3,-0.8149147378378586,,,22.3
+Bucky Irving,TB,Receiving Yards,40.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-21.9,-0.6046718609281387,,,21.9
+Darnell Mooney,ATL,Receiving Yards,20.0,-350.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,21.4,0.15193952026074004,,,21.4
 Baker Mayfield,TB,Rushing Yards,40.0,625.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,-21.3,-0.5354478274022874,,,21.3
 Baker Mayfield,TB,Passing Yards,200.0,-200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,20.5,0.08144935072219928,,,20.5
+Nico Collins,HOU,Receiving Yards,60.0,-235.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-20.4,-0.8359645126626711,,,20.4
 Bijan Robinson,ATL,Rushing Yards,80.0,115.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-20.299999999999997,-0.841912091839256,,,20.299999999999997
+Mike Evans,TB,Receiving Yards,20.0,-700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,20.200000000000003,0.008719587292426972,,,20.200000000000003
 Rachaad White,TB,Rushing Yards,50.0,875.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,-20.0,-0.2535036762791105,,,20.0
 Rachaad White,TB,Rushing Yards,10.0,-225.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,20.0,0.3338523964857941,,,20.0
+Mike Evans,TB,Receiving Yards,60.0,155.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-19.799999999999997,-0.6887239644532186,,,19.799999999999997
 Bijan Robinson,ATL,Rushing Yards,40.0,-1100.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,19.700000000000003,0.003971800736147807,,,19.700000000000003
+Darnell Mooney,ATL,Receiving Yards,60.0,230.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-18.6,-0.5480594169051847,,,18.6
+Emeka Egbuka,TB,Receiving Yards,15.0,-1300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,18.6,-0.0705633604505226,,,18.6
 Tyler Allgeier,ATL,Rushing Yards,15.0,-350.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,18.200000000000003,0.16125651981850092,,,18.200000000000003
+Jacoby Brissett,ARI,Passing Yards,200.0,-330.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,-17.900000000000006,-0.6031940502122844,,,17.900000000000006
+C.J. Stroud,HOU,Passing Yards,200.0,-235.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,17.30000000000001,-0.017170166517417595,,,17.30000000000001
 Tyler Allgeier,ATL,Rushing Yards,50.0,375.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-16.799999999999997,-0.45341906644688545,,,16.799999999999997
+Darnell Mooney,ATL,Receiving Yards,25.0,-250.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,16.4,0.1657154963248783,,,16.4
+Emeka Egbuka,TB,Receiving Yards,50.0,,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-16.4,,,,16.4
 Bucky Irving,TB,Rushing Yards,40.0,-450.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,15.399999999999999,0.056408147732198904,,,15.399999999999999
+Mike Evans,TB,Receiving Yards,25.0,-450.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,15.200000000000003,-0.004658246187986159,,,15.200000000000003
 Rachaad White,TB,Rushing Yards,15.0,-115.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,15.0,0.6041086698850171,,,15.0
 Bucky Irving,TB,Rushing Yards,70.0,120.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-14.600000000000001,-0.6732840926684418,,,14.600000000000001
+Emeka Egbuka,TB,Receiving Yards,20.0,-700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,13.600000000000001,-0.09926331266673918,,,13.600000000000001
 Tyler Allgeier,ATL,Rushing Yards,20.0,-200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,13.200000000000003,0.24068451599204144,,,13.200000000000003
+Bijan Robinson,ATL,Receiving Yards,30.0,-205.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-12.3,-0.6508459005399284,,,12.3
+Bucky Irving,TB,Receiving Yards,30.0,170.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-11.899999999999999,-0.3466981389977027,,,11.899999999999999
+Darnell Mooney,ATL,Receiving Yards,30.0,-180.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,11.399999999999999,0.16473553837836608,,,11.399999999999999
 Baker Mayfield,TB,Rushing Yards,30.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,-11.3,-0.16083163378361753,,,11.3
+Nico Collins,HOU,Receiving Yards,50.0,-380.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-10.399999999999999,-0.6585094036941481,,,10.399999999999999
 Bijan Robinson,ATL,Rushing Yards,70.0,-140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-10.299999999999997,-0.6040817766525401,,,10.299999999999997
-Rachaad White,TB,Rushing Yards,20.0,140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,10.0,0.8299393711352563,,,10.0
+Mike Evans,TB,Receiving Yards,30.0,-300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,10.200000000000003,-0.032337490333431446,,,10.200000000000003
+Kirk Cousins,ATL,Rushing Yards,20.0,1150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,9.9,-10.1,1.941536706408456,,,10.1
 Rachaad White,TB,Rushing Yards,40.0,550.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,-10.0,0.5439142031753479,,,10.0
+Rachaad White,TB,Rushing Yards,20.0,140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,10.0,0.8299393711352563,,,10.0
+Mike Evans,TB,Receiving Yards,50.0,,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,-9.799999999999997,,,,9.799999999999997
 Bijan Robinson,ATL,Rushing Yards,50.0,-450.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,9.700000000000003,-0.07624396006851733,,,9.700000000000003
+Nico Collins,HOU,Receiving Yards,30.0,-1600.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,9.600000000000001,-0.2415204735327641,,,9.600000000000001
 Baker Mayfield,TB,Rushing Yards,10.0,-300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,8.7,-0.02287845203399616,,,8.7
+Darnell Mooney,ATL,Receiving Yards,50.0,150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,-8.600000000000001,-0.23382594825817665,,,8.600000000000001
+Emeka Egbuka,TB,Receiving Yards,25.0,-460.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,8.600000000000001,-0.1557021469351487,,,8.600000000000001
 Tyler Allgeier,ATL,Rushing Yards,25.0,-125.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,8.200000000000003,0.2977392208666394,,,8.200000000000003
+Bucky Irving,TB,Receiving Yards,10.0,-375.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,8.100000000000001,-0.13470146559842067,,,8.100000000000001
+C.J. Stroud,HOU,Passing Yards,225.0,-125.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,217.3,-7.699999999999989,-0.256715960766786,,,7.699999999999989
+Bijan Robinson,ATL,Receiving Yards,25.0,-300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-7.300000000000001,-0.5549176042395108,,,7.300000000000001
+Jacoby Brissett,ARI,Passing Yards,175.0,-660.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_yards,182.1,7.099999999999994,-0.3316874897917895,,,7.099999999999994
+Bucky Irving,TB,Receiving Yards,25.0,120.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-6.899999999999999,-0.2466880504950541,,,6.899999999999999
 Tyler Allgeier,ATL,Rushing Yards,40.0,225.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,-6.799999999999997,0.019150849501523348,,,6.799999999999997
+Emeka Egbuka,TB,Receiving Yards,40.0,-170.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,-6.399999999999999,-0.4389026152362194,,,6.399999999999999
+Bijan Robinson,ATL,Receptions,9.0,700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-6.37,-0.9999961665337871,,,6.37
 Baker Mayfield,TB,Rushing Yards,25.0,190.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,-6.300000000000001,-0.05356986116503193,,,6.300000000000001
 Bucky Irving,TB,Rushing Yards,50.0,-250.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,5.399999999999999,-0.08979579710845165,,,5.399999999999999
+Bijan Robinson,ATL,Receptions,8.0,425.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-5.37,-0.9999050927611269,,,5.37
+Kirk Cousins,ATL,Rushing Yards,15.0,800.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,9.9,-5.1,2.2204009989580564,,,5.1
 Rachaad White,TB,Rushing Yards,25.0,220.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,5.0,1.0464242209573267,,,5.0
 Bucky Irving,TB,Rushing Yards,60.0,-140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,55.4,-4.600000000000001,-0.36358887422888986,,,4.600000000000001
 Baker Mayfield,TB,Passing Yards,225.0,,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,220.5,-4.5,,,,4.5
+Bijan Robinson,ATL,Receptions,7.0,230.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-4.37,-0.9987210922418959,,,4.37
+Nico Collins,HOU,Receptions,9.0,630.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,-4.09,-0.9939616969565875,,,4.09
+Emeka Egbuka,TB,Receptions,7.0,630.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,-3.99,-0.9921667078137308,,,3.99
 Baker Mayfield,TB,Rushing Yards,15.0,-150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,3.6999999999999993,0.0070335271594170745,,,3.6999999999999993
+Emeka Egbuka,TB,Receiving Yards,30.0,-320.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,33.6,3.6000000000000014,-0.23369070930456604,,,3.6000000000000014
+Bijan Robinson,ATL,Receptions,6.0,140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-3.37,-0.9885598643180067,,,3.37
 Tyler Allgeier,ATL,Rushing Yards,30.0,115.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,33.2,3.200000000000003,0.26935781409372783,,,3.200000000000003
+Bucky Irving,TB,Receiving Yards,15.0,-210.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,3.1000000000000014,-0.15510662798245684,,,3.1000000000000014
+Nico Collins,HOU,Receptions,8.0,360.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,-3.09,-0.9598472248233508,,,3.09
+Emeka Egbuka,TB,Receptions,6.0,340.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,-2.99,-0.9528139159046266,,,2.99
+Bucky Irving,TB,Receptions,6.0,625.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,3.1,-2.9,-0.9068504808087081,,,2.9
+Bijan Robinson,ATL,Receiving Yards,15.0,-880.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,2.6999999999999993,-0.37291576824540673,,,2.6999999999999993
+Mike Evans,TB,Receptions,7.0,700.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,-2.51,-0.7859536117744117,,,2.51
+Mike Evans,TB,Receptions,2.0,-1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,2.49,0.05330145283944049,,,2.49
+Bijan Robinson,ATL,Receptions,5.0,-145.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-2.37,-0.9423052531261711,,,2.37
+Bijan Robinson,ATL,Receiving Yards,20.0,-490.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,17.7,-2.3000000000000007,-0.4627512162286932,,,2.3000000000000007
+Darnell Mooney,ATL,Receptions,2.0,-425.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.29,2.29,0.18702666198454684,,,2.29
+C.J. Stroud,HOU,Passing TDs,4.0,800.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.82,-2.1799999999999997,-0.6591664559332753,,,2.1799999999999997
+Nico Collins,HOU,Receptions,7.0,200.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,-2.09,-0.8381461238135758,,,2.09
 Baker Mayfield,TB,Passing TDs,4.0,900.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.96,-2.04,-0.508837543864298,,,2.04
+Emeka Egbuka,TB,Receptions,5.0,170.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,-1.9900000000000002,-0.8301343105133132,,,1.9900000000000002
+Nico Collins,HOU,Receptions,3.0,-1600.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,1.9100000000000001,-0.012815422615501268,,,1.9100000000000001
+Bucky Irving,TB,Receptions,5.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,3.1,-1.9,-0.7122645430367693,,,1.9
+Bucky Irving,TB,Receiving Yards,20.0,-130.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rec_yards,18.1,-1.8999999999999986,-0.19410656255247727,,,1.8999999999999986
+Jacoby Brissett,ARI,Passing TDs,3.0,700.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.11,-1.89,-0.7881070487044504,,,1.89
+Darnell Mooney,ATL,Receptions,6.0,850.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.29,-1.71,-0.10519180163776454,,,1.71
+Mike Evans,TB,Receptions,6.0,360.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,-1.5099999999999998,-0.43552711970508584,,,1.5099999999999998
+Mike Evans,TB,Receptions,3.0,-330.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,1.4900000000000002,0.13902341599932155,,,1.4900000000000002
 Kirk Cousins,ATL,Passing TDs,3.0,800.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.58,-1.42,-0.31526991585746367,,,1.42
+Darnell Mooney,ATL,Receiving Yards,40.0,,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,41.4,1.3999999999999986,,,,1.3999999999999986
+Bijan Robinson,ATL,Receptions,4.0,-300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-1.37,-0.8053644274719911,,,1.37
 Baker Mayfield,TB,Rushing Yards,20.0,120.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,18.7,-1.3000000000000007,0.018618758991281403,,,1.3000000000000007
+Darnell Mooney,ATL,Receptions,3.0,-140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.29,1.29,0.43910218395979095,,,1.29
+C.J. Stroud,HOU,Passing TDs,3.0,220.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.82,-1.18,-0.6417820027932727,,,1.18
+Bucky Irving,TB,Receptions,2.0,-490.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,3.1,1.1,-0.035209679591152704,,,1.1
+Nico Collins,HOU,Receptions,6.0,105.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,-1.0899999999999999,-0.5881841713652549,,,1.0899999999999999
 Baker Mayfield,TB,Passing TDs,3.0,275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.96,-1.04,-0.4910057726354874,,,1.04
+Emeka Egbuka,TB,Receptions,2.0,-1300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,1.0099999999999998,-0.15849454513641179,,,1.0099999999999998
+Emeka Egbuka,TB,Receptions,4.0,-135.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,-0.9900000000000002,-0.6115227922890039,,,0.9900000000000002
 Baker Mayfield,TB,Passing TDs,1.0,-750.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.96,0.96,-0.33919971604979904,,,0.96
+Nico Collins,HOU,Receptions,4.0,-480.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,0.9100000000000001,-0.08403941310287996,,,0.9100000000000001
+Bucky Irving,TB,Receptions,4.0,150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,3.1,-0.8999999999999999,-0.38906984951686574,,,0.8999999999999999
+Jacoby Brissett,ARI,Passing TDs,2.0,180.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.11,-0.8899999999999999,-0.715503776349254,,,0.8899999999999999
+C.J. Stroud,HOU,Passing TDs,1.0,-1000.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.82,0.8200000000000001,-0.40260387939689807,,,0.8200000000000001
 Kirk Cousins,ATL,Passing Yards,225.0,135.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_yards,224.2,-0.8000000000000114,0.15357296613858173,,,0.8000000000000114
+Darnell Mooney,ATL,Receptions,5.0,425.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.29,-0.71,0.5355204958849066,,,0.71
 Kirk Cousins,ATL,Passing TDs,1.0,-275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.58,0.5800000000000001,-0.36102148186627164,,,0.5800000000000001
+Mike Evans,TB,Receptions,5.0,180.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,-0.5099999999999998,-0.027236767101042503,,,0.5099999999999998
+Mike Evans,TB,Receptions,4.0,-125.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.49,0.4900000000000002,0.1643923059077792,,,0.4900000000000002
 Kirk Cousins,ATL,Passing TDs,2.0,200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.58,-0.41999999999999993,-0.3655416128438044,,,0.41999999999999993
+Nico Collins,HOU,Receiving Yards,40.0,-700.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,rec_yards,39.6,-0.3999999999999986,-0.4392982984114323,,,0.3999999999999986
+Bijan Robinson,ATL,Receptions,3.0,-775.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,2.63,-0.3700000000000001,-0.5619700190920338,,,0.3700000000000001
 Bijan Robinson,ATL,Rushing Yards,60.0,-250.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,59.7,-0.29999999999999716,-0.3119673525362181,,,0.29999999999999716
+Darnell Mooney,ATL,Receptions,4.0,190.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,4.29,0.29000000000000004,0.7059603241139771,,,0.29000000000000004
+Mike Evans,TB,Receiving Yards,40.0,-170.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,rec_yards,40.2,0.20000000000000284,-0.19842824006931725,,,0.20000000000000284
+C.J. Stroud,HOU,Passing TDs,2.0,-165.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.82,-0.17999999999999994,-0.5587503731970475,,,0.17999999999999994
+Jacoby Brissett,ARI,Passing TDs,1.0,-320.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,QB,pass_tds,1.11,0.1100000000000001,-0.6001723478276018,,,0.1100000000000001
+Bucky Irving,TB,Receptions,3.0,-160.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,receptions,3.1,0.10000000000000009,-0.13768135060550468,,,0.10000000000000009
+Kirk Cousins,ATL,Rushing Yards,10.0,400.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,rush_yards,9.9,-0.09999999999999964,1.4857521825692477,,,0.09999999999999964
+Nico Collins,HOU,Receptions,5.0,-195.0,,True,Arizona Cardinals @ Houston Texans,Texans,Cardinals,1765735200000,Bovada,WR,receptions,4.91,-0.08999999999999986,-0.2853391030567042,,,0.08999999999999986
 Baker Mayfield,TB,Passing TDs,2.0,-140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,QB,pass_tds,1.96,-0.040000000000000036,-0.46428876713960526,,,0.040000000000000036
-Nathan Carter,ATL,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Payne Durham,TB,Anytime TD,,1600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-Noah Fant,CIN,Anytime TD,,525.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Nico Collins,HOU,Anytime TD,,,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-New England Patriots Def/ST (NE) - 1Q,,Anytime TD,,3000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-New England Patriots Def/ST (NE) - 1H,,Anytime TD,,1400.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-New England Patriots Def/ST,NE,Anytime TD,,525.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Mike Evans (TB) - 1Q,,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Mitchell Tinsley,CIN,Anytime TD,,825.0,,False,,Bengals,Ravens,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Mike Gesicki,CIN,Anytime TD,,250.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Payne Durham (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Mike Evans (TB) - 1H,,Anytime TD,,300.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Mike Evans & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Mike Evans & Atlanta Falcons,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Michael Wilson,ARI,Anytime TD,,180.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Payne Durham (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Puka Nacua & Detroit Lions,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Puka Nacua,LAR,Anytime TD,,-136.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Receptions,3.0,-340.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,WR,receptions,3.01,0.009999999999999787,-0.348969844518518,,,0.009999999999999787
+Tez Johnson,TB,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+San Francisco 49ers Def/ST,SF,Anytime TD,,460.0,,False,,49ers,Titans,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Samaje Perine,CIN,Anytime TD,,245.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Interceptions,0.5,-120.0,-110.0,False,,Seahawks,Colts,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,900.0,,False,,Seahawks,Colts,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1Q,,Anytime TD,,2200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller (TB) - 1Q,,Anytime TD,,6500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller (TB) - 1H,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Miller,TB,Anytime TD,,2500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1H,,Anytime TD,,1000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Ross Dwelley (DET) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson (TB) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tom Kennedy,DET,Anytime TD,,725.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Tom Kennedy (DET) - 1H,,Anytime TD,,1300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Tom Kennedy (DET) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Tony Pollard,TEN,Anytime TD,,310.0,,False,,49ers,Titans,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Kelce,KC,Anytime TD,,205.0,,False,,Chiefs,Chargers,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Travis Kelce & Kansas City Chiefs,,Anytime TD,,290.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Ryan Flournoy,DAL,Anytime TD,,205.0,,False,,Cowboys,Vikings,1765761600000,Bovada,WR,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1Q,,Anytime TD,,4500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Teagan Quitoriano (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1H,,Anytime TD,,1800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Teagan Quitoriano,ATL,Anytime TD,,2000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Def/ST,TB,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+T.J. Hockenson,MIN,Anytime TD,,360.0,,False,,Cowboys,Vikings,1765761600000,Bovada,TE,,,,,,unsupported_market,0.0
+Sterling Shepard (TB) - 1Q,,Anytime TD,,1700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Teagan Quitoriano (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Stefon Diggs (NE) - 1Q,,Anytime TD,,750.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs (NE) - 1H,,Anytime TD,,320.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs & New England Patriots,,Anytime TD,,300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Shedeur Sanders,CLE,Anytime TD,,1100.0,,False,,Bears,Browns,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Stefon Diggs & Buffalo Bills,,Anytime TD,,390.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs,NE,Anytime TD,,135.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Skyy Moore,SF,Anytime TD,,900.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Sione Vaki (DET) - 1Q,,Anytime TD,,10000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Sione Vaki (DET) - 1H,,Anytime TD,,4000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Tennessee Titans Def/ST,TEN,Anytime TD,,500.0,,False,,49ers,Titans,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Sione Vaki,DET,Anytime TD,,2800.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Shedeur Sanders,CLE,Interceptions,0.5,-180.0,135.0,False,,Bears,Browns,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Terrance Ferguson,LAR,Anytime TD,,625.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Sterling Shepard (TB) - 1H,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey (DEN) - 1Q,,Anytime TD,,750.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Ross Dwelley (DET) - 1H,,Anytime TD,,1200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Ronnie Rivers (LAR) - 1Q,,Anytime TD,,8000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Rachaad White & Tampa Bay Buccaneers,,Anytime TD,,400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White & Atlanta Falcons,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White,TB,Rushing Yards,16.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,320.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Quinshon Judkins,CLE,Anytime TD,,130.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Quentin Johnston (LAC) - 1Q,,Anytime TD,,1500.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston (LAC) - 1H,,Anytime TD,,650.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston & Los Angeles Chargers,,Anytime TD,,800.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston & Kansas City Chiefs,,Anytime TD,,550.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Quentin Johnston,LAC,Anytime TD,,310.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Puka Nacua (LAR) - 1Q,,Anytime TD,,500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua (LAR) - 1H,,Anytime TD,,185.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua & Los Angeles Rams,,Anytime TD,,,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua & Detroit Lions,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Anytime TD,,-132.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Payne Durham (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham,TB,Anytime TD,,420.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1Q,,Anytime TD,,1800.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes (KC) - 1H,,Anytime TD,,900.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Passing Yards,,-200.0,,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Interceptions,0.5,-110.0,-120.0,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Patrick Mahomes,KC,Anytime TD,,420.0,,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1H,,Anytime TD,,650.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1Q,,Anytime TD,,1600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice,KC,Anytime TD,,,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Rhamondre Stevenson (NE) - 1H,,Anytime TD,,490.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Ronnie Rivers (LAR) - 1H,,Anytime TD,,3300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Ronnie Rivers,LAR,Anytime TD,,2000.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Romeo Doubs (GB) - 1Q,,Anytime TD,,1000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Romeo Doubs (GB) - 1H,,Anytime TD,,450.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Romeo Doubs,GB,Anytime TD,,220.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1H,,Anytime TD,,425.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey (DEN) - 1H,,Anytime TD,,300.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey,DEN,Anytime TD,,125.0,,False,,Broncos,Packers,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Ricky Pearsall,SF,Anytime TD,,300.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson & New England Patriots,,Anytime TD,,450.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice & Kansas City Chiefs,,Anytime TD,,150.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson & Buffalo Bills,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,NE,Anytime TD,,215.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
 Reggie Gilliam,BUF,Anytime TD,,3300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Ray Davis (BUF) - 1H,,Anytime TD,,2200.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Ray Davis,BUF,Anytime TD,,1000.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
 Rashod Bateman,BAL,Anytime TD,,310.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Rachaad White (TB) - 1Q,,Anytime TD,,1600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Rachaad White (TB) - 1H,,Anytime TD,,650.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Rachaad White & Atlanta Falcons,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford (LAR) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Rachaad White,TB,Rushing Yards,,3000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Rachaad White,TB,Anytime TD,,290.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Quinshon Judkins,CLE,Anytime TD,,110.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Puka Nacua (LAR) - 1Q,,Anytime TD,,500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Puka Nacua (LAR) - 1H,,Anytime TD,,185.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Puka Nacua & Los Angeles Rams,,Anytime TD,,,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford (LAR) - 1Q,,Anytime TD,,6500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Malik Cunningham (BAL) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Anytime TD,,2000.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
-Konata Mumpfield (LAR) - 1H,,Anytime TD,,1300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1H,,Anytime TD,,450.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts & Atlanta Falcons,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Anytime TD,,220.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Monangai,CHI,Anytime TD,,120.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Konata Mumpfield (LAR) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Konata Mumpfield,LAR,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Mark Andrews,BAL,Anytime TD,,155.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Kirk Cousins (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kirk Cousins (ATL) - 1H,,Anytime TD,,4500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Passing Yards,,110.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Interceptions,0.5,-130.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & Buffalo Bills,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Anytime TD,,1800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams,NE,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyle Williams (NE) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Williams (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Anytime TD,,-122.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyren Williams & Detroit Lions,,Anytime TD,,600.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams & Los Angeles Rams,,Anytime TD,,120.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams (LAR) - 1H,,Anytime TD,,220.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams (LAR) - 1Q,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Lamar Jackson,BAL,Anytime TD,,210.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-Los Angeles Rams Def/ST (LAR) - 1H,,Anytime TD,,1100.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Los Angeles Rams Def/ST (LAR) - 1Q,,Anytime TD,,2500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Luther Burden III,CHI,Anytime TD,,185.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Mack Hollins,NE,Anytime TD,,330.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1H,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Mack Hollins (NE) - 1Q,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Malik Cunningham (BAL) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson,NE,Anytime TD,,220.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Tez Johnson (TB) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Rhamondre Stevenson & New England Patriots,,Anytime TD,,450.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson (NE) - 1Q,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed,SEA,Anytime TD,,275.0,,False,,Seahawks,Colts,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1Q,,Anytime TD,,600.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice (KC) - 1H,,Anytime TD,,225.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Rashee Rice & Los Angeles Chargers,,Anytime TD,,550.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Travis Kelce & Los Angeles Chargers,,Anytime TD,,850.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Tyjae Spears,TEN,Anytime TD,,350.0,,False,,49ers,Titans,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Kelce (KC) - 1Q,,Anytime TD,,1000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receiving Yards,70.0,270.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,50.0,525.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,60.0,850.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,70.0,1100.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,15.0,-1200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,20.0,-620.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,25.0,-410.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,30.0,-280.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,40.0,-150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,50.0,110.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,60.0,180.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,80.0,400.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tre Harris,LAC,Anytime TD,,900.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receiving Yards,90.0,600.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,100.0,800.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,110.0,1100.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,25.0,-1500.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,30.0,-775.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,40.0,-375.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,50.0,-210.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,60.0,-120.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,70.0,140.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,80.0,200.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,40.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,30.0,160.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,25.0,115.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,20.0,-130.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,2.0,-1550.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,3.0,-370.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,4.0,-145.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,5.0,160.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+David Sills,ATL,Receptions,5.0,525.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+David Sills,ATL,Receptions,4.0,230.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+David Sills,ATL,Receptions,3.0,-105.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+David Sills,ATL,Receptions,2.0,-330.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,6.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,7.0,600.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,4.0,-625.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,5.0,-275.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,6.0,-130.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,7.0,150.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Rachaad White,TB,Rushing Yards,30.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,0.0,1.0,,,0.0
+Kyle Pitts,ATL,Receptions,8.0,250.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,9.0,425.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receptions,10.0,725.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,receptions,,,,,projection_missing,0.0
+Over - 1Q,ATL,Receiving Yards,3.5,-115.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+David Sills,ATL,Receiving Yards,10.0,-360.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+David Sills,ATL,Receiving Yards,15.0,-210.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,90.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,100.0,450.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyle Pitts,ATL,Receiving Yards,110.0,650.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tyler Conklin,LAC,Anytime TD,,1000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyler Allgeier (ATL) - 1H,,Anytime TD,,400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier & Tampa Bay Buccaneers,,Anytime TD,,325.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier & Atlanta Falcons,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Allgeier,ATL,Rushing Yards,27.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Allgeier,ATL,Anytime TD,,170.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Ty Johnson (BUF) - 1Q,,Anytime TD,,4500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Ty Johnson (BUF) - 1H,,Anytime TD,,1400.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson,BUF,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Ty Johnson,BUF,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
 TuTu Atwell (LAR) - 1Q,,Anytime TD,,1500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 TuTu Atwell (LAR) - 1H,,Anytime TD,,700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-TuTu Atwell,LAR,Anytime TD,,370.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Trey McBride,ARI,Anytime TD,,145.0,,False,,Texans,Cardinals,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+TuTu Atwell,LAR,Anytime TD,,350.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Tua Tagovailoa,MIA,Interceptions,0.5,-110.0,-120.0,False,,Steelers,Dolphins,1765847700000,Bovada,QB,,,,,,unsupported_market,0.0
+Troy Franklin (DEN) - 1Q,,Anytime TD,,950.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin (DEN) - 1H,,Anytime TD,,400.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin,DEN,Anytime TD,,205.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Trey McBride,ARI,Anytime TD,,160.0,,False,,Texans,Cardinals,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+TreVeyon Henderson (NE) - 1Q,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 TreVeyon Henderson (NE) - 1H,,Anytime TD,,210.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Anytime TD,,185.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
 TreVeyon Henderson & New England Patriots,,Anytime TD,,210.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 TreVeyon Henderson & Buffalo Bills,,Anytime TD,,280.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-TreVeyon Henderson,NE,Anytime TD,,-122.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Tom Kennedy (DET) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Tom Kennedy (DET) - 1H,,Anytime TD,,1300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Tom Kennedy,DET,Anytime TD,,725.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Ty Johnson (BUF) - 1Q,,Anytime TD,,4500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Rushing Yards,,1500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1H,,Anytime TD,,490.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Smith,LAR,Anytime TD,,340.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Rachaad White,TB,Rushing Yards,30.0,300.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,RB,rush_yards,30.0,0.0,1.0,,,0.0
+TreVeyon Henderson,NE,Anytime TD,,-125.0,,False,,Patriots,Bills,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyler Allgeier (ATL) - 1Q,,Anytime TD,,900.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Warren,IND,Anytime TD,,400.0,,False,,Seahawks,Colts,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Kyle Pitts,ATL,Receiving Yards,125.0,1000.0,,True,Atlanta Falcons @ Tampa Bay Buccaneers,Buccaneers,Falcons,1765502100000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Tyquan Thornton,KC,Anytime TD,,1100.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
 Zay Flowers,BAL,Anytime TD,,195.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,-117.0,,False,,Seahawks,Colts,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1Q,,Anytime TD,,1200.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy (KC) - 1H,,Anytime TD,,550.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy & Los Angeles Chargers,,Anytime TD,,1050.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy & Kansas City Chiefs,,Anytime TD,,370.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Worthy,KC,Anytime TD,,300.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
 Xavier Smith (LAR) - 1Q,,Anytime TD,,1500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Xavier Smith (LAR) - 1H,,Anytime TD,,700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Xavier Smith & Los Angeles Rams,,Anytime TD,,460.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Xavier Smith & Detroit Lions,,Anytime TD,,1450.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Anytime TD,,-186.0,,False,,Texans,Cardinals,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Tyler Allgeier & Atlanta Falcons,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Smith,LAR,Anytime TD,,360.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Anytime TD,,-162.0,,False,,Texans,Cardinals,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Will Dissly,LAC,Anytime TD,,1000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Van Jefferson,TEN,Anytime TD,,460.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Under - 1Q,ATL,Rushing Yards,5.5,-105.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,ATL,Receiving Yards,3.5,-115.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,TB,Passing Yards,46.5,-115.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
 Tyrell Shavers (BUF) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Tyrell Shavers (BUF) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Tyrell Shavers,BUF,Anytime TD,,1000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1Q,,Anytime TD,,900.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1H,,Anytime TD,,400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier & Tampa Bay Buccaneers,,Anytime TD,,325.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Tez Johnson (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown & Detroit Lions,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Tez Johnson,TB,Anytime TD,,525.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-Ryan Miller,TB,Anytime TD,,2000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Sean Tucker (TB) - 1Q,,Anytime TD,,4500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Sean Tucker (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Sean Tucker,TB,Anytime TD,,460.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Samaje Perine,CIN,Anytime TD,,245.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Ryan Miller (TB) - 1Q,,Anytime TD,,6500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Ryan Miller (TB) - 1H,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Ross Dwelley (DET) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson (LAR) - 1Q,,Anytime TD,,2200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Ross Dwelley (DET) - 1H,,Anytime TD,,1200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Ross Dwelley,DET,Anytime TD,,700.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
-Ronnie Rivers (LAR) - 1Q,,Anytime TD,,8000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Ronnie Rivers (LAR) - 1H,,Anytime TD,,3300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-RJ Harvey,DEN,Anytime TD,,,,False,,Broncos,Packers,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
-Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Sione Vaki (DET) - 1H,,Anytime TD,,4000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Sione Vaki (DET) - 1Q,,Anytime TD,,10000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs,NE,Anytime TD,,135.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Stefon Diggs & Buffalo Bills,,Anytime TD,,390.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs & New England Patriots,,Anytime TD,,300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1H,,Anytime TD,,320.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Stefon Diggs (NE) - 1Q,,Anytime TD,,750.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Sterling Shepard,TB,Anytime TD,,360.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
-Sterling Shepard (TB) - 1H,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Sterling Shepard (TB) - 1Q,,Anytime TD,,1700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Tampa Bay Buccaneers Def/ST,TB,Anytime TD,,460.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-TB Buccaneers D/ST - 1H,,Anytime TD,,1800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-TB Buccaneers D/ST - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Teagan Quitoriano,ATL,Anytime TD,,2000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Teagan Quitoriano (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Teagan Quitoriano (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson (LAR) - 1H,,Anytime TD,,1000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown,DET,Anytime TD,,130.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Khalil Shakir & New England Patriots,,Anytime TD,,750.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Kolar,BAL,Anytime TD,,725.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Tyrell Shavers,BUF,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Over - 1Q,ATL,Rushing Yards,5.5,-125.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Aaron Jones,MIN,Anytime TD,,155.0,,False,,Cowboys,Vikings,1765761600000,Bovada,,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Interceptions,0.5,,-130.0,False,,Steelers,Dolphins,1765847700000,Bovada,QB,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1H,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery (DET) - 1Q,,Anytime TD,,750.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+David Sills,ATL,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+David Sills (ATL) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+David Sills (ATL) - 1Q,,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen,LAR,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1H,,Anytime TD,,750.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1Q,,Anytime TD,,1700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox,BUF,Anytime TD,,320.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Dawson Knox & Buffalo Bills,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox & New England Patriots,,Anytime TD,,850.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton,DEN,Anytime TD,,225.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+DeAndre Hopkins,BAL,Anytime TD,,500.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Demarcus Robinson,SF,Anytime TD,,400.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Demario Douglas,NE,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Demario Douglas (NE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Demario Douglas (NE) - 1Q,,Anytime TD,,7500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Denver Broncos Def/ST (DEN) - 1H,,Anytime TD,,1600.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Denver Broncos Def/ST (DEN) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Derrick Henry,BAL,Anytime TD,,-210.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Detroit Defense - 1H,,Anytime TD,,1400.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Detroit Defense - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery (DET) - 1H,,Anytime TD,,350.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery & Los Angeles Rams,,Anytime TD,,280.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery & Detroit Lions,,Anytime TD,,500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+David Montgomery,DET,Anytime TD,,155.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Courtland Sutton (DEN) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+D'Andre Swift,CHI,Anytime TD,,130.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Anytime TD,,525.0,,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Interceptions,0.5,-135.0,105.0,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+Dak Prescott,DAL,Passing Yards,,-410.0,,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Anytime TD,,245.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
 Dalton Kincaid & Buffalo Bills,,Anytime TD,,470.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Kincaid,BUF,Anytime TD,,250.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-D'Andre Swift,CHI,Anytime TD,,110.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Courtland Sutton,DEN,Anytime TD,,215.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Colston Loveland,CHI,Anytime TD,,245.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Cole Kmet,CHI,Anytime TD,,370.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Colby Parkinson (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson (LAR) - 1H,,Anytime TD,,470.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson & Los Angeles Rams,,Anytime TD,,290.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson & Detroit Lions,,Anytime TD,,650.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson,LAR,Anytime TD,,230.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
-CJ Dippre,NE,Anytime TD,,2000.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Cincinnati Bengals Def/ST,CIN,Anytime TD,,500.0,,False,,Bengals,Ravens,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Christian Watson,GB,Anytime TD,,165.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Christian Kirk,HOU,Anytime TD,,390.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Chris Godwin (TB) - 1Q,,Anytime TD,,850.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Chris Godwin (TB) - 1H,,Anytime TD,,325.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Chris Godwin & Tampa Bay Buccaneers,,Anytime TD,,210.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Chris Godwin & Atlanta Falcons,,Anytime TD,,450.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Chris Godwin,TB,Anytime TD,,150.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Chase Brown,CIN,Anytime TD,,155.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1H,,Anytime TD,,1800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
 Dalton Kincaid & New England Patriots,,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Dalton Kincaid (BUF) - 1H,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Dalton Kincaid (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery & Detroit Lions,,Anytime TD,,500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox,BUF,Anytime TD,,330.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Davis Allen (LAR) - 1Q,,Anytime TD,,1700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davis Allen (LAR) - 1H,,Anytime TD,,750.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davis Allen,LAR,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1Q,,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-David Sills,ATL,Anytime TD,,440.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery (DET) - 1Q,,Anytime TD,,750.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery (DET) - 1H,,Anytime TD,,350.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery & Los Angeles Rams,,Anytime TD,,280.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-David Montgomery,DET,Anytime TD,,165.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
 Dalton Schultz,HOU,Anytime TD,,200.0,,False,,Texans,Cardinals,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Davante Adams (LAR) - 1Q,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davante Adams (LAR) - 1H,,Anytime TD,,150.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davante Adams & Los Angeles Rams,,Anytime TD,,,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davante Adams & Detroit Lions,,Anytime TD,,470.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Davante Adams,LAR,Anytime TD,,-176.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1Q,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1H,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney & Tampa Bay Buccaneers,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney,ATL,Anytime TD,,380.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
 Darnell Mooney & Atlanta Falcons,,Anytime TD,,850.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney,ATL,Anytime TD,,350.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
-Charlie Woerner,ATL,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-Caleb Williams,CHI,Anytime TD,,295.0,,False,,Bears,Browns,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-Khalil Shakir & Buffalo Bills,,Anytime TD,,490.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton (TB) - 1Q,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Rushing Yards,,-145.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Receiving Yards,111.5,-130.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Anytime TD,,-157.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Darnell Mooney & Tampa Bay Buccaneers,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney (ATL) - 1H,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Darnell Mooney (ATL) - 1Q,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Anytime TD,,-176.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Davante Adams & Detroit Lions,,Anytime TD,,470.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams & Los Angeles Rams,,Anytime TD,,,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1H,,Anytime TD,,150.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1Q,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Deven Thompkins,ATL,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Deven Thompkins (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Deven Thompkins (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka (TB) - 1Q,,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram (DEN) - 1H,,Anytime TD,,750.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram (DEN) - 1Q,,Anytime TD,,1800.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Feleipe Franks,ATL,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
+Feleipe Franks (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Feleipe Franks (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Gabe Davis,BUF,Anytime TD,,370.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Gabe Davis (BUF) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Gabe Davis (BUF) - 1Q,,Anytime TD,,2500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+GB Packers D/ST - 1H,,Anytime TD,,1200.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+GB Packers D/ST - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+George Kittle,SF,Anytime TD,,120.0,,False,,49ers,Titans,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+George Pickens,DAL,Anytime TD,,-114.0,,False,,Cowboys,Vikings,1765761600000,Bovada,WR,,,,,,unsupported_market,0.0
+Gunnar Helm,TEN,Anytime TD,,525.0,,False,,49ers,Titans,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Harold Fannin Jr.,CLE,Anytime TD,,295.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Houston Texans Def/ST,HOU,Anytime TD,,420.0,,False,,Texans,Cardinals,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry,NE,Anytime TD,,200.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Hunter Henry & Buffalo Bills,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry & New England Patriots,,Anytime TD,,400.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry (NE) - 1H,,Anytime TD,,420.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry (NE) - 1Q,,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa,DET,Anytime TD,,400.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Evan Engram,DEN,Anytime TD,,380.0,,False,,Broncos,Packers,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Emeka Egbuka (TB) - 1H,,Anytime TD,,300.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp,TB,Anytime TD,,1100.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
+Emeka Egbuka & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Devin Culp (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+DJ Moore,CHI,Anytime TD,,230.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Dominic Lovett,DET,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Dominic Lovett (DET) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Dominic Lovett (DET) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye,NE,Anytime TD,,420.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Drake Maye,NE,Interceptions,0.5,105.0,-135.0,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Drake Maye,NE,Passing Yards,,-125.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Drake Maye (NE) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye (NE) - 1Q,,Anytime TD,,1900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Dylan Drummond,ATL,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Dylan Drummond (ATL) - 1H,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Dylan Drummond (ATL) - 1Q,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Dylan Sampson,CLE,Anytime TD,,700.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Efton Chism,NE,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Efton Chism (NE) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Efton Chism (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Elic Ayomanor,TEN,Anytime TD,,280.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Anytime TD,,205.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Emeka Egbuka & Atlanta Falcons,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton (DEN) - 1H,,Anytime TD,,450.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,275.0,,False,,Seahawks,Colts,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Oronde Gadsden II (LAC) - 1Q,,Anytime TD,,1600.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Anytime TD,,165.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
 Baker Mayfield (TB) - 1Q,,Anytime TD,,2500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Baker Mayfield (TB) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Baker Mayfield,TB,Rushing Yards,239.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Baker Mayfield,TB,Passing Yards,,-145.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Baker Mayfield,TB,Interceptions,0.5,110.0,-145.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Baker Mayfield,TB,Anytime TD,,525.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper (NE) - 1H,,Anytime TD,,1500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Austin Hooper,NE,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Atlanta Falcons Def/ST,ATL,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Atlanta D/ST - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Atlanta D/ST - 1H,,Anytime TD,,1700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Arizona Cardinals Def/ST,ARI,Anytime TD,,460.0,,False,,Texans,Cardinals,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Firkser (DET) - 1Q,,Anytime TD,,2000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Firkser (DET) - 1H,,Anytime TD,,850.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Anthony Firkser,DET,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
-Andrei Iosivas,CIN,Anytime TD,,215.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown (DET) - 1Q,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown (DET) - 1H,,Anytime TD,,310.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Amon-Ra St. Brown & Los Angeles Rams,,Anytime TD,,220.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Bam Knight,ARI,Anytime TD,,250.0,,False,,Texans,Cardinals,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Anytime TD,,-157.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Receiving Yards,117.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Rushing Attempts,16.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bijan Robinson,ATL,Rushing Yards,75.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
 Bijan Robinson & Atlanta Falcons,,Anytime TD,,260.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
 Bijan Robinson & Tampa Bay Buccaneers,,Anytime TD,,150.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
 Bijan Robinson (ATL) - 1H,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving & Atlanta Falcons,,Anytime TD,,650.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton (TB) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton & Atlanta Falcons,,Anytime TD,,1100.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Cade Otton,TB,Anytime TD,,295.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Anytime TD,,400.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1Q,,Anytime TD,,3500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-BUF Bills D/ST - 1H,,Anytime TD,,1500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving (TB) - 1Q,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving (TB) - 1H,,Anytime TD,,275.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving,TB,Rushing Yards,,130.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
 Bijan Robinson (ATL) - 1Q,,Anytime TD,,425.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Bucky Irving,TB,Receiving Yards,87.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Bucky Irving,TB,Anytime TD,,110.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
-Brandin Cooks (BUF) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Brandin Cooks (BUF) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Brandin Cooks,BUF,Anytime TD,,1000.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Blake Corum (LAR) - 1Q,,Anytime TD,,850.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum (LAR) - 1H,,Anytime TD,,380.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum & Los Angeles Rams,,Anytime TD,,230.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Blake Corum & Detroit Lions,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum,LAR,Anytime TD,,160.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
-Dawson Knox & Buffalo Bills,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox & New England Patriots,,Anytime TD,,850.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) - 1H,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Dawson Knox (BUF) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Joe Burrow,CIN,Anytime TD,,900.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Anytime TD,,295.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Jared Goff (DET) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jared Goff (DET) - 1H,,Anytime TD,,3300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jared Goff,DET,Anytime TD,,1800.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
-Jameson Williams (DET) - 1Q,,Anytime TD,,1000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jameson Williams (DET) - 1H,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jameson Williams & Los Angeles Rams,,Anytime TD,,310.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jameson Williams & Detroit Lions,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jameson Williams,DET,Anytime TD,,175.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-James Cook (BUF) - 1Q,,Anytime TD,,460.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-James Cook (BUF) - 1H,,Anytime TD,,195.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-James Cook & New England Patriots,,Anytime TD,,300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Colston Loveland,CHI,Anytime TD,,265.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Blake Corum & Los Angeles Rams,,Anytime TD,,230.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1H,,Anytime TD,,380.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1Q,,Anytime TD,,850.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Anytime TD,,500.0,,False,,Broncos,Packers,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Passing Yards,,-105.0,,False,,Broncos,Packers,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Bo Nix (DEN) - 1H,,Anytime TD,,900.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix (DEN) - 1Q,,Anytime TD,,2000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Brandin Cooks,BUF,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Brandin Cooks (BUF) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Brandin Cooks (BUF) - 1Q,,Anytime TD,,5500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield (TB) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Rushing Yards,18.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Yards,220.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing TDs,1.5,-145.0,110.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,195.0,,False,,Seahawks,Colts,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Alec Pierce,IND,Anytime TD,,700.0,,False,,Seahawks,Colts,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown,DET,Anytime TD,,120.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown & Detroit Lions,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown & Los Angeles Rams,,Anytime TD,,220.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown (DET) - 1H,,Anytime TD,,310.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Amon-Ra St. Brown (DET) - 1Q,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Andrei Iosivas,CIN,Anytime TD,,210.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Anthony Firkser,DET,Anytime TD,,460.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Anthony Firkser (DET) - 1H,,Anytime TD,,850.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Anthony Firkser (DET) - 1Q,,Anytime TD,,2000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Arizona Cardinals Def/ST,ARI,Anytime TD,,460.0,,False,,Texans,Cardinals,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta D/ST - 1H,,Anytime TD,,1700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta D/ST - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Atlanta Falcons Def/ST,ATL,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Austin Hooper,NE,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Austin Hooper (NE) - 1H,,Anytime TD,,1500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Austin Hooper (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Interceptions,0.5,110.0,-145.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Attempts,31.5,-125.0,-105.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Brashard Smith,KC,Anytime TD,,1100.0,,False,,Chiefs,Chargers,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Brian Robinson,SF,Anytime TD,,230.0,,False,,49ers,Titans,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Anytime TD,,600.0,,False,,49ers,Titans,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Charlie Woerner,ATL,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
+Charlie Woerner (ATL) - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Chase Brown,CIN,Anytime TD,,155.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Chimere Dike,TEN,Anytime TD,,290.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Anytime TD,,235.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin & Atlanta Falcons,,Anytime TD,,450.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin & Tampa Bay Buccaneers,,Anytime TD,,210.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin (TB) - 1H,,Anytime TD,,325.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin (TB) - 1Q,,Anytime TD,,850.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk,HOU,Anytime TD,,370.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Anytime TD,,-305.0,,False,,49ers,Titans,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Christian Watson,GB,Anytime TD,,195.0,,False,,Broncos,Packers,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian Watson (GB) - 1H,,Anytime TD,,450.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Christian Watson (GB) - 1Q,,Anytime TD,,1000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Cincinnati Bengals Def/ST,CIN,Anytime TD,,500.0,,False,,Bengals,Ravens,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+CJ Dippre,NE,Anytime TD,,2200.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Colby Parkinson,LAR,Anytime TD,,240.0,,False,,Rams,Lions,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Colby Parkinson & Detroit Lions,,Anytime TD,,650.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson & Los Angeles Rams,,Anytime TD,,290.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1H,,Anytime TD,,470.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Cole Kmet,CHI,Anytime TD,,400.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Charlie Woerner (ATL) - 1H,,Anytime TD,,1800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Charlie Kolar,BAL,Anytime TD,,725.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Interceptions,0.5,-115.0,-115.0,False,,49ers,Titans,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Cedric Tillman,CLE,Anytime TD,,500.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Anytime TD,,125.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Receiving Yards,87.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Rushing Attempts,15.5,-135.0,105.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Rushing Yards,63.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+Bucky Irving & Atlanta Falcons,,Anytime TD,,650.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving (TB) - 1H,,Anytime TD,,275.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving (TB) - 1Q,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1H,,Anytime TD,,1500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1Q,,Anytime TD,,3500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Anytime TD,,440.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Interceptions,0.5,110.0,-145.0,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Passing Yards,,110.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Cade Otton & Atlanta Falcons,,Anytime TD,,1100.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1Q,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Anytime TD,,370.0,,False,,Bears,Browns,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Interceptions,0.5,105.0,-135.0,False,,Bears,Browns,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Cam Ward,TEN,Anytime TD,,900.0,,False,,49ers,Titans,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Cam Ward,TEN,Interceptions,0.5,120.0,-160.0,False,,49ers,Titans,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1H,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Isaac TeSlaa (DET) - 1Q,,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Isaiah Bond,CLE,Anytime TD,,525.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyle Williams (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield (LAR) - 1H,,Anytime TD,,1300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield (LAR) - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Monangai,CHI,Anytime TD,,130.0,,False,,Bears,Browns,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyle Pitts,ATL,Anytime TD,,250.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts & Atlanta Falcons,,Anytime TD,,600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts & Tampa Bay Buccaneers,,Anytime TD,,375.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts (ATL) - 1H,,Anytime TD,,450.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Pitts (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Williams,NE,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyle Williams (NE) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Anytime TD,,-125.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Isaiah Likely,BAL,Anytime TD,,245.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Kyren Williams & Detroit Lions,,Anytime TD,,600.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams & Los Angeles Rams,,Anytime TD,,120.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1H,,Anytime TD,,220.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1Q,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+LA Chargers D/ST - 1H,,Anytime TD,,2000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+LA Chargers D/ST - 1Q,,Anytime TD,,5000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Ladd McConkey,LAC,Anytime TD,,240.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Ladd McConkey & Kansas City Chiefs,,Anytime TD,,410.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Ladd McConkey & Los Angeles Chargers,,Anytime TD,,650.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Ladd McConkey (LAC) - 1H,,Anytime TD,,500.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield,LAR,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kirk Cousins (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kirk Cousins (ATL) - 1H,,Anytime TD,,4500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Rushing Yards,212.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Kendrick Bourne,SF,Anytime TD,,700.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,-117.0,,False,,Seahawks,Colts,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman,BUF,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1Q,,Anytime TD,,1800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Khadarel Hodge,ATL,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Khadarel Hodge (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Khadarel Hodge (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Anytime TD,,295.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Khalil Shakir & Buffalo Bills,,Anytime TD,,490.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir & New England Patriots,,Anytime TD,,750.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1H,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kimani Vidal,LAC,Anytime TD,,440.0,,False,,Chiefs,Chargers,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Kimani Vidal (LAC) - 1H,,Anytime TD,,850.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kimani Vidal (LAC) - 1Q,,Anytime TD,,2000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Anytime TD,,1600.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Interceptions,0.5,-130.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Passing Attempts,32.5,-105.0,-125.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Passing TDs,1.5,205.0,-280.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Kirk Cousins,ATL,Passing Yards,206.5,-115.0,-115.0,False,,Buccaneers,Falcons,1765502100000,Bovada,QB,,,,,,unsupported_market,0.0
+Ladd McConkey (LAC) - 1Q,,Anytime TD,,1200.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Anytime TD,,210.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Interceptions,0.5,110.0,-145.0,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Mike Evans & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1Q,,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Mike Gesicki,CIN,Anytime TD,,220.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Minnesota Vikings Def/ST,MIN,Anytime TD,,500.0,,False,,Cowboys,Vikings,1765761600000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Tinsley,CIN,Anytime TD,,300.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Nathan Carter,ATL,Anytime TD,,4000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,RB,,,,,,unsupported_market,0.0
+New England Patriots Def/ST,NE,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+New England Patriots Def/ST (NE) - 1H,,Anytime TD,,1400.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+New England Patriots Def/ST (NE) - 1Q,,Anytime TD,,3000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Nico Collins,HOU,Anytime TD,,115.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Noah Fant,CIN,Anytime TD,,600.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Noah Gray,KC,Anytime TD,,900.0,,False,,Chiefs,Chargers,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Olamide Zaccheaus,CHI,Anytime TD,,360.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Omarion Hampton,LAC,Anytime TD,,155.0,,False,,Chiefs,Chargers,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Omarion Hampton & Kansas City Chiefs,,Anytime TD,,290.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Omarion Hampton & Los Angeles Chargers,,Anytime TD,,470.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Omarion Hampton (LAC) - 1H,,Anytime TD,,350.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Omarion Hampton (LAC) - 1Q,,Anytime TD,,850.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Oronde Gadsden & Kansas City Chiefs,,Anytime TD,,550.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Oronde Gadsden & Los Angeles Chargers,,Anytime TD,,850.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Oronde Gadsden II,LAC,Anytime TD,,310.0,,False,,Chiefs,Chargers,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Oronde Gadsden II (LAC) - 1H,,Anytime TD,,650.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1H,,Anytime TD,,300.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans & Atlanta Falcons,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Lamar Jackson,BAL,Passing Yards,,130.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Mike Evans,TB,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Los Angeles Rams Def/ST (LAR) - 1H,,Anytime TD,,1100.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Los Angeles Rams Def/ST (LAR) - 1Q,,Anytime TD,,2500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell,SF,Anytime TD,,825.0,,False,,49ers,Titans,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Luther Burden III,CHI,Anytime TD,,225.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Mack Hollins,NE,Anytime TD,,330.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Mack Hollins (NE) - 1H,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Mack Hollins (NE) - 1Q,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Malik Cunningham,DET,Anytime TD,,2200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Malik Cunningham (DET) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Malik Cunningham (DET) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Mark Andrews,BAL,Anytime TD,,155.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Marquise Brown,KC,Anytime TD,,800.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1H,,Anytime TD,,1400.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Marquise Brown (KC) - 1Q,,Anytime TD,,3300.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing Yards,,-165.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford (LAR) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford (LAR) - 1Q,,Anytime TD,,6500.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Michael Carter,ARI,Anytime TD,,320.0,,False,,Texans,Cardinals,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Michael Pittman,IND,Anytime TD,,460.0,,False,,Seahawks,Colts,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Michael Wilson,ARI,Anytime TD,,190.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Keenan Allen (LAC) - 1Q,,Anytime TD,,2200.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Keenan Allen (LAC) - 1H,,Anytime TD,,850.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Keenan Allen & Los Angeles Chargers,,Anytime TD,,1000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges,SF,Anytime TD,,1000.0,,False,,49ers,Titans,1765747500000,Bovada,TE,,,,,,unsupported_market,0.0
+Jamal Agnew,ATL,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+James Cook,BUF,Anytime TD,,-122.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 James Cook & Buffalo Bills,,Anytime TD,,180.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-James Cook,BUF,Anytime TD,,-132.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Jamal Agnew,ATL,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+James Cook & New England Patriots,,Anytime TD,,300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1H,,Anytime TD,,195.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1Q,,Anytime TD,,460.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams,DET,Anytime TD,,175.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Jameson Williams & Detroit Lions,,Anytime TD,,550.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams & Los Angeles Rams,,Anytime TD,,310.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1H,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jameson Williams (DET) - 1Q,,Anytime TD,,1000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff,DET,Anytime TD,,2200.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff,DET,Passing Yards,,125.0,,False,,Rams,Lions,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1H,,Anytime TD,,3300.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jared Goff (DET) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings,SF,Anytime TD,,190.0,,False,,49ers,Titans,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Javonte Williams,DAL,Anytime TD,,-148.0,,False,,Cowboys,Vikings,1765761600000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,-125.0,,False,,Seahawks,Colts,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Anytime TD,,310.0,,False,,Texans,Cardinals,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jerry Jeudy,CLE,Anytime TD,,370.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Joe Burrow,CIN,Anytime TD,,900.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jalen McMillan,TB,Anytime TD,,380.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Jake Ferguson,DAL,Anytime TD,,120.0,,False,,Cowboys,Vikings,1765761600000,Bovada,TE,,,,,,unsupported_market,0.0
+Joe Burrow,CIN,Passing Yards,,-180.0,,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
 Jahmyr Gibbs (DET) - 1Q,,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs (DET) - 1H,,Anytime TD,,150.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs & Los Angeles Rams,,Anytime TD,,120.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs & Detroit Lions,,Anytime TD,,260.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Jahmyr Gibbs,DET,Anytime TD,,-197.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
-Jacoby Brissett,ARI,Anytime TD,,1300.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Isiah Pacheco,KC,Anytime TD,,400.0,,False,,Chiefs,Chargers,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Isiah Pacheco & Kansas City Chiefs,,Anytime TD,,550.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco & Los Angeles Chargers,,Anytime TD,,1450.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1H,,Anytime TD,,800.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Isiah Pacheco (KC) - 1Q,,Anytime TD,,1600.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+J.J. McCarthy,MIN,Anytime TD,,340.0,,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+J.J. McCarthy,MIN,Interceptions,0.5,-180.0,135.0,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+J.J. McCarthy,MIN,Passing Yards,,280.0,,False,,Cowboys,Vikings,1765761600000,Bovada,QB,,,,,,unsupported_market,0.0
+Ja'Marr Chase,CIN,Anytime TD,,-174.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Jack Westover,NE,Anytime TD,,2200.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes,BUF,Anytime TD,,625.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Jackson Hawes (BUF) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Jacob Saylors,DET,Anytime TD,,2800.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Jacoby Brissett,ARI,Anytime TD,,1000.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jacoby Brissett,ARI,Interceptions,0.5,-180.0,135.0,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jacoby Brissett,ARI,Passing Yards,,-145.0,,False,,Texans,Cardinals,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs,DET,Anytime TD,,-193.0,,False,,Rams,Lions,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Detroit Lions,,Anytime TD,,260.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs & Los Angeles Rams,,Anytime TD,,120.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jahmyr Gibbs (DET) - 1H,,Anytime TD,,150.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Joe Burrow,CIN,Interceptions,0.5,-125.0,-105.0,False,,Bengals,Ravens,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jonathan Taylor,IND,Anytime TD,,-125.0,,False,,Seahawks,Colts,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Keenan Allen & Kansas City Chiefs,,Anytime TD,,750.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Justin Herbert (LAC) - 1H,,Anytime TD,,1100.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Justin Jefferson,MIN,Anytime TD,,170.0,,False,,Cowboys,Vikings,1765761600000,Bovada,WR,,,,,,unsupported_market,0.0
+Kalif Raymond,DET,Anytime TD,,420.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Kalif Raymond (DET) - 1H,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kalif Raymond (DET) - 1Q,,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson,TB,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
+Kameron Johnson (TB) - 1H,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kameron Johnson (TB) - 1Q,,Anytime TD,,6500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt,KC,Anytime TD,,115.0,,False,,Chiefs,Chargers,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
+Kareem Hunt & Kansas City Chiefs,,Anytime TD,,170.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt & Los Angeles Chargers,,Anytime TD,,650.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1H,,Anytime TD,,275.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kareem Hunt (KC) - 1Q,,Anytime TD,,700.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kavontae Turpin,DAL,Anytime TD,,420.0,,False,,Cowboys,Vikings,1765761600000,Bovada,WR,,,,,,unsupported_market,0.0
+Kayshon Boutte,NE,Anytime TD,,275.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Kayshon Boutte & Buffalo Bills,,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte & New England Patriots,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte (NE) - 1H,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte (NE) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1H,,Anytime TD,,1800.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+KC Chiefs D/ST - 1Q,,Anytime TD,,4000.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Keenan Allen,LAC,Anytime TD,,420.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Justin Herbert (LAC) - 1Q,,Anytime TD,,2200.0,,False,,Chiefs,Chargers,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Justin Herbert,LAC,Passing Yards,,150.0,,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Addison,MIN,Anytime TD,,210.0,,False,,Cowboys,Vikings,1765761600000,Bovada,WR,,,,,,unsupported_market,0.0
+Justin Herbert,LAC,Interceptions,0.5,-120.0,-110.0,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Love,GB,Anytime TD,,1000.0,,False,,Broncos,Packers,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Love,GB,Passing Yards,,-125.0,,False,,Broncos,Packers,1765747500000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Love (GB) - 1H,,Anytime TD,,1800.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Love (GB) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Jordan Mason,MIN,Anytime TD,,205.0,,False,,Cowboys,Vikings,1765761600000,Bovada,RB,,,,,,unsupported_market,0.0
+Jordan Whittington,LAR,Anytime TD,,1500.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
 Jordan Whittington (LAR) - 1H,,Anytime TD,,2200.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
 Jordan Whittington (LAR) - 1Q,,Anytime TD,,5000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen,BUF,Anytime TD,,-117.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-Kayshon Boutte & Buffalo Bills,,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Khalil Shakir,BUF,Anytime TD,,295.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Khadarel Hodge (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Khadarel Hodge (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Khadarel Hodge,ATL,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman (BUF) - 1Q,,Anytime TD,,1800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman (BUF) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Keon Coleman,BUF,Anytime TD,,460.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte (NE) - 1H,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte & New England Patriots,,Anytime TD,,550.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kayshon Boutte,NE,Anytime TD,,285.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Anytime TD,,-114.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Interceptions,0.5,-120.0,-110.0,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Yards,,-105.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
 Josh Allen & Buffalo Bills,,Anytime TD,,200.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Kameron Johnson (TB) - 1Q,,Anytime TD,,6500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kameron Johnson (TB) - 1H,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kameron Johnson,TB,Anytime TD,,1900.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond (DET) - 1Q,,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond (DET) - 1H,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Kalif Raymond,DET,Anytime TD,,460.0,,False,,Rams,Lions,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
-Josh Jacobs,GB,Anytime TD,,-174.0,,False,,Broncos,Packers,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
-Josh Allen (BUF) - 1Q,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Josh Allen (BUF) - 1H,,Anytime TD,,230.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
 Josh Allen & New England Patriots,,Anytime TD,,330.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes (BUF) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Jackson Hawes,BUF,Anytime TD,,700.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Jack Westover,NE,Anytime TD,,2000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Devin Culp,TB,Anytime TD,,1500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-Dylan Drummond (ATL) - 1H,,Anytime TD,,1400.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Dylan Drummond,ATL,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1Q,,Anytime TD,,1900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye (NE) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Drake Maye,NE,Anytime TD,,440.0,,False,,Patriots,Bills,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
-Dominic Lovett (DET) - 1Q,,Anytime TD,,7000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Dominic Lovett (DET) - 1H,,Anytime TD,,2700.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-DJ Moore,CHI,Anytime TD,,200.0,,False,,Bears,Browns,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Devin Culp (TB) - 1Q,,Anytime TD,,2800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Devin Culp (TB) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Deven Thompkins (ATL) - 1Q,,Anytime TD,,10000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism,NE,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Deven Thompkins (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Deven Thompkins,ATL,Anytime TD,,2000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Detroit Lions Def/ST,DET,Anytime TD,,525.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Detroit Defense - 1Q,,Anytime TD,,3000.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Detroit Defense - 1H,,Anytime TD,,1400.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Derrick Henry,BAL,Anytime TD,,-210.0,,False,,Bengals,Ravens,1765735200000,Bovada,RB,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1Q,,Anytime TD,,7500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas (NE) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Demario Douglas,NE,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-DeAndre Hopkins,BAL,Anytime TD,,500.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Dylan Drummond (ATL) - 1Q,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism (NE) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Ja'Marr Chase,CIN,Anytime TD,,-152.0,,False,,Bengals,Ravens,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Harold Fannin Jr.,CLE,Anytime TD,,295.0,,False,,Bears,Browns,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Isaiah Likely,BAL,Anytime TD,,270.0,,False,,Bengals,Ravens,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Isaac TeSlaa (DET) - 1Q,,Anytime TD,,1900.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Isaac TeSlaa (DET) - 1H,,Anytime TD,,800.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Isaac TeSlaa,DET,Anytime TD,,400.0,,False,,Rams,Lions,1765747500000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1Q,,Anytime TD,,900.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry (NE) - 1H,,Anytime TD,,420.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & New England Patriots,,Anytime TD,,400.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry & Buffalo Bills,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Hunter Henry,NE,Anytime TD,,200.0,,False,,Patriots,Bills,1765735200000,Bovada,TE,,,,,,unsupported_market,0.0
-Houston Texans Def/ST,HOU,Anytime TD,,420.0,,False,,Texans,Cardinals,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Gabe Davis (BUF) - 1Q,,Anytime TD,,2500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Efton Chism (NE) - 1Q,,Anytime TD,,8000.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Gabe Davis (BUF) - 1H,,Anytime TD,,800.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
-Gabe Davis,BUF,Anytime TD,,380.0,,False,,Patriots,Bills,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
-Feleipe Franks (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Feleipe Franks (ATL) - 1H,,Anytime TD,,3500.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Feleipe Franks,ATL,Anytime TD,,2200.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,TE,,,,,,unsupported_market,0.0
-Emeka Egbuka (TB) - 1Q,,Anytime TD,,800.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Emeka Egbuka (TB) - 1H,,Anytime TD,,300.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Emeka Egbuka & Tampa Bay Buccaneers,,Anytime TD,,175.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Emeka Egbuka & Atlanta Falcons,,Anytime TD,,700.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
-Emeka Egbuka,TB,Anytime TD,,125.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,WR,,,,,,unsupported_market,0.0
-Khalil Shakir (BUF) - 1H,,Anytime TD,,500.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1H,,Anytime TD,,230.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1Q,,Anytime TD,,600.0,,False,,Patriots,Bills,1765735200000,Bovada,,,,,,,unsupported_market,0.0
+Josh Downs,IND,Anytime TD,,725.0,,False,,Seahawks,Colts,1765747500000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Jacobs,GB,Anytime TD,,-136.0,,False,,Broncos,Packers,1765747500000,Bovada,RB,,,,,,unsupported_market,0.0
+Josh Jacobs (GB) - 1H,,Anytime TD,,190.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+Josh Jacobs (GB) - 1Q,,Anytime TD,,500.0,,False,,Broncos,Packers,1765747500000,Bovada,,,,,,,unsupported_market,0.0
+JuJu Smith-Schuster,KC,Anytime TD,,1100.0,,False,,Chiefs,Chargers,1765735200000,Bovada,WR,,,,,,unsupported_market,0.0
+Justin Herbert,LAC,Anytime TD,,625.0,,False,,Chiefs,Chargers,1765735200000,Bovada,QB,,,,,,unsupported_market,0.0
+Over - 1Q,TB,Passing Yards,46.5,-115.0,,False,,Buccaneers,Falcons,1765502100000,Bovada,,,,,,,unsupported_market,0.0
