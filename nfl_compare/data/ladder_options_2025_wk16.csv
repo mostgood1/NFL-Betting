@@ -1,181 +1,99 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,125.0,-1500.0,,1765847700000,Steelers,Dolphins,True,217.4,92.4
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,150.0,-650.0,,1765847700000,Steelers,Dolphins,True,217.4,67.4
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,175.0,-325.0,,1765847700000,Steelers,Dolphins,True,217.4,42.400000000000006
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,200.0,-165.0,,1765847700000,Steelers,Dolphins,True,217.4,17.400000000000006
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,225.0,115.0,,1765847700000,Steelers,Dolphins,True,217.4,-7.599999999999994
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,250.0,200.0,,1765847700000,Steelers,Dolphins,True,217.4,-32.599999999999994
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,275.0,375.0,,1765847700000,Steelers,Dolphins,True,217.4,-57.599999999999994
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,300.0,700.0,,1765847700000,Steelers,Dolphins,True,217.4,-82.6
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,325.0,1100.0,,1765847700000,Steelers,Dolphins,True,217.4,-107.6
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,125.0,-1100.0,,1765847700000,Steelers,Dolphins,True,234.4,109.4
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,150.0,-450.0,,1765847700000,Steelers,Dolphins,True,234.4,84.4
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,175.0,-225.0,,1765847700000,Steelers,Dolphins,True,234.4,59.400000000000006
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,200.0,-115.0,,1765847700000,Steelers,Dolphins,True,234.4,34.400000000000006
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,225.0,175.0,,1765847700000,Steelers,Dolphins,True,234.4,9.400000000000006
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,250.0,300.0,,1765847700000,Steelers,Dolphins,True,234.4,-15.599999999999994
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,275.0,600.0,,1765847700000,Steelers,Dolphins,True,234.4,-40.599999999999994
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,300.0,900.0,,1765847700000,Steelers,Dolphins,True,234.4,-65.6
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Passing Yards,325.0,1400.0,,1765847700000,Steelers,Dolphins,True,234.4,-90.6
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-1200.0,,1765847700000,Steelers,Dolphins,True,38.2,18.200000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-700.0,,1765847700000,Steelers,Dolphins,True,38.2,13.200000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,-450.0,,1765847700000,Steelers,Dolphins,True,38.2,8.200000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,-250.0,,1765847700000,Steelers,Dolphins,True,38.2,-1.7999999999999972
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,-145.0,,1765847700000,Steelers,Dolphins,True,38.2,-11.799999999999997
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,110.0,,1765847700000,Steelers,Dolphins,True,38.2,-21.799999999999997
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,160.0,,1765847700000,Steelers,Dolphins,True,38.2,-31.799999999999997
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,80.0,225.0,,1765847700000,Steelers,Dolphins,True,38.2,-41.8
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,90.0,350.0,,1765847700000,Steelers,Dolphins,True,38.2,-51.8
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,100.0,500.0,,1765847700000,Steelers,Dolphins,True,38.2,-61.8
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,110.0,650.0,,1765847700000,Steelers,Dolphins,True,38.2,-71.8
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,125.0,950.0,,1765847700000,Steelers,Dolphins,True,38.2,-86.8
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-600.0,,1765847700000,Steelers,Dolphins,True,38.7,28.700000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-350.0,,1765847700000,Steelers,Dolphins,True,38.7,23.700000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-225.0,,1765847700000,Steelers,Dolphins,True,38.7,18.700000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-150.0,,1765847700000,Steelers,Dolphins,True,38.7,13.700000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,,,1765847700000,Steelers,Dolphins,True,38.7,8.700000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,175.0,,1765847700000,Steelers,Dolphins,True,38.7,-1.2999999999999972
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,275.0,,1765847700000,Steelers,Dolphins,True,38.7,-11.299999999999997
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,450.0,,1765847700000,Steelers,Dolphins,True,38.7,-21.299999999999997
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,700.0,,1765847700000,Steelers,Dolphins,True,38.7,-31.299999999999997
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,80.0,900.0,,1765847700000,Steelers,Dolphins,True,38.7,-41.3
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,90.0,1300.0,,1765847700000,Steelers,Dolphins,True,38.7,-51.3
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-850.0,,1765847700000,Steelers,Dolphins,True,19.3,9.3
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-425.0,,1765847700000,Steelers,Dolphins,True,19.3,4.300000000000001
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-250.0,,1765847700000,Steelers,Dolphins,True,19.3,-0.6999999999999993
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-150.0,,1765847700000,Steelers,Dolphins,True,19.3,-5.699999999999999
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,,,1765847700000,Steelers,Dolphins,True,19.3,-10.7
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,175.0,,1765847700000,Steelers,Dolphins,True,19.3,-20.7
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,325.0,,1765847700000,Steelers,Dolphins,True,19.3,-30.7
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,550.0,,1765847700000,Steelers,Dolphins,True,19.3,-40.7
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,850.0,,1765847700000,Steelers,Dolphins,True,19.3,-50.7
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-300.0,,1765847700000,Steelers,Dolphins,True,19.7,9.7
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-175.0,,1765847700000,Steelers,Dolphins,True,19.7,4.699999999999999
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-110.0,,1765847700000,Steelers,Dolphins,True,19.7,-0.3000000000000007
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,135.0,,1765847700000,Steelers,Dolphins,True,19.7,-5.300000000000001
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,180.0,,1765847700000,Steelers,Dolphins,True,19.7,-10.3
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,350.0,,1765847700000,Steelers,Dolphins,True,19.7,-20.3
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,600.0,,1765847700000,Steelers,Dolphins,True,19.7,-30.3
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,900.0,,1765847700000,Steelers,Dolphins,True,19.7,-40.3
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,1300.0,,1765847700000,Steelers,Dolphins,True,19.7,-50.3
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-1300.0,,1765847700000,Steelers,Dolphins,True,35.9,10.899999999999999
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,-800.0,,1765847700000,Steelers,Dolphins,True,35.9,5.899999999999999
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,-425.0,,1765847700000,Steelers,Dolphins,True,35.9,-4.100000000000001
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,-250.0,,1765847700000,Steelers,Dolphins,True,35.9,-14.100000000000001
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,-145.0,,1765847700000,Steelers,Dolphins,True,35.9,-24.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,,,1765847700000,Steelers,Dolphins,True,35.9,-34.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,80.0,150.0,,1765847700000,Steelers,Dolphins,True,35.9,-44.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,90.0,225.0,,1765847700000,Steelers,Dolphins,True,35.9,-54.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,100.0,300.0,,1765847700000,Steelers,Dolphins,True,35.9,-64.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,110.0,425.0,,1765847700000,Steelers,Dolphins,True,35.9,-74.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,125.0,650.0,,1765847700000,Steelers,Dolphins,True,35.9,-89.1
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,150.0,1200.0,,1765847700000,Steelers,Dolphins,True,35.9,-114.1
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-225.0,,1765847700000,Steelers,Dolphins,True,16.6,6.600000000000001
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-125.0,,1765847700000,Steelers,Dolphins,True,16.6,1.6000000000000014
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,135.0,,1765847700000,Steelers,Dolphins,True,16.6,-3.3999999999999986
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,200.0,,1765847700000,Steelers,Dolphins,True,16.6,-8.399999999999999
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,300.0,,1765847700000,Steelers,Dolphins,True,16.6,-13.399999999999999
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,550.0,,1765847700000,Steelers,Dolphins,True,16.6,-23.4
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,900.0,,1765847700000,Steelers,Dolphins,True,16.6,-33.4
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-500.0,,1765847700000,Steelers,Dolphins,True,10.0,0.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-275.0,,1765847700000,Steelers,Dolphins,True,10.0,-5.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-175.0,,1765847700000,Steelers,Dolphins,True,10.0,-10.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-110.0,,1765847700000,Steelers,Dolphins,True,10.0,-15.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,150.0,,1765847700000,Steelers,Dolphins,True,10.0,-20.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,275.0,,1765847700000,Steelers,Dolphins,True,10.0,-30.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,475.0,,1765847700000,Steelers,Dolphins,True,10.0,-40.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,700.0,,1765847700000,Steelers,Dolphins,True,10.0,-50.0
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,10.0,-500.0,,1765847700000,Steelers,Dolphins,True,30.9,20.9
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,15.0,-275.0,,1765847700000,Steelers,Dolphins,True,30.9,15.899999999999999
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,20.0,-175.0,,1765847700000,Steelers,Dolphins,True,30.9,10.899999999999999
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,25.0,-115.0,,1765847700000,Steelers,Dolphins,True,30.9,5.899999999999999
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,30.0,130.0,,1765847700000,Steelers,Dolphins,True,30.9,0.8999999999999986
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,40.0,250.0,,1765847700000,Steelers,Dolphins,True,30.9,-9.100000000000001
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,50.0,450.0,,1765847700000,Steelers,Dolphins,True,30.9,-19.1
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,60.0,700.0,,1765847700000,Steelers,Dolphins,True,30.9,-29.1
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,70.0,1000.0,,1765847700000,Steelers,Dolphins,True,30.9,-39.1
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receiving Yards,80.0,1500.0,,1765847700000,Steelers,Dolphins,True,30.9,-49.1
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-600.0,,1765847700000,Steelers,Dolphins,True,4.14,1.1399999999999997
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,-250.0,,1765847700000,Steelers,Dolphins,True,4.14,0.13999999999999968
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,,,1765847700000,Steelers,Dolphins,True,4.14,-0.8600000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,6.0,200.0,,1765847700000,Steelers,Dolphins,True,4.14,-1.8600000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,7.0,375.0,,1765847700000,Steelers,Dolphins,True,4.14,-2.8600000000000003
-DK Metcalf,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,8.0,700.0,,1765847700000,Steelers,Dolphins,True,4.14,-3.8600000000000003
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-350.0,,1765847700000,Steelers,Dolphins,True,4.71,2.71
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-105.0,,1765847700000,Steelers,Dolphins,True,4.71,1.71
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,225.0,,1765847700000,Steelers,Dolphins,True,4.71,0.71
-Darren Waller,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,550.0,,1765847700000,Steelers,Dolphins,True,4.71,-0.29000000000000004
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-1400.0,,1765847700000,Steelers,Dolphins,True,3.08,1.08
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-350.0,,1765847700000,Steelers,Dolphins,True,3.08,0.08000000000000007
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,-150.0,,1765847700000,Steelers,Dolphins,True,3.08,-0.9199999999999999
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,130.0,,1765847700000,Steelers,Dolphins,True,3.08,-1.92
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,6.0,250.0,,1765847700000,Steelers,Dolphins,True,3.08,-2.92
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,7.0,475.0,,1765847700000,Steelers,Dolphins,True,3.08,-3.92
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,1.0,-900.0,,1765847700000,Steelers,Dolphins,True,2.16,1.1600000000000001
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-175.0,,1765847700000,Steelers,Dolphins,True,2.16,0.16000000000000014
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,150.0,,1765847700000,Steelers,Dolphins,True,2.16,-0.8399999999999999
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,400.0,,1765847700000,Steelers,Dolphins,True,2.16,-1.8399999999999999
-Greg Dulcich,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,875.0,,1765847700000,Steelers,Dolphins,True,2.16,-2.84
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-900.0,,1765847700000,Steelers,Dolphins,True,4.28,1.2800000000000002
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,-300.0,,1765847700000,Steelers,Dolphins,True,4.28,0.28000000000000025
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,-140.0,,1765847700000,Steelers,Dolphins,True,4.28,-0.7199999999999998
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,6.0,150.0,,1765847700000,Steelers,Dolphins,True,4.28,-1.7199999999999998
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,7.0,275.0,,1765847700000,Steelers,Dolphins,True,4.28,-2.7199999999999998
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,8.0,500.0,,1765847700000,Steelers,Dolphins,True,4.28,-3.7199999999999998
-Jaylen Waddle,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,9.0,875.0,,1765847700000,Steelers,Dolphins,True,4.28,-4.72
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,1.0,-1400.0,,1765847700000,Steelers,Dolphins,True,3.06,2.06
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-275.0,,1765847700000,Steelers,Dolphins,True,3.06,1.06
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,,,1765847700000,Steelers,Dolphins,True,3.06,0.06000000000000005
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,250.0,,1765847700000,Steelers,Dolphins,True,3.06,-0.94
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,550.0,,1765847700000,Steelers,Dolphins,True,3.06,-1.94
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-1200.0,,1765847700000,Steelers,Dolphins,True,1.86,-0.1399999999999999
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-350.0,,1765847700000,Steelers,Dolphins,True,1.86,-1.14
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,-150.0,,1765847700000,Steelers,Dolphins,True,1.86,-2.1399999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,140.0,,1765847700000,Steelers,Dolphins,True,1.86,-3.1399999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,6.0,275.0,,1765847700000,Steelers,Dolphins,True,1.86,-4.14
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Receptions,7.0,500.0,,1765847700000,Steelers,Dolphins,True,1.86,-5.14
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,2.0,-600.0,,1765847700000,Steelers,Dolphins,True,3.52,1.52
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,3.0,-200.0,,1765847700000,Steelers,Dolphins,True,3.52,0.52
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,4.0,140.0,,1765847700000,Steelers,Dolphins,True,3.52,-0.48
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,5.0,300.0,,1765847700000,Steelers,Dolphins,True,3.52,-1.48
-Malik Washington,MIA,Miami Dolphins @ Pittsburgh Steelers,Receptions,6.0,600.0,,1765847700000,Steelers,Dolphins,True,3.52,-2.48
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,10.0,300.0,,1765847700000,Steelers,Dolphins,True,8.4,-1.5999999999999996
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,15.0,500.0,,1765847700000,Steelers,Dolphins,True,8.4,-6.6
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,20.0,800.0,,1765847700000,Steelers,Dolphins,True,8.4,-11.6
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,25.0,1100.0,,1765847700000,Steelers,Dolphins,True,8.4,-16.6
-Aaron Rodgers,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,30.0,1400.0,,1765847700000,Steelers,Dolphins,True,8.4,-21.6
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,40.0,-1500.0,,1765847700000,Steelers,Dolphins,True,59.0,19.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,50.0,-650.0,,1765847700000,Steelers,Dolphins,True,59.0,9.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,60.0,-325.0,,1765847700000,Steelers,Dolphins,True,59.0,-1.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,70.0,-200.0,,1765847700000,Steelers,Dolphins,True,59.0,-11.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,80.0,-140.0,,1765847700000,Steelers,Dolphins,True,59.0,-21.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,90.0,125.0,,1765847700000,Steelers,Dolphins,True,59.0,-31.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,100.0,190.0,,1765847700000,Steelers,Dolphins,True,59.0,-41.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,110.0,275.0,,1765847700000,Steelers,Dolphins,True,59.0,-51.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,125.0,450.0,,1765847700000,Steelers,Dolphins,True,59.0,-66.0
-De'Von Achane,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,150.0,1000.0,,1765847700000,Steelers,Dolphins,True,59.0,-91.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,25.0,-1100.0,,1765847700000,Steelers,Dolphins,True,60.0,35.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,30.0,-600.0,,1765847700000,Steelers,Dolphins,True,60.0,30.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,40.0,-275.0,,1765847700000,Steelers,Dolphins,True,60.0,20.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,50.0,-140.0,,1765847700000,Steelers,Dolphins,True,60.0,10.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,60.0,125.0,,1765847700000,Steelers,Dolphins,True,60.0,0.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,70.0,200.0,,1765847700000,Steelers,Dolphins,True,60.0,-10.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,80.0,300.0,,1765847700000,Steelers,Dolphins,True,60.0,-20.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,90.0,500.0,,1765847700000,Steelers,Dolphins,True,60.0,-30.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,100.0,700.0,,1765847700000,Steelers,Dolphins,True,60.0,-40.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,110.0,900.0,,1765847700000,Steelers,Dolphins,True,60.0,-50.0
-Jaylen Warren,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,125.0,1400.0,,1765847700000,Steelers,Dolphins,True,60.0,-65.0
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,10.0,-700.0,,1765847700000,Steelers,Dolphins,True,33.3,23.299999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,15.0,-325.0,,1765847700000,Steelers,Dolphins,True,33.3,18.299999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,20.0,-200.0,,1765847700000,Steelers,Dolphins,True,33.3,13.299999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,25.0,-115.0,,1765847700000,Steelers,Dolphins,True,33.3,8.299999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,30.0,135.0,,1765847700000,Steelers,Dolphins,True,33.3,3.299999999999997
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,40.0,275.0,,1765847700000,Steelers,Dolphins,True,33.3,-6.700000000000003
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,50.0,500.0,,1765847700000,Steelers,Dolphins,True,33.3,-16.700000000000003
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,60.0,800.0,,1765847700000,Steelers,Dolphins,True,33.3,-26.700000000000003
-Kenneth Gainwell,PIT,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,70.0,1200.0,,1765847700000,Steelers,Dolphins,True,33.3,-36.7
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,10.0,275.0,,1765847700000,Steelers,Dolphins,True,9.4,-0.5999999999999996
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,15.0,450.0,,1765847700000,Steelers,Dolphins,True,9.4,-5.6
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,20.0,700.0,,1765847700000,Steelers,Dolphins,True,9.4,-10.6
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,25.0,1000.0,,1765847700000,Steelers,Dolphins,True,9.4,-15.6
-Tua Tagovailoa,MIA,Miami Dolphins @ Pittsburgh Steelers,Rushing Yards,30.0,1300.0,,1765847700000,Steelers,Dolphins,True,9.4,-20.6
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,150.0,-1100.0,,1766106900000,Seahawks,Rams,True,230.4,80.4
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,175.0,-475.0,,1766106900000,Seahawks,Rams,True,230.4,55.400000000000006
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,200.0,-250.0,,1766106900000,Seahawks,Rams,True,230.4,30.400000000000006
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,225.0,-130.0,,1766106900000,Seahawks,Rams,True,230.4,5.400000000000006
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,250.0,145.0,,1766106900000,Seahawks,Rams,True,230.4,-19.599999999999994
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,275.0,265.0,,1766106900000,Seahawks,Rams,True,230.4,-44.599999999999994
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,300.0,425.0,,1766106900000,Seahawks,Rams,True,230.4,-69.6
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,325.0,750.0,,1766106900000,Seahawks,Rams,True,230.4,-94.6
+Matthew Stafford,LAR,Los Angeles Rams @ Seattle Seahawks,Passing Yards,350.0,1200.0,,1766106900000,Seahawks,Rams,True,230.4,-119.6
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,150.0,-1100.0,,1766106900000,Seahawks,Rams,True,212.4,62.400000000000006
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,175.0,-500.0,,1766106900000,Seahawks,Rams,True,212.4,37.400000000000006
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,200.0,-260.0,,1766106900000,Seahawks,Rams,True,212.4,12.400000000000006
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,225.0,-140.0,,1766106900000,Seahawks,Rams,True,212.4,-12.599999999999994
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,250.0,135.0,,1766106900000,Seahawks,Rams,True,212.4,-37.599999999999994
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,275.0,225.0,,1766106900000,Seahawks,Rams,True,212.4,-62.599999999999994
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,300.0,400.0,,1766106900000,Seahawks,Rams,True,212.4,-87.6
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,325.0,675.0,,1766106900000,Seahawks,Rams,True,212.4,-112.6
+Sam Darnold,SEA,Los Angeles Rams @ Seattle Seahawks,Passing Yards,350.0,1100.0,,1766106900000,Seahawks,Rams,True,212.4,-137.6
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,40.0,-1800.0,,1766106900000,Seahawks,Rams,True,38.0,-2.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,50.0,-750.0,,1766106900000,Seahawks,Rams,True,38.0,-12.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,60.0,-440.0,,1766106900000,Seahawks,Rams,True,38.0,-22.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,70.0,-275.0,,1766106900000,Seahawks,Rams,True,38.0,-32.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,80.0,-185.0,,1766106900000,Seahawks,Rams,True,38.0,-42.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,90.0,-125.0,,1766106900000,Seahawks,Rams,True,38.0,-52.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,100.0,115.0,,1766106900000,Seahawks,Rams,True,38.0,-62.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,110.0,160.0,,1766106900000,Seahawks,Rams,True,38.0,-72.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,125.0,260.0,,1766106900000,Seahawks,Rams,True,38.0,-87.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,150.0,550.0,,1766106900000,Seahawks,Rams,True,38.0,-112.0
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,175.0,1000.0,,1766106900000,Seahawks,Rams,True,38.0,-137.0
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,50.0,-1000.0,,1766106900000,Seahawks,Rams,True,34.7,-15.299999999999997
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,60.0,-550.0,,1766106900000,Seahawks,Rams,True,34.7,-25.299999999999997
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,70.0,-325.0,,1766106900000,Seahawks,Rams,True,34.7,-35.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,80.0,-210.0,,1766106900000,Seahawks,Rams,True,34.7,-45.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,90.0,-140.0,,1766106900000,Seahawks,Rams,True,34.7,-55.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,100.0,,,1766106900000,Seahawks,Rams,True,34.7,-65.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,110.0,145.0,,1766106900000,Seahawks,Rams,True,34.7,-75.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,125.0,225.0,,1766106900000,Seahawks,Rams,True,34.7,-90.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,150.0,525.0,,1766106900000,Seahawks,Rams,True,34.7,-115.3
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receiving Yards,175.0,900.0,,1766106900000,Seahawks,Rams,True,34.7,-140.3
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,4.0,-1500.0,,1766106900000,Seahawks,Rams,True,4.93,0.9299999999999997
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,5.0,-500.0,,1766106900000,Seahawks,Rams,True,4.93,-0.07000000000000028
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,6.0,-250.0,,1766106900000,Seahawks,Rams,True,4.93,-1.0700000000000003
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,7.0,-125.0,,1766106900000,Seahawks,Rams,True,4.93,-2.0700000000000003
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,8.0,145.0,,1766106900000,Seahawks,Rams,True,4.93,-3.0700000000000003
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,9.0,250.0,,1766106900000,Seahawks,Rams,True,4.93,-4.07
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,10.0,425.0,,1766106900000,Seahawks,Rams,True,4.93,-5.07
+Jaxon Smith-Njigba,SEA,Los Angeles Rams @ Seattle Seahawks,Receptions,11.0,750.0,,1766106900000,Seahawks,Rams,True,4.93,-6.07
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,5.0,-1200.0,,1766106900000,Seahawks,Rams,True,4.82,-0.17999999999999972
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,6.0,-475.0,,1766106900000,Seahawks,Rams,True,4.82,-1.1799999999999997
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,7.0,-250.0,,1766106900000,Seahawks,Rams,True,4.82,-2.1799999999999997
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,8.0,-135.0,,1766106900000,Seahawks,Rams,True,4.82,-3.1799999999999997
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,9.0,130.0,,1766106900000,Seahawks,Rams,True,4.82,-4.18
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,10.0,225.0,,1766106900000,Seahawks,Rams,True,4.82,-5.18
+Puka Nacua,LAR,Los Angeles Rams @ Seattle Seahawks,Receptions,11.0,350.0,,1766106900000,Seahawks,Rams,True,4.82,-6.18
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,15.0,-1200.0,,1766106900000,Seahawks,Rams,True,32.6,17.6
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,20.0,-575.0,,1766106900000,Seahawks,Rams,True,32.6,12.600000000000001
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,25.0,-350.0,,1766106900000,Seahawks,Rams,True,32.6,7.600000000000001
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,30.0,-230.0,,1766106900000,Seahawks,Rams,True,32.6,2.6000000000000014
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,40.0,-110.0,,1766106900000,Seahawks,Rams,True,32.6,-7.399999999999999
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,50.0,170.0,,1766106900000,Seahawks,Rams,True,32.6,-17.4
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,60.0,275.0,,1766106900000,Seahawks,Rams,True,32.6,-27.4
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,70.0,450.0,,1766106900000,Seahawks,Rams,True,32.6,-37.4
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,80.0,675.0,,1766106900000,Seahawks,Rams,True,32.6,-47.4
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,90.0,900.0,,1766106900000,Seahawks,Rams,True,32.6,-57.4
+Blake Corum,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,100.0,1200.0,,1766106900000,Seahawks,Rams,True,32.6,-67.4
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,20.0,-1200.0,,1766106900000,Seahawks,Rams,True,51.4,31.4
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,25.0,-650.0,,1766106900000,Seahawks,Rams,True,51.4,26.4
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,30.0,-400.0,,1766106900000,Seahawks,Rams,True,51.4,21.4
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,40.0,-175.0,,1766106900000,Seahawks,Rams,True,51.4,11.399999999999999
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,50.0,115.0,,1766106900000,Seahawks,Rams,True,51.4,1.3999999999999986
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,60.0,195.0,,1766106900000,Seahawks,Rams,True,51.4,-8.600000000000001
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,70.0,325.0,,1766106900000,Seahawks,Rams,True,51.4,-18.6
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,80.0,525.0,,1766106900000,Seahawks,Rams,True,51.4,-28.6
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,90.0,750.0,,1766106900000,Seahawks,Rams,True,51.4,-38.6
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,100.0,1000.0,,1766106900000,Seahawks,Rams,True,51.4,-48.6
+Kenneth Walker III,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,110.0,1400.0,,1766106900000,Seahawks,Rams,True,51.4,-58.6
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,25.0,-1500.0,,1766106900000,Seahawks,Rams,True,57.3,32.3
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,30.0,-800.0,,1766106900000,Seahawks,Rams,True,57.3,27.299999999999997
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,40.0,-325.0,,1766106900000,Seahawks,Rams,True,57.3,17.299999999999997
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,50.0,-165.0,,1766106900000,Seahawks,Rams,True,57.3,7.299999999999997
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,60.0,105.0,,1766106900000,Seahawks,Rams,True,57.3,-2.700000000000003
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,70.0,180.0,,1766106900000,Seahawks,Rams,True,57.3,-12.700000000000003
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,80.0,275.0,,1766106900000,Seahawks,Rams,True,57.3,-22.700000000000003
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,90.0,400.0,,1766106900000,Seahawks,Rams,True,57.3,-32.7
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,100.0,625.0,,1766106900000,Seahawks,Rams,True,57.3,-42.7
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,110.0,875.0,,1766106900000,Seahawks,Rams,True,57.3,-52.7
+Kyren Williams,LAR,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,125.0,1400.0,,1766106900000,Seahawks,Rams,True,57.3,-67.7
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,15.0,-1000.0,,1766106900000,Seahawks,Rams,True,28.7,13.7
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,20.0,-475.0,,1766106900000,Seahawks,Rams,True,28.7,8.7
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,25.0,-275.0,,1766106900000,Seahawks,Rams,True,28.7,3.6999999999999993
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,30.0,-180.0,,1766106900000,Seahawks,Rams,True,28.7,-1.3000000000000007
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,40.0,115.0,,1766106900000,Seahawks,Rams,True,28.7,-11.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,50.0,200.0,,1766106900000,Seahawks,Rams,True,28.7,-21.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,60.0,350.0,,1766106900000,Seahawks,Rams,True,28.7,-31.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,70.0,550.0,,1766106900000,Seahawks,Rams,True,28.7,-41.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,80.0,850.0,,1766106900000,Seahawks,Rams,True,28.7,-51.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,90.0,1200.0,,1766106900000,Seahawks,Rams,True,28.7,-61.3
+Zach Charbonnet,SEA,Los Angeles Rams @ Seattle Seahawks,Rushing Yards,100.0,1500.0,,1766106900000,Seahawks,Rams,True,28.7,-71.3
