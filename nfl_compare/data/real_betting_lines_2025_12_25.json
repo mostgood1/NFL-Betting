@@ -2,16 +2,16 @@
   "lines": {
     "Dallas Cowboys @ Washington Commanders": {
       "moneyline": {
-        "home": 380,
-        "away": -500
+        "home": 650,
+        "away": -1150
       },
       "total_runs": {
-        "line": 50.5,
-        "over": -112,
-        "under": -108
+        "line": 49.5,
+        "over": -120,
+        "under": -110
       },
       "run_line": {
-        "home": 8.5
+        "home": 14.5
       },
       "markets": [
         {
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -500
+              "price": -1150
             },
             {
               "name": "Washington Commanders",
-              "price": 380
+              "price": 650
             }
           ]
         },
@@ -32,13 +32,13 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -120,
-              "point": -8.5
+              "price": -105,
+              "point": -14.5
             },
             {
               "name": "Washington Commanders",
-              "price": 100,
-              "point": 8.5
+              "price": -125,
+              "point": 14.5
             }
           ]
         },
@@ -47,13 +47,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -112,
-              "point": 50.5
+              "price": -120,
+              "point": 49.5
             },
             {
               "name": "Under",
-              "price": -108,
-              "point": 50.5
+              "price": -110,
+              "point": 49.5
             }
           ]
         }
@@ -61,13 +61,13 @@
     },
     "Detroit Lions @ Minnesota Vikings": {
       "moneyline": {
-        "home": 310,
-        "away": -395
+        "home": 285,
+        "away": -360
       },
       "total_runs": {
         "line": 44.5,
-        "over": -102,
-        "under": -118
+        "over": -108,
+        "under": -112
       },
       "run_line": {
         "home": 7.5
@@ -78,11 +78,11 @@
           "outcomes": [
             {
               "name": "Detroit Lions",
-              "price": -395
+              "price": -360
             },
             {
               "name": "Minnesota Vikings",
-              "price": 310
+              "price": 285
             }
           ]
         },
@@ -91,12 +91,12 @@
           "outcomes": [
             {
               "name": "Detroit Lions",
-              "price": -110,
+              "price": 100,
               "point": -7.5
             },
             {
               "name": "Minnesota Vikings",
-              "price": -110,
+              "price": -120,
               "point": 7.5
             }
           ]
@@ -106,12 +106,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -102,
+              "price": -108,
               "point": 44.5
             },
             {
               "name": "Under",
-              "price": -118,
+              "price": -112,
               "point": 44.5
             }
           ]
@@ -120,8 +120,8 @@
     },
     "Denver Broncos @ Kansas City Chiefs": {
       "moneyline": {
-        "home": 700,
-        "away": -1100
+        "home": 675,
+        "away": -1050
       },
       "total_runs": {
         "line": 37.5,
@@ -137,11 +137,11 @@
           "outcomes": [
             {
               "name": "Denver Broncos",
-              "price": -1100
+              "price": -1050
             },
             {
               "name": "Kansas City Chiefs",
-              "price": 700
+              "price": 675
             }
           ]
         },
@@ -297,8 +297,8 @@
     },
     "Arizona Cardinals @ Cincinnati Bengals": {
       "moneyline": {
-        "home": -380,
-        "away": 300
+        "home": -410,
+        "away": 320
       },
       "total_runs": {
         "line": 52.5,
@@ -314,11 +314,11 @@
           "outcomes": [
             {
               "name": "Arizona Cardinals",
-              "price": 300
+              "price": 320
             },
             {
               "name": "Cincinnati Bengals",
-              "price": -380
+              "price": -410
             }
           ]
         },
@@ -769,8 +769,8 @@
     },
     "Philadelphia Eagles @ Buffalo Bills": {
       "moneyline": {
-        "home": -112,
-        "away": -108
+        "home": -122,
+        "away": 102
       },
       "total_runs": {
         "line": 43.5,
@@ -786,11 +786,11 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": -112
+              "price": -122
             },
             {
               "name": "Philadelphia Eagles",
-              "price": -108
+              "price": 102
             }
           ]
         },
@@ -799,12 +799,12 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": 100,
+              "price": -105,
               "point": -1.5
             },
             {
               "name": "Philadelphia Eagles",
-              "price": -120,
+              "price": -115,
               "point": 1.5
             }
           ]
@@ -946,5 +946,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-12-25T17:22:46.609848+00:00"
+  "fetched_at": "2025-12-25T18:56:01.198010+00:00"
 }

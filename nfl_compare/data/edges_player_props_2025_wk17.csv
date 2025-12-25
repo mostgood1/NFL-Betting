@@ -596,7 +596,6 @@ RJ Harvey,DEN,Receiving Yards,20.0,130.0,,True,Denver Broncos @ Kansas City Chie
 Jake Ferguson,DAL,Receiving Yards,30.0,-225.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,rec_yards,27.1,-2.8999999999999986,-0.3756045477993415,,,2.8999999999999986
 Jaleel McLaughlin,DEN,Rushing Yards,25.0,-130.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,rush_yards,27.9,2.8999999999999986,0.029782279529474875,,,2.8999999999999986
 Justin Jefferson,MIN,Receptions,3.0,-1200.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.87,2.87,0.06856439655958375,,,2.87
-Dak Prescott,DAL,Passing TDs,5.0,1200.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.16,-2.84,-0.7002923173237416,,,2.84
 Xavier Worthy,KC,Receptions,2.0,-540.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,2.79,0.16630476653656975,,,2.79
 Quentin Johnston,LAC,Receptions,6.0,625.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.24,-2.76,-0.8776656516312782,,,2.76
 Jahmyr Gibbs,DET,Receptions,6.0,150.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,RB,receptions,3.29,-2.71,-0.9536197164225592,,,2.71
@@ -604,6 +603,7 @@ Justin Jefferson,MIN,Receiving Yards,50.0,-200.0,,True,Detroit Lions @ Minnesota
 Isiah Pacheco,KC,Rushing Yards,60.0,330.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,rush_yards,62.7,2.700000000000003,1.4787976727139553,,,2.700000000000003
 Jameson Williams,DET,Receptions,6.0,225.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,3.3,-2.7,-0.9385609283606302,,,2.7
 Keenan Allen,LAC,Receiving Yards,20.0,-330.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,rec_yards,17.3,-2.6999999999999993,-0.430700906913847,,,2.6999999999999993
+Dak Prescott,DAL,Passing TDs,5.0,1200.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.32,-2.68,-0.596169945204112,,,2.68
 RJ Harvey,DEN,Receptions,6.0,800.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.33,-2.67,-0.8200423707852752,,,2.67
 George Pickens,DAL,Receptions,6.0,-130.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,3.36,-2.64,-0.9625998683490058,,,2.64
 Troy Franklin,DEN,Receptions,6.0,350.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.37,-2.63,-0.9031032609276688,,,2.63
@@ -636,25 +636,24 @@ Jaleel McLaughlin,DEN,Rushing Yards,30.0,120.0,,True,Denver Broncos @ Kansas Cit
 Amon-Ra St. Brown,DET,Receiving Yards,40.0,-825.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,rec_yards,37.9,-2.1000000000000014,-0.4945083066562705,,,2.1000000000000014
 Javonte Williams,DAL,Receptions,1.0,-900.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,RB,receptions,3.07,2.07,0.049269119227790856,,,2.07
 Jordan Addison,MIN,Receptions,2.0,-690.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,4.05,2.05,0.07920112430791965,,,2.05
-Jake Ferguson,DAL,Receptions,6.0,190.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,3.96,-2.04,-0.8309384432033807,,,2.04
 Jared Goff,DET,Passing TDs,4.0,875.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,QB,pass_tds,1.96,-2.04,-0.5211166052676905,,,2.04
+Jake Ferguson,DAL,Receptions,6.0,190.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,3.96,-2.04,-0.8309384432033807,,,2.04
 CeeDee Lamb,DAL,Receptions,7.0,120.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,4.97,-2.0300000000000002,-0.8697635680159358,,,2.0300000000000002
 Ladd McConkey,LAC,Receptions,3.0,-375.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,5.02,2.0199999999999996,0.19052662505357015,,,2.0199999999999996
 Quentin Johnston,LAC,Receiving Yards,30.0,-160.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,rec_yards,28.0,-2.0,-0.26359280552071807,,,2.0
-Oronde Gadsden II,LAC,Receptions,2.0,-525.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,RB,receptions,0.0,-2.0,-0.9262286870995581,,,2.0
-Lil'Jordan Humphrey,DEN,Receptions,2.0,-175.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,0.0,-2.0,-0.9026218669714167,,,2.0
-C.J. Stroud,HOU,Rushing Yards,15.0,110.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,rush_yards,17.0,2.0,0.16927684331458326,,,2.0
 JuJu Smith-Schuster,KC,Receiving Yards,20.0,-125.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,rec_yards,18.0,-2.0,-0.18428741534602616,,,2.0
+Oronde Gadsden II,LAC,Receptions,2.0,-525.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,RB,receptions,0.0,-2.0,-0.9262286870995581,,,2.0
+C.J. Stroud,HOU,Rushing Yards,15.0,110.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,rush_yards,17.0,2.0,0.16927684331458326,,,2.0
+Lil'Jordan Humphrey,DEN,Receptions,2.0,-175.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,0.0,-2.0,-0.9026218669714167,,,2.0
 Tre' Harris,LAC,Receptions,2.0,-225.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,0.0,-2.0,-0.9104908070141304,,,2.0
 Ladd McConkey,LAC,Receptions,7.0,625.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,5.02,-1.9800000000000004,-0.5369444517827665,,,1.9800000000000004
-Treylon Burks,WAS,Receptions,4.0,270.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,2.05,-1.9500000000000002,-0.7528133553052251,,,1.9500000000000002
 Jordan Addison,MIN,Receptions,6.0,525.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,4.05,-1.9500000000000002,-0.5824549920696369,,,1.9500000000000002
+Treylon Burks,WAS,Receptions,4.0,270.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,2.05,-1.9500000000000002,-0.7528133553052251,,,1.9500000000000002
 Javonte Williams,DAL,Receptions,5.0,850.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,RB,receptions,3.07,-1.9300000000000002,-0.3461827458196691,,,1.9300000000000002
 Dak Prescott,DAL,Passing Yards,225.0,-385.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_yards,226.9,1.9000000000000057,-0.3428612371332094,,,1.9000000000000057
 Ben Sinnott,WAS,Receptions,4.0,500.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,2.1,-1.9,-0.5683968145551541,,,1.9
 Travis Kelce,KC,Receptions,2.0,-1600.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.88,1.88,-0.016196217087739044,,,1.88
 Justin Jefferson,MIN,Receptions,4.0,-400.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.87,1.87,0.15606053573743484,,,1.87
-Dak Prescott,DAL,Passing TDs,4.0,525.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.16,-1.8399999999999999,-0.5734923707748008,,,1.8399999999999999
 Nico Collins,HOU,Receptions,3.0,-875.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,4.84,1.8399999999999999,0.026838934891923613,,,1.8399999999999999
 Noah Gray,KC,Receiving Yards,15.0,210.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,rec_yards,13.2,-1.8000000000000007,0.41929732828024247,,,1.8000000000000007
 Xavier Worthy,KC,Receptions,3.0,-180.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,1.79,0.4244719754217062,,,1.79
@@ -665,6 +664,7 @@ Jahmyr Gibbs,DET,Receptions,5.0,-135.0,,True,Detroit Lions @ Minnesota Vikings,V
 Isiah Pacheco,KC,Receptions,5.0,550.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.29,-1.71,-0.3877628116468915,,,1.71
 Jameson Williams,DET,Receptions,5.0,115.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,3.3,-1.7000000000000002,-0.7946989795220533,,,1.7000000000000002
 Josh Johnson,WAS,Rushing Yards,5.0,-800.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,rush_yards,6.7,1.7000000000000002,-0.3831352680190439,,,1.7000000000000002
+Dak Prescott,DAL,Passing TDs,4.0,525.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.32,-1.6800000000000002,-0.4618374257166843,,,1.6800000000000002
 Terry McLaurin,WAS,Receptions,3.0,-460.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,4.68,1.6799999999999997,0.09793441185031229,,,1.6799999999999997
 JuJu Smith-Schuster,KC,Receptions,1.0,-1600.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,1.67,-0.043179819932692876,,,1.67
 RJ Harvey,DEN,Receptions,5.0,400.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.33,-1.67,-0.5026832003167394,,,1.67
@@ -678,8 +678,9 @@ Amon-Ra St. Brown,DET,Receptions,4.0,-1500.0,,True,Detroit Lions @ Minnesota Vik
 Keenan Allen,LAC,Receptions,4.0,-110.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,2.5,-1.5,-0.7627350812472352,,,1.5
 John Bates,WAS,Receptions,2.0,190.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,3.5,1.5,1.5395832900850857,,,1.5
 Courtland Sutton,DEN,Receptions,3.0,-925.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,1.5,-0.029609367255465827,,,1.5
-Treylon Burks,WAS,Receiving Yards,20.0,-160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,rec_yards,21.5,1.5,-0.1303728536672415,,,1.5
 Courtland Sutton,DEN,Receptions,6.0,150.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,-1.5,-0.6892959397285223,,,1.5
+Treylon Burks,WAS,Receiving Yards,20.0,-160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,rec_yards,21.5,1.5,-0.1303728536672415,,,1.5
+Josh Johnson,WAS,Passing TDs,3.0,650.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.51,-1.49,-0.498221274786236,,,1.49
 Justin Herbert,LAC,Passing TDs,3.0,450.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,pass_tds,1.52,-1.48,-0.6250225728666812,,,1.48
 Dalton Schultz,HOU,Receptions,5.0,-160.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,TE,receptions,3.53,-1.4700000000000002,-0.7902513100978649,,,1.4700000000000002
 Max Brosmer,MIN,Passing TDs,3.0,625.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,QB,pass_tds,1.55,-1.45,-0.47746373494770744,,,1.45
@@ -689,17 +690,16 @@ Marvin Mims Jr.,DEN,Receptions,4.0,275.0,,True,Denver Broncos @ Kansas City Chie
 Troy Franklin,DEN,Receptions,2.0,-1300.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.37,1.37,-0.08028257781108415,,,1.37
 Deebo Samuel,WAS,Receptions,5.0,-105.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,3.63,-1.37,-0.7149979116554156,,,1.37
 Jayden Higgins,HOU,Receptions,5.0,375.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.63,-1.37,-0.30661077286896854,,,1.37
-JuJu Smith-Schuster,KC,Receptions,4.0,270.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,-1.33,-0.4333977674852964,,,1.33
 RJ Harvey,DEN,Receptions,2.0,-375.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.33,1.33,0.07269473121118256,,,1.33
+JuJu Smith-Schuster,KC,Receptions,4.0,270.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,-1.33,-0.4333977674852964,,,1.33
 Terry McLaurin,WAS,Receptions,6.0,225.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,4.68,-1.3200000000000003,-0.496375898945292,,,1.3200000000000003
+Dak Prescott,DAL,Passing TDs,1.0,-2000.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.32,1.3199999999999998,-0.2925817194168042,,,1.3199999999999998
 Isiah Pacheco,KC,Receptions,2.0,-275.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.29,1.29,0.1447403736043792,,,1.29
 Quentin Johnston,LAC,Receptions,2.0,-600.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.24,1.2400000000000002,-0.03176088841649494,,,1.2400000000000002
-Josh Johnson,WAS,Passing TDs,3.0,650.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.76,-1.24,-0.23223939369792046,,,1.24
 Evan Engram,DEN,Receptions,5.0,225.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.78,-1.2200000000000002,-0.4344881802442392,,,1.2200000000000002
 Xavier Worthy,KC,Receptions,6.0,585.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,-1.21,0.2055073509843064,,,1.21
 Marquise Brown,KC,Receptions,2.0,-260.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.21,1.21,0.14094180440519344,,,1.21
 Jahmyr Gibbs,DET,Rushing Yards,60.0,-260.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,RB,rush_yards,58.8,-1.2000000000000028,-0.35498139153069674,,,1.2000000000000028
-Dak Prescott,DAL,Passing TDs,1.0,-2000.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.16,1.1600000000000001,-0.33264875160429136,,,1.1600000000000001
 Nico Collins,HOU,Receptions,6.0,160.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,4.84,-1.1600000000000001,-0.5161035579846689,,,1.1600000000000001
 Bo Nix,DEN,Passing TDs,3.0,300.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,pass_tds,1.87,-1.13,-0.5191469781153697,,,1.13
 Justin Jefferson,MIN,Receptions,7.0,210.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.87,-1.13,-0.40368257259091467,,,1.13
@@ -731,7 +731,6 @@ Evan Engram,DEN,Receiving Yards,25.0,-150.0,,True,Denver Broncos @ Kansas City C
 Travis Kelce,KC,Receptions,3.0,-400.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.88,0.8799999999999999,-0.06153422592609892,,,0.8799999999999999
 Justin Jefferson,MIN,Receptions,5.0,-180.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.87,0.8700000000000001,0.16406244783451673,,,0.8700000000000001
 Bo Nix,DEN,Passing TDs,1.0,-625.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,pass_tds,1.87,0.8700000000000001,-0.35310849491493546,,,0.8700000000000001
-Dak Prescott,DAL,Passing TDs,3.0,160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.16,-0.8399999999999999,-0.5506153326718743,,,0.8399999999999999
 Nico Collins,HOU,Receptions,4.0,-290.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,4.84,0.8399999999999999,-0.0036036090871029436,,,0.8399999999999999
 Isiah Pacheco,KC,Receiving Yards,20.0,200.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,rec_yards,19.2,-0.8000000000000007,0.4436995175292108,,,0.8000000000000007
 Troy Franklin,DEN,Receiving Yards,30.0,-180.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,rec_yards,30.8,0.8000000000000007,-0.1930293794595908,,,0.8000000000000007
@@ -739,31 +738,33 @@ Ladd McConkey,LAC,Receiving Yards,40.0,-130.0,,True,Houston Texans @ Los Angeles
 Marquise Brown,KC,Receptions,4.0,275.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.21,-0.79,0.018859185893565944,,,0.79
 Xavier Worthy,KC,Receptions,4.0,135.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,0.79,0.7115149101733654,,,0.79
 Evan Engram,DEN,Receptions,3.0,-245.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.78,0.7799999999999998,0.021970099494794226,,,0.7799999999999998
-Josh Johnson,WAS,Passing TDs,1.0,-340.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.76,0.76,-0.32038612537268407,,,0.76
 Quentin Johnston,LAC,Receptions,4.0,140.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.24,-0.7599999999999998,-0.329432367126707,,,0.7599999999999998
 Jahmyr Gibbs,DET,Receptions,4.0,-280.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,RB,receptions,3.29,-0.71,-0.6030627289549221,,,0.71
 Isiah Pacheco,KC,Receptions,4.0,275.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.29,-0.71,0.09680035420350475,,,0.71
 Jameson Williams,DET,Receptions,4.0,-200.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,3.3,-0.7000000000000002,-0.557306161513921,,,0.7000000000000002
 Dak Prescott,DAL,Rushing Yards,10.0,115.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,rush_yards,9.3,-0.6999999999999993,0.03213156744749912,,,0.6999999999999993
+Dak Prescott,DAL,Passing TDs,3.0,160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.32,-0.6800000000000002,-0.46769846404925763,,,0.6800000000000002
 Terry McLaurin,WAS,Receptions,4.0,-190.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,4.68,0.6799999999999997,0.06771839491436366,,,0.6799999999999997
-JuJu Smith-Schuster,KC,Receptions,2.0,-270.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,0.6699999999999999,-0.0450466369344284,,,0.6699999999999999
 RJ Harvey,DEN,Receptions,4.0,190.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.33,-0.6699999999999999,-0.12088779264957472,,,0.6699999999999999
+JuJu Smith-Schuster,KC,Receptions,2.0,-270.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,0.6699999999999999,-0.0450466369344284,,,0.6699999999999999
 George Pickens,DAL,Receptions,4.0,-625.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,3.36,-0.6400000000000001,-0.6389489310452799,,,0.6400000000000001
+Jayden Higgins,HOU,Receptions,3.0,-150.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.63,0.6299999999999999,0.14337566789634593,,,0.6299999999999999
 Deebo Samuel,WAS,Receptions,3.0,-600.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,3.63,0.6299999999999999,-0.19963703247255776,,,0.6299999999999999
 Troy Franklin,DEN,Receptions,4.0,-125.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.37,-0.6299999999999999,-0.43484572132805366,,,0.6299999999999999
-Jayden Higgins,HOU,Receptions,3.0,-150.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.63,0.6299999999999999,0.14337566789634593,,,0.6299999999999999
 Marvin Mims Jr.,DEN,Receptions,2.0,-280.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.61,0.6099999999999999,-0.07639961398452491,,,0.6099999999999999
 C.J. Stroud,HOU,Passing TDs,2.0,140.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,pass_tds,1.41,-0.5900000000000001,-0.5945822632442981,,,0.5900000000000001
 Amon-Ra St. Brown,DET,Receptions,5.0,-475.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.56,0.5599999999999996,-0.19296400029062474,,,0.5599999999999996
 Max Brosmer,MIN,Passing TDs,1.0,-300.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,QB,pass_tds,1.55,0.55,-0.388309777677593,,,0.55
 Dalton Schultz,HOU,Receptions,3.0,-1100.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,TE,receptions,3.53,0.5299999999999998,-0.2819088648610076,,,0.5299999999999998
 Justin Herbert,LAC,Passing TDs,1.0,-450.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,pass_tds,1.52,0.52,-0.4514103895905992,,,0.52
-Keenan Allen,LAC,Receptions,3.0,-280.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,2.5,-0.5,-0.5246455182866742,,,0.5
-Courtland Sutton,DEN,Receptions,4.0,-330.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,0.5,-0.15337065070402256,,,0.5
-Courtland Sutton,DEN,Receptions,5.0,-140.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,-0.5,-0.3995522336252726,,,0.5
+Josh Johnson,WAS,Passing TDs,1.0,-340.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.51,0.51,-0.42344994017158016,,,0.51
+John Bates,WAS,Receptions,3.0,500.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,3.5,0.5,2.8984328176884544,,,0.5
 Javonte Williams,DAL,Receiving Yards,20.0,300.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,RB,rec_yards,20.5,0.5,1.046927620027554,,,0.5
 Keenan Allen,LAC,Receptions,2.0,-925.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,2.5,0.5,-0.28001916430078094,,,0.5
-John Bates,WAS,Receptions,3.0,500.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,3.5,0.5,2.8984328176884544,,,0.5
+Courtland Sutton,DEN,Receptions,5.0,-140.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,-0.5,-0.3995522336252726,,,0.5
+Courtland Sutton,DEN,Receptions,4.0,-330.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.5,0.5,-0.15337065070402256,,,0.5
+Keenan Allen,LAC,Receptions,3.0,-280.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,2.5,-0.5,-0.5246455182866742,,,0.5
+Josh Johnson,WAS,Passing TDs,2.0,160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.51,-0.49,-0.4964644091316335,,,0.49
 Justin Herbert,LAC,Passing TDs,2.0,120.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,pass_tds,1.52,-0.48,-0.5683818392389153,,,0.48
 Dalton Schultz,HOU,Receptions,4.0,-340.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,TE,receptions,3.53,-0.4700000000000002,-0.5356078504555551,,,0.4700000000000002
 Max Brosmer,MIN,Passing TDs,2.0,175.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,QB,pass_tds,1.55,-0.44999999999999996,-0.43953683249831726,,,0.44999999999999996
@@ -777,27 +778,26 @@ Deebo Samuel,WAS,Receptions,4.0,-230.0,,True,Dallas Cowboys @ Washington Command
 RJ Harvey,DEN,Receptions,3.0,-130.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.33,0.33000000000000007,0.06187955564283154,,,0.33000000000000007
 JuJu Smith-Schuster,KC,Receptions,3.0,110.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,2.67,-0.33000000000000007,-0.16040486387170877,,,0.33000000000000007
 Terry McLaurin,WAS,Receptions,5.0,120.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,receptions,4.68,-0.3200000000000003,-0.1138805439441557,,,0.3200000000000003
+Dak Prescott,DAL,Passing TDs,2.0,-250.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.32,0.31999999999999984,-0.4270390488989132,,,0.31999999999999984
 Dalton Schultz,HOU,Receiving Yards,25.0,-500.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,TE,rec_yards,25.3,0.3000000000000007,-0.3915522489995359,,,0.3000000000000007
 Jameson Williams,DET,Receptions,3.0,-525.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,3.3,0.2999999999999998,-0.2961274323591553,,,0.2999999999999998
 Terry McLaurin,WAS,Receiving Yards,40.0,-210.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,WR,rec_yards,40.3,0.29999999999999716,-0.2515126872613339,,,0.29999999999999716
 Jahmyr Gibbs,DET,Receptions,3.0,-725.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,RB,receptions,3.29,0.29000000000000004,-0.3305982081360137,,,0.29000000000000004
 Isiah Pacheco,KC,Receptions,3.0,110.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,RB,receptions,3.29,0.29000000000000004,0.23535057953081107,,,0.29000000000000004
 Quentin Johnston,LAC,Receptions,3.0,-180.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,3.24,0.2400000000000002,-0.10830166970496502,,,0.2400000000000002
-Josh Johnson,WAS,Passing TDs,2.0,160.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,1.76,-0.24,-0.32739796402597665,,,0.24
 Evan Engram,DEN,Receptions,4.0,105.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.78,-0.2200000000000002,-0.11274449331132347,,,0.2200000000000002
-Xavier Worthy,KC,Receptions,5.0,280.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,-0.20999999999999996,0.6561717102593764,,,0.20999999999999996
 Marquise Brown,KC,Receptions,3.0,115.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,3.21,0.20999999999999996,0.2129554797216685,,,0.20999999999999996
+Xavier Worthy,KC,Receptions,5.0,280.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,receptions,4.79,-0.20999999999999996,0.6561717102593764,,,0.20999999999999996
 Xavier Worthy,KC,Receiving Yards,40.0,150.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,rec_yards,40.2,0.20000000000000284,0.2617333258168154,,,0.20000000000000284
-Jameson Williams,DET,Receiving Yards,30.0,-770.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,rec_yards,29.8,-0.1999999999999993,-0.4403677888107164,,,0.1999999999999993
 Jalen Nailor,MIN,Receiving Yards,25.0,115.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,rec_yards,24.8,-0.1999999999999993,0.06490933979753888,,,0.1999999999999993
+Jameson Williams,DET,Receiving Yards,30.0,-770.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,rec_yards,29.8,-0.1999999999999993,-0.4403677888107164,,,0.1999999999999993
 Nico Collins,HOU,Receptions,5.0,-130.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,WR,receptions,4.84,-0.16000000000000014,-0.20203606707551952,,,0.16000000000000014
-Dak Prescott,DAL,Passing TDs,2.0,-250.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,QB,pass_tds,2.16,0.16000000000000014,-0.4868409547730178,,,0.16000000000000014
-Bo Nix,DEN,Passing TDs,2.0,-115.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,pass_tds,1.87,-0.1299999999999999,-0.46121453539713164,,,0.1299999999999999
 Justin Jefferson,MIN,Receptions,6.0,115.0,,True,Detroit Lions @ Minnesota Vikings,Vikings,Lions,1766698200000,Bovada,WR,receptions,5.87,-0.1299999999999999,-0.01062985014561224,,,0.1299999999999999
+Bo Nix,DEN,Passing TDs,2.0,-115.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,pass_tds,1.87,-0.1299999999999999,-0.46121453539713164,,,0.1299999999999999
 Travis Kelce,KC,Receptions,4.0,-155.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,3.88,-0.1200000000000001,-0.23791721901134638,,,0.1200000000000001
 Justin Herbert,LAC,Rushing Yards,20.0,-190.0,,True,Houston Texans @ Los Angeles Chargers,Chargers,Texans,1766871000000,Bovada,QB,rush_yards,20.1,0.10000000000000142,-0.23249277152113879,,,0.10000000000000142
-Bo Nix,DEN,Rushing Yards,25.0,275.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,rush_yards,25.1,0.10000000000000142,0.8856858630730644,,,0.10000000000000142
 Marvin Mims Jr.,DEN,Receiving Yards,20.0,-120.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,WR,rec_yards,19.9,-0.10000000000000142,-0.08763562723214707,,,0.10000000000000142
+Bo Nix,DEN,Rushing Yards,25.0,275.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,QB,rush_yards,25.1,0.10000000000000142,0.8856858630730644,,,0.10000000000000142
 Ben Sinnott,WAS,Receptions,2.0,-125.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,TE,receptions,2.1,0.10000000000000009,-0.044816265286097445,,,0.10000000000000009
 Javonte Williams,DAL,Receptions,3.0,170.0,,True,Dallas Cowboys @ Washington Commanders,Commanders,Cowboys,1766685600000,Bovada,RB,receptions,3.07,0.06999999999999984,0.40797205453491914,,,0.06999999999999984
 Noah Gray,KC,Receptions,2.0,140.0,,True,Denver Broncos @ Kansas City Chiefs,Chiefs,Broncos,1766711700000,Bovada,TE,receptions,1.94,-0.06000000000000005,0.15582515441223777,,,0.06000000000000005
