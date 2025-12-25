@@ -19,5 +19,5 @@
 - RECS_ATS_BAND: 0.1
 - RECS_TOTAL_BAND: 0.1
 - RECS_PROB_SHRINK: 0.35
-- tot_rows: 85
-- tot_win_rate: 0.5131578947368421
+- tot_rows: 77
+- tot_win_rate: 0.4605263157894737

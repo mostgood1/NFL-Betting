@@ -2,13 +2,13 @@
   "lines": {
     "Dallas Cowboys @ Washington Commanders": {
       "moneyline": {
-        "home": 800,
-        "away": -1600
+        "home": 1100,
+        "away": -2500
       },
       "total_runs": {
-        "line": 60.5,
-        "over": -125,
-        "under": -105
+        "line": 56.5,
+        "over": -120,
+        "under": -110
       },
       "run_line": {
         "home": 14.5
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -1600
+              "price": -2500
             },
             {
               "name": "Washington Commanders",
-              "price": 800
+              "price": 1100
             }
           ]
         },
@@ -32,12 +32,12 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -120,
+              "price": -115,
               "point": -14.5
             },
             {
               "name": "Washington Commanders",
-              "price": -110,
+              "price": -115,
               "point": 14.5
             }
           ]
@@ -47,13 +47,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -125,
-              "point": 60.5
+              "price": -120,
+              "point": 56.5
             },
             {
               "name": "Under",
-              "price": -105,
-              "point": 60.5
+              "price": -110,
+              "point": 56.5
             }
           ]
         }
@@ -124,9 +124,9 @@
         "away": -1100
       },
       "total_runs": {
-        "line": 37.5,
-        "over": -115,
-        "under": -105
+        "line": 38.5,
+        "over": -105,
+        "under": -115
       },
       "run_line": {
         "home": 13.5
@@ -165,13 +165,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -115,
-              "point": 37.5
+              "price": -105,
+              "point": 38.5
             },
             {
               "name": "Under",
-              "price": -105,
-              "point": 37.5
+              "price": -115,
+              "point": 38.5
             }
           ]
         }
@@ -592,8 +592,8 @@
     },
     "New England Patriots @ New York Jets": {
       "moneyline": {
-        "home": 675,
-        "away": -1050
+        "home": 650,
+        "away": -1000
       },
       "total_runs": {
         "line": 42.5,
@@ -609,11 +609,11 @@
           "outcomes": [
             {
               "name": "New England Patriots",
-              "price": -1050
+              "price": -1000
             },
             {
               "name": "New York Jets",
-              "price": 675
+              "price": 650
             }
           ]
         },
@@ -946,5 +946,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-12-25T19:19:20.587309+00:00"
+  "fetched_at": "2025-12-25T19:47:55.389284+00:00"
 }
