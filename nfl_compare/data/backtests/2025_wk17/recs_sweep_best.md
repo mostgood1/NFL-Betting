@@ -8,7 +8,7 @@
 - RECS_ATS_BAND: 0.1
 - RECS_TOTAL_BAND: 0.1
 - RECS_PROB_SHRINK: 0.35
-- sp_rows: 90
+- sp_rows: 76
 - sp_win_rate: 0.4473684210526316
 
 ## Best by Total Win Rate
@@ -19,5 +19,5 @@
 - RECS_ATS_BAND: 0.1
 - RECS_TOTAL_BAND: 0.1
 - RECS_PROB_SHRINK: 0.35
-- tot_rows: 77
+- tot_rows: 76
 - tot_win_rate: 0.4605263157894737

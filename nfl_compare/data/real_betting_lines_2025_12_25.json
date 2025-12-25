@@ -1,76 +1,17 @@
 {
   "lines": {
-    "Dallas Cowboys @ Washington Commanders": {
-      "moneyline": {
-        "home": 1100,
-        "away": -2500
-      },
-      "total_runs": {
-        "line": 56.5,
-        "over": -120,
-        "under": -110
-      },
-      "run_line": {
-        "home": 14.5
-      },
-      "markets": [
-        {
-          "key": "h2h",
-          "outcomes": [
-            {
-              "name": "Dallas Cowboys",
-              "price": -2500
-            },
-            {
-              "name": "Washington Commanders",
-              "price": 1100
-            }
-          ]
-        },
-        {
-          "key": "spreads",
-          "outcomes": [
-            {
-              "name": "Dallas Cowboys",
-              "price": -115,
-              "point": -14.5
-            },
-            {
-              "name": "Washington Commanders",
-              "price": -115,
-              "point": 14.5
-            }
-          ]
-        },
-        {
-          "key": "totals",
-          "outcomes": [
-            {
-              "name": "Over",
-              "price": -120,
-              "point": 56.5
-            },
-            {
-              "name": "Under",
-              "price": -110,
-              "point": 56.5
-            }
-          ]
-        }
-      ]
-    },
     "Detroit Lions @ Minnesota Vikings": {
       "moneyline": {
-        "home": 285,
-        "away": -360
+        "home": 240,
+        "away": -330
       },
       "total_runs": {
-        "line": 44.5,
-        "over": -108,
-        "under": -112
+        "line": 41.5,
+        "over": -110,
+        "under": -120
       },
       "run_line": {
-        "home": 7.5
+        "home": 6.5
       },
       "markets": [
         {
@@ -78,11 +19,11 @@
           "outcomes": [
             {
               "name": "Detroit Lions",
-              "price": -360
+              "price": -330
             },
             {
               "name": "Minnesota Vikings",
-              "price": 285
+              "price": 240
             }
           ]
         },
@@ -91,13 +32,13 @@
           "outcomes": [
             {
               "name": "Detroit Lions",
-              "price": 100,
-              "point": -7.5
+              "price": -120,
+              "point": -6.5
             },
             {
               "name": "Minnesota Vikings",
-              "price": -120,
-              "point": 7.5
+              "price": -110,
+              "point": 6.5
             }
           ]
         },
@@ -106,13 +47,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -108,
-              "point": 44.5
+              "price": -110,
+              "point": 41.5
             },
             {
               "name": "Under",
-              "price": -112,
-              "point": 44.5
+              "price": -120,
+              "point": 41.5
             }
           ]
         }
@@ -125,8 +66,8 @@
       },
       "total_runs": {
         "line": 38.5,
-        "over": -105,
-        "under": -115
+        "over": -110,
+        "under": -110
       },
       "run_line": {
         "home": 13.5
@@ -165,12 +106,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -105,
+              "price": -110,
               "point": 38.5
             },
             {
               "name": "Under",
-              "price": -115,
+              "price": -110,
               "point": 38.5
             }
           ]
@@ -542,7 +483,7 @@
         "under": -110
       },
       "run_line": {
-        "home": 5.5
+        "home": 6.0
       },
       "markets": [
         {
@@ -563,13 +504,13 @@
           "outcomes": [
             {
               "name": "Miami Dolphins",
-              "price": -102,
-              "point": 5.5
+              "price": -112,
+              "point": 6.0
             },
             {
               "name": "Tampa Bay Buccaneers",
-              "price": -118,
-              "point": -5.5
+              "price": -108,
+              "point": -6.0
             }
           ]
         },
@@ -651,8 +592,8 @@
     },
     "New Orleans Saints @ Tennessee Titans": {
       "moneyline": {
-        "home": 124,
-        "away": -148
+        "home": 120,
+        "away": -142
       },
       "total_runs": {
         "line": 39.5,
@@ -668,11 +609,11 @@
           "outcomes": [
             {
               "name": "New Orleans Saints",
-              "price": -148
+              "price": -142
             },
             {
               "name": "Tennessee Titans",
-              "price": 124
+              "price": 120
             }
           ]
         },
@@ -946,5 +887,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-12-25T19:47:55.389284+00:00"
+  "fetched_at": "2025-12-25T21:55:39.302144+00:00"
 }
