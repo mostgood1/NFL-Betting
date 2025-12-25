@@ -22,6 +22,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / 'nfl_compare' / 'data'
 
+# Ensure repo root is on sys.path when running from scripts/
+import sys
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 # Import app helpers lazily to avoid heavy import side-effects elsewhere
 from app import (
     _load_predictions,

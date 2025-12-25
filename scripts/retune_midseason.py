@@ -23,6 +23,12 @@ from joblib import dump as joblib_dump
 
 import pandas as pd
 
+# Ensure repo root is on sys.path when running from scripts/
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 # Local libraries
 from nfl_compare.src.build_player_usage_priors import build_player_usage_priors
 from nfl_compare.src.build_player_efficiency_priors import build_player_efficiency_priors

@@ -244,6 +244,35 @@ try {
   $env:PROPS_POS_QB_PASS_TDS  = '0.95'
   # Enforce per-team usage scaling so player targets sum to team attempts
   $env:PROPS_ENFORCE_TEAM_USAGE = '1'
+  # Recommendation market blend tuning (keep margin blend minimal; totals blend may reduce MAE)
+  if (-not $env:RECS_MARKET_BLEND_MARGIN) { $env:RECS_MARKET_BLEND_MARGIN = '0.10' }
+  if (-not $env:RECS_MARKET_BLEND_TOTAL)  { $env:RECS_MARKET_BLEND_TOTAL  = '0.20' }
+  # Recommendations robustness tuning (prob shrink/clamp and minimum EV)
+  if (-not $env:RECS_MIN_EV_PCT)       { $env:RECS_MIN_EV_PCT       = '8.0' }
+  # Prefer one-per-market to avoid ML overshadowing ATS/TOTAL
+  if (-not $env:RECS_ONE_PER_MARKET)   { $env:RECS_ONE_PER_MARKET   = 'true' }
+  if (-not $env:RECS_ONE_PER_GAME)     { $env:RECS_ONE_PER_GAME     = 'false' }
+  # Re-enable ATS and TOTAL with strict gates
+  if (-not $env:RECS_ALLOWED_MARKETS)  { $env:RECS_ALLOWED_MARKETS  = 'MONEYLINE,SPREAD,TOTAL' }
+  if (-not $env:RECS_WP_SHRINK)        { $env:RECS_WP_SHRINK        = '0.50' }
+  if (-not $env:RECS_WP_MARKET_BAND)   { $env:RECS_WP_MARKET_BAND   = '0.08' }
+  if (-not $env:RECS_ATS_BAND)         { $env:RECS_ATS_BAND         = '0.18' }
+  if (-not $env:RECS_TOTAL_BAND)       { $env:RECS_TOTAL_BAND       = '0.25' }
+  if (-not $env:RECS_PROB_SHRINK)      { $env:RECS_PROB_SHRINK      = '0.50' }
+  # Per-market minimum probability delta (distance from 0.5) and EV percent gates
+  if (-not $env:RECS_MIN_WP_DELTA)         { $env:RECS_MIN_WP_DELTA         = '0.12' }  # Moneyline
+  if (-not $env:RECS_MIN_EV_PCT_ML)        { $env:RECS_MIN_EV_PCT_ML        = $env:RECS_MIN_EV_PCT }
+  if (-not $env:RECS_MIN_ATS_DELTA)        { $env:RECS_MIN_ATS_DELTA        = '0.12' }
+  if (-not $env:RECS_MIN_EV_PCT_ATS)       { $env:RECS_MIN_EV_PCT_ATS       = '10.0' }
+  if (-not $env:RECS_MIN_TOTAL_DELTA)      { $env:RECS_MIN_TOTAL_DELTA      = '0.12' }
+  if (-not $env:RECS_MIN_EV_PCT_TOTAL)     { $env:RECS_MIN_EV_PCT_TOTAL     = '10.0' }
+  # Upcoming picks confidence floor for ATS/TOTAL (improve precision)
+  if (-not $env:RECS_UPCOMING_CONF_MIN_ATS)   { $env:RECS_UPCOMING_CONF_MIN_ATS   = 'High' }
+  if (-not $env:RECS_UPCOMING_CONF_MIN_TOTAL) { $env:RECS_UPCOMING_CONF_MIN_TOTAL = 'High' }
+  # Additional upcoming EV%% floors for ATS/TOTAL to publish only strongest signals
+  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_ATS)   { $env:RECS_UPCOMING_MIN_EV_PCT_ATS   = '22.0' }
+  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL) { $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL = '24.0' }
+  Write-Log "Upcoming publish floors: ATS conf=$($env:RECS_UPCOMING_CONF_MIN_ATS), EV%>=$($env:RECS_UPCOMING_MIN_EV_PCT_ATS); TOTAL conf=$($env:RECS_UPCOMING_CONF_MIN_TOTAL), EV%>=$($env:RECS_UPCOMING_MIN_EV_PCT_TOTAL)"
   & $Python -m nfl_compare.src.daily_updater | Tee-Object -FilePath $LogFile -Append
   $ExitCode = $LASTEXITCODE
 } catch {

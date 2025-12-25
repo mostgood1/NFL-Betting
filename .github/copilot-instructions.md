@@ -121,6 +121,10 @@ Checklist:
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
 | `RECS_MARKET_BLEND_MARGIN` | Blend model margin toward market-implied margin (-spread_home) for upcoming games | Default 0.0 (off); range 0–1 |
 | `RECS_MARKET_BLEND_TOTAL` | Blend model total toward market total for upcoming games | Default 0.0 (off); range 0–1 |
+| `RECS_UPCOMING_CONF_MIN_ATS` | Minimum confidence tier to publish upcoming ATS picks | Default High; values: Low, Medium, High |
+| `RECS_UPCOMING_CONF_MIN_TOTAL` | Minimum confidence tier to publish upcoming Total picks | Default High; values: Low, Medium, High |
+| `RECS_UPCOMING_MIN_EV_PCT_ATS` | Minimum EV percent to publish upcoming ATS picks | Default 0.0 (off); suggest 18.0–25.0 for precision |
+| `RECS_UPCOMING_MIN_EV_PCT_TOTAL` | Minimum EV percent to publish upcoming Total picks | Default 0.0 (off); suggest 20.0–28.0 for precision |
 | `TEAM_RATING_EMA` | Exponential smoothing alpha for team ratings (off/def/net) | Default 0.60 (range 0–1) |
 | `TEAM_RATINGS_OFF` | Disable attaching team ratings to weekly view/features | Default 0 (off/false) |
 | `PROPS_QB_RZ_BASE` | Baseline QB red-zone rush rate for biasing | Default 0.10; affects QB any-time TD via RZ bias |

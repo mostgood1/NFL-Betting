@@ -131,7 +131,7 @@ def main() -> None:
     # Write back
     lines_fp.parent.mkdir(parents=True, exist_ok=True)
     lines_df.to_csv(lines_fp, index=False)
-    print(f"Seeded/enriched lines.csv for season={args.season} week={args.week}; rows={len(lines_df)} written → {lines_fp}")
+    print(f"Seeded/enriched lines.csv for season={args.season} week={args.week}; rows={len(lines_df)} written -> {lines_fp}")
 
 
 if __name__ == "__main__":

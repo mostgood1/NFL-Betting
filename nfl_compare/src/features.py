@@ -88,6 +88,14 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     if ts.empty:
         return df
 
+    # Normalize team keys on both sides to avoid mismatches (e.g., 'JAX' vs 'JAC')
+    try:
+        from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+    except Exception:
+        _norm_team = lambda s: str(s)
+    if 'team' in ts.columns:
+        ts['team'] = ts['team'].astype(str).apply(_norm_team)
+
     side_team = f"{side}_team"
     # First perform an exact prior-week join (prev_week = week - 1)
     # Build left frame with explicit prev_week key
@@ -100,6 +108,9 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
         src_col = 'home_team' if side == 'home' else 'away_team'
         if src_col in left.columns:
             left[side_team] = left[src_col]
+    # Normalize left side team column
+    if side_team in left.columns:
+        left[side_team] = left[side_team].astype(str).apply(_norm_team)
     right_prev = ts.copy()
     right_prev = right_prev.rename(columns={'team': side_team, 'week': 'prev_week'})
     # Columns to bring over from team_stats
@@ -179,6 +190,13 @@ def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, si
     left['prev_week'] = pd.to_numeric(left.get('week'), errors='coerce') - 1
     right = team_stats.copy()
     right = right.rename(columns={'team': side_team, 'week': 'prev_week'})
+    # Normalize team keys
+    try:
+        from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+    except Exception:
+        _norm_team = lambda s: str(s)
+    if side_team in right.columns:
+        right[side_team] = right[side_team].astype(str).apply(_norm_team)
     # Columns to bring over
     bring = [c for c in [side_team, 'season', 'prev_week', 'off_epa', 'def_epa', 'pace_secs_play', 'pass_rate', 'rush_rate', 'qb_adj', 'sos'] if c in right.columns]
     right = right[bring].copy()
@@ -198,6 +216,9 @@ def _attach_team_stats_exact_prev(df: pd.DataFrame, team_stats: pd.DataFrame, si
         src_col = 'home_team' if side == 'home' else 'away_team'
         if src_col in left.columns:
             left[side_team] = left[src_col]
+    # Normalize left side team column
+    if side_team in left.columns:
+        left[side_team] = left[side_team].astype(str).apply(_norm_team)
     # Merge exact prior-week stats
     merged = left.merge(right, on=['season', side_team, 'prev_week'], how='left')
     # Drop helper

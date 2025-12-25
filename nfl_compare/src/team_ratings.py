@@ -168,9 +168,31 @@ def attach_team_ratings_to_view(view: pd.DataFrame, games: Optional[pd.DataFrame
             r = pd.DataFrame()
         if r is not None and not r.empty:
             ratings_frames.append(r)
+        else:
+            # Fallback: load precomputed CSV cache if available
+            try:
+                cache_path = DATA_DIR / f"team_ratings_{s}_wk{w}.csv"
+                if cache_path.exists():
+                    rc = pd.read_csv(cache_path)
+                    # Coerce types to align
+                    for c in ("season","week"):
+                        if c in rc.columns:
+                            rc[c] = pd.to_numeric(rc[c], errors="coerce")
+                    ratings_frames.append(rc)
+            except Exception:
+                pass
     if not ratings_frames:
         return v
     R = pd.concat(ratings_frames, ignore_index=True)
+    # Normalize team names on both sides to ensure consistent keys
+    try:
+        from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+    except Exception:
+        _norm_team = lambda s: str(s)
+    v["home_team"] = v["home_team"].astype(str).apply(_norm_team)
+    v["away_team"] = v["away_team"].astype(str).apply(_norm_team)
+    if "team" in R.columns:
+        R["team"] = R["team"].astype(str).apply(_norm_team)
     # Merge for home and away
     for side in ("home","away"):
         key = f"{side}_team"

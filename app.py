@@ -3671,6 +3671,25 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             p_home_eff = p_home_eff_cal
     except Exception:
         pass
+    # Optional: shrink and clamp ML prob toward market for upcoming games to reduce overconfidence
+    try:
+        if p_home_eff is not None and not is_final:
+            # Shrink toward 0.5 using a separate recs-specific knob
+            try:
+                wp_shrink = float(os.environ.get('RECS_WP_SHRINK', os.environ.get('WP_SHRINK', '0.35')))
+            except Exception:
+                wp_shrink = 0.35
+            p_home_eff = 0.5 + (p_home_eff - 0.5) * (1.0 - float(wp_shrink))
+            # Clamp within a band around market-implied prob when odds present
+            mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
+            if mkt_ph is not None:
+                try:
+                    band = float(os.environ.get('RECS_WP_MARKET_BAND', os.environ.get('WP_MARKET_BAND', '0.12')))
+                except Exception:
+                    band = 0.12
+                p_home_eff = _clamp_prob_to_band(p_home_eff, mkt_ph, band)
+    except Exception:
+        pass
     # Compute EV ONLY for margin-based winner (if available); fallback to probability winner if margin missing
     rec_model_winner = model_winner_by_margin
     model_winner_prob = None
@@ -3693,27 +3712,48 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         elif rec_model_winner == away and dec_away is not None:
             model_winner_prob = 1.0 - p_home_eff
             model_winner_ev = _ev_from_prob_and_decimal(model_winner_prob, dec_away)
-    # Grade and append if positive EV
+    # Per-market thresholds (moneyline)
+    try:
+        min_wp_delta_ml = float(os.environ.get('RECS_MIN_WP_DELTA', os.environ.get('RECS_MIN_WP_DELTA_ML', '0.0')))
+    except Exception:
+        min_wp_delta_ml = 0.0
+    try:
+        min_ev_pct_ml = float(os.environ.get('RECS_MIN_EV_PCT_ML', os.environ.get('RECS_MIN_EV_PCT', '2.0')))
+    except Exception:
+        min_ev_pct_ml = 2.0
+
+    # Grade and append if positive EV and passes ML gates
     if model_winner_ev is not None and model_winner_ev > 0:
-        conf = _conf_from_ev(model_winner_ev)
-        ml_result = None
-        if is_final and actual_margin is not None:
-            if actual_margin == 0:
-                ml_result = "Push"
-            else:
-                actual_winner_team = home if actual_margin > 0 else away
-                ml_result = "Win" if actual_winner_team == rec_model_winner else "Loss"
-        recs.append({
-            "type": "MONEYLINE",
-            "selection": f"{rec_model_winner} ML",
-            "odds": int(ml_home if rec_model_winner==home else ml_away) if isinstance(ml_home if rec_model_winner==home else ml_away, (int,float)) else (ml_home if rec_model_winner==home else ml_away),
-            "ev_units": model_winner_ev,
-            "ev_pct": model_winner_ev * 100.0,
-            "confidence": conf,
-            "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
-            "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-            "result": ml_result,
-        })
+        # Probability delta gate
+        pass_prob_gate_ml = True
+        if (model_winner_prob is not None) and (min_wp_delta_ml > 0.0):
+            pass_prob_gate_ml = (abs(float(model_winner_prob) - 0.5) >= float(min_wp_delta_ml))
+        # EV percent gate
+        ev_pct_ml = model_winner_ev * 100.0
+        pass_ev_gate_ml = (ev_pct_ml >= min_ev_pct_ml)
+        if not (pass_prob_gate_ml and pass_ev_gate_ml) and not is_final:
+            # Skip upcoming ML rec if gates fail; allow finals to be graded/displayed regardless
+            pass
+        else:
+            conf = _conf_from_ev(model_winner_ev)
+            ml_result = None
+            if is_final and actual_margin is not None:
+                if actual_margin == 0:
+                    ml_result = "Push"
+                else:
+                    actual_winner_team = home if actual_margin > 0 else away
+                    ml_result = "Win" if actual_winner_team == rec_model_winner else "Loss"
+            recs.append({
+                "type": "MONEYLINE",
+                "selection": f"{rec_model_winner} ML",
+                "odds": int(ml_home if rec_model_winner==home else ml_away) if isinstance(ml_home if rec_model_winner==home else ml_away, (int,float)) else (ml_home if rec_model_winner==home else ml_away),
+                "ev_units": model_winner_ev,
+                "ev_pct": model_winner_ev * 100.0,
+                "confidence": conf,
+                "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
+                "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                "result": ml_result,
+            })
 
     # Spread (ATS) at -110
     margin = None
@@ -3755,6 +3795,22 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     p_home_cover = p_cal
             except Exception:
                 pass
+            # Optional: clamp ATS prob toward 0.5 for upcoming games to reduce noisy extremes
+            try:
+                if not is_final:
+                    band_ats = float(os.environ.get('RECS_ATS_BAND', '0.10'))
+                    p_home_cover = _clamp_prob_to_band(p_home_cover, 0.5, band_ats)
+            except Exception:
+                pass
+            # Per-market thresholds (ATS)
+            try:
+                min_prob_delta_ats = float(os.environ.get('RECS_MIN_ATS_DELTA', '0.0'))
+            except Exception:
+                min_prob_delta_ats = 0.0
+            try:
+                min_ev_pct_ats = float(os.environ.get('RECS_MIN_EV_PCT_ATS', os.environ.get('RECS_MIN_EV_PCT', '2.0')))
+            except Exception:
+                min_ev_pct_ats = 2.0
             # Use market prices if available; fallback to -110
             sh_price = g("spread_home_price")
             sa_price = g("spread_away_price")
@@ -3762,6 +3818,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             dec_away_sp = _american_to_decimal(sa_price) if sa_price is not None and not pd.isna(sa_price) else 1.0 + 100.0/110.0
             ev_home = _ev_from_prob_and_decimal(p_home_cover, dec_home_sp)
             ev_away = _ev_from_prob_and_decimal(1.0 - p_home_cover, dec_away_sp)
+            # Gates: prob delta and EV pct
+            pass_prob_gate_ats = True
+            if min_prob_delta_ats > 0.0:
+                pass_prob_gate_ats = (abs(float(p_home_cover) - 0.5) >= float(min_prob_delta_ats))
             # Build selections
             try:
                 sp = float(spread)
@@ -3781,30 +3841,35 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
-                # Confidence is based on this market's EV only
-                conf = _conf_from_ev(e)
-                # Grade if final
-                result = None
-                if is_final and actual_margin is not None and sp is not None:
-                    cover_val = actual_margin + float(spread)
-                    actual_side = "HOME" if cover_val > 0 else ("AWAY" if cover_val < 0 else "PUSH")
-                    picked_side = "HOME" if str(s).startswith(str(home)) else ("AWAY" if str(s).startswith(str(away)) else None)
-                    if picked_side:
-                        if actual_side == "PUSH":
-                            result = "Push"
-                        else:
-                            result = "Win" if picked_side == actual_side else "Loss"
-                recs.append({
-                    "type": "SPREAD",
-                    "selection": s,
-                    "odds": -110,
-                    "ev_units": e,
-                    "ev_pct": e * 100.0 if e is not None else None,
-                    "confidence": conf,
-                    "sort_weight": (_tier_to_num(conf), e or -999),
-                    "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-                    "result": result,
-                })
+                pass_ev_gate_ats = (e * 100.0 >= min_ev_pct_ats)
+                if not (pass_prob_gate_ats and pass_ev_gate_ats) and not is_final:
+                    # Skip upcoming ATS rec if gates fail; allow finals for grading
+                    pass
+                else:
+                    # Confidence is based on this market's EV only
+                    conf = _conf_from_ev(e)
+                    # Grade if final
+                    result = None
+                    if is_final and actual_margin is not None and sp is not None:
+                        cover_val = actual_margin + float(spread)
+                        actual_side = "HOME" if cover_val > 0 else ("AWAY" if cover_val < 0 else "PUSH")
+                        picked_side = "HOME" if str(s).startswith(str(home)) else ("AWAY" if str(s).startswith(str(away)) else None)
+                        if picked_side:
+                            if actual_side == "PUSH":
+                                result = "Push"
+                            else:
+                                result = "Win" if picked_side == actual_side else "Loss"
+                    recs.append({
+                        "type": "SPREAD",
+                        "selection": s,
+                        "odds": -110,
+                        "ev_units": e,
+                        "ev_pct": e * 100.0 if e is not None else None,
+                        "confidence": conf,
+                        "sort_weight": (_tier_to_num(conf), e or -999),
+                        "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                        "result": result,
+                    })
 
     # Total at -110
     # Prefer calibrated total if present
@@ -3837,6 +3902,22 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     p_over = p_cal
             except Exception:
                 pass
+            # Optional: clamp Total prob toward 0.5 for upcoming games to reduce noisy extremes
+            try:
+                if not is_final:
+                    band_tot = float(os.environ.get('RECS_TOTAL_BAND', '0.10'))
+                    p_over = _clamp_prob_to_band(p_over, 0.5, band_tot)
+            except Exception:
+                pass
+            # Per-market thresholds (TOTAL)
+            try:
+                min_prob_delta_total = float(os.environ.get('RECS_MIN_TOTAL_DELTA', '0.0'))
+            except Exception:
+                min_prob_delta_total = 0.0
+            try:
+                min_ev_pct_total = float(os.environ.get('RECS_MIN_EV_PCT_TOTAL', os.environ.get('RECS_MIN_EV_PCT', '2.0')))
+            except Exception:
+                min_ev_pct_total = 2.0
             # Use market prices if available; fallback to -110
             to_price = g("total_over_price")
             tu_price = g("total_under_price")
@@ -3844,6 +3925,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             dec_under = _american_to_decimal(tu_price) if tu_price is not None and not pd.isna(tu_price) else 1.0 + 100.0/110.0
             ev_over = _ev_from_prob_and_decimal(p_over, dec_over)
             ev_under = _ev_from_prob_and_decimal(1.0 - p_over, dec_under)
+            # Gates: prob delta and EV pct (symmetric for Over/Under)
+            pass_prob_gate_total = True
+            if min_prob_delta_total > 0.0:
+                pass_prob_gate_total = (abs(float(p_over) - 0.5) >= float(min_prob_delta_total))
             # Choose best
             try:
                 tot = float(m_total)
@@ -3857,27 +3942,32 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
-                # Confidence is based on this market's EV only
-                conf = _conf_from_ev(e)
-                # Grade if final
-                result = None
-                if is_final and actual_total is not None and m_total is not None and not pd.isna(m_total):
-                    try:
-                        mt = float(m_total)
-                        if actual_total > mt:
-                            actual_ou = "OVER"
-                        elif actual_total < mt:
-                            actual_ou = "UNDER"
-                        else:
-                            actual_ou = "PUSH"
-                        picked_ou = "OVER" if str(s).startswith("Over") else ("UNDER" if str(s).startswith("Under") else None)
-                        if picked_ou:
-                            if actual_ou == "PUSH":
-                                result = "Push"
+                pass_ev_gate_total = (e * 100.0 >= min_ev_pct_total)
+                if not (pass_prob_gate_total and pass_ev_gate_total) and not is_final:
+                    # Skip upcoming TOTAL rec if gates fail; allow finals for grading
+                    pass
+                else:
+                    # Confidence is based on this market's EV only
+                    conf = _conf_from_ev(e)
+                    # Grade if final
+                    result = None
+                    if is_final and actual_total is not None and m_total is not None and not pd.isna(m_total):
+                        try:
+                            mt = float(m_total)
+                            if actual_total > mt:
+                                actual_ou = "OVER"
+                            elif actual_total < mt:
+                                actual_ou = "UNDER"
                             else:
-                                result = "Win" if picked_ou == actual_ou else "Loss"
-                    except Exception:
-                        result = None
+                                actual_ou = "PUSH"
+                            picked_ou = "OVER" if str(s).startswith("Over") else ("UNDER" if str(s).startswith("Under") else None)
+                            if picked_ou:
+                                if actual_ou == "PUSH":
+                                    result = "Push"
+                                else:
+                                    result = "Win" if picked_ou == actual_ou else "Loss"
+                        except Exception:
+                            result = None
                 recs.append({
                     "type": "TOTAL",
                     "selection": s,
@@ -3911,10 +4001,83 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             w_ev = r.get('ev_units') or -999
             r['sort_weight'] = (_tier_to_num('Low'), w_ev)
     # Optional: keep only the single highest-EV recommendation per game
+    # Optional: restrict markets via env, e.g., 'MONEYLINE' or 'MONEYLINE,SPREAD'
+    try:
+        allowed_raw = os.environ.get('RECS_ALLOWED_MARKETS')
+        if allowed_raw:
+            allowed = {s.strip().upper() for s in allowed_raw.split(',') if s.strip()}
+            filtered = [r for r in filtered if str(r.get('type','')).upper() in allowed]
+    except Exception:
+        pass
+    # Optional: enforce minimum confidence for upcoming ATS/TOTAL picks
+    try:
+        min_conf_ats = str(os.environ.get('RECS_UPCOMING_CONF_MIN_ATS', 'High')).strip().capitalize()
+    except Exception:
+        min_conf_ats = 'High'
+    try:
+        min_conf_total = str(os.environ.get('RECS_UPCOMING_CONF_MIN_TOTAL', 'High')).strip().capitalize()
+    except Exception:
+        min_conf_total = 'High'
+    # Optional: enforce additional EV%% floors for upcoming ATS/TOTAL picks
+    try:
+        upcoming_min_ev_ats = float(os.environ.get('RECS_UPCOMING_MIN_EV_PCT_ATS', '0') or '0')
+    except Exception:
+        upcoming_min_ev_ats = 0.0
+    try:
+        upcoming_min_ev_total = float(os.environ.get('RECS_UPCOMING_MIN_EV_PCT_TOTAL', '0') or '0')
+    except Exception:
+        upcoming_min_ev_total = 0.0
+    try:
+        min_conf_num_ats = _tier_to_num(min_conf_ats)
+    except Exception:
+        min_conf_num_ats = _tier_to_num('High')
+    try:
+        min_conf_num_total = _tier_to_num(min_conf_total)
+    except Exception:
+        min_conf_num_total = _tier_to_num('High')
+    gated: List[Dict[str, Any]] = []
+    for r in filtered:
+        typ = str(r.get('type', '')).upper()
+        conf = r.get('confidence') or ''
+        try:
+            conf_num = _tier_to_num(conf)
+        except Exception:
+            conf_num = _tier_to_num('Low')
+        allow = True
+        evp = r.get('ev_pct')
+        if not is_final and typ == 'SPREAD':
+            allow = (conf_num >= min_conf_num_ats)
+            if allow and upcoming_min_ev_ats > 0:
+                allow = (evp is not None and evp >= upcoming_min_ev_ats)
+        elif not is_final and typ == 'TOTAL':
+            allow = (conf_num >= min_conf_num_total)
+            if allow and upcoming_min_ev_total > 0:
+                allow = (evp is not None and evp >= upcoming_min_ev_total)
+        if allow:
+            gated.append(r)
+    filtered = gated
+
+    # Optional: keep only the single highest-EV recommendation per market
+    one_per_market = str(os.environ.get('RECS_ONE_PER_MARKET', 'false')).strip().lower() in {'1','true','yes','y'}
     one_per_game = str(os.environ.get('RECS_ONE_PER_GAME', 'false')).strip().lower() in {'1','true','yes','y'}
-    if one_per_game and filtered:
-        best = max(filtered, key=lambda r: r.get('ev_units') if r.get('ev_units') is not None else -999)
-        return [best]
+    if filtered:
+        if one_per_market:
+            out: List[Dict[str, Any]] = []
+            try:
+                by_type: Dict[str, List[Dict[str, Any]]] = {}
+                for r in filtered:
+                    t = str(r.get('type','')).upper()
+                    by_type.setdefault(t, []).append(r)
+                for t, lst in by_type.items():
+                    best = max(lst, key=lambda r: r.get('ev_units') if r.get('ev_units') is not None else -999)
+                    out.append(best)
+            except Exception:
+                # Fallback to original list
+                out = filtered
+            filtered = out
+        elif one_per_game:
+            best = max(filtered, key=lambda r: r.get('ev_units') if r.get('ev_units') is not None else -999)
+            return [best]
     return filtered
 
 
