@@ -2,13 +2,13 @@
   "lines": {
     "Dallas Cowboys @ Washington Commanders": {
       "moneyline": {
-        "home": 650,
-        "away": -1150
+        "home": 800,
+        "away": -1600
       },
       "total_runs": {
-        "line": 49.5,
-        "over": -120,
-        "under": -110
+        "line": 60.5,
+        "over": -125,
+        "under": -105
       },
       "run_line": {
         "home": 14.5
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -1150
+              "price": -1600
             },
             {
               "name": "Washington Commanders",
-              "price": 650
+              "price": 800
             }
           ]
         },
@@ -32,12 +32,12 @@
           "outcomes": [
             {
               "name": "Dallas Cowboys",
-              "price": -105,
+              "price": -120,
               "point": -14.5
             },
             {
               "name": "Washington Commanders",
-              "price": -125,
+              "price": -110,
               "point": 14.5
             }
           ]
@@ -47,13 +47,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -120,
-              "point": 49.5
+              "price": -125,
+              "point": 60.5
             },
             {
               "name": "Under",
-              "price": -110,
-              "point": 49.5
+              "price": -105,
+              "point": 60.5
             }
           ]
         }
@@ -120,8 +120,8 @@
     },
     "Denver Broncos @ Kansas City Chiefs": {
       "moneyline": {
-        "home": 675,
-        "away": -1050
+        "home": 700,
+        "away": -1100
       },
       "total_runs": {
         "line": 37.5,
@@ -137,11 +137,11 @@
           "outcomes": [
             {
               "name": "Denver Broncos",
-              "price": -1050
+              "price": -1100
             },
             {
               "name": "Kansas City Chiefs",
-              "price": 675
+              "price": 700
             }
           ]
         },
@@ -946,5 +946,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2025-12-25T18:56:01.198010+00:00"
+  "fetched_at": "2025-12-25T19:19:20.587309+00:00"
 }

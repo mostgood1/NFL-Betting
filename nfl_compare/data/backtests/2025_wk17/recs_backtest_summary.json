@@ -1,0 +1,105 @@
+{
+  "rows": 265,
+  "MONEYLINE": {
+    "rows": 90,
+    "wins": 39,
+    "losses": 36,
+    "pushes": 0,
+    "win_rate": 0.52,
+    "ev_mean": 0.5490386795186919,
+    "ev_median": 0.492518488849747,
+    "tiers": {
+      "High": {
+        "rows": 86,
+        "wins": 37,
+        "losses": 35,
+        "win_rate": 0.5138888888888888,
+        "ev_mean": 0.5705236356584001
+      },
+      "Medium": {
+        "rows": 3,
+        "wins": 2,
+        "losses": 0,
+        "win_rate": 1.0,
+        "ev_mean": 0.0948994860318876
+      },
+      "Low": {
+        "rows": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "ev_mean": 0.06375003196418938
+      }
+    }
+  },
+  "SPREAD": {
+    "rows": 90,
+    "wins": 34,
+    "losses": 42,
+    "pushes": 0,
+    "win_rate": 0.4473684210526316,
+    "ev_mean": 0.06973821476052221,
+    "ev_median": 0.06690822809294189,
+    "tiers": {
+      "High": {
+        "rows": 22,
+        "wins": 6,
+        "losses": 7,
+        "win_rate": 0.46153846153846156,
+        "ev_mean": 0.16273165136656403
+      },
+      "Medium": {
+        "rows": 18,
+        "wins": 6,
+        "losses": 10,
+        "win_rate": 0.375,
+        "ev_mean": 0.09445093268493353
+      },
+      "Low": {
+        "rows": 27,
+        "wins": 10,
+        "losses": 14,
+        "win_rate": 0.4166666666666667,
+        "ev_mean": 0.04845948162947614
+      }
+    }
+  },
+  "TOTAL": {
+    "rows": 85,
+    "wins": 39,
+    "losses": 37,
+    "pushes": 0,
+    "win_rate": 0.5131578947368421,
+    "ev_mean": 0.035804537413592165,
+    "ev_median": 0.0288245804478518,
+    "tiers": {
+      "High": {
+        "rows": 6,
+        "wins": 3,
+        "losses": 3,
+        "win_rate": 0.5,
+        "ev_mean": 0.15972892654099197
+      },
+      "Medium": {
+        "rows": 12,
+        "wins": 4,
+        "losses": 4,
+        "win_rate": 0.5,
+        "ev_mean": 0.09929471860896795
+      },
+      "Low": {
+        "rows": 30,
+        "wins": 12,
+        "losses": 13,
+        "win_rate": 0.48,
+        "ev_mean": 0.04510050049237371
+      }
+    }
+  },
+  "meta": {
+    "season": 2025,
+    "end_week": 17,
+    "lookback": 6,
+    "rows": 265
+  }
+}
