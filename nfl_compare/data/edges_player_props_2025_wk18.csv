@@ -1,374 +1,428 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-Matthew Stafford,LAR,Passing Yards,400.0,1300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-176.2,-0.9999966425629825,,,176.2
-Matthew Stafford,LAR,Passing Yards,375.0,850.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-151.2,-0.9999258861296381,,,151.2
-Puka Nacua,LAR,Receiving Yards,175.0,700.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-138.0,-0.9999999999999982,,,138.0
-Matthew Stafford,LAR,Passing Yards,350.0,525.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-126.19999999999999,-0.9990272015879211,,,126.19999999999999
-Kirk Cousins,ATL,Passing Yards,350.0,1300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,-122.19999999999999,-0.9966368856259309,,,122.19999999999999
-Puka Nacua,LAR,Receiving Yards,150.0,330.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-113.0,-0.9999999999357134,,,113.0
-Drake London,ATL,Receiving Yards,150.0,1400.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-105.7,-0.9999999962150118,,,105.7
-Matthew Stafford,LAR,Passing Yards,325.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-101.19999999999999,-0.992330104862966,,,101.19999999999999
-Kirk Cousins,ATL,Passing Yards,325.0,850.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,-97.19999999999999,-0.9739514416564043,,,97.19999999999999
-Bijan Robinson,ATL,Rushing Yards,150.0,1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-90.5,-0.9999999993893298,,,90.5
-Puka Nacua,LAR,Receiving Yards,125.0,150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-88.0,-0.9999997173466503,,,88.0
-Drake London,ATL,Receiving Yards,125.0,750.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-80.7,-0.9999912281725201,,,80.7
-Kirk Cousins,ATL,Passing Yards,150.0,-925.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,77.80000000000001,0.0935777998316007,,,77.80000000000001
-Blake Corum,LAR,Rushing Yards,110.0,1400.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-76.5,-0.9999996514191725,,,76.5
-Matthew Stafford,LAR,Passing Yards,300.0,180.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-76.19999999999999,-0.9587421256344719,,,76.19999999999999
-Puka Nacua,LAR,Receiving Yards,110.0,,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-73.0,,,,73.0
-Bijan Robinson,ATL,Receiving Yards,90.0,650.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-72.2,-0.9999187768348833,,,72.2
-Kirk Cousins,ATL,Passing Yards,300.0,500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,-72.19999999999999,-0.882621391001768,,,72.19999999999999
-Terrance Ferguson,LAR,Receiving Yards,90.0,1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-68.9,-0.999595378215993,,,68.9
-Blake Corum,LAR,Rushing Yards,100.0,1000.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-66.5,-0.9999888120843318,,,66.5
-Kyren Williams,LAR,Rushing Yards,125.0,1000.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-66.0,-0.9999866591937157,,,66.0
-Drake London,ATL,Receiving Yards,110.0,450.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-65.7,-0.9996941363631502,,,65.7
-Bijan Robinson,ATL,Rushing Yards,125.0,625.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-65.5,-0.9999895280805237,,,65.5
-Konata Mumpfield,LAR,Receiving Yards,90.0,1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-64.2,-0.9987274693365471,,,64.2
-Puka Nacua,LAR,Receiving Yards,100.0,-150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-63.0,-0.9998244532736804,,,63.0
-Bijan Robinson,ATL,Receiving Yards,80.0,425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-62.2,-0.9993348887052736,,,62.2
-Terrance Ferguson,LAR,Receiving Yards,80.0,1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-58.9,-0.9968151300353403,,,58.9
-Colby Parkinson,LAR,Receiving Yards,90.0,1200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-57.2,-0.9950193559774237,,,57.2
-Darnell Mooney,ATL,Receiving Yards,90.0,1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-56.7,-0.9948874465627715,,,56.7
-Blake Corum,LAR,Rushing Yards,90.0,725.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-56.5,-0.9997754497289267,,,56.5
-Drake London,ATL,Receiving Yards,100.0,320.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-55.7,-0.997792621539275,,,55.7
-Konata Mumpfield,LAR,Receiving Yards,80.0,1200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-54.2,-0.9906956397232647,,,54.2
-Puka Nacua,LAR,Receiving Yards,90.0,-230.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-53.0,-0.9986921886773676,,,53.0
-Kirk Cousins,ATL,Passing Yards,175.0,-425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,52.80000000000001,0.15413014280763637,,,52.80000000000001
-Bijan Robinson,ATL,Receiving Yards,70.0,275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-52.2,-0.9959942959020719,,,52.2
-Matthew Stafford,LAR,Passing Yards,275.0,,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-51.19999999999999,,,,51.19999999999999
-Kyren Williams,LAR,Rushing Yards,110.0,625.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-51.0,-0.9990225967056218,,,51.0
-Bijan Robinson,ATL,Rushing Yards,110.0,375.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-50.5,-0.9992647303286296,,,50.5
-Terrance Ferguson,LAR,Receiving Yards,70.0,800.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-48.9,-0.9819032648030402,,,48.9
-Matthew Stafford,LAR,Passing Yards,175.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,48.80000000000001,-0.020390049657639048,,,48.80000000000001
-Colby Parkinson,LAR,Receiving Yards,80.0,850.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-47.2,-0.9738975118119719,,,47.2
-Kirk Cousins,ATL,Passing Yards,275.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,-47.19999999999999,-0.645050674093069,,,47.19999999999999
-Tyler Allgeier,ATL,Rushing Yards,80.0,1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,-46.9,-0.9935350751701755,,,46.9
-Darnell Mooney,ATL,Receiving Yards,80.0,800.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-46.7,-0.972940443187797,,,46.7
-Blake Corum,LAR,Rushing Yards,80.0,475.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-46.5,-0.9974252103032568,,,46.5
-Drake London,ATL,Receiving Yards,90.0,225.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-45.7,-0.9883275012206941,,,45.7
-Konata Mumpfield,LAR,Receiving Yards,70.0,850.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-44.2,-0.9557187137746721,,,44.2
-Puka Nacua,LAR,Receiving Yards,80.0,-330.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-43.0,-0.9925561854434785,,,43.0
-Bijan Robinson,ATL,Receiving Yards,60.0,190.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-42.2,-0.9810749003226216,,,42.2
-Kyren Williams,LAR,Rushing Yards,100.0,425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-41.0,-0.9910612559691011,,,41.0
-Bijan Robinson,ATL,Rushing Yards,100.0,250.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-40.5,-0.9933192894451613,,,40.5
-Terrance Ferguson,LAR,Receiving Yards,60.0,525.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-38.9,-0.9308630550618124,,,38.9
-Colby Parkinson,LAR,Receiving Yards,70.0,625.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-37.2,-0.8961348054981149,,,37.2
-Tyler Allgeier,ATL,Rushing Yards,70.0,1000.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,-36.9,-0.9538217832986743,,,36.9
-Darnell Mooney,ATL,Receiving Yards,70.0,700.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-36.7,-0.8765445587228289,,,36.7
-Blake Corum,LAR,Rushing Yards,70.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-36.5,-0.9817397480461707,,,36.5
-Drake London,ATL,Receiving Yards,80.0,150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-35.7,-0.9553389485929584,,,35.7
-Konata Mumpfield,LAR,Receiving Yards,60.0,575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-34.2,-0.8506739820202321,,,34.2
-Puka Nacua,LAR,Receiving Yards,70.0,-500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-33.0,-0.9686578743499119,,,33.0
-Bijan Robinson,ATL,Receiving Yards,50.0,115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-32.2,-0.9374248994468183,,,32.2
-Kyren Williams,LAR,Rushing Yards,90.0,275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-31.0,-0.9497328799082578,,,31.0
-Bijan Robinson,ATL,Rushing Yards,90.0,170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-30.5,-0.9603592471783984,,,30.5
-Kyren Williams,LAR,Rushing Yards,30.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,29.0,0.04622999298697933,,,29.0
-Terrance Ferguson,LAR,Receiving Yards,50.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-28.9,-0.8217381489658278,,,28.9
-Kirk Cousins,ATL,Passing Yards,200.0,-225.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,27.80000000000001,0.13603452539229505,,,27.80000000000001
-Colby Parkinson,LAR,Receiving Yards,60.0,375.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-27.200000000000003,-0.7397033644270998,,,27.200000000000003
-Tyler Allgeier,ATL,Rushing Yards,60.0,725.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,-26.9,-0.7744544899954513,,,26.9
-Darnell Mooney,ATL,Receiving Yards,60.0,475.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-26.700000000000003,-0.6656998172774238,,,26.700000000000003
-Blake Corum,LAR,Rushing Yards,60.0,200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-26.5,-0.9124346950727991,,,26.5
-Matthew Stafford,LAR,Passing Yards,250.0,-190.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-26.19999999999999,-0.6534381266265766,,,26.19999999999999
-Drake London,ATL,Receiving Yards,70.0,,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-25.700000000000003,,,,25.700000000000003
-Konata Mumpfield,LAR,Receiving Yards,50.0,350.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-24.2,-0.6521888300521415,,,24.2
-Matthew Stafford,LAR,Passing Yards,200.0,-675.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,23.80000000000001,-0.1368821905207661,,,23.80000000000001
-Darnell Mooney,ATL,Receiving Yards,10.0,-425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,23.299999999999997,0.1299832234850757,,,23.299999999999997
-Tyler Allgeier,ATL,Rushing Yards,10.0,-525.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,23.1,0.13158158567422845,,,23.1
-Puka Nacua,LAR,Receiving Yards,60.0,-925.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,37.0,-23.0,-0.9024452518967669,,,23.0
-Colby Parkinson,LAR,Receiving Yards,10.0,-1300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,22.799999999999997,-0.019926319002602083,,,22.799999999999997
-Bijan Robinson,ATL,Receiving Yards,40.0,-150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-22.2,-0.8403395261179057,,,22.2
-Kirk Cousins,ATL,Passing Yards,250.0,170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,-22.19999999999999,-0.290042589911821,,,22.19999999999999
-Kyren Williams,LAR,Rushing Yards,80.0,190.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-21.0,-0.8062591163203116,,,21.0
-Bijan Robinson,ATL,Rushing Yards,80.0,115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-20.5,-0.8461504087872969,,,20.5
-Bijan Robinson,ATL,Rushing Yards,40.0,-1200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,19.5,-0.005317455351308356,,,19.5
-Drake London,ATL,Receiving Yards,25.0,-1800.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,19.299999999999997,-0.07968861152853102,,,19.299999999999997
-Kyren Williams,LAR,Rushing Yards,40.0,-575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,19.0,0.0713507124606157,,,19.0
-Terrance Ferguson,LAR,Receiving Yards,40.0,200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-18.9,-0.6006410040894506,,,18.9
-Darnell Mooney,ATL,Receiving Yards,15.0,-260.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,18.299999999999997,0.18958064376697203,,,18.299999999999997
-Tyler Allgeier,ATL,Rushing Yards,15.0,-280.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,18.1,0.2241018222325647,,,18.1
-Colby Parkinson,LAR,Receiving Yards,15.0,-600.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,17.799999999999997,-0.005458928504566474,,,17.799999999999997
-Colby Parkinson,LAR,Receiving Yards,50.0,225.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-17.200000000000003,-0.49356782531377036,,,17.200000000000003
-Tyler Allgeier,ATL,Rushing Yards,50.0,475.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,-16.9,-0.3462907442697224,,,16.9
-Darnell Mooney,ATL,Receiving Yards,50.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-16.700000000000003,-0.3481479972773897,,,16.700000000000003
-Blake Corum,LAR,Rushing Yards,50.0,115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-16.5,-0.7435384602112743,,,16.5
-Konata Mumpfield,LAR,Receiving Yards,10.0,-425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,15.8,0.017464988351732547,,,15.8
-Drake London,ATL,Receiving Yards,60.0,-175.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-15.700000000000003,-0.7204967726101966,,,15.700000000000003
-Drake London,ATL,Receiving Yards,30.0,-1000.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,14.299999999999997,-0.12013699400306577,,,14.299999999999997
-Konata Mumpfield,LAR,Receiving Yards,40.0,200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-14.2,-0.39467180711038985,,,14.2
-Blake Corum,LAR,Rushing Yards,20.0,-1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,13.5,-0.09176510969062192,,,13.5
-Darnell Mooney,ATL,Receiving Yards,20.0,-170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,13.299999999999997,0.2435825321529207,,,13.299999999999997
-Tyler Allgeier,ATL,Rushing Yards,20.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,13.100000000000001,0.34109599543093283,,,13.100000000000001
-Colby Parkinson,LAR,Receiving Yards,20.0,-350.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,12.799999999999997,-0.004526240470572596,,,12.799999999999997
-Bijan Robinson,ATL,Receiving Yards,30.0,-290.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-12.2,-0.6819651306726692,,,12.2
-Terrance Ferguson,LAR,Receiving Yards,10.0,-425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,11.100000000000001,-0.08204935993617421,,,11.100000000000001
-Kyren Williams,LAR,Rushing Yards,70.0,110.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-11.0,-0.5463633633947421,,,11.0
-Konata Mumpfield,LAR,Receiving Yards,15.0,-250.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,10.8,0.03233437345352175,,,10.8
-Bijan Robinson,ATL,Rushing Yards,70.0,-150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-10.5,-0.622287746038553,,,10.5
-Bijan Robinson,ATL,Rushing Yards,50.0,-490.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,9.5,-0.09537915943195593,,,9.5
-Kyren Williams,LAR,Rushing Yards,50.0,-275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,9.0,0.008874908744977261,,,9.0
-Terrance Ferguson,LAR,Receiving Yards,30.0,115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-8.899999999999999,-0.3543486692948008,,,8.899999999999999
-Blake Corum,LAR,Rushing Yards,25.0,-575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,8.5,-0.1452481518595276,,,8.5
-Darnell Mooney,ATL,Receiving Yards,25.0,-120.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,8.299999999999997,0.26006541119676796,,,8.299999999999997
-Tyler Allgeier,ATL,Rushing Yards,25.0,,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,8.100000000000001,,,,8.100000000000001
-Colby Parkinson,LAR,Receiving Yards,25.0,-240.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,7.799999999999997,-0.04117230175002934,,,7.799999999999997
-Colby Parkinson,LAR,Receiving Yards,40.0,125.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,-7.200000000000003,-0.24410232511156627,,,7.200000000000003
-Bijan Robinson,ATL,Receiving Yards,25.0,-450.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-7.199999999999999,-0.5893889173445545,,,7.199999999999999
-Tyler Allgeier,ATL,Rushing Yards,40.0,275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,-6.899999999999999,0.1664628709955176,,,6.899999999999999
-Darnell Mooney,ATL,Receiving Yards,40.0,180.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,-6.700000000000003,-0.029108144080184917,,,6.700000000000003
-Blake Corum,LAR,Rushing Yards,40.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,-6.5,-0.4780150156396878,,,6.5
-Terrance Ferguson,LAR,Receiving Yards,15.0,-260.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,6.100000000000001,-0.11365722955374391,,,6.100000000000001
-Puka Nacua,LAR,Receptions,11.0,330.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-5.99,-0.9999912460046249,,,5.99
-Konata Mumpfield,LAR,Receiving Yards,20.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,5.800000000000001,0.029461277398088626,,,5.800000000000001
-Bijan Robinson,ATL,Receptions,9.0,725.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-5.79,-0.9999652074613898,,,5.79
-Drake London,ATL,Receiving Yards,50.0,-275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,-5.700000000000003,-0.49722507003290134,,,5.700000000000003
-Puka Nacua,LAR,Receptions,10.0,200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-4.99,-0.9998142885961018,,,4.99
-Bijan Robinson,ATL,Receptions,8.0,475.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-4.79,-0.9993414862871062,,,4.79
-Drake London,ATL,Receptions,10.0,850.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,-4.64,-0.9982993530004352,,,4.64
-Drake London,ATL,Receiving Yards,40.0,-475.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,44.3,4.299999999999997,-0.27387406317444285,,,4.299999999999997
-Konata Mumpfield,LAR,Receiving Yards,30.0,125.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,-4.199999999999999,-0.09452946237382265,,,4.199999999999999
-Puka Nacua,LAR,Receptions,9.0,120.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-3.99,-0.9976392818068778,,,3.99
-Terrance Ferguson,LAR,Receiving Yards,25.0,-120.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,-3.8999999999999986,-0.24966351469014852,,,3.8999999999999986
-Bijan Robinson,ATL,Receptions,7.0,275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-3.79,-0.9933390542211289,,,3.79
-Drake London,ATL,Receptions,9.0,525.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,-3.6399999999999997,-0.9840304354348255,,,3.6399999999999997
-Blake Corum,LAR,Rushing Yards,30.0,-350.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.5,3.5,-0.2302347241219553,,,3.5
-Darnell Mooney,ATL,Receiving Yards,30.0,115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,33.3,3.299999999999997,0.24045995360454886,,,3.299999999999997
-Matthew Stafford,LAR,Passing TDs,5.0,1200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.76,-3.24,-0.8781450337840965,,,3.24
-Tyler Allgeier,ATL,Rushing Yards,30.0,150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,33.1,3.1000000000000014,0.46905156533769954,,,3.1000000000000014
-Konata Mumpfield,LAR,Receptions,5.0,700.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,2.01,-2.99,-0.9142071198265938,,,2.99
-Puka Nacua,LAR,Receptions,8.0,-150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-2.99,-0.9821264832972071,,,2.99
-Kirk Cousins,ATL,Passing Yards,225.0,-110.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,227.8,2.8000000000000114,0.015409892026703342,,,2.8000000000000114
-Bijan Robinson,ATL,Receiving Yards,15.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,2.8000000000000007,-0.3968935929451719,,,2.8000000000000007
-Colby Parkinson,LAR,Receiving Yards,30.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,32.8,2.799999999999997,-0.08120508300241047,,,2.799999999999997
-Bijan Robinson,ATL,Receptions,6.0,150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-2.79,-0.960174116913077,,,2.79
-Drake London,ATL,Receptions,8.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,-2.6399999999999997,-0.9154431806151435,,,2.6399999999999997
-Darnell Mooney,ATL,Receptions,1.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,3.63,2.63,0.04369855073841031,,,2.63
-Colby Parkinson,LAR,Receptions,7.0,725.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,-2.55,-0.7945079979743241,,,2.55
-Colby Parkinson,LAR,Receptions,2.0,-1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,2.45,0.058464481618007866,,,2.45
-Matthew Stafford,LAR,Passing TDs,4.0,425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.76,-2.24,-0.8236783485013477,,,2.24
-Bijan Robinson,ATL,Receiving Yards,20.0,-700.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rec_yards,17.8,-2.1999999999999993,-0.4874103776732911,,,2.1999999999999993
-Terrance Ferguson,LAR,Receptions,4.0,400.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,1.82,-2.1799999999999997,-0.7661061878154167,,,2.1799999999999997
-Puka Nacua,LAR,Receptions,7.0,-280.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-1.9900000000000002,-0.9146177751257395,,,1.9900000000000002
-Konata Mumpfield,LAR,Receptions,4.0,300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,2.01,-1.9900000000000002,-0.7483471266863899,,,1.9900000000000002
-Bijan Robinson,ATL,Receptions,5.0,-130.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-1.79,-0.8509104335840285,,,1.79
-Drake London,ATL,Receptions,7.0,170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,-1.6399999999999997,-0.7203948690282882,,,1.6399999999999997
-Darnell Mooney,ATL,Receptions,2.0,-225.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,3.63,1.63,0.29285149514325537,,,1.63
-Colby Parkinson,LAR,Receptions,6.0,375.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,-1.5499999999999998,-0.44629102885763905,,,1.5499999999999998
-Colby Parkinson,LAR,Receptions,3.0,-290.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,1.4500000000000002,0.16684931145719534,,,1.4500000000000002
-Darnell Mooney,ATL,Receptions,5.0,800.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,3.63,-1.37,0.3137901145640596,,,1.37
-Drake London,ATL,Receptions,4.0,-575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,1.3600000000000003,0.00047325617158261446,,,1.3600000000000003
-Kirk Cousins,ATL,Passing TDs,3.0,575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.73,-1.27,-0.34033450424403966,,,1.27
-Matthew Stafford,LAR,Passing TDs,3.0,130.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.76,-1.24,-0.7645534140673623,,,1.24
-Matthew Stafford,LAR,Passing Yards,225.0,-345.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_yards,223.8,-1.1999999999999886,-0.37271167267814115,,,1.1999999999999886
-Terrance Ferguson,LAR,Receptions,3.0,170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,1.82,-1.18,-0.5085449075768554,,,1.18
-Terrance Ferguson,LAR,Receiving Yards,20.0,-170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,rec_yards,21.1,1.1000000000000014,-0.1649123775998429,,,1.1000000000000014
-Konata Mumpfield,LAR,Receptions,1.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,2.01,1.0099999999999998,-0.16650888280177928,,,1.0099999999999998
-Kyren Williams,LAR,Rushing Yards,60.0,-150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.0,-1.0,-0.21411944086079765,,,1.0
-Puka Nacua,LAR,Receptions,6.0,-575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,-0.9900000000000002,-0.7380204584446659,,,0.9900000000000002
-Konata Mumpfield,LAR,Receptions,3.0,125.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,2.01,-0.9900000000000002,-0.4978725453522762,,,0.9900000000000002
-Terrance Ferguson,LAR,Receptions,1.0,-1200.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,1.82,0.8200000000000001,-0.20277035504970653,,,0.8200000000000001
-Konata Mumpfield,LAR,Receiving Yards,25.0,-110.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,rec_yards,25.8,0.8000000000000007,-0.009626965700406886,,,0.8000000000000007
-Bijan Robinson,ATL,Receptions,4.0,-280.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,-0.79,-0.6312700089147094,,,0.79
-Matthew Stafford,LAR,Passing TDs,1.0,-2100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.76,0.76,-0.4498363872064585,,,0.76
-Kirk Cousins,ATL,Passing TDs,1.0,-425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.73,0.73,-0.3625714837395938,,,0.73
-Drake London,ATL,Receptions,6.0,-120.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,-0.6399999999999997,-0.4293733105600684,,,0.6399999999999997
-Darnell Mooney,ATL,Receptions,3.0,135.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,3.63,0.6299999999999999,0.6121596917338479,,,0.6299999999999999
-Colby Parkinson,LAR,Receptions,5.0,190.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,-0.5499999999999998,-0.025253248846216825,,,0.5499999999999998
-Bijan Robinson,ATL,Rushing Yards,60.0,-260.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,rush_yards,59.5,-0.5,-0.3274160296000147,,,0.5
-Colby Parkinson,LAR,Receptions,4.0,-115.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,4.45,0.4500000000000002,0.18789640800184726,,,0.4500000000000002
-Darnell Mooney,ATL,Receptions,4.0,350.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,3.63,-0.3700000000000001,0.7458623524760366,,,0.3700000000000001
-Drake London,ATL,Receptions,5.0,-245.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.36,0.3600000000000003,-0.1423153357087551,,,0.3600000000000003
-Kirk Cousins,ATL,Passing TDs,2.0,150.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.73,-0.27,-0.3732092362929753,,,0.27
-Matthew Stafford,LAR,Passing TDs,2.0,-300.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,QB,pass_tds,1.76,-0.24,-0.6550758789876804,,,0.24
-Bijan Robinson,ATL,Receptions,3.0,-750.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,RB,receptions,3.21,0.20999999999999996,-0.3606126153405158,,,0.20999999999999996
-Terrance Ferguson,LAR,Receptions,2.0,-190.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,TE,receptions,1.82,-0.17999999999999994,-0.3208843611952738,,,0.17999999999999994
-Konata Mumpfield,LAR,Receptions,2.0,-250.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,2.01,0.009999999999999787,-0.29570374088821505,,,0.009999999999999787
-Puka Nacua,LAR,Receptions,5.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,WR,receptions,5.01,0.009999999999999787,-0.46339332639102093,,,0.009999999999999787
-Kyle Pitts,ATL,Receiving Yards,100.0,575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Atlanta Falcons Def/ST,ATL,Anytime TD,,600.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Receiving Yards,20.0,-1500.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,9.0,725.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Atlanta D/ST - 1Q,,Anytime TD,,4500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Receptions,8.0,425.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,110.0,800.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,7.0,250.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,4.0,-340.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,90.0,375.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,5.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,3.0,-1100.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,80.0,250.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,25.0,-825.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,70.0,170.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,60.0,110.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,50.0,-160.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,40.0,-275.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receiving Yards,30.0,-575.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,rec_yards,,,,,projection_missing,0.0
-Kyle Pitts,ATL,Receptions,6.0,130.0,,True,Los Angeles Rams @ Atlanta Falcons,Falcons,Rams,1767057300000,Bovada,,receptions,,,,,projection_missing,0.0
-Bijan Robinson & Atlanta Falcons,,Anytime TD,,440.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Anytime TD,,-132.0,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Drake London (ATL) - 1Q,,Anytime TD,,700.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jake Tonges,SF,Anytime TD,,370.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
-Jake Bobo,SEA,Anytime TD,,725.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-George Kittle,SF,Anytime TD,,160.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
-Feleipe Franks,ATL,Anytime TD,,2800.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Eric Saubert,SEA,Anytime TD,,825.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
-Dylan Drummond (ATL) - 1Q,,Anytime TD,,15000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Dylan Drummond (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Dylan Drummond,ATL,Anytime TD,,1300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Drake London (ATL) - 1H,,Anytime TD,,350.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Receiving Yards,43.5,-110.0,-120.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Drake London & Los Angeles Rams,,Anytime TD,,240.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Drake London & Atlanta Falcons,,Anytime TD,,700.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Drake London,ATL,Receptions,5.5,-135.0,105.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Drake London,ATL,Receiving Yards,64.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Drake London,ATL,Anytime TD,,155.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Deven Thompkins,ATL,Anytime TD,,2500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Demarcus Robinson,SF,Anytime TD,,1100.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
-Davis Allen (LAR) - 1Q,,Anytime TD,,1300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jarquez Hunter,LAR,Anytime TD,,2000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jarquez Hunter (LAR) - 1H,,Anytime TD,,3500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jarquez Hunter (LAR) - 1Q,,Anytime TD,,15000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jauan Jennings,SF,Anytime TD,,160.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
-Konata Mumpfield (LAR) - 1H,,Anytime TD,,500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Konata Mumpfield,LAR,Receptions,2.5,125.0,-165.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Konata Mumpfield,LAR,Receiving Yards,23.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Konata Mumpfield,LAR,Anytime TD,,300.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Kirk Cousins (ATL) - 1Q,,Anytime TD,,8000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kirk Cousins (ATL) - 1H,,Anytime TD,,3300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Passing Yards,225.5,,-130.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Passing TDs,1.5,165.0,-220.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Passing Attempts,33.5,-125.0,-105.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Interceptions,0.5,-165.0,125.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Kirk Cousins,ATL,Anytime TD,,1700.0,,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Kenneth Walker,SEA,Anytime TD,,140.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Kendrick Bourne,SF,Anytime TD,,1900.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Whittington (LAR) - 1Q,,Anytime TD,,10000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Whittington (LAR) - 1H,,Anytime TD,,1600.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jordan Whittington,LAR,Anytime TD,,825.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Jaxon Smith-Njigba,SEA,Anytime TD,,-125.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
-Davis Allen (LAR) - 1H,,Anytime TD,,550.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Davis Allen & Los Angeles Rams,,Anytime TD,,310.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Davis Allen & Atlanta Falcons,,Anytime TD,,1900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Christian McCaffrey,SF,Anytime TD,,-193.0,,False,,49ers,Seahawks,1767488400000,Bovada,RB,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1H,,Anytime TD,,3300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Woerner,ATL,Anytime TD,,1500.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Casey Washington (ATL) - 1Q,,Anytime TD,,17500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Casey Washington (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Casey Washington,ATL,Anytime TD,,1300.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Brock Purdy,SF,Anytime TD,,700.0,,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
-Brian Robinson,SF,Anytime TD,,600.0,,False,,49ers,Seahawks,1767488400000,Bovada,RB,,,,,,unsupported_market,0.0
-Blake Corum (LAR) - 1Q,,Anytime TD,,900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum (LAR) - 1H,,Anytime TD,,350.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum & Los Angeles Rams,,Anytime TD,,160.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum & Atlanta Falcons,,Anytime TD,,1150.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Blake Corum,LAR,Rushing Yards,44.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Blake Corum,LAR,Rushing Attempts,9.5,-125.0,-105.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Blake Corum,LAR,Receiving Yards,49.5,-110.0,-120.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Blake Corum,LAR,Anytime TD,,155.0,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson (ATL) - 1Q,,Anytime TD,,470.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson (ATL) - 1H,,Anytime TD,,185.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Charlie Woerner (ATL) - 1Q,,Anytime TD,,17500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson,LAR,Anytime TD,,145.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Davis Allen,LAR,Receptions,2.5,150.0,-200.0,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Colby Parkinson,LAR,Receiving Yards,33.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Davis Allen,LAR,Receiving Yards,18.5,,-130.0,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Davis Allen,LAR,Anytime TD,,310.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1Q,,Anytime TD,,9000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-David Sills (ATL) - 1H,,Anytime TD,,1800.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-David Sills,ATL,Anytime TD,,825.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1Q,,Anytime TD,,2000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney (ATL) - 1H,,Anytime TD,,950.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Darnell Mooney,ATL,Receptions,1.5,-190.0,145.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Darnell Mooney,ATL,Receiving Yards,24.5,-110.0,-120.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Darnell Mooney,ATL,Anytime TD,,525.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Dareke Young,SEA,Anytime TD,,1500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Cooper Kupp,SEA,Anytime TD,,260.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
-Colby Parkinson (LAR) - 1Q,,Anytime TD,,650.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson (LAR) - 1H,,Anytime TD,,280.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson & Los Angeles Rams,,Anytime TD,,140.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson & Atlanta Falcons,,Anytime TD,,600.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Colby Parkinson,LAR,Receptions,3.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Konata Mumpfield (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Anytime TD,,205.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Receiving Yards,54.5,115.0,-150.0,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-TuTu Atwell (LAR) - 1Q,,Anytime TD,,7500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-TuTu Atwell,LAR,Anytime TD,,825.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson (LAR) - 1H,,Anytime TD,,500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson & Los Angeles Rams,,Anytime TD,,280.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson & Atlanta Falcons,,Anytime TD,,1750.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Terrance Ferguson,LAR,Receptions,1.5,-150.0,115.0,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Terrance Ferguson,LAR,Receiving Yards,24.5,,-130.0,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Terrance Ferguson,LAR,Anytime TD,,260.0,,False,,Falcons,Rams,1767057300000,Bovada,TE,,,,,,unsupported_market,0.0
-Teagan Quitoriano,ATL,Anytime TD,,2500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Skyy Moore,SF,Anytime TD,,1200.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Seattle Seahawks Def/ST,SEA,Anytime TD,,500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Sam Darnold,SEA,Anytime TD,,1000.0,,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
-Ronnie Rivers (LAR) - 1Q,,Anytime TD,,15000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Ronnie Rivers (LAR) - 1H,,Anytime TD,,3500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Ronnie Rivers,LAR,Anytime TD,,2200.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Robbie Ouzts,SEA,Anytime TD,,2800.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Ricky Pearsall,SF,Anytime TD,,210.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
-TuTu Atwell (LAR) - 1H,,Anytime TD,,1600.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Anytime TD,,205.0,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Puka Nacua (LAR) - 1H,,Anytime TD,,155.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Receiving Yards,32.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Receptions,4.5,-145.0,110.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Rushing Attempts,16.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Bijan Robinson & Los Angeles Rams,,Anytime TD,,120.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Bijan Robinson,ATL,Rushing Yards,73.5,-120.0,-110.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Atlanta D/ST - 1H,,Anytime TD,,1900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Yards,350.0,1300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-125.9,-0.9977478773844899,,,125.9
+Bryce Young,CAR,Passing Yards,325.0,1300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,-116.9,-0.9941355127076947,,,116.9
+Tetairoa McMillan,CAR,Receiving Yards,150.0,1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-107.9,-0.9999999982442382,,,107.9
+Baker Mayfield,TB,Passing Yards,325.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-100.9,-0.9812809093544413,,,100.9
+Bryce Young,CAR,Passing Yards,300.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,-91.9,-0.9589280023092077,,,91.9
+Mike Evans,TB,Receiving Yards,125.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-88.3,-0.9999987658417471,,,88.3
+Bryce Young,CAR,Passing Yards,125.0,-1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,83.1,0.08131839698084739,,,83.1
+Tetairoa McMillan,CAR,Receiving Yards,125.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-82.9,-0.9999948699628235,,,82.9
+Baker Mayfield,TB,Passing Yards,300.0,525.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-75.9,-0.9058898866153411,,,75.9
+Baker Mayfield,TB,Passing Yards,150.0,-825.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,74.1,0.10201263881557723,,,74.1
+Mike Evans,TB,Receiving Yards,110.0,725.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-73.3,-0.9999331928484003,,,73.3
+Emeka Egbuka,TB,Receiving Yards,90.0,1000.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-70.6,-0.9998194739763824,,,70.6
+Bucky Irving,TB,Rushing Yards,125.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-69.9,-0.9999964304462241,,,69.9
+Rico Dowdle,CAR,Rushing Yards,125.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-69.9,-0.9999964304462241,,,69.9
+Jalen Coker,CAR,Receiving Yards,100.0,1200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-68.0,-0.9995882738561694,,,68.0
+Tetairoa McMillan,CAR,Receiving Yards,110.0,575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-67.9,-0.9997808422925499,,,67.9
+Bryce Young,CAR,Passing Yards,275.0,475.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,-66.9,-0.8391451072541305,,,66.9
+Mike Evans,TB,Receiving Yards,100.0,500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-63.3,-0.9994106291128408,,,63.3
+Emeka Egbuka,TB,Receiving Yards,80.0,725.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-60.6,-0.9984974092317733,,,60.6
+Bryce Young,CAR,Passing Yards,150.0,-450.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,58.099999999999994,0.16299672345178323,,,58.099999999999994
+Jalen Coker,CAR,Receiving Yards,90.0,1000.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-58.0,-0.9964500909934612,,,58.0
+Tetairoa McMillan,CAR,Receiving Yards,100.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-57.9,-0.9983512351926507,,,57.9
+Bucky Irving,TB,Rushing Yards,110.0,800.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-54.9,-0.9996038850569011,,,54.9
+Rico Dowdle,CAR,Rushing Yards,110.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-54.9,-0.9995818786711734,,,54.9
+Bucky Irving,TB,Receiving Yards,70.0,1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-54.4,-0.9890057929933462,,,54.4
+Rico Dowdle,CAR,Receiving Yards,70.0,1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-53.6,-0.9870692500679024,,,53.6
+Mike Evans,TB,Receiving Yards,90.0,375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-53.3,-0.9959225551264941,,,53.3
+Xavier Legette,CAR,Receiving Yards,70.0,1300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-51.1,-0.9814631997174235,,,51.1
+Baker Mayfield,TB,Passing Yards,275.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-50.900000000000006,-0.708265781108744,,,50.900000000000006
+Emeka Egbuka,TB,Receiving Yards,70.0,575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-50.6,-0.9901589370718185,,,50.6
+Chuba Hubbard,CAR,Rushing Yards,80.0,1200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,-49.2,-0.9971339012583293,,,49.2
+Baker Mayfield,TB,Passing Yards,175.0,-425.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,49.099999999999994,0.13606328520467695,,,49.099999999999994
+Jalen Coker,CAR,Receiving Yards,80.0,725.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-48.0,-0.9804070470769726,,,48.0
+Tetairoa McMillan,CAR,Receiving Yards,90.0,275.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-47.9,-0.9909293209031181,,,47.9
+Rico Dowdle,CAR,Rushing Yards,100.0,625.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-44.9,-0.9951403103268204,,,44.9
+Bucky Irving,TB,Rushing Yards,100.0,575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-44.9,-0.9954754613387637,,,44.9
+Bucky Irving,TB,Receiving Yards,60.0,1000.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-44.4,-0.9504580762166809,,,44.4
+Rico Dowdle,CAR,Receiving Yards,60.0,1000.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-43.6,-0.9432051870769637,,,43.6
+Mike Evans,TB,Receiving Yards,80.0,250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-43.3,-0.9809888541103667,,,43.3
+Bryce Young,CAR,Passing Yards,250.0,275.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,-41.900000000000006,-0.5664046038694124,,,41.900000000000006
+Xavier Legette,CAR,Receiving Yards,60.0,900.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-41.1,-0.921893898167859,,,41.1
+Emeka Egbuka,TB,Receiving Yards,60.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-40.6,-0.957676252291901,,,40.6
+Chuba Hubbard,CAR,Rushing Yards,70.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,-39.2,-0.9757262618609348,,,39.2
+Jalen Coker,CAR,Receiving Yards,70.0,500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-38.0,-0.9238058620013903,,,38.0
+Tetairoa McMillan,CAR,Receiving Yards,80.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-37.9,-0.961320219743813,,,37.9
+Bucky Irving,TB,Rushing Yards,90.0,375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-34.9,-0.9699040429717943,,,34.9
+Rico Dowdle,CAR,Rushing Yards,90.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-34.9,-0.9683200452334677,,,34.9
+Bucky Irving,TB,Receiving Yards,50.0,700.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-34.4,-0.8279256224638449,,,34.4
+Rico Dowdle,CAR,Receiving Yards,50.0,650.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-33.6,-0.8196193611469476,,,33.6
+Mike Evans,TB,Receiving Yards,70.0,180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-33.3,-0.9298131601584725,,,33.3
+Bryce Young,CAR,Passing Yards,175.0,-240.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,33.099999999999994,0.17279151336035287,,,33.099999999999994
+Bryce Young,CAR,Rushing Yards,50.0,1000.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,-32.4,-0.8864136980917031,,,32.4
+Baker Mayfield,TB,Rushing Yards,50.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,-31.3,-0.8477770440738315,,,31.3
+Xavier Legette,CAR,Receiving Yards,50.0,600.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-31.1,-0.7643171872387334,,,31.1
+Emeka Egbuka,TB,Receiving Yards,50.0,250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-30.6,-0.8742438831047594,,,30.6
+Bucky Irving,TB,Rushing Yards,25.0,-1900.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,30.1,0.03602357116727314,,,30.1
+Rico Dowdle,CAR,Rushing Yards,25.0,-1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,30.1,0.049837218782836826,,,30.1
+Chuba Hubbard,CAR,Rushing Yards,60.0,575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,-29.2,-0.8751097732945865,,,29.2
+Jalen Coker,CAR,Receiving Yards,60.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-28.0,-0.8009080887911446,,,28.0
+Tetairoa McMillan,CAR,Receiving Yards,70.0,140.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-27.9,-0.8790870538098361,,,27.9
+Baker Mayfield,TB,Passing Yards,250.0,170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-25.900000000000006,-0.3799450076550655,,,25.900000000000006
+Bucky Irving,TB,Rushing Yards,30.0,-900.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,25.1,0.07055790575267723,,,25.1
+Rico Dowdle,CAR,Rushing Yards,30.0,-825.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,25.1,0.0802902503504287,,,25.1
+Rico Dowdle,CAR,Rushing Yards,80.0,250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-24.9,-0.8682074094075933,,,24.9
+Bucky Irving,TB,Rushing Yards,80.0,230.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-24.9,-0.8757384145843023,,,24.9
+Bucky Irving,TB,Receiving Yards,40.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-24.4,-0.6219917417497824,,,24.4
+Baker Mayfield,TB,Passing Yards,200.0,-220.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,24.099999999999994,0.0973869046382651,,,24.099999999999994
+Rico Dowdle,CAR,Receiving Yards,40.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-23.6,-0.5873364793483109,,,23.6
+Mike Evans,TB,Receiving Yards,60.0,120.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-23.299999999999997,-0.8124463123019918,,,23.299999999999997
+Bryce Young,CAR,Rushing Yards,40.0,600.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,-22.4,-0.616404958103094,,,22.4
+Tetairoa McMillan,CAR,Receiving Yards,20.0,-1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,22.1,-0.036587183557984335,,,22.1
+Jalen Coker,CAR,Receiving Yards,10.0,-875.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,22.0,0.005294761601408612,,,22.0
+Baker Mayfield,TB,Rushing Yards,40.0,625.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,-21.3,-0.5354478274022874,,,21.3
+Xavier Legette,CAR,Receiving Yards,40.0,350.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-21.1,-0.5172837288563772,,,21.1
+Chuba Hubbard,CAR,Rushing Yards,10.0,-1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,20.8,-0.0065891788459659165,,,20.8
+Emeka Egbuka,TB,Receiving Yards,40.0,180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-20.6,-0.6841565529224405,,,20.6
+Chuba Hubbard,CAR,Rushing Yards,50.0,330.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,-19.2,-0.6339809987943302,,,19.2
+Jalen Coker,CAR,Receiving Yards,50.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-18.0,-0.5654797663979708,,,18.0
+Tetairoa McMillan,CAR,Receiving Yards,60.0,-110.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-17.9,-0.7209214997025661,,,17.9
+Tetairoa McMillan,CAR,Receiving Yards,25.0,-825.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,17.1,-0.055082880994337835,,,17.1
+Jalen Coker,CAR,Receiving Yards,15.0,-490.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,17.0,0.013047755470286387,,,17.0
+Bryce Young,CAR,Passing Yards,225.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,-16.900000000000006,-0.2135035327306054,,,16.900000000000006
+Mike Evans,TB,Receiving Yards,20.0,-1200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,16.700000000000003,-0.09320991740404039,,,16.700000000000003
+Chuba Hubbard,CAR,Rushing Yards,15.0,-525.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,15.8,0.03626269695088438,,,15.8
+Bucky Irving,TB,Rushing Yards,40.0,-375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,15.100000000000001,0.08884007825147916,,,15.100000000000001
+Rico Dowdle,CAR,Rushing Yards,40.0,-350.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,15.100000000000001,0.10521361326277953,,,15.100000000000001
+Bucky Irving,TB,Rushing Yards,70.0,160.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-14.899999999999999,-0.6266409261653767,,,14.899999999999999
+Rico Dowdle,CAR,Rushing Yards,70.0,170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-14.899999999999999,-0.612280961787122,,,14.899999999999999
+Bucky Irving,TB,Receiving Yards,30.0,225.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-14.4,-0.35493620593885966,,,14.4
+Rico Dowdle,CAR,Receiving Yards,30.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-13.600000000000001,-0.36443380424980976,,,13.600000000000001
+Mike Evans,TB,Receiving Yards,50.0,-145.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-13.299999999999997,-0.6333387602597481,,,13.299999999999997
+Bryce Young,CAR,Rushing Yards,30.0,250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,-12.399999999999999,-0.34239986056052185,,,12.399999999999999
+Tetairoa McMillan,CAR,Receiving Yards,30.0,-575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,12.100000000000001,-0.10583659290149669,,,12.100000000000001
+Jalen Coker,CAR,Receiving Yards,20.0,-325.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,12.0,-0.0063246979541612125,,,12.0
+Mike Evans,TB,Receiving Yards,25.0,-675.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,11.700000000000003,-0.13389709751812312,,,11.700000000000003
+Baker Mayfield,TB,Rushing Yards,30.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,-11.3,-0.16083163378361753,,,11.3
+Xavier Legette,CAR,Receiving Yards,30.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-11.100000000000001,-0.22930869729786252,,,11.100000000000001
+Chuba Hubbard,CAR,Rushing Yards,20.0,-280.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,10.8,0.05826407283606183,,,10.8
+Emeka Egbuka,TB,Receiving Yards,30.0,105.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-10.600000000000001,-0.45373990221983496,,,10.600000000000001
+Bucky Irving,TB,Receiving Yards,25.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-9.4,-0.27462038692345514,,,9.4
+Emeka Egbuka,TB,Receiving Yards,10.0,-440.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,9.399999999999999,-0.1288227191466675,,,9.399999999999999
+Chuba Hubbard,CAR,Rushing Yards,40.0,190.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,-9.2,-0.25892085702971246,,,9.2
+Xavier Legette,CAR,Receiving Yards,10.0,-275.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,8.899999999999999,-0.04586765161006284,,,8.899999999999999
+Baker Mayfield,TB,Rushing Yards,10.0,-325.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,8.7,-0.04166925103334232,,,8.7
+Rico Dowdle,CAR,Receiving Yards,25.0,140.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-8.600000000000001,-0.2644729103278496,,,8.600000000000001
+Bryce Young,CAR,Passing Yards,200.0,-115.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,208.1,8.099999999999994,0.10586477297425101,,,8.099999999999994
+Jalen Coker,CAR,Receiving Yards,40.0,125.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,-8.0,-0.28232333808517335,,,8.0
+Tetairoa McMillan,CAR,Receiving Yards,50.0,-170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,-7.899999999999999,-0.49006363020417854,,,7.899999999999999
+Bryce Young,CAR,Rushing Yards,10.0,-340.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,7.600000000000001,-0.08585351902251406,,,7.600000000000001
+Bryce Young,CAR,Rushing Yards,25.0,180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,-7.399999999999999,-0.16405610139443583,,,7.399999999999999
+Jalen Coker,CAR,Receiving Yards,25.0,-210.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,7.0,-0.02609211142743534,,,7.0
+Mike Evans,TB,Receiving Yards,30.0,-440.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,6.700000000000003,-0.19828052126355533,,,6.700000000000003
+Rico Dowdle,CAR,Receiving Yards,10.0,-330.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,6.399999999999999,-0.15730885326860117,,,6.399999999999999
+Baker Mayfield,TB,Rushing Yards,25.0,190.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,-6.300000000000001,-0.05356986116503193,,,6.300000000000001
+Xavier Legette,CAR,Receiving Yards,25.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-6.100000000000001,-0.10034111330574025,,,6.100000000000001
+Chuba Hubbard,CAR,Rushing Yards,25.0,-170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,5.800000000000001,0.04929554059328606,,,5.800000000000001
+Emeka Egbuka,TB,Receiving Yards,25.0,-130.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-5.600000000000001,-0.3437529629901137,,,5.600000000000001
+Bucky Irving,TB,Receiving Yards,10.0,-300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,5.6,-0.16122965107991455,,,5.6
+Bucky Irving,TB,Rushing Yards,50.0,-200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,5.100000000000001,-0.036733499826342775,,,5.100000000000001
+Rico Dowdle,CAR,Rushing Yards,50.0,-180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,5.100000000000001,-0.0010569627828739825,,,5.100000000000001
+Rico Dowdle,CAR,Rushing Yards,60.0,,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-4.899999999999999,,,,4.899999999999999
+Bucky Irving,TB,Rushing Yards,60.0,-105.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,55.1,-4.899999999999999,-0.2909550808666847,,,4.899999999999999
+Bucky Irving,TB,Receiving Yards,20.0,,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,-4.4,,,,4.4
+Emeka Egbuka,TB,Receiving Yards,15.0,-260.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,4.399999999999999,-0.16630327863607164,,,4.399999999999999
+Emeka Egbuka,TB,Receptions,6.0,850.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,-4.12,-0.9927399580769416,,,4.12
+Xavier Legette,CAR,Receiving Yards,15.0,-160.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,3.8999999999999986,-0.04007097561555012,,,3.8999999999999986
+Mike Evans,TB,Receptions,8.0,700.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,-3.8600000000000003,-0.9880581480476449,,,3.8600000000000003
+Tetairoa McMillan,CAR,Receptions,8.0,675.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,-3.8499999999999996,-0.9881383824656654,,,3.8499999999999996
+Baker Mayfield,TB,Rushing Yards,15.0,-150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,3.6999999999999993,0.0070335271594170745,,,3.6999999999999993
+Rico Dowdle,CAR,Receiving Yards,20.0,-110.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,-3.6000000000000014,-0.2055407864660857,,,3.6000000000000014
+Mike Evans,TB,Receiving Yards,40.0,-245.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,36.7,-3.299999999999997,-0.4042879620191162,,,3.299999999999997
+Rico Dowdle,CAR,Receptions,6.0,625.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,2.8,-3.2,-0.9498508206018053,,,3.2
+Emeka Egbuka,TB,Receptions,5.0,475.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,-3.12,-0.9528641684335721,,,3.12
+Xavier Legette,CAR,Receptions,5.0,825.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,2.05,-2.95,-0.8924488807393516,,,2.95
+Bucky Irving,TB,Receptions,6.0,825.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,3.08,-2.92,-0.8857895315086153,,,2.92
+Mike Evans,TB,Receptions,7.0,375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,-2.8600000000000003,-0.9339586243108817,,,2.8600000000000003
+Tetairoa McMillan,CAR,Receptions,7.0,375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,-2.8499999999999996,-0.9326514203422478,,,2.8499999999999996
+Bryce Young,CAR,Passing TDs,4.0,1200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.39,-2.6100000000000003,-0.8197909741855213,,,2.6100000000000003
+Bryce Young,CAR,Rushing Yards,15.0,-170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,2.6000000000000014,-0.08888406677951666,,,2.6000000000000014
+Bryce Young,CAR,Rushing Yards,20.0,105.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,17.6,-2.3999999999999986,-0.11451603969145019,,,2.3999999999999986
+Jalen Coker,CAR,Receptions,6.0,600.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,3.66,-2.34,-0.7484877662095192,,,2.34
+Rico Dowdle,CAR,Receptions,5.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,2.8,-2.2,-0.8188253561569727,,,2.2
+Baker Mayfield,TB,Passing TDs,4.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.83,-2.17,-0.5366132790774487,,,2.17
+Emeka Egbuka,TB,Receptions,4.0,250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,-2.12,-0.8198567111257992,,,2.12
+Tetairoa McMillan,CAR,Receiving Yards,40.0,-300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,42.1,2.1000000000000014,-0.2677919236159667,,,2.1000000000000014
+Jalen Coker,CAR,Receiving Yards,30.0,-150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,32.0,2.0,-0.08862276356849436,,,2.0
+Xavier Legette,CAR,Receptions,4.0,375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,2.05,-1.9500000000000002,-0.6826657939729242,,,1.9500000000000002
+Bucky Irving,TB,Receptions,5.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,3.08,-1.92,-0.6507593544669326,,,1.92
+Mike Evans,TB,Receptions,6.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,-1.8600000000000003,-0.7712554536309261,,,1.8600000000000003
+Tetairoa McMillan,CAR,Receptions,6.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,-1.8499999999999996,-0.7679292140705102,,,1.8499999999999996
+Jalen Coker,CAR,Receptions,2.0,-575.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,3.66,1.6600000000000001,0.05556534864701981,,,1.6600000000000001
+Bryce Young,CAR,Passing TDs,3.0,400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.39,-1.61,-0.7369803560035467,,,1.61
+Rico Dowdle,CAR,Receiving Yards,15.0,-180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,16.4,1.3999999999999986,-0.17117359940622334,,,1.3999999999999986
+Jalen Coker,CAR,Receptions,5.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,3.66,-1.3399999999999999,-0.3947018989467949,,,1.3399999999999999
+Baker Mayfield,TB,Rushing Yards,20.0,120.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,rush_yards,18.7,-1.3000000000000007,0.018618758991281403,,,1.3000000000000007
+Rico Dowdle,CAR,Receptions,4.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,2.8,-1.2000000000000002,-0.5550411003328362,,,1.2000000000000002
+Baker Mayfield,TB,Passing TDs,3.0,350.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.83,-1.17,-0.4889063776922703,,,1.17
+Tetairoa McMillan,CAR,Receptions,3.0,-625.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,1.1500000000000004,-0.058291181605732184,,,1.1500000000000004
+Mike Evans,TB,Receptions,3.0,-600.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,1.1399999999999997,-0.05530824548573163,,,1.1399999999999997
+Emeka Egbuka,TB,Receptions,3.0,120.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,-1.12,-0.5721642977861343,,,1.12
+Xavier Legette,CAR,Receiving Yards,20.0,,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,18.9,-1.1000000000000014,,,,1.1000000000000014
+Bucky Irving,TB,Receptions,2.0,-350.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,3.08,1.08,0.02464742348012422,,,1.08
+Xavier Legette,CAR,Receptions,1.0,-1200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,2.05,1.0499999999999998,-0.1437700219985467,,,1.0499999999999998
+Xavier Legette,CAR,Receptions,3.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,2.05,-0.9500000000000002,-0.41884984921927393,,,0.9500000000000002
+Bucky Irving,TB,Receptions,4.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,3.08,-0.9199999999999999,-0.28129546693692575,,,0.9199999999999999
+Baker Mayfield,TB,Passing Yards,225.0,-110.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_yards,224.1,-0.9000000000000057,-0.06503682660316357,,,0.9000000000000057
+Emeka Egbuka,TB,Receptions,1.0,-1300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,0.8799999999999999,-0.19147564079786988,,,0.8799999999999999
+Mike Evans,TB,Receptions,5.0,,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,-0.8600000000000003,,,,0.8600000000000003
+Tetairoa McMillan,CAR,Receptions,5.0,-105.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,-0.8499999999999996,-0.49900837993059555,,,0.8499999999999996
+Baker Mayfield,TB,Passing TDs,1.0,-625.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.83,0.8300000000000001,-0.3666056602923371,,,0.8300000000000001
+Chuba Hubbard,CAR,Rushing Yards,30.0,-110.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rush_yards,30.8,0.8000000000000007,-0.001957242699422601,,,0.8000000000000007
+Rico Dowdle,CAR,Receptions,2.0,-450.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,2.8,0.7999999999999998,-0.10673934662255291,,,0.7999999999999998
+Jalen Coker,CAR,Receptions,3.0,-180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,3.66,0.6600000000000001,0.07981288810582643,,,0.6600000000000001
+Bryce Young,CAR,Passing TDs,2.0,,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.39,-0.6100000000000001,,,,0.6100000000000001
+Emeka Egbuka,TB,Receiving Yards,20.0,-180.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,rec_yards,19.4,-0.6000000000000014,-0.2441203892294191,,,0.6000000000000014
+Bucky Irving,TB,Receiving Yards,15.0,-160.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,rec_yards,15.6,0.5999999999999996,-0.16462423625141054,,,0.5999999999999996
+Bryce Young,CAR,Passing TDs,1.0,-525.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.39,0.3899999999999999,-0.5182023548448654,,,0.3899999999999999
+Jalen Coker,CAR,Receptions,4.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,3.66,-0.33999999999999986,-0.00790338335326346,,,0.33999999999999986
+Rico Dowdle,CAR,Receptions,3.0,-160.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,2.8,-0.20000000000000018,-0.2868435287798557,,,0.20000000000000018
+Baker Mayfield,TB,Passing TDs,2.0,-110.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,QB,pass_tds,1.83,-0.16999999999999993,-0.47037025478749234,,,0.16999999999999993
+Tetairoa McMillan,CAR,Receptions,4.0,-240.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.15,0.15000000000000036,-0.22659935979901472,,,0.15000000000000036
+Mike Evans,TB,Receptions,4.0,-230.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,4.14,0.13999999999999968,-0.22108505353750993,,,0.13999999999999968
+Emeka Egbuka,TB,Receptions,2.0,-240.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,1.88,-0.1200000000000001,-0.34376204970421487,,,0.1200000000000001
+Bucky Irving,TB,Receptions,3.0,-120.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,RB,receptions,3.08,0.08000000000000007,-0.03835285250982656,,,0.08000000000000007
+Xavier Legette,CAR,Receptions,2.0,-200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,WR,receptions,2.05,0.04999999999999982,-0.22698977248044327,,,0.04999999999999982
+Zay Flowers,BAL,Anytime TD,,205.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receptions,3.0,-360.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,2.0,-1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Zach Charbonnet (SEA) - 1H,,Anytime TD,,250.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1Q,,Anytime TD,,600.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receptions,5.0,150.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Zach Charbonnet & Seattle Seahawks,,Anytime TD,,220.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & San Francisco 49ers,,Anytime TD,,340.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
 Zach Charbonnet,SEA,Anytime TD,,,,False,,49ers,Seahawks,1767488400000,Bovada,RB,,,,,,unsupported_market,0.0
-Xavier Smith (LAR) - 1Q,,Anytime TD,,7500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Smith (LAR) - 1H,,Anytime TD,,1100.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Smith,LAR,Anytime TD,,525.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,LAR,Rushing Yards,13.5,-120.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,ATL,Receiving Yards,6.5,-105.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,ATL,Passing Yards,49.5,-115.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1Q,,Anytime TD,,1000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier (ATL) - 1H,,Anytime TD,,440.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier & Los Angeles Rams,,Anytime TD,,300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier & Atlanta Falcons,,Anytime TD,,850.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Tyler Allgeier,ATL,Rushing Yards,23.5,-125.0,-105.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Puka Nacua (LAR) - 1Q,,Anytime TD,,360.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Puka Nacua & Los Angeles Rams,,Anytime TD,,-110.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts,ATL,Receptions,4.5,-160.0,120.0,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Malik Heath (ATL) - 1Q,,Anytime TD,,17500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Malik Heath,ATL,Anytime TD,,1300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Luke Farrell,SF,Anytime TD,,525.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
-Los Angeles Rams Def/ST (LAR) - 1Q,,Anytime TD,,2700.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Los Angeles Rams Def/ST (LAR) - 1H,,Anytime TD,,1100.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams (LAR) - 1Q,,Anytime TD,,700.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams (LAR) - 1H,,Anytime TD,,230.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams & Los Angeles Rams,,Anytime TD,,,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams & Atlanta Falcons,,Anytime TD,,900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Rushing Yards,63.5,-125.0,-105.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Rushing Attempts,14.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Receptions,1.5,-180.0,135.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Receiving Yards,11.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyren Williams,LAR,Anytime TD,,,,False,,Falcons,Rams,1767057300000,Bovada,RB,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1Q,,Anytime TD,,950.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts (ATL) - 1H,,Anytime TD,,460.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts & Los Angeles Rams,,Anytime TD,,310.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Kyle Pitts & Atlanta Falcons,,Anytime TD,,900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Malik Heath (ATL) - 1H,,Anytime TD,,3000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Anytime TD,,1800.0,,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Puka Nacua & Atlanta Falcons,,Anytime TD,,900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Interceptions,0.5,120.0,-160.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Puka Nacua,LAR,Receptions,7.5,-160.0,120.0,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Puka Nacua,LAR,Receiving Yards,105.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Puka Nacua,LAR,Anytime TD,,-157.0,,False,,Falcons,Rams,1767057300000,Bovada,WR,,,,,,unsupported_market,0.0
-Over - 1Q,LAR,Rushing Yards,13.5,-110.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,ATL,Receiving Yards,6.5,-125.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,ATL,Passing Yards,49.5,-115.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nick Vannett (LAR) - 1Q,,Anytime TD,,10000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nick Vannett (LAR) - 1H,,Anytime TD,,1600.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nick Vannett,LAR,Anytime TD,,900.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nathan Carter (ATL) - 1Q,,Anytime TD,,20000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nathan Carter (ATL) - 1H,,Anytime TD,,3300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Nathan Carter,ATL,Anytime TD,,1500.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford (LAR) - 1Q,,Anytime TD,,10000.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford (LAR) - 1H,,Anytime TD,,3300.0,,False,,Falcons,Rams,1767057300000,Bovada,,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Passing Yards,268.5,-130.0,,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Passing TDs,2.5,145.0,-190.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-Matthew Stafford,LAR,Passing Attempts,33.5,-115.0,-115.0,False,,Falcons,Rams,1767057300000,Bovada,QB,,,,,,unsupported_market,0.0
-AJ Barner,SEA,Anytime TD,,170.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+Xavier Legette (CAR) - 1Q,,Anytime TD,,1700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Legette (CAR) - 1H,,Anytime TD,,750.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receptions,4.0,-145.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,100.0,1400.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,6.0,300.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receptions,7.0,600.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,receptions,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,90.0,1100.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,80.0,775.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,70.0,525.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,60.0,330.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,50.0,200.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,40.0,115.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,30.0,-170.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,25.0,-250.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,20.0,-375.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,15.0,-675.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Chris Godwin,TB,Receiving Yards,10.0,-1500.0,,True,Carolina Panthers @ Tampa Bay Buccaneers,Buccaneers,Panthers,1767475800000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Xavier Legette,CAR,Anytime TD,,390.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Legette,CAR,Receiving Yards,,3000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Aaron Rodgers,PIT,Anytime TD,,1600.0,,False,,Steelers,Ravens,1767576000000,Bovada,QB,,,,,,unsupported_market,0.0
+Adam Thielen,PIT,Anytime TD,,420.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Eric Saubert (SEA) - 1H,,Anytime TD,,2000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka (TB) - 1Q,,Anytime TD,,1300.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka (TB) - 1H,,Anytime TD,,650.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka & Tampa Bay Buccaneers,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka & Carolina Panthers,,Anytime TD,,950.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Receiving Yards,,900.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Emeka Egbuka,TB,Anytime TD,,320.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Devontez Walker,BAL,Anytime TD,,1700.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Devin Culp,TB,Anytime TD,,2500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Derrick Henry,BAL,Anytime TD,,-143.0,,False,,Steelers,Ravens,1767576000000,Bovada,RB,,,,,,unsupported_market,0.0
+Demarcus Robinson (SF) - 1H,,Anytime TD,,2200.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Demarcus Robinson,SF,Anytime TD,,1000.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+DeAndre Hopkins,BAL,Anytime TD,,725.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Dareke Young (SEA) - 1H,,Anytime TD,,3000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Dareke Young,SEA,Anytime TD,,1200.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1Q,,Anytime TD,,1100.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1H,,Anytime TD,,500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & Seattle Seahawks,,Anytime TD,,430.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & San Francisco 49ers,,Anytime TD,,650.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,235.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Connor Heyward,PIT,Anytime TD,,725.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Chuba Hubbard (CAR) - 1Q,,Anytime TD,,1400.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard (CAR) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard & Tampa Bay Buccaneers,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert,SEA,Anytime TD,,825.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+George Kittle,SF,Anytime TD,,145.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+James Mitchell (CAR) - 1H,,Anytime TD,,2200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+George Kittle & San Francisco 49ers,,Anytime TD,,300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jalen McMillan (TB) - 1Q,,Anytime TD,,1200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen McMillan (TB) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen McMillan & Tampa Bay Buccaneers,,Anytime TD,,470.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen McMillan & Carolina Panthers,,Anytime TD,,650.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen McMillan,TB,Receiving Yards,,725.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen McMillan,TB,Anytime TD,,295.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Coker (CAR) - 1Q,,Anytime TD,,1200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker (CAR) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker & Tampa Bay Buccaneers,,Anytime TD,,430.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker & Carolina Panthers,,Anytime TD,,600.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jalen Coker,CAR,Receiving Yards,,800.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jalen Coker,CAR,Anytime TD,,265.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jake Tonges (SF) - 1H,,Anytime TD,,1400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges,SF,Anytime TD,,525.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Bobo (SEA) - 1H,,Anytime TD,,1700.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,700.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Isaiah Likely,BAL,Anytime TD,,380.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Hunter Renfrow (CAR) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Renfrow (CAR) - 1H,,Anytime TD,,2700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Renfrow,CAR,Anytime TD,,1500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+George Kittle (SF) - 1Q,,Anytime TD,,650.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+George Kittle (SF) - 1H,,Anytime TD,,300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+George Kittle & Seattle Seahawks,,Anytime TD,,400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard & Carolina Panthers,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chuba Hubbard,CAR,Rushing Yards,,850.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Chuba Hubbard,CAR,Anytime TD,,190.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Christian McCaffrey (SF) - 1Q,,Anytime TD,,330.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Brycen Tremayne,CAR,Anytime TD,,1500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Bryce Young (CAR) - 1Q,,Anytime TD,,2500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bryce Young (CAR) - 1H,,Anytime TD,,1000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bryce Young,CAR,Rushing Yards,221.5,-115.0,-115.0,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+Bryce Young,CAR,Passing Yards,,130.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+Bryce Young,CAR,Anytime TD,,525.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+Brock Purdy (SF) - 1Q,,Anytime TD,,2500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Brock Purdy (SF) - 1H,,Anytime TD,,1000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Rushing Yards,262.5,-115.0,-115.0,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Anytime TD,,600.0,,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
+Brian Robinson (SF) - 1Q,,Anytime TD,,5000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Brian Robinson (SF) - 1H,,Anytime TD,,1600.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Brian Robinson,SF,Anytime TD,,600.0,,False,,49ers,Seahawks,1767488400000,Bovada,RB,,,,,,unsupported_market,0.0
+Baker Mayfield (TB) - 1Q,,Anytime TD,,3000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield (TB) - 1H,,Anytime TD,,1300.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Rushing Yards,239.5,-115.0,-115.0,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Passing Yards,,-170.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+Baker Mayfield,TB,Anytime TD,,700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,QB,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1Q,,Anytime TD,,850.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1H,,Anytime TD,,350.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & Seattle Seahawks,,Anytime TD,,300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & San Francisco 49ers,,Anytime TD,,460.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,155.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+Brycen Tremayne (CAR) - 1H,,Anytime TD,,2700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Brycen Tremayne (CAR) - 1Q,,Anytime TD,,8000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Anytime TD,,165.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Charlie Kolar,BAL,Anytime TD,,825.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Christian McCaffrey (SF) - 1H,,Anytime TD,,125.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & Seattle Seahawks,,Anytime TD,,210.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & San Francisco 49ers,,Anytime TD,,140.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Anytime TD,,-186.0,,False,,49ers,Seahawks,1767488400000,Bovada,RB,,,,,,unsupported_market,0.0
+Chris Godwin (TB) - 1Q,,Anytime TD,,1100.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin (TB) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin & Tampa Bay Buccaneers,,Anytime TD,,440.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin & Carolina Panthers,,Anytime TD,,600.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Receiving Yards,,850.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Chris Godwin,TB,Anytime TD,,255.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+CAR Panthers D/ST - 1Q,,Anytime TD,,3500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Receiving Yards,,3000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+CAR Panthers D/ST - 1H,,Anytime TD,,1500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1Q,,Anytime TD,,1600.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton (TB) - 1H,,Anytime TD,,750.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Cade Otton,TB,Receiving Yards,,4000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Cade Otton,TB,Anytime TD,,400.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Bucky Irving (TB) - 1Q,,Anytime TD,,700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving (TB) - 1H,,Anytime TD,,330.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving & Tampa Bay Buccaneers,,Anytime TD,,270.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving & Carolina Panthers,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Bucky Irving,TB,Rushing Yards,,,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+James Mitchell,CAR,Anytime TD,,1100.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+James Mitchell (CAR) - 1Q,,Anytime TD,,7000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,TB,Receiving Yards,0.5,-160.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker & Tampa Bay Buccaneers,,Anytime TD,,370.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker,TB,Anytime TD,,210.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1Q,,Anytime TD,,2700.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1H,,Anytime TD,,1200.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Scotty Miller,PIT,Anytime TD,,625.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+San Francisco Defense - 1Q,,Anytime TD,,3300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+San Francisco Defense - 1H,,Anytime TD,,1400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1Q,,Anytime TD,,3500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1H,,Anytime TD,,1400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Rushing Yards,251.5,-115.0,-115.0,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,725.0,,False,,49ers,Seahawks,1767488400000,Bovada,QB,,,,,,unsupported_market,0.0
+Robbie Ouzts,SEA,Anytime TD,,2800.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle (CAR) - 1Q,,Anytime TD,,650.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle (CAR) - 1H,,Anytime TD,,280.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle & Tampa Bay Buccaneers,,Anytime TD,,310.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle & Carolina Panthers,,Anytime TD,,310.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rico Dowdle,,Rushing Yards,,110.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Rico Dowdle,CAR,Receiving Yards,,3000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Rico Dowdle,CAR,Anytime TD,,120.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Ricky Pearsall (SF) - 1Q,,Anytime TD,,850.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall (SF) - 1H,,Anytime TD,,390.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall & Seattle Seahawks,,Anytime TD,,500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall & San Francisco 49ers,,Anytime TD,,380.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall,SF,Anytime TD,,210.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Sean Tucker & Carolina Panthers,,Anytime TD,,750.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1H,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings,SF,Anytime TD,,155.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Sean Tucker (TB) - 1Q,,Anytime TD,,1300.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Under - 1Q,CAR,Passing Yards,41.5,-110.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tylan Wallace,BAL,Anytime TD,,1600.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Trevor Etienne (CAR) - 1H,,Anytime TD,,4500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tommy Tremble (CAR) - 1Q,,Anytime TD,,2000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tommy Tremble (CAR) - 1H,,Anytime TD,,850.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tommy Tremble,CAR,Receiving Yards,,5000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Tommy Tremble,CAR,Anytime TD,,460.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Tez Johnson (TB) - 1H,,Anytime TD,,2500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tez Johnson,TB,Anytime TD,,1300.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Tetairoa McMillan (CAR) - 1Q,,Anytime TD,,700.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan (CAR) - 1H,,Anytime TD,,330.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan & Tampa Bay Buccaneers,,Anytime TD,,370.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan & Carolina Panthers,,Anytime TD,,360.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tetairoa McMillan,CAR,Receiving Yards,,190.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Tetairoa McMillan,CAR,Anytime TD,,160.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1Q,,Anytime TD,,3500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+TB Buccaneers D/ST - 1H,,Anytime TD,,1500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Tampa Bay Buccaneers Def/ST,TB,Anytime TD,,460.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard (TB) - 1H,,Anytime TD,,2500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Sterling Shepard,TB,Anytime TD,,1300.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Skyy Moore (SF) - 1H,,Anytime TD,,4000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Skyy Moore,SF,Anytime TD,,1600.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Seattle Seahawks Def/ST,SEA,Anytime TD,,500.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Rashod Bateman,BAL,Anytime TD,,440.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1Q,,Anytime TD,,3000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White (TB) - 1H,,Anytime TD,,850.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Rachaad White,TB,Anytime TD,,390.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,RB,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1Q,,Anytime TD,,650.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1H,,Anytime TD,,300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,125.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Gainwell,PIT,Anytime TD,,190.0,,False,,Steelers,Ravens,1767576000000,Bovada,RB,,,,,,unsupported_market,0.0
+Kendrick Bourne (SF) - 1H,,Anytime TD,,4000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne,SF,Anytime TD,,1900.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Keaton Mitchell,BAL,Anytime TD,,525.0,,False,,Steelers,Ravens,1767576000000,Bovada,RB,,,,,,unsupported_market,0.0
+Kameron Johnson,TB,Anytime TD,,2500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jordan Watkins (SF) - 1H,,Anytime TD,,4000.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jonnu Smith,PIT,Anytime TD,,420.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Jimmy Horn Jr. (CAR) - 1Q,,Anytime TD,,7500.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jimmy Horn Jr. (CAR) - 1H,,Anytime TD,,2200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Jimmy Horn Jr.,CAR,Anytime TD,,1100.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaylen Warren,PIT,Anytime TD,,165.0,,False,,Steelers,Ravens,1767576000000,Bovada,RB,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1Q,,Anytime TD,,470.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1H,,Anytime TD,,200.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Seattle Seahawks,,Anytime TD,,190.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & San Francisco 49ers,,Anytime TD,,300.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,-122.0,,False,,49ers,Seahawks,1767488400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jauan Jennings (SF) - 1Q,,Anytime TD,,750.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings (SF) - 1H,,Anytime TD,,350.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings & Seattle Seahawks,,Anytime TD,,440.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings & San Francisco 49ers,,Anytime TD,,330.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & San Francisco 49ers,,Anytime TD,,400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & Seattle Seahawks,,Anytime TD,,270.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Juszczyk,SF,Anytime TD,,825.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1H,,Anytime TD,,320.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham (TB) - 1H,,Anytime TD,,4000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Payne Durham,TB,Anytime TD,,2200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Pat Freiermuth,PIT,Anytime TD,,330.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Over - 1Q,CAR,Rushing Yards,4.5,-130.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,TB,Receiving Yards,0.5,120.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Over - 1Q,CAR,Passing Yards,41.5,-120.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Evans (CAR) - 1Q,,Anytime TD,,4000.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Evans (CAR) - 1H,,Anytime TD,,1200.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Mitchell Evans,CAR,Anytime TD,,600.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,TE,,,,,,unsupported_market,0.0
+Mike Evans (TB) - 1Q,,Anytime TD,,650.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans & Tampa Bay Buccaneers,,Anytime TD,,260.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Juszczyk (SF) - 1H,,Anytime TD,,1900.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans & Carolina Panthers,,Anytime TD,,550.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
+Mike Evans,TB,Receiving Yards,,250.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Mike Evans,TB,Anytime TD,,155.0,,False,,Buccaneers,Panthers,1767475800000,Bovada,WR,,,,,,unsupported_market,0.0
+Marquez Valdes-Scantling,PIT,Anytime TD,,320.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Mark Andrews,BAL,Anytime TD,,205.0,,False,,Steelers,Ravens,1767576000000,Bovada,TE,,,,,,unsupported_market,0.0
+Luke Farrell (SF) - 1H,,Anytime TD,,1400.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell & Seattle Seahawks,,Anytime TD,,1100.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell & San Francisco 49ers,,Anytime TD,,850.0,,False,,49ers,Seahawks,1767488400000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell,SF,Anytime TD,,525.0,,False,,49ers,Seahawks,1767488400000,Bovada,TE,,,,,,unsupported_market,0.0
+LaJohntay Wester,BAL,Anytime TD,,2200.0,,False,,Steelers,Ravens,1767576000000,Bovada,WR,,,,,,unsupported_market,0.0
+Under - 1Q,CAR,Rushing Yards,4.5,,,False,,Buccaneers,Panthers,1767475800000,Bovada,,,,,,,unsupported_market,0.0
