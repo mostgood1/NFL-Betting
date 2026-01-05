@@ -1,41 +1,43 @@
 player,team,event,market,line,over_price,under_price,game_time,home_team,away_team,is_ladder,proj,edge
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,125.0,-1100.0,,1767576000000,Steelers,Ravens,True,211.2,86.19999999999999
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,150.0,-450.0,,1767576000000,Steelers,Ravens,True,211.2,61.19999999999999
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,175.0,-240.0,,1767576000000,Steelers,Ravens,True,211.2,36.19999999999999
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,200.0,-120.0,,1767576000000,Steelers,Ravens,True,211.2,11.199999999999989
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,225.0,155.0,,1767576000000,Steelers,Ravens,True,211.2,-13.800000000000011
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,250.0,275.0,,1767576000000,Steelers,Ravens,True,211.2,-38.80000000000001
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,275.0,525.0,,1767576000000,Steelers,Ravens,True,211.2,-63.80000000000001
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,300.0,875.0,,1767576000000,Steelers,Ravens,True,211.2,-88.80000000000001
-Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,325.0,1400.0,,1767576000000,Steelers,Ravens,True,211.2,-113.80000000000001
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,150.0,-700.0,,1767576000000,Steelers,Ravens,True,217.5,67.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,175.0,-330.0,,1767576000000,Steelers,Ravens,True,217.5,42.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,200.0,-175.0,,1767576000000,Steelers,Ravens,True,217.5,17.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,225.0,115.0,,1767576000000,Steelers,Ravens,True,217.5,-7.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,250.0,205.0,,1767576000000,Steelers,Ravens,True,217.5,-32.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,275.0,375.0,,1767576000000,Steelers,Ravens,True,217.5,-57.5
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,125.0,-1500.0,,1767576000000,Steelers,Ravens,True,211.2,86.19999999999999
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,150.0,-600.0,,1767576000000,Steelers,Ravens,True,211.2,61.19999999999999
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,175.0,-300.0,,1767576000000,Steelers,Ravens,True,211.2,36.19999999999999
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,200.0,-150.0,,1767576000000,Steelers,Ravens,True,211.2,11.199999999999989
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,225.0,125.0,,1767576000000,Steelers,Ravens,True,211.2,-13.800000000000011
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,250.0,225.0,,1767576000000,Steelers,Ravens,True,211.2,-38.80000000000001
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,275.0,400.0,,1767576000000,Steelers,Ravens,True,211.2,-63.80000000000001
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,300.0,700.0,,1767576000000,Steelers,Ravens,True,211.2,-88.80000000000001
+Aaron Rodgers,PIT,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,325.0,1100.0,,1767576000000,Steelers,Ravens,True,211.2,-113.80000000000001
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,125.0,-1500.0,,1767576000000,Steelers,Ravens,True,217.5,92.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,150.0,-600.0,,1767576000000,Steelers,Ravens,True,217.5,67.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,175.0,-300.0,,1767576000000,Steelers,Ravens,True,217.5,42.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,200.0,-150.0,,1767576000000,Steelers,Ravens,True,217.5,17.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,225.0,125.0,,1767576000000,Steelers,Ravens,True,217.5,-7.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,250.0,225.0,,1767576000000,Steelers,Ravens,True,217.5,-32.5
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,275.0,400.0,,1767576000000,Steelers,Ravens,True,217.5,-57.5
 Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,300.0,675.0,,1767576000000,Steelers,Ravens,True,217.5,-82.5
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,325.0,1200.0,,1767576000000,Steelers,Ravens,True,217.5,-107.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-230.0,,1767576000000,Steelers,Ravens,True,27.5,17.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-145.0,,1767576000000,Steelers,Ravens,True,27.5,12.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,,,1767576000000,Steelers,Ravens,True,27.5,7.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,140.0,,1767576000000,Steelers,Ravens,True,27.5,2.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,185.0,,1767576000000,Steelers,Ravens,True,27.5,-2.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,300.0,,1767576000000,Steelers,Ravens,True,27.5,-12.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,475.0,,1767576000000,Steelers,Ravens,True,27.5,-22.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,700.0,,1767576000000,Steelers,Ravens,True,27.5,-32.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,900.0,,1767576000000,Steelers,Ravens,True,27.5,-42.5
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,1400.0,,1767576000000,Steelers,Ravens,True,27.5,-52.5
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-385.0,,1767576000000,Steelers,Ravens,True,15.7,5.699999999999999
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-225.0,,1767576000000,Steelers,Ravens,True,15.7,0.6999999999999993
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,-150.0,,1767576000000,Steelers,Ravens,True,15.7,-4.300000000000001
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,,,1767576000000,Steelers,Ravens,True,15.7,-9.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,140.0,,1767576000000,Steelers,Ravens,True,15.7,-14.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,275.0,,1767576000000,Steelers,Ravens,True,15.7,-24.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,450.0,,1767576000000,Steelers,Ravens,True,15.7,-34.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,700.0,,1767576000000,Steelers,Ravens,True,15.7,-44.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,1100.0,,1767576000000,Steelers,Ravens,True,15.7,-54.3
-Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,1500.0,,1767576000000,Steelers,Ravens,True,15.7,-64.3
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Passing Yards,325.0,1100.0,,1767576000000,Steelers,Ravens,True,217.5,-107.5
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-290.0,,1767576000000,Steelers,Ravens,True,17.6,7.600000000000001
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-195.0,,1767576000000,Steelers,Ravens,True,17.6,2.6000000000000014
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,-135.0,,1767576000000,Steelers,Ravens,True,17.6,-2.3999999999999986
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,,,1767576000000,Steelers,Ravens,True,17.6,-7.399999999999999
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,135.0,,1767576000000,Steelers,Ravens,True,17.6,-12.399999999999999
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,210.0,,1767576000000,Steelers,Ravens,True,17.6,-22.4
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,330.0,,1767576000000,Steelers,Ravens,True,17.6,-32.4
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,500.0,,1767576000000,Steelers,Ravens,True,17.6,-42.4
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,700.0,,1767576000000,Steelers,Ravens,True,17.6,-52.4
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,900.0,,1767576000000,Steelers,Ravens,True,17.6,-62.4
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,90.0,1250.0,,1767576000000,Steelers,Ravens,True,17.6,-72.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-385.0,,1767576000000,Steelers,Ravens,True,15.6,5.6
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-225.0,,1767576000000,Steelers,Ravens,True,15.6,0.5999999999999996
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,-150.0,,1767576000000,Steelers,Ravens,True,15.6,-4.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,,,1767576000000,Steelers,Ravens,True,15.6,-9.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,140.0,,1767576000000,Steelers,Ravens,True,15.6,-14.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,275.0,,1767576000000,Steelers,Ravens,True,15.6,-24.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,450.0,,1767576000000,Steelers,Ravens,True,15.6,-34.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,700.0,,1767576000000,Steelers,Ravens,True,15.6,-44.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,1100.0,,1767576000000,Steelers,Ravens,True,15.6,-54.4
+Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,1500.0,,1767576000000,Steelers,Ravens,True,15.6,-64.4
 Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-130.0,,1767576000000,Steelers,Ravens,True,15.4,5.4
 Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,140.0,,1767576000000,Steelers,Ravens,True,15.4,0.40000000000000036
 Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,225.0,,1767576000000,Steelers,Ravens,True,15.4,-4.6
@@ -80,41 +82,41 @@ Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,5
 Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,850.0,,1767576000000,Steelers,Ravens,True,29.3,-50.7
 Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,90.0,1200.0,,1767576000000,Steelers,Ravens,True,29.3,-60.7
 Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,100.0,1500.0,,1767576000000,Steelers,Ravens,True,29.3,-70.7
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-200.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-125.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,115.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,160.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,220.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,350.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,550.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,800.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,1100.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,1500.0,,1767576000000,Steelers,Ravens,True,,
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,-1100.0,,1767576000000,Steelers,Ravens,True,38.1,13.100000000000001
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,-675.0,,1767576000000,Steelers,Ravens,True,38.1,8.100000000000001
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,-350.0,,1767576000000,Steelers,Ravens,True,38.1,-1.8999999999999986
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,-200.0,,1767576000000,Steelers,Ravens,True,38.1,-11.899999999999999
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,-125.0,,1767576000000,Steelers,Ravens,True,38.1,-21.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,125.0,,1767576000000,Steelers,Ravens,True,38.1,-31.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,190.0,,1767576000000,Steelers,Ravens,True,38.1,-41.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,90.0,275.0,,1767576000000,Steelers,Ravens,True,38.1,-51.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,100.0,400.0,,1767576000000,Steelers,Ravens,True,38.1,-61.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,110.0,550.0,,1767576000000,Steelers,Ravens,True,38.1,-71.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,125.0,875.0,,1767576000000,Steelers,Ravens,True,38.1,-86.9
-Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,150.0,1700.0,,1767576000000,Steelers,Ravens,True,38.1,-111.9
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-500.0,,1767576000000,Steelers,Ravens,True,3.27,2.27
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,,,1767576000000,Steelers,Ravens,True,3.27,1.27
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,300.0,,1767576000000,Steelers,Ravens,True,3.27,0.27
-DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,800.0,,1767576000000,Steelers,Ravens,True,3.27,-0.73
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,10.0,-200.0,,1767576000000,Steelers,Ravens,True,28.8,18.8
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,15.0,-125.0,,1767576000000,Steelers,Ravens,True,28.8,13.8
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,20.0,115.0,,1767576000000,Steelers,Ravens,True,28.8,8.8
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,160.0,,1767576000000,Steelers,Ravens,True,28.8,3.8000000000000007
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,220.0,,1767576000000,Steelers,Ravens,True,28.8,-1.1999999999999993
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,350.0,,1767576000000,Steelers,Ravens,True,28.8,-11.2
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,550.0,,1767576000000,Steelers,Ravens,True,28.8,-21.2
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,800.0,,1767576000000,Steelers,Ravens,True,28.8,-31.2
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,1100.0,,1767576000000,Steelers,Ravens,True,28.8,-41.2
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,1500.0,,1767576000000,Steelers,Ravens,True,28.8,-51.2
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,25.0,-1100.0,,1767576000000,Steelers,Ravens,True,38.0,13.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,30.0,-675.0,,1767576000000,Steelers,Ravens,True,38.0,8.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,40.0,-350.0,,1767576000000,Steelers,Ravens,True,38.0,-2.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,50.0,-200.0,,1767576000000,Steelers,Ravens,True,38.0,-12.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,60.0,-125.0,,1767576000000,Steelers,Ravens,True,38.0,-22.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,70.0,125.0,,1767576000000,Steelers,Ravens,True,38.0,-32.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,80.0,190.0,,1767576000000,Steelers,Ravens,True,38.0,-42.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,90.0,275.0,,1767576000000,Steelers,Ravens,True,38.0,-52.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,100.0,400.0,,1767576000000,Steelers,Ravens,True,38.0,-62.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,110.0,550.0,,1767576000000,Steelers,Ravens,True,38.0,-72.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,125.0,875.0,,1767576000000,Steelers,Ravens,True,38.0,-87.0
+Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receiving Yards,150.0,1700.0,,1767576000000,Steelers,Ravens,True,38.0,-112.0
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-500.0,,1767576000000,Steelers,Ravens,True,2.17,1.17
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,,,1767576000000,Steelers,Ravens,True,2.17,0.16999999999999993
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,300.0,,1767576000000,Steelers,Ravens,True,2.17,-0.8300000000000001
+DeAndre Hopkins,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,800.0,,1767576000000,Steelers,Ravens,True,2.17,-1.83
 Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-1400.0,,1767576000000,Steelers,Ravens,True,2.21,1.21
 Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-235.0,,1767576000000,Steelers,Ravens,True,2.21,0.20999999999999996
 Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,130.0,,1767576000000,Steelers,Ravens,True,2.21,-0.79
 Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,325.0,,1767576000000,Steelers,Ravens,True,2.21,-1.79
 Isaiah Likely,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,750.0,,1767576000000,Steelers,Ravens,True,2.21,-2.79
-Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-600.0,,1767576000000,Steelers,Ravens,True,3.0,2.0
-Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-130.0,,1767576000000,Steelers,Ravens,True,3.0,1.0
-Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,225.0,,1767576000000,Steelers,Ravens,True,3.0,0.0
-Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,550.0,,1767576000000,Steelers,Ravens,True,3.0,-1.0
+Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-600.0,,1767576000000,Steelers,Ravens,True,3.01,2.01
+Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-130.0,,1767576000000,Steelers,Ravens,True,3.01,1.0099999999999998
+Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,225.0,,1767576000000,Steelers,Ravens,True,3.01,0.009999999999999787
+Jaylen Warren,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,550.0,,1767576000000,Steelers,Ravens,True,3.01,-0.9900000000000002
 Jonnu Smith,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-1400.0,,1767576000000,Steelers,Ravens,True,2.35,1.35
 Jonnu Smith,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-260.0,,1767576000000,Steelers,Ravens,True,2.35,0.3500000000000001
 Jonnu Smith,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,110.0,,1767576000000,Steelers,Ravens,True,2.35,-0.6499999999999999
@@ -128,22 +130,22 @@ Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,6.0,170.0
 Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,7.0,300.0,,1767576000000,Steelers,Ravens,True,1.8,-5.2
 Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,8.0,550.0,,1767576000000,Steelers,Ravens,True,1.8,-6.2
 Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,9.0,875.0,,1767576000000,Steelers,Ravens,True,1.8,-7.2
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-850.0,,1767576000000,Steelers,Ravens,True,4.26,2.26
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,-250.0,,1767576000000,Steelers,Ravens,True,4.26,1.2599999999999998
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,-105.0,,1767576000000,Steelers,Ravens,True,4.26,0.2599999999999998
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,210.0,,1767576000000,Steelers,Ravens,True,4.26,-0.7400000000000002
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,6.0,400.0,,1767576000000,Steelers,Ravens,True,4.26,-1.7400000000000002
-Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,7.0,800.0,,1767576000000,Steelers,Ravens,True,4.26,-2.74
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-650.0,,1767576000000,Steelers,Ravens,True,4.29,2.29
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,-210.0,,1767576000000,Steelers,Ravens,True,4.29,1.29
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,115.0,,1767576000000,Steelers,Ravens,True,4.29,0.29000000000000004
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,225.0,,1767576000000,Steelers,Ravens,True,4.29,-0.71
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,6.0,400.0,,1767576000000,Steelers,Ravens,True,4.29,-1.71
-Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,7.0,750.0,,1767576000000,Steelers,Ravens,True,4.29,-2.71
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-450.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,105.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,325.0,,1767576000000,Steelers,Ravens,True,,
-Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,850.0,,1767576000000,Steelers,Ravens,True,,
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-850.0,,1767576000000,Steelers,Ravens,True,4.25,2.25
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,-250.0,,1767576000000,Steelers,Ravens,True,4.25,1.25
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,-105.0,,1767576000000,Steelers,Ravens,True,4.25,0.25
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,210.0,,1767576000000,Steelers,Ravens,True,4.25,-0.75
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,6.0,400.0,,1767576000000,Steelers,Ravens,True,4.25,-1.75
+Mark Andrews,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,7.0,800.0,,1767576000000,Steelers,Ravens,True,4.25,-2.75
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,-650.0,,1767576000000,Steelers,Ravens,True,4.27,2.2699999999999996
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,-210.0,,1767576000000,Steelers,Ravens,True,4.27,1.2699999999999996
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,115.0,,1767576000000,Steelers,Ravens,True,4.27,0.2699999999999996
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,225.0,,1767576000000,Steelers,Ravens,True,4.27,-0.7300000000000004
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,6.0,400.0,,1767576000000,Steelers,Ravens,True,4.27,-1.7300000000000004
+Pat Freiermuth,PIT,Baltimore Ravens @ Pittsburgh Steelers,Receptions,7.0,750.0,,1767576000000,Steelers,Ravens,True,4.27,-2.7300000000000004
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,1.0,-450.0,,1767576000000,Steelers,Ravens,True,3.25,2.25
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,2.0,105.0,,1767576000000,Steelers,Ravens,True,3.25,1.25
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,325.0,,1767576000000,Steelers,Ravens,True,3.25,0.25
+Rashod Bateman,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,850.0,,1767576000000,Steelers,Ravens,True,3.25,-0.75
 Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,3.0,-1100.0,,1767576000000,Steelers,Ravens,True,4.96,1.96
 Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,4.0,-350.0,,1767576000000,Steelers,Ravens,True,4.96,0.96
 Zay Flowers,BAL,Baltimore Ravens @ Pittsburgh Steelers,Receptions,5.0,-155.0,,1767576000000,Steelers,Ravens,True,4.96,-0.040000000000000036
@@ -182,409 +184,618 @@ Keaton Mitchell,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,40.0,37
 Keaton Mitchell,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,50.0,650.0,,1767576000000,Steelers,Ravens,True,25.7,-24.3
 Keaton Mitchell,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,60.0,925.0,,1767576000000,Steelers,Ravens,True,25.7,-34.3
 Keaton Mitchell,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,70.0,1400.0,,1767576000000,Steelers,Ravens,True,25.7,-44.3
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,10.0,-1500.0,,1767576000000,Steelers,Ravens,True,34.4,24.4
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,15.0,-575.0,,1767576000000,Steelers,Ravens,True,34.4,19.4
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,20.0,-300.0,,1767576000000,Steelers,Ravens,True,34.4,14.399999999999999
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,25.0,-185.0,,1767576000000,Steelers,Ravens,True,34.4,9.399999999999999
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,30.0,-115.0,,1767576000000,Steelers,Ravens,True,34.4,4.399999999999999
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,40.0,185.0,,1767576000000,Steelers,Ravens,True,34.4,-5.600000000000001
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,50.0,350.0,,1767576000000,Steelers,Ravens,True,34.4,-15.600000000000001
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,60.0,575.0,,1767576000000,Steelers,Ravens,True,34.4,-25.6
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,70.0,875.0,,1767576000000,Steelers,Ravens,True,34.4,-35.6
-Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,80.0,1200.0,,1767576000000,Steelers,Ravens,True,34.4,-45.6
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,10.0,-675.0,,1767576000000,Steelers,Ravens,True,28.7,18.7
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,15.0,-350.0,,1767576000000,Steelers,Ravens,True,28.7,13.7
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,20.0,-200.0,,1767576000000,Steelers,Ravens,True,28.7,8.7
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,25.0,-125.0,,1767576000000,Steelers,Ravens,True,28.7,3.6999999999999993
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,30.0,125.0,,1767576000000,Steelers,Ravens,True,28.7,-1.3000000000000007
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,40.0,225.0,,1767576000000,Steelers,Ravens,True,28.7,-11.3
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,50.0,400.0,,1767576000000,Steelers,Ravens,True,28.7,-21.3
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,60.0,650.0,,1767576000000,Steelers,Ravens,True,28.7,-31.3
-Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,70.0,1000.0,,1767576000000,Steelers,Ravens,True,28.7,-41.3
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,150.0,-825.0,,1767475800000,Buccaneers,Panthers,True,224.1,74.1
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,175.0,-425.0,,1767475800000,Buccaneers,Panthers,True,224.1,49.099999999999994
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,200.0,-220.0,,1767475800000,Buccaneers,Panthers,True,224.1,24.099999999999994
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,225.0,-110.0,,1767475800000,Buccaneers,Panthers,True,224.1,-0.9000000000000057
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,250.0,170.0,,1767475800000,Buccaneers,Panthers,True,224.1,-25.900000000000006
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,275.0,300.0,,1767475800000,Buccaneers,Panthers,True,224.1,-50.900000000000006
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,300.0,525.0,,1767475800000,Buccaneers,Panthers,True,224.1,-75.9
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,325.0,850.0,,1767475800000,Buccaneers,Panthers,True,224.1,-100.9
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,350.0,1300.0,,1767475800000,Buccaneers,Panthers,True,224.1,-125.9
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,125.0,-1100.0,,1767475800000,Buccaneers,Panthers,True,208.1,83.1
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,150.0,-450.0,,1767475800000,Buccaneers,Panthers,True,208.1,58.099999999999994
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,175.0,-240.0,,1767475800000,Buccaneers,Panthers,True,208.1,33.099999999999994
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,200.0,-115.0,,1767475800000,Buccaneers,Panthers,True,208.1,8.099999999999994
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,225.0,150.0,,1767475800000,Buccaneers,Panthers,True,208.1,-16.900000000000006
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,250.0,275.0,,1767475800000,Buccaneers,Panthers,True,208.1,-41.900000000000006
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,275.0,475.0,,1767475800000,Buccaneers,Panthers,True,208.1,-66.9
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,300.0,850.0,,1767475800000,Buccaneers,Panthers,True,208.1,-91.9
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Passing Yards,325.0,1300.0,,1767475800000,Buccaneers,Panthers,True,208.1,-116.9
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-300.0,,1767475800000,Buccaneers,Panthers,True,15.6,5.6
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-160.0,,1767475800000,Buccaneers,Panthers,True,15.6,0.5999999999999996
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,,,1767475800000,Buccaneers,Panthers,True,15.6,-4.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,150.0,,1767475800000,Buccaneers,Panthers,True,15.6,-9.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,225.0,,1767475800000,Buccaneers,Panthers,True,15.6,-14.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,400.0,,1767475800000,Buccaneers,Panthers,True,15.6,-24.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,700.0,,1767475800000,Buccaneers,Panthers,True,15.6,-34.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,1000.0,,1767475800000,Buccaneers,Panthers,True,15.6,-44.4
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,1500.0,,1767475800000,Buccaneers,Panthers,True,15.6,-54.4
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-1500.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-675.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-375.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,-250.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,-170.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,115.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,200.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,330.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,525.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,80.0,775.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,90.0,1100.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,100.0,1400.0,,1767475800000,Buccaneers,Panthers,True,,
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-440.0,,1767475800000,Buccaneers,Panthers,True,19.3,9.3
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-260.0,,1767475800000,Buccaneers,Panthers,True,19.3,4.300000000000001
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-180.0,,1767475800000,Buccaneers,Panthers,True,19.3,-0.6999999999999993
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,-130.0,,1767475800000,Buccaneers,Panthers,True,19.3,-5.699999999999999
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,105.0,,1767475800000,Buccaneers,Panthers,True,19.3,-10.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,180.0,,1767475800000,Buccaneers,Panthers,True,19.3,-20.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,250.0,,1767475800000,Buccaneers,Panthers,True,19.3,-30.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,400.0,,1767475800000,Buccaneers,Panthers,True,19.3,-40.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,575.0,,1767475800000,Buccaneers,Panthers,True,19.3,-50.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,80.0,725.0,,1767475800000,Buccaneers,Panthers,True,19.3,-60.7
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,90.0,1000.0,,1767475800000,Buccaneers,Panthers,True,19.3,-70.7
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-875.0,,1767475800000,Buccaneers,Panthers,True,31.7,21.7
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-490.0,,1767475800000,Buccaneers,Panthers,True,31.7,16.7
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-325.0,,1767475800000,Buccaneers,Panthers,True,31.7,11.7
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,-210.0,,1767475800000,Buccaneers,Panthers,True,31.7,6.699999999999999
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,-150.0,,1767475800000,Buccaneers,Panthers,True,31.7,1.6999999999999993
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,125.0,,1767475800000,Buccaneers,Panthers,True,31.7,-8.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,200.0,,1767475800000,Buccaneers,Panthers,True,31.7,-18.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,300.0,,1767475800000,Buccaneers,Panthers,True,31.7,-28.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,500.0,,1767475800000,Buccaneers,Panthers,True,31.7,-38.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,80.0,725.0,,1767475800000,Buccaneers,Panthers,True,31.7,-48.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,90.0,1000.0,,1767475800000,Buccaneers,Panthers,True,31.7,-58.3
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,100.0,1200.0,,1767475800000,Buccaneers,Panthers,True,31.7,-68.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-1200.0,,1767475800000,Buccaneers,Panthers,True,36.7,16.700000000000003
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,-675.0,,1767475800000,Buccaneers,Panthers,True,36.7,11.700000000000003
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,-440.0,,1767475800000,Buccaneers,Panthers,True,36.7,6.700000000000003
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,-245.0,,1767475800000,Buccaneers,Panthers,True,36.7,-3.299999999999997
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,-145.0,,1767475800000,Buccaneers,Panthers,True,36.7,-13.299999999999997
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,120.0,,1767475800000,Buccaneers,Panthers,True,36.7,-23.299999999999997
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,180.0,,1767475800000,Buccaneers,Panthers,True,36.7,-33.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,80.0,250.0,,1767475800000,Buccaneers,Panthers,True,36.7,-43.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,90.0,375.0,,1767475800000,Buccaneers,Panthers,True,36.7,-53.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,100.0,500.0,,1767475800000,Buccaneers,Panthers,True,36.7,-63.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,110.0,725.0,,1767475800000,Buccaneers,Panthers,True,36.7,-73.3
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,125.0,1100.0,,1767475800000,Buccaneers,Panthers,True,36.7,-88.3
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-330.0,,1767475800000,Buccaneers,Panthers,True,16.3,6.300000000000001
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-180.0,,1767475800000,Buccaneers,Panthers,True,16.3,1.3000000000000007
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-110.0,,1767475800000,Buccaneers,Panthers,True,16.3,-3.6999999999999993
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,140.0,,1767475800000,Buccaneers,Panthers,True,16.3,-8.7
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,200.0,,1767475800000,Buccaneers,Panthers,True,16.3,-13.7
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,400.0,,1767475800000,Buccaneers,Panthers,True,16.3,-23.7
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,650.0,,1767475800000,Buccaneers,Panthers,True,16.3,-33.7
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,1000.0,,1767475800000,Buccaneers,Panthers,True,16.3,-43.7
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,1500.0,,1767475800000,Buccaneers,Panthers,True,16.3,-53.7
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,-1500.0,,1767475800000,Buccaneers,Panthers,True,41.8,21.799999999999997
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,-900.0,,1767475800000,Buccaneers,Panthers,True,41.8,16.799999999999997
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,-600.0,,1767475800000,Buccaneers,Panthers,True,41.8,11.799999999999997
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,-310.0,,1767475800000,Buccaneers,Panthers,True,41.8,1.7999999999999972
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,-190.0,,1767475800000,Buccaneers,Panthers,True,41.8,-8.200000000000003
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,-115.0,,1767475800000,Buccaneers,Panthers,True,41.8,-18.200000000000003
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,135.0,,1767475800000,Buccaneers,Panthers,True,41.8,-28.200000000000003
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,80.0,190.0,,1767475800000,Buccaneers,Panthers,True,41.8,-38.2
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,90.0,275.0,,1767475800000,Buccaneers,Panthers,True,41.8,-48.2
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,100.0,400.0,,1767475800000,Buccaneers,Panthers,True,41.8,-58.2
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,110.0,550.0,,1767475800000,Buccaneers,Panthers,True,41.8,-68.2
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,125.0,850.0,,1767475800000,Buccaneers,Panthers,True,41.8,-83.2
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,150.0,1500.0,,1767475800000,Buccaneers,Panthers,True,41.8,-108.2
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,10.0,-275.0,,1767475800000,Buccaneers,Panthers,True,18.9,8.899999999999999
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,15.0,-160.0,,1767475800000,Buccaneers,Panthers,True,18.9,3.8999999999999986
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,20.0,,,1767475800000,Buccaneers,Panthers,True,18.9,-1.1000000000000014
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,25.0,150.0,,1767475800000,Buccaneers,Panthers,True,18.9,-6.100000000000001
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,30.0,200.0,,1767475800000,Buccaneers,Panthers,True,18.9,-11.100000000000001
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,40.0,350.0,,1767475800000,Buccaneers,Panthers,True,18.9,-21.1
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,50.0,600.0,,1767475800000,Buccaneers,Panthers,True,18.9,-31.1
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,60.0,900.0,,1767475800000,Buccaneers,Panthers,True,18.9,-41.1
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receiving Yards,70.0,1300.0,,1767475800000,Buccaneers,Panthers,True,18.9,-51.1
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-350.0,,1767475800000,Buccaneers,Panthers,True,3.06,1.06
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-120.0,,1767475800000,Buccaneers,Panthers,True,3.06,0.06000000000000005
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,200.0,,1767475800000,Buccaneers,Panthers,True,3.06,-0.94
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,400.0,,1767475800000,Buccaneers,Panthers,True,3.06,-1.94
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,825.0,,1767475800000,Buccaneers,Panthers,True,3.06,-2.94
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-1500.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-360.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,-145.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,150.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,300.0,,1767475800000,Buccaneers,Panthers,True,,
-Chris Godwin,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,7.0,600.0,,1767475800000,Buccaneers,Panthers,True,,
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,1.0,-1300.0,,1767475800000,Buccaneers,Panthers,True,1.87,0.8700000000000001
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-240.0,,1767475800000,Buccaneers,Panthers,True,1.87,-0.1299999999999999
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,120.0,,1767475800000,Buccaneers,Panthers,True,1.87,-1.13
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,250.0,,1767475800000,Buccaneers,Panthers,True,1.87,-2.13
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,475.0,,1767475800000,Buccaneers,Panthers,True,1.87,-3.13
-Emeka Egbuka,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,850.0,,1767475800000,Buccaneers,Panthers,True,1.87,-4.13
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-575.0,,1767475800000,Buccaneers,Panthers,True,3.73,1.73
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-180.0,,1767475800000,Buccaneers,Panthers,True,3.73,0.73
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,150.0,,1767475800000,Buccaneers,Panthers,True,3.73,-0.27
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,300.0,,1767475800000,Buccaneers,Panthers,True,3.73,-1.27
-Jalen Coker,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,600.0,,1767475800000,Buccaneers,Panthers,True,3.73,-2.27
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-600.0,,1767475800000,Buccaneers,Panthers,True,4.15,1.1500000000000004
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,-230.0,,1767475800000,Buccaneers,Panthers,True,4.15,0.15000000000000036
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,,,1767475800000,Buccaneers,Panthers,True,4.15,-0.8499999999999996
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,200.0,,1767475800000,Buccaneers,Panthers,True,4.15,-1.8499999999999996
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,7.0,375.0,,1767475800000,Buccaneers,Panthers,True,4.15,-2.8499999999999996
-Mike Evans,TB,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,8.0,700.0,,1767475800000,Buccaneers,Panthers,True,4.15,-3.8499999999999996
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-450.0,,1767475800000,Buccaneers,Panthers,True,2.81,0.81
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-160.0,,1767475800000,Buccaneers,Panthers,True,2.81,-0.18999999999999995
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,150.0,,1767475800000,Buccaneers,Panthers,True,2.81,-1.19
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,300.0,,1767475800000,Buccaneers,Panthers,True,2.81,-2.19
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,625.0,,1767475800000,Buccaneers,Panthers,True,2.81,-3.19
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,-625.0,,1767475800000,Buccaneers,Panthers,True,4.15,1.1500000000000004
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,-240.0,,1767475800000,Buccaneers,Panthers,True,4.15,0.15000000000000036
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,-105.0,,1767475800000,Buccaneers,Panthers,True,4.15,-0.8499999999999996
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,6.0,200.0,,1767475800000,Buccaneers,Panthers,True,4.15,-1.8499999999999996
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,7.0,375.0,,1767475800000,Buccaneers,Panthers,True,4.15,-2.8499999999999996
-Tetairoa McMillan,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,8.0,675.0,,1767475800000,Buccaneers,Panthers,True,4.15,-3.8499999999999996
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,1.0,-1200.0,,1767475800000,Buccaneers,Panthers,True,2.06,1.06
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,2.0,-200.0,,1767475800000,Buccaneers,Panthers,True,2.06,0.06000000000000005
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,3.0,150.0,,1767475800000,Buccaneers,Panthers,True,2.06,-0.94
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,4.0,375.0,,1767475800000,Buccaneers,Panthers,True,2.06,-1.94
-Xavier Legette,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Receptions,5.0,825.0,,1767475800000,Buccaneers,Panthers,True,2.06,-2.94
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,10.0,-325.0,,1767475800000,Buccaneers,Panthers,True,18.7,8.7
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,15.0,-150.0,,1767475800000,Buccaneers,Panthers,True,18.7,3.6999999999999993
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,20.0,120.0,,1767475800000,Buccaneers,Panthers,True,18.7,-1.3000000000000007
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,25.0,190.0,,1767475800000,Buccaneers,Panthers,True,18.7,-6.300000000000001
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,30.0,300.0,,1767475800000,Buccaneers,Panthers,True,18.7,-11.3
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,40.0,625.0,,1767475800000,Buccaneers,Panthers,True,18.7,-21.3
-Baker Mayfield,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,50.0,1100.0,,1767475800000,Buccaneers,Panthers,True,18.7,-31.3
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,10.0,-450.0,,1767475800000,Buccaneers,Panthers,True,17.5,7.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,15.0,-250.0,,1767475800000,Buccaneers,Panthers,True,17.5,2.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,20.0,-125.0,,1767475800000,Buccaneers,Panthers,True,17.5,-2.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,25.0,140.0,,1767475800000,Buccaneers,Panthers,True,17.5,-7.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,30.0,200.0,,1767475800000,Buccaneers,Panthers,True,17.5,-12.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,40.0,450.0,,1767475800000,Buccaneers,Panthers,True,17.5,-22.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,50.0,800.0,,1767475800000,Buccaneers,Panthers,True,17.5,-32.5
-Bryce Young,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,60.0,1300.0,,1767475800000,Buccaneers,Panthers,True,17.5,-42.5
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,25.0,-1900.0,,1767475800000,Buccaneers,Panthers,True,55.0,30.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,30.0,-900.0,,1767475800000,Buccaneers,Panthers,True,55.0,25.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,40.0,-375.0,,1767475800000,Buccaneers,Panthers,True,55.0,15.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,50.0,-200.0,,1767475800000,Buccaneers,Panthers,True,55.0,5.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,60.0,-105.0,,1767475800000,Buccaneers,Panthers,True,55.0,-5.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,70.0,160.0,,1767475800000,Buccaneers,Panthers,True,55.0,-15.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,80.0,230.0,,1767475800000,Buccaneers,Panthers,True,55.0,-25.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,90.0,375.0,,1767475800000,Buccaneers,Panthers,True,55.0,-35.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,100.0,575.0,,1767475800000,Buccaneers,Panthers,True,55.0,-45.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,110.0,800.0,,1767475800000,Buccaneers,Panthers,True,55.0,-55.0
-Bucky Irving,TB,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,125.0,1100.0,,1767475800000,Buccaneers,Panthers,True,55.0,-70.0
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,10.0,-1500.0,,1767475800000,Buccaneers,Panthers,True,30.8,20.8
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,15.0,-525.0,,1767475800000,Buccaneers,Panthers,True,30.8,15.8
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,20.0,-280.0,,1767475800000,Buccaneers,Panthers,True,30.8,10.8
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,25.0,-170.0,,1767475800000,Buccaneers,Panthers,True,30.8,5.800000000000001
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,30.0,-110.0,,1767475800000,Buccaneers,Panthers,True,30.8,0.8000000000000007
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,40.0,190.0,,1767475800000,Buccaneers,Panthers,True,30.8,-9.2
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,50.0,330.0,,1767475800000,Buccaneers,Panthers,True,30.8,-19.2
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,60.0,575.0,,1767475800000,Buccaneers,Panthers,True,30.8,-29.2
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,70.0,850.0,,1767475800000,Buccaneers,Panthers,True,30.8,-39.2
-Chuba Hubbard,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,80.0,1200.0,,1767475800000,Buccaneers,Panthers,True,30.8,-49.2
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,25.0,-1500.0,,1767475800000,Buccaneers,Panthers,True,55.1,30.1
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,30.0,-825.0,,1767475800000,Buccaneers,Panthers,True,55.1,25.1
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,40.0,-350.0,,1767475800000,Buccaneers,Panthers,True,55.1,15.100000000000001
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,50.0,-180.0,,1767475800000,Buccaneers,Panthers,True,55.1,5.100000000000001
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,60.0,,,1767475800000,Buccaneers,Panthers,True,55.1,-4.899999999999999
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,70.0,170.0,,1767475800000,Buccaneers,Panthers,True,55.1,-14.899999999999999
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,80.0,250.0,,1767475800000,Buccaneers,Panthers,True,55.1,-24.9
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,90.0,400.0,,1767475800000,Buccaneers,Panthers,True,55.1,-34.9
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,100.0,625.0,,1767475800000,Buccaneers,Panthers,True,55.1,-44.9
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,110.0,850.0,,1767475800000,Buccaneers,Panthers,True,55.1,-54.9
-Rico Dowdle,CAR,Carolina Panthers @ Tampa Bay Buccaneers,Rushing Yards,125.0,1100.0,,1767475800000,Buccaneers,Panthers,True,55.1,-69.9
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,150.0,-1500.0,,1767488400000,49ers,Seahawks,True,225.4,75.4
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,175.0,-675.0,,1767488400000,49ers,Seahawks,True,225.4,50.400000000000006
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,200.0,-330.0,,1767488400000,49ers,Seahawks,True,225.4,25.400000000000006
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,225.0,-190.0,,1767488400000,49ers,Seahawks,True,225.4,0.4000000000000057
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,250.0,,,1767488400000,49ers,Seahawks,True,225.4,-24.599999999999994
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,275.0,180.0,,1767488400000,49ers,Seahawks,True,225.4,-49.599999999999994
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,300.0,300.0,,1767488400000,49ers,Seahawks,True,225.4,-74.6
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,325.0,525.0,,1767488400000,49ers,Seahawks,True,225.4,-99.6
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,350.0,850.0,,1767488400000,49ers,Seahawks,True,225.4,-124.6
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Passing Yards,375.0,1300.0,,1767488400000,49ers,Seahawks,True,225.4,-149.6
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,150.0,-1500.0,,1767488400000,49ers,Seahawks,True,206.4,56.400000000000006
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,175.0,-625.0,,1767488400000,49ers,Seahawks,True,206.4,31.400000000000006
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,200.0,-330.0,,1767488400000,49ers,Seahawks,True,206.4,6.400000000000006
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,225.0,-170.0,,1767488400000,49ers,Seahawks,True,206.4,-18.599999999999994
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,250.0,110.0,,1767488400000,49ers,Seahawks,True,206.4,-43.599999999999994
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,275.0,200.0,,1767488400000,49ers,Seahawks,True,206.4,-68.6
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,300.0,330.0,,1767488400000,49ers,Seahawks,True,206.4,-93.6
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,325.0,600.0,,1767488400000,49ers,Seahawks,True,206.4,-118.6
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,350.0,900.0,,1767488400000,49ers,Seahawks,True,206.4,-143.6
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Passing Yards,375.0,1400.0,,1767488400000,49ers,Seahawks,True,206.4,-168.6
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,10.0,-2000.0,,1767488400000,49ers,Seahawks,True,34.0,24.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,15.0,-775.0,,1767488400000,49ers,Seahawks,True,34.0,19.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,20.0,-450.0,,1767488400000,49ers,Seahawks,True,34.0,14.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-280.0,,1767488400000,49ers,Seahawks,True,34.0,9.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-200.0,,1767488400000,49ers,Seahawks,True,34.0,4.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,105.0,,1767488400000,49ers,Seahawks,True,34.0,-6.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,190.0,,1767488400000,49ers,Seahawks,True,34.0,-16.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,300.0,,1767488400000,49ers,Seahawks,True,34.0,-26.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,500.0,,1767488400000,49ers,Seahawks,True,34.0,-36.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,800.0,,1767488400000,49ers,Seahawks,True,34.0,-46.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,1000.0,,1767488400000,49ers,Seahawks,True,34.0,-56.0
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,1400.0,,1767488400000,49ers,Seahawks,True,34.0,-66.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,15.0,-1200.0,,1767488400000,49ers,Seahawks,True,14.5,-0.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,20.0,-575.0,,1767488400000,49ers,Seahawks,True,14.5,-5.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-350.0,,1767488400000,49ers,Seahawks,True,14.5,-10.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-240.0,,1767488400000,49ers,Seahawks,True,14.5,-15.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,-115.0,,1767488400000,49ers,Seahawks,True,14.5,-25.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,150.0,,1767488400000,49ers,Seahawks,True,14.5,-35.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,250.0,,1767488400000,49ers,Seahawks,True,14.5,-45.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,400.0,,1767488400000,49ers,Seahawks,True,14.5,-55.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,625.0,,1767488400000,49ers,Seahawks,True,14.5,-65.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,850.0,,1767488400000,49ers,Seahawks,True,14.5,-75.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,1100.0,,1767488400000,49ers,Seahawks,True,14.5,-85.5
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,1500.0,,1767488400000,49ers,Seahawks,True,14.5,-95.5
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,10.0,-1200.0,,1767488400000,49ers,Seahawks,True,27.3,17.3
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,15.0,-600.0,,1767488400000,49ers,Seahawks,True,27.3,12.3
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,20.0,-375.0,,1767488400000,49ers,Seahawks,True,27.3,7.300000000000001
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-250.0,,1767488400000,49ers,Seahawks,True,27.3,2.3000000000000007
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-180.0,,1767488400000,49ers,Seahawks,True,27.3,-2.6999999999999993
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,105.0,,1767488400000,49ers,Seahawks,True,27.3,-12.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,180.0,,1767488400000,49ers,Seahawks,True,27.3,-22.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,275.0,,1767488400000,49ers,Seahawks,True,27.3,-32.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,425.0,,1767488400000,49ers,Seahawks,True,27.3,-42.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,625.0,,1767488400000,49ers,Seahawks,True,27.3,-52.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,850.0,,1767488400000,49ers,Seahawks,True,27.3,-62.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,1200.0,,1767488400000,49ers,Seahawks,True,27.3,-72.7
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,1500.0,,1767488400000,49ers,Seahawks,True,27.3,-82.7
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-1500.0,,1767488400000,49ers,Seahawks,True,30.8,5.800000000000001
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-825.0,,1767488400000,49ers,Seahawks,True,30.8,0.8000000000000007
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,-425.0,,1767488400000,49ers,Seahawks,True,30.8,-9.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,-225.0,,1767488400000,49ers,Seahawks,True,30.8,-19.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,-135.0,,1767488400000,49ers,Seahawks,True,30.8,-29.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,120.0,,1767488400000,49ers,Seahawks,True,30.8,-39.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,190.0,,1767488400000,49ers,Seahawks,True,30.8,-49.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,275.0,,1767488400000,49ers,Seahawks,True,30.8,-59.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,400.0,,1767488400000,49ers,Seahawks,True,30.8,-69.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,575.0,,1767488400000,49ers,Seahawks,True,30.8,-79.2
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,125.0,900.0,,1767488400000,49ers,Seahawks,True,30.8,-94.2
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,15.0,-925.0,,1767488400000,49ers,Seahawks,True,35.6,20.6
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,20.0,-575.0,,1767488400000,49ers,Seahawks,True,35.6,15.600000000000001
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-375.0,,1767488400000,49ers,Seahawks,True,35.6,10.600000000000001
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-250.0,,1767488400000,49ers,Seahawks,True,35.6,5.600000000000001
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,-140.0,,1767488400000,49ers,Seahawks,True,35.6,-4.399999999999999
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,130.0,,1767488400000,49ers,Seahawks,True,35.6,-14.399999999999999
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,200.0,,1767488400000,49ers,Seahawks,True,35.6,-24.4
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,300.0,,1767488400000,49ers,Seahawks,True,35.6,-34.4
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,475.0,,1767488400000,49ers,Seahawks,True,35.6,-44.4
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,700.0,,1767488400000,49ers,Seahawks,True,35.6,-54.4
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,900.0,,1767488400000,49ers,Seahawks,True,35.6,-64.4
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,1100.0,,1767488400000,49ers,Seahawks,True,35.6,-74.4
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,-1500.0,,1767488400000,49ers,Seahawks,True,37.9,-12.100000000000001
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,-700.0,,1767488400000,49ers,Seahawks,True,37.9,-22.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,-425.0,,1767488400000,49ers,Seahawks,True,37.9,-32.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,-275.0,,1767488400000,49ers,Seahawks,True,37.9,-42.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,-180.0,,1767488400000,49ers,Seahawks,True,37.9,-52.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,-120.0,,1767488400000,49ers,Seahawks,True,37.9,-62.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,115.0,,1767488400000,49ers,Seahawks,True,37.9,-72.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,125.0,190.0,,1767488400000,49ers,Seahawks,True,37.9,-87.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,150.0,400.0,,1767488400000,49ers,Seahawks,True,37.9,-112.1
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,175.0,725.0,,1767488400000,49ers,Seahawks,True,37.9,-137.1
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,15.0,-1100.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,20.0,-600.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,25.0,-375.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,30.0,-275.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,40.0,-150.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,50.0,115.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,60.0,180.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,70.0,275.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,80.0,400.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,90.0,575.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,100.0,825.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,110.0,1000.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receiving Yards,125.0,1500.0,,1767488400000,49ers,Seahawks,True,,
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,2.0,-1700.0,,1767488400000,49ers,Seahawks,True,4.87,2.87
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,3.0,-425.0,,1767488400000,49ers,Seahawks,True,4.87,1.87
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,-160.0,,1767488400000,49ers,Seahawks,True,4.87,0.8700000000000001
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,140.0,,1767488400000,49ers,Seahawks,True,4.87,-0.1299999999999999
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,275.0,,1767488400000,49ers,Seahawks,True,4.87,-1.13
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,525.0,,1767488400000,49ers,Seahawks,True,4.87,-2.13
-AJ Barner,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,8.0,850.0,,1767488400000,49ers,Seahawks,True,4.87,-3.13
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,3.0,-925.0,,1767488400000,49ers,Seahawks,True,2.98,-0.020000000000000018
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,-330.0,,1767488400000,49ers,Seahawks,True,2.98,-1.02
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,-150.0,,1767488400000,49ers,Seahawks,True,2.98,-2.02
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,125.0,,1767488400000,49ers,Seahawks,True,2.98,-3.02
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,225.0,,1767488400000,49ers,Seahawks,True,2.98,-4.02
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,8.0,375.0,,1767488400000,49ers,Seahawks,True,2.98,-5.02
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,9.0,625.0,,1767488400000,49ers,Seahawks,True,2.98,-6.02
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,2.0,-725.0,,1767488400000,49ers,Seahawks,True,3.58,1.58
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,3.0,-240.0,,1767488400000,49ers,Seahawks,True,3.58,0.5800000000000001
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,115.0,,1767488400000,49ers,Seahawks,True,3.58,-0.41999999999999993
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,240.0,,1767488400000,49ers,Seahawks,True,3.58,-1.42
-Cooper Kupp,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,500.0,,1767488400000,49ers,Seahawks,True,3.58,-2.42
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,-575.0,,1767488400000,49ers,Seahawks,True,4.68,0.6799999999999997
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,-250.0,,1767488400000,49ers,Seahawks,True,4.68,-0.3200000000000003
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,-120.0,,1767488400000,49ers,Seahawks,True,4.68,-1.3200000000000003
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,150.0,,1767488400000,49ers,Seahawks,True,4.68,-2.3200000000000003
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,8.0,275.0,,1767488400000,49ers,Seahawks,True,4.68,-3.3200000000000003
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,9.0,475.0,,1767488400000,49ers,Seahawks,True,4.68,-4.32
-George Kittle,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,10.0,825.0,,1767488400000,49ers,Seahawks,True,4.68,-5.32
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,2.0,-1500.0,,1767488400000,49ers,Seahawks,True,4.55,2.55
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,3.0,-375.0,,1767488400000,49ers,Seahawks,True,4.55,1.5499999999999998
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,-160.0,,1767488400000,49ers,Seahawks,True,4.55,0.5499999999999998
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,140.0,,1767488400000,49ers,Seahawks,True,4.55,-0.4500000000000002
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,275.0,,1767488400000,49ers,Seahawks,True,4.55,-1.4500000000000002
-Jauan Jennings,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,525.0,,1767488400000,49ers,Seahawks,True,4.55,-2.45
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,-1100.0,,1767488400000,49ers,Seahawks,True,5.0,0.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,-425.0,,1767488400000,49ers,Seahawks,True,5.0,-1.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,-220.0,,1767488400000,49ers,Seahawks,True,5.0,-2.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,8.0,-110.0,,1767488400000,49ers,Seahawks,True,5.0,-3.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,9.0,150.0,,1767488400000,49ers,Seahawks,True,5.0,-4.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,10.0,275.0,,1767488400000,49ers,Seahawks,True,5.0,-5.0
-Jaxon Smith-Njigba,SEA,Seattle Seahawks @ San Francisco 49ers,Receptions,11.0,425.0,,1767488400000,49ers,Seahawks,True,5.0,-6.0
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,2.0,-1300.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,3.0,-330.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,4.0,-120.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,5.0,180.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,6.0,350.0,,1767488400000,49ers,Seahawks,True,,
-Ricky Pearsall,SF,Seattle Seahawks @ San Francisco 49ers,Receptions,7.0,700.0,,1767488400000,49ers,Seahawks,True,,
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,10.0,-240.0,,1767488400000,49ers,Seahawks,True,21.6,11.600000000000001
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,15.0,-115.0,,1767488400000,49ers,Seahawks,True,21.6,6.600000000000001
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,20.0,150.0,,1767488400000,49ers,Seahawks,True,21.6,1.6000000000000014
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,25.0,230.0,,1767488400000,49ers,Seahawks,True,21.6,-3.3999999999999986
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,30.0,375.0,,1767488400000,49ers,Seahawks,True,21.6,-8.399999999999999
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,40.0,825.0,,1767488400000,49ers,Seahawks,True,21.6,-18.4
-Brock Purdy,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,50.0,1300.0,,1767488400000,49ers,Seahawks,True,21.6,-28.4
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,40.0,-725.0,,1767488400000,49ers,Seahawks,True,51.0,11.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,50.0,-330.0,,1767488400000,49ers,Seahawks,True,51.0,1.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,60.0,-190.0,,1767488400000,49ers,Seahawks,True,51.0,-9.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,70.0,-110.0,,1767488400000,49ers,Seahawks,True,51.0,-19.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,80.0,150.0,,1767488400000,49ers,Seahawks,True,51.0,-29.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,90.0,230.0,,1767488400000,49ers,Seahawks,True,51.0,-39.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,100.0,350.0,,1767488400000,49ers,Seahawks,True,51.0,-49.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,110.0,525.0,,1767488400000,49ers,Seahawks,True,51.0,-59.0
-Christian McCaffrey,SF,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,125.0,850.0,,1767488400000,49ers,Seahawks,True,51.0,-74.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,20.0,-1500.0,,1767488400000,49ers,Seahawks,True,53.0,33.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,25.0,-725.0,,1767488400000,49ers,Seahawks,True,53.0,28.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,30.0,-430.0,,1767488400000,49ers,Seahawks,True,53.0,23.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,40.0,-200.0,,1767488400000,49ers,Seahawks,True,53.0,13.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,50.0,-105.0,,1767488400000,49ers,Seahawks,True,53.0,3.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,60.0,170.0,,1767488400000,49ers,Seahawks,True,53.0,-7.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,70.0,275.0,,1767488400000,49ers,Seahawks,True,53.0,-17.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,80.0,400.0,,1767488400000,49ers,Seahawks,True,53.0,-27.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,90.0,625.0,,1767488400000,49ers,Seahawks,True,53.0,-37.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,100.0,850.0,,1767488400000,49ers,Seahawks,True,53.0,-47.0
-Kenneth Walker III,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,110.0,1100.0,,1767488400000,49ers,Seahawks,True,53.0,-57.0
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,10.0,115.0,,1767488400000,49ers,Seahawks,True,20.0,10.0
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,15.0,200.0,,1767488400000,49ers,Seahawks,True,20.0,5.0
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,20.0,350.0,,1767488400000,49ers,Seahawks,True,20.0,0.0
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,25.0,625.0,,1767488400000,49ers,Seahawks,True,20.0,-5.0
-Sam Darnold,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,30.0,850.0,,1767488400000,49ers,Seahawks,True,20.0,-10.0
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,20.0,-825.0,,1767488400000,49ers,Seahawks,True,29.5,9.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,25.0,-475.0,,1767488400000,49ers,Seahawks,True,29.5,4.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,30.0,-300.0,,1767488400000,49ers,Seahawks,True,29.5,-0.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,40.0,-145.0,,1767488400000,49ers,Seahawks,True,29.5,-10.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,50.0,130.0,,1767488400000,49ers,Seahawks,True,29.5,-20.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,60.0,200.0,,1767488400000,49ers,Seahawks,True,29.5,-30.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,70.0,330.0,,1767488400000,49ers,Seahawks,True,29.5,-40.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,80.0,500.0,,1767488400000,49ers,Seahawks,True,29.5,-50.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,90.0,725.0,,1767488400000,49ers,Seahawks,True,29.5,-60.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,100.0,1000.0,,1767488400000,49ers,Seahawks,True,29.5,-70.5
-Zach Charbonnet,SEA,Seattle Seahawks @ San Francisco 49ers,Rushing Yards,110.0,1100.0,,1767488400000,49ers,Seahawks,True,29.5,-80.5
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,10.0,-1600.0,,1767576000000,Steelers,Ravens,True,34.3,24.299999999999997
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,15.0,-600.0,,1767576000000,Steelers,Ravens,True,34.3,19.299999999999997
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,20.0,-325.0,,1767576000000,Steelers,Ravens,True,34.3,14.299999999999997
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,25.0,-190.0,,1767576000000,Steelers,Ravens,True,34.3,9.299999999999997
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,30.0,-115.0,,1767576000000,Steelers,Ravens,True,34.3,4.299999999999997
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,40.0,175.0,,1767576000000,Steelers,Ravens,True,34.3,-5.700000000000003
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,50.0,325.0,,1767576000000,Steelers,Ravens,True,34.3,-15.700000000000003
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,60.0,550.0,,1767576000000,Steelers,Ravens,True,34.3,-25.700000000000003
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,70.0,875.0,,1767576000000,Steelers,Ravens,True,34.3,-35.7
+Kenneth Gainwell,PIT,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,80.0,1200.0,,1767576000000,Steelers,Ravens,True,34.3,-45.7
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,10.0,-800.0,,1767576000000,Steelers,Ravens,True,28.7,18.7
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,15.0,-400.0,,1767576000000,Steelers,Ravens,True,28.7,13.7
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,20.0,-250.0,,1767576000000,Steelers,Ravens,True,28.7,8.7
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,25.0,-155.0,,1767576000000,Steelers,Ravens,True,28.7,3.6999999999999993
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,30.0,-110.0,,1767576000000,Steelers,Ravens,True,28.7,-1.3000000000000007
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,40.0,175.0,,1767576000000,Steelers,Ravens,True,28.7,-11.3
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,50.0,300.0,,1767576000000,Steelers,Ravens,True,28.7,-21.3
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,60.0,500.0,,1767576000000,Steelers,Ravens,True,28.7,-31.3
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,70.0,800.0,,1767576000000,Steelers,Ravens,True,28.7,-41.3
+Lamar Jackson,BAL,Baltimore Ravens @ Pittsburgh Steelers,Rushing Yards,80.0,1100.0,,1767576000000,Steelers,Ravens,True,28.7,-51.3
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,150.0,-1100.0,,1767549600000,Bengals,Browns,True,228.6,78.6
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,175.0,-550.0,,1767549600000,Bengals,Browns,True,228.6,53.599999999999994
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,200.0,-280.0,,1767549600000,Bengals,Browns,True,228.6,28.599999999999994
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,225.0,-160.0,,1767549600000,Bengals,Browns,True,228.6,3.5999999999999943
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,250.0,115.0,,1767549600000,Bengals,Browns,True,228.6,-21.400000000000006
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,275.0,200.0,,1767549600000,Bengals,Browns,True,228.6,-46.400000000000006
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,300.0,350.0,,1767549600000,Bengals,Browns,True,228.6,-71.4
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,325.0,625.0,,1767549600000,Bengals,Browns,True,228.6,-96.4
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,350.0,1100.0,,1767549600000,Bengals,Browns,True,228.6,-121.4
+Joe Burrow,CIN,Cleveland Browns @ Cincinnati Bengals,Passing Yards,375.0,1700.0,,1767549600000,Bengals,Browns,True,228.6,-146.4
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,125.0,-800.0,,1767549600000,Bengals,Browns,True,211.5,86.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,150.0,-380.0,,1767549600000,Bengals,Browns,True,211.5,61.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,175.0,-200.0,,1767549600000,Bengals,Browns,True,211.5,36.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,200.0,-105.0,,1767549600000,Bengals,Browns,True,211.5,11.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,225.0,170.0,,1767549600000,Bengals,Browns,True,211.5,-13.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,250.0,300.0,,1767549600000,Bengals,Browns,True,211.5,-38.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,275.0,550.0,,1767549600000,Bengals,Browns,True,211.5,-63.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,300.0,900.0,,1767549600000,Bengals,Browns,True,211.5,-88.5
+Shedeur Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Passing Yards,325.0,1500.0,,1767549600000,Bengals,Browns,True,211.5,-113.5
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,40.0,-1100.0,,1767549600000,Bengals,Browns,True,34.9,-5.100000000000001
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,50.0,-500.0,,1767549600000,Bengals,Browns,True,34.9,-15.100000000000001
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,60.0,-330.0,,1767549600000,Bengals,Browns,True,34.9,-25.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,70.0,-200.0,,1767549600000,Bengals,Browns,True,34.9,-35.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,80.0,-130.0,,1767549600000,Bengals,Browns,True,34.9,-45.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,90.0,120.0,,1767549600000,Bengals,Browns,True,34.9,-55.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,100.0,170.0,,1767549600000,Bengals,Browns,True,34.9,-65.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,110.0,230.0,,1767549600000,Bengals,Browns,True,34.9,-75.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,125.0,380.0,,1767549600000,Bengals,Browns,True,34.9,-90.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,150.0,800.0,,1767549600000,Bengals,Browns,True,34.9,-115.1
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,175.0,1500.0,,1767549600000,Bengals,Browns,True,34.9,-140.1
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,20.0,-1200.0,,1767549600000,Bengals,Browns,True,26.1,6.100000000000001
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,25.0,-700.0,,1767549600000,Bengals,Browns,True,26.1,1.1000000000000014
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,30.0,-480.0,,1767549600000,Bengals,Browns,True,26.1,-3.8999999999999986
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,40.0,-280.0,,1767549600000,Bengals,Browns,True,26.1,-13.899999999999999
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,50.0,-170.0,,1767549600000,Bengals,Browns,True,26.1,-23.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,60.0,-105.0,,1767549600000,Bengals,Browns,True,26.1,-33.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,70.0,150.0,,1767549600000,Bengals,Browns,True,26.1,-43.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,80.0,210.0,,1767549600000,Bengals,Browns,True,26.1,-53.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,90.0,300.0,,1767549600000,Bengals,Browns,True,26.1,-63.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,100.0,430.0,,1767549600000,Bengals,Browns,True,26.1,-73.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,110.0,625.0,,1767549600000,Bengals,Browns,True,26.1,-83.9
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receiving Yards,125.0,900.0,,1767549600000,Bengals,Browns,True,26.1,-98.9
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,5.0,-600.0,,1767549600000,Bengals,Browns,True,4.82,-0.17999999999999972
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,6.0,-280.0,,1767549600000,Bengals,Browns,True,4.82,-1.1799999999999997
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,7.0,-150.0,,1767549600000,Bengals,Browns,True,4.82,-2.1799999999999997
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,8.0,120.0,,1767549600000,Bengals,Browns,True,4.82,-3.1799999999999997
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,9.0,210.0,,1767549600000,Bengals,Browns,True,4.82,-4.18
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,10.0,350.0,,1767549600000,Bengals,Browns,True,4.82,-5.18
+Ja'Marr Chase,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,11.0,600.0,,1767549600000,Bengals,Browns,True,4.82,-6.18
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,3.0,-500.0,,1767549600000,Bengals,Browns,True,3.32,0.31999999999999984
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,4.0,-220.0,,1767549600000,Bengals,Browns,True,3.32,-0.6800000000000002
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,5.0,110.0,,1767549600000,Bengals,Browns,True,3.32,-1.6800000000000002
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,6.0,210.0,,1767549600000,Bengals,Browns,True,3.32,-2.68
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,7.0,400.0,,1767549600000,Bengals,Browns,True,3.32,-3.68
+Tee Higgins,CIN,Cleveland Browns @ Cincinnati Bengals,Receptions,8.0,750.0,,1767549600000,Bengals,Browns,True,3.32,-4.68
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,30.0,-1400.0,,1767549600000,Bengals,Browns,True,57.1,27.1
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,40.0,-500.0,,1767549600000,Bengals,Browns,True,57.1,17.1
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,50.0,-250.0,,1767549600000,Bengals,Browns,True,57.1,7.100000000000001
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,60.0,-135.0,,1767549600000,Bengals,Browns,True,57.1,-2.8999999999999986
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,70.0,125.0,,1767549600000,Bengals,Browns,True,57.1,-12.899999999999999
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,80.0,200.0,,1767549600000,Bengals,Browns,True,57.1,-22.9
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,90.0,300.0,,1767549600000,Bengals,Browns,True,57.1,-32.9
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,100.0,460.0,,1767549600000,Bengals,Browns,True,57.1,-42.9
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,110.0,650.0,,1767549600000,Bengals,Browns,True,57.1,-52.9
+Chase Brown,CIN,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,125.0,1100.0,,1767549600000,Bengals,Browns,True,57.1,-67.9
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,15.0,-1500.0,,1767549600000,Bengals,Browns,True,72.2,57.2
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,20.0,-675.0,,1767549600000,Bengals,Browns,True,72.2,52.2
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,25.0,-425.0,,1767549600000,Bengals,Browns,True,72.2,47.2
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,30.0,-265.0,,1767549600000,Bengals,Browns,True,72.2,42.2
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,40.0,-120.0,,1767549600000,Bengals,Browns,True,72.2,32.2
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,50.0,150.0,,1767549600000,Bengals,Browns,True,72.2,22.200000000000003
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,60.0,250.0,,1767549600000,Bengals,Browns,True,72.2,12.200000000000003
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,70.0,410.0,,1767549600000,Bengals,Browns,True,72.2,2.200000000000003
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,80.0,600.0,,1767549600000,Bengals,Browns,True,72.2,-7.799999999999997
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,90.0,850.0,,1767549600000,Bengals,Browns,True,72.2,-17.799999999999997
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,100.0,1200.0,,1767549600000,Bengals,Browns,True,72.2,-27.799999999999997
+Dylan Sampson,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,110.0,1500.0,,1767549600000,Bengals,Browns,True,72.2,-37.8
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,10.0,-1500.0,,1767549600000,Bengals,Browns,True,41.0,31.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,15.0,-600.0,,1767549600000,Bengals,Browns,True,41.0,26.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,20.0,-330.0,,1767549600000,Bengals,Browns,True,41.0,21.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,25.0,-200.0,,1767549600000,Bengals,Browns,True,41.0,16.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,30.0,-130.0,,1767549600000,Bengals,Browns,True,41.0,11.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,40.0,155.0,,1767549600000,Bengals,Browns,True,41.0,1.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,50.0,270.0,,1767549600000,Bengals,Browns,True,41.0,-9.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,60.0,450.0,,1767549600000,Bengals,Browns,True,41.0,-19.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,70.0,750.0,,1767549600000,Bengals,Browns,True,41.0,-29.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,80.0,1100.0,,1767549600000,Bengals,Browns,True,41.0,-39.0
+Raheim Sanders,CLE,Cleveland Browns @ Cincinnati Bengals,Rushing Yards,90.0,1500.0,,1767549600000,Bengals,Browns,True,41.0,-49.0
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,150.0,-1500.0,,1767561900000,Bears,Lions,True,216.9,66.9
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,175.0,-675.0,,1767561900000,Bears,Lions,True,216.9,41.900000000000006
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,200.0,-325.0,,1767561900000,Bears,Lions,True,216.9,16.900000000000006
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,225.0,-170.0,,1767561900000,Bears,Lions,True,216.9,-8.099999999999994
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,250.0,115.0,,1767561900000,Bears,Lions,True,216.9,-33.099999999999994
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,275.0,200.0,,1767561900000,Bears,Lions,True,216.9,-58.099999999999994
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,300.0,350.0,,1767561900000,Bears,Lions,True,216.9,-83.1
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,325.0,625.0,,1767561900000,Bears,Lions,True,216.9,-108.1
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,350.0,1000.0,,1767561900000,Bears,Lions,True,216.9,-133.1
+Caleb Williams,CHI,Detroit Lions @ Chicago Bears,Passing Yards,375.0,1500.0,,1767561900000,Bears,Lions,True,216.9,-158.1
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,175.0,-1100.0,,1767561900000,Bears,Lions,True,230.2,55.19999999999999
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,200.0,-475.0,,1767561900000,Bears,Lions,True,230.2,30.19999999999999
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,225.0,-250.0,,1767561900000,Bears,Lions,True,230.2,5.199999999999989
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,250.0,-130.0,,1767561900000,Bears,Lions,True,230.2,-19.80000000000001
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,275.0,140.0,,1767561900000,Bears,Lions,True,230.2,-44.80000000000001
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,300.0,240.0,,1767561900000,Bears,Lions,True,230.2,-69.80000000000001
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,325.0,400.0,,1767561900000,Bears,Lions,True,230.2,-94.80000000000001
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,350.0,750.0,,1767561900000,Bears,Lions,True,230.2,-119.80000000000001
+Jared Goff,DET,Detroit Lions @ Chicago Bears,Passing Yards,375.0,1200.0,,1767561900000,Bears,Lions,True,230.2,-144.8
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,30.0,-1100.0,,1767561900000,Bears,Lions,True,37.6,7.600000000000001
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,40.0,-500.0,,1767561900000,Bears,Lions,True,37.6,-2.3999999999999986
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,50.0,-275.0,,1767561900000,Bears,Lions,True,37.6,-12.399999999999999
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,60.0,-160.0,,1767561900000,Bears,Lions,True,37.6,-22.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,70.0,,,1767561900000,Bears,Lions,True,37.6,-32.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,80.0,150.0,,1767561900000,Bears,Lions,True,37.6,-42.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,90.0,225.0,,1767561900000,Bears,Lions,True,37.6,-52.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,100.0,325.0,,1767561900000,Bears,Lions,True,37.6,-62.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,110.0,450.0,,1767561900000,Bears,Lions,True,37.6,-72.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,125.0,800.0,,1767561900000,Bears,Lions,True,37.6,-87.4
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receiving Yards,150.0,1500.0,,1767561900000,Bears,Lions,True,37.6,-112.4
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,15.0,-1100.0,,1767561900000,Bears,Lions,True,34.4,19.4
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,20.0,-650.0,,1767561900000,Bears,Lions,True,34.4,14.399999999999999
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,25.0,-425.0,,1767561900000,Bears,Lions,True,34.4,9.399999999999999
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,30.0,-300.0,,1767561900000,Bears,Lions,True,34.4,4.399999999999999
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,40.0,-160.0,,1767561900000,Bears,Lions,True,34.4,-5.600000000000001
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,50.0,110.0,,1767561900000,Bears,Lions,True,34.4,-15.600000000000001
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,60.0,175.0,,1767561900000,Bears,Lions,True,34.4,-25.6
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,70.0,275.0,,1767561900000,Bears,Lions,True,34.4,-35.6
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,80.0,400.0,,1767561900000,Bears,Lions,True,34.4,-45.6
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,90.0,600.0,,1767561900000,Bears,Lions,True,34.4,-55.6
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,100.0,900.0,,1767561900000,Bears,Lions,True,34.4,-65.6
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,110.0,1200.0,,1767561900000,Bears,Lions,True,34.4,-75.6
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,10.0,-900.0,,1767561900000,Bears,Lions,True,27.2,17.2
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,15.0,-500.0,,1767561900000,Bears,Lions,True,27.2,12.2
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,20.0,-325.0,,1767561900000,Bears,Lions,True,27.2,7.199999999999999
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,25.0,-220.0,,1767561900000,Bears,Lions,True,27.2,2.1999999999999993
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,30.0,-160.0,,1767561900000,Bears,Lions,True,27.2,-2.8000000000000007
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,40.0,115.0,,1767561900000,Bears,Lions,True,27.2,-12.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,50.0,195.0,,1767561900000,Bears,Lions,True,27.2,-22.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,60.0,275.0,,1767561900000,Bears,Lions,True,27.2,-32.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,70.0,425.0,,1767561900000,Bears,Lions,True,27.2,-42.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,80.0,625.0,,1767561900000,Bears,Lions,True,27.2,-52.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,90.0,900.0,,1767561900000,Bears,Lions,True,27.2,-62.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,100.0,1200.0,,1767561900000,Bears,Lions,True,27.2,-72.8
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,110.0,1500.0,,1767561900000,Bears,Lions,True,27.2,-82.8
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,20.0,-1500.0,,1767561900000,Bears,Lions,True,22.1,2.1000000000000014
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,25.0,-850.0,,1767561900000,Bears,Lions,True,22.1,-2.8999999999999986
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,30.0,-550.0,,1767561900000,Bears,Lions,True,22.1,-7.899999999999999
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,40.0,-300.0,,1767561900000,Bears,Lions,True,22.1,-17.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,50.0,-175.0,,1767561900000,Bears,Lions,True,22.1,-27.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,60.0,-110.0,,1767561900000,Bears,Lions,True,22.1,-37.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,70.0,140.0,,1767561900000,Bears,Lions,True,22.1,-47.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,80.0,210.0,,1767561900000,Bears,Lions,True,22.1,-57.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,90.0,300.0,,1767561900000,Bears,Lions,True,22.1,-67.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,100.0,425.0,,1767561900000,Bears,Lions,True,22.1,-77.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,110.0,600.0,,1767561900000,Bears,Lions,True,22.1,-87.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,125.0,1000.0,,1767561900000,Bears,Lions,True,22.1,-102.9
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receiving Yards,150.0,1700.0,,1767561900000,Bears,Lions,True,22.1,-127.9
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,4.0,-700.0,,1767561900000,Bears,Lions,True,5.37,1.37
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,5.0,-300.0,,1767561900000,Bears,Lions,True,5.37,0.3700000000000001
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,6.0,-145.0,,1767561900000,Bears,Lions,True,5.37,-0.6299999999999999
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,7.0,130.0,,1767561900000,Bears,Lions,True,5.37,-1.63
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,8.0,225.0,,1767561900000,Bears,Lions,True,5.37,-2.63
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,9.0,400.0,,1767561900000,Bears,Lions,True,5.37,-3.63
+Amon-Ra St. Brown,DET,Detroit Lions @ Chicago Bears,Receptions,10.0,700.0,,1767561900000,Bears,Lions,True,5.37,-4.63
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,2.0,-1400.0,,1767561900000,Bears,Lions,True,4.38,2.38
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,3.0,-350.0,,1767561900000,Bears,Lions,True,4.38,1.38
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,4.0,-140.0,,1767561900000,Bears,Lions,True,4.38,0.3799999999999999
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,5.0,160.0,,1767561900000,Bears,Lions,True,4.38,-0.6200000000000001
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,6.0,325.0,,1767561900000,Bears,Lions,True,4.38,-1.62
+Colston Loveland,CHI,Detroit Lions @ Chicago Bears,Receptions,7.0,625.0,,1767561900000,Bears,Lions,True,4.38,-2.62
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receptions,2.0,-475.0,,1767561900000,Bears,Lions,True,3.44,1.44
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receptions,3.0,-155.0,,1767561900000,Bears,Lions,True,3.44,0.43999999999999995
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receptions,4.0,165.0,,1767561900000,Bears,Lions,True,3.44,-0.56
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receptions,5.0,350.0,,1767561900000,Bears,Lions,True,3.44,-1.56
+DJ Moore,CHI,Detroit Lions @ Chicago Bears,Receptions,6.0,750.0,,1767561900000,Bears,Lions,True,3.44,-2.56
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,3.0,-675.0,,1767561900000,Bears,Lions,True,2.7,-0.2999999999999998
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,4.0,-250.0,,1767561900000,Bears,Lions,True,2.7,-1.2999999999999998
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,5.0,-110.0,,1767561900000,Bears,Lions,True,2.7,-2.3
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,6.0,180.0,,1767561900000,Bears,Lions,True,2.7,-3.3
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,7.0,350.0,,1767561900000,Bears,Lions,True,2.7,-4.3
+Luther Burden III,CHI,Detroit Lions @ Chicago Bears,Receptions,8.0,625.0,,1767561900000,Bears,Lions,True,2.7,-5.3
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,25.0,-1100.0,,1767561900000,Bears,Lions,True,50.8,25.799999999999997
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,30.0,-650.0,,1767561900000,Bears,Lions,True,50.8,20.799999999999997
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,40.0,-300.0,,1767561900000,Bears,Lions,True,50.8,10.799999999999997
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,50.0,-175.0,,1767561900000,Bears,Lions,True,50.8,0.7999999999999972
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,60.0,-105.0,,1767561900000,Bears,Lions,True,50.8,-9.200000000000003
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,70.0,145.0,,1767561900000,Bears,Lions,True,50.8,-19.200000000000003
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,80.0,220.0,,1767561900000,Bears,Lions,True,50.8,-29.200000000000003
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,90.0,300.0,,1767561900000,Bears,Lions,True,50.8,-39.2
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,100.0,425.0,,1767561900000,Bears,Lions,True,50.8,-49.2
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,110.0,625.0,,1767561900000,Bears,Lions,True,50.8,-59.2
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,125.0,875.0,,1767561900000,Bears,Lions,True,50.8,-74.2
+D'Andre Swift,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,150.0,1700.0,,1767561900000,Bears,Lions,True,50.8,-99.2
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,15.0,-700.0,,1767561900000,Bears,Lions,True,32.4,17.4
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,20.0,-400.0,,1767561900000,Bears,Lions,True,32.4,12.399999999999999
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,25.0,-250.0,,1767561900000,Bears,Lions,True,32.4,7.399999999999999
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,30.0,-165.0,,1767561900000,Bears,Lions,True,32.4,2.3999999999999986
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,40.0,120.0,,1767561900000,Bears,Lions,True,32.4,-7.600000000000001
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,50.0,200.0,,1767561900000,Bears,Lions,True,32.4,-17.6
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,60.0,350.0,,1767561900000,Bears,Lions,True,32.4,-27.6
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,70.0,550.0,,1767561900000,Bears,Lions,True,32.4,-37.6
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,80.0,750.0,,1767561900000,Bears,Lions,True,32.4,-47.6
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,90.0,1100.0,,1767561900000,Bears,Lions,True,32.4,-57.6
+David Montgomery,DET,Detroit Lions @ Chicago Bears,Rushing Yards,100.0,1400.0,,1767561900000,Bears,Lions,True,32.4,-67.6
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,30.0,-1000.0,,1767561900000,Bears,Lions,True,58.8,28.799999999999997
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,40.0,-400.0,,1767561900000,Bears,Lions,True,58.8,18.799999999999997
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,50.0,-200.0,,1767561900000,Bears,Lions,True,58.8,8.799999999999997
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,60.0,-115.0,,1767561900000,Bears,Lions,True,58.8,-1.2000000000000028
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,70.0,150.0,,1767561900000,Bears,Lions,True,58.8,-11.200000000000003
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,80.0,225.0,,1767561900000,Bears,Lions,True,58.8,-21.200000000000003
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,90.0,350.0,,1767561900000,Bears,Lions,True,58.8,-31.200000000000003
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,100.0,475.0,,1767561900000,Bears,Lions,True,58.8,-41.2
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,110.0,700.0,,1767561900000,Bears,Lions,True,58.8,-51.2
+Jahmyr Gibbs,DET,Detroit Lions @ Chicago Bears,Rushing Yards,125.0,1100.0,,1767561900000,Bears,Lions,True,58.8,-66.2
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,15.0,-1600.0,,1767561900000,Bears,Lions,True,28.7,13.7
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,20.0,-750.0,,1767561900000,Bears,Lions,True,28.7,8.7
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,25.0,-475.0,,1767561900000,Bears,Lions,True,28.7,3.6999999999999993
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,30.0,-300.0,,1767561900000,Bears,Lions,True,28.7,-1.3000000000000007
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,40.0,-165.0,,1767561900000,Bears,Lions,True,28.7,-11.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,50.0,105.0,,1767561900000,Bears,Lions,True,28.7,-21.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,60.0,165.0,,1767561900000,Bears,Lions,True,28.7,-31.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,70.0,240.0,,1767561900000,Bears,Lions,True,28.7,-41.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,80.0,350.0,,1767561900000,Bears,Lions,True,28.7,-51.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,90.0,475.0,,1767561900000,Bears,Lions,True,28.7,-61.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,100.0,675.0,,1767561900000,Bears,Lions,True,28.7,-71.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,110.0,875.0,,1767561900000,Bears,Lions,True,28.7,-81.3
+Kyle Monangai,CHI,Detroit Lions @ Chicago Bears,Rushing Yards,125.0,1200.0,,1767561900000,Bears,Lions,True,28.7,-96.3
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,125.0,-1500.0,,1767549600000,Texans,Colts,True,220.8,95.80000000000001
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,150.0,-600.0,,1767549600000,Texans,Colts,True,220.8,70.80000000000001
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,175.0,-300.0,,1767549600000,Texans,Colts,True,220.8,45.80000000000001
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,200.0,-160.0,,1767549600000,Texans,Colts,True,220.8,20.80000000000001
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,225.0,115.0,,1767549600000,Texans,Colts,True,220.8,-4.199999999999989
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,250.0,220.0,,1767549600000,Texans,Colts,True,220.8,-29.19999999999999
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,275.0,375.0,,1767549600000,Texans,Colts,True,220.8,-54.19999999999999
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,300.0,625.0,,1767549600000,Texans,Colts,True,220.8,-79.19999999999999
+C.J. Stroud,HOU,Indianapolis Colts @ Houston Texans,Passing Yards,325.0,1100.0,,1767549600000,Texans,Colts,True,220.8,-104.19999999999999
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,125.0,-325.0,,1767549600000,Texans,Colts,True,211.5,86.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,150.0,-155.0,,1767549600000,Texans,Colts,True,211.5,61.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,175.0,120.0,,1767549600000,Texans,Colts,True,211.5,36.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,200.0,225.0,,1767549600000,Texans,Colts,True,211.5,11.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,225.0,375.0,,1767549600000,Texans,Colts,True,211.5,-13.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,250.0,675.0,,1767549600000,Texans,Colts,True,211.5,-38.5
+Riley Leonard,IND,Indianapolis Colts @ Houston Texans,Passing Yards,275.0,1100.0,,1767549600000,Texans,Colts,True,211.5,-63.5
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,25.0,-1100.0,,1767549600000,Texans,Colts,True,57.0,32.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,30.0,-600.0,,1767549600000,Texans,Colts,True,57.0,27.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,40.0,-260.0,,1767549600000,Texans,Colts,True,57.0,17.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,50.0,-140.0,,1767549600000,Texans,Colts,True,57.0,7.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,60.0,125.0,,1767549600000,Texans,Colts,True,57.0,-3.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,70.0,200.0,,1767549600000,Texans,Colts,True,57.0,-13.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,80.0,325.0,,1767549600000,Texans,Colts,True,57.0,-23.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,90.0,475.0,,1767549600000,Texans,Colts,True,57.0,-33.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,100.0,625.0,,1767549600000,Texans,Colts,True,57.0,-43.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,110.0,900.0,,1767549600000,Texans,Colts,True,57.0,-53.0
+Woody Marks,HOU,Indianapolis Colts @ Houston Texans,Rushing Yards,125.0,1400.0,,1767549600000,Texans,Colts,True,57.0,-68.0
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,150.0,-800.0,,1767561900000,Broncos,Chargers,True,211.6,61.599999999999994
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,175.0,-375.0,,1767561900000,Broncos,Chargers,True,211.6,36.599999999999994
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,200.0,-195.0,,1767561900000,Broncos,Chargers,True,211.6,11.599999999999994
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,225.0,,,1767561900000,Broncos,Chargers,True,211.6,-13.400000000000006
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,250.0,185.0,,1767561900000,Broncos,Chargers,True,211.6,-38.400000000000006
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,275.0,325.0,,1767561900000,Broncos,Chargers,True,211.6,-63.400000000000006
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,300.0,575.0,,1767561900000,Broncos,Chargers,True,211.6,-88.4
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,325.0,900.0,,1767561900000,Broncos,Chargers,True,211.6,-113.4
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Passing Yards,350.0,1500.0,,1767561900000,Broncos,Chargers,True,211.6,-138.4
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,20.0,-1100.0,,1767561900000,Broncos,Chargers,True,37.2,17.200000000000003
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,25.0,-675.0,,1767561900000,Broncos,Chargers,True,37.2,12.200000000000003
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,30.0,-475.0,,1767561900000,Broncos,Chargers,True,37.2,7.200000000000003
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,40.0,-250.0,,1767561900000,Broncos,Chargers,True,37.2,-2.799999999999997
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,50.0,-150.0,,1767561900000,Broncos,Chargers,True,37.2,-12.799999999999997
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,60.0,105.0,,1767561900000,Broncos,Chargers,True,37.2,-22.799999999999997
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,10.0,-350.0,,1767561900000,Broncos,Chargers,True,29.6,19.6
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,15.0,-190.0,,1767561900000,Broncos,Chargers,True,29.6,14.600000000000001
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,20.0,-115.0,,1767561900000,Broncos,Chargers,True,29.6,9.600000000000001
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,25.0,140.0,,1767561900000,Broncos,Chargers,True,29.6,4.600000000000001
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,30.0,200.0,,1767561900000,Broncos,Chargers,True,29.6,-0.3999999999999986
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,40.0,375.0,,1767561900000,Broncos,Chargers,True,29.6,-10.399999999999999
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,50.0,750.0,,1767561900000,Broncos,Chargers,True,29.6,-20.4
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,60.0,1100.0,,1767561900000,Broncos,Chargers,True,29.6,-30.4
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,70.0,1700.0,,1767561900000,Broncos,Chargers,True,29.6,-40.4
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,10.0,-330.0,,1767561900000,Broncos,Chargers,True,29.3,19.3
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,15.0,-195.0,,1767561900000,Broncos,Chargers,True,29.3,14.3
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,20.0,-125.0,,1767561900000,Broncos,Chargers,True,29.3,9.3
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,25.0,120.0,,1767561900000,Broncos,Chargers,True,29.3,4.300000000000001
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,30.0,175.0,,1767561900000,Broncos,Chargers,True,29.3,-0.6999999999999993
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,40.0,300.0,,1767561900000,Broncos,Chargers,True,29.3,-10.7
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,50.0,525.0,,1767561900000,Broncos,Chargers,True,29.3,-20.7
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,60.0,875.0,,1767561900000,Broncos,Chargers,True,29.3,-30.7
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,70.0,1300.0,,1767561900000,Broncos,Chargers,True,29.3,-40.7
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receiving Yards,80.0,1700.0,,1767561900000,Broncos,Chargers,True,29.3,-50.7
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,3.0,-600.0,,1767561900000,Broncos,Chargers,True,4.35,1.3499999999999996
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,4.0,-225.0,,1767561900000,Broncos,Chargers,True,4.35,0.34999999999999964
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,5.0,,,1767561900000,Broncos,Chargers,True,4.35,-0.6500000000000004
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,6.0,210.0,,1767561900000,Broncos,Chargers,True,4.35,-1.6500000000000004
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,7.0,375.0,,1767561900000,Broncos,Chargers,True,4.35,-2.6500000000000004
+Courtland Sutton,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,8.0,700.0,,1767561900000,Broncos,Chargers,True,4.35,-3.6500000000000004
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,2.0,-325.0,,1767561900000,Broncos,Chargers,True,4.38,2.38
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,3.0,-105.0,,1767561900000,Broncos,Chargers,True,4.38,1.38
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,4.0,225.0,,1767561900000,Broncos,Chargers,True,4.38,0.3799999999999999
+Evan Engram,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,5.0,525.0,,1767561900000,Broncos,Chargers,True,4.38,-0.6200000000000001
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,1.0,-1800.0,,1767561900000,Broncos,Chargers,True,3.32,2.32
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,2.0,-275.0,,1767561900000,Broncos,Chargers,True,3.32,1.3199999999999998
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,3.0,110.0,,1767561900000,Broncos,Chargers,True,3.32,0.31999999999999984
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,4.0,275.0,,1767561900000,Broncos,Chargers,True,3.32,-0.6800000000000002
+Troy Franklin,DEN,Los Angeles Chargers @ Denver Broncos,Receptions,5.0,625.0,,1767561900000,Broncos,Chargers,True,3.32,-1.6800000000000002
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,10.0,-240.0,,1767561900000,Broncos,Chargers,True,25.1,15.100000000000001
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,15.0,-115.0,,1767561900000,Broncos,Chargers,True,25.1,10.100000000000001
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,20.0,150.0,,1767561900000,Broncos,Chargers,True,25.1,5.100000000000001
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,25.0,240.0,,1767561900000,Broncos,Chargers,True,25.1,0.10000000000000142
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,30.0,375.0,,1767561900000,Broncos,Chargers,True,25.1,-4.899999999999999
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,40.0,800.0,,1767561900000,Broncos,Chargers,True,25.1,-14.899999999999999
+Bo Nix,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,50.0,1400.0,,1767561900000,Broncos,Chargers,True,25.1,-24.9
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,30.0,-900.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,40.0,-350.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,50.0,-180.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,60.0,,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,70.0,175.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,80.0,275.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,90.0,400.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,100.0,625.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,110.0,875.0,,1767561900000,Broncos,Chargers,True,,
+J.K. Dobbins,DEN,Los Angeles Chargers @ Denver Broncos,Rushing Yards,125.0,1400.0,,1767561900000,Broncos,Chargers,True,,
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,175.0,-850.0,,1767561900000,Patriots,Dolphins,True,198.3,23.30000000000001
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,200.0,-400.0,,1767561900000,Patriots,Dolphins,True,198.3,-1.6999999999999886
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,225.0,-210.0,,1767561900000,Patriots,Dolphins,True,198.3,-26.69999999999999
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,250.0,-110.0,,1767561900000,Patriots,Dolphins,True,198.3,-51.69999999999999
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,275.0,170.0,,1767561900000,Patriots,Dolphins,True,198.3,-76.69999999999999
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,300.0,300.0,,1767561900000,Patriots,Dolphins,True,198.3,-101.69999999999999
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,325.0,550.0,,1767561900000,Patriots,Dolphins,True,198.3,-126.69999999999999
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,350.0,875.0,,1767561900000,Patriots,Dolphins,True,198.3,-151.7
+Drake Maye,NE,Miami Dolphins @ New England Patriots,Passing Yards,375.0,1500.0,,1767561900000,Patriots,Dolphins,True,198.3,-176.7
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,125.0,-1100.0,,1767561900000,Patriots,Dolphins,True,211.5,86.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,150.0,-450.0,,1767561900000,Patriots,Dolphins,True,211.5,61.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,175.0,-210.0,,1767561900000,Patriots,Dolphins,True,211.5,36.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,200.0,-110.0,,1767561900000,Patriots,Dolphins,True,211.5,11.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,225.0,175.0,,1767561900000,Patriots,Dolphins,True,211.5,-13.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,250.0,325.0,,1767561900000,Patriots,Dolphins,True,211.5,-38.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,275.0,575.0,,1767561900000,Patriots,Dolphins,True,211.5,-63.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,300.0,900.0,,1767561900000,Patriots,Dolphins,True,211.5,-88.5
+Quinn Ewers,MIA,Miami Dolphins @ New England Patriots,Passing Yards,325.0,1700.0,,1767561900000,Patriots,Dolphins,True,211.5,-113.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,15.0,-1800.0,,1767561900000,Patriots,Dolphins,True,32.5,17.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,20.0,-900.0,,1767561900000,Patriots,Dolphins,True,32.5,12.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,25.0,-525.0,,1767561900000,Patriots,Dolphins,True,32.5,7.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,30.0,-375.0,,1767561900000,Patriots,Dolphins,True,32.5,2.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,40.0,-190.0,,1767561900000,Patriots,Dolphins,True,32.5,-7.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,50.0,-110.0,,1767561900000,Patriots,Dolphins,True,32.5,-17.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,60.0,155.0,,1767561900000,Patriots,Dolphins,True,32.5,-27.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,70.0,225.0,,1767561900000,Patriots,Dolphins,True,32.5,-37.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,80.0,350.0,,1767561900000,Patriots,Dolphins,True,32.5,-47.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,90.0,525.0,,1767561900000,Patriots,Dolphins,True,32.5,-57.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,100.0,800.0,,1767561900000,Patriots,Dolphins,True,32.5,-67.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,110.0,1000.0,,1767561900000,Patriots,Dolphins,True,32.5,-77.5
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receiving Yards,125.0,1500.0,,1767561900000,Patriots,Dolphins,True,32.5,-92.5
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,10.0,-500.0,,1767561900000,Patriots,Dolphins,True,29.6,19.6
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,15.0,-310.0,,1767561900000,Patriots,Dolphins,True,29.6,14.600000000000001
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,20.0,-220.0,,1767561900000,Patriots,Dolphins,True,29.6,9.600000000000001
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,25.0,-155.0,,1767561900000,Patriots,Dolphins,True,29.6,4.600000000000001
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,30.0,-115.0,,1767561900000,Patriots,Dolphins,True,29.6,-0.3999999999999986
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,40.0,140.0,,1767561900000,Patriots,Dolphins,True,29.6,-10.399999999999999
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,50.0,225.0,,1767561900000,Patriots,Dolphins,True,29.6,-20.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,60.0,325.0,,1767561900000,Patriots,Dolphins,True,29.6,-30.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,70.0,500.0,,1767561900000,Patriots,Dolphins,True,29.6,-40.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,80.0,675.0,,1767561900000,Patriots,Dolphins,True,29.6,-50.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,90.0,1000.0,,1767561900000,Patriots,Dolphins,True,29.6,-60.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,100.0,1300.0,,1767561900000,Patriots,Dolphins,True,29.6,-70.4
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receiving Yards,110.0,1500.0,,1767561900000,Patriots,Dolphins,True,29.6,-80.4
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,3.0,-650.0,,1767561900000,Patriots,Dolphins,True,4.4,1.4000000000000004
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,4.0,-250.0,,1767561900000,Patriots,Dolphins,True,4.4,0.40000000000000036
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,5.0,-115.0,,1767561900000,Patriots,Dolphins,True,4.4,-0.5999999999999996
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,6.0,165.0,,1767561900000,Patriots,Dolphins,True,4.4,-1.5999999999999996
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,7.0,300.0,,1767561900000,Patriots,Dolphins,True,4.4,-2.5999999999999996
+Hunter Henry,NE,Miami Dolphins @ New England Patriots,Receptions,8.0,525.0,,1767561900000,Patriots,Dolphins,True,4.4,-3.5999999999999996
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receptions,1.0,-1100.0,,1767561900000,Patriots,Dolphins,True,3.27,2.27
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receptions,2.0,-200.0,,1767561900000,Patriots,Dolphins,True,3.27,1.27
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receptions,3.0,155.0,,1767561900000,Patriots,Dolphins,True,3.27,0.27
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receptions,4.0,400.0,,1767561900000,Patriots,Dolphins,True,3.27,-0.73
+Kayshon Boutte,NE,Miami Dolphins @ New England Patriots,Receptions,5.0,875.0,,1767561900000,Patriots,Dolphins,True,3.27,-1.73
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,30.0,-1000.0,,1767561900000,Patriots,Dolphins,True,37.9,7.899999999999999
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,40.0,-350.0,,1767561900000,Patriots,Dolphins,True,37.9,-2.1000000000000014
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,50.0,-190.0,,1767561900000,Patriots,Dolphins,True,37.9,-12.100000000000001
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,60.0,-105.0,,1767561900000,Patriots,Dolphins,True,37.9,-22.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,70.0,160.0,,1767561900000,Patriots,Dolphins,True,37.9,-32.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,80.0,225.0,,1767561900000,Patriots,Dolphins,True,37.9,-42.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,90.0,375.0,,1767561900000,Patriots,Dolphins,True,37.9,-52.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,100.0,550.0,,1767561900000,Patriots,Dolphins,True,37.9,-62.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,110.0,750.0,,1767561900000,Patriots,Dolphins,True,37.9,-72.1
+Jaylen Wright,MIA,Miami Dolphins @ New England Patriots,Rushing Yards,125.0,1200.0,,1767561900000,Patriots,Dolphins,True,37.9,-87.1
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,15.0,-700.0,,1767561900000,Patriots,Dolphins,True,28.9,13.899999999999999
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,20.0,-400.0,,1767561900000,Patriots,Dolphins,True,28.9,8.899999999999999
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,25.0,-240.0,,1767561900000,Patriots,Dolphins,True,28.9,3.8999999999999986
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,30.0,-150.0,,1767561900000,Patriots,Dolphins,True,28.9,-1.1000000000000014
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,40.0,140.0,,1767561900000,Patriots,Dolphins,True,28.9,-11.100000000000001
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,50.0,250.0,,1767561900000,Patriots,Dolphins,True,28.9,-21.1
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,60.0,400.0,,1767561900000,Patriots,Dolphins,True,28.9,-31.1
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,70.0,625.0,,1767561900000,Patriots,Dolphins,True,28.9,-41.1
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,80.0,900.0,,1767561900000,Patriots,Dolphins,True,28.9,-51.1
+Rhamondre Stevenson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,90.0,1200.0,,1767561900000,Patriots,Dolphins,True,28.9,-61.1
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,30.0,-1000.0,,1767561900000,Patriots,Dolphins,True,54.4,24.4
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,40.0,-400.0,,1767561900000,Patriots,Dolphins,True,54.4,14.399999999999999
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,50.0,-200.0,,1767561900000,Patriots,Dolphins,True,54.4,4.399999999999999
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,60.0,-110.0,,1767561900000,Patriots,Dolphins,True,54.4,-5.600000000000001
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,70.0,150.0,,1767561900000,Patriots,Dolphins,True,54.4,-15.600000000000001
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,80.0,225.0,,1767561900000,Patriots,Dolphins,True,54.4,-25.6
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,90.0,375.0,,1767561900000,Patriots,Dolphins,True,54.4,-35.6
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,100.0,550.0,,1767561900000,Patriots,Dolphins,True,54.4,-45.6
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,110.0,800.0,,1767561900000,Patriots,Dolphins,True,54.4,-55.6
+TreVeyon Henderson,NE,Miami Dolphins @ New England Patriots,Rushing Yards,125.0,1200.0,,1767561900000,Patriots,Dolphins,True,54.4,-70.6
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,125.0,-750.0,,1767549600000,Jaguars,Titans,True,211.5,86.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,150.0,-350.0,,1767549600000,Jaguars,Titans,True,211.5,61.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,175.0,-185.0,,1767549600000,Jaguars,Titans,True,211.5,36.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,200.0,105.0,,1767549600000,Jaguars,Titans,True,211.5,11.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,225.0,190.0,,1767549600000,Jaguars,Titans,True,211.5,-13.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,250.0,350.0,,1767549600000,Jaguars,Titans,True,211.5,-38.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,275.0,625.0,,1767549600000,Jaguars,Titans,True,211.5,-63.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,300.0,1000.0,,1767549600000,Jaguars,Titans,True,211.5,-88.5
+Cam Ward,TEN,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,325.0,1500.0,,1767549600000,Jaguars,Titans,True,211.5,-113.5
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,175.0,-900.0,,1767549600000,Jaguars,Titans,True,216.8,41.80000000000001
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,200.0,-400.0,,1767549600000,Jaguars,Titans,True,216.8,16.80000000000001
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,225.0,-210.0,,1767549600000,Jaguars,Titans,True,216.8,-8.199999999999989
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,250.0,-105.0,,1767549600000,Jaguars,Titans,True,216.8,-33.19999999999999
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,275.0,175.0,,1767549600000,Jaguars,Titans,True,216.8,-58.19999999999999
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,300.0,300.0,,1767549600000,Jaguars,Titans,True,216.8,-83.19999999999999
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,325.0,550.0,,1767549600000,Jaguars,Titans,True,216.8,-108.19999999999999
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,350.0,875.0,,1767549600000,Jaguars,Titans,True,216.8,-133.2
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Passing Yards,375.0,1500.0,,1767549600000,Jaguars,Titans,True,216.8,-158.2
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,10.0,-1600.0,,1767549600000,Jaguars,Titans,True,33.9,23.9
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,15.0,-750.0,,1767549600000,Jaguars,Titans,True,33.9,18.9
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-475.0,,1767549600000,Jaguars,Titans,True,33.9,13.899999999999999
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-300.0,,1767549600000,Jaguars,Titans,True,33.9,8.899999999999999
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-220.0,,1767549600000,Jaguars,Titans,True,33.9,3.8999999999999986
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,-115.0,,1767549600000,Jaguars,Titans,True,33.9,-6.100000000000001
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,150.0,,1767549600000,Jaguars,Titans,True,33.9,-16.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,235.0,,1767549600000,Jaguars,Titans,True,33.9,-26.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,375.0,,1767549600000,Jaguars,Titans,True,33.9,-36.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,575.0,,1767549600000,Jaguars,Titans,True,33.9,-46.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,850.0,,1767549600000,Jaguars,Titans,True,33.9,-56.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,1100.0,,1767549600000,Jaguars,Titans,True,33.9,-66.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,110.0,1500.0,,1767549600000,Jaguars,Titans,True,33.9,-76.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,10.0,-1600.0,,1767549600000,Jaguars,Titans,True,40.9,30.9
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,15.0,-750.0,,1767549600000,Jaguars,Titans,True,40.9,25.9
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-475.0,,1767549600000,Jaguars,Titans,True,40.9,20.9
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-330.0,,1767549600000,Jaguars,Titans,True,40.9,15.899999999999999
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-250.0,,1767549600000,Jaguars,Titans,True,40.9,10.899999999999999
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,-140.0,,1767549600000,Jaguars,Titans,True,40.9,0.8999999999999986
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,120.0,,1767549600000,Jaguars,Titans,True,40.9,-9.100000000000001
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,190.0,,1767549600000,Jaguars,Titans,True,40.9,-19.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,275.0,,1767549600000,Jaguars,Titans,True,40.9,-29.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,400.0,,1767549600000,Jaguars,Titans,True,40.9,-39.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,625.0,,1767549600000,Jaguars,Titans,True,40.9,-49.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,850.0,,1767549600000,Jaguars,Titans,True,40.9,-59.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,110.0,1100.0,,1767549600000,Jaguars,Titans,True,40.9,-69.1
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,125.0,1500.0,,1767549600000,Jaguars,Titans,True,40.9,-84.1
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-900.0,,1767549600000,Jaguars,Titans,True,30.5,10.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-500.0,,1767549600000,Jaguars,Titans,True,30.5,5.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-330.0,,1767549600000,Jaguars,Titans,True,30.5,0.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,-170.0,,1767549600000,Jaguars,Titans,True,30.5,-9.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,110.0,,1767549600000,Jaguars,Titans,True,30.5,-19.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,185.0,,1767549600000,Jaguars,Titans,True,30.5,-29.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,290.0,,1767549600000,Jaguars,Titans,True,30.5,-39.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,425.0,,1767549600000,Jaguars,Titans,True,30.5,-49.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,625.0,,1767549600000,Jaguars,Titans,True,30.5,-59.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,900.0,,1767549600000,Jaguars,Titans,True,30.5,-69.5
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,110.0,1200.0,,1767549600000,Jaguars,Titans,True,30.5,-79.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,10.0,-1200.0,,1767549600000,Jaguars,Titans,True,31.5,21.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,15.0,-575.0,,1767549600000,Jaguars,Titans,True,31.5,16.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-330.0,,1767549600000,Jaguars,Titans,True,31.5,11.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-220.0,,1767549600000,Jaguars,Titans,True,31.5,6.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-155.0,,1767549600000,Jaguars,Titans,True,31.5,1.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,125.0,,1767549600000,Jaguars,Titans,True,31.5,-8.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,225.0,,1767549600000,Jaguars,Titans,True,31.5,-18.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,350.0,,1767549600000,Jaguars,Titans,True,31.5,-28.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,575.0,,1767549600000,Jaguars,Titans,True,31.5,-38.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,875.0,,1767549600000,Jaguars,Titans,True,31.5,-48.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,1200.0,,1767549600000,Jaguars,Titans,True,31.5,-58.5
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,1700.0,,1767549600000,Jaguars,Titans,True,31.5,-68.5
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,10.0,-675.0,,1767549600000,Jaguars,Titans,True,41.7,31.700000000000003
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,15.0,-400.0,,1767549600000,Jaguars,Titans,True,41.7,26.700000000000003
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-250.0,,1767549600000,Jaguars,Titans,True,41.7,21.700000000000003
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-175.0,,1767549600000,Jaguars,Titans,True,41.7,16.700000000000003
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-125.0,,1767549600000,Jaguars,Titans,True,41.7,11.700000000000003
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,145.0,,1767549600000,Jaguars,Titans,True,41.7,1.7000000000000028
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,240.0,,1767549600000,Jaguars,Titans,True,41.7,-8.299999999999997
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,375.0,,1767549600000,Jaguars,Titans,True,41.7,-18.299999999999997
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,575.0,,1767549600000,Jaguars,Titans,True,41.7,-28.299999999999997
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,850.0,,1767549600000,Jaguars,Titans,True,41.7,-38.3
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,1100.0,,1767549600000,Jaguars,Titans,True,41.7,-48.3
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,1400.0,,1767549600000,Jaguars,Titans,True,41.7,-58.3
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-1100.0,,1767549600000,Jaguars,Titans,True,28.5,3.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-650.0,,1767549600000,Jaguars,Titans,True,28.5,-1.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,-325.0,,1767549600000,Jaguars,Titans,True,28.5,-11.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,-185.0,,1767549600000,Jaguars,Titans,True,28.5,-21.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,-110.0,,1767549600000,Jaguars,Titans,True,28.5,-31.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,140.0,,1767549600000,Jaguars,Titans,True,28.5,-41.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,220.0,,1767549600000,Jaguars,Titans,True,28.5,-51.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,300.0,,1767549600000,Jaguars,Titans,True,28.5,-61.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,425.0,,1767549600000,Jaguars,Titans,True,28.5,-71.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,110.0,625.0,,1767549600000,Jaguars,Titans,True,28.5,-81.5
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,125.0,900.0,,1767549600000,Jaguars,Titans,True,28.5,-96.5
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,15.0,-1400.0,,1767549600000,Jaguars,Titans,True,19.9,4.899999999999999
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,20.0,-700.0,,1767549600000,Jaguars,Titans,True,19.9,-0.10000000000000142
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,25.0,-450.0,,1767549600000,Jaguars,Titans,True,19.9,-5.100000000000001
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,30.0,-325.0,,1767549600000,Jaguars,Titans,True,19.9,-10.100000000000001
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,40.0,-180.0,,1767549600000,Jaguars,Titans,True,19.9,-20.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,50.0,-105.0,,1767549600000,Jaguars,Titans,True,19.9,-30.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,60.0,150.0,,1767549600000,Jaguars,Titans,True,19.9,-40.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,70.0,225.0,,1767549600000,Jaguars,Titans,True,19.9,-50.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,80.0,325.0,,1767549600000,Jaguars,Titans,True,19.9,-60.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,90.0,475.0,,1767549600000,Jaguars,Titans,True,19.9,-70.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,100.0,625.0,,1767549600000,Jaguars,Titans,True,19.9,-80.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,110.0,875.0,,1767549600000,Jaguars,Titans,True,19.9,-90.1
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receiving Yards,125.0,1200.0,,1767549600000,Jaguars,Titans,True,19.9,-105.1
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,2.0,-850.0,,1767549600000,Jaguars,Titans,True,4.43,2.4299999999999997
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-250.0,,1767549600000,Jaguars,Titans,True,4.43,1.4299999999999997
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,,,1767549600000,Jaguars,Titans,True,4.43,0.4299999999999997
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,225.0,,1767549600000,Jaguars,Titans,True,4.43,-0.5700000000000003
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,425.0,,1767549600000,Jaguars,Titans,True,4.43,-1.5700000000000003
+Brenton Strange,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,7.0,850.0,,1767549600000,Jaguars,Titans,True,4.43,-2.5700000000000003
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,2.0,-675.0,,1767549600000,Jaguars,Titans,True,4.27,2.2699999999999996
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-210.0,,1767549600000,Jaguars,Titans,True,4.27,1.2699999999999996
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,120.0,,1767549600000,Jaguars,Titans,True,4.27,0.2699999999999996
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,275.0,,1767549600000,Jaguars,Titans,True,4.27,-0.7300000000000004
+Brian Thomas Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,575.0,,1767549600000,Jaguars,Titans,True,4.27,-1.7300000000000004
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-900.0,,1767549600000,Jaguars,Titans,True,4.36,1.3600000000000003
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,-325.0,,1767549600000,Jaguars,Titans,True,4.36,0.3600000000000003
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,-150.0,,1767549600000,Jaguars,Titans,True,4.36,-0.6399999999999997
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,140.0,,1767549600000,Jaguars,Titans,True,4.36,-1.6399999999999997
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,7.0,250.0,,1767549600000,Jaguars,Titans,True,4.36,-2.6399999999999997
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,8.0,450.0,,1767549600000,Jaguars,Titans,True,4.36,-3.6399999999999997
+Chig Okonkwo,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,9.0,750.0,,1767549600000,Jaguars,Titans,True,4.36,-4.64
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,2.0,-1500.0,,1767549600000,Jaguars,Titans,True,3.45,1.4500000000000002
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-360.0,,1767549600000,Jaguars,Titans,True,3.45,0.4500000000000002
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,-150.0,,1767549600000,Jaguars,Titans,True,3.45,-0.5499999999999998
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,150.0,,1767549600000,Jaguars,Titans,True,3.45,-1.5499999999999998
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,275.0,,1767549600000,Jaguars,Titans,True,3.45,-2.55
+Chimere Dike,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,7.0,550.0,,1767549600000,Jaguars,Titans,True,3.45,-3.55
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,2.0,-450.0,,1767549600000,Jaguars,Titans,True,3.63,1.63
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-140.0,,1767549600000,Jaguars,Titans,True,3.63,0.6299999999999999
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,-175.0,,1767549600000,Jaguars,Titans,True,3.63,-0.3700000000000001
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,375.0,,1767549600000,Jaguars,Titans,True,3.63,-1.37
+Elic Ayomanor,TEN,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,750.0,,1767549600000,Jaguars,Titans,True,3.63,-2.37
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-1100.0,,1767549600000,Jaguars,Titans,True,3.64,0.6400000000000001
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,-350.0,,1767549600000,Jaguars,Titans,True,3.64,-0.3599999999999999
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,-160.0,,1767549600000,Jaguars,Titans,True,3.64,-1.3599999999999999
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,130.0,,1767549600000,Jaguars,Titans,True,3.64,-2.36
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,7.0,225.0,,1767549600000,Jaguars,Titans,True,3.64,-3.36
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,8.0,425.0,,1767549600000,Jaguars,Titans,True,3.64,-4.359999999999999
+Jakobi Meyers,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,9.0,750.0,,1767549600000,Jaguars,Titans,True,3.64,-5.359999999999999
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,2.0,-1200.0,,1767549600000,Jaguars,Titans,True,2.26,0.2599999999999998
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,3.0,-310.0,,1767549600000,Jaguars,Titans,True,2.26,-0.7400000000000002
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,4.0,-120.0,,1767549600000,Jaguars,Titans,True,2.26,-1.7400000000000002
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,5.0,190.0,,1767549600000,Jaguars,Titans,True,2.26,-2.74
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,6.0,375.0,,1767549600000,Jaguars,Titans,True,2.26,-3.74
+Parker Washington,JAX,Tennessee Titans @ Jacksonville Jaguars,Receptions,7.0,750.0,,1767549600000,Jaguars,Titans,True,2.26,-4.74
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,40.0,-700.0,,1767549600000,Jaguars,Titans,True,64.4,24.400000000000006
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,50.0,-325.0,,1767549600000,Jaguars,Titans,True,64.4,14.400000000000006
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,60.0,-185.0,,1767549600000,Jaguars,Titans,True,64.4,4.400000000000006
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,70.0,-105.0,,1767549600000,Jaguars,Titans,True,64.4,-5.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,80.0,150.0,,1767549600000,Jaguars,Titans,True,64.4,-15.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,90.0,225.0,,1767549600000,Jaguars,Titans,True,64.4,-25.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,100.0,350.0,,1767549600000,Jaguars,Titans,True,64.4,-35.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,110.0,475.0,,1767549600000,Jaguars,Titans,True,64.4,-45.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,125.0,750.0,,1767549600000,Jaguars,Titans,True,64.4,-60.599999999999994
+Tony Pollard,TEN,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,150.0,1500.0,,1767549600000,Jaguars,Titans,True,64.4,-85.6
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,30.0,-1200.0,,1767549600000,Jaguars,Titans,True,74.2,44.2
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,40.0,-450.0,,1767549600000,Jaguars,Titans,True,74.2,34.2
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,50.0,-230.0,,1767549600000,Jaguars,Titans,True,74.2,24.200000000000003
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,60.0,-130.0,,1767549600000,Jaguars,Titans,True,74.2,14.200000000000003
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,70.0,130.0,,1767549600000,Jaguars,Titans,True,74.2,4.200000000000003
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,80.0,200.0,,1767549600000,Jaguars,Titans,True,74.2,-5.799999999999997
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,90.0,300.0,,1767549600000,Jaguars,Titans,True,74.2,-15.799999999999997
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,100.0,425.0,,1767549600000,Jaguars,Titans,True,74.2,-25.799999999999997
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,110.0,625.0,,1767549600000,Jaguars,Titans,True,74.2,-35.8
+Travis Etienne Jr.,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,125.0,1000.0,,1767549600000,Jaguars,Titans,True,74.2,-50.8
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,10.0,-360.0,,1767549600000,Jaguars,Titans,True,13.7,3.6999999999999993
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,15.0,-190.0,,1767549600000,Jaguars,Titans,True,13.7,-1.3000000000000007
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,20.0,-105.0,,1767549600000,Jaguars,Titans,True,13.7,-6.300000000000001
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,25.0,160.0,,1767549600000,Jaguars,Titans,True,13.7,-11.3
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,30.0,240.0,,1767549600000,Jaguars,Titans,True,13.7,-16.3
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,40.0,525.0,,1767549600000,Jaguars,Titans,True,13.7,-26.3
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,50.0,900.0,,1767549600000,Jaguars,Titans,True,13.7,-36.3
+Trevor Lawrence,JAX,Tennessee Titans @ Jacksonville Jaguars,Rushing Yards,60.0,1500.0,,1767549600000,Jaguars,Titans,True,13.7,-46.3
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,125.0,-500.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,150.0,-225.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,175.0,-115.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,200.0,175.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,225.0,300.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,250.0,575.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,275.0,900.0,,1767561900000,Eagles,Commanders,True,,
+Josh Johnson,WAS,Washington Commanders @ Philadelphia Eagles,Passing Yards,300.0,1500.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,150.0,-1000.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,175.0,-425.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,200.0,-225.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,225.0,-115.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,250.0,160.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,275.0,275.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,300.0,525.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,325.0,875.0,,1767561900000,Eagles,Commanders,True,,
+Tanner McKee,PHI,Washington Commanders @ Philadelphia Eagles,Passing Yards,350.0,1200.0,,1767561900000,Eagles,Commanders,True,,
