@@ -2,37 +2,37 @@
 
 ## MONEYLINE
 
-- Rows: 75
+- Rows: 77
 
-- Win Rate: 0.520
+- Win Rate: 0.506
 
-- EV Mean: 0.5792
+- EV Mean: 0.5808
 
 - Tiers:
-  - High: rows=72, win_rate=0.514, ev_mean=0.5998
-  - Medium: rows=2, win_rate=1.000, ev_mean=0.0975
-  - Low: rows=1, win_rate=0.000, ev_mean=0.0638
+  - High: rows=75, win_rate=0.507, ev_mean=0.5959
+  - Medium: rows=0, win_rate=nan, ev_mean=nan
+  - Low: rows=0, win_rate=nan, ev_mean=nan
 
 ## SPREAD
 
-- Rows: 76
+- Rows: 92
 
-- Win Rate: 0.447
+- Win Rate: 0.435
 
-- EV Mean: 0.0681
+- EV Mean: 0.0403
 
 - Tiers:
-  - High: rows=15, win_rate=0.533, ev_mean=0.1815
-  - Medium: rows=18, win_rate=0.278, ev_mean=0.0949
-  - Low: rows=16, win_rate=0.438, ev_mean=0.0553
+  - High: rows=7, win_rate=0.286, ev_mean=0.1499
+  - Medium: rows=15, win_rate=0.400, ev_mean=0.0990
+  - Low: rows=24, win_rate=0.417, ev_mean=0.0535
 
 ## TOTAL
 
-- Rows: 76
+- Rows: 92
 
-- Win Rate: 0.434
+- Win Rate: 0.522
 
-- EV Mean: -0.0277
+- EV Mean: -0.0454
 
 - Tiers:
   - High: rows=0, win_rate=nan, ev_mean=nan
