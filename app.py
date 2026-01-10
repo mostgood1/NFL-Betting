@@ -763,6 +763,90 @@ def _load_current_week_override() -> Optional[tuple[int, int]]:
     return None
 
 
+# --- Optional Monte Carlo probabilities (sim_probs.csv) ---
+# These are used only for gating when explicitly enabled via env flags.
+# We cache per (season, week) to keep IO minimal.
+_sim_probs_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
+    """Load sim_probs.csv for the given season/week from DATA_DIR/backtests/{season}_wk{week}/sim_probs.csv.
+    Returns a DataFrame or None if missing/invalid. Cached by (season, week).
+    """
+    try:
+        if season is None or week is None:
+            return None
+        key = (int(season), int(week))
+        if key in _sim_probs_cache:
+            return _sim_probs_cache[key]
+        fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_probs.csv"
+        df = None
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+            except Exception:
+                df = None
+        # Fallback: if per-week sim_probs missing, try latest backtests folder for this season
+        if df is None or (isinstance(df, pd.DataFrame) and df.empty):
+            try:
+                import glob
+                pattern = str(DATA_DIR / "backtests" / f"{int(season)}_wk*" / "sim_probs.csv")
+                files = glob.glob(pattern)
+                if files:
+                    # pick the highest week by parsing folder name
+                    def _wk_num(p: str) -> int:
+                        try:
+                            name = Path(p).parent.name  # e.g., 2025_wk17
+                            return int(str(name).split('wk')[-1])
+                        except Exception:
+                            return -1
+                    best = max(files, key=_wk_num)
+                    try:
+                        df = pd.read_csv(best)
+                    except Exception:
+                        df = None
+            except Exception:
+                pass
+        _sim_probs_cache[key] = df
+        return df
+    except Exception:
+        return None
+
+def _get_mc_probs_for_game(season: Optional[int], week: Optional[int], game_id: Any) -> Dict[str, Optional[float]]:
+    """Return MC probabilities for a specific game_id if available.
+    Keys: prob_home_win_mc, prob_home_cover_mc, prob_over_total_mc.
+    """
+    out: Dict[str, Optional[float]] = {"prob_home_win_mc": None, "prob_home_cover_mc": None, "prob_over_total_mc": None}
+    try:
+        df = _load_sim_probs_df(season, week)
+        if df is None or df.empty or 'game_id' not in df.columns:
+            return out
+        gid = str(game_id) if game_id is not None else None
+        if gid is None:
+            return out
+        try:
+            # Use first match if duplicates exist
+            row = df[df['game_id'].astype(str) == gid]
+            if not row.empty:
+                r0 = row.iloc[0]
+                try:
+                    out['prob_home_win_mc'] = float(r0.get('prob_home_win_mc')) if pd.notna(r0.get('prob_home_win_mc')) else None
+                except Exception:
+                    out['prob_home_win_mc'] = None
+                try:
+                    out['prob_home_cover_mc'] = float(r0.get('prob_home_cover_mc')) if pd.notna(r0.get('prob_home_cover_mc')) else None
+                except Exception:
+                    out['prob_home_cover_mc'] = None
+                try:
+                    out['prob_over_total_mc'] = float(r0.get('prob_over_total_mc')) if pd.notna(r0.get('prob_over_total_mc')) else None
+                except Exception:
+                    out['prob_over_total_mc'] = None
+        except Exception:
+            return out
+    except Exception:
+        return out
+    return out
+
+
 def _read_current_week_marker() -> Optional[tuple[int, int]]:
     try:
         fp = DATA_DIR / 'current_week.json'
@@ -2072,10 +2156,66 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
         # Non-fatal: return as-is if dedup hits an unexpected issue
         pass
 
+    # Filter out phantom rows lacking any scheduled date/time to avoid showing non-happening games
+    try:
+        if ('game_date' in merged.columns) or ('date' in merged.columns):
+            gd = pd.to_datetime(merged.get('game_date'), errors='coerce') if 'game_date' in merged.columns else None
+            dt = pd.to_datetime(merged.get('date'), errors='coerce') if 'date' in merged.columns else None
+            mask_has_dt = None
+            if gd is not None and dt is not None:
+                mask_has_dt = gd.notna() | dt.notna()
+            elif gd is not None:
+                mask_has_dt = gd.notna()
+            elif dt is not None:
+                mask_has_dt = dt.notna()
+            if mask_has_dt is not None and mask_has_dt.any():
+                merged = merged[mask_has_dt].copy()
+    except Exception:
+        pass
+
     # Attach consensus market lines as a final enrichment pass to fill gaps
     try:
         from nfl_compare.src.market_aggregator import build_consensus_for_view as _consensus_attach
         merged = _consensus_attach(merged, season, week)
+    except Exception:
+        pass
+
+    # Optional: restrict to matchups present in lines.csv for the given week (authoritative subset for upcoming)
+    try:
+        subset_flag = os.environ.get("RECS_AUTHORITATIVE_LINES_SUBSET", "1").strip().lower() in {"1","true","yes","on"}
+        if subset_flag and (season is not None) and (week is not None):
+            from nfl_compare.src.data_sources import load_lines as _load_lines_for_subset
+            lines_df = _load_lines_for_subset()
+            if lines_df is not None and not getattr(lines_df, 'empty', True):
+                # Normalize team names to match view
+                try:
+                    from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                    for col in ('home_team','away_team'):
+                        if col in lines_df.columns:
+                            lines_df[col] = lines_df[col].astype(str).apply(_norm_team)
+                        if col in merged.columns:
+                            merged[col] = merged[col].astype(str).apply(_norm_team)
+                except Exception:
+                    pass
+                # Filter lines to season/week and drop duplicates on matchup
+                lsw = lines_df.copy()
+                if 'season' in lsw.columns:
+                    lsw['season'] = pd.to_numeric(lsw['season'], errors='coerce')
+                    lsw = lsw[lsw['season'] == season]
+                if 'week' in lsw.columns:
+                    lsw['week'] = pd.to_numeric(lsw['week'], errors='coerce')
+                    lsw = lsw[lsw['week'] == week]
+                keep_cols = [c for c in ['home_team','away_team'] if c in lsw.columns]
+                if keep_cols:
+                    lsub = lsw[keep_cols].drop_duplicates()
+                    # Build match keys in both directions for safe filtering
+                    lsub['__k1'] = lsub['home_team'].astype(str) + '|' + lsub['away_team'].astype(str)
+                    lsub['__k2'] = lsub['away_team'].astype(str) + '|' + lsub['home_team'].astype(str)
+                    valid = set(lsub['__k1'].tolist()) | set(lsub['__k2'].tolist())
+                    if {'home_team','away_team'}.issubset(merged.columns) and len(valid) > 0:
+                        merged['__mk'] = merged['home_team'].astype(str) + '|' + merged['away_team'].astype(str)
+                        merged = merged[merged['__mk'].isin(valid)].copy()
+                        merged = merged.drop(columns=['__mk'])
     except Exception:
         pass
 
@@ -3188,6 +3328,19 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
             out = out2.drop(columns=drop_cols4)
         except Exception:
             pass
+        # Fill team points from alternate score fields when missing
+        try:
+            for side in ['home','away']:
+                pts_col = f'pred_{side}_points'
+                score_col = f'pred_{side}_score'
+                if pts_col in out.columns and score_col in out.columns:
+                    out[pts_col] = pd.to_numeric(out[pts_col], errors='coerce').fillna(pd.to_numeric(out[score_col], errors='coerce'))
+            # Compute derived total from team points if available
+            if ('pred_home_points' in out.columns) and ('pred_away_points' in out.columns):
+                tot = pd.to_numeric(out['pred_home_points'], errors='coerce') + pd.to_numeric(out['pred_away_points'], errors='coerce')
+                out['pred_points_total'] = tot
+        except Exception:
+            pass
         return out
     except Exception:
         try:
@@ -3731,10 +3884,43 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         # EV percent gate
         ev_pct_ml = model_winner_ev * 100.0
         pass_ev_gate_ml = (ev_pct_ml >= min_ev_pct_ml)
+        # Additional probability threshold gate for selected side (Moneyline)
+        try:
+            min_p_ml = float(os.environ.get('RECS_MIN_P_ML', '0.0'))
+        except Exception:
+            min_p_ml = 0.0
+        p_sel_ml = model_winner_prob
+        p_sel_ml_mc = None
+        prob_home_win_mc = None
+        try:
+            use_mc_ml = str(os.environ.get('RECS_USE_MC_PROBS_ML', '0')).strip().lower() in {'1','true','yes','y'}
+        except Exception:
+            use_mc_ml = False
+        if use_mc_ml:
+            try:
+                season_i = int(season) if season is not None and not pd.isna(season) else None
+            except Exception:
+                season_i = None
+            try:
+                week_i = int(week) if week is not None and not pd.isna(week) else None
+            except Exception:
+                week_i = None
+            gid = g('game_id')
+            mc = _get_mc_probs_for_game(season_i, week_i, gid)
+            prob_home_win_mc = mc.get('prob_home_win_mc')
+            try:
+                if prob_home_win_mc is not None and not pd.isna(prob_home_win_mc):
+                    p_sel_ml_mc = float(prob_home_win_mc) if rec_model_winner == home else float(1.0 - float(prob_home_win_mc))
+            except Exception:
+                p_sel_ml_mc = None
+        if p_sel_ml_mc is not None:
+            pass_p_gate_ml = True if (min_p_ml <= 0.0) else (p_sel_ml_mc >= float(min_p_ml))
+        else:
+            pass_p_gate_ml = True if (min_p_ml <= 0.0 or p_sel_ml is None) else (p_sel_ml >= float(min_p_ml))
         if not (pass_prob_gate_ml and pass_ev_gate_ml) and not is_final:
             # Skip upcoming ML rec if gates fail; allow finals to be graded/displayed regardless
             pass
-        else:
+        elif (pass_p_gate_ml or is_final):
             conf = _conf_from_ev(model_winner_ev)
             ml_result = None
             if is_final and actual_margin is not None:
@@ -3749,6 +3935,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 "odds": int(ml_home if rec_model_winner==home else ml_away) if isinstance(ml_home if rec_model_winner==home else ml_away, (int,float)) else (ml_home if rec_model_winner==home else ml_away),
                 "ev_units": model_winner_ev,
                 "ev_pct": model_winner_ev * 100.0,
+                "prob_selected": p_sel_ml,
+                "prob_home_win": p_home_eff,
+                "prob_selected_mc": p_sel_ml_mc,
+                "prob_home_win_mc": prob_home_win_mc,
                 "confidence": conf,
                 "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
                 "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
@@ -3822,6 +4012,11 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             pass_prob_gate_ats = True
             if min_prob_delta_ats > 0.0:
                 pass_prob_gate_ats = (abs(float(p_home_cover) - 0.5) >= float(min_prob_delta_ats))
+            # Additional probability threshold gate for selected side
+            try:
+                min_p_ats = float(os.environ.get('RECS_MIN_P_ATS', '0.0'))
+            except Exception:
+                min_p_ats = 0.0
             # Build selections
             try:
                 sp = float(spread)
@@ -3841,8 +4036,52 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
+                # Determine selected-side probability for gating
+                try:
+                    sel_is_home = str(s).startswith(str(home))
+                    p_sel_ats = float(p_home_cover) if sel_is_home else float(1.0 - p_home_cover)
+                except Exception:
+                    p_sel_ats = None
+                # Optionally override selected-side probability gate using MC probabilities if available
+                p_sel_ats_mc = None
+                prob_home_cover_mc = None
+                try:
+                    use_mc_ats = str(os.environ.get('RECS_USE_MC_PROBS_ATS', '0')).strip().lower() in {'1','true','yes','y'}
+                except Exception:
+                    use_mc_ats = False
+                if use_mc_ats:
+                    try:
+                        season_i = int(season) if season is not None and not pd.isna(season) else None
+                    except Exception:
+                        season_i = None
+                    try:
+                        week_i = int(week) if week is not None and not pd.isna(week) else None
+                    except Exception:
+                        week_i = None
+                    gid = g('game_id')
+                    mc = _get_mc_probs_for_game(season_i, week_i, gid)
+                    prob_home_cover_mc = mc.get('prob_home_cover_mc')
+                    try:
+                        if prob_home_cover_mc is not None and not pd.isna(prob_home_cover_mc):
+                            p_sel_ats_mc = float(prob_home_cover_mc) if sel_is_home else float(1.0 - float(prob_home_cover_mc))
+                    except Exception:
+                        p_sel_ats_mc = None
                 pass_ev_gate_ats = (e * 100.0 >= min_ev_pct_ats)
-                if not (pass_prob_gate_ats and pass_ev_gate_ats) and not is_final:
+                # Gate uses MC-selected probability when enabled and available; otherwise classifier-derived
+                try:
+                    prob_gate_and = str(os.environ.get('RECS_PROB_GATE_AND', '0')).strip().lower() in {'1','true','yes','y'}
+                except Exception:
+                    prob_gate_and = False
+                if prob_gate_and:
+                    cond_mc = True if (min_p_ats <= 0.0 or p_sel_ats_mc is None) else (p_sel_ats_mc >= float(min_p_ats))
+                    cond_clf = True if (min_p_ats <= 0.0 or p_sel_ats is None) else (p_sel_ats >= float(min_p_ats))
+                    pass_p_gate_ats = cond_mc and cond_clf
+                else:
+                    if p_sel_ats_mc is not None:
+                        pass_p_gate_ats = True if (min_p_ats <= 0.0) else (p_sel_ats_mc >= float(min_p_ats))
+                    else:
+                        pass_p_gate_ats = True if (min_p_ats <= 0.0 or p_sel_ats is None) else (p_sel_ats >= float(min_p_ats))
+                if not (pass_prob_gate_ats and pass_ev_gate_ats and pass_p_gate_ats) and not is_final:
                     # Skip upcoming ATS rec if gates fail; allow finals for grading
                     pass
                 else:
@@ -3865,6 +4104,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                         "odds": -110,
                         "ev_units": e,
                         "ev_pct": e * 100.0 if e is not None else None,
+                        "prob_selected": p_sel_ats,
+                        "prob_home_cover": p_home_cover,
+                        "prob_selected_mc": p_sel_ats_mc,
+                        "prob_home_cover_mc": prob_home_cover_mc,
                         "confidence": conf,
                         "sort_weight": (_tier_to_num(conf), e or -999),
                         "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
@@ -3929,6 +4172,11 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             pass_prob_gate_total = True
             if min_prob_delta_total > 0.0:
                 pass_prob_gate_total = (abs(float(p_over) - 0.5) >= float(min_prob_delta_total))
+            # Additional probability threshold gate for selected side
+            try:
+                min_p_total = float(os.environ.get('RECS_MIN_P_TOTAL', '0.0'))
+            except Exception:
+                min_p_total = 0.0
             # Choose best
             try:
                 tot = float(m_total)
@@ -3942,8 +4190,52 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             cand = [(s, e) for s, e in cand if e is not None]
             if cand:
                 s, e = max(cand, key=lambda t: t[1])
+                # Determine selected-side probability for gating
+                try:
+                    sel_is_over = str(s).startswith('Over')
+                    p_sel_total = float(p_over) if sel_is_over else float(1.0 - p_over)
+                except Exception:
+                    p_sel_total = None
+                # Optionally override selected-side probability gate using MC probabilities if available
+                p_sel_total_mc = None
+                prob_over_total_mc = None
+                try:
+                    use_mc_total = str(os.environ.get('RECS_USE_MC_PROBS_TOTAL', '0')).strip().lower() in {'1','true','yes','y'}
+                except Exception:
+                    use_mc_total = False
+                if use_mc_total:
+                    try:
+                        season_i = int(season) if season is not None and not pd.isna(season) else None
+                    except Exception:
+                        season_i = None
+                    try:
+                        week_i = int(week) if week is not None and not pd.isna(week) else None
+                    except Exception:
+                        week_i = None
+                    gid = g('game_id')
+                    mc = _get_mc_probs_for_game(season_i, week_i, gid)
+                    prob_over_total_mc = mc.get('prob_over_total_mc')
+                    try:
+                        if prob_over_total_mc is not None and not pd.isna(prob_over_total_mc):
+                            p_sel_total_mc = float(prob_over_total_mc) if sel_is_over else float(1.0 - float(prob_over_total_mc))
+                    except Exception:
+                        p_sel_total_mc = None
                 pass_ev_gate_total = (e * 100.0 >= min_ev_pct_total)
-                if not (pass_prob_gate_total and pass_ev_gate_total) and not is_final:
+                # Gate uses MC-selected probability when enabled and available; otherwise classifier-derived
+                try:
+                    prob_gate_and = str(os.environ.get('RECS_PROB_GATE_AND', '0')).strip().lower() in {'1','true','yes','y'}
+                except Exception:
+                    prob_gate_and = False
+                if prob_gate_and:
+                    cond_mc = True if (min_p_total <= 0.0 or p_sel_total_mc is None) else (p_sel_total_mc >= float(min_p_total))
+                    cond_clf = True if (min_p_total <= 0.0 or p_sel_total is None) else (p_sel_total >= float(min_p_total))
+                    pass_p_gate_total = cond_mc and cond_clf
+                else:
+                    if p_sel_total_mc is not None:
+                        pass_p_gate_total = True if (min_p_total <= 0.0) else (p_sel_total_mc >= float(min_p_total))
+                    else:
+                        pass_p_gate_total = True if (min_p_total <= 0.0 or p_sel_total is None) else (p_sel_total >= float(min_p_total))
+                if not (pass_prob_gate_total and pass_ev_gate_total and pass_p_gate_total) and not is_final:
                     # Skip upcoming TOTAL rec if gates fail; allow finals for grading
                     pass
                 else:
@@ -3974,6 +4266,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     "odds": -110,
                     "ev_units": e,
                     "ev_pct": e * 100.0 if e is not None else None,
+                    "prob_selected": p_sel_total,
+                    "prob_over_total": p_over,
+                    "prob_selected_mc": p_sel_total_mc,
+                    "prob_over_total_mc": prob_over_total_mc,
                     "confidence": conf,
                     "sort_weight": (_tier_to_num(conf), e or -999),
                     "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
@@ -5060,6 +5356,28 @@ def api_recommendations():
             w = r.get("sort_weight") or (0, -999)
             return (w[0], w[1])
         all_recs.sort(key=sort_key, reverse=True)
+    # Optional trim: top-N per market with confidence floor
+    try:
+        per_market = request.args.get("per_market")
+        min_conf = request.args.get("min_conf")
+        if per_market:
+            try:
+                n = int(per_market)
+            except Exception:
+                n = None
+            if n and n > 0:
+                conf_floor = _tier_to_num(min_conf) if min_conf else 1
+                type_keys = ["MONEYLINE", "SPREAD", "TOTAL"]
+                out_recs: List[Dict[str, Any]] = []
+                for t in type_keys:
+                    sub = [r for r in all_recs if str(r.get("type")).upper() == t]
+                    if conf_floor > 1:
+                        sub = [r for r in sub if _tier_to_num(r.get("confidence")) >= conf_floor]
+                    if sub:
+                        out_recs.extend(sub[:n])
+                all_recs = out_recs
+    except Exception:
+        pass
     for r in all_recs:
         r.pop("sort_weight", None)
     return {"rows": len(all_recs), "data": all_recs}, 200
@@ -5197,6 +5515,27 @@ def recommendations_page():
             w = r.get("sort_weight") or (0, -999)
             return (w[0], w[1])
         all_recs.sort(key=sort_key, reverse=True)
+    # Optional trim: top-N per market with confidence floor for HTML view
+    try:
+        per_market = request.args.get("per_market")
+        min_conf = request.args.get("min_conf")
+        if per_market:
+            try:
+                n = int(per_market)
+            except Exception:
+                n = None
+            if n and n > 0:
+                conf_floor = _tier_to_num(min_conf) if min_conf else 1
+                out_recs: List[Dict[str, Any]] = []
+                for t in ["MONEYLINE", "SPREAD", "TOTAL"]:
+                    sub = [r for r in all_recs if str(r.get("type")).upper() == t]
+                    if conf_floor > 1:
+                        sub = [r for r in sub if _tier_to_num(r.get("confidence")) >= conf_floor]
+                    if sub:
+                        out_recs.extend(sub[:n])
+                all_recs = out_recs
+    except Exception:
+        pass
     for r in all_recs:
         r.pop("sort_weight", None)
 
@@ -5285,6 +5624,97 @@ def recommendations_page():
         sort=sort_param,
         accuracy=accuracy_summary,
     )
+
+
+@app.route("/publish")
+def publish_page():
+    """Simple publish view: top-N per market with confidence floor.
+    Query params: season, week, min_ev, one_per_game, per_market, min_conf
+    """
+    pred_df = _load_predictions()
+    games_df = _load_games()
+    season = request.args.get("season")
+    week = request.args.get("week")
+    date = request.args.get("date")
+    season_i = None
+    week_i = None
+    if season:
+        try:
+            season_i = int(season)
+        except Exception:
+            season_i = None
+    if week:
+        try:
+            week_i = int(week)
+        except Exception:
+            week_i = None
+    if week_i is None and not date:
+        try:
+            src = games_df if (games_df is not None and not games_df.empty) else pred_df
+            inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+            if inferred is not None:
+                season_i, week_i = int(inferred[0]), int(inferred[1])
+            else:
+                if src is not None and not src.empty and 'season' in src.columns and not src['season'].isna().all():
+                    if season_i is None:
+                        season_i = int(src['season'].max())
+                week_i = 1
+        except Exception:
+            week_i = 1
+
+    # Build view and attach predictions
+    view_df = _build_week_view(pred_df, games_df, season_i, week_i)
+    view_df = _attach_model_predictions(view_df)
+    if view_df is None or view_df.empty:
+        return render_template("publish.html", recs=[], groups_by_market={}, have_data=False, week=week_i or None), 200
+
+    # Environment overrides
+    min_ev = request.args.get("min_ev") or "8.0"
+    one = request.args.get("one_per_game") or "false"
+    os.environ['RECS_MIN_EV_PCT'] = str(min_ev)
+    os.environ['RECS_ONE_PER_GAME'] = str(one)
+
+    # Compute all recommendations
+    all_recs: List[Dict[str, Any]] = []
+    for _, row in view_df.iterrows():
+        try:
+            recs = _compute_recommendations_for_row(row)
+            all_recs.extend(recs)
+        except Exception:
+            continue
+    # Default sort: confidence -> EV desc
+    def sort_key(r: Dict[str, Any]):
+        w = r.get("sort_weight") or (0, -999)
+        return (w[0], w[1])
+    all_recs.sort(key=sort_key, reverse=True)
+
+    # Trim per-market
+    per_market = request.args.get("per_market") or "3"
+    try:
+        n = int(per_market)
+    except Exception:
+        n = 3
+    min_conf = request.args.get("min_conf") or "High"
+    conf_floor = _tier_to_num(min_conf) if min_conf else 1
+    out_recs: List[Dict[str, Any]] = []
+    for t in ["MONEYLINE", "SPREAD", "TOTAL"]:
+        sub = [r for r in all_recs if str(r.get("type")).upper() == t]
+        if conf_floor > 1:
+            sub = [r for r in sub if _tier_to_num(r.get("confidence")) >= conf_floor]
+        if sub:
+            out_recs.extend(sub[:n])
+
+    # Group by market for display
+    groups_by_market: Dict[str, List[Dict[str, Any]]] = {"MONEYLINE": [], "SPREAD": [], "TOTAL": []}
+    for r in out_recs:
+        k = str(r.get("type")).upper()
+        if k not in groups_by_market:
+            groups_by_market[k] = []
+        groups_by_market[k].append(r)
+    for r in out_recs:
+        r.pop("sort_weight", None)
+
+    return render_template("publish.html", recs=out_recs, groups_by_market=groups_by_market, have_data=len(out_recs) > 0, week=week_i or None, min_conf=min_conf, per_market=n), 200
 
 
 def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
@@ -5433,8 +5863,9 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 #   RECS_MARKET_BLEND_MARGIN in [0,1] to blend model margin with -spread_home
                 #   RECS_MARKET_BLEND_TOTAL in [0,1] to blend model total with market total
                 try:
-                    bm_raw = os.environ.get("RECS_MARKET_BLEND_MARGIN", "0")
-                    bt_raw = os.environ.get("RECS_MARKET_BLEND_TOTAL", "0")
+                    # Default local blend: margin=0.10, total=0.20 if envs unset
+                    bm_raw = os.environ.get("RECS_MARKET_BLEND_MARGIN", "0.10")
+                    bt_raw = os.environ.get("RECS_MARKET_BLEND_TOTAL", "0.20")
                     bm = float(bm_raw) if bm_raw not in (None, "") else 0.0
                     bt = float(bt_raw) if bt_raw not in (None, "") else 0.0
                     bm = max(0.0, min(1.0, bm))
@@ -5452,6 +5883,20 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                             total_pred = (1.0 - bt) * float(total_pred) + bt * float(m_total)
                         except Exception:
                             pass
+                    # Optionally apply blended margin/total to displayed team points
+                    try:
+                        # Default apply points blending on when env unset
+                        apply_pts_flag = os.environ.get("RECS_MARKET_BLEND_APPLY_POINTS", "1")
+                        apply_pts = str(apply_pts_flag).strip().lower() in {"1","true","yes","on"}
+                        if apply_pts and (margin is not None) and (total_pred is not None):
+                            th = 0.5 * (float(total_pred) + float(margin))
+                            ta = float(total_pred) - th
+                            # Only override if values are finite
+                            if not (pd.isna(th) or pd.isna(ta)):
+                                ph = th
+                                pa = ta
+                    except Exception:
+                        pass
                 except Exception:
                     pass
             edge_spread = None
@@ -5526,17 +5971,26 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             actual_away = g("away_score")
             actual_total = None
             actual_margin = None
+            status_val = g("status")
+            is_final = False
+            if status_val is not None:
+                try:
+                    is_final = str(status_val).strip().lower() == 'final'
+                except Exception:
+                    is_final = False
             if actual_home is not None and actual_away is not None and pd.notna(actual_home) and pd.notna(actual_away):
                 try:
                     actual_home_f = float(actual_home)
                     actual_away_f = float(actual_away)
-                    actual_total = actual_home_f + actual_away_f
-                    actual_margin = actual_home_f - actual_away_f
+                    # Treat 0-0 as not final unless status explicitly says final
+                    if (actual_home_f + actual_away_f) > 0 or is_final:
+                        actual_total = actual_home_f + actual_away_f
+                        actual_margin = actual_home_f - actual_away_f
                 except Exception:
                     pass
 
             # Status text
-            status_text = "FINAL" if actual_total is not None else "Scheduled"
+            status_text = "FINAL" if is_final or (actual_total is not None) else "Scheduled"
 
             # Winner correctness
             winner_correct = None
@@ -5702,6 +6156,57 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             roof_val = (ovr.get('roof') if (ovr and ovr.get('roof')) else g("stadium_roof", "roof"))
             surface_val = (ovr.get('surface') if (ovr and ovr.get('surface')) else g("surface"))
 
+            # Context chips from rich features: rest, pressure, injuries (if present)
+            rest_text = None
+            try:
+                rd = g('rest_days_diff')
+                if rd is not None and not (isinstance(rd, float) and pd.isna(rd)):
+                    rd_f = float(rd)
+                    if abs(rd_f) >= 1.0:
+                        rest_text = f"Rest Δ {rd_f:+.1f}d"
+            except Exception:
+                rest_text = None
+            pressure_text = None
+            try:
+                # Prefer EMA; fallback to raw
+                p_ema = g('def_pressure_avg_ema')
+                p_raw = g('def_pressure_avg')
+                pv = None
+                if p_ema is not None and not (isinstance(p_ema, float) and pd.isna(p_ema)):
+                    pv = float(p_ema)
+                elif p_raw is not None and not (isinstance(p_raw, float) and pd.isna(p_raw)):
+                    pv = float(p_raw)
+                if pv is not None:
+                    # Simple bucketing
+                    lvl = 'High' if pv >= 0.08 else ('Med' if pv >= 0.06 else 'Low')
+                    pressure_text = f"Pressure {lvl} ({pv:.3f})"
+            except Exception:
+                pressure_text = None
+            injury_text = None
+            try:
+                # Aggregate starters out diff if available; else show per-side if present
+                diff = g('inj_starters_out_diff')
+                if diff is not None and not (isinstance(diff, float) and pd.isna(diff)):
+                    injury_text = f"Inj Δ {int(diff):+d} starters"
+                else:
+                    hi = g('home_inj_starters_out')
+                    ai = g('away_inj_starters_out')
+                    parts = []
+                    if hi is not None and not pd.isna(hi):
+                        try:
+                            parts.append(f"H {int(hi)}")
+                        except Exception:
+                            pass
+                    if ai is not None and not pd.isna(ai):
+                        try:
+                            parts.append(f"A {int(ai)}")
+                        except Exception:
+                            pass
+                    if parts:
+                        injury_text = f"Inj {', '.join(parts)}"
+            except Exception:
+                injury_text = None
+
             cards.append({
                 "season": g("season"),
                 "week": g("week"),
@@ -5760,6 +6265,10 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 # Venue text
                 "venue_text": venue_text,
                 "weather_text": weather_text,
+                # Rich feature chips
+                "rest_text": rest_text,
+                "pressure_text": pressure_text,
+                "injury_text": injury_text,
                 "total_diff": total_diff,
                 # Team ratings (EMA-based)
                 "home_off_ppg": g("home_off_ppg"),
@@ -6093,9 +6602,13 @@ def index():
     # Apply sorting
     def _dt_key(card: Dict[str, Any]):
         try:
-            return pd.to_datetime(card.get("game_date"), errors='coerce')
+            dt = pd.to_datetime(card.get("game_date"), errors='coerce')
+            # Ensure a consistent, comparable key: place missing dates at the end
+            if pd.isna(dt):
+                return pd.Timestamp.max
+            return dt
         except Exception:
-            return pd.NaT
+            return pd.Timestamp.max
     if sort_param == "date":
         cards.sort(key=_dt_key)
     elif sort_param == "winner":
@@ -6407,9 +6920,13 @@ def api_cards():
     # Sorting
     def _dt_key(card: Dict[str, Any]):
         try:
-            return pd.to_datetime(card.get("game_date"), errors='coerce')
+            dt = pd.to_datetime(card.get("game_date"), errors='coerce')
+            # Ensure a consistent, comparable key: place missing dates at the end
+            if pd.isna(dt):
+                return pd.Timestamp.max
+            return dt
         except Exception:
-            return pd.NaT
+            return pd.Timestamp.max
     if sort_param == "date":
         cards.sort(key=_dt_key)
     elif sort_param == "winner":
@@ -8907,7 +9424,7 @@ def api_game_props_recommendations():
 if __name__ == "__main__":
     # Local dev: python app.py
     # Control debug and reloader via env to avoid churn in some environments (e.g., Windows + heavy deps)
-    port = int(os.environ.get("PORT", 5050))
+    port = int(os.environ.get("PORT", 5057))
     debug = str(os.environ.get("FLASK_DEBUG", "0")).strip().lower() in {"1","true","yes","y"}
     use_reloader = str(os.environ.get("FLASK_USE_RELOADER", "0")).strip().lower() in {"1","true","yes","y"}
     # Threaded improves responsiveness; disable reloader by default (can be re-enabled with FLASK_USE_RELOADER=1)
