@@ -91,12 +91,12 @@
           "outcomes": [
             {
               "name": "Chicago Bears",
-              "price": -112,
+              "price": -108,
               "point": 1.5
             },
             {
               "name": "Green Bay Packers",
-              "price": -108,
+              "price": -112,
               "point": -1.5
             }
           ]
@@ -120,8 +120,8 @@
     },
     "Buffalo Bills @ Jacksonville Jaguars": {
       "moneyline": {
-        "home": -108,
-        "away": -112
+        "home": -110,
+        "away": -110
       },
       "total_runs": {
         "line": 51.5,
@@ -129,7 +129,7 @@
         "under": -108
       },
       "run_line": {
-        "home": 1.5
+        "home": -1.5
       },
       "markets": [
         {
@@ -137,11 +137,11 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": -112
+              "price": -110
             },
             {
               "name": "Jacksonville Jaguars",
-              "price": -108
+              "price": -110
             }
           ]
         },
@@ -150,13 +150,13 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": 102,
-              "point": -1.5
+              "price": -122,
+              "point": 1.5
             },
             {
               "name": "Jacksonville Jaguars",
-              "price": -122,
-              "point": 1.5
+              "price": 102,
+              "point": -1.5
             }
           ]
         },
@@ -179,8 +179,8 @@
     },
     "San Francisco 49ers @ Philadelphia Eagles": {
       "moneyline": {
-        "home": -250,
-        "away": 205
+        "home": -265,
+        "away": 215
       },
       "total_runs": {
         "line": 44.5,
@@ -188,7 +188,7 @@
         "under": -112
       },
       "run_line": {
-        "home": -5.5
+        "home": -6.0
       },
       "markets": [
         {
@@ -196,11 +196,11 @@
           "outcomes": [
             {
               "name": "Philadelphia Eagles",
-              "price": -250
+              "price": -265
             },
             {
               "name": "San Francisco 49ers",
-              "price": 205
+              "price": 215
             }
           ]
         },
@@ -210,12 +210,12 @@
             {
               "name": "Philadelphia Eagles",
               "price": -108,
-              "point": -5.5
+              "point": -6.0
             },
             {
               "name": "San Francisco 49ers",
               "price": -112,
-              "point": 5.5
+              "point": 6.0
             }
           ]
         },
@@ -356,5 +356,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2026-01-09T19:25:00.084492+00:00"
+  "fetched_at": "2026-01-10T00:31:31.444564+00:00"
 }

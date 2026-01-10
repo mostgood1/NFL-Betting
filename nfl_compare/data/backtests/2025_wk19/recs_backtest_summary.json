@@ -1,0 +1,64 @@
+{
+  "rows": 14,
+  "MONEYLINE": {
+    "rows": 6,
+    "wins": 1,
+    "losses": 2,
+    "pushes": 3,
+    "win_rate": 0.3333333333333333,
+    "ev_mean": 0.5617781800862566,
+    "ev_median": 0.3538461538461538,
+    "tiers": {
+      "High": {
+        "rows": 6,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 0.3333333333333333,
+        "ev_mean": 0.5617781800862566
+      },
+      "Medium": {
+        "rows": 0
+      },
+      "Low": {
+        "rows": 0
+      }
+    }
+  },
+  "SPREAD": {
+    "rows": 0
+  },
+  "TOTAL": {
+    "rows": 8,
+    "wins": 5,
+    "losses": 3,
+    "pushes": 0,
+    "win_rate": 0.625,
+    "ev_mean": 0.25092720500386584,
+    "ev_median": 0.22937147255012236,
+    "tiers": {
+      "High": {
+        "rows": 6,
+        "wins": 5,
+        "losses": 1,
+        "win_rate": 0.8333333333333334,
+        "ev_mean": 0.2994804929414066
+      },
+      "Medium": {
+        "rows": 2,
+        "wins": 0,
+        "losses": 2,
+        "win_rate": 0.0,
+        "ev_mean": 0.10526734119124354
+      },
+      "Low": {
+        "rows": 0
+      }
+    }
+  },
+  "meta": {
+    "season": 2025,
+    "end_week": 19,
+    "lookback": 6,
+    "rows": 14
+  }
+}

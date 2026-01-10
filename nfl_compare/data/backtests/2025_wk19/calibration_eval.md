@@ -7,7 +7,7 @@
 
 ## Ats
 
-- Brier (raw): 0.26425  |  Brier (cal): 0.26425  |  Δ: 0.00000
+- Brier (raw): 0.27662  |  Brier (cal): 0.27662  |  Δ: 0.00000
 
 
 ## Total

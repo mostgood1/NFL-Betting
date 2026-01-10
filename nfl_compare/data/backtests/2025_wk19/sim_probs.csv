@@ -1,0 +1,11 @@
+season,week,game_id,home_team,away_team,pred_margin,pred_total,spread_ref,total_ref,prob_home_win_mc,prob_home_cover_mc,prob_over_total_mc
+2025,19,2025_19_BUF_JAX,Jacksonville Jaguars,Buffalo Bills,4.063434505770536,108.88255470027815,1.5,51.5,0.612,0.6476666666666666,1.0
+2025,19,2025_19_GB_CHI,Chicago Bears,Green Bay Packers,3.0681291280625267,101.44218246970748,1.5,44.5,0.5786666666666667,0.612,1.0
+2025,19,2025_19_Green Bay Packers_Dallas Cowboys,Dallas Cowboys,Green Bay Packers,2.9113843183444215,41.86112541897862,,,0.5666666666666667,,
+2025,19,2025_19_HOU_PIT,Pittsburgh Steelers,Houston Texans,-0.30856230626830927,97.76119845068126,3.0,38.5,0.495,0.575,1.0
+2025,19,2025_19_LAC_NE,New England Patriots,Los Angeles Chargers,3.830051090217459,104.35044096974653,-3.5,45.5,0.6206666666666667,0.521,1.0
+2025,19,2025_19_LA_CAR,Carolina Panthers,Los Angeles Rams,5.665919642857143,116.43176795445427,10.5,45.5,0.6443333333333333,0.8546666666666667,1.0
+2025,19,2025_19_Los Angeles Rams_Philadelphia Eagles,Philadelphia Eagles,Los Angeles Rams,3.234014083112529,47.202219855015855,,,0.592,,
+2025,19,2025_19_Miami Dolphins_Buffalo Bills,Buffalo Bills,Miami Dolphins,11.44962992254659,50.10035092166643,,,0.785,,
+2025,19,2025_19_Pittsburgh Steelers_Kansas City Chiefs,Kansas City Chiefs,Pittsburgh Steelers,-5.787023522753891,44.12579046132106,,,0.3453333333333333,,
+2025,19,2025_19_SF_PHI,Philadelphia Eagles,San Francisco 49ers,3.9631557406883626,110.21446389551136,-5.5,44.5,0.611,0.4543333333333333,1.0
