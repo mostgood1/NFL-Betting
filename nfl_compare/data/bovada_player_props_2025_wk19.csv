@@ -1,6 +1,6 @@
 player,team,market,line,over_price,under_price,book,event,game_time,home_team,away_team,is_ladder
 Kyren Williams,LAR,Anytime TD,,-143.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
-Bryce Young,CAR,Anytime TD,,700.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
+Bryce Young,CAR,Anytime TD,,625.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Blake Corum,LAR,Anytime TD,,200.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Xavier Smith,LAR,Anytime TD,,900.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Jimmy Horn Jr.,CAR,Anytime TD,,1100.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
@@ -15,7 +15,7 @@ TuTu Atwell,LAR,Anytime TD,,2000.0,,Bovada,Los Angeles Rams @ Carolina Panthers,
 Rico Dowdle,CAR,Anytime TD,,160.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Tetairoa McMillan,CAR,Anytime TD,,180.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Puka Nacua,LAR,Anytime TD,,-114.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
-Brycen Tremayne,CAR,Anytime TD,,1900.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
+Brycen Tremayne,CAR,Anytime TD,,2000.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 James Mitchell,CAR,Anytime TD,,1900.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Davante Adams,LAR,Anytime TD,,-136.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Mitchell Evans,CAR,Anytime TD,,900.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
@@ -24,7 +24,7 @@ Carolina Panthers Def/ST,CAR,Anytime TD,,525.0,,Bovada,Los Angeles Rams @ Caroli
 Matthew Stafford,LAR,Anytime TD,,1700.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Ronnie Rivers,LAR,Anytime TD,,2000.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Davis Allen,LAR,Anytime TD,,900.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
-Colby Parkinson,LAR,Anytime TD,,255.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
+Colby Parkinson,LAR,Anytime TD,,245.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Chuba Hubbard,CAR,Anytime TD,,380.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 Nick Vannett,LAR,Anytime TD,,1200.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
 David Moore,CAR,Anytime TD,,2000.0,,Bovada,Los Angeles Rams @ Carolina Panthers,1768080600000,Panthers,Rams,False
@@ -481,6 +481,7 @@ Jahdae Walker,CHI,Anytime TD,,900.0,,Bovada,Green Bay Packers @ Chicago Bears,17
 Olamide Zaccheaus,CHI,Anytime TD,,1200.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
 Colston Loveland,CHI,Anytime TD,,210.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
 Kyle Monangai,CHI,Anytime TD,,215.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
+Josh Jacobs,GB,Anytime TD,,-136.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
 Josh Whyle,GB,Anytime TD,,825.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
 Chris Brooks,GB,Anytime TD,,1300.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
 Romeo Doubs,GB,Anytime TD,,220.0,,Bovada,Green Bay Packers @ Chicago Bears,1768093200000,Bears,Packers,False
@@ -1085,11 +1086,11 @@ Trevor Lawrence,JAX,Passing TDs,1.0,-660.0,,Bovada,Buffalo Bills @ Jacksonville 
 Trevor Lawrence,JAX,Passing TDs,2.0,-110.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,True
 Trevor Lawrence,JAX,Passing TDs,3.0,350.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,True
 Trevor Lawrence,JAX,Passing TDs,4.0,1150.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,True
-Josh Allen,BUF,Passing Attempts,32.5,-125.0,-105.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
+Josh Allen,BUF,Passing Attempts,32.5,-110.0,-120.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Trevor Lawrence,JAX,Passing Attempts,32.5,-110.0,-120.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Josh Allen,BUF,Interceptions,0.5,-110.0,-120.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Trevor Lawrence,JAX,Interceptions,0.5,-135.0,105.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
-Josh Allen,BUF,Passing Yards,228.5,-130.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
+Josh Allen,BUF,Passing Yards,228.5,-145.0,110.0,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Trevor Lawrence,JAX,Passing Yards,235.5,-130.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Over - 1H,BUF,Passing Yards,113.5,-115.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
 Under - 1H,BUF,Passing Yards,113.5,-115.0,,Bovada,Buffalo Bills @ Jacksonville Jaguars,1768154400000,Jaguars,Bills,False
@@ -1688,7 +1689,7 @@ George Kittle,SF,Receptions,5.5,,-130.0,Bovada,San Francisco 49ers @ Philadelphi
 Jahan Dotson,PHI,Receptions,0.5,-165.0,125.0,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,False
 Jauan Jennings,SF,Receptions,3.5,-165.0,125.0,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,False
 Kyle Juszczyk,SF,Receptions,1.5,140.0,-185.0,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,False
-Saquon Barkley,PHI,Receptions,2.5,-110.0,-120.0,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,False
+Saquon Barkley,PHI,Receptions,2.5,-105.0,-125.0,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,False
 A.J. Brown,PHI,Receptions,4.0,-600.0,,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,True
 A.J. Brown,PHI,Receptions,5.0,-250.0,,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,True
 A.J. Brown,PHI,Receptions,6.0,-120.0,,Bovada,San Francisco 49ers @ Philadelphia Eagles,1768167000000,Eagles,49ers,True
@@ -2023,7 +2024,7 @@ Drake Maye,NE,Rushing Attempts,5.5,-130.0,,Bovada,Los Angeles Chargers @ New Eng
 Justin Herbert,LAC,Rushing Attempts,5.5,,-130.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
 Rhamondre Stevenson,NE,Rushing Attempts,8.5,-110.0,-120.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
 TreVeyon Henderson,NE,Rushing Attempts,12.5,-105.0,-125.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
-Drake Maye,NE,Rushing Yards,25.5,-125.0,-105.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
+Drake Maye,NE,Rushing Yards,25.5,-120.0,-110.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
 Justin Herbert,LAC,Rushing Yards,28.5,,-130.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
 Rhamondre Stevenson,NE,Rushing Yards,38.5,-115.0,-115.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
 TreVeyon Henderson,NE,Rushing Yards,52.5,-125.0,-105.0,Bovada,Los Angeles Chargers @ New England Patriots,1768179600000,Patriots,Chargers,False
@@ -2476,7 +2477,7 @@ C.J. Stroud,HOU,Passing TDs,3.0,425.0,,Bovada,Houston Texans @ Pittsburgh Steele
 C.J. Stroud,HOU,Passing TDs,4.0,1200.0,,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,True
 Aaron Rodgers,PIT,Passing Attempts,33.5,-110.0,-120.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
 C.J. Stroud,HOU,Passing Attempts,33.5,,-130.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
-Aaron Rodgers,PIT,Interceptions,0.5,-105.0,-125.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
+Aaron Rodgers,PIT,Interceptions,0.5,105.0,-135.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
 C.J. Stroud,HOU,Interceptions,0.5,-120.0,-110.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
 Aaron Rodgers,PIT,Passing Yards,207.5,-115.0,-115.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
 C.J. Stroud,HOU,Passing Yards,236.5,120.0,-160.0,Bovada,Houston Texans @ Pittsburgh Steelers,1768266900000,Steelers,Texans,False
