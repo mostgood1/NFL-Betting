@@ -62,25 +62,25 @@
     "losses": 51,
     "pushes": 0,
     "win_rate": 0.44565217391304346,
-    "ev_mean": 0.003400966697483732,
-    "ev_median": -0.004566809696448099,
+    "ev_mean": -0.004386477055530726,
+    "ev_median": -0.01115350655011127,
     "tiers": {
       "High": {
         "rows": 0
       },
       "Medium": {
-        "rows": 5,
+        "rows": 2,
         "wins": 1,
-        "losses": 4,
-        "win_rate": 0.2,
-        "ev_mean": 0.09348914800195554
+        "losses": 1,
+        "win_rate": 0.5,
+        "ev_mean": 0.08145445989690575
       },
       "Low": {
-        "rows": 15,
-        "wins": 4,
-        "losses": 11,
-        "win_rate": 0.26666666666666666,
-        "ev_mean": 0.047486636843102274
+        "rows": 7,
+        "wins": 0,
+        "losses": 7,
+        "win_rate": 0.0,
+        "ev_mean": 0.051658841328168226
       }
     }
   },

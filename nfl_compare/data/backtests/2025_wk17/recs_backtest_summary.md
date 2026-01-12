@@ -32,9 +32,9 @@
 
 - Win Rate: 0.446
 
-- EV Mean: 0.0034
+- EV Mean: -0.0044
 
 - Tiers:
   - High: rows=0, win_rate=nan, ev_mean=nan
-  - Medium: rows=5, win_rate=0.200, ev_mean=0.0935
-  - Low: rows=15, win_rate=0.267, ev_mean=0.0475
+  - Medium: rows=2, win_rate=0.500, ev_mean=0.0815
+  - Low: rows=7, win_rate=0.000, ev_mean=0.0517
