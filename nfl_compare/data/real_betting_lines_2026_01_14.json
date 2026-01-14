@@ -1,0 +1,242 @@
+{
+  "lines": {
+    "Buffalo Bills @ Denver Broncos": {
+      "moneyline": {
+        "home": -112,
+        "away": -108
+      },
+      "total_runs": {
+        "line": 45.5,
+        "over": -112,
+        "under": -108
+      },
+      "run_line": {
+        "home": -1.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": -108
+            },
+            {
+              "name": "Denver Broncos",
+              "price": -112
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Buffalo Bills",
+              "price": -120,
+              "point": 1.5
+            },
+            {
+              "name": "Denver Broncos",
+              "price": 100,
+              "point": -1.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -112,
+              "point": 45.5
+            },
+            {
+              "name": "Under",
+              "price": -108,
+              "point": 45.5
+            }
+          ]
+        }
+      ]
+    },
+    "San Francisco 49ers @ Seattle Seahawks": {
+      "moneyline": {
+        "home": -375,
+        "away": 295
+      },
+      "total_runs": {
+        "line": 44.5,
+        "over": -115,
+        "under": -105
+      },
+      "run_line": {
+        "home": -7.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "San Francisco 49ers",
+              "price": 295
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -375
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "San Francisco 49ers",
+              "price": -115,
+              "point": 7.5
+            },
+            {
+              "name": "Seattle Seahawks",
+              "price": -105,
+              "point": -7.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -115,
+              "point": 44.5
+            },
+            {
+              "name": "Under",
+              "price": -105,
+              "point": 44.5
+            }
+          ]
+        }
+      ]
+    },
+    "Houston Texans @ New England Patriots": {
+      "moneyline": {
+        "home": -170,
+        "away": 142
+      },
+      "total_runs": {
+        "line": 40.5,
+        "over": -118,
+        "under": -102
+      },
+      "run_line": {
+        "home": -3.0
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Houston Texans",
+              "price": 142
+            },
+            {
+              "name": "New England Patriots",
+              "price": -170
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Houston Texans",
+              "price": -102,
+              "point": 3.0
+            },
+            {
+              "name": "New England Patriots",
+              "price": -118,
+              "point": -3.0
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -118,
+              "point": 40.5
+            },
+            {
+              "name": "Under",
+              "price": -102,
+              "point": 40.5
+            }
+          ]
+        }
+      ]
+    },
+    "Los Angeles Rams @ Chicago Bears": {
+      "moneyline": {
+        "home": 164,
+        "away": -198
+      },
+      "total_runs": {
+        "line": 48.5,
+        "over": -110,
+        "under": -110
+      },
+      "run_line": {
+        "home": 3.5
+      },
+      "markets": [
+        {
+          "key": "h2h",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": 164
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -198
+            }
+          ]
+        },
+        {
+          "key": "spreads",
+          "outcomes": [
+            {
+              "name": "Chicago Bears",
+              "price": -102,
+              "point": 3.5
+            },
+            {
+              "name": "Los Angeles Rams",
+              "price": -118,
+              "point": -3.5
+            }
+          ]
+        },
+        {
+          "key": "totals",
+          "outcomes": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 48.5
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 48.5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source": "odds_api",
+  "fetched_at": "2026-01-14T13:57:22.273693+00:00"
+}

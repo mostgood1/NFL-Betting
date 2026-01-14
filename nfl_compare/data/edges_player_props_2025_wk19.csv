@@ -1,406 +1,382 @@
 player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
-C.J. Stroud,HOU,Passing Yards,375.0,2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-163.3,-0.9999677075862117,,,163.3
-Aaron Rodgers,PIT,Passing Yards,125.0,-1300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,148.7,0.07691149256643623,,,148.7
-C.J. Stroud,HOU,Passing Yards,350.0,1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-138.3,-0.9995338836397241,,,138.3
-Nico Collins,HOU,Receiving Yards,175.0,2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-135.2,-0.9999999999999813,,,135.2
-Aaron Rodgers,PIT,Passing Yards,150.0,-600.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,123.69999999999999,0.16642815401617117,,,123.69999999999999
-C.J. Stroud,HOU,Passing Yards,325.0,700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-113.30000000000001,-0.9951706817514725,,,113.30000000000001
-Nico Collins,HOU,Receiving Yards,150.0,1000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-110.2,-0.999999999503333,,,110.2
-Aaron Rodgers,PIT,Passing Yards,175.0,-280.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,98.69999999999999,0.35388410949931476,,,98.69999999999999
-DK Metcalf,PIT,Receiving Yards,150.0,1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-90.9,-0.9999991507477873,,,90.9
-Kenneth Gainwell,PIT,Receiving Yards,110.0,3200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-90.7,-0.9999984260681561,,,90.7
-C.J. Stroud,HOU,Passing Yards,300.0,420.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-88.30000000000001,-0.9697345233384761,,,88.30000000000001
-Nico Collins,HOU,Receiving Yards,125.0,530.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-85.2,-0.9999983011064957,,,85.2
-Dalton Schultz,HOU,Receiving Yards,110.0,1550.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-81.9,-0.9999880159655541,,,81.9
-Kenneth Gainwell,PIT,Receiving Yards,100.0,2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-80.7,-0.999978328426226,,,80.7
-Xavier Hutchinson,HOU,Receiving Yards,80.0,3200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-80.0,-0.9999582929062187,,,80.0
-Aaron Rodgers,PIT,Passing Yards,350.0,2300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,-76.30000000000001,-0.648910461376258,,,76.30000000000001
-Jayden Higgins,HOU,Receiving Yards,110.0,2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-74.5,-0.9998767253678966,,,74.5
-Aaron Rodgers,PIT,Passing Yards,200.0,-140.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,73.69999999999999,0.6840892758642027,,,73.69999999999999
-Dalton Schultz,HOU,Receiving Yards,100.0,1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-71.9,-0.999859418109027,,,71.9
-Kenneth Gainwell,PIT,Receiving Yards,90.0,1250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-70.7,-0.9997840736359105,,,70.7
-Jaylen Warren,PIT,Rushing Yards,125.0,1350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-70.5,-0.9999965484909394,,,70.5
-Nico Collins,HOU,Receiving Yards,110.0,330.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-70.2,-0.9999218061032484,,,70.2
-Xavier Hutchinson,HOU,Receiving Yards,70.0,1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-70.0,-0.9996363777306662,,,70.0
-Pat Freiermuth,PIT,Receiving Yards,110.0,3200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-69.4,-0.9992643966282184,,,69.4
-DK Metcalf,PIT,Receiving Yards,125.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-65.9,-0.9994965825817883,,,65.9
-Jayden Higgins,HOU,Receiving Yards,100.0,1250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-64.5,-0.9989998564653706,,,64.5
-C.J. Stroud,HOU,Passing Yards,275.0,240.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-63.30000000000001,-0.8801200619981264,,,63.30000000000001
-Dalton Schultz,HOU,Receiving Yards,90.0,800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-61.9,-0.9987787223965374,,,61.9
-C.J. Stroud,HOU,Passing Yards,150.0,-1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,61.69999999999999,0.04840477080713286,,,61.69999999999999
-Christian Kirk,HOU,Receiving Yards,80.0,2250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-61.1,-0.9961754602068323,,,61.1
-Woody Marks,HOU,Rushing Yards,125.0,1200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-61.1,-0.9999170997816396,,,61.1
-Kenneth Gainwell,PIT,Receiving Yards,80.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-60.7,-0.9983081428912669,,,60.7
-Nico Collins,HOU,Receiving Yards,100.0,240.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-60.2,-0.9993228100081463,,,60.2
-Xavier Hutchinson,HOU,Receiving Yards,60.0,1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-60.0,-0.9975010926332608,,,60.0
-Kenneth Gainwell,PIT,Rushing Yards,90.0,2300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-59.7,-0.9997593487624798,,,59.7
-Pat Freiermuth,PIT,Receiving Yards,100.0,1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-59.4,-0.9954815019807067,,,59.4
-Jaylen Warren,PIT,Rushing Yards,110.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-55.5,-0.9996503238089315,,,55.5
-Jayden Higgins,HOU,Receiving Yards,90.0,1000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-54.5,-0.9925943035022282,,,54.5
-Dalton Schultz,HOU,Receiving Yards,80.0,525.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-51.9,-0.9929184264186188,,,51.9
-Aaron Rodgers,PIT,Passing Yards,325.0,1150.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,-51.30000000000001,-0.10796162104159868,,,51.30000000000001
-Christian Kirk,HOU,Receiving Yards,70.0,1250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-51.1,-0.9821252282989441,,,51.1
-DK Metcalf,PIT,Receiving Yards,110.0,585.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-50.9,-0.9905730371127197,,,50.9
-Kenneth Gainwell,PIT,Receiving Yards,70.0,585.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-50.7,-0.990203060400726,,,50.7
-Nico Collins,HOU,Receiving Yards,90.0,165.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-50.2,-0.9958294043406001,,,50.2
-Xavier Hutchinson,HOU,Receiving Yards,50.0,785.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-50.0,-0.9855316570938302,,,50.0
-Kenneth Gainwell,PIT,Rushing Yards,80.0,1350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-49.7,-0.997207074153283,,,49.7
-Pat Freiermuth,PIT,Receiving Yards,90.0,1150.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-49.4,-0.9771113053924055,,,49.4
-Aaron Rodgers,PIT,Passing Yards,225.0,130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,48.69999999999999,1.1112901685203511,,,48.69999999999999
-Woody Marks,HOU,Rushing Yards,110.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-46.1,-0.9952891945485263,,,46.1
-Jaylen Warren,PIT,Rushing Yards,100.0,700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-45.5,-0.9953837996608739,,,45.5
-Jayden Higgins,HOU,Receiving Yards,80.0,700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-44.5,-0.9645846685745849,,,44.5
-Dalton Schultz,HOU,Receiving Yards,70.0,350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-41.9,-0.969146704121339,,,41.9
-Christian Kirk,HOU,Receiving Yards,60.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-41.1,-0.9257992032594661,,,41.1
-DK Metcalf,PIT,Receiving Yards,100.0,390.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-40.9,-0.9604730246593772,,,40.9
-Kenneth Gainwell,PIT,Receiving Yards,60.0,380.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-40.7,-0.9600150306110927,,,40.7
-Nico Collins,HOU,Receiving Yards,80.0,115.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-40.2,-0.9806022756441262,,,40.2
-Xavier Hutchinson,HOU,Receiving Yards,40.0,485.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-40.0,-0.9455201776593465,,,40.0
-Kenneth Gainwell,PIT,Rushing Yards,70.0,1000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-39.7,-0.9748521683940402,,,39.7
-Pat Freiermuth,PIT,Receiving Yards,80.0,800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-39.4,-0.907891703017662,,,39.4
-DK Metcalf,PIT,Receiving Yards,20.0,-1300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,39.1,0.06537403536127225,,,39.1
-Woody Marks,HOU,Rushing Yards,25.0,-1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,38.9,0.05267396764234347,,,38.9
-C.J. Stroud,HOU,Passing Yards,250.0,130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-38.30000000000001,-0.6850958579252929,,,38.30000000000001
-Jaylen Warren,PIT,Receiving Yards,70.0,3200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,-37.7,-0.5614480413203782,,,37.7
-C.J. Stroud,HOU,Passing Yards,175.0,-525.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,36.69999999999999,0.015252731252762136,,,36.69999999999999
-Woody Marks,HOU,Rushing Yards,100.0,600.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-36.1,-0.9652765747075546,,,36.1
-Jaylen Warren,PIT,Rushing Yards,90.0,485.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-35.5,-0.9671761622063753,,,35.5
-Jayden Higgins,HOU,Receiving Yards,70.0,500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-34.5,-0.8727508965363162,,,34.5
-DK Metcalf,PIT,Receiving Yards,25.0,-770.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,34.1,0.10452217059501562,,,34.1
-Woody Marks,HOU,Rushing Yards,30.0,-900.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,33.9,0.10252242281872352,,,33.9
-Dalton Schultz,HOU,Receiving Yards,60.0,200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-31.9,-0.9091139654578996,,,31.9
-Christian Kirk,HOU,Receiving Yards,50.0,590.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-31.1,-0.7676840845638944,,,31.1
-C.J. Stroud,HOU,Rushing Yards,50.0,2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,-31.0,-0.7185041274862434,,,31.0
-DK Metcalf,PIT,Receiving Yards,90.0,280.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-30.9,-0.8686756210702855,,,30.9
-Kenneth Gainwell,PIT,Receiving Yards,50.0,230.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-30.7,-0.882954415052888,,,30.7
-Pat Freiermuth,PIT,Receiving Yards,10.0,-1300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,30.6,0.0382288871091567,,,30.6
-Nico Collins,HOU,Receiving Yards,70.0,-125.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-30.200000000000003,-0.9319101530533119,,,30.200000000000003
-Xavier Hutchinson,HOU,Receiving Yards,30.0,260.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-30.0,-0.8602962229761353,,,30.0
-Jonnu Smith,PIT,Receiving Yards,50.0,1500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,-29.8,-0.3631031625626555,,,29.8
-Kenneth Gainwell,PIT,Rushing Yards,60.0,630.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-29.7,-0.8763170015728033,,,29.7
-Jaylen Warren,PIT,Rushing Yards,25.0,-1200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,29.5,0.06431801754578804,,,29.5
-Pat Freiermuth,PIT,Receiving Yards,70.0,530.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-29.4,-0.7362334083541978,,,29.4
-DK Metcalf,PIT,Receiving Yards,30.0,-525.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,29.1,0.13872616741792973,,,29.1
-Jaylen Warren,PIT,Receiving Yards,60.0,1500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,-27.700000000000003,-0.17419296060371892,,,27.700000000000003
-Aaron Rodgers,PIT,Passing Yards,300.0,800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,-26.30000000000001,1.0357764791431463,,,26.30000000000001
-Woody Marks,HOU,Rushing Yards,90.0,400.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-26.1,-0.8442960202725058,,,26.1
-Woody Marks,HOU,Receiving Yards,50.0,1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,-26.0,0.1985427785535776,,,26.0
-Pat Freiermuth,PIT,Receiving Yards,15.0,-625.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,25.6,0.08338352105814303,,,25.6
-Jayden Higgins,HOU,Receiving Yards,10.0,-700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,25.5,0.06650605569273355,,,25.5
-Jaylen Warren,PIT,Rushing Yards,80.0,320.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-25.5,-0.8560623558112067,,,25.5
-Xavier Hutchinson,HOU,Receiving Yards,25.0,180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-25.0,-0.8020364895187418,,,25.0
-Jaylen Warren,PIT,Rushing Yards,30.0,-660.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,24.5,0.10538642542954402,,,24.5
-Jayden Higgins,HOU,Receiving Yards,60.0,350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-24.5,-0.6635466236121386,,,24.5
-Woody Marks,HOU,Rushing Yards,40.0,-350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,23.9,0.22927431950627464,,,23.9
-Aaron Rodgers,PIT,Passing Yards,250.0,230.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,23.69999999999999,1.4777797231148269,,,23.69999999999999
-Jaylen Warren,PIT,Receiving Yards,10.0,-180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,22.299999999999997,0.4080892491174265,,,22.299999999999997
-Dalton Schultz,HOU,Receiving Yards,50.0,120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-21.9,-0.7825695235104763,,,21.9
-Christian Kirk,HOU,Receiving Yards,40.0,340.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-21.1,-0.5280107571040134,,,21.1
-C.J. Stroud,HOU,Rushing Yards,40.0,1000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,-21.0,-0.26512078604256106,,,21.0
-DK Metcalf,PIT,Receiving Yards,80.0,200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-20.9,-0.6716238077366791,,,20.9
-Kenneth Gainwell,PIT,Receiving Yards,40.0,130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-20.7,-0.7431381581639769,,,20.7
-Pat Freiermuth,PIT,Receiving Yards,20.0,-360.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,20.6,0.1336428713733358,,,20.6
-Jayden Higgins,HOU,Receiving Yards,15.0,-375.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,20.5,0.12235352461206148,,,20.5
-Kenneth Gainwell,PIT,Rushing Yards,10.0,-1600.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,20.3,-0.015624838335251426,,,20.3
-Nico Collins,HOU,Receiving Yards,60.0,-195.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-20.200000000000003,-0.8224397101018345,,,20.200000000000003
-Xavier Hutchinson,HOU,Receiving Yards,20.0,125.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-20.0,-0.7306672613536119,,,20.0
-Jonnu Smith,PIT,Receiving Yards,40.0,850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,-19.8,0.15965581870369516,,,19.8
-Kenneth Gainwell,PIT,Rushing Yards,50.0,360.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-19.7,-0.6334144264374231,,,19.7
-Pat Freiermuth,PIT,Receiving Yards,60.0,340.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-19.4,-0.44164771365210853,,,19.4
-DK Metcalf,PIT,Receiving Yards,40.0,-280.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,19.1,0.17989137099703417,,,19.1
-Jaylen Warren,PIT,Receiving Yards,50.0,1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,-17.700000000000003,0.78676192305829,,,17.700000000000003
-Jaylen Warren,PIT,Receiving Yards,15.0,,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,17.299999999999997,,,,17.299999999999997
-Woody Marks,HOU,Rushing Yards,80.0,270.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-16.1,-0.5372338381425441,,,16.1
-Woody Marks,HOU,Receiving Yards,40.0,900.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,-16.0,0.7330721625152535,,,16.0
-Pat Freiermuth,PIT,Receiving Yards,25.0,-240.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,15.600000000000001,0.16251406531986357,,,15.600000000000001
-Jayden Higgins,HOU,Receiving Yards,20.0,-250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,15.5,0.14667518458055623,,,15.5
-Jaylen Warren,PIT,Rushing Yards,70.0,200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-15.5,-0.5976517469761985,,,15.5
-Kenneth Gainwell,PIT,Rushing Yards,15.0,-590.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,15.3,0.009004233795361999,,,15.3
-Xavier Hutchinson,HOU,Receiving Yards,15.0,-130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-15.0,-0.6659816370804723,,,15.0
-Jayden Higgins,HOU,Receiving Yards,50.0,225.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-14.5,-0.36025062075337044,,,14.5
-Jaylen Warren,PIT,Rushing Yards,40.0,-280.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,14.5,0.15334379793368558,,,14.5
-Woody Marks,HOU,Receiving Yards,10.0,-130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,14.0,0.40635534731069356,,,14.0
-Woody Marks,HOU,Rushing Yards,50.0,-175.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,13.899999999999999,0.3193874745551477,,,13.899999999999999
-C.J. Stroud,HOU,Passing Yards,225.0,-140.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,-13.300000000000011,-0.39661821558427923,,,13.300000000000011
-Dalton Schultz,HOU,Receiving Yards,15.0,-1800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,13.100000000000001,-0.17716860270865029,,,13.100000000000001
-Jaylen Warren,PIT,Receiving Yards,20.0,165.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,12.299999999999997,1.0281050343223475,,,12.299999999999997
-Dalton Schultz,HOU,Receiving Yards,40.0,-150.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-11.899999999999999,-0.5967272462948783,,,11.899999999999999
-C.J. Stroud,HOU,Passing Yards,200.0,-270.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,211.7,11.699999999999989,-0.13540864567514588,,,11.699999999999989
-Christian Kirk,HOU,Receiving Yards,30.0,180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-11.100000000000001,-0.28068811747800504,,,11.100000000000001
-C.J. Stroud,HOU,Rushing Yards,30.0,485.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,-11.0,0.26370205911464706,,,11.0
-DK Metcalf,PIT,Receiving Yards,70.0,140.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-10.899999999999999,-0.3743103579422165,,,10.899999999999999
-Kenneth Gainwell,PIT,Receiving Yards,30.0,-160.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-10.7,-0.57012289174152,,,10.7
-Pat Freiermuth,PIT,Receiving Yards,30.0,-175.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,10.600000000000001,0.15269260797339262,,,10.600000000000001
-Jayden Higgins,HOU,Receiving Yards,25.0,-175.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,10.5,0.14965084380062615,,,10.5
-Kenneth Gainwell,PIT,Rushing Yards,20.0,-295.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,10.3,0.02974183967352373,,,10.3
-Nico Collins,HOU,Receiving Yards,50.0,-310.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-10.200000000000003,-0.6372781345886124,,,10.200000000000003
-Jonnu Smith,PIT,Receiving Yards,10.0,-155.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,10.2,0.19397067724987893,,,10.2
-Xavier Hutchinson,HOU,Receiving Yards,10.0,-205.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,0.0,-10.0,-0.5861117488287644,,,10.0
-Jonnu Smith,PIT,Receiving Yards,30.0,485.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,-9.8,0.650569147160359,,,9.8
-Nico Collins,HOU,Receiving Yards,30.0,-1400.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,9.799999999999997,-0.23087347017589002,,,9.799999999999997
-Kenneth Gainwell,PIT,Rushing Yards,40.0,185.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,-9.7,-0.3040311294765935,,,9.7
-Pat Freiermuth,PIT,Receiving Yards,50.0,205.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,-9.399999999999999,-0.11503687204661517,,,9.399999999999999
-Kenneth Gainwell,PIT,Receiving Yards,10.0,-1600.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,9.3,-0.24792973249595338,,,9.3
-DK Metcalf,PIT,Receiving Yards,50.0,-170.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,9.100000000000001,0.11776307883439158,,,9.100000000000001
-C.J. Stroud,HOU,Rushing Yards,10.0,-195.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,9.0,0.11924754833417123,,,9.0
-Woody Marks,HOU,Receiving Yards,15.0,140.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,9.0,0.6841761935280587,,,9.0
-Christian Kirk,HOU,Receiving Yards,10.0,-330.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,8.899999999999999,-0.08827353376072683,,,8.899999999999999
-Dalton Schultz,HOU,Receiving Yards,20.0,-850.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,8.100000000000001,-0.236501293175077,,,8.100000000000001
-Jaylen Warren,PIT,Receiving Yards,40.0,650.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,-7.700000000000003,1.4397166235331351,,,7.700000000000003
-Jaylen Warren,PIT,Receiving Yards,25.0,250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,7.299999999999997,1.3316587111287153,,,7.299999999999997
-Kenneth Gainwell,PIT,Receptions,10.0,750.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-7.04,-0.9999997400823238,,,7.04
-Woody Marks,HOU,Rushing Yards,70.0,175.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,-6.100000000000001,-0.0883144455980277,,,6.100000000000001
-Christian Kirk,HOU,Receiving Yards,25.0,125.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-6.100000000000001,-0.19030700197516615,,,6.100000000000001
-Kenneth Gainwell,PIT,Receptions,9.0,485.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-6.04,-0.9999901082104482,,,6.04
-C.J. Stroud,HOU,Rushing Yards,25.0,290.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,-6.0,0.3030585265007364,,,6.0
-Woody Marks,HOU,Receiving Yards,30.0,500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,-6.0,1.1723976211667577,,,6.0
-Kenneth Gainwell,PIT,Receiving Yards,25.0,-245.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-5.699999999999999,-0.480807929462547,,,5.699999999999999
-Jaylen Warren,PIT,Rushing Yards,60.0,120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,-5.5,-0.23613250348509307,,,5.5
-Jayden Higgins,HOU,Receiving Yards,30.0,-130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,5.5,0.10904731743347434,,,5.5
-Kenneth Gainwell,PIT,Rushing Yards,25.0,-180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,5.300000000000001,0.0072174448529987445,,,5.300000000000001
-Jonnu Smith,PIT,Receiving Yards,15.0,120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,5.199999999999999,0.3643363550266179,,,5.199999999999999
-Kenneth Gainwell,PIT,Receptions,8.0,290.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-5.04,-0.9997937177194348,,,5.04
-Dalton Schultz,HOU,Receptions,9.0,725.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-5.02,-0.9995352145115989,,,5.02
-Jonnu Smith,PIT,Receiving Yards,25.0,320.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,-4.800000000000001,0.6331130794960389,,,4.800000000000001
-Jayden Higgins,HOU,Receiving Yards,40.0,135.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,35.5,-4.5,-0.07029764637675251,,,4.5
-Jaylen Warren,PIT,Rushing Yards,50.0,-150.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,54.5,4.5,0.043428638288691035,,,4.5
-Kenneth Gainwell,PIT,Receiving Yards,15.0,-700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,4.300000000000001,-0.31446495405289,,,4.300000000000001
-Kenneth Gainwell,PIT,Receptions,7.0,175.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-4.04,-0.9974073788388325,,,4.04
-Dalton Schultz,HOU,Receptions,8.0,430.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-4.02,-0.9947369179257449,,,4.02
-C.J. Stroud,HOU,Rushing Yards,15.0,,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,4.0,,,,4.0
-Woody Marks,HOU,Receiving Yards,20.0,230.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,4.0,0.9569322403120851,,,4.0
-Xavier Hutchinson,HOU,Receptions,4.0,590.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,0.0,-4.0,-0.9927843503213527,,,4.0
-Jaylen Warren,PIT,Receptions,1.0,-990.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,4.97,3.9699999999999998,0.09976635645980818,,,3.9699999999999998
-Nico Collins,HOU,Receptions,9.0,700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,-3.9000000000000004,-0.9892008157469592,,,3.9000000000000004
-Woody Marks,HOU,Rushing Yards,60.0,,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,63.9,3.8999999999999986,,,,3.8999999999999986
-Christian Kirk,HOU,Receiving Yards,15.0,-195.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,3.8999999999999986,-0.10633826526733664,,,3.8999999999999986
-Pat Freiermuth,PIT,Receptions,2.0,-1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,3.2300000000000004,0.08383501066623253,,,3.2300000000000004
-Dalton Schultz,HOU,Receiving Yards,25.0,-500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,3.1000000000000014,-0.31318345242444884,,,3.1000000000000014
-Kenneth Gainwell,PIT,Receptions,6.0,-110.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-3.04,-0.9815168322149302,,,3.04
-Dalton Schultz,HOU,Receptions,7.0,250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-3.02,-0.9646937142263468,,,3.02
-Xavier Hutchinson,HOU,Receptions,3.0,240.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,0.0,-3.0,-0.9642723644132183,,,3.0
-DK Metcalf,PIT,Receptions,3.0,-510.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,2.99,0.18325155467995646,,,2.99
-Jaylen Warren,PIT,Receptions,2.0,-190.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,4.97,2.9699999999999998,0.509270360233792,,,2.9699999999999998
-Nico Collins,HOU,Receptions,8.0,380.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,-2.9000000000000004,-0.938328594190593,,,2.9000000000000004
-C.J. Stroud,HOU,Passing TDs,4.0,1150.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.5,-2.5,-0.7678007972232411,,,2.5
-Christian Kirk,HOU,Receptions,5.0,530.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,2.51,-2.49,-0.8253530642047464,,,2.49
-Jaylen Warren,PIT,Receiving Yards,30.0,340.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,32.3,2.299999999999997,1.436765461337394,,,2.299999999999997
-Pat Freiermuth,PIT,Receptions,3.0,-290.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,2.2300000000000004,0.2868152649628453,,,2.2300000000000004
-Woody Marks,HOU,Receptions,1.0,-660.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,3.18,2.18,0.0976486977999142,,,2.18
-Nico Collins,HOU,Receptions,3.0,-1550.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,2.0999999999999996,0.007975722859030018,,,2.0999999999999996
-Kenneth Gainwell,PIT,Receptions,5.0,-210.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-2.04,-0.9139423930920328,,,2.04
-Dalton Schultz,HOU,Receptions,6.0,130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-2.02,-0.8617457139130617,,,2.02
-DK Metcalf,PIT,Receptions,8.0,800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,-2.01,-0.4506966233242835,,,2.01
-Xavier Hutchinson,HOU,Receptions,2.0,-130.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,0.0,-2.0,-0.8903644795971895,,,2.0
-DK Metcalf,PIT,Receptions,4.0,-195.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,1.9900000000000002,0.41764410560575005,,,1.9900000000000002
-Jaylen Warren,PIT,Receptions,3.0,165.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,4.97,1.9699999999999998,1.4781805837269428,,,1.9699999999999998
-Nico Collins,HOU,Receptions,7.0,210.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,-1.9000000000000004,-0.7770050208534965,,,1.9000000000000004
-Dalton Schultz,HOU,Receiving Yards,30.0,-300.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,28.1,-1.8999999999999986,-0.3926600181554901,,,1.8999999999999986
-Jonnu Smith,PIT,Receptions,1.0,-800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,2.88,1.88,0.04167459367180572,,,1.88
-Pat Freiermuth,PIT,Receptions,7.0,700.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,-1.7699999999999996,-0.30662564985056395,,,1.7699999999999996
-Jayden Higgins,HOU,Receptions,2.0,-350.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,3.73,1.73,0.1679011002204659,,,1.73
-Christian Kirk,HOU,Receptions,1.0,-2000.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,2.51,1.5099999999999998,-0.07884707050209995,,,1.5099999999999998
-C.J. Stroud,HOU,Passing TDs,3.0,375.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.5,-1.5,-0.6881983417023616,,,1.5
-Christian Kirk,HOU,Receptions,4.0,250.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,2.51,-1.4900000000000002,-0.55946987320748,,,1.4900000000000002
-Aaron Rodgers,PIT,Passing Yards,275.0,420.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_yards,273.7,-1.3000000000000114,1.5229648613767055,,,1.3000000000000114
-Jayden Higgins,HOU,Receptions,5.0,500.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,3.73,-1.27,-0.0141782916526203,,,1.27
-Pat Freiermuth,PIT,Receptions,4.0,-120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,1.2300000000000004,0.5179357206485237,,,1.2300000000000004
-Aaron Rodgers,PIT,Passing TDs,3.0,625.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.81,-1.19,-0.20017679072733718,,,1.19
-Woody Marks,HOU,Receptions,2.0,-140.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,3.18,1.1800000000000002,0.4022507349694323,,,1.1800000000000002
-Jonnu Smith,PIT,Receptions,4.0,450.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,2.88,-1.12,0.06958925553466422,,,1.12
-Christian Kirk,HOU,Receiving Yards,20.0,-125.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,18.9,-1.1000000000000014,-0.14643263872017798,,,1.1000000000000014
-Nico Collins,HOU,Receptions,4.0,-460.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,1.0999999999999996,-0.02454508503983907,,,1.0999999999999996
-Kenneth Gainwell,PIT,Receptions,4.0,-460.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-1.04,-0.7420890799854301,,,1.04
-Dalton Schultz,HOU,Receptions,5.0,-160.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-1.02,-0.6484482254767763,,,1.02
-DK Metcalf,PIT,Receptions,7.0,450.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,-1.0099999999999998,0.20231142694667426,,,1.0099999999999998
-Woody Marks,HOU,Receiving Yards,25.0,360.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,24.0,-1.0,1.1921131344391116,,,1.0
-C.J. Stroud,HOU,Rushing Yards,20.0,185.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,rush_yards,19.0,-1.0,0.3438557561280362,,,1.0
-Xavier Hutchinson,HOU,Receptions,1.0,-625.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,0.0,-1.0,-0.7437813300935467,,,1.0
-DK Metcalf,PIT,Receptions,5.0,115.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,0.9900000000000002,0.6701893211143972,,,0.9900000000000002
-Dalton Schultz,HOU,Receptions,3.0,-1100.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,0.98,-0.15505905807908651,,,0.98
-Jaylen Warren,PIT,Receptions,4.0,375.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,4.97,0.9699999999999998,2.6680105979998796,,,0.9699999999999998
-Nico Collins,HOU,Receptions,6.0,110.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,-0.9000000000000004,-0.48681867359416753,,,0.9000000000000004
-DK Metcalf,PIT,Receiving Yards,60.0,-110.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,59.1,-0.8999999999999986,-0.085756622621813,,,0.8999999999999986
-Jonnu Smith,PIT,Receptions,2.0,-170.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,2.88,0.8799999999999999,0.1924035717644862,,,0.8799999999999999
-Woody Marks,HOU,Receptions,4.0,530.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,3.18,-0.8199999999999998,0.663802987827524,,,0.8199999999999998
-Aaron Rodgers,PIT,Passing TDs,1.0,-340.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.81,0.81,-0.301005808067245,,,0.81
-Pat Freiermuth,PIT,Receptions,6.0,360.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,-0.7699999999999996,0.27338250134214326,,,0.7699999999999996
-Jayden Higgins,HOU,Receptions,3.0,-115.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,3.73,0.73,0.33259755892280574,,,0.73
-Kenneth Gainwell,PIT,Receiving Yards,20.0,-380.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rec_yards,19.3,-0.6999999999999993,-0.38916512957216476,,,0.6999999999999993
-Pat Freiermuth,PIT,Receiving Yards,40.0,120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,40.6,0.6000000000000014,0.13097026476732143,,,0.6000000000000014
-Christian Kirk,HOU,Receptions,2.0,-295.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,2.51,0.5099999999999998,-0.12620033534514322,,,0.5099999999999998
-C.J. Stroud,HOU,Passing TDs,2.0,105.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.5,-0.5,-0.608136002603019,,,0.5
-C.J. Stroud,HOU,Passing TDs,1.0,-510.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.5,0.5,-0.47112449848304994,,,0.5
-Christian Kirk,HOU,Receptions,3.0,,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,2.51,-0.4900000000000002,,,,0.4900000000000002
-Kenneth Gainwell,PIT,Rushing Yards,30.0,-120.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,rush_yards,30.3,0.3000000000000007,-0.06766180025019058,,,0.3000000000000007
-Jayden Higgins,HOU,Receptions,4.0,215.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,3.73,-0.27,0.31586402825483373,,,0.27
-Pat Freiermuth,PIT,Receptions,5.0,180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,5.23,0.23000000000000043,0.5966036634861265,,,0.23000000000000043
-Nico Collins,HOU,Receiving Yards,40.0,-600.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,rec_yards,39.8,-0.20000000000000284,-0.4221422187145139,,,0.20000000000000284
-Jonnu Smith,PIT,Receiving Yards,20.0,200.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,rec_yards,20.2,0.1999999999999993,0.5140799909801784,,,0.1999999999999993
-Aaron Rodgers,PIT,Passing TDs,2.0,165.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,QB,pass_tds,1.81,-0.18999999999999995,-0.27904572549395973,,,0.18999999999999995
-Woody Marks,HOU,Receptions,3.0,215.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,3.18,0.18000000000000016,0.748445828190936,,,0.18000000000000016
-Jonnu Smith,PIT,Receptions,3.0,180.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,2.88,-0.1200000000000001,0.29703500764343405,,,0.1200000000000001
-Nico Collins,HOU,Receptions,5.0,-195.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.1,0.09999999999999964,-0.19721025145127868,,,0.09999999999999964
-Kenneth Gainwell,PIT,Receptions,3.0,-1550.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,2.96,-0.040000000000000036,-0.4808069659708541,,,0.040000000000000036
-Jaylen Warren,PIT,Receptions,5.0,800.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,RB,receptions,4.97,-0.03000000000000025,3.417150110753119,,,0.03000000000000025
-Dalton Schultz,HOU,Receptions,4.0,-360.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,TE,receptions,3.98,-0.020000000000000018,-0.36895325683984426,,,0.020000000000000018
-DK Metcalf,PIT,Receptions,6.0,240.0,,True,Houston Texans @ Pittsburgh Steelers,Steelers,Texans,1768266900000,Bovada,WR,receptions,5.99,-0.009999999999999787,0.689566227871379,,,0.009999999999999787
-Aaron Rodgers,PIT,Passing Yards,204.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Passing Attempts,32.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Interceptions,0.5,-120.0,-110.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Rushing Yards,12.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-British Brooks (HOU) - 1Q,,Anytime TD,,10000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Passing Yards,228.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-Adam Thielen,PIT,Anytime TD,,1000.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Passing TDs,1.5,115.0,-150.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-C.J. Stroud (HOU) - 1H,,Anytime TD,,1600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Adam Thielen (PIT) - 1H,,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-C.J. Stroud,HOU,Anytime TD,,825.0,,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-Adam Thielen (PIT) - 1Q,,Anytime TD,,7000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Passing TDs,1.5,165.0,-220.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-British Brooks (HOU) - 1H,,Anytime TD,,3300.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-British Brooks,HOU,Anytime TD,,1900.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Passing Attempts,33.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-Ben Skowronek,PIT,Anytime TD,,5000.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Braxton Berrios,HOU,Anytime TD,,2500.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Braxton Berrios (HOU) - 1H,,Anytime TD,,3000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Braxton Berrios (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Rushing Yards,0.5,-130.0,,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-Connor Heyward,PIT,Anytime TD,,600.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-C.J. Stroud (HOU) - 1Q,,Anytime TD,,4000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylin Noel (HOU) - 1H,,Anytime TD,,1700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith (PIT) - 1Q,,Anytime TD,,2700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith (PIT) - 1H,,Anytime TD,,1200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jonnu Smith,PIT,Receptions,1.5,-160.0,120.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Jonnu Smith,PIT,Receiving Yards,11.5,-120.0,-110.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Jonnu Smith,PIT,Anytime TD,,625.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Jaylin Noel (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylin Noel,HOU,Anytime TD,,900.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Marquez Valdes-Scantling (PIT) - 1Q,,Anytime TD,,3500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1Q,,Anytime TD,,1000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren (PIT) - 1H,,Anytime TD,,460.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren & Pittsburgh Steelers,,Anytime TD,,600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren & Houston Texans,,Anytime TD,,500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Rushing Yards,52.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Rushing Attempts,13.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Justin Watson,HOU,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Justin Watson (HOU) - 1H,,Anytime TD,,4000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Justin Watson (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kaleb Johnson,PIT,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kaleb Johnson (PIT) - 1Q,,Anytime TD,,12500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Anytime TD,,215.0,,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Receiving Yards,32.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Receptions,5.5,135.0,-180.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Rushing Attempts,7.5,,-130.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell,PIT,Rushing Yards,29.5,105.0,-135.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Kenneth Gainwell & Houston Texans,,Anytime TD,,420.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell & Pittsburgh Steelers,,Anytime TD,,500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell (PIT) - 1H,,Anytime TD,,450.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Kenneth Gainwell (PIT) - 1Q,,Anytime TD,,1000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Marquez Valdes-Scantling,PIT,Anytime TD,,825.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Marquez Valdes-Scantling,PIT,Receiving Yards,11.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Marquez Valdes-Scantling,PIT,Receptions,1.5,155.0,-210.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Receptions,1.5,-150.0,115.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Receiving Yards,12.5,-120.0,-110.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Jaylen Warren,PIT,Anytime TD,,220.0,,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1H,,Anytime TD,,460.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1Q,,Anytime TD,,7500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz,HOU,Anytime TD,,245.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Schultz,HOU,Receiving Yards,43.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Schultz,HOU,Receptions,4.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Dalton Schultz & Houston Texans,,Anytime TD,,370.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz & Pittsburgh Steelers,,Anytime TD,,900.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz (HOU) - 1H,,Anytime TD,,460.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Dalton Schultz (HOU) - 1Q,,Anytime TD,,950.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Dare Ogunbowale,HOU,Anytime TD,,1900.0,,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Anytime TD,,220.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Receiving Yards,55.5,,-130.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-DK Metcalf,PIT,Receptions,4.5,130.0,-170.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-DK Metcalf & Houston Texans,,Anytime TD,,420.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf & Pittsburgh Steelers,,Anytime TD,,500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-DK Metcalf (PIT) - 1Q,,Anytime TD,,950.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins (HOU) - 1Q,,Anytime TD,,1600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Harrison Bryant,HOU,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Harrison Bryant (HOU) - 1H,,Anytime TD,,4000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Houston Texans Def/ST,HOU,Anytime TD,,460.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Houston Texans Def/ST (HOU) - 1H,,Anytime TD,,1600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Houston Texans Def/ST (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jawhar Jordan & Houston Texans,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jawhar Jordan & Pittsburgh Steelers,,Anytime TD,,950.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jawhar Jordan (HOU) - 1H,,Anytime TD,,1100.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Anytime TD,,400.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Receiving Yards,30.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jayden Higgins,HOU,Receptions,2.5,105.0,-135.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Jayden Higgins & Houston Texans,,Anytime TD,,550.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins & Pittsburgh Steelers,,Anytime TD,,1150.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Jayden Higgins (HOU) - 1H,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Marquez Valdes-Scantling (PIT) - 1H,,Anytime TD,,1500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nick Chubb,HOU,Anytime TD,,625.0,,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Connor Heyward (PIT) - 1H,,Anytime TD,,1600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Rushing Yards,54.5,-135.0,105.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Xavier Hutchinson,HOU,Receiving Yards,14.5,-105.0,-125.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Hutchinson,HOU,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Woody Marks (HOU) - 1Q,,Anytime TD,,850.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks (HOU) - 1H,,Anytime TD,,410.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks & Pittsburgh Steelers,,Anytime TD,,650.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks & Houston Texans,,Anytime TD,,250.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Rushing Attempts,15.5,-125.0,-105.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Nick Chubb & Houston Texans,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Receptions,1.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Receiving Yards,9.5,-120.0,-110.0,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Woody Marks,HOU,Anytime TD,,185.0,,False,,Steelers,Texans,1768266900000,Bovada,RB,,,,,,unsupported_market,0.0
-Under - 1Q,PIT,Rushing Yards,5.5,-125.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,HOU,Receiving Yards,0.5,-200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1Q,PIT,Passing Yards,43.5,-110.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Hutchinson,HOU,Receptions,1.5,-105.0,-125.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Xavier Hutchinson (HOU) - 1H,,Anytime TD,,1200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,2700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Christian Kirk (HOU) - 1Q,,Anytime TD,,2500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Christian Kirk (HOU) - 1H,,Anytime TD,,1100.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Christian Kirk,HOU,Receptions,1.5,-210.0,155.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Christian Kirk,HOU,Receiving Yards,16.5,-150.0,115.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Christian Kirk,HOU,Anytime TD,,600.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1Q,,Anytime TD,,3000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III (PIT) - 1H,,Anytime TD,,1400.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Calvin Austin III,PIT,Receptions,1.5,130.0,-170.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Calvin Austin III,PIT,Receiving Yards,11.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Calvin Austin III,PIT,Anytime TD,,825.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Cade Stover (HOU) - 1Q,,Anytime TD,,7500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Interceptions,0.5,,-130.0,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
-Cade Stover (HOU) - 1H,,Anytime TD,,1800.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Cade Stover,HOU,Anytime TD,,800.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Under - 1H,PIT,Rushing Yards,23.5,-115.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1H,PIT,Receiving Yards,13.5,-110.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Under - 1H,PIT,Passing Yards,101.5,-115.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,HOU,Receiving Yards,0.5,150.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nick Chubb & Pittsburgh Steelers,,Anytime TD,,1400.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nick Chubb (HOU) - 1H,,Anytime TD,,1200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nick Chubb (HOU) - 1Q,,Anytime TD,,2700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins,HOU,Anytime TD,,140.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Nico Collins,HOU,Receiving Yards,70.5,-115.0,-115.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Nico Collins,HOU,Receptions,4.5,-160.0,120.0,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Nico Collins & Houston Texans,,Anytime TD,,220.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins & Pittsburgh Steelers,,Anytime TD,,600.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins (HOU) - 1H,,Anytime TD,,320.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Nico Collins (HOU) - 1Q,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1H,PIT,Passing Yards,101.5,-115.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1H,PIT,Receiving Yards,13.5,-120.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1H,PIT,Rushing Yards,23.5,-115.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,PIT,Passing Yards,43.5,-120.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Over - 1Q,PIT,Rushing Yards,5.5,-105.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Scotty Miller (PIT) - 1Q,,Anytime TD,,12500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth,PIT,Anytime TD,,380.0,,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Pat Freiermuth,PIT,Receiving Yards,33.5,-110.0,-120.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Pat Freiermuth,PIT,Receptions,3.5,105.0,-135.0,False,,Steelers,Texans,1768266900000,Bovada,TE,,,,,,unsupported_market,0.0
-Pat Freiermuth & Houston Texans,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth & Pittsburgh Steelers,,Anytime TD,,850.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1H,,Anytime TD,,700.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pat Freiermuth (PIT) - 1Q,,Anytime TD,,1500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pittsburgh Def/ST (PIT) - 1H,,Anytime TD,,2000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Pittsburgh Def/ST (PIT) - 1Q,,Anytime TD,,5000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson,PIT,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1H,,Anytime TD,,4500.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Roman Wilson (PIT) - 1Q,,Anytime TD,,5000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Scotty Miller,PIT,Anytime TD,,2000.0,,False,,Steelers,Texans,1768266900000,Bovada,WR,,,,,,unsupported_market,0.0
-Scotty Miller (PIT) - 1H,,Anytime TD,,4000.0,,False,,Steelers,Texans,1768266900000,Bovada,,,,,,,unsupported_market,0.0
-Aaron Rodgers,PIT,Anytime TD,,2200.0,,False,,Steelers,Texans,1768266900000,Bovada,QB,,,,,,unsupported_market,0.0
+Adam Prentice,DEN,Anytime TD,,1700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Anytime TD,,110.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Luke Farrell,SF,Anytime TD,,1000.0,,False,,Seahawks,49ers,1768698000000,Bovada,TE,,,,,,unsupported_market,0.0
+Los Angeles Rams Def/ST (LAR) - 1Q,,Anytime TD,,3500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Los Angeles Rams Def/ST (LAR) - 1H,,Anytime TD,,1500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Lil'Jordan Humphrey (DEN) - 1Q,,Anytime TD,,4500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Lil'Jordan Humphrey (DEN) - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Lil'Jordan Humphrey,DEN,Anytime TD,,725.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1Q,,Anytime TD,,600.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams (LAR) - 1H,,Anytime TD,,270.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Kyren Williams,LAR,Receiving Yards,75.5,-110.0,-120.0,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyle Williams (NE) - 1Q,,Anytime TD,,4500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell (SF) - 1Q,,Anytime TD,,8000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Williams (NE) - 1H,,Anytime TD,,1500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Williams,NE,Anytime TD,,725.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Kyle Monangai (CHI) - 1Q,,Anytime TD,,1100.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Monangai (CHI) - 1H,,Anytime TD,,450.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Monangai,CHI,Receiving Yards,48.5,-120.0,-110.0,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyle Monangai,CHI,Anytime TD,,215.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Kyle Juszczyk (SF) - 1Q,,Anytime TD,,3000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Juszczyk (SF) - 1H,,Anytime TD,,1400.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kyle Juszczyk,SF,Anytime TD,,800.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Luke Farrell (SF) - 1H,,Anytime TD,,2000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Luther Burden III,CHI,Anytime TD,,290.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Konata Mumpfield,LAR,Anytime TD,,1100.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+New England Patriots Def/ST,NE,Anytime TD,,460.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Olamide Zaccheaus (CHI) - 1Q,,Anytime TD,,6500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Olamide Zaccheaus (CHI) - 1H,,Anytime TD,,1500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Olamide Zaccheaus,CHI,Anytime TD,,725.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Nick Kallerup,SEA,Anytime TD,,2200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb (HOU) - 1H,,Anytime TD,,1600.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Nick Chubb,HOU,Anytime TD,,1000.0,,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+New England Patriots Def/ST (NE) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+New England Patriots Def/ST (NE) - 1H,,Anytime TD,,1800.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Nate Adkins (DEN) - 1Q,,Anytime TD,,10000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Luther Burden III (CHI) - 1H,,Anytime TD,,550.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Nate Adkins (DEN) - 1H,,Anytime TD,,3500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Nate Adkins,DEN,Anytime TD,,2000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Passing Yards,,-245.0,,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Interceptions,0.5,-120.0,-110.0,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Matthew Stafford,LAR,Anytime TD,,1900.0,,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Marvin Mims Jr. (DEN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Mims Jr. (DEN) - 1H,,Anytime TD,,1200.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Marvin Mims Jr.,DEN,Anytime TD,,625.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Luther Burden III (CHI) - 1Q,,Anytime TD,,1200.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Konata Mumpfield (LAR) - 1H,,Anytime TD,,3500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1Q,,Anytime TD,,1000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jawhar Jordan (HOU) - 1H,,Anytime TD,,1600.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel,HOU,Anytime TD,,900.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1H,,Anytime TD,,240.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen & Denver Broncos,,Anytime TD,,320.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen & Buffalo Bills,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Passing Yards,,-140.0,,False,,Broncos,Bills,1768685400000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Interceptions,0.5,-110.0,-120.0,False,,Broncos,Bills,1768685400000,Bovada,QB,,,,,,unsupported_market,0.0
+Josh Allen,BUF,Anytime TD,,-114.0,,False,,Broncos,Bills,1768685400000,Bovada,QB,,,,,,unsupported_market,0.0
+Jordan Whittington (LAR) - 1H,,Anytime TD,,3500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jaylin Noel (HOU) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1Q,,Anytime TD,,1200.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Justin Watson (HOU) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins (HOU) - 1H,,Anytime TD,,550.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins & New England Patriots,,Anytime TD,,600.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins & Houston Texans,,Anytime TD,,650.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jayden Higgins,HOU,Anytime TD,,270.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1Q,,Anytime TD,,500.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba (SEA) - 1H,,Anytime TD,,200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & Seattle Seahawks,,Anytime TD,,110.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba & San Francisco 49ers,,Anytime TD,,850.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jaxon Smith-Njigba,SEA,Anytime TD,,-114.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Josh Allen (BUF) - 1Q,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Justin Watson (HOU) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir (BUF) - 1H,,Anytime TD,,450.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1H,,Anytime TD,,250.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir & Denver Broncos,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir & Buffalo Bills,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Khalil Shakir,BUF,Anytime TD,,225.0,,False,,Broncos,Bills,1768685400000,Bovada,WR,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1Q,,Anytime TD,,4000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman (BUF) - 1H,,Anytime TD,,1400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Keon Coleman,BUF,Anytime TD,,725.0,,False,,Broncos,Bills,1768685400000,Bovada,WR,,,,,,unsupported_market,0.0
+Kenneth Walker III & Seattle Seahawks,,Anytime TD,,130.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker III & San Francisco 49ers,,Anytime TD,,850.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker (SEA) - 1Q,,Anytime TD,,600.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Receiving Yards,69.5,-115.0,-115.0,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte,NE,Anytime TD,,350.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Kenneth Walker,SEA,Anytime TD,,105.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne (SF) - 1Q,,Anytime TD,,8000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne (SF) - 1H,,Anytime TD,,2000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Kendrick Bourne,SF,Anytime TD,,1000.0,,False,,Seahawks,49ers,1768698000000,Bovada,WR,,,,,,unsupported_market,0.0
+Keleki Latu,BUF,Anytime TD,,3300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte (NE) - 1Q,,Anytime TD,,1500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte (NE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte & New England Patriots,,Anytime TD,,600.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Kayshon Boutte & Houston Texans,,Anytime TD,,1050.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Pat Bryant,DEN,Anytime TD,,330.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Pat Bryant & Buffalo Bills,,Anytime TD,,800.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Pat Bryant & Denver Broncos,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+TreVeyon Henderson (NE) - 1H,,Anytime TD,,430.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Ty Johnson (BUF) - 1Q,,Anytime TD,,7000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Ty Johnson (BUF) - 1H,,Anytime TD,,1600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+TuTu Atwell,LAR,Anytime TD,,1600.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Troy Franklin (DEN) - 1Q,,Anytime TD,,1300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin & Denver Broncos,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin & Buffalo Bills,,Anytime TD,,750.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Troy Franklin,DEN,Anytime TD,,320.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+TreVeyon Henderson (NE) - 1Q,,Anytime TD,,1000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+TreVeyon Henderson & New England Patriots,,Anytime TD,,320.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Badie (DEN) - 1H,,Anytime TD,,2000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+TreVeyon Henderson & Houston Texans,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+TreVeyon Henderson,NE,Receiving Yards,49.5,-115.0,-115.0,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+TreVeyon Henderson,NE,Anytime TD,,215.0,,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+Travis Homer,CHI,Anytime TD,,2800.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1Q,,Anytime TD,,10000.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Terrance Ferguson (LAR) - 1H,,Anytime TD,,2200.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Terrance Ferguson,LAR,Anytime TD,,600.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs (NE) - 1Q,,Anytime TD,,850.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs (NE) - 1H,,Anytime TD,,410.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Badie,DEN,Anytime TD,,1100.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Badie (DEN) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Pat Bryant (DEN) - 1H,,Anytime TD,,650.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson,HOU,Anytime TD,,440.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1H,,Anytime TD,,210.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & Seattle Seahawks,,Anytime TD,,,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet & San Francisco 49ers,,Anytime TD,,800.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Receiving Yards,60.5,-115.0,-115.0,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet,SEA,Anytime TD,,-132.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Smith (LAR) - 1H,,Anytime TD,,2700.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Smith,LAR,Anytime TD,,900.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,1900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Xavier Hutchinson (HOU) - 1H,,Anytime TD,,900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1Q,,Anytime TD,,800.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee,LAR,Anytime TD,,290.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+Woody Marks (HOU) - 1H,,Anytime TD,,330.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & New England Patriots,,Anytime TD,,350.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks & Houston Texans,,Anytime TD,,360.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Woody Marks,HOU,Anytime TD,,155.0,,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+Tyrell Shavers (BUF) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Tyrell Shavers (BUF) - 1H,,Anytime TD,,1700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Tyrell Shavers,BUF,Anytime TD,,1100.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Tyler Higbee (LAR) - 1H,,Anytime TD,,500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs & New England Patriots,,Anytime TD,,340.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs & Houston Texans,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Stefon Diggs,NE,Anytime TD,,205.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Reggie Gilliam,BUF,Anytime TD,,2800.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall & Seattle Seahawks,,Anytime TD,,400.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall & San Francisco 49ers,,Anytime TD,,900.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall,SF,Anytime TD,,330.0,,False,,Seahawks,49ers,1768698000000,Bovada,WR,,,,,,unsupported_market,0.0
+Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson (NE) - 1H,,Anytime TD,,420.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson & New England Patriots,,Anytime TD,,320.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson & Houston Texans,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,NE,Receiving Yards,59.5,-115.0,-115.0,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+Rhamondre Stevenson,NE,Anytime TD,,185.0,,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+Ray Davis (BUF) - 1Q,,Anytime TD,,7000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Skyy Moore,SF,Anytime TD,,2800.0,,False,,Seahawks,49ers,1768698000000,Bovada,WR,,,,,,unsupported_market,0.0
+Ray Davis (BUF) - 1H,,Anytime TD,,1600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Ray Davis,BUF,Anytime TD,,700.0,,False,,Broncos,Bills,1768685400000,Bovada,RB,,,,,,unsupported_market,0.0
+Rashid Shaheed (SEA) - 1Q,,Anytime TD,,1600.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed (SEA) - 1H,,Anytime TD,,650.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Rashid Shaheed,SEA,Anytime TD,,330.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua (LAR) - 1Q,,Anytime TD,,460.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua (LAR) - 1H,,Anytime TD,,155.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Puka Nacua,LAR,Anytime TD,,-122.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Pat Bryant (DEN) - 1Q,,Anytime TD,,1400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall (SF) - 1H,,Anytime TD,,600.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Ricky Pearsall (SF) - 1Q,,Anytime TD,,1400.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey,DEN,Anytime TD,,-132.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey,DEN,Receiving Yards,72.5,-115.0,-115.0,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Seattle Seahawks Def/ST,SEA,Anytime TD,,420.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1Q,,Anytime TD,,3000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+SEA Seahawks D/ST - 1H,,Anytime TD,,1200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+San Francisco Defense - 1Q,,Anytime TD,,4000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+San Francisco Defense - 1H,,Anytime TD,,1800.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1Q,,Anytime TD,,3000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold (SEA) - 1H,,Anytime TD,,1300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Passing Yards,,-135.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Interceptions,0.5,-130.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Sam Darnold,SEA,Anytime TD,,700.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Ronnie Rivers,LAR,Anytime TD,,3300.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Rome Odunze (CHI) - 1Q,,Anytime TD,,1100.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Rome Odunze (CHI) - 1H,,Anytime TD,,500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Rome Odunze,CHI,Anytime TD,,240.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Robbie Ouzts,SEA,Anytime TD,,2800.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey (DEN) - 1Q,,Anytime TD,,460.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey (DEN) - 1H,,Anytime TD,,185.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey & Denver Broncos,,Anytime TD,,180.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+RJ Harvey & Buffalo Bills,,Anytime TD,,260.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jawhar Jordan (HOU) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings (SF) - 1Q,,Anytime TD,,1000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Adam Prentice (DEN) - 1H,,Anytime TD,,3300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk,HOU,Anytime TD,,225.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Christian McCaffrey (SF) - 1H,,Anytime TD,,210.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & Seattle Seahawks,,Anytime TD,,150.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey & San Francisco 49ers,,Anytime TD,,440.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Receiving Yards,104.5,-110.0,-120.0,False,,Seahawks,49ers,1768698000000,Bovada,RB,,,,,,unsupported_market,0.0
+Christian McCaffrey,SF,Anytime TD,,-122.0,,False,,Seahawks,49ers,1768698000000,Bovada,RB,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1Q,,Anytime TD,,1100.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk (HOU) - 1H,,Anytime TD,,500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk & New England Patriots,,Anytime TD,,500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Christian Kirk & Houston Texans,,Anytime TD,,550.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+CHI Bears D/ST - 1Q,,Anytime TD,,3500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+CJ Dippre,NE,Anytime TD,,2800.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+CHI Bears D/ST - 1H,,Anytime TD,,1600.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Cam Akers,SEA,Anytime TD,,1900.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Caleb Williams (CHI) - 1Q,,Anytime TD,,1400.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Caleb Williams (CHI) - 1H,,Anytime TD,,650.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Passing Yards,,180.0,,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Interceptions,0.5,-120.0,-110.0,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Caleb Williams,CHI,Anytime TD,,320.0,,False,,Bears,Rams,1768779000000,Bovada,QB,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1Q,,Anytime TD,,3500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Cade Stover (HOU) - 1H,,Anytime TD,,1200.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Christian McCaffrey (SF) - 1Q,,Anytime TD,,500.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson,LAR,Anytime TD,,215.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1Q,,Anytime TD,,3000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1H,,Anytime TD,,550.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+D'Andre Swift (CHI) - 1H,,Anytime TD,,310.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+D'Andre Swift,CHI,Receiving Yards,73.5,-115.0,-115.0,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+D'Andre Swift,CHI,Anytime TD,,140.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Courtland Sutton (DEN) - 1Q,,Anytime TD,,850.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton (DEN) - 1H,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton & Denver Broncos,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton & Buffalo Bills,,Anytime TD,,400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Courtland Sutton,DEN,Anytime TD,,190.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp (SEA) - 1Q,,Anytime TD,,1300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & Seattle Seahawks,,Anytime TD,,340.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1H,,Anytime TD,,460.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp & San Francisco 49ers,,Anytime TD,,1700.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Cooper Kupp,SEA,Anytime TD,,300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Colston Loveland (CHI) - 1Q,,Anytime TD,,900.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Colston Loveland (CHI) - 1H,,Anytime TD,,400.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Colston Loveland,CHI,Anytime TD,,190.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+Cole Kmet (CHI) - 1Q,,Anytime TD,,2200.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Cole Kmet (CHI) - 1H,,Anytime TD,,1000.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Cole Kmet,CHI,Anytime TD,,500.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+Colby Parkinson (LAR) - 1Q,,Anytime TD,,1100.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Cade Stover,HOU,Anytime TD,,600.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+C.J. Stroud (HOU) - 1H,,Anytime TD,,1300.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings (SF) - 1H,,Anytime TD,,470.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Austin Hooper (NE) - 1H,,Anytime TD,,1400.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix & Buffalo Bills,,Anytime TD,,750.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Passing Yards,,110.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Interceptions,0.5,-120.0,-110.0,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix,DEN,Anytime TD,,310.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1Q,,Anytime TD,,1300.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum (LAR) - 1H,,Anytime TD,,500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Receiving Yards,52.5,-115.0,-115.0,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Blake Corum,LAR,Anytime TD,,235.0,,False,,Bears,Rams,1768779000000,Bovada,RB,,,,,,unsupported_market,0.0
+Austin Hooper (NE) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Austin Hooper,NE,Anytime TD,,625.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+Bo Nix (DEN) - 1H,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1Q,,Anytime TD,,850.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner (SEA) - 1H,,Anytime TD,,350.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & Seattle Seahawks,,Anytime TD,,200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner & San Francisco 49ers,,Anytime TD,,1150.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+AJ Barner,SEA,Anytime TD,,170.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Adam Trautman (DEN) - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Adam Trautman (DEN) - 1H,,Anytime TD,,1300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Adam Trautman,DEN,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Adam Prentice (DEN) - 1Q,,Anytime TD,,8000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix & Denver Broncos,,Anytime TD,,600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Bo Nix (DEN) - 1Q,,Anytime TD,,1400.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Passing Yards,,110.0,,False,,Patriots,Texans,1768766400000,Bovada,QB,,,,,,unsupported_market,0.0
+British Brooks (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Interceptions,0.5,,-130.0,False,,Patriots,Texans,1768766400000,Bovada,QB,,,,,,unsupported_market,0.0
+C.J. Stroud,HOU,Anytime TD,,825.0,,False,,Patriots,Texans,1768766400000,Bovada,QB,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1Q,,Anytime TD,,3500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+BUF Bills D/ST - 1H,,Anytime TD,,1500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Brock Purdy (SF) - 1Q,,Anytime TD,,3300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Brock Purdy (SF) - 1H,,Anytime TD,,1300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Passing Yards,,105.0,,False,,Seahawks,49ers,1768698000000,Bovada,QB,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Interceptions,0.5,-185.0,140.0,False,,Seahawks,49ers,1768698000000,Bovada,QB,,,,,,unsupported_market,0.0
+Brock Purdy,SF,Anytime TD,,700.0,,False,,Seahawks,49ers,1768698000000,Bovada,QB,,,,,,unsupported_market,0.0
+British Brooks,HOU,Anytime TD,,3300.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Brady Russell,SEA,Anytime TD,,4000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Brian Robinson (SF) - 1Q,,Anytime TD,,10000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Brian Robinson (SF) - 1H,,Anytime TD,,4500.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Brian Robinson,SF,Anytime TD,,1900.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Braxton Berrios (HOU) - 1Q,,Anytime TD,,5000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Braxton Berrios (HOU) - 1H,,Anytime TD,,1700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Braxton Berrios,HOU,Anytime TD,,1000.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Brandin Cooks (BUF) - 1Q,,Anytime TD,,1900.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Brandin Cooks (BUF) - 1H,,Anytime TD,,850.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Brandin Cooks,BUF,Anytime TD,,500.0,,False,,Broncos,Bills,1768685400000,Bovada,WR,,,,,,unsupported_market,0.0
+D'Andre Swift (CHI) - 1Q,,Anytime TD,,650.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+D.J. Moore (CHI) - 1H,,Anytime TD,,550.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+D.J. Moore (CHI) - 1Q,,Anytime TD,,1200.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Harrison Bryant,HOU,Anytime TD,,2800.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+Jack Westover,NE,Anytime TD,,2800.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry (NE) - 1Q,,Anytime TD,,900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry (NE) - 1H,,Anytime TD,,410.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry & New England Patriots,,Anytime TD,,340.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry & Houston Texans,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Hunter Henry,NE,Anytime TD,,195.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1Q,,Anytime TD,,4000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST (HOU) - 1H,,Anytime TD,,1900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Houston Texans Def/ST,HOU,Anytime TD,,460.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram (DEN) - 1Q,,Anytime TD,,1600.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1H,,Anytime TD,,1800.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram (DEN) - 1H,,Anytime TD,,700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram & Denver Broncos,,Anytime TD,,700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram & Buffalo Bills,,Anytime TD,,800.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Evan Engram,DEN,Anytime TD,,390.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert (SEA) - 1H,,Anytime TD,,3500.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Eric Saubert,SEA,Anytime TD,,2000.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1Q,,Anytime TD,,2200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Elijah Arroyo (SEA) - 1H,,Anytime TD,,950.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Efton Chism (NE) - 1Q,,Anytime TD,,10000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Jackson Hawes,BUF,Anytime TD,,1000.0,,False,,Broncos,Bills,1768685400000,Bovada,TE,,,,,,unsupported_market,0.0
+Jackson Hawes (BUF) - 1Q,,Anytime TD,,6000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid,BUF,Anytime TD,,255.0,,False,,Broncos,Bills,1768685400000,Bovada,TE,,,,,,unsupported_market,0.0
+Jaleel McLaughlin (DEN) - 1Q,,Anytime TD,,3300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings & Seattle Seahawks,,Anytime TD,,310.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings & San Francisco 49ers,,Anytime TD,,800.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jauan Jennings,SF,Anytime TD,,245.0,,False,,Seahawks,49ers,1768698000000,Bovada,WR,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1Q,,Anytime TD,,490.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook (BUF) - 1H,,Anytime TD,,200.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook & Denver Broncos,,Anytime TD,,290.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook & Buffalo Bills,,Anytime TD,,180.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Receiving Yards,98.5,-115.0,-115.0,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+James Cook,BUF,Anytime TD,,-122.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jaleel McLaughlin (DEN) - 1H,,Anytime TD,,1100.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jahdae Walker,CHI,Anytime TD,,700.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Jaleel McLaughlin,DEN,Anytime TD,,525.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges (SF) - 1Q,,Anytime TD,,1500.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges (SF) - 1H,,Anytime TD,,650.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges & Seattle Seahawks,,Anytime TD,,440.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges & San Francisco 49ers,,Anytime TD,,950.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jake Tonges,SF,Anytime TD,,340.0,,False,,Seahawks,49ers,1768698000000,Bovada,TE,,,,,,unsupported_market,0.0
+Jake Bobo,SEA,Anytime TD,,2200.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Jahdae Walker (CHI) - 1Q,,Anytime TD,,6500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Jahdae Walker (CHI) - 1H,,Anytime TD,,1500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Efton Chism (NE) - 1H,,Anytime TD,,2700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Efton Chism,NE,Anytime TD,,1200.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Durham Smythe (CHI) - 1Q,,Anytime TD,,10000.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale (HOU) - 1Q,,Anytime TD,,12500.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1H,,Anytime TD,,700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox,BUF,Anytime TD,,390.0,,False,,Broncos,Bills,1768685400000,Bovada,TE,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1Q,,Anytime TD,,10000.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen (LAR) - 1H,,Anytime TD,,2200.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Davis Allen,LAR,Anytime TD,,700.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1Q,,Anytime TD,,460.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams (LAR) - 1H,,Anytime TD,,190.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Davante Adams,LAR,Anytime TD,,-125.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Dareke Young,SEA,Anytime TD,,3300.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Dare Ogunbowale,HOU,Anytime TD,,2800.0,,False,,Patriots,Texans,1768766400000,Bovada,RB,,,,,,unsupported_market,0.0
+Durham Smythe (CHI) - 1H,,Anytime TD,,3000.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1Q,,Anytime TD,,900.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz (HOU) - 1H,,Anytime TD,,420.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz & New England Patriots,,Anytime TD,,440.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz & Houston Texans,,Anytime TD,,460.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Schultz,HOU,Anytime TD,,200.0,,False,,Patriots,Texans,1768766400000,Bovada,TE,,,,,,unsupported_market,0.0
+Dalton Kincaid (BUF) - 1Q,,Anytime TD,,1100.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid (BUF) - 1H,,Anytime TD,,500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid & Denver Broncos,,Anytime TD,,650.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dalton Kincaid & Buffalo Bills,,Anytime TD,,450.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Dawson Knox (BUF) - 1Q,,Anytime TD,,1700.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Demarcus Robinson,SF,Anytime TD,,310.0,,False,,Seahawks,49ers,1768698000000,Bovada,WR,,,,,,unsupported_market,0.0
+DeMarcus Robinson & San Francisco 49ers,,Anytime TD,,900.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+DeMarcus Robinson & Seattle Seahawks,,Anytime TD,,320.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Durham Smythe,CHI,Anytime TD,,1400.0,,False,,Bears,Rams,1768779000000,Bovada,TE,,,,,,unsupported_market,0.0
+Drake Maye (NE) - 1Q,,Anytime TD,,1700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye (NE) - 1H,,Anytime TD,,700.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye & New England Patriots,,Anytime TD,,600.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye & Houston Texans,,Anytime TD,,1050.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Drake Maye,NE,Passing Yards,,-140.0,,False,,Patriots,Texans,1768766400000,Bovada,QB,,,,,,unsupported_market,0.0
+Drake Maye,NE,Anytime TD,,350.0,,False,,Patriots,Texans,1768766400000,Bovada,QB,,,,,,unsupported_market,0.0
+DJ Moore,CHI,Anytime TD,,295.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Devin Duvernay (CHI) - 1Q,,Anytime TD,,12500.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Devin Duvernay (CHI) - 1H,,Anytime TD,,3300.0,,False,,Bears,Rams,1768779000000,Bovada,,,,,,,unsupported_market,0.0
+Devin Duvernay,CHI,Anytime TD,,1500.0,,False,,Bears,Rams,1768779000000,Bovada,WR,,,,,,unsupported_market,0.0
+Denver Broncos Def/ST (DEN) - 1Q,,Anytime TD,,3000.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Denver Broncos Def/ST (DEN) - 1H,,Anytime TD,,1300.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Denver Broncos Def/ST,DEN,Anytime TD,,500.0,,False,,Broncos,Bills,1768685400000,Bovada,,,,,,,unsupported_market,0.0
+Demario Douglas (NE) - 1Q,,Anytime TD,,2000.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Demario Douglas (NE) - 1H,,Anytime TD,,950.0,,False,,Patriots,Texans,1768766400000,Bovada,,,,,,,unsupported_market,0.0
+Demario Douglas,NE,Anytime TD,,500.0,,False,,Patriots,Texans,1768766400000,Bovada,WR,,,,,,unsupported_market,0.0
+Demarcus Robinson (SF) - 1Q,,Anytime TD,,1400.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Demarcus Robinson (SF) - 1H,,Anytime TD,,600.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
+Zach Charbonnet (SEA) - 1Q,,Anytime TD,,550.0,,False,,Seahawks,49ers,1768698000000,Bovada,,,,,,,unsupported_market,0.0
