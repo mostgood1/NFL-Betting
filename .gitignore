@@ -29,6 +29,7 @@ secrets/
 nfl_compare/data/*.csv
 nfl_compare/data/*.parquet
 nfl_compare/data/*.json
+nfl_compare/data/backtests/
 nfl_compare/models/
 logs/
 
