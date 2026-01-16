@@ -1013,31 +1013,6 @@
                 /
                 {% if exm and exm.total is number %}{{ '%.2f' % exm.total }}{% else %}-{% endif %}
               </span></div>
-              <div class="row"><span class="muted">Simulation: Home / Away / Margin / Total</span><span>
-                {% set exs = g.explain.simulation if g.explain %}
-                {% if exs and exs.home_points is number %}{{ '%.2f' % exs.home_points }}{% else %}-{% endif %}
-                /
-                {% if exs and exs.away_points is number %}{{ '%.2f' % exs.away_points }}{% else %}-{% endif %}
-                /
-                {% if exs and exs.margin is number %}{{ '%+.2f' % exs.margin }}{% else %}-{% endif %}
-                /
-                {% if exs and exs.total is number %}{{ '%.2f' % exs.total }}{% else %}-{% endif %}
-              </span></div>
-              <div class="row"><span class="muted">Simulation probs: ML / ATS / Over</span><span>
-                {% if exs and exs.prob_home_win_mc is number %}{{ '%.1f' % (exs.prob_home_win_mc*100) }}%{% else %}-{% endif %}
-                /
-                {% if exs and exs.prob_home_cover_mc is number %}{{ '%.1f' % (exs.prob_home_cover_mc*100) }}%{% else %}-{% endif %}
-                /
-                {% if exs and exs.prob_over_total_mc is number %}{{ '%.1f' % (exs.prob_over_total_mc*100) }}%{% else %}-{% endif %}
-              </span></div>
-              <div class="row"><span class="muted">Market: Spread (Home) / Total / Implied Margin</span><span>
-                {% set exk = g.explain.market if g.explain %}
-                {% if exk and exk.spread_home is number %}{{ '%+.1f' % exk.spread_home }}{% else %}-{% endif %}
-                /
-                {% if exk and exk.total is number %}{{ '%.1f' % exk.total }}{% else %}-{% endif %}
-                /
-                {% if exk and exk.implied_home_margin is number %}{{ '%+.2f' % exk.implied_home_margin }}{% else %}-{% endif %}
-              </span></div>
               <div class="row"><span class="muted">Blend: α(margin) / β(total) / apply-points</span><span>
                 {% set exb = g.explain.blend if g.explain %}
                 {% if exb and exb.alpha_margin is number %}{{ '%.2f' % exb.alpha_margin }}{% else %}-{% endif %}
@@ -1058,11 +1033,6 @@
             </div>
 
             <div class="odds">
-              <div class="row"><span class="muted">Moneyline (Away / Home)</span><span>
-                {% if g.moneyline_away is number %}{{ '%+d' % g.moneyline_away }}{% else %}-{% endif %}
-                /
-                {% if g.moneyline_home is number %}{{ '%+d' % g.moneyline_home }}{% else %}-{% endif %}
-              </span></div>
               <div class="row"><span class="muted">Implied Win Prob (Away / Home)</span><span>
                 {% if g.implied_away_prob is number %}{{ '%.1f' % (g.implied_away_prob*100) }}%{% else %}-{% endif %}
                 /
