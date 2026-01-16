@@ -58,8 +58,18 @@ def main():
     ap.add_argument('--week', type=int, help='Specific week; if omitted, all weeks in games file considered.')
     args = ap.parse_args()
 
-    games = _load_games() or pd.DataFrame()
-    preds = _load_predictions() or pd.DataFrame()
+    # Load with safe fallbacks (avoid DataFrame truthiness in `or`)
+    try:
+        _g = _load_games()
+    except Exception:
+        _g = None
+    games = _g if _g is not None else pd.DataFrame()
+
+    try:
+        _p = _load_predictions()
+    except Exception:
+        _p = None
+    preds = _p if _p is not None else pd.DataFrame()
 
     # Filter season/week
     if not games.empty and 'season' in games.columns:
@@ -105,7 +115,13 @@ def main():
             p_small['core'] = p_small['game_id'].apply(_core_from_id)
             merged = g_small.merge(p_small, on='core', suffixes=('_games','_preds'))
             for _, r in merged.iterrows():
-                if (r['home_team_games'] != r['home_team_preds']) or (r['away_team_games'] != r['away_team_preds']):
+                # Compare teams in a case-insensitive, whitespace-normalized way to avoid
+                # spurious mismatches when names differ only by casing or minor formatting.
+                gh = str(r['home_team_games']).strip().lower()
+                ga = str(r['away_team_games']).strip().lower()
+                ph = str(r['home_team_preds']).strip().lower()
+                pa = str(r['away_team_preds']).strip().lower()
+                if (gh != ph) or (ga != pa):
                     team_mismatch_rows.append({
                         'core': r['core'],
                         'games_home': r['home_team_games'], 'games_away': r['away_team_games'],

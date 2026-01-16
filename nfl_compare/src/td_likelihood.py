@@ -24,6 +24,42 @@ def _implied_points(row: pd.Series) -> Tuple[Optional[float], Optional[float]]:
     - If spread missing, assume 0 (pick'em) rather than failing.
     Returns (None, None) if insufficient info.
     """
+    # 1) Prefer sim-derived expected points when present (keeps props aligned with sim artifacts).
+    try:
+        hp = row.get("home_points_mean")
+        ap = row.get("away_points_mean")
+        hp = float(hp) if hp is not None else None
+        ap = float(ap) if ap is not None else None
+        if hp is not None and ap is not None and np.isfinite(hp) and np.isfinite(ap) and hp > 0 and ap > 0:
+            return float(hp), float(ap)
+    except Exception:
+        pass
+
+    # 2) Prefer prediction-derived team points if present.
+    try:
+        hp = row.get("pred_home_points")
+        ap = row.get("pred_away_points")
+        hp = float(hp) if hp is not None else None
+        ap = float(ap) if ap is not None else None
+        if hp is not None and ap is not None and np.isfinite(hp) and np.isfinite(ap) and hp > 0 and ap > 0:
+            return float(hp), float(ap)
+    except Exception:
+        pass
+
+    # 3) Prediction-derived total/margin.
+    try:
+        t = row.get("pred_total_cal") if "pred_total_cal" in row else row.get("pred_total")
+        m = row.get("pred_margin")
+        t = float(t) if t is not None else None
+        m = float(m) if m is not None else None
+        if t is not None and m is not None and np.isfinite(t) and np.isfinite(m) and t > 0:
+            home_pts = (t + m) / 2.0
+            away_pts = t - home_pts
+            if np.isfinite(home_pts) and np.isfinite(away_pts):
+                return float(home_pts), float(away_pts)
+    except Exception:
+        pass
+
     # Prefer posted closing numbers when available; treat non-positive totals as missing.
     total_candidates = [row.get("total"), row.get("close_total") if "close_total" in row else None]
     spread_candidates = [row.get("spread_home"), row.get("close_spread_home") if "close_spread_home" in row else None]
@@ -149,8 +185,19 @@ def _team_rows_from_game(row: pd.Series, league_avg_pace: float) -> list[dict]:
         home_pts = total / 2.0
         away_pts = total / 2.0
 
+    # If sim_probs attached expected points, treat them as authoritative scoring means.
+    # In that case, avoid re-scaling TD expectation with additional EPA/pace/weather factors
+    # (those would create misalignment vs the sim artifacts).
+    using_sim_points = False
+    try:
+        hp = float(row.get("home_points_mean"))
+        ap = float(row.get("away_points_mean"))
+        using_sim_points = bool(np.isfinite(hp) and np.isfinite(ap) and hp > 0 and ap > 0)
+    except Exception:
+        using_sim_points = False
+
     # Weather factors evaluated on same row
-    wf = _weather_factor(row)
+    wf = 1.0 if using_sim_points else _weather_factor(row)
 
     # Priors present via merge_features (fall back to non-_prior columns when needed)
     home_epa_prior = row.get("home_off_epa_prior") if pd.notna(row.get("home_off_epa_prior")) else row.get("home_off_epa")
@@ -169,8 +216,12 @@ def _team_rows_from_game(row: pd.Series, league_avg_pace: float) -> list[dict]:
     away_rush_rate_prior = row.get("away_rush_rate_prior") if pd.notna(row.get("away_rush_rate_prior")) else row.get("away_rush_rate")
 
     # Compute multiplicative factors
-    home_factor = _epa_factor(home_epa_prior, home_opp_def_prior) * _pace_factor(home_pace_prior, league_avg_pace) * wf
-    away_factor = _epa_factor(away_epa_prior, away_opp_def_prior) * _pace_factor(away_pace_prior, league_avg_pace) * wf
+    if using_sim_points:
+        home_factor = 1.0
+        away_factor = 1.0
+    else:
+        home_factor = _epa_factor(home_epa_prior, home_opp_def_prior) * _pace_factor(home_pace_prior, league_avg_pace) * wf
+        away_factor = _epa_factor(away_epa_prior, away_opp_def_prior) * _pace_factor(away_pace_prior, league_avg_pace) * wf
 
     # Base lambda ~ expected touchdowns (Poisson) as implied_points / 7.0
     home_lambda = max(0.05, float(home_pts) / 7.0) * home_factor
@@ -312,6 +363,57 @@ def compute_td_likelihood(season: Optional[int] = None, week: Optional[int] = No
         wx = None
 
     feat = merge_features(games, team_stats, lines, wx)
+
+    # If sim artifacts exist for the requested season/week, attach sim-derived expected points.
+    try:
+        if season is not None and week is not None:
+            sim_fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_probs.csv"
+            if sim_fp.exists():
+                sim = pd.read_csv(sim_fp)
+                keep = [c for c in [
+                    "game_id",
+                    "home_points_mean",
+                    "away_points_mean",
+                    "total_points_mean",
+                    "pred_margin",
+                    "pred_total",
+                    "spread_ref",
+                    "total_ref",
+                ] if c in sim.columns]
+                if keep and "game_id" in keep and "game_id" in feat.columns:
+                    sim_small = sim[keep].drop_duplicates(subset=["game_id"], keep="first")
+                    feat = feat.merge(sim_small, on="game_id", how="left", suffixes=("", "_sim"))
+    except Exception:
+        pass
+
+    # Also attach raw model predictions (best-effort) so td likelihood can fall back to them
+    # when market lines are missing.
+    try:
+        if preds is not None and not preds.empty and "game_id" in preds.columns and "game_id" in feat.columns:
+            keep = [c for c in [
+                "game_id",
+                "pred_margin",
+                "pred_total",
+                "pred_total_cal",
+                "pred_home_points",
+                "pred_away_points",
+            ] if c in preds.columns]
+            if keep and "game_id" in keep:
+                pred_small = preds[keep].drop_duplicates(subset=["game_id"], keep="first")
+                feat = feat.merge(pred_small, on="game_id", how="left", suffixes=("", "_pred"))
+                # Prefer already-present columns; only fill missing.
+                for c in ["pred_margin", "pred_total", "pred_total_cal", "pred_home_points", "pred_away_points"]:
+                    cp = f"{c}_pred"
+                    if cp in feat.columns:
+                        if c in feat.columns:
+                            feat[c] = feat[c].where(feat[c].notna(), feat[cp])
+                        else:
+                            feat[c] = feat[cp]
+                drop_cols = [c for c in feat.columns if c.endswith("_pred")]
+                if drop_cols:
+                    feat = feat.drop(columns=drop_cols)
+    except Exception:
+        pass
 
     # Target games: those without scores (future) or those in requested season/week regardless of scores
     if need_upcoming:

@@ -17,6 +17,7 @@ Usage (from repo root or nfl_compare):
 """
 
 import os
+import json
 from datetime import date as _date, timedelta, datetime
 from pathlib import Path
 import shutil
@@ -232,30 +233,79 @@ def _infer_current_season_week(games: pd.DataFrame) -> Tuple[int, int, Optional[
     season = min(seasons, key=_season_score)
 
     gs = g[g['season']==season].copy()
-    if gs.empty:
-        return season, 1, 2
     wk_ranges = (
-        gs.groupby('week')['date']
-          .agg(['min','max'])
-          .dropna()
-          .reset_index()
-          .rename(columns={'min':'start','max':'end'})
+            gs.groupby('week')['date']
+                .agg(['min','max'])
+                .dropna()
+                .reset_index()
+                .rename(columns={'min':'start','max':'end'})
     )
     # Normalize to date
     wk_ranges['start'] = pd.to_datetime(wk_ranges['start'], errors='coerce').dt.date
     wk_ranges['end'] = pd.to_datetime(wk_ranges['end'], errors='coerce').dt.date
     # Current week: window padded by 1 day on each side
     cur_row = wk_ranges[(wk_ranges['start'] - timedelta(days=1) <= today) & (today <= wk_ranges['end'] + timedelta(days=1))]
-    if cur_row.empty:
+    cur_week: Optional[int] = None
+    if not cur_row.empty:
+        try:
+            cur_week = int(cur_row['week'].iloc[0])
+        except Exception:
+            cur_week = None
+    if cur_week is None:
         # Next upcoming week with start >= today
         up_row = wk_ranges[wk_ranges['start'] >= today].sort_values('start').head(1)
-        if up_row.empty:
-            # Late season; choose last
-            cur_week = int(wk_ranges['week'].max())
-        else:
-            cur_week = int(up_row['week'].iloc[0])
-    else:
-        cur_week = int(cur_row['week'].iloc[0])
+        if not up_row.empty:
+            try:
+                cur_week = int(up_row['week'].iloc[0])
+            except Exception:
+                cur_week = None
+        # Late season; choose last non-null week
+        if cur_week is None:
+            try:
+                last_week = wk_ranges['week'].dropna().astype(int).max()
+                cur_week = int(last_week) if pd.notna(last_week) else None
+            except Exception:
+                cur_week = None
+    # If still unresolved, try explicit overrides or marker file
+    if cur_week is None:
+        try:
+            env_w = os.environ.get('CURRENT_WEEK')
+            if env_w:
+                cur_week = int(env_w)
+        except Exception:
+            cur_week = cur_week
+        try:
+            env_s = os.environ.get('CURRENT_SEASON')
+            if env_s:
+                season = int(env_s)
+        except Exception:
+            season = season
+        if cur_week is None:
+            try:
+                marker = DATA_DIR / 'current_week.json'
+                if marker.exists():
+                    with marker.open('r', encoding='utf-8') as f:
+                        obj = json.load(f)
+                    ms = obj.get('season')
+                    mw = obj.get('week')
+                    if ms is not None:
+                        try:
+                            season = int(ms)
+                        except Exception:
+                            pass
+                    if mw is not None:
+                        try:
+                            cur_week = int(mw)
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+    # Hard fallback if everything failed
+    if cur_week is None:
+        try:
+            cur_week = int(gs['week'].dropna().astype(int).min())
+        except Exception:
+            cur_week = 1
     # Upcoming week is the next one with start after current end
     try:
         cur_end = wk_ranges.loc[wk_ranges['week']==cur_week, 'end'].iloc[0]

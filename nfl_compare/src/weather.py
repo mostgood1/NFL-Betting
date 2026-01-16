@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 import pandas as pd
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+# Respect NFL_DATA_DIR env when present; fallback to package data folder
+_ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
+DATA_DIR = Path(_ENV_DATA_DIR) if _ENV_DATA_DIR else (Path(__file__).resolve().parents[1] / "data")
 
 
 @dataclass
@@ -68,6 +71,9 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     if games is None or games.empty:
         return pd.DataFrame(columns=["game_id","date","home_team","away_team", WeatherCols.temp_f, WeatherCols.wind_mph, WeatherCols.precip_pct, WeatherCols.precip_type, WeatherCols.sky, WeatherCols.roof, WeatherCols.surface])
 
+    # games can be keyed by either `date` or `game_date` depending on pipeline.
+    date_col = "date" if "date" in games.columns else ("game_date" if "game_date" in games.columns else None)
+
     out_rows = []
     stad = load_stadium_meta()
     # Build a quick map for stadium attributes by team
@@ -75,8 +81,16 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     if not stad.empty and "team" in stad.columns:
         stad_map = stad.set_index(stad["team"].astype(str).str.strip()).to_dict(orient="index")
 
-    # group by date for weather file loads
-    for date_str, gdf in games.groupby(games.get("date", pd.Series(index=games.index, dtype=str))):
+    # group by date for weather file loads (pandas groupby drops NaN keys)
+    if date_col is None:
+        # No usable date column; emit rows with stadium meta only.
+        date_s = pd.Series([pd.NA] * len(games), index=games.index)
+    else:
+        date_s = games[date_col]
+    # Normalize date string to YYYY-MM-DD (weather files use that convention)
+    date_key = pd.to_datetime(date_s, errors="coerce").dt.strftime("%Y-%m-%d")
+
+    for date_str, gdf in games.loc[date_key.notna()].groupby(date_key[date_key.notna()]):
         wdf = load_weather_for_date(str(date_str))
         # Normalize join keys
         if not wdf.empty:
@@ -84,7 +98,7 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
         for _, row in gdf.iterrows():
             r = {
                 "game_id": row.get("game_id"),
-                "date": row.get("date"),
+                "date": row.get(date_col) if date_col else row.get("date"),
                 "home_team": row.get("home_team"),
                 "away_team": row.get("away_team"),
                 WeatherCols.temp_f: pd.NA,
@@ -110,6 +124,30 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
                     # Neutral flag if produced by fetcher
                     if 'neutral_site' in m.columns:
                         r["neutral_site"] = m.iloc[0].get('neutral_site')
+            if ht in stad_map:
+                r[WeatherCols.roof] = stad_map[ht].get("roof")
+                r[WeatherCols.surface] = stad_map[ht].get("surface")
+            out_rows.append(r)
+
+    # Also include any games where date_key was NaN (stadium meta only).
+    missing_date_games = games.loc[date_key.isna()]
+    if not missing_date_games.empty:
+        for _, row in missing_date_games.iterrows():
+            r = {
+                "game_id": row.get("game_id"),
+                "date": row.get(date_col) if date_col else row.get("date"),
+                "home_team": row.get("home_team"),
+                "away_team": row.get("away_team"),
+                WeatherCols.temp_f: pd.NA,
+                WeatherCols.wind_mph: pd.NA,
+                WeatherCols.precip_pct: pd.NA,
+                WeatherCols.precip_type: pd.NA,
+                WeatherCols.sky: pd.NA,
+                WeatherCols.roof: pd.NA,
+                WeatherCols.surface: pd.NA,
+                "neutral_site": pd.NA,
+            }
+            ht = str(row.get("home_team", "")).strip()
             if ht in stad_map:
                 r[WeatherCols.roof] = stad_map[ht].get("roof")
                 r[WeatherCols.surface] = stad_map[ht].get("surface")

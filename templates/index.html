@@ -55,9 +55,9 @@
   img{ display:block; max-width:100%; height:auto }
   a{ color:var(--link) }
   body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text)}
-    .container{max-width:1100px;margin:24px auto;padding:0 16px}
-    h1{font-size:22px;margin:0 0 6px}
-    .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .container{max-width:1400px;margin:24px auto;padding:0 18px}
+    h1{font-size:24px;margin:0 0 8px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:14px}
     .nav{margin-bottom:12px}
     .nav a{color:var(--link);text-decoration:none;margin-right:10px}
     .nav button.theme-toggle{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
@@ -65,23 +65,23 @@
     .filters{display:flex;gap:8px;align-items:center;margin:12px 0 16px}
     .filters input{background:var(--input-bg);border:1px solid var(--input-br);color:var(--text);padding:6px 8px;border-radius:6px;width:120px}
     .filters button{background:var(--button-bg);color:var(--button-text);border:1px solid var(--button-br);border-radius:6px;padding:6px 10px;cursor:pointer}
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    @media(max-width:1100px){.grid{grid-template-columns:1fr}}
-  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #1f2a44;border-radius:14px;padding:12px 12px 10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.28);min-width:0}
+  /* One game card per row (full width) */
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #1f2a44;border-radius:16px;padding:16px 16px 14px 16px;box-shadow:0 10px 22px rgba(0,0,0,.28);min-width:0}
     .row{display:flex;justify-content:space-between;align-items:center}
   .teams{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
     .name{font-weight:700}
     .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:var(--chip);border:1px solid var(--chip-br);font-size:12px;color:var(--text)}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--chip-br);font-size:13px;color:var(--text)}
     .pred{display:flex;justify-content:space-between;align-items:baseline;font-variant-numeric:tabular-nums;margin:6px 0}
-    .score{font-size:18px;font-weight:800}
-    .muted{color:var(--muted);font-size:12px}
-  .pill{display:inline-block;padding:2px 6px;border-radius:6px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:12px;color:var(--text)}
+    .score{font-size:20px;font-weight:800}
+    .muted{color:var(--muted);font-size:13px}
+  .pill{display:inline-block;padding:3px 8px;border-radius:6px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:13px;color:var(--text)}
   .pill-ok{border-color:#2e8b57;color:#9ae6b4}
   .pill-bad{border-color:#8b2e2e;color:#fca5a5}
   .kpi{display:flex;gap:10px;align-items:center;justify-content:flex-start;margin-top:6px}
   .recs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-  .badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--badge-br);background:var(--badge-bg);font-size:12px;color:var(--text)}
+  .badge{display:inline-block;padding:5px 10px;border-radius:999px;border:1px solid var(--badge-br);background:var(--badge-bg);font-size:13px;color:var(--text)}
   .b-low{box-shadow:inset 0 0 0 1px #375a7f}
   .b-med{box-shadow:inset 0 0 0 1px #7f7f37}
   .b-high{box-shadow:inset 0 0 0 1px #2e8b57}
@@ -97,6 +97,10 @@
   .odds{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
   .odds .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
   .odds .muted{color:var(--muted)}
+  /* Top prop edges (always visible when present) */
+  .props{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px}
+  .props .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
+  .props .muted{color:var(--muted)}
   /* Ratings panel mirrors odds styles */
   .ratings{margin-top:8px;border-top:1px dashed var(--pill-br);padding-top:8px;display:none}
   .ratings .row{display:flex;justify-content:space-between;font-size:13px;margin:4px 0;color:var(--text)}
@@ -106,6 +110,120 @@
   .team-block{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
   .team-name{font-weight:700}
   .tiny{font-size:11px;color:var(--muted)}
+  /* --- Box-score card layout --- */
+  .section-title{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-top:12px;margin-bottom:8px}
+  .boxscore{margin-top:10px}
+  .boxscore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px}
+  .boxteam-card{background:rgba(0,0,0,.10);border:1px solid var(--pill-br);border-radius:12px;padding:12px;min-width:0}
+  body.light .boxteam-card{background:rgba(0,0,0,.02)}
+  .boxteam-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+  .boxteam-left{display:flex;align-items:center;gap:8px;min-width:0}
+  .boxteam-left .team-logo{width:20px;height:20px}
+  .boxteam-left .pill{max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .boxteam-head .pill{white-space:nowrap}
+  .boxteam-chip{display:inline-flex;align-items:center;gap:6px;padding:2px 6px;border-radius:999px;border:1px solid var(--pill-br);background:var(--pill-bg);font-size:11px;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .boxteam-chip .k{color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-size:10px}
+
+  /* --- Compact mock boxscore + props tables --- */
+  .mock-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+  .mock-team{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+  .mock-team .abbr{font-weight:900;letter-spacing:.8px}
+  .mock-team .full{color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+  .mock-pts{font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
+  .mock-pts .k{color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-size:10px}
+  .mock-lines{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+  /* Use fixed stat columns so player name never collapses to 0 width */
+  .mockline{display:grid;grid-template-columns:44px minmax(0,1fr) 54px 54px 54px;gap:10px;align-items:baseline;padding-top:6px;border-top:1px solid rgba(255,255,255,.06)}
+  body.light .mockline{border-top:1px solid rgba(0,0,0,.08)}
+  .mockline:first-child{border-top:none;padding-top:0}
+  .mockcat{color:var(--muted);font-size:11px;letter-spacing:.4px;text-transform:uppercase}
+  .mockplayer{font-weight:800;font-size:13px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mockstat{display:flex;flex-direction:column;align-items:flex-end;line-height:1.05;min-width:0}
+  .mockstat .k{color:var(--muted);font-size:10px;letter-spacing:.4px;text-transform:uppercase}
+  .mockstat .v{font-size:12px;font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+  .mockstat .v.big{font-weight:800}
+
+  .props-table{margin-top:0}
+  .props-table .row{display:grid;grid-template-columns:1fr 84px;gap:12px;align-items:baseline}
+  .props-table .row.head{margin-top:0}
+  .props-table .row.head span{color:var(--muted);font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+  .props-table .row .val{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;text-align:right;white-space:nowrap}
+  .props-table .proptext{min-width:0}
+  /* Allow 2-line wrapping for dense prop text instead of hard ellipsis */
+  .props-table .proptext .l1{color:var(--text);font-size:13px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .props-table .proptext .l2{color:var(--muted);font-size:12px;line-height:1.2;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .props-table .pill{margin-right:6px}
+  .boxline{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0;border-top:1px solid rgba(255,255,255,.06)}
+  body.light .boxline{border-top:1px solid rgba(0,0,0,.08)}
+  .boxline:first-of-type{border-top:none}
+  .boxlabel{color:var(--muted);font-size:11px;letter-spacing:.4px;text-transform:uppercase;min-width:44px}
+  .boxname{font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+  .boxstats{font-size:12px;color:var(--text);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .boxmuted{color:var(--muted);font-size:12px}
+  .box-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--pill-br);border-radius:10px;overflow:hidden;font-variant-numeric:tabular-nums}
+  .box-table thead th{background:rgba(0,0,0,.18);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.06)}
+  body.light .box-table thead th{background:rgba(0,0,0,.04);border-bottom:1px solid rgba(0,0,0,.08)}
+  .box-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.06)}
+  body.light .box-table td{border-bottom:1px solid rgba(0,0,0,.08)}
+  .box-table tbody tr:last-child td{border-bottom:none}
+  .box-table .why-cell{max-width:340px;white-space:normal;line-height:1.2}
+  .box-team{display:flex;align-items:center;gap:8px;min-width:0}
+  .box-team .team-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .team-stack{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+  .team-abbr{font-weight:900;letter-spacing:.8px}
+  .team-full{color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+  .box-table .num{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;letter-spacing:.2px}
+  .box-table td{padding:5px 8px}
+  .box-table thead th{padding:5px 8px}
+  .box-final{font-weight:800}
+  .simbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .simitem{flex:1;min-width:160px;background:var(--pill-bg);border:1px solid var(--pill-br);border-radius:10px;padding:8px}
+  .simitem .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+  .simitem .v{font-size:14px;font-weight:700;margin-top:2px}
+  .rec-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+  .rec-card{background:var(--pill-bg);border:1px solid var(--pill-br);border-radius:12px;padding:12px;min-width:0}
+  .rec-title{font-size:13px;font-weight:800;margin-bottom:8px}
+  .rec-line{display:flex;justify-content:space-between;gap:10px;font-size:13px;margin:4px 0}
+  .rec-line .muted{font-size:13px}
+  .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+  .panel{background:var(--pill-bg);border:1px solid var(--pill-br);border-radius:12px;padding:12px;min-width:0}
+  .mt0{margin-top:0!important}
+  .props-compact{border-top:none!important;padding-top:0!important;margin-top:0!important}
+  .full-panel{margin-top:10px}
+
+  .table-scroll{overflow:auto}
+  .mockbox-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--pill-br);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;background:rgba(0,0,0,.08);font-size:12px}
+  body.light .mockbox-table{background:rgba(0,0,0,.02)}
+  .mockbox-table thead th{background:rgba(0,0,0,.18);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06)}
+  body.light .mockbox-table thead th{background:rgba(0,0,0,.04);border-bottom:1px solid rgba(0,0,0,.08)}
+  .mockbox-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+  body.light .mockbox-table td{border-bottom:1px solid rgba(0,0,0,.08)}
+  .mockbox-table tbody tr:last-child td{border-bottom:none}
+  .mockbox-minihead td{background:rgba(0,0,0,.14);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:6px 10px}
+  body.light .mockbox-minihead td{background:rgba(0,0,0,.03)}
+  .mockbox-teamhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;min-width:0}
+  .mockbox-teamname{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+  .mockbox-teamname .abbr{font-weight:900;letter-spacing:.8px}
+  .mockbox-teamname .full{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:360px}
+  .mockbox-pts{white-space:nowrap;font-variant-numeric:tabular-nums}
+  .mockbox-pts .k{font-size:10px;letter-spacing:.5px;color:var(--muted)}
+  .mockbox-subhead{font-size:11px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+  .mockbox-cat{display:flex;flex-direction:column;gap:2px}
+  .mockbox-cat .k{font-weight:800;letter-spacing:.5px}
+  .mockbox-cat .s{font-size:10px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+  .mockbox-player{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:280px;font-size:12px}
+  .mockbox-num{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;text-align:right;white-space:nowrap;font-size:12px}
+  .mockbox-num.miss{color:var(--muted)}
+  .mockbox-num .sub{display:block;font-size:10px;letter-spacing:.3px;color:var(--muted);white-space:normal;line-height:1.1;margin-top:2px}
+  .drive-mt{margin-top:8px}
+  .drive-scroll{max-height:220px;overflow:auto;margin-top:6px}
+  @media(max-width:760px){
+    .rec-grid{grid-template-columns:1fr}
+    .two-col{grid-template-columns:1fr}
+    .boxscore-grid{grid-template-columns:1fr}
+    .boxname{max-width:100%}
+    .mockline{grid-template-columns:40px minmax(0,1fr) 50px 50px 50px;gap:8px}
+  }
   /* Admin panel styles */
   #adminPanel{display:none;border:1px solid var(--button-br);background:var(--card2);border-radius:10px;padding:10px;margin:10px 0}
   .admin-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
@@ -118,6 +236,7 @@
   .mt-16{margin-top:16px}
   .ml-8{margin-left:8px}
   .center{text-align:center}
+  .tal{text-align:left}
   .tar{text-align:right}
   .my-2{margin:2px 0}
   .op-75{opacity:.75}
@@ -161,7 +280,7 @@
     </div>
     <pre id="adminLogs"></pre>
   </div>
-    <h1>NFL Betting – Cards</h1>
+    <h1>NFL Betting – Cards (Boxscore UI)</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
     {% if accuracy_s2d %}
       <div class="cards-summary">
@@ -255,79 +374,604 @@
             <div class="venue">{{ g.venue_text }}</div>
             <div class="status">{{ g.status_text }}</div>
 
-            <div class="team-block mt-8">
-              {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" class="team-logo" />{% endif %}
-              <div class="team-name dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_team }}</div>
-              <div class="tar">
-                <div class="score">{{ g.away_score if g.away_score is not none else ( '%.2f' % g.pred_away_points if g.pred_away_points is not none else '-' ) }}</div>
-                {% if g.pred_away_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_away_points }}</div>{% endif %}
-              </div>
-            </div>
-            <div class="tiny center my-2">@</div>
-            <div class="team-block">
-              {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" class="team-logo" />{% endif %}
-              <div class="team-name dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_team }}</div>
-              <div class="tar">
-                <div class="score">{{ g.home_score if g.home_score is not none else ( '%.2f' % g.pred_home_points if g.pred_home_points is not none else '-' ) }}</div>
-                {% if g.pred_home_points is not none %}<div class="tiny">Model: {{ '%.2f' % g.pred_home_points }}</div>{% endif %}
-              </div>
-            </div>
+            {% set exs = g.explain.simulation if g.explain %}
+            {% set exk = g.explain.market if g.explain %}
+            {% set qsrc = (g.sim_quarters if g.sim_quarters else g.quarters) %}
 
-            <div class="pred">
-              <div class="muted">Total (model): {{ '%.2f' % g.pred_total if g.pred_total is number else '-' }}</div>
-              <div class="muted">Total (actual): {{ '%.2f' % g.actual_total if g.actual_total is number else '-' }}</div>
-              <div class="muted">Diff: {{ '%.2f' % g.total_diff if g.total_diff is number else '-' }}</div>
-            </div>
-
-            <div class="kpi">
-              {% if g.wp_text or g.pred_winner %}
-                <span class="pill {% if g.winner_correct is not none %}{{ 'pill-ok' if g.winner_correct else 'pill-bad' }}{% endif %}">
-                  {% if g.wp_text %}{{ g.wp_text }}{% endif %}
-                  {% if g.pred_winner %}{% if g.wp_text %} • {% endif %}Winner: {{ g.pred_winner }}{% if g.winner_correct is not none %} {{ 'Correct' if g.winner_correct else 'Wrong' }}{% endif %}{% endif %}
-                </span>
-              {% endif %}
-            </div>
-            <div class="kpi">
-              {% if g.market_spread_home is number %}
-                <span class="pill {% if g.ats_correct is not none %}{{ 'pill-ok' if g.ats_correct else 'pill-bad' }}{% endif %}">
-                  Spread: {{ g.home_team }} {{ '%+.1f' % g.market_spread_home }} • Model: {{ g.home_team if (g.edge_spread is number and g.edge_spread>=0) else g.away_team if (g.edge_spread is number) else '—' }} (Edge {{ '%+.2f' % (g.edge_spread if g.edge_spread is number else 0) }})
-                  {% if g.ats_text %} • {{ g.ats_text }}{% endif %}
-                </span>
-              {% endif %}
-            </div>
-            <div class="kpi">
-              {% if g.ou_text or g.totals_text %}
-                <span class="pill {% if g.totals_correct is not none %}{{ 'pill-ok' if g.totals_correct else 'pill-bad' }}{% endif %}">
-                  {% if g.ou_text %}{{ g.ou_text }}{% endif %}
-                  {% if g.totals_text %}{% if g.ou_text %} • {% endif %}{{ g.totals_text }}{% endif %}
-                </span>
-              {% endif %}
-            </div>
-
-            {% if g.actual_total is not none %}
-            <div class="kpi">
-              <span class="pill">Accuracy:
-                Winner {{ '✓' if g.winner_correct else '✗' if g.winner_correct is not none else '—' }} ·
-                ATS {{ '✓' if g.ats_correct else '✗' if g.ats_correct is not none else '—' }} ·
-                Total {{ '✓' if g.totals_correct else '✗' if g.totals_correct is not none else '—' }}
-              </span>
-            </div>
-            {% endif %}
-
-            <div class="recs">
-              {% if g.model_winner_side %}
-                {% if g.rec_winner_side %}
-                  <span class="badge {{ 'b-high' if g.rec_winner_conf=='High' else 'b-med' if g.rec_winner_conf=='Medium' else 'b-low' if g.rec_winner_conf=='Low' else '' }}">Winner: {{ g.model_winner_side }} (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%){% if g.rec_winner_conf %} • {{ g.rec_winner_conf }}{% endif %}</span>
+            <div class="boxscore">
+              <div class="section-title">Box Score{% if g.sim_quarters %} (Sim){% elif g.quarters %} (Model){% endif %}</div>
+              <table class="box-table">
+                <thead>
+                  <tr>
+                    <th class="tal">Team</th>
+                    <th class="tar">1</th>
+                    <th class="tar">2</th>
+                    <th class="tar">3</th>
+                    <th class="tar">4</th>
+                    <th class="tar">T</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="box-team">
+                        {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" class="team-logo" />{% endif %}
+                        <div class="team-stack">
+                          <div class="team-abbr dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
+                          <div class="team-full">{{ g.away_team }}</div>
+                        </div>
+                      </div>
+                    </td>
+                    {% for i in range(4) %}
+                      {% set qq = (qsrc[i] if (qsrc and (qsrc|length) > i) else none) %}
+                      <td class="tar num">{% if qq and qq.away is number %}{{ '%.0f' % qq.away }}{% else %}-{% endif %}</td>
+                    {% endfor %}
+                    <td class="tar box-final num">
+                      {% if g.away_score is not none %}
+                        {{ '%.0f' % g.away_score }}
+                      {% elif exs and exs.away_points is number %}
+                        {{ '%.1f' % exs.away_points }}
+                      {% elif g.pred_away_points is not none %}
+                        {{ '%.1f' % g.pred_away_points }}
+                      {% else %}
+                        -
+                      {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="box-team">
+                        {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" class="team-logo" />{% endif %}
+                        <div class="team-stack">
+                          <div class="team-abbr dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
+                          <div class="team-full">{{ g.home_team }}</div>
+                        </div>
+                      </div>
+                    </td>
+                    {% for i in range(4) %}
+                      {% set qq = (qsrc[i] if (qsrc and (qsrc|length) > i) else none) %}
+                      <td class="tar num">{% if qq and qq.home is number %}{{ '%.0f' % qq.home }}{% else %}-{% endif %}</td>
+                    {% endfor %}
+                    <td class="tar box-final num">
+                      {% if g.home_score is not none %}
+                        {{ '%.0f' % g.home_score }}
+                      {% elif exs and exs.home_points is number %}
+                        {{ '%.1f' % exs.home_points }}
+                      {% elif g.pred_home_points is not none %}
+                        {{ '%.1f' % g.pred_home_points }}
+                      {% else %}
+                        -
+                      {% endif %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="muted-tiny mt-4">
+                {% if g.away_score is none and g.home_score is none %}
+                  Final is projected{% if g.sim_quarters or (exs and (exs.total is number)) %} (sim){% else %} (model){% endif %}.
                 {% else %}
-                  <span class="badge op-75">Winner: {{ g.model_winner_side }} (EV {{ g.model_winner_ev_pct|default('0.0', true)|round(1) if g.model_winner_ev_pct is number else '—' }}% <span class="muted">not recommended{% if g.model_winner_ev_units is not none and g.ml_min_ev_units is not none %} (min {{ '%.1f' % (g.ml_min_ev_pct) }}%) {% endif %}</span>)</span>
+                  Final is actual.
                 {% endif %}
+              </div>
+            </div>
+
+            <div class="simbar">
+              <div class="simitem">
+                <div class="k">Simulation</div>
+                <div class="v">
+                  {% if exs and exs.total is number %}
+                    Total {{ '%.1f' % exs.total }} • Margin {{ '%+.1f' % exs.margin if exs.margin is number else '—' }}
+                  {% elif g.pred_total is number %}
+                    Total {{ '%.1f' % g.pred_total }}
+                  {% else %}
+                    —
+                  {% endif %}
+                </div>
+                <div class="muted-tiny">
+                  {% if exs and exs.prob_home_win_mc is number %}ML {{ '%.0f' % (exs.prob_home_win_mc*100) }}%{% else %}ML —{% endif %}
+                  &nbsp;•&nbsp;
+                  {% if exs and exs.prob_home_cover_mc is number %}ATS {{ '%.0f' % (exs.prob_home_cover_mc*100) }}%{% else %}ATS —{% endif %}
+                  &nbsp;•&nbsp;
+                  {% if exs and exs.prob_over_total_mc is number %}Over {{ '%.0f' % (exs.prob_over_total_mc*100) }}%{% else %}Over —{% endif %}
+                </div>
+              </div>
+              <div class="simitem">
+                <div class="k">Market</div>
+                <div class="v">
+                  {% if g.market_spread_home is number %}{{ g.home_team }} {{ '%+.1f' % g.market_spread_home }}{% else %}Spread —{% endif %}
+                  &nbsp;•&nbsp;
+                  {% if g.market_total is number %}Total {{ '%.1f' % g.market_total }}{% else %}Total —{% endif %}
+                </div>
+                <div class="muted-tiny">
+                  {% if g.moneyline_away is number or g.moneyline_home is number %}
+                    ML {% if g.moneyline_away is number %}Away {{ '%+d' % g.moneyline_away }}{% else %}Away —{% endif %} / {% if g.moneyline_home is number %}Home {{ '%+d' % g.moneyline_home }}{% else %}Home —{% endif %}
+                  {% else %}
+                    ML —
+                  {% endif %}
+                </div>
+              </div>
+              <div class="simitem">
+                <div class="k">Actual</div>
+                <div class="v">
+                  {% if g.actual_total is number %}
+                    Total {{ '%.1f' % g.actual_total }} • Diff {{ '%.1f' % g.total_diff if g.total_diff is number else '—' }}
+                  {% else %}
+                    —
+                  {% endif %}
+                </div>
+                <div class="muted-tiny">
+                  {% if g.actual_total is not none %}
+                    Winner {{ '✓' if g.winner_correct else '✗' if g.winner_correct is not none else '—' }} • ATS {{ '✓' if g.ats_correct else '✗' if g.ats_correct is not none else '—' }} • Total {{ '✓' if g.totals_correct else '✗' if g.totals_correct is not none else '—' }}
+                  {% else %}
+                    Not settled
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <div class="section-title">Betting Recommendations</div>
+            <div class="rec-grid">
+              <div class="rec-card">
+                <div class="rec-title">Moneyline</div>
+                <div class="rec-line">
+                  <span class="muted">Sim</span>
+                  <span>
+                    {% if g.sim_rec_winner_side %}{{ g.sim_rec_winner_side }}{% else %}—{% endif %}
+                    {% if g.sim_rec_winner_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.sim_rec_winner_ev*100) }}%)</span>{% endif %}
+                    {% if g.sim_rec_winner_conf %}<span class="muted"> • {{ g.sim_rec_winner_conf }}</span>{% endif %}
+                  </span>
+                </div>
+                <div class="rec-line">
+                  <span class="muted">Model</span>
+                  <span>
+                    {% if g.rec_winner_side %}{{ g.rec_winner_side }}{% else %}—{% endif %}
+                    {% if g.rec_winner_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.rec_winner_ev*100) }}%)</span>{% endif %}
+                    {% if g.rec_winner_conf %}<span class="muted"> • {{ g.rec_winner_conf }}</span>{% endif %}
+                  </span>
+                </div>
+              </div>
+
+              <div class="rec-card">
+                <div class="rec-title">Spread</div>
+                <div class="rec-line">
+                  <span class="muted">Sim</span>
+                  <span>
+                    {% if g.sim_rec_spread_side %}{{ g.sim_rec_spread_side }}{% else %}—{% endif %}
+                    {% if g.sim_rec_spread_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.sim_rec_spread_ev*100) }}%)</span>{% endif %}
+                    {% if g.sim_rec_spread_conf %}<span class="muted"> • {{ g.sim_rec_spread_conf }}</span>{% endif %}
+                  </span>
+                </div>
+                <div class="rec-line">
+                  <span class="muted">Model</span>
+                  <span>
+                    {% if g.rec_spread_side %}{{ g.rec_spread_side }}{% else %}—{% endif %}
+                    {% if g.rec_spread_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.rec_spread_ev*100) }}%)</span>{% endif %}
+                    {% if g.rec_spread_conf %}<span class="muted"> • {{ g.rec_spread_conf }}</span>{% endif %}
+                  </span>
+                </div>
+              </div>
+
+              <div class="rec-card">
+                <div class="rec-title">Total</div>
+                <div class="rec-line">
+                  <span class="muted">Sim</span>
+                  <span>
+                    {% if g.sim_rec_total_side %}{{ g.sim_rec_total_side }}{% else %}—{% endif %}
+                    {% if g.sim_rec_total_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.sim_rec_total_ev*100) }}%)</span>{% endif %}
+                    {% if g.sim_rec_total_conf %}<span class="muted"> • {{ g.sim_rec_total_conf }}</span>{% endif %}
+                  </span>
+                </div>
+                <div class="rec-line">
+                  <span class="muted">Model</span>
+                  <span>
+                    {% if g.rec_total_side %}{{ g.rec_total_side }}{% else %}—{% endif %}
+                    {% if g.rec_total_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (g.rec_total_ev*100) }}%)</span>{% endif %}
+                    {% if g.rec_total_conf %}<span class="muted"> • {{ g.rec_total_conf }}</span>{% endif %}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="section-title mt0">Game Story (Sim)</div>
+
+              {% if g.sim_story %}
+                {% for p in g.sim_story %}
+                  <div class="muted-small my-2">{{ p }}</div>
+                {% endfor %}
+              {% elif g.sim_recap %}
+                <div class="muted-small my-2">{{ g.sim_recap }}</div>
+              {% else %}
+                <div class="muted-small my-2">—</div>
               {% endif %}
-              {% if g.rec_spread_side %}
-                <span class="badge {{ 'b-high' if g.rec_spread_conf=='High' else 'b-med' if g.rec_spread_conf=='Medium' else 'b-low' if g.rec_spread_conf=='Low' else '' }}">Spread: {{ g.rec_spread_side }}{% if g.rec_spread_ev is not none %} (EV {{ '%.1f' % (g.rec_spread_ev*100) }}%) {% endif %}{% if g.rec_spread_conf %} • {{ g.rec_spread_conf }}{% endif %}</span>
+
+              {% if g.sim_key_drives %}
+                <div class="muted-tiny drive-mt">Key drives (Sim){% if g.sim_key_drives|length > 0 %} • {{ g.sim_key_drives|length }}{% endif %}</div>
+                <div class="drive-scroll">
+                  <table class="box-table">
+                    <thead>
+                      <tr>
+                        <th class="tar">D</th>
+                        <th class="tar">Q</th>
+                        <th>Poss</th>
+                        <th class="tar">TOP</th>
+                        <th>Outcome</th>
+                        <th>Why</th>
+                        <th class="tar">Score (A–H)</th>
+                        <th class="tar">P(Home lead)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for d in g.sim_key_drives %}
+                        <tr>
+                          <td class="tar">{{ d.drive_no }}</td>
+                          <td class="tar">{{ d.quarter }}</td>
+                          <td>{% if d.poss_team %}{{ d.poss_team }}{% else %}—{% endif %}</td>
+                          <td class="tar">
+                            {% if d.drive_sec_mean is number %}
+                              {% set s = d.drive_sec_mean|round(0, 'floor')|int %}
+                              {% set mm = (s // 60) %}
+                              {% set ss = (s % 60) %}
+                              {{ '%d:%02d' % (mm, ss) }}
+                              {% if d.drive_sec_p25 is number and d.drive_sec_p75 is number %}
+                                {% set s25 = d.drive_sec_p25|round(0, 'floor')|int %}
+                                {% set s75 = d.drive_sec_p75|round(0, 'floor')|int %}
+                                <div class="muted-tiny">{{ '%d:%02d' % (s25 // 60, s25 % 60) }}–{{ '%d:%02d' % (s75 // 60, s75 % 60) }}</div>
+                              {% endif %}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td>
+                            {% if d.drive_outcome_mode %}
+                              {{ d.drive_outcome_mode }}
+                              {% set p = none %}
+                              {% if d.drive_outcome_mode == 'TD' %}{% set p = d.p_drive_td %}{% endif %}
+                              {% if d.drive_outcome_mode == 'FG' %}{% set p = d.p_drive_fg %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Punt' %}{% set p = d.p_drive_punt %}{% endif %}
+                              {% if d.drive_outcome_mode == 'INT' %}{% set p = d.p_drive_int %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Fumble' %}{% set p = d.p_drive_fumble %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Downs' %}{% set p = d.p_drive_downs %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Missed FG' %}{% set p = d.p_drive_missed_fg %}{% endif %}
+                              {% if d.drive_outcome_mode == 'End Half' %}{% set p = d.p_drive_end_half %}{% endif %}
+                              {% if p is number %} ({{ '%.0f' % (p*100) }}%){% endif %}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td class="why-cell">{% if d.why %}<span class="muted-tiny">{{ d.why }}</span>{% else %}—{% endif %}</td>
+                          <td class="tar">
+                            {% if d.away_score_mean is number and d.home_score_mean is number %}
+                              {{ '%.1f' % d.away_score_mean }}–{{ '%.1f' % d.home_score_mean }}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td class="tar">{% if d.p_home_lead is number %}{{ '%.0f' % (d.p_home_lead*100) }}%{% else %}—{% endif %}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
               {% endif %}
-              {% if g.rec_total_side %}
-                <span class="badge {{ 'b-high' if g.rec_total_conf=='High' else 'b-med' if g.rec_total_conf=='Medium' else 'b-low' if g.rec_total_conf=='Low' else '' }}">Total: {{ g.rec_total_side }}{% if g.rec_total_ev is not none %} (EV {{ '%.1f' % (g.rec_total_ev*100) }}%) {% endif %}{% if g.rec_total_conf %} • {{ g.rec_total_conf }}{% endif %}</span>
+
+              {% if g.sim_drives %}
+                <div class="muted-tiny drive-mt op-75">All drives (Sim){% if g.sim_drives|length > 0 %} • showing {{ (g.sim_drives|length) }}{% endif %}</div>
+                <div class="drive-scroll">
+                  <table class="box-table">
+                    <thead>
+                      <tr>
+                        <th class="tar">D</th>
+                        <th class="tar">Q</th>
+                        <th>Poss</th>
+                        <th class="tar">TOP</th>
+                        <th>Outcome</th>
+                        <th class="tar">Score (A–H)</th>
+                        <th class="tar">P(Home lead)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for d in g.sim_drives %}
+                        <tr>
+                          <td class="tar">{{ d.drive_no }}</td>
+                          <td class="tar">{{ d.quarter }}</td>
+                          <td>{% if d.poss_team %}{{ d.poss_team }}{% else %}—{% endif %}</td>
+                          <td class="tar">
+                            {% if d.drive_sec_mean is number %}
+                              {% set s = d.drive_sec_mean|round(0, 'floor')|int %}
+                              {% set mm = (s // 60) %}
+                              {% set ss = (s % 60) %}
+                              {{ '%d:%02d' % (mm, ss) }}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td>
+                            {% if d.drive_outcome_mode %}
+                              {{ d.drive_outcome_mode }}
+                              {% set p = none %}
+                              {% if d.drive_outcome_mode == 'TD' %}{% set p = d.p_drive_td %}{% endif %}
+                              {% if d.drive_outcome_mode == 'FG' %}{% set p = d.p_drive_fg %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Punt' %}{% set p = d.p_drive_punt %}{% endif %}
+                              {% if d.drive_outcome_mode == 'INT' %}{% set p = d.p_drive_int %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Fumble' %}{% set p = d.p_drive_fumble %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Downs' %}{% set p = d.p_drive_downs %}{% endif %}
+                              {% if d.drive_outcome_mode == 'Missed FG' %}{% set p = d.p_drive_missed_fg %}{% endif %}
+                              {% if d.drive_outcome_mode == 'End Half' %}{% set p = d.p_drive_end_half %}{% endif %}
+                              {% if p is number %} ({{ '%.0f' % (p*100) }}%){% endif %}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td class="tar">
+                            {% if d.away_score_mean is number and d.home_score_mean is number %}
+                              {{ '%.1f' % d.away_score_mean }}–{{ '%.1f' % d.home_score_mean }}
+                            {% else %}
+                              —
+                            {% endif %}
+                          </td>
+                          <td class="tar">{% if d.p_home_lead is number %}{{ '%.0f' % (d.p_home_lead*100) }}%{% else %}—{% endif %}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
               {% endif %}
+            </div>
+
+            <div class="panel full-panel">
+              <div class="section-title mt0">Simulated Boxscore (Mock)</div>
+              {% if g.sim_boxscore and (g.sim_boxscore.away or g.sim_boxscore.home) %}
+                {% set away = g.sim_boxscore.away %}
+                {% set home = g.sim_boxscore.home %}
+                {% set sim = g.explain.simulation if g.explain and g.explain.simulation else none %}
+                {% set away_pts = sim.away_points if sim else none %}
+                {% set home_pts = sim.home_points if sim else none %}
+
+                <div class="table-scroll">
+                  <table class="mockbox-table">
+                    <thead>
+                      <tr>
+                        <th class="tal">Box</th>
+                        <th colspan="4" class="tal">
+                          <div class="mockbox-teamhead">
+                            <div class="boxteam-left">
+                              {% if g.away_logo %}<img class="team-logo" src="{{ g.away_logo }}" alt="{{ g.away_team }}" loading="lazy" />{% endif %}
+                              <div class="mockbox-teamname">
+                                <div class="abbr dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
+                                <div class="full">{{ g.away_team }}</div>
+                              </div>
+                            </div>
+                            <div class="mockbox-pts">{% if away_pts is number %}<span class="k">Sim pts</span> {{ '%.1f' % away_pts }}{% endif %}</div>
+                          </div>
+                        </th>
+                        <th colspan="4" class="tal">
+                          <div class="mockbox-teamhead">
+                            <div class="boxteam-left">
+                              {% if g.home_logo %}<img class="team-logo" src="{{ g.home_logo }}" alt="{{ g.home_team }}" loading="lazy" />{% endif %}
+                              <div class="mockbox-teamname">
+                                <div class="abbr dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
+                                <div class="full">{{ g.home_team }}</div>
+                              </div>
+                            </div>
+                            <div class="mockbox-pts">{% if home_pts is number %}<span class="k">Sim pts</span> {{ '%.1f' % home_pts }}{% endif %}</div>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="tal"><span class="mockbox-subhead">Unit</span></th>
+                        <th class="tal"><span class="mockbox-subhead">Player</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S1</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S2</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S3</span></th>
+                        <th class="tal"><span class="mockbox-subhead">Player</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S1</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S2</span></th>
+                        <th class="tar"><span class="mockbox-subhead">S3</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {# PASS rows #}
+                      {% set ap = (away.passers if away and away.passers else []) %}
+                      {% set hp = (home.passers if home and home.passers else []) %}
+                      {% set n_pass = (ap|length) if (ap|length) > (hp|length) else (hp|length) %}
+                      {% if n_pass < 1 %}{% set n_pass = 1 %}{% endif %}
+                      <tr class="mockbox-minihead">
+                        <td></td><td></td>
+                        <td class="tar">YDS</td><td class="tar">TD</td><td class="tar">INT</td>
+                        <td></td>
+                        <td class="tar">YDS</td><td class="tar">TD</td><td class="tar">INT</td>
+                      </tr>
+                      {% for i in range(n_pass) %}
+                        {% set pa = ap[i] if i < (ap|length) else none %}
+                        {% set ph = hp[i] if i < (hp|length) else none %}
+                        <tr>
+                          <td class="tal">
+                            {% if i == 0 %}
+                              <div class="mockbox-cat"><div class="k">PASS</div><div class="s">YDS / TD / INT</div></div>
+                            {% endif %}
+                          </td>
+                          <td class="tal"><div class="mockbox-player">{% if pa and pa.player %}{{ pa.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if pa and pa.pass_yards is number %}{{ '%.0f' % pa.pass_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if pa and pa.pass_tds is number %}{{ '%.1f' % pa.pass_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if pa and pa.interceptions is number %}{{ '%.1f' % pa.interceptions }}{% else %}<span class="miss">—</span>{% endif %}</td>
+
+                          <td class="tal"><div class="mockbox-player">{% if ph and ph.player %}{{ ph.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if ph and ph.pass_yards is number %}{{ '%.0f' % ph.pass_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ph and ph.pass_tds is number %}{{ '%.1f' % ph.pass_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ph and ph.interceptions is number %}{{ '%.1f' % ph.interceptions }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                        </tr>
+                      {% endfor %}
+
+                      {# RUSH rows #}
+                      {% set ar = (away.rushers if away and away.rushers else []) %}
+                      {% set hr = (home.rushers if home and home.rushers else []) %}
+                      {% set n_rush = (ar|length) if (ar|length) > (hr|length) else (hr|length) %}
+                      {% if n_rush < 1 %}{% set n_rush = 1 %}{% endif %}
+                      <tr class="mockbox-minihead">
+                        <td></td><td></td>
+                        <td class="tar">ATT</td><td class="tar">YDS</td><td class="tar">TD</td>
+                        <td></td>
+                        <td class="tar">ATT</td><td class="tar">YDS</td><td class="tar">TD</td>
+                      </tr>
+                      {% for i in range(n_rush) %}
+                        {% set ra = ar[i] if i < (ar|length) else none %}
+                        {% set rh = hr[i] if i < (hr|length) else none %}
+                        <tr>
+                          <td class="tal">
+                            {% if i == 0 %}
+                              <div class="mockbox-cat"><div class="k">RUSH</div><div class="s">ATT / YDS / TD</div></div>
+                            {% endif %}
+                          </td>
+                          <td class="tal"><div class="mockbox-player">{% if ra and ra.player %}{{ ra.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if ra and ra.rush_attempts is number %}{{ '%.1f' % ra.rush_attempts }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ra and ra.rush_yards is number %}{{ '%.0f' % ra.rush_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ra and ra.rush_tds is number %}{{ '%.1f' % ra.rush_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+
+                          <td class="tal"><div class="mockbox-player">{% if rh and rh.player %}{{ rh.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if rh and rh.rush_attempts is number %}{{ '%.1f' % rh.rush_attempts }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if rh and rh.rush_yards is number %}{{ '%.0f' % rh.rush_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if rh and rh.rush_tds is number %}{{ '%.1f' % rh.rush_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                        </tr>
+                      {% endfor %}
+
+                      {# REC rows #}
+                      {% set ac = (away.receivers if away and away.receivers else []) %}
+                      {% set hc = (home.receivers if home and home.receivers else []) %}
+                      {% set n_rec = (ac|length) if (ac|length) > (hc|length) else (hc|length) %}
+                      {% if n_rec < 1 %}{% set n_rec = 1 %}{% endif %}
+                      <tr class="mockbox-minihead">
+                        <td></td><td></td>
+                        <td class="tar">REC</td><td class="tar">YDS</td><td class="tar">TD</td>
+                        <td></td>
+                        <td class="tar">REC</td><td class="tar">YDS</td><td class="tar">TD</td>
+                      </tr>
+                      {% for i in range(n_rec) %}
+                        {% set ca = ac[i] if i < (ac|length) else none %}
+                        {% set ch = hc[i] if i < (hc|length) else none %}
+                        <tr>
+                          <td class="tal">
+                            {% if i == 0 %}
+                              <div class="mockbox-cat"><div class="k">REC</div><div class="s">REC / YDS / TD</div></div>
+                            {% endif %}
+                          </td>
+                          <td class="tal"><div class="mockbox-player">{% if ca and ca.player %}{{ ca.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if ca and ca.receptions is number %}{{ '%.1f' % ca.receptions }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ca and ca.rec_yards is number %}{{ '%.0f' % ca.rec_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ca and ca.rec_tds is number %}{{ '%.1f' % ca.rec_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+
+                          <td class="tal"><div class="mockbox-player">{% if ch and ch.player %}{{ ch.player }}{% else %}—{% endif %}</div></td>
+                          <td class="mockbox-num">{% if ch and ch.receptions is number %}{{ '%.1f' % ch.receptions }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ch and ch.rec_yards is number %}{{ '%.0f' % ch.rec_yards }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                          <td class="mockbox-num">{% if ch and ch.rec_tds is number %}{{ '%.1f' % ch.rec_tds }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                        </tr>
+                      {% endfor %}
+
+                      {# DEF row (derived from sim drives) #}
+                      {% set ad = (away.def if away and away.def else none) %}
+                      {% set hd = (home.def if home and home.def else none) %}
+                      <tr class="mockbox-minihead">
+                        <td></td><td></td>
+                        <td class="tar">TO</td><td class="tar">PUNTS</td><td class="tar">STOPS</td>
+                        <td></td>
+                        <td class="tar">TO</td><td class="tar">PUNTS</td><td class="tar">STOPS</td>
+                      </tr>
+                      <tr>
+                        <td class="tal">
+                          <div class="mockbox-cat"><div class="k">DEF</div><div class="s">TO / PUNTS / STOPS</div></div>
+                        </td>
+                        <td class="tal"><div class="mockbox-player">Defense</div></td>
+                        <td class="mockbox-num">
+                          {% if ad and ad.takeaways is number %}{{ '%.1f' % ad.takeaways }}{% else %}<span class="miss">—</span>{% endif %}
+                          {% if ad and ad.ints is number and ad.fumbles is number %}
+                            <span class="sub">INT {{ '%.1f' % ad.ints }} • FUM {{ '%.1f' % ad.fumbles }}{% if ad.downs is number %} • Downs {{ '%.1f' % ad.downs }}{% endif %}</span>
+                          {% endif %}
+                        </td>
+                        <td class="mockbox-num">{% if ad and ad.punts_forced is number %}{{ '%.1f' % ad.punts_forced }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                        <td class="mockbox-num">{% if ad and ad.stop_rate is number %}{{ '%.0f' % (ad.stop_rate*100) }}%{% else %}<span class="miss">—</span>{% endif %}</td>
+
+                        <td class="tal"><div class="mockbox-player">Defense</div></td>
+                        <td class="mockbox-num">
+                          {% if hd and hd.takeaways is number %}{{ '%.1f' % hd.takeaways }}{% else %}<span class="miss">—</span>{% endif %}
+                          {% if hd and hd.ints is number and hd.fumbles is number %}
+                            <span class="sub">INT {{ '%.1f' % hd.ints }} • FUM {{ '%.1f' % hd.fumbles }}{% if hd.downs is number %} • Downs {{ '%.1f' % hd.downs }}{% endif %}</span>
+                          {% endif %}
+                        </td>
+                        <td class="mockbox-num">{% if hd and hd.punts_forced is number %}{{ '%.1f' % hd.punts_forced }}{% else %}<span class="miss">—</span>{% endif %}</td>
+                        <td class="mockbox-num">{% if hd and hd.stop_rate is number %}{{ '%.0f' % (hd.stop_rate*100) }}%{% else %}<span class="miss">—</span>{% endif %}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% else %}
+                <div class="muted-small">No cached player-props found for this week/game.</div>
+              {% endif %}
+            </div>
+
+            <div class="two-col">
+              <div class="panel">
+                <div class="section-title mt0">Top Props (Sim)</div>
+                {% if g.sim_top_props %}
+                  <div class="props props-compact props-table">
+                    <div class="row head"><span>Player</span><span class="tar">Any TD</span></div>
+                    {% for p in g.sim_top_props[:6] %}
+                      {% set team_ab = none %}
+                      {% if p.team and g.home_team and p.team == g.home_team %}{% set team_ab = g.home_abbr %}{% endif %}
+                      {% if p.team and g.away_team and p.team == g.away_team %}{% set team_ab = g.away_abbr %}{% endif %}
+                      <div class="row">
+                        <span class="muted">
+                          {% if team_ab %}<span class="pill">{{ team_ab }}</span>{% endif %}
+                          {{ p.player }}{% if p.position %}&nbsp;<span class="muted-tiny">({{ p.position }})</span>{% endif %}
+                          {% if p.team and not team_ab %}<span class="muted-tiny"> • {{ p.team }}</span>{% endif %}
+                        </span>
+                        <span class="val">{% if p.any_td_prob is number %}{{ '%.0f' % (p.any_td_prob*100) }}%{% else %}—{% endif %}</span>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <div class="muted-small">No sim-based props available (missing player-props cache).</div>
+                {% endif %}
+
+                <div class="section-title">Market Props (Edges)</div>
+                {% if g.top_prop_edges %}
+                  <div class="props props-compact props-table">
+                    <div class="row head"><span>Prop</span><span class="tar">Edge</span></div>
+                    {% for p in g.top_prop_edges[:5] %}
+                      {% set m = (p.market or p.market_key or '')
+                        |replace('Passing Yards','Pass Yds')
+                        |replace('Rushing Yards','Rush Yds')
+                        |replace('Receiving Yards','Rec Yds')
+                        |replace('Rush+Rec Yards','Rush+Rec')
+                        |replace('Rushing Attempts','Rush Att')
+                        |replace('Passing Attempts','Pass Att')
+                      %}
+                      {% set s = 'O' if p.side == 'Over' else ('U' if p.side == 'Under' else p.side) %}
+                      <div class="row">
+                        <span class="proptext">
+                          <div class="l1">
+                            {{ p.player }}{% if p.position %} <span class="muted-tiny">({{ p.position }})</span>{% endif %}
+                            {% if s %} {{ s }}{% endif %}
+                            {{ m }}{% if p.line is not none %} {{ '%.1f' % p.line }}{% endif %}
+                            {% if p.is_ladder %}<span class="muted-tiny"> • Ladder</span>{% endif %}
+                          </div>
+                          <div class="l2">
+                            {% if p.proj is not none %}proj {{ '%.1f' % p.proj }}{% endif %}
+                            {% if p.price is not none %}{% if p.proj is not none %} · {% endif %}@ {{ '%+d' % p.price if p.price is number else p.price }}{% endif %}
+                            {% if p.prob_edge is number %}{% if p.proj is not none or p.price is not none %} · {% endif %}pΔ {{ '%+.0f' % (p.prob_edge*100) }}pp{% endif %}
+                          </div>
+                        </span>
+                        <span class="val">
+                          {% if p.edge_side is number %}{{ '%+.1f' % p.edge_side }}
+                          {% elif p.prob_edge is number %}{{ '%+.0f' % (p.prob_edge*100) }}pp
+                          {% else %}—{% endif %}
+                        </span>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <div class="muted-small">No prop edges for this matchup.</div>
+                {% endif %}
+              </div>
             </div>
 
             <div class="chips">
@@ -337,23 +981,84 @@
               {% if g.weather_text %}
                 <span class="chip">{{ g.weather_text }}</span>
               {% endif %}
-              {% if g.wx_sky %}
-                <span class="chip">Sky {{ g.wx_sky }}</span>
-              {% endif %}
-              {% if g.wx_precip_type %}
-                <span class="chip">Precip {{ g.wx_precip_type }}</span>
-              {% endif %}
               {% if g.stadium_roof %}
                 <span class="chip">Roof {{ g.stadium_roof }}</span>
               {% endif %}
-              {% if g.market_total is number %}
-                <span class="chip">Total {{ '%.2f' % g.market_total }}</span>
+              {% if g.rest_text %}
+                <span class="chip" title="Rest-days differential">{{ g.rest_text }}</span>
               {% endif %}
-              {% if g.market_spread_home is number %}
-                <span class="chip">Home {{ '%+.1f' % g.market_spread_home }}</span>
+              {% if g.pressure_text %}
+                <span class="chip" title="Combined defensive pressure">{{ g.pressure_text }}</span>
               {% endif %}
+              {% if g.conf_method_ml or g.conf_method_ats or g.conf_method_total %}
+                <span class="chip" title="Confidence EV source per market">
+                  Conf
+                  {% if g.conf_method_ml %} ML {{ g.conf_method_ml|capitalize }}{% endif %}
+                  {% if g.conf_method_ats %}{% if g.conf_method_ml %} &middot;{% endif %} ATS {{ g.conf_method_ats|capitalize }}{% endif %}
+                  {% if g.conf_method_total %}{% if g.conf_method_ml or g.conf_method_ats %} &middot;{% endif %} Tot {{ g.conf_method_total|capitalize }}{% endif %}
+                </span>
+              {% endif %}
+              {% if g.injury_text %}
+                <span class="chip" title="Injury starters summary">{{ g.injury_text }}</span>
+              {% endif %}
+              <span class="chip explain-toggle" role="button" tabindex="0">Show Explain</span>
               <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
               <span class="chip ratings-toggle" role="button" tabindex="0">Show Ratings</span>
+            </div>
+
+            <div class="ratings explain">
+              <div class="row"><span class="muted">Model (raw): Home / Away / Margin / Total</span><span>
+                {% set exm = g.explain.model if g.explain %}
+                {% if exm and exm.home_points is number %}{{ '%.2f' % exm.home_points }}{% else %}-{% endif %}
+                /
+                {% if exm and exm.away_points is number %}{{ '%.2f' % exm.away_points }}{% else %}-{% endif %}
+                /
+                {% if exm and exm.margin is number %}{{ '%+.2f' % exm.margin }}{% else %}-{% endif %}
+                /
+                {% if exm and exm.total is number %}{{ '%.2f' % exm.total }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Simulation: Home / Away / Margin / Total</span><span>
+                {% set exs = g.explain.simulation if g.explain %}
+                {% if exs and exs.home_points is number %}{{ '%.2f' % exs.home_points }}{% else %}-{% endif %}
+                /
+                {% if exs and exs.away_points is number %}{{ '%.2f' % exs.away_points }}{% else %}-{% endif %}
+                /
+                {% if exs and exs.margin is number %}{{ '%+.2f' % exs.margin }}{% else %}-{% endif %}
+                /
+                {% if exs and exs.total is number %}{{ '%.2f' % exs.total }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Simulation probs: ML / ATS / Over</span><span>
+                {% if exs and exs.prob_home_win_mc is number %}{{ '%.1f' % (exs.prob_home_win_mc*100) }}%{% else %}-{% endif %}
+                /
+                {% if exs and exs.prob_home_cover_mc is number %}{{ '%.1f' % (exs.prob_home_cover_mc*100) }}%{% else %}-{% endif %}
+                /
+                {% if exs and exs.prob_over_total_mc is number %}{{ '%.1f' % (exs.prob_over_total_mc*100) }}%{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Market: Spread (Home) / Total / Implied Margin</span><span>
+                {% set exk = g.explain.market if g.explain %}
+                {% if exk and exk.spread_home is number %}{{ '%+.1f' % exk.spread_home }}{% else %}-{% endif %}
+                /
+                {% if exk and exk.total is number %}{{ '%.1f' % exk.total }}{% else %}-{% endif %}
+                /
+                {% if exk and exk.implied_home_margin is number %}{{ '%+.2f' % exk.implied_home_margin }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Blend: α(margin) / β(total) / apply-points</span><span>
+                {% set exb = g.explain.blend if g.explain %}
+                {% if exb and exb.alpha_margin is number %}{{ '%.2f' % exb.alpha_margin }}{% else %}-{% endif %}
+                /
+                {% if exb and exb.beta_total is number %}{{ '%.2f' % exb.beta_total }}{% else %}-{% endif %}
+                /
+                {% if exb and exb.apply_points is not none %}{{ exb.apply_points and 'on' or 'off' }}{% else %}-{% endif %}
+              </span></div>
+              <div class="row"><span class="muted">Blended: Home / Away / Margin / Total</span><span>
+                {% if exb and exb.home_points_final is number %}{{ '%.2f' % exb.home_points_final }}{% else %}-{% endif %}
+                /
+                {% if exb and exb.away_points_final is number %}{{ '%.2f' % exb.away_points_final }}{% else %}-{% endif %}
+                /
+                {% if exb and exb.margin_final is number %}{{ '%+.2f' % exb.margin_final }}{% else %}-{% endif %}
+                /
+                {% if exb and exb.total_final is number %}{{ '%.2f' % exb.total_final }}{% else %}-{% endif %}
+              </span></div>
             </div>
 
             <div class="odds">
@@ -366,12 +1071,6 @@
                 {% if g.implied_away_prob is number %}{{ '%.1f' % (g.implied_away_prob*100) }}%{% else %}-{% endif %}
                 /
                 {% if g.implied_home_prob is number %}{{ '%.1f' % (g.implied_home_prob*100) }}%{% else %}-{% endif %}
-              </span></div>
-              <div class="row"><span class="muted">Spread (Home)</span><span>
-                {% if g.market_spread_home is number %}{{ '%+.1f' % g.market_spread_home }}{% else %}-{% endif %}
-              </span></div>
-              <div class="row"><span class="muted">Total</span><span>
-                {% if g.market_total is number %}{{ '%.1f' % g.market_total }}{% else %}-{% endif %}
               </span></div>
             </div>
             
@@ -501,6 +1200,22 @@
         var cards = document.querySelectorAll('.card');
         var isMobile = window.matchMedia('(max-width: 760px)').matches;
         document.querySelectorAll('.card').forEach(function(card){
+          // Explain toggle per-card
+          var etoggle = card.querySelector('.explain-toggle');
+          var epanel = card.querySelector('.explain');
+          if (etoggle && epanel){
+            function eflip(){
+              var isOpen = epanel.style.display === 'block';
+              epanel.style.display = isOpen ? 'none' : 'block';
+              etoggle.textContent = isOpen ? 'Show Explain' : 'Hide Explain';
+              updateGlobalRatingsButton();
+            }
+            etoggle.addEventListener('click', eflip);
+            etoggle.addEventListener('keypress', function(e){ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); eflip(); }});
+            // Default collapsed
+            epanel.style.display = 'none';
+            etoggle.textContent = 'Show Explain';
+          }
           var toggle = card.querySelector('.odds-toggle');
           var panel = card.querySelector('.odds');
           if (toggle && panel){

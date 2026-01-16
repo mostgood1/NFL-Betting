@@ -48,6 +48,23 @@ python app.py  # http://localhost:5050
   - NFL_TOTAL_SIGMA (default 10.0)
   - RECS_MIN_EV_PCT (default 3.0)
   - RECS_ONE_PER_GAME (true/false, default false)
+  - Card display:
+    - CARD_TOP_PROP_EDGES (default 5) — max prop edges attached per game card
+    - CARD_PROP_EDGES_INCLUDE_LADDERS (default 0) — set to 1 to include ladder/alt props in card highlights
+  - Simulation (Monte Carlo) (optional):
+    - SIM_COMPUTE_ON_REQUEST (default 0) — set to 1 to let the Flask app compute sim_probs when missing (local/debug only)
+    - SIM_N_SIMS_ON_REQUEST (default 1000) — number of sims for on-request sim_probs (clamped 200–20000)
+    - SIM_PLAYS_PER_DRIVE (default 6.2) — plays-per-drive used to estimate possessions from team_plays (drive timeline)
+    - SIM_DRIVES_PER_TEAM_DEFAULT (default 11) — default drives per team when team_plays unavailable (drive timeline)
+    - SIM_DRIVES_PER_TEAM_MIN (default 8) — minimum drives per team clamp (drive timeline)
+    - SIM_DRIVES_PER_TEAM_MAX (default 16) — maximum drives per team clamp (drive timeline)
+  - Injury features (optional):
+    - INJURY_BASELINE_WEEK (default 1) — baseline week used to define "starter" identity for injury starter-out metrics
+    - SIM_MEAN_MARGIN_K_NEUTRAL (default 0.0) — neutral-site adjustment to margin mean
+    - SIM_MEAN_TOTAL_K_PRECIP (default 0.0) — precip adjustment to total mean (points per 100% precip)
+    - SIM_MEAN_TOTAL_K_COLD (default 0.0) — cold adjustment to total mean (points per 10F below SIM_COLD_TEMP_F)
+    - SIM_COLD_TEMP_F (default 45.0) — cold threshold temperature in Fahrenheit
+    - SIM_SIGMA_K_NEUTRAL (default 0.0) — sigma scaling when neutral-site
   - Totals calibration (optional; helps align model totals to market while keeping signal):
     - NFL_TOTAL_SCALE (default 1.0) — multiplicative scale applied to model total before blending
     - NFL_TOTAL_SHIFT (default 0.0) — additive shift (points) applied before blending

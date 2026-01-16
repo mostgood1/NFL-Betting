@@ -92,6 +92,12 @@ if ($env:DAILY_UPDATE_RUN_BACKTESTS) {
   if ($env:DAILY_UPDATE_RUN_BACKTESTS -match '^(1|true|yes|on)$') { $RunBacktests = $true }
 }
 
+# nflfastR stats fetch toggle (defaults ON)
+$FetchNflfastRStats = $true
+if ($env:DAILY_UPDATE_FETCH_NFLFASTR) {
+  if ($env:DAILY_UPDATE_FETCH_NFLFASTR -match '^(0|false|no|off)$') { $FetchNflfastRStats = $false }
+}
+
 # Defaults: reconciliation ON unless explicitly disabled
 $ReconcilePropsFinal = $true
 $ReconcileGamesFinal = $true
@@ -150,6 +156,33 @@ try {
   Write-Log "Auto-advance failed: $($_.Exception.Message)"
 }
 
+# Augment schedule with playoff games (idempotent)
+try {
+  $cur = Resolve-CurrentWeek
+  $SeasonForAug = $null
+  if ($cur -ne $null -and $cur.Season) { $SeasonForAug = [int]$cur.Season }
+  if (-not $SeasonForAug -and $env:CURRENT_SEASON) { [int]::TryParse($env:CURRENT_SEASON, [ref]$SeasonForAug) | Out-Null }
+  if ($SeasonForAug) {
+    Write-Log ("Augmenting playoff schedule (scripts/augment_playoffs_schedule.py --season {0})" -f $SeasonForAug)
+    & $Python scripts/augment_playoffs_schedule.py --season $SeasonForAug | Tee-Object -FilePath $LogFile -Append | Out-Null
+    # Verify playoff coverage through Super Bowl
+    Write-Log ("Check playoff schedule coverage (scripts/check_playoff_schedule.py --season {0})" -f $SeasonForAug)
+    & $Python scripts/check_playoff_schedule.py --season $SeasonForAug | Tee-Object -FilePath $LogFile -Append | Out-Null
+    # Attempt to seed conference championships (week 21) if divisional winners are finalized
+    Write-Log ("Seed conference championships if ready (scripts/seed_conference_championships.py --season {0})" -f $SeasonForAug)
+    & $Python scripts/seed_conference_championships.py --season $SeasonForAug | Tee-Object -FilePath $LogFile -Append | Out-Null
+  } else {
+    Write-Log 'Augmenting playoff schedule (season unresolved)'
+    & $Python scripts/augment_playoffs_schedule.py | Tee-Object -FilePath $LogFile -Append | Out-Null
+    Write-Log 'Check playoff schedule coverage (season unresolved)'
+    & $Python scripts/check_playoff_schedule.py | Tee-Object -FilePath $LogFile -Append | Out-Null
+    Write-Log 'Seed conference championships if ready (season unresolved)'
+    & $Python scripts/seed_conference_championships.py --season $((Resolve-CurrentWeek).Season) | Tee-Object -FilePath $LogFile -Append | Out-Null
+  }
+} catch {
+  Write-Log ("Playoff schedule augmentation failed: {0}" -f $_.Exception.Message)
+}
+
 # Optional pre-sync (reduce conflicts before artifact generation)
 if ($GitSyncFirst) {
   try {
@@ -169,6 +202,24 @@ if ($GitSyncFirst) {
 }
 
 # Optional model training (skip if NoTrain)
+# Optionally refresh team-week stats from nflfastR before training to keep features current
+if ($FetchNflfastRStats) {
+  try {
+    $cur = Resolve-CurrentWeek
+    if ($null -ne $cur -and $cur.Season) {
+      $Season = [int]$cur.Season
+      Write-Log ("Fetch nflfastR team-week stats (python -m nfl_compare.src.fetch_nflfastr --only-stats --seasons {0})" -f $Season)
+      & $Python -m nfl_compare.src.fetch_nflfastr --only-stats --seasons $Season | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } else {
+      Write-Log 'Fetch nflfastR team-week stats (season unresolved); skipping fetch'
+    }
+  } catch {
+    Write-Log ("nflfastR stats fetch failed: {0}" -f $_.Exception.Message)
+  }
+} else {
+  Write-Log 'nflfastR stats fetch disabled via DAILY_UPDATE_FETCH_NFLFASTR'
+}
+
 if (-not $NoTrain) {
   try {
     Write-Log 'Training models (python -m nfl_compare.src.train)' 
@@ -192,10 +243,23 @@ if ($FullOdds) {
     & $Python -m nfl_compare.src.odds_api_client | Tee-Object -FilePath $LogFile -Append
     Write-Log "Seed/enrich lines for current week (scripts/seed_lines_for_week.py --season $Season --week $Week)"
     & $Python scripts/seed_lines_for_week.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append
+    # Build team stats for current week (provides pass_rate, pace, qb_adj, sos)
+    try {
+      Write-Log ("Build team stats (scripts/build_team_stats.py --season {0} --week {1})" -f $Season, $Week)
+      & $Python scripts/build_team_stats.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } catch {
+      Write-Log ("Build team stats failed: {0}" -f $_.Exception.Message)
+    }
     if ($PredictNext) {
       $NextWeek = [int]($Week + 1)
       Write-Log "Seed/enrich lines for next week (scripts/seed_lines_for_week.py --season $Season --week $NextWeek)"
       & $Python scripts/seed_lines_for_week.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append
+      try {
+        Write-Log ("Build team stats (scripts/build_team_stats.py --season {0} --week {1})" -f $Season, $NextWeek)
+        & $Python scripts/build_team_stats.py --season $Season --week $NextWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
+      } catch {
+        Write-Log ("Build team stats (next) failed: {0}" -f $_.Exception.Message)
+      }
     }
   } catch {
     Write-Log "Full odds/seed lines step failed: $($_.Exception.Message)"
@@ -247,6 +311,10 @@ try {
   # Recommendation market blend tuning (keep margin blend minimal; totals blend may reduce MAE)
   if (-not $env:RECS_MARKET_BLEND_MARGIN) { $env:RECS_MARKET_BLEND_MARGIN = '0.10' }
   if (-not $env:RECS_MARKET_BLEND_TOTAL)  { $env:RECS_MARKET_BLEND_TOTAL  = '0.20' }
+  # Apply blended margin/total to displayed team points on cards for upcoming games
+  if (-not $env:RECS_MARKET_BLEND_APPLY_POINTS) { $env:RECS_MARKET_BLEND_APPLY_POINTS = 'true' }
+  # Enforce authoritative lines subset in weekly view (avoids ghost/synthetic games)
+  if (-not $env:RECS_AUTHORITATIVE_LINES_SUBSET) { $env:RECS_AUTHORITATIVE_LINES_SUBSET = 'true' }
   # Recommendations robustness tuning (prob shrink/clamp and minimum EV)
   if (-not $env:RECS_MIN_EV_PCT)       { $env:RECS_MIN_EV_PCT       = '8.0' }
   # Prefer one-per-market to avoid ML overshadowing ATS/TOTAL
@@ -270,9 +338,14 @@ try {
   if (-not $env:RECS_UPCOMING_CONF_MIN_ATS)   { $env:RECS_UPCOMING_CONF_MIN_ATS   = 'High' }
   if (-not $env:RECS_UPCOMING_CONF_MIN_TOTAL) { $env:RECS_UPCOMING_CONF_MIN_TOTAL = 'High' }
   # Additional upcoming EV%% floors for ATS/TOTAL to publish only strongest signals
-  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_ATS)   { $env:RECS_UPCOMING_MIN_EV_PCT_ATS   = '22.0' }
-  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL) { $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL = '24.0' }
+  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_ATS)   { $env:RECS_UPCOMING_MIN_EV_PCT_ATS   = '24.0' }
+  if (-not $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL) { $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL = '26.0' }
   Write-Log "Upcoming publish floors: ATS conf=$($env:RECS_UPCOMING_CONF_MIN_ATS), EV%>=$($env:RECS_UPCOMING_MIN_EV_PCT_ATS); TOTAL conf=$($env:RECS_UPCOMING_CONF_MIN_TOTAL), EV%>=$($env:RECS_UPCOMING_MIN_EV_PCT_TOTAL)"
+  # Props red-zone and pressure tuning (use tuned defaults unless externally overridden)
+  if (-not $env:LEAGUE_RZ_PASS_RATE)    { $env:LEAGUE_RZ_PASS_RATE    = '0.50' }
+  if (-not $env:PROPS_RZ_SHARE_W)       { $env:PROPS_RZ_SHARE_W       = '0.10' }
+  if (-not $env:PROPS_RZ_TD_W)          { $env:PROPS_RZ_TD_W          = '0.20' }
+  if (-not $env:PROPS_PRESSURE_YPT_W)   { $env:PROPS_PRESSURE_YPT_W   = '0.08' }
   & $Python -m nfl_compare.src.daily_updater | Tee-Object -FilePath $LogFile -Append
   $ExitCode = $LASTEXITCODE
 } catch {
@@ -288,6 +361,31 @@ Get-ChildItem -Path $LogPath -Filter 'daily_update_*.log' | Sort-Object LastWrit
 if ($ExitCode -ne 0) {
   Write-Log 'Completed with errors'
   exit $ExitCode
+}
+
+# Optional: export upcoming recommendations CSV + trimmed publish set for current week
+try {
+  $ExportRecs = $false
+  if ($env:DAILY_UPDATE_EXPORT_RECS) {
+    if ($env:DAILY_UPDATE_EXPORT_RECS -match '^(1|true|yes|on)$') { $ExportRecs = $true }
+  }
+  if ($ExportRecs) {
+    $cur = Resolve-CurrentWeek
+    if ($cur -ne $null -and $cur.Season -and $cur.Week) {
+      $Season = [int]$cur.Season
+      $Week = [int]$cur.Week
+      Write-Log ("Export upcoming recommendations (scripts/export_upcoming_recs.py --season {0} --week {1} with floors/conf)" -f $Season, $Week)
+      & $Python scripts/export_upcoming_recs.py --season $Season --week $Week --allowed-markets 'MONEYLINE,SPREAD,TOTAL' --min-ev-ats $env:RECS_UPCOMING_MIN_EV_PCT_ATS --min-ev-total $env:RECS_UPCOMING_MIN_EV_PCT_TOTAL --conf-ats $env:RECS_UPCOMING_CONF_MIN_ATS --conf-total $env:RECS_UPCOMING_CONF_MIN_TOTAL --one-per-game false --out ("nfl_compare/data/upcoming_recs_{0}_wk{1}.csv" -f $Season, $Week) | Tee-Object -FilePath $LogFile -Append
+      Write-Log ("Trim publish list (scripts/trim_recs_for_publish.py) for season={0} week={1}" -f $Season, $Week)
+      & $Python scripts/trim_recs_for_publish.py --in ("nfl_compare/data/upcoming_recs_{0}_wk{1}.csv" -f $Season, $Week) --out ("nfl_compare/data/upcoming_recs_{0}_wk{1}_publish.csv" -f $Season, $Week) --per-market 1 --min-conf High | Tee-Object -FilePath $LogFile -Append
+    } else {
+      Write-Log 'Export upcoming recommendations skipped: current week unresolved'
+    }
+  } else {
+    Write-Log 'Export upcoming recommendations disabled via DAILY_UPDATE_EXPORT_RECS'
+  }
+} catch {
+  Write-Log ("Export upcoming recommendations failed: {0}" -f $_.Exception.Message)
 }
 
 # Full prediction backfill for uncompleted games (current and optionally next week)

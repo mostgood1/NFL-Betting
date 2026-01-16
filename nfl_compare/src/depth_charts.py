@@ -92,6 +92,82 @@ def _status_to_active(status: str) -> bool:
     return True
 
 
+def _norm_col_name(c: object) -> str:
+    return str(c or "").strip().lower()
+
+
+def _pick_offense_table(tables: list[pd.DataFrame]) -> tuple[Optional[pd.DataFrame], Optional[str]]:
+    """Pick the most likely *offense* depth chart table from pd.read_html output.
+
+    ESPN pages typically contain multiple depth chart tables (offense/defense/special teams)
+    with similar tier column names. We score candidate tables based on whether their
+    position labels contain QB/RB/WR/TE and prefer those.
+
+    Returns (table, position_col_name). position_col_name may be None if position labels
+    appear in the index.
+    """
+    best: tuple[int, Optional[pd.DataFrame], Optional[str]] = (-10**9, None, None)
+    tier_norms = {"starter", "2nd", "3rd", "4th"}
+    offense_tokens = {"QB", "RB", "HB", "FB", "WR", "TE"}
+    defense_tokens = {
+        "LDE", "RDE", "DE", "DT", "NT", "DL",
+        "MLB", "ILB", "OLB", "LB",
+        "CB", "S", "SS", "FS",
+    }
+
+    for t in tables:
+        if not isinstance(t, pd.DataFrame) or t.empty:
+            continue
+
+        cols = list(t.columns)
+        norm_cols = {_norm_col_name(c): c for c in cols}
+        if "starter" not in norm_cols or "2nd" not in norm_cols:
+            continue
+
+        # Identify a likely position-label column (if any)
+        pos_col = None
+        non_tier_cols = [c for c in cols if _norm_col_name(c) not in tier_norms]
+        if non_tier_cols:
+            pos_col = non_tier_cols[0]
+
+        if pos_col is not None:
+            pos_vals = set(
+                str(v).strip().upper()
+                for v in t[pos_col].head(30).tolist()
+                if pd.notna(v) and str(v).strip()
+            )
+        else:
+            pos_vals = set(
+                str(v).strip().upper()
+                for v in list(t.index)[:30]
+                if pd.notna(v) and str(v).strip()
+            )
+
+        score = 0
+        if "QB" in pos_vals:
+            score += 25
+        if pos_vals & {"RB", "HB", "FB"}:
+            score += 10
+        if any(v == "WR" or v.startswith("WR") for v in pos_vals):
+            score += 10
+        if any(v == "TE" or v.startswith("TE") for v in pos_vals):
+            score += 10
+        if pos_vals & offense_tokens:
+            score += 2
+        if pos_vals & defense_tokens:
+            score -= 10
+
+        if score > best[0]:
+            best = (score, t, pos_col)
+
+    # Accept a non-negative score as a plausible offense table. Some ESPN pages
+    # don't expose clean position tokens in the parsed HTML, resulting in score==0.
+    # We still prefer that over clearly defensive tables (negative score).
+    if best[1] is None or best[0] < 0:
+        return None, None
+    return best[1].copy(), best[2]
+
+
 def _scrape_espn_depth_for_team(team_name: str) -> dict[str, list[str]]:
     """Return pos -> ordered list scraped from ESPN depth chart page for a team."""
     import requests
@@ -138,69 +214,140 @@ def _scrape_espn_depth_for_team(team_name: str) -> dict[str, list[str]]:
         tables = pd.read_html(StringIO(resp.text))
     except Exception:
         return {}
-    df = None
-    for t in tables:
-        cols = [str(c) for c in t.columns]
-        if any(c in {"Starter", "2nd"} for c in cols):
-            df = t.copy(); break
-    if df is None:
+
+    df_raw, pos_col = _pick_offense_table(tables)
+    if df_raw is None:
         return {}
-    if df.shape[1] >= 4:
-        df = df.iloc[:, :4].copy()
-        df.columns = ["Starter", "2nd", "3rd", "4th"]
+
+    # Normalize/locate tier columns and optional position column
+    norm_cols = {_norm_col_name(c): c for c in df_raw.columns}
+    starter_c = norm_cols.get("starter")
+    second_c = norm_cols.get("2nd")
+    third_c = norm_cols.get("3rd")
+    fourth_c = norm_cols.get("4th")
+    if starter_c is None or second_c is None:
+        return {}
+
+    # Position labels may live in a dedicated column or in the index.
+    if pos_col is not None and pos_col in df_raw.columns:
+        pos_series = df_raw[pos_col].astype(str).str.strip().str.upper()
     else:
-        return {}
+        pos_series = pd.Series(list(df_raw.index), index=df_raw.index).astype(str).str.strip().str.upper()
+
+    df = pd.DataFrame({
+        "pos": pos_series,
+        "Starter": df_raw[starter_c],
+        "2nd": df_raw[second_c],
+        "3rd": (df_raw[third_c] if third_c is not None else ""),
+        "4th": (df_raw[fourth_c] if fourth_c is not None else ""),
+    })
     for c in ["Starter", "2nd", "3rd", "4th"]:
-        df[c] = df[c].astype(str).str.strip().replace({"-": ""})
-    skill_rows = min(1 + rb_count + wr_count + te_count, len(df))
-    df_skill = df.iloc[:skill_rows].reset_index(drop=True)
+        df[c] = df[c].astype(str).str.strip().replace({"-": "", "nan": ""})
+
+    def _is_pos(p: str, want: str) -> bool:
+        p = (p or "").strip().upper()
+        want = (want or "").strip().upper()
+        if want == "WR":
+            return p == "WR" or p.startswith("WR")
+        if want == "TE":
+            return p == "TE" or p.startswith("TE")
+        if want == "RB":
+            return p in {"RB", "HB", "FB"} or p.startswith("RB")
+        return p == want or p.startswith(want)
 
     pos_lists: dict[str, list[dict]] = {"QB": [], "RB": [], "WR": [], "TE": []}
-    # QB row
-    if skill_rows >= 1:
-        for tier in ["Starter", "2nd", "3rd", "4th"]:
-            raw = df_skill.loc[0, tier]
-            nm, st = _extract_status_and_clean(raw)
-            if nm and all(nm != x.get('player') for x in pos_lists["QB"]):
+    tiers = ["Starter", "2nd", "3rd", "4th"]
+
+    # QB: single row
+    qb_rows = df[df["pos"].map(lambda p: _is_pos(p, "QB"))]
+    if not qb_rows.empty:
+        row = qb_rows.iloc[0]
+        for tier in tiers:
+            nm, st = _extract_status_and_clean(row[tier])
+            if nm and all(nm != x.get("player") for x in pos_lists["QB"]):
                 pos_lists["QB"].append({"player": nm, "status": st, "active": _status_to_active(st)})
-    # RB rows
-    idx = 1
-    for _ in range(rb_count):
-        if idx >= skill_rows: break
-        for tier in ["Starter", "2nd", "3rd", "4th"]:
-            raw = df_skill.loc[idx, tier]
-            nm, st = _extract_status_and_clean(raw)
-            if nm and all(nm != x.get('player') for x in pos_lists["RB"]):
+
+    # RB: take up to rb_count matching rows (often just one)
+    rb_rows = df[df["pos"].map(lambda p: _is_pos(p, "RB"))].head(max(1, rb_count))
+    for _, row in rb_rows.iterrows():
+        for tier in tiers:
+            nm, st = _extract_status_and_clean(row[tier])
+            if nm and all(nm != x.get("player") for x in pos_lists["RB"]):
                 pos_lists["RB"].append({"player": nm, "status": st, "active": _status_to_active(st)})
-        idx += 1
-    # WR rows aggregated by tier
-    wr_rows = []
-    for _ in range(wr_count):
-        if idx >= skill_rows: break
-        wr_rows.append(df_skill.loc[idx, ["Starter", "2nd", "3rd", "4th"]].tolist())
-        idx += 1
-    if wr_rows:
-        for tier_idx in range(4):
-            for r in wr_rows:
-                raw = (r[tier_idx] or "").strip()
-                nm, st = _extract_status_and_clean(raw)
-                if nm and all(nm != x.get('player') for x in pos_lists["WR"]):
+
+    # WR: aggregate across WR rows by tier to represent multi-WR formations
+    wr_rows = df[df["pos"].map(lambda p: _is_pos(p, "WR"))].head(max(1, wr_count))
+    if not wr_rows.empty:
+        for tier in tiers:
+            for _, row in wr_rows.iterrows():
+                nm, st = _extract_status_and_clean(row[tier])
+                if nm and all(nm != x.get("player") for x in pos_lists["WR"]):
                     pos_lists["WR"].append({"player": nm, "status": st, "active": _status_to_active(st)})
-    # TE rows
-    for _ in range(te_count):
-        if idx >= skill_rows: break
-        for tier in ["Starter", "2nd", "3rd", "4th"]:
-            raw = df_skill.loc[idx, tier]
-            nm, st = _extract_status_and_clean(raw)
-            if nm and all(nm != x.get('player') for x in pos_lists["TE"]):
+
+    # TE: take up to te_count matching rows (often just one)
+    te_rows = df[df["pos"].map(lambda p: _is_pos(p, "TE"))].head(max(1, te_count))
+    for _, row in te_rows.iterrows():
+        for tier in tiers:
+            nm, st = _extract_status_and_clean(row[tier])
+            if nm and all(nm != x.get("player") for x in pos_lists["TE"]):
                 pos_lists["TE"].append({"player": nm, "status": st, "active": _status_to_active(st)})
-        idx += 1
+
+    # Fallback: if we couldn't identify position-labeled rows, revert to the prior
+    # row-order parsing against the top "skill" rows.
+    if not any(pos_lists.values()):
+        df_skill = df[["Starter", "2nd", "3rd", "4th"]].copy().reset_index(drop=True)
+        skill_rows = min(1 + rb_count + wr_count + te_count, len(df_skill))
+        df_skill = df_skill.iloc[:skill_rows].copy()
+
+        # QB row
+        if skill_rows >= 1:
+            for tier in tiers:
+                nm, st = _extract_status_and_clean(df_skill.loc[0, tier])
+                if nm and all(nm != x.get("player") for x in pos_lists["QB"]):
+                    pos_lists["QB"].append({"player": nm, "status": st, "active": _status_to_active(st)})
+
+        # RB rows
+        idx = 1
+        for _ in range(rb_count):
+            if idx >= skill_rows:
+                break
+            for tier in tiers:
+                nm, st = _extract_status_and_clean(df_skill.loc[idx, tier])
+                if nm and all(nm != x.get("player") for x in pos_lists["RB"]):
+                    pos_lists["RB"].append({"player": nm, "status": st, "active": _status_to_active(st)})
+            idx += 1
+
+        # WR rows aggregated by tier
+        wr_rows = []
+        for _ in range(wr_count):
+            if idx >= skill_rows:
+                break
+            wr_rows.append(df_skill.loc[idx, tiers].tolist())
+            idx += 1
+        if wr_rows:
+            for tier_idx in range(len(tiers)):
+                for r in wr_rows:
+                    nm, st = _extract_status_and_clean((r[tier_idx] or "").strip())
+                    if nm and all(nm != x.get("player") for x in pos_lists["WR"]):
+                        pos_lists["WR"].append({"player": nm, "status": st, "active": _status_to_active(st)})
+
+        # TE rows
+        for _ in range(te_count):
+            if idx >= skill_rows:
+                break
+            for tier in tiers:
+                nm, st = _extract_status_and_clean(df_skill.loc[idx, tier])
+                if nm and all(nm != x.get("player") for x in pos_lists["TE"]):
+                    pos_lists["TE"].append({"player": nm, "status": st, "active": _status_to_active(st)})
+            idx += 1
+
     return {k: v for k, v in pos_lists.items() if v}
 
 
-def build_depth_chart_from_espn(season: int, week: int) -> pd.DataFrame:
+def build_depth_chart_from_espn(season: int, week: int, teams: Optional[list[str]] = None) -> pd.DataFrame:
     rows = []
-    for team in ESPN_TEAM_ABBR.keys():
+    team_list = list(teams) if teams else list(ESPN_TEAM_ABBR.keys())
+    for team in team_list:
         pos_lists = _scrape_espn_depth_for_team(team)
         for pos, players in pos_lists.items():
             depth_size = len(players)
@@ -219,21 +366,36 @@ def build_depth_chart_from_espn(season: int, week: int) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def build_depth_chart(season: int, week: int, source: str = "espn") -> pd.DataFrame:
+def build_depth_chart(season: int, week: int, source: str = "espn", teams: Optional[list[str]] = None) -> pd.DataFrame:
     """Build a weekly depth chart. Default source uses ESPN web page parsing.
     Returns columns: season, week, team, position, player, depth_rank, depth_size, status, active.
     """
     if source == "espn":
-        df = build_depth_chart_from_espn(season, week)
+        df = build_depth_chart_from_espn(season, week, teams=teams)
     else:
-        df = build_depth_chart_from_espn(season, week)
+        df = build_depth_chart_from_espn(season, week, teams=teams)
     return df
 
 
-def save_depth_chart(season: int, week: int, source: str = "espn") -> Path:
-    df = build_depth_chart(season, week, source=source)
+def save_depth_chart(season: int, week: int, source: str = "espn", teams: Optional[list[str]] = None) -> Path:
+    df = build_depth_chart(season, week, source=source, teams=teams)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     out = DATA_DIR / f"depth_chart_{season}_wk{week}.csv"
+
+    # If updating only a subset of teams, patch them into the existing CSV if present.
+    # Never delete a team's prior rows unless we successfully scraped replacement rows.
+    if teams and out.exists():
+        try:
+            prev = pd.read_csv(out)
+            keep_prev = prev.copy()
+            for t in teams:
+                if (df["team"] == t).any():
+                    keep_prev = keep_prev[keep_prev["team"] != t]
+            df = pd.concat([keep_prev, df], ignore_index=True)
+        except Exception:
+            # Fall back to writing just the new scrape.
+            pass
+
     df.to_csv(out, index=False)
     return out
 

@@ -193,6 +193,18 @@ def attach_team_ratings_to_view(view: pd.DataFrame, games: Optional[pd.DataFrame
     v["away_team"] = v["away_team"].astype(str).apply(_norm_team)
     if "team" in R.columns:
         R["team"] = R["team"].astype(str).apply(_norm_team)
+    # If prior columns exist on the view (from previous passes), drop them to avoid _x/_y suffixes
+    to_drop = [
+        "home_off_ppg","home_def_ppg","home_net_margin","home_rating_games",
+        "away_off_ppg","away_def_ppg","away_net_margin","away_rating_games",
+        "off_ppg_diff","def_ppg_diff","net_margin_diff",
+    ]
+    for c in to_drop:
+        if c in v.columns:
+            try:
+                v = v.drop(columns=[c])
+            except Exception:
+                pass
     # Merge for home and away
     for side in ("home","away"):
         key = f"{side}_team"
@@ -205,7 +217,14 @@ def attach_team_ratings_to_view(view: pd.DataFrame, games: Optional[pd.DataFrame
             "games": f"{side}_rating_games",
         })
         v = v.merge(r, on=["season","week", key], how="left")
-    # Diffs (home - away)
+    # Ensure numeric columns are present and NaN-free for stability
+    for c in (
+        "home_off_ppg","home_def_ppg","home_net_margin","home_rating_games",
+        "away_off_ppg","away_def_ppg","away_net_margin","away_rating_games",
+    ):
+        if c in v.columns:
+            v[c] = pd.to_numeric(v[c], errors="coerce").fillna(0)
+    # Diffs (home - away) using zero-filled values to avoid NaNs downstream
     v["off_ppg_diff"] = v.get("home_off_ppg", 0).fillna(0) - v.get("away_off_ppg", 0).fillna(0)
     v["def_ppg_diff"] = v.get("home_def_ppg", 0).fillna(0) - v.get("away_def_ppg", 0).fillna(0)
     v["net_margin_diff"] = v.get("home_net_margin", 0).fillna(0) - v.get("away_net_margin", 0).fillna(0)

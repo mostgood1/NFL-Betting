@@ -95,6 +95,38 @@ def backtest(season: int, start_week: int, end_week: int, include_same: bool = T
     except Exception:
         pass
 
+    # Derive simple Over probability if not provided by models, using calibrated sigma
+    try:
+        if 'prob_over_total' not in pred.columns:
+            mt = pd.to_numeric(df_eval.get('total'), errors='coerce') if 'total' in df_eval.columns else pd.Series(index=df_eval.index, dtype=float)
+            ct = pd.to_numeric(df_eval.get('close_total'), errors='coerce') if 'close_total' in df_eval.columns else pd.Series(index=df_eval.index, dtype=float)
+            total_ref = mt.fillna(ct)
+            mu = pd.to_numeric(pred.get('pred_total'), errors='coerce')
+            # Load sigma calibration if available
+            sigma = 12.0
+            try:
+                import json as _json
+                fp = DATA_DIR / 'sigma_calibration.json'
+                if fp.exists():
+                    with open(fp, 'r', encoding='utf-8') as f:
+                        j = _json.load(f)
+                    s = j.get('total_sigma')
+                    if s is not None:
+                        sigma = float(s)
+            except Exception:
+                pass
+            import numpy as _np
+            def _cdf(x, loc, scale):
+                try:
+                    z = (x - loc) / (scale * _np.sqrt(2.0))
+                    return 0.5 * (1.0 + _np.erf(z))
+                except Exception:
+                    return _np.nan
+            cdf_vals = _np.vectorize(_cdf)(_np.array(total_ref, dtype=float), _np.array(mu, dtype=float), float(sigma))
+            pred['prob_over_total'] = 1.0 - pd.Series(cdf_vals, index=pred.index)
+    except Exception:
+        pass
+
     # Actual targets
     pred["home_margin_actual"] = df_eval["home_score"] - df_eval["away_score"]
     pred["total_points_actual"] = df_eval["home_score"] + df_eval["away_score"]
@@ -110,14 +142,28 @@ def backtest(season: int, start_week: int, end_week: int, include_same: bool = T
     total_actual = pd.to_numeric(pred["total_points_actual"], errors="coerce")
     total_pred = pd.to_numeric(pred["pred_total"], errors="coerce")
 
-    # ATS: home covers if margin + spread_home > 0
-    ats_act = (margin_actual + spread_home) > 0
-    ats_pred = (margin_pred + spread_home) > 0
-    mask_spread = spread_home.notna()
-    # Over/Under: total vs market_total
-    ou_act = total_actual > market_total
-    ou_pred = total_pred > market_total
-    mask_total = market_total.notna()
+    # ATS/O-U reference lines: prefer market (open) then fallback to close
+    close_spread_home = pd.to_numeric(df_eval.get("close_spread_home"), errors="coerce") if "close_spread_home" in df_eval.columns else pd.Series(index=df_eval.index, dtype=float)
+    spread_ref = spread_home.fillna(close_spread_home)
+    close_total = pd.to_numeric(df_eval.get("close_total"), errors="coerce") if "close_total" in df_eval.columns else pd.Series(index=df_eval.index, dtype=float)
+    total_ref = market_total.fillna(close_total)
+
+    # ATS: prefer classifier prob if present; else sign of (pred margin + ref spread)
+    prob_home_cover = pd.to_numeric(pred.get("prob_home_cover"), errors="coerce") if "prob_home_cover" in pred.columns else None
+    ats_act = (margin_actual + spread_ref) > 0
+    if prob_home_cover is not None and prob_home_cover.notna().any():
+        ats_pred = prob_home_cover > 0.5
+    else:
+        ats_pred = (margin_pred + spread_ref) > 0
+    mask_spread = spread_ref.notna()
+    # Over/Under: total vs reference total
+    ou_act = total_actual > total_ref
+    prob_over = pd.to_numeric(pred.get("prob_over_total"), errors="coerce") if "prob_over_total" in pred.columns else None
+    if prob_over is not None and prob_over.notna().any():
+        ou_pred = prob_over > 0.5
+    else:
+        ou_pred = total_pred > total_ref
+    mask_total = total_ref.notna()
 
     # Build summary row
     row: Dict[str, float | int] = {
@@ -135,7 +181,7 @@ def backtest(season: int, start_week: int, end_week: int, include_same: bool = T
     # Build per-game details for standardized reporting
     details_cols: List[str] = []
     base = df_eval.copy()
-    keep_base = [c for c in ["season","week","game_id","game_date","date","home_team","away_team","home_score","away_score","spread_home","total"] if c in base.columns]
+    keep_base = [c for c in ["season","week","game_id","game_date","date","home_team","away_team","home_score","away_score","spread_home","total","close_spread_home","close_total"] if c in base.columns]
     if keep_base:
         base = base[keep_base].copy()
     else:
@@ -166,27 +212,35 @@ def backtest(season: int, start_week: int, end_week: int, include_same: bool = T
         "total": "market_total",
         "date": "game_date",
     })
-    # ATS and O/U flags
+    # ATS and O/U flags (using market, with fallback to close lines)
     try:
-        det["act_home_cover"] = (pd.to_numeric(det.get("margin_actual"), errors="coerce") + pd.to_numeric(det.get("market_spread_home"), errors="coerce")) > 0
+        _spread_ref = pd.to_numeric(det.get("market_spread_home"), errors="coerce").fillna(pd.to_numeric(det.get("close_spread_home"), errors="coerce"))
+        det["act_home_cover"] = (pd.to_numeric(det.get("margin_actual"), errors="coerce") + _spread_ref) > 0
     except Exception:
         det["act_home_cover"] = pd.NA
     try:
-        det["pred_home_cover"] = (pd.to_numeric(det.get("margin_pred"), errors="coerce") + pd.to_numeric(det.get("market_spread_home"), errors="coerce")) > 0
+        if "prob_home_cover" in det.columns and pd.to_numeric(det.get("prob_home_cover"), errors="coerce").notna().any():
+            det["pred_home_cover"] = pd.to_numeric(det.get("prob_home_cover"), errors="coerce") > 0.5
+        else:
+            det["pred_home_cover"] = (pd.to_numeric(det.get("margin_pred"), errors="coerce") + _spread_ref) > 0
     except Exception:
         det["pred_home_cover"] = pd.NA
     try:
-        det["act_over"] = pd.to_numeric(det.get("total_actual"), errors="coerce") > pd.to_numeric(det.get("market_total"), errors="coerce")
+        _total_ref = pd.to_numeric(det.get("market_total"), errors="coerce").fillna(pd.to_numeric(det.get("close_total"), errors="coerce"))
+        det["act_over"] = pd.to_numeric(det.get("total_actual"), errors="coerce") > _total_ref
     except Exception:
         det["act_over"] = pd.NA
     try:
-        det["pred_over"] = pd.to_numeric(det.get("total_pred"), errors="coerce") > pd.to_numeric(det.get("market_total"), errors="coerce")
+        if "prob_over_total" in det.columns and pd.to_numeric(det.get("prob_over_total"), errors="coerce").notna().any():
+            det["pred_over"] = pd.to_numeric(det.get("prob_over_total"), errors="coerce") > 0.5
+        else:
+            det["pred_over"] = pd.to_numeric(det.get("total_pred"), errors="coerce") > _total_ref
     except Exception:
         det["pred_over"] = pd.NA
     # Re-order detail columns when available
     prefer = [
         "season","week","game_id","game_date","home_team","away_team",
-        "margin_pred","total_pred","market_spread_home","market_total",
+        "margin_pred","total_pred","market_spread_home","market_total","close_spread_home","close_total",
         "margin_actual","total_actual","resid_margin","resid_total"
     ]
     # Extend preferred order with ATS and O/U flags
@@ -258,7 +312,11 @@ def main():
                     total_pred = pd.to_numeric(df.get('total_pred'), errors='coerce')
                     total_act = pd.to_numeric(df.get('total_actual'), errors='coerce')
                     spread_home = pd.to_numeric(df.get('market_spread_home'), errors='coerce')
+                    close_spread = pd.to_numeric(df.get('close_spread_home'), errors='coerce') if 'close_spread_home' in df.columns else pd.Series(index=df.index, dtype=float)
+                    spread_ref = spread_home.fillna(close_spread)
                     market_total = pd.to_numeric(df.get('market_total'), errors='coerce')
+                    close_total = pd.to_numeric(df.get('close_total'), errors='coerce') if 'close_total' in df.columns else pd.Series(index=df.index, dtype=float)
+                    total_ref = market_total.fillna(close_total)
 
                     home_pred_flag = margin_pred > 0
                     away_pred_flag = ~home_pred_flag
@@ -266,12 +324,12 @@ def main():
                     away_act_flag = ~home_act_flag
                     home_pred = home_pred_flag.astype('float')
                     home_act = home_act_flag.astype('float')
-                    ats_pred = (margin_pred + spread_home) > 0
-                    ats_act = (margin_act + spread_home) > 0
-                    mask_spread = spread_home.notna()
-                    ou_pred = total_pred > market_total
-                    ou_act = total_act > market_total
-                    mask_total = market_total.notna()
+                    ats_pred = (margin_pred + spread_ref) > 0
+                    ats_act = (margin_act + spread_ref) > 0
+                    mask_spread = spread_ref.notna()
+                    ou_pred = total_pred > total_ref
+                    ou_act = total_act > total_ref
+                    mask_total = total_ref.notna()
                     mae_margin = (margin_act - margin_pred).abs()
                     mae_total = (total_act - total_pred).abs()
 

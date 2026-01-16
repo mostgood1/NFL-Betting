@@ -2,8 +2,8 @@
   "lines": {
     "Buffalo Bills @ Denver Broncos": {
       "moneyline": {
-        "home": -112,
-        "away": -108
+        "home": -115,
+        "away": -105
       },
       "total_runs": {
         "line": 45.5,
@@ -19,11 +19,11 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": -108
+              "price": -105
             },
             {
               "name": "Denver Broncos",
-              "price": -112
+              "price": -115
             }
           ]
         },
@@ -32,12 +32,12 @@
           "outcomes": [
             {
               "name": "Buffalo Bills",
-              "price": -120,
+              "price": -118,
               "point": 1.5
             },
             {
               "name": "Denver Broncos",
-              "price": 100,
+              "price": -102,
               "point": -1.5
             }
           ]
@@ -61,16 +61,16 @@
     },
     "San Francisco 49ers @ Seattle Seahawks": {
       "moneyline": {
-        "home": -375,
-        "away": 295
+        "home": -345,
+        "away": 275
       },
       "total_runs": {
-        "line": 44.5,
-        "over": -115,
-        "under": -105
+        "line": 45.5,
+        "over": -105,
+        "under": -115
       },
       "run_line": {
-        "home": -7.5
+        "home": -7.0
       },
       "markets": [
         {
@@ -78,11 +78,11 @@
           "outcomes": [
             {
               "name": "San Francisco 49ers",
-              "price": 295
+              "price": 275
             },
             {
               "name": "Seattle Seahawks",
-              "price": -375
+              "price": -345
             }
           ]
         },
@@ -91,13 +91,13 @@
           "outcomes": [
             {
               "name": "San Francisco 49ers",
-              "price": -115,
-              "point": 7.5
+              "price": 100,
+              "point": 7.0
             },
             {
               "name": "Seattle Seahawks",
-              "price": -105,
-              "point": -7.5
+              "price": -120,
+              "point": -7.0
             }
           ]
         },
@@ -106,13 +106,13 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -115,
-              "point": 44.5
+              "price": -105,
+              "point": 45.5
             },
             {
               "name": "Under",
-              "price": -105,
-              "point": 44.5
+              "price": -115,
+              "point": 45.5
             }
           ]
         }
@@ -120,13 +120,13 @@
     },
     "Houston Texans @ New England Patriots": {
       "moneyline": {
-        "home": -170,
-        "away": 142
+        "home": -175,
+        "away": 145
       },
       "total_runs": {
         "line": 40.5,
-        "over": -118,
-        "under": -102
+        "over": -115,
+        "under": -105
       },
       "run_line": {
         "home": -3.0
@@ -137,11 +137,11 @@
           "outcomes": [
             {
               "name": "Houston Texans",
-              "price": 142
+              "price": 145
             },
             {
               "name": "New England Patriots",
-              "price": -170
+              "price": -175
             }
           ]
         },
@@ -150,12 +150,12 @@
           "outcomes": [
             {
               "name": "Houston Texans",
-              "price": -102,
+              "price": 100,
               "point": 3.0
             },
             {
               "name": "New England Patriots",
-              "price": -118,
+              "price": -120,
               "point": -3.0
             }
           ]
@@ -165,12 +165,12 @@
           "outcomes": [
             {
               "name": "Over",
-              "price": -118,
+              "price": -115,
               "point": 40.5
             },
             {
               "name": "Under",
-              "price": -102,
+              "price": -105,
               "point": 40.5
             }
           ]
@@ -238,5 +238,5 @@
     }
   },
   "source": "odds_api",
-  "fetched_at": "2026-01-14T13:57:22.273693+00:00"
+  "fetched_at": "2026-01-14T23:02:09.950798+00:00"
 }

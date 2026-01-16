@@ -100,7 +100,9 @@ def backtest(season: int, start_week: int, end_week: int) -> Tuple[pd.DataFrame,
     agg_cols = [c for c in res.columns if c.endswith("_MAE")]
     group = res.groupby("position", as_index=False)[agg_cols].mean(numeric_only=True)
     # Add counts/weeks evaluated
-    cnt = res.groupby("position", as_index=False)["position"].count().rename(columns={"position":"weeks"})
+    # Robust count of rows per position without clobbering the 'position' column name
+    # Using size().reset_index(name=...) avoids duplicate column renaming issues
+    cnt = res.groupby("position").size().reset_index(name="weeks")
     out = group.merge(cnt, on="position", how="left")
     weekly_df = pd.concat(weekly, ignore_index=True) if weekly else pd.DataFrame()
     return out, weekly_df

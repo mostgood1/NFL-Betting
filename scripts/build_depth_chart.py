@@ -15,8 +15,27 @@ def main() -> int:
     p.add_argument("season", type=int)
     p.add_argument("week", type=int)
     p.add_argument("--source", choices=["espn"], default="espn")
+    p.add_argument(
+        "--team",
+        action="append",
+        default=None,
+        help="Optional team name to refresh (repeatable). If omitted, refreshes all teams.",
+    )
+    p.add_argument(
+        "--teams",
+        default=None,
+        help="Optional comma-separated team names to refresh (alternative to --team).",
+    )
     args = p.parse_args()
-    out = save_depth_chart(args.season, args.week, source=args.source)
+
+    teams = []
+    if args.team:
+        teams.extend([t.strip() for t in args.team if str(t).strip()])
+    if args.teams:
+        teams.extend([t.strip() for t in str(args.teams).split(",") if t.strip()])
+    teams = teams or None
+
+    out = save_depth_chart(args.season, args.week, source=args.source, teams=teams)
     print(f"Wrote {out}")
     return 0
 

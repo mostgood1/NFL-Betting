@@ -297,31 +297,64 @@ def load_bovada(path: Path) -> pd.DataFrame:
     try:
         df["line"] = pd.to_numeric(df.get("line"), errors="coerce")
         # Preserve ladder rows exactly as-is; collapse only non-ladder rows
-        is_ladder_mask = df.get("is_ladder").fillna(False) == True
+        if "is_ladder" in df.columns:
+            s_ladder = df["is_ladder"]
+            if s_ladder.dtype == bool:
+                is_ladder_mask = s_ladder.fillna(False)
+            else:
+                s_ladder_str = s_ladder.astype(str).str.strip().str.lower()
+                is_ladder_mask = s_ladder_str.isin(["true", "1", "yes", "y", "t"]).fillna(False)
+        else:
+            is_ladder_mask = pd.Series([False] * len(df), index=df.index)
+
+        # Some books/scrapes occasionally emit the main (both-sides-priced) yardage line
+        # with a decimal-place shift (e.g., 264.5 instead of 26.5). Correct obvious cases.
+        try:
+            std_mask = ~is_ladder_mask
+            mnorm = df.get("market_norm")
+            if mnorm is not None:
+                mn = mnorm.astype(str).str.strip().str.lower()
+                line = df["line"]
+
+                def _round_half(x: float) -> float:
+                    return round(x * 2.0) / 2.0
+
+                # Rushing/receiving yards shouldn't be 200+ for a standard line.
+                mask_rush_rec = std_mask & mn.isin(["rushing yards", "receiving yards", "rush yds", "rec yds"]) & line.notna() & (line >= 200)
+                if mask_rush_rec.any():
+                    df.loc[mask_rush_rec, "line"] = df.loc[mask_rush_rec, "line"].astype(float).map(lambda v: _round_half(v / 10.0))
+
+                # Combined rush+rec yards rarely exceed ~300 on a main line.
+                mask_rr = std_mask & mn.isin(["rush+rec yards", "rush + rec yards", "rushing + receiving yards"]) & line.notna() & (line >= 300)
+                if mask_rr.any():
+                    df.loc[mask_rr, "line"] = df.loc[mask_rr, "line"].astype(float).map(lambda v: _round_half(v / 10.0))
+
+                # Passing yards lines above ~700 are almost certainly a scaling bug.
+                mask_pass = std_mask & mn.isin(["passing yards", "pass yds"]) & line.notna() & (line >= 700)
+                if mask_pass.any():
+                    df.loc[mask_pass, "line"] = df.loc[mask_pass, "line"].astype(float).map(lambda v: _round_half(v / 10.0))
+
+                # Pass+rush combined.
+                mask_pr = std_mask & mn.isin(["pass+rush yards", "pass + rush yards", "passing + rushing yards"]) & line.notna() & (line >= 700)
+                if mask_pr.any():
+                    df.loc[mask_pr, "line"] = df.loc[mask_pr, "line"].astype(float).map(lambda v: _round_half(v / 10.0))
+        except Exception:
+            pass
+
         base = df.loc[~is_ladder_mask].copy()
         ladd = df.loc[is_ladder_mask].copy()
         grp_keys = [k for k in ["key_player", "market_norm", "event"] if k in base.columns]
         if grp_keys and not base.empty:
-            def _pick_df(g: pd.DataFrame) -> pd.DataFrame:
-                if "line" not in g.columns or g["line"].notna().sum() == 0:
-                    return g.iloc[:1].copy()
-                med = g["line"].median()
-                g2 = g.copy()
-                g2["_dist"] = (g2["line"] - med).abs()
-                return g2.sort_values(["_dist", "line"], ascending=[True, True]).head(1)
-            # Exclude grouping columns during apply to avoid pandas deprecation; fallback compatible
-            try:
-                base = base.groupby(grp_keys, as_index=False).apply(_pick_df, include_groups=False)
-            except TypeError:
-                base = base.groupby(grp_keys, as_index=False, group_keys=False).apply(_pick_df)
-            if isinstance(base, pd.Series):
-                base = base.to_frame().T
-            try:
-                base = base.reset_index(drop=True)
-            except Exception:
-                pass
-            if "_dist" in base.columns:
-                base = base.drop(columns=["_dist"])  # cleanup helper column
+            # Avoid groupby.apply because pandas can drop group keys from columns depending
+            # on version/settings; we need to retain market_norm/event for downstream mapping.
+            med = base.groupby(grp_keys)["line"].transform("median")
+            base = (
+                base.assign(_dist=(base["line"] - med).abs())
+                .sort_values(grp_keys + ["_dist", "line"], ascending=True)
+                .drop_duplicates(subset=grp_keys, keep="first")
+                .drop(columns=["_dist"], errors="ignore")
+                .reset_index(drop=True)
+            )
         # Recombine
         df = pd.concat([base, ladd], ignore_index=True)
     except Exception:

@@ -41,7 +41,26 @@ DEFAULT_URL = (
 )
 
 # Market phrase mapping -> standardized market label used by our join script
+# IMPORTANT: order matters. Put more-specific combined markets before substrings like
+# "receiving yards" / "passing yards" to avoid misclassification.
 MARKET_ALIASES: List[Tuple[str, str]] = [
+    # Combined markets (must come first)
+    ("total rushing & receiving yards", "Rush+Rec Yards"),
+    ("rushing & receiving yards", "Rush+Rec Yards"),
+    ("rushing + receiving yards", "Rush+Rec Yards"),
+    ("rushing and receiving yards", "Rush+Rec Yards"),
+    ("rush + rec yards", "Rush+Rec Yards"),
+    ("rush+rec yards", "Rush+Rec Yards"),
+    ("total passing & rushing yards", "Pass+Rush Yards"),
+    ("passing & rushing yards", "Pass+Rush Yards"),
+    ("pass + rush yards", "Pass+Rush Yards"),
+    ("passing + rushing yards", "Pass+Rush Yards"),
+    ("pass+rush yards", "Pass+Rush Yards"),
+    # Multi-TD
+    ("to score 2+ touchdowns", "2+ Touchdowns"),
+    ("to record 2+ touchdowns", "2+ Touchdowns"),
+    ("2+ touchdowns", "2+ Touchdowns"),
+    # Primary yards/volume/TD markets
     ("receiving yards", "Receiving Yards"),
     ("receptions", "Receptions"),
     ("rushing yards", "Rushing Yards"),
@@ -57,23 +76,11 @@ MARKET_ALIASES: List[Tuple[str, str]] = [
     ("rush attempts", "Rushing Attempts"),
     ("interceptions thrown", "Interceptions"),
     ("interceptions", "Interceptions"),
+    ("targets", "Targets"),
+    # Anytime TD
     ("anytime touchdown", "Anytime TD"),
     ("any time touchdown", "Anytime TD"),
     ("anytime td", "Anytime TD"),
-    # Combined markets
-    ("rushing + receiving yards", "Rush+Rec Yards"),
-    ("rush + rec yards", "Rush+Rec Yards"),
-    ("rush+rec yards", "Rush+Rec Yards"),
-    ("rushing and receiving yards", "Rush+Rec Yards"),
-    ("pass + rush yards", "Pass+Rush Yards"),
-    ("pass+rush yards", "Pass+Rush Yards"),
-    ("passing + rushing yards", "Pass+Rush Yards"),
-    # Volume
-    ("targets", "Targets"),
-    # Multi-TD
-    ("to score 2+ touchdowns", "2+ Touchdowns"),
-    ("to record 2+ touchdowns", "2+ Touchdowns"),
-    ("2+ touchdowns", "2+ Touchdowns"),
 ]
 
 

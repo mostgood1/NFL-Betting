@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container">
+  <h2>Publish Recommendations{% if week %} — Week {{ week }}{% endif %}</h2>
+  {% if have_data %}
+    {% for market, items in groups_by_market.items() %}
+      <h3>{{ market }}</h3>
+      {% if items and items|length > 0 %}
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Confidence</th>
+              <th>EV %</th>
+              <th>Odds</th>
+              <th>Side</th>
+              <th>Matchup</th>
+              <th>Game Date</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in items %}
+              <tr>
+                <td>{{ r.confidence }}</td>
+                <td>{{ '%.2f'|format(r.ev_pct) if r.ev_pct is not none }}</td>
+                <td>{{ r.odds }}</td>
+                <td>{{ r.side }}</td>
+                <td>{{ r.away_team }} @ {{ r.home_team }}</td>
+                <td>{{ r.game_date }}</td>
+                <td>{{ r.book }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No recommendations for {{ market }} under current gates.</p>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>No recommendations available.</p>
+  {% endif %}
+</div>
+{% endblock %}

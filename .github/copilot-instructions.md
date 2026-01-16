@@ -118,6 +118,8 @@ Checklist:
 | `DISABLE_ON_REQUEST_PREDICTIONS` | Skip on-demand model attachment | Default true on Render |
 | `RENDER` | Deployment flag (truthy on Render) | Used to gate expensive ops |
 | `ADMIN_TOKEN` | Protect admin endpoints | Required for sensitive routes |
+| `CARD_PROP_EDGES_INCLUDE_LADDERS` | Include ladder/alt player props in game card highlights | Default 0 (off); set to 1 to include |
+| `INJURY_BASELINE_WEEK` | Baseline week to define "starter" identity for injury features | Default 1; higher values shift baseline later in season |
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
 | `RECS_MARKET_BLEND_MARGIN` | Blend model margin toward market-implied margin (-spread_home) for upcoming games | Default 0.0 (off); range 0–1 |
 | `RECS_MARKET_BLEND_TOTAL` | Blend model total toward market total for upcoming games | Default 0.0 (off); range 0–1 |
@@ -125,6 +127,46 @@ Checklist:
 | `RECS_UPCOMING_CONF_MIN_TOTAL` | Minimum confidence tier to publish upcoming Total picks | Default High; values: Low, Medium, High |
 | `RECS_UPCOMING_MIN_EV_PCT_ATS` | Minimum EV percent to publish upcoming ATS picks | Default 0.0 (off); suggest 18.0–25.0 for precision |
 | `RECS_UPCOMING_MIN_EV_PCT_TOTAL` | Minimum EV percent to publish upcoming Total picks | Default 0.0 (off); suggest 20.0–28.0 for precision |
+| `RECS_USE_MC_PROBS_ATS` | Use Monte Carlo probabilities for ATS selected-side gating | Default 0 (off); reads sim_probs.csv from nfl_compare/data/backtests/{season}_wk{week} |
+| `RECS_USE_MC_PROBS_TOTAL` | Use Monte Carlo probabilities for Totals selected-side gating | Default 0 (off); reads sim_probs.csv from nfl_compare/data/backtests/{season}_wk{week} |
+| `RECS_USE_MC_PROBS_ML` | Use Monte Carlo probabilities for Moneyline selected-side gating | Default 0 (off); reads sim_probs.csv from nfl_compare/data/backtests/{season}_wk{week} |
+| `RECS_MIN_P_ML` | Minimum selected-side probability for Moneyline gating | Default 0.0 (off); suggest 0.60–0.65 for precision |
+| `RECS_MIN_P_ATS` | Minimum selected-side probability for ATS gating | Default 0.0 (off); suggest 0.80–0.90 for high-confidence coverage |
+| `RECS_MIN_P_TOTAL` | Minimum selected-side probability for Totals gating | Default 0.0 (off); suggest 0.55–0.65 to retain coverage |
+| `RECS_PROB_GATE_AND` | Require both MC and classifier probabilities to exceed min thresholds | Default 0 (off); applies to ML/ATS/TOTAL when enabled |
+| `SIM_SIGMA_K_ROOF_CLOSED` | Per-game sigma multiplier for closed roof | Default -0.08 (reduces variance indoors) |
+| `SIM_ATS_SIGMA_K_WIND` | ATS sigma wind sensitivity | Default 0.015 (per 10mph wind_open) |
+| `SIM_TOTAL_SIGMA_K_WIND` | Total sigma wind sensitivity | Default 0.025 (per 10mph wind_open) |
+| `SIM_SIGMA_K_REST` | ATS sigma rest-days differential sensitivity | Default 0.02 (per 7 days) |
+| `SIM_TOTAL_SIGMA_K_LINE` | Total sigma sensitivity to total line level | Default 0.004 |
+| `SIM_ATS_SIGMA_MIN` | Lower clamp for per-game ATS sigma | Default 7.0 |
+| `SIM_ATS_SIGMA_MAX` | Upper clamp for per-game ATS sigma | Default 20.0 |
+| `SIM_TOTAL_SIGMA_MIN` | Lower clamp for per-game Total sigma | Default 6.0 |
+| `SIM_TOTAL_SIGMA_MAX` | Upper clamp for per-game Total sigma | Default 20.0 |
+| `SIM_MARKET_BLEND_MARGIN` | Blend simulation margin mean toward market-implied (-spread_home) | Default 0.0 (off); range 0–1 |
+| `SIM_MARKET_BLEND_TOTAL` | Blend simulation total mean toward market `total`/`close_total` | Default 0.0 (off); range 0–1 |
+| `SIM_MEAN_TOTAL_K_WIND` | Adjustment to total mean per 10mph wind_open | Default -0.5 |
+| `SIM_MEAN_MARGIN_K_REST` | Adjustment to margin mean per 7-day rest differential | Default 0.15 |
+| `SIM_MEAN_MARGIN_K_ELO` | Adjustment to margin mean per 100 Elo diff (home-away) | Default 0.08 |
+| `SIM_MEAN_TOTAL_K_INJ` | Adjustment to total mean per starter out (home+away) | Default -0.40 |
+| `SIM_MEAN_TOTAL_K_DEFPPG` | Adjustment to total mean per 5 PPG vs league average defensive PPG | Default -0.40 |
+| `SIM_MEAN_TOTAL_K_PRESSURE` | Adjustment to total mean per 0.05 above baseline combined defensive sack rate | Default -0.80 |
+| `SIM_PRESSURE_BASELINE` | Baseline defensive sack rate used for pressure adjustments | Default 0.065 |
+| `SIM_MEAN_MARGIN_K_RATING` | Adjustment to margin mean per 1.0 of EMA net margin differential (home-away) | Default 0.08 |
+| `SIM_CORR_MARGIN_TOTAL` | Correlation between simulated margin and total draws | Default 0.10 (range -0.3–0.3) |
+| `SIM_COMPUTE_ON_REQUEST` | Allow Flask app to compute sim_probs when missing | Default 0 (off); set 1 for local/debug only |
+| `SIM_N_SIMS_ON_REQUEST` | Number of Monte Carlo sims for on-request sim_probs | Default 1000; clamp 200–20000 |
+| `SIM_PLAYS_PER_DRIVE` | Plays-per-drive used to estimate possessions from `team_plays` (drive timeline) | Default 6.2 |
+| `SIM_DRIVES_PER_TEAM_DEFAULT` | Default drives per team when `team_plays` unavailable (drive timeline) | Default 11 |
+| `SIM_DRIVES_PER_TEAM_MIN` | Minimum drives per team clamp (drive timeline) | Default 8 |
+| `SIM_DRIVES_PER_TEAM_MAX` | Maximum drives per team clamp (drive timeline) | Default 16 |
+| `SIM_DRIVE_TIME_MULT_SIGMA` | Lognormal sigma for per-drive duration multiplier (drive timeline) | Default 0.45 |
+| `SIM_DRIVE_TIME_CAP_SEC` | Upper cap for simulated drive TOP seconds (drive timeline) | Default 780 |
+| `SIM_MEAN_MARGIN_K_NEUTRAL` | Neutral-site adjustment to margin mean | Default 0.0 (off) |
+| `SIM_MEAN_TOTAL_K_PRECIP` | Precip adjustment to total mean (points per 100% precip) | Default 0.0 (off) |
+| `SIM_MEAN_TOTAL_K_COLD` | Cold adjustment to total mean (points per 10F below `SIM_COLD_TEMP_F`) | Default 0.0 (off) |
+| `SIM_COLD_TEMP_F` | Cold threshold temperature in Fahrenheit | Default 45.0 |
+| `SIM_SIGMA_K_NEUTRAL` | Sigma scaling when neutral-site | Default 0.0 (off) |
 | `TEAM_RATING_EMA` | Exponential smoothing alpha for team ratings (off/def/net) | Default 0.60 (range 0–1) |
 | `TEAM_RATINGS_OFF` | Disable attaching team ratings to weekly view/features | Default 0 (off/false) |
 | `PROPS_QB_RZ_BASE` | Baseline QB red-zone rush rate for biasing | Default 0.10; affects QB any-time TD via RZ bias |
@@ -161,6 +203,10 @@ Checklist:
 | `PROPS_QB_SHARE_MAX` | Upper clamp for QB rush share when deriving from priors | Default 0.28 |
 | `PROPS_QB_SHARE_DEFAULT` | Default QB rush share when no priors found | Default 0.07 |
 | `PROPS_QB_OBS_BLEND` | Weight to blend observed SoD QB rush_share into week>1 estimates | Default 0.60 |
+| `LEAGUE_RZ_PASS_RATE` | Baseline league red-zone pass rate used for scaling | Default 0.52 (range 0.30–0.80) |
+| `PROPS_RZ_SHARE_W` | Weight to tilt WR/TE vs RB target shares by RZ pass tendency | Default 0.20 (0–0.50) |
+| `PROPS_RZ_TD_W` | Weight to tilt team/QB pass TD expectation by RZ pass tendency | Default 0.30 (0–0.60) |
+| `PROPS_PRESSURE_YPT_W` | Weight to scale YPT by opponent defensive sack rate (pressure) | Default 0.12 (0–0.50) |
 
 When adding new env vars: document them here and in `README.md`.
 

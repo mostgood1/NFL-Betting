@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import os, sys, json, math, time, re, subprocess, hashlib, traceback, shlex, threading
+import os, sys, json, math, time, re, subprocess, hashlib, traceback, shlex, threading, contextlib
 from pathlib import Path, PurePath
 from typing import Optional, Dict, Any, List
 
@@ -536,6 +536,12 @@ def _after_request_log(resp):
     return resp
 
 
+# --- Cached expensive summaries (index page) ---
+# The season-to-date accuracy summary can be expensive (iterates weeks 1..N and re-builds week views).
+# Cache it briefly so repeated refreshes don't re-run the whole loop.
+_accuracy_s2d_cache: dict[tuple[int, int, bool], tuple[float, dict[str, Any]]] = {}
+
+
 # --- Roster validation endpoints (top-level) ---
 @app.route('/api/roster-validation')
 def api_roster_validation():
@@ -767,6 +773,663 @@ def _load_current_week_override() -> Optional[tuple[int, int]]:
 # These are used only for gating when explicitly enabled via env flags.
 # We cache per (season, week) to keep IO minimal.
 _sim_probs_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_probs_compute_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+# Optional quarter-score artifact (sim_quarters.csv)
+_sim_quarters_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+# Optional drive-timeline artifact (sim_drives.csv)
+_sim_drives_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+# Optional weekly player-props cache (player_props_{season}_wk{week}.csv)
+_player_props_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+
+def _load_player_props_cache_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
+    """Load weekly player props cache CSV.
+
+    Primary: DATA_DIR/player_props_{season}_wk{week}.csv
+    Fallback: latest available player_props cache (same season preferred).
+
+    Returns DataFrame or None. Cached by (season, week).
+    """
+    try:
+        if season is None or week is None:
+            return None
+        key = (int(season), int(week))
+        if key in _player_props_cache:
+            return _player_props_cache[key]
+        fp = DATA_DIR / f"player_props_{int(season)}_wk{int(week)}.csv"
+        df = None
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+            except Exception:
+                df = None
+        if df is None or (isinstance(df, pd.DataFrame) and df.empty):
+            fb = _find_latest_props_cache(prefer_season=int(season), prefer_week=int(week))
+            if fb is not None:
+                fb_fp, _, _ = fb
+                try:
+                    df = pd.read_csv(fb_fp)
+                except Exception:
+                    df = None
+        _player_props_cache[key] = df
+        return df
+    except Exception:
+        return None
+
+
+def _sportswriter_game_story(
+    *,
+    home: Optional[str],
+    away: Optional[str],
+    sim_home_pts: Optional[float],
+    sim_away_pts: Optional[float],
+    sim_margin: Optional[float],
+    sim_total: Optional[float],
+    prob_home_win_mc: Optional[float],
+    market_spread_home: Optional[float] = None,
+    market_total: Optional[float] = None,
+    top_prop_edges: Optional[List[Dict[str, Any]]] = None,
+    sim_quarters: Optional[List[Dict[str, Any]]],
+    sim_drives: Optional[List[Dict[str, Any]]],
+    sim_key_drives: Optional[List[Dict[str, Any]]],
+    sim_boxscore: Optional[Dict[str, Any]],
+    sim_top_props: Optional[List[Dict[str, Any]]],
+) -> Optional[List[str]]:
+    """Generate a sportswriter-style recap from sim artifacts.
+
+    Pure formatting: never raises; returns None if insufficient context.
+    """
+    try:
+        if not home or not away:
+            return None
+
+        def f(x: Any) -> Optional[float]:
+            try:
+                if x is None or (isinstance(x, float) and pd.isna(x)) or pd.isna(x):
+                    return None
+                return float(x)
+            except Exception:
+                return None
+
+        hpts = f(sim_home_pts)
+        apts = f(sim_away_pts)
+        mar = f(sim_margin)
+        tot = f(sim_total)
+
+        if hpts is None or apts is None:
+            return None
+
+        # Headline
+        leader = None
+        if mar is not None:
+            if mar > 0:
+                leader = home
+            elif mar < 0:
+                leader = away
+
+        abs_mar = abs(mar) if mar is not None else None
+        tight = (abs_mar is not None and abs_mar <= 3.0)
+        comfy = (abs_mar is not None and abs_mar >= 10.0)
+
+        scoreline = f"{away} {apts:.1f}–{home} {hpts:.1f}"
+        p_home = f(prob_home_win_mc)
+        ptxt = f" (P({home}) {p_home*100:.0f}%)" if p_home is not None else ""
+
+        if leader is None:
+            opener = f"The sims see this one landing right on the number: {scoreline}." + ptxt
+        elif tight:
+            opener = f"A one-score type game in the sim universe: {leader} squeaks it out, {scoreline}." + ptxt
+        elif comfy:
+            opener = f"The sims lean toward a comfortable {leader} win: {scoreline}." + ptxt
+        else:
+            opener = f"The sims give {leader} the edge: {scoreline}." + ptxt
+        if tot is not None:
+            opener += f" Total: {tot:.1f}."
+
+        # Market vs sim context (adds betting frame)
+        market_bits: List[str] = []
+        try:
+            ms = f(market_spread_home)
+            mt = f(market_total)
+            if ms is not None and mar is not None:
+                implied_home_margin = -float(ms)  # market implied home margin
+                dmar = float(mar) - implied_home_margin
+                if abs(dmar) >= 2.0:
+                    if dmar < 0:
+                        market_bits.append(
+                            f"The market is pricier on {home} (about {implied_home_margin:+.1f}) than the sims ({mar:+.1f}) — that leaves room for a {away} cover."
+                        )
+                    else:
+                        market_bits.append(
+                            f"The sims are more bullish on {home} ({mar:+.1f}) than the market (about {implied_home_margin:+.1f})."
+                        )
+            if mt is not None and tot is not None:
+                dt = float(tot) - float(mt)
+                if abs(dt) >= 3.0:
+                    if dt > 0:
+                        market_bits.append(f"On the total, the sim mean sits {dt:+.1f} above market ({tot:.1f} vs {mt:.1f}) — track-meet profile.")
+                    else:
+                        market_bits.append(f"On the total, the sim mean sits {dt:+.1f} below market ({tot:.1f} vs {mt:.1f}) — lower-scoring shape.")
+        except Exception:
+            market_bits = []
+
+        # Flow / momentum
+        flow_bits: List[str] = []
+        try:
+            if sim_drives:
+                dlist = [d for d in sim_drives if isinstance(d, dict)]
+
+                def _score_str(dd: Dict[str, Any]) -> Optional[str]:
+                    try:
+                        ah = f(dd.get('away_score_mean'))
+                        hh = f(dd.get('home_score_mean'))
+                        if ah is None or hh is None:
+                            return None
+                        return f"{away} {ah:.1f}–{home} {hh:.1f}"
+                    except Exception:
+                        return None
+
+                def _last_where(pred) -> Optional[Dict[str, Any]]:
+                    for dd in reversed(dlist):
+                        try:
+                            if pred(dd):
+                                return dd
+                        except Exception:
+                            continue
+                    return None
+
+                end_q1 = _last_where(lambda dd: int(f(dd.get('quarter')) or 0) == 1)
+                halftime = _last_where(lambda dd: int(f(dd.get('quarter')) or 0) == 2)
+                end_q3 = _last_where(lambda dd: int(f(dd.get('quarter')) or 0) == 3)
+
+                s1 = _score_str(end_q1) if end_q1 else None
+                sh = _score_str(halftime) if halftime else None
+                s3 = _score_str(end_q3) if end_q3 else None
+
+                if s1:
+                    flow_bits.append(f"After one: {s1}.")
+                if sh:
+                    flow_bits.append(f"At halftime: {sh}.")
+                if s3:
+                    flow_bits.append(f"Through three: {s3}.")
+
+                # Biggest swing in P(Home lead)
+                swing_drive = None
+                swing_dp = None
+                prev_p = None
+                for dd in dlist:
+                    try:
+                        p = f(dd.get('p_home_lead'))
+                        if p is None:
+                            continue
+                        if prev_p is not None:
+                            dp = p - prev_p
+                            if swing_dp is None or abs(dp) > abs(swing_dp):
+                                swing_dp = dp
+                                swing_drive = dd
+                        prev_p = p
+                    except Exception:
+                        continue
+                if swing_drive is not None and swing_dp is not None:
+                    try:
+                        dn = int(f(swing_drive.get('drive_no')) or 0)
+                        qn = int(f(swing_drive.get('quarter')) or 0)
+                        poss = swing_drive.get('poss_team')
+                        outc = swing_drive.get('drive_outcome_mode')
+                        if dn > 0:
+                            lead_side = home if swing_dp > 0 else away
+                            swing_txt = f"The biggest momentum flip hits in Q{qn} (Drive {dn}), swinging toward {lead_side} ({swing_dp*100:+.0f}pp win-prob tilt)."
+                            if poss and outc:
+                                swing_txt = f"{poss}’s {outc} on Drive {dn} is the swing moment (Q{qn}, {swing_dp*100:+.0f}pp)."
+                            flow_bits.append(swing_txt)
+                    except Exception:
+                        pass
+
+                # Scoring drive counts by team (very high-level)
+                try:
+                    td_h = td_a = fg_h = fg_a = 0
+                    for dd in dlist:
+                        poss = str(dd.get('poss_team') or '').strip().upper()
+                        outc = str(dd.get('drive_outcome_mode') or '').strip().upper()
+                        if outc not in {'TD','FG'}:
+                            continue
+                        if poss == str(home).upper():
+                            if outc == 'TD':
+                                td_h += 1
+                            else:
+                                fg_h += 1
+                        elif poss == str(away).upper():
+                            if outc == 'TD':
+                                td_a += 1
+                            else:
+                                fg_a += 1
+                    if (td_h + fg_h + td_a + fg_a) > 0:
+                        flow_bits.append(f"Scoring drives (mode): {away} TD {td_a}, FG {fg_a} • {home} TD {td_h}, FG {fg_h}.")
+                except Exception:
+                    pass
+        except Exception:
+            flow_bits = []
+
+        # Defense (derived from drive outcome probabilities)
+        defense_bits: List[str] = []
+        try:
+            if sim_drives:
+                dlist = [d for d in sim_drives if isinstance(d, dict)]
+
+                def _def_summary(def_team: str, opp_team: str) -> Dict[str, Optional[float]]:
+                    drives = [dd for dd in dlist if str(dd.get('poss_team') or '').strip().upper() == str(opp_team).upper()]
+                    if not drives:
+                        return {
+                            'opp_drives': 0.0,
+                            'takeaways': None,
+                            'ints': None,
+                            'fumbles': None,
+                            'downs': None,
+                            'punts_forced': None,
+                            'stop_rate': None,
+                            'exp_stops': None,
+                            'exp_pts_allowed': None,
+                            'exp_td_allowed': None,
+                            'exp_fg_allowed': None,
+                        }
+                    n = float(len(drives))
+                    ints = sum([f(dd.get('p_drive_int')) or 0.0 for dd in drives])
+                    fums = sum([f(dd.get('p_drive_fumble')) or 0.0 for dd in drives])
+                    downs = sum([f(dd.get('p_drive_downs')) or 0.0 for dd in drives])
+                    punts = sum([f(dd.get('p_drive_punt')) or 0.0 for dd in drives])
+                    p_score = [f(dd.get('p_drive_score')) for dd in drives]
+                    exp_stops = sum([(1.0 - float(ps)) for ps in p_score if ps is not None])
+                    stop_rate = (exp_stops / n) if n > 0 else None
+                    # Points allowed: opponent expected points on their drives
+                    pts_allowed = 0.0
+                    for dd in drives:
+                        # prefer per-drive mean points for poss team
+                        pa = f(dd.get('away_score_drive_mean'))
+                        ph = f(dd.get('home_score_drive_mean'))
+                        poss = str(dd.get('poss_team') or '').strip().upper()
+                        if poss == str(home).upper():
+                            if ph is not None:
+                                pts_allowed += float(ph)
+                        elif poss == str(away).upper():
+                            if pa is not None:
+                                pts_allowed += float(pa)
+                    exp_td_allowed = sum([f(dd.get('p_drive_td')) or 0.0 for dd in drives])
+                    exp_fg_allowed = sum([f(dd.get('p_drive_fg')) or 0.0 for dd in drives])
+                    return {
+                        'opp_drives': n,
+                        'takeaways': float(ints + fums + downs),
+                        'ints': float(ints),
+                        'fumbles': float(fums),
+                        'downs': float(downs),
+                        'punts_forced': float(punts),
+                        'stop_rate': float(stop_rate) if stop_rate is not None else None,
+                        'exp_stops': float(exp_stops),
+                        'exp_pts_allowed': float(pts_allowed),
+                        'exp_td_allowed': float(exp_td_allowed),
+                        'exp_fg_allowed': float(exp_fg_allowed),
+                    }
+
+                home_def = _def_summary(home, away)
+                away_def = _def_summary(away, home)
+
+                # Add a short, sportswriter-style defense frame
+                hd_to = home_def.get('takeaways')
+                ad_to = away_def.get('takeaways')
+                hd_stop = home_def.get('stop_rate')
+                ad_stop = away_def.get('stop_rate')
+                if hd_to is not None and ad_to is not None:
+                    if abs(float(hd_to) - float(ad_to)) >= 0.35:
+                        better = home if float(hd_to) > float(ad_to) else away
+                        defense_bits.append(f"Defensively, {better} projects as the more disruptive unit (roughly {max(hd_to, ad_to):.1f} expected takeaways vs {min(hd_to, ad_to):.1f}).")
+                if hd_stop is not None and ad_stop is not None:
+                    if abs(float(hd_stop) - float(ad_stop)) >= 0.06:
+                        better = home if float(hd_stop) > float(ad_stop) else away
+                        defense_bits.append(f"On a drive-by-drive basis, {better} is the better stop profile (about {max(hd_stop, ad_stop)*100:.0f}% non-scoring drives vs {min(hd_stop, ad_stop)*100:.0f}%).")
+        except Exception:
+            defense_bits = []
+
+        # Players (from mock boxscore + top props)
+        player_bits: List[str] = []
+        try:
+            if sim_boxscore and isinstance(sim_boxscore, dict):
+                # Prefer the winning-side QB mention when possible
+                order = ['home','away']
+                if leader == away:
+                    order = ['away','home']
+                # QB / passing line
+                for side in order:
+                    t = sim_boxscore.get(side)
+                    if not t:
+                        continue
+                    passers = t.get('passers') or []
+                    qb = None
+                    if passers and isinstance(passers, list):
+                        qb = passers[0] if isinstance(passers[0], dict) else None
+                    if qb is None:
+                        qb = t.get('qb') or {}
+                    if qb and qb.get('player'):
+                        py = f(qb.get('pass_yards'))
+                        ptd = f(qb.get('pass_tds'))
+                        inte = f(qb.get('interceptions'))
+                        frag = str(qb.get('player'))
+                        stat_parts = []
+                        if py is not None:
+                            stat_parts.append(f"{py:.0f} pass yds")
+                        if ptd is not None:
+                            stat_parts.append(f"{ptd:.1f} pass TD")
+                        if inte is not None and inte >= 0.4:
+                            stat_parts.append(f"{inte:.1f} INT")
+                        if stat_parts:
+                            frag += " (" + ", ".join(stat_parts) + ")"
+                        player_bits.append(f"At quarterback: {frag}.")
+
+                        # If we have more than one meaningful receiver, mention distribution
+                        recs = t.get('receivers') or []
+                        if isinstance(recs, list):
+                            names = []
+                            for rr in recs[:3]:
+                                try:
+                                    if isinstance(rr, dict) and rr.get('player'):
+                                        names.append(str(rr.get('player')))
+                                except Exception:
+                                    continue
+                            if len(names) >= 2:
+                                player_bits.append(f"The passing production concentrates through {names[0]} with support from {names[1]}." + (f" (plus {names[2]})." if len(names) >= 3 else ""))
+                        break
+
+                # Rushing profile (feature lead + committee)
+                for side in order:
+                    t = sim_boxscore.get(side)
+                    if not t:
+                        continue
+                    rushers = t.get('rushers') or []
+                    r0 = rushers[0] if (isinstance(rushers, list) and rushers and isinstance(rushers[0], dict)) else (t.get('rush') or {})
+                    if r0 and r0.get('player'):
+                        ry = f(r0.get('rush_yards'))
+                        ra = f(r0.get('rush_attempts'))
+                        if ry is not None and ry >= 25:
+                            frag = f"{r0.get('player')} (~{ry:.0f} rush yds"
+                            if ra is not None and ra >= 8:
+                                frag += f" on {ra:.0f} carries"
+                            frag += ")"
+                            player_bits.append(f"On the ground: {frag} sets the tone.")
+
+                            # Mention next rusher if it looks like a committee
+                            if isinstance(rushers, list) and len(rushers) >= 2 and isinstance(rushers[1], dict) and rushers[1].get('player'):
+                                ry2 = f(rushers[1].get('rush_yards'))
+                                if ry2 is not None and ry2 >= 15:
+                                    player_bits.append(f"It’s not a one-man show — {rushers[1].get('player')} also lands in the mix (~{ry2:.0f} rush yds).")
+                            break
+
+                # Receiving yardage leader
+                for side in order:
+                    t = sim_boxscore.get(side)
+                    if not t:
+                        continue
+                    recs = t.get('receivers') or []
+                    rr0 = recs[0] if (isinstance(recs, list) and recs and isinstance(recs[0], dict)) else (t.get('rec') or {})
+                    if rr0 and rr0.get('player'):
+                        rcy = f(rr0.get('rec_yards'))
+                        recn = f(rr0.get('receptions'))
+                        if rcy is not None and rcy >= 35:
+                            frag = f"{rr0.get('player')} (~{rcy:.0f} rec yds"
+                            if recn is not None and recn >= 3:
+                                frag += f" on {recn:.0f} catches"
+                            frag += ")"
+                            player_bits.append(f"Top target: {frag}.")
+                            break
+        except Exception:
+            player_bits = []
+
+        try:
+            if sim_top_props:
+                # Mention the top anytime TD candidate
+                top = None
+                for x in sim_top_props:
+                    try:
+                        p = f(x.get('any_td_prob'))
+                        if p is None:
+                            continue
+                        top = x
+                        break
+                    except Exception:
+                        continue
+                if top is not None:
+                    p = f(top.get('any_td_prob'))
+                    pl = top.get('player')
+                    tm = top.get('team')
+                    if pl and p is not None:
+                        who = f"{pl}" + (f" ({tm})" if tm else "")
+                        player_bits.append(f"Anytime TD spotlight: {who} at ~{p*100:.0f}%."
+                        )
+        except Exception:
+            pass
+
+        # Assemble paragraphs
+        p1 = opener
+
+        p2_parts: List[str] = []
+        if flow_bits:
+            p2_parts.append(" ".join(flow_bits[:3]))
+
+        if defense_bits:
+            p2_parts.append(" ".join(defense_bits[:2]))
+
+        # Key-drive narrative hooks (use the computed 'why' tag when present)
+        if sim_key_drives:
+            try:
+                k = [d for d in sim_key_drives if isinstance(d, dict)]
+                if k:
+                    # First scoring key drive
+                    first_score = None
+                    for dd in k:
+                        outc = str(dd.get('drive_outcome_mode') or '').strip().upper()
+                        if outc in {'TD','FG'}:
+                            first_score = dd
+                            break
+                    if first_score is not None:
+                        poss = first_score.get('poss_team')
+                        outc = first_score.get('drive_outcome_mode')
+                        dn = int(f(first_score.get('drive_no')) or 0)
+                        why = str(first_score.get('why') or '').strip()
+                        if poss and outc and dn > 0:
+                            frag = f"Early tone-setter: {poss} posts the first points (Drive {dn}, {outc})."
+                            if why:
+                                frag += f" {why}."
+                            p2_parts.append(frag)
+
+                    # Biggest leverage swing drive
+                    swing = None
+                    swing_dp = None
+                    prev_p = None
+                    for dd in k:
+                        p = f(dd.get('p_home_lead'))
+                        if p is None:
+                            continue
+                        if prev_p is not None:
+                            dp = p - prev_p
+                            if swing_dp is None or abs(dp) > abs(swing_dp):
+                                swing_dp = dp
+                                swing = dd
+                        prev_p = p
+                    if swing is not None and swing_dp is not None and abs(swing_dp) >= 0.08:
+                        dn = int(f(swing.get('drive_no')) or 0)
+                        qn = int(f(swing.get('quarter')) or 0)
+                        poss = swing.get('poss_team')
+                        outc = swing.get('drive_outcome_mode')
+                        why = str(swing.get('why') or '').strip()
+                        if dn > 0:
+                            base = f"Leverage moment: Drive {dn} in Q{qn} swings the game state ({swing_dp*100:+.0f}pp in P(Home lead))."
+                            if poss and outc:
+                                base = f"Leverage moment: {poss}’s {outc} (Drive {dn}, Q{qn}) is the biggest probability pivot ({swing_dp*100:+.0f}pp)."
+                            if why:
+                                base += f" {why}."
+                            p2_parts.append(base)
+            except Exception:
+                pass
+
+        if player_bits:
+            # Keep paragraph 2 crisp; spill additional player texture into paragraph 3
+            p2_parts.append(" ".join(player_bits[:2]))
+
+        # Concrete prop angles (projection vs line edge, not EV)
+        try:
+            if top_prop_edges:
+                items = [x for x in top_prop_edges if isinstance(x, dict)]
+                angles: List[str] = []
+                for x in items:
+                    mk = str(x.get('market_key') or '').strip().lower()
+                    # Skip pure TD probability markets for this section
+                    if mk in {'any_td', '2+ touchdowns', '2+td', '2plus_td'}:
+                        continue
+                    proj = f(x.get('proj'))
+                    line = f(x.get('line'))
+                    edge_side = f(x.get('edge_side'))
+                    if proj is None or line is None or edge_side is None:
+                        continue
+                    if abs(edge_side) < 1.0:
+                        continue
+                    pl = str(x.get('player') or '').strip()
+                    side = str(x.get('side') or '').strip()
+                    mkt = str(x.get('market') or x.get('market_key') or '').strip()
+                    if not pl or not mkt:
+                        continue
+                    angles.append(f"{pl} {side} {mkt} (proj {proj:.1f} vs {line:.1f}, {edge_side:+.1f}).")
+                    if len(angles) >= 2:
+                        break
+                if angles:
+                    p2_parts.append("Prop angles: " + " ".join(angles))
+        except Exception:
+            pass
+
+        out: List[str] = []
+        out.append(p1)
+        if p2_parts:
+            merged: List[str] = []
+            if market_bits:
+                merged.append(" ".join(market_bits[:2]).strip())
+            merged.extend(p2_parts)
+            out.append(" ".join(merged).strip())
+
+        # Optional third paragraph: extra player texture + TD spotlight
+        p3_bits: List[str] = []
+        try:
+            if player_bits and len(player_bits) > 2:
+                p3_bits.append(" ".join(player_bits[2:5]))
+        except Exception:
+            pass
+        try:
+            if sim_top_props:
+                top = None
+                for x in sim_top_props:
+                    p = f(x.get('any_td_prob'))
+                    if p is not None:
+                        top = x
+                        break
+                if top is not None:
+                    p = f(top.get('any_td_prob'))
+                    pl = top.get('player')
+                    tm = top.get('team')
+                    if pl and p is not None and p >= 0.35:
+                        who = f"{pl}" + (f" ({tm})" if tm else "")
+                        p3_bits.append(f"Touchdown equity tilts toward {who} (~{p*100:.0f}% anytime TD in the sim outcomes).")
+        except Exception:
+            pass
+        if p3_bits:
+            out.append(" ".join(p3_bits).strip())
+
+        return out[:3]
+    except Exception:
+        return None
+
+
+def _defense_from_sim_drives(
+    sim_drives: Optional[List[Dict[str, Any]]],
+    *,
+    home: Optional[str],
+    away: Optional[str],
+) -> Optional[Dict[str, Dict[str, Any]]]:
+    """Derive a compact defense box-score line from simulated drive outcomes.
+
+    Returns per-side dict keyed by 'home'/'away'. Never raises.
+    """
+    try:
+        if not sim_drives or not home or not away:
+            return None
+
+        def f(x: Any) -> Optional[float]:
+            try:
+                if x is None or (isinstance(x, float) and pd.isna(x)) or pd.isna(x):
+                    return None
+                return float(x)
+            except Exception:
+                return None
+
+        dlist = [d for d in sim_drives if isinstance(d, dict)]
+
+        def _sum_for_opp(opp: str, key: str) -> float:
+            s = 0.0
+            for dd in dlist:
+                if str(dd.get('poss_team') or '').strip().upper() != str(opp).upper():
+                    continue
+                s += float(f(dd.get(key)) or 0.0)
+            return float(s)
+
+        def _stop_rate_vs_opp(opp: str) -> Optional[float]:
+            drives = [dd for dd in dlist if str(dd.get('poss_team') or '').strip().upper() == str(opp).upper()]
+            if not drives:
+                return None
+            s = 0.0
+            for dd in drives:
+                ps = f(dd.get('p_drive_score'))
+                if ps is None:
+                    continue
+                s += (1.0 - float(ps))
+            return float(s / float(len(drives))) if drives else None
+
+        def _pts_allowed_vs_opp(opp: str) -> float:
+            pts = 0.0
+            for dd in dlist:
+                poss = str(dd.get('poss_team') or '').strip().upper()
+                if poss != str(opp).upper():
+                    continue
+                # Use per-drive points for the possessing team
+                if poss == str(home).upper():
+                    pts += float(f(dd.get('home_score_drive_mean')) or 0.0)
+                elif poss == str(away).upper():
+                    pts += float(f(dd.get('away_score_drive_mean')) or 0.0)
+            return float(pts)
+
+        home_def = {
+            'team': home,
+            'takeaways': _sum_for_opp(away, 'p_drive_int') + _sum_for_opp(away, 'p_drive_fumble') + _sum_for_opp(away, 'p_drive_downs'),
+            'ints': _sum_for_opp(away, 'p_drive_int'),
+            'fumbles': _sum_for_opp(away, 'p_drive_fumble'),
+            'downs': _sum_for_opp(away, 'p_drive_downs'),
+            'punts_forced': _sum_for_opp(away, 'p_drive_punt'),
+            'stop_rate': _stop_rate_vs_opp(away),
+            'exp_pts_allowed': _pts_allowed_vs_opp(away),
+            'exp_td_allowed': _sum_for_opp(away, 'p_drive_td'),
+            'exp_fg_allowed': _sum_for_opp(away, 'p_drive_fg'),
+        }
+        away_def = {
+            'team': away,
+            'takeaways': _sum_for_opp(home, 'p_drive_int') + _sum_for_opp(home, 'p_drive_fumble') + _sum_for_opp(home, 'p_drive_downs'),
+            'ints': _sum_for_opp(home, 'p_drive_int'),
+            'fumbles': _sum_for_opp(home, 'p_drive_fumble'),
+            'downs': _sum_for_opp(home, 'p_drive_downs'),
+            'punts_forced': _sum_for_opp(home, 'p_drive_punt'),
+            'stop_rate': _stop_rate_vs_opp(home),
+            'exp_pts_allowed': _pts_allowed_vs_opp(home),
+            'exp_td_allowed': _sum_for_opp(home, 'p_drive_td'),
+            'exp_fg_allowed': _sum_for_opp(home, 'p_drive_fg'),
+        }
+        return {'home': home_def, 'away': away_def}
+    except Exception:
+        return None
 
 def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
     """Load sim_probs.csv for the given season/week from DATA_DIR/backtests/{season}_wk{week}/sim_probs.csv.
@@ -811,6 +1474,53 @@ def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[p
     except Exception:
         return None
 
+
+def _load_sim_quarters_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
+    """Load sim_quarters.csv for the given season/week from DATA_DIR/backtests/{season}_wk{week}/sim_quarters.csv.
+    Returns a DataFrame or None if missing/invalid. Cached by (season, week).
+    """
+    try:
+        if season is None or week is None:
+            return None
+        key = (int(season), int(week))
+        if key in _sim_quarters_cache:
+            return _sim_quarters_cache[key]
+        fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_quarters.csv"
+        df = None
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+            except Exception:
+                df = None
+        _sim_quarters_cache[key] = df
+        return df
+    except Exception:
+        return None
+
+
+def _load_sim_drives_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
+    """Load sim_drives.csv for the given season/week from DATA_DIR/backtests/{season}_wk{week}/sim_drives.csv.
+
+    Returns a DataFrame or None if missing/invalid. Cached by (season, week).
+    """
+    try:
+        if season is None or week is None:
+            return None
+        key = (int(season), int(week))
+        if key in _sim_drives_cache:
+            return _sim_drives_cache[key]
+        fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_drives.csv"
+        df = None
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+            except Exception:
+                df = None
+        _sim_drives_cache[key] = df
+        return df
+    except Exception:
+        return None
+
 def _get_mc_probs_for_game(season: Optional[int], week: Optional[int], game_id: Any) -> Dict[str, Optional[float]]:
     """Return MC probabilities for a specific game_id if available.
     Keys: prob_home_win_mc, prob_home_cover_mc, prob_over_total_mc.
@@ -845,6 +1555,269 @@ def _get_mc_probs_for_game(season: Optional[int], week: Optional[int], game_id: 
     except Exception:
         return out
     return out
+
+
+def _attach_sim_features_to_view_df(view_df: pd.DataFrame) -> pd.DataFrame:
+    """Attach the feature columns the Monte Carlo engine expects.
+
+    This is intentionally best-effort and non-fatal: if any source files are missing,
+    it returns the input view unchanged.
+    """
+    try:
+        if view_df is None or view_df.empty:
+            return view_df
+        from nfl_compare.src.data_sources import load_games as ds_load_games, load_team_stats, load_lines
+        from nfl_compare.src.features import merge_features
+        from nfl_compare.src.weather import load_weather_for_games
+        games = ds_load_games()
+        stats = load_team_stats()
+        lines = load_lines()
+        try:
+            wx = load_weather_for_games(games)
+        except Exception:
+            wx = None
+        feat = merge_features(games, stats, lines, wx)
+        if feat is None or feat.empty:
+            return view_df
+
+        want = [
+            "game_id",
+            "season",
+            "week",
+            "home_team",
+            "away_team",
+            # core sim features
+            "roof_closed_flag",
+            "wind_open",
+            "rest_days_diff",
+            "elo_diff",
+            "home_inj_starters_out",
+            "away_inj_starters_out",
+            "home_def_ppg",
+            "away_def_ppg",
+            "def_ppg_diff",
+            "home_def_sack_rate_ema",
+            "away_def_sack_rate_ema",
+            "home_def_sack_rate",
+            "away_def_sack_rate",
+            "net_margin_diff",
+            # optional (new knobs default off)
+            "neutral_site_flag",
+            "wx_precip_pct",
+            "wx_temp_f",
+        ]
+        keep = [c for c in want if c in feat.columns]
+        if not keep:
+            return view_df
+        feat_sub = feat[keep].drop_duplicates()
+
+        out = view_df.copy()
+        if "game_id" in out.columns and "game_id" in feat_sub.columns and out["game_id"].notna().any():
+            out = out.merge(feat_sub, on="game_id", how="left", suffixes=("", "_sf"))
+        else:
+            key_cols = [c for c in ["season", "week", "home_team", "away_team"] if c in out.columns and c in feat_sub.columns]
+            if len(key_cols) == 4:
+                out = out.merge(feat_sub, on=key_cols, how="left", suffixes=("", "_sf"))
+
+        # Fill-only semantics for overlapping cols
+        for c in keep:
+            suf = f"{c}_sf"
+            if suf in out.columns:
+                if c in out.columns:
+                    out[c] = out[c].where(out[c].notna(), out[suf])
+                else:
+                    out[c] = out[suf]
+        drop_sf = [c for c in out.columns if c.endswith("_sf")]
+        if drop_sf:
+            out = out.drop(columns=drop_sf)
+        return out
+    except Exception:
+        return view_df
+
+
+def _compute_sim_probs_df_from_view_df(season: int, week: int, view_df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    try:
+        if view_df is None or view_df.empty:
+            return None
+        try:
+            enabled = str(os.environ.get("SIM_COMPUTE_ON_REQUEST", "0")).strip().lower() in {"1", "true", "yes", "on"}
+        except Exception:
+            enabled = False
+        if not enabled:
+            return None
+        # Filter to this season/week only
+        df = view_df.copy()
+        if "season" in df.columns:
+            df = df[pd.to_numeric(df["season"], errors="coerce") == int(season)]
+        if "week" in df.columns:
+            df = df[pd.to_numeric(df["week"], errors="coerce") == int(week)]
+        if df.empty:
+            return None
+
+        # Attach missing features used by the sim engine (non-fatal)
+        df = _attach_sim_features_to_view_df(df)
+
+        # Compute probabilities using the shared engine
+        try:
+            n_sims = int(os.environ.get("SIM_N_SIMS_ON_REQUEST", "1000"))
+            n_sims = max(200, min(20000, n_sims))
+        except Exception:
+            n_sims = 1000
+        from nfl_compare.src.sim_engine import simulate_mc_probs
+        df_mc = simulate_mc_probs(df, n_sims=n_sims, data_dir=DATA_DIR)
+        return df_mc
+    except Exception:
+        return None
+
+
+def _get_sim_probs_df(season: Optional[int], week: Optional[int], view_df: Optional[pd.DataFrame] = None) -> Optional[pd.DataFrame]:
+    """Return sim_probs DataFrame.
+
+    Priority:
+    1) Load precomputed sim_probs.csv (cached by _load_sim_probs_df)
+    2) If enabled, compute from current view_df (cached in-memory for the process)
+    """
+    try:
+        if season is None or week is None:
+            return None
+        s = int(season)
+        w = int(week)
+        df = _load_sim_probs_df(s, w)
+        if df is not None and not df.empty:
+            return df
+        key = (s, w)
+        if key in _sim_probs_compute_cache:
+            return _sim_probs_compute_cache[key]
+        if view_df is None:
+            _sim_probs_compute_cache[key] = None
+            return None
+        dfc = _compute_sim_probs_df_from_view_df(s, w, view_df)
+        _sim_probs_compute_cache[key] = dfc
+        return dfc
+    except Exception:
+        return None
+
+
+# --- Optional prop edge artifacts (edges_player_props_*.csv) ---
+_edges_player_props_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+
+
+def _load_edges_player_props_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
+    """Load player prop edges CSV for the given season/week.
+
+    Primary: DATA_DIR/edges_player_props_{season}_wk{week}.csv
+    Fallback: DATA_DIR/props_edges_{season}_wk{week}.csv
+
+    Returns a DataFrame or None if missing/invalid. Cached by (season, week).
+    """
+    try:
+        if season is None or week is None:
+            return None
+        key = (int(season), int(week))
+        if key in _edges_player_props_cache:
+            return _edges_player_props_cache[key]
+        fp = DATA_DIR / f"edges_player_props_{int(season)}_wk{int(week)}.csv"
+        if not fp.exists():
+            alt = DATA_DIR / f"props_edges_{int(season)}_wk{int(week)}.csv"
+            if alt.exists():
+                fp = alt
+        df = None
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+            except Exception:
+                df = None
+        _edges_player_props_cache[key] = df
+        return df
+    except Exception:
+        return None
+
+
+def _derive_sim_quarters(
+    sim_home_points: Optional[float],
+    sim_away_points: Optional[float],
+    base_quarters: Optional[List[Dict[str, Any]]] = None,
+) -> Optional[List[Dict[str, Any]]]:
+    """Create a deterministic, heuristic quarter-by-quarter breakdown that matches sim totals.
+
+    If base_quarters has 4 quarters with numeric home/away, scale that shape to simulation.
+    Otherwise use a standard NFL-ish scoring weight split.
+    """
+    try:
+        if sim_home_points is None or sim_away_points is None:
+            return None
+        sh = float(sim_home_points)
+        sa = float(sim_away_points)
+        st = sh + sa
+        if not (st > 0):
+            return None
+
+        def _is_num(x: Any) -> bool:
+            try:
+                return x is not None and not pd.isna(x)
+            except Exception:
+                return x is not None
+
+        # Attempt to use model quarter shape if present
+        base_totals: List[float] = []
+        base_home_shares: List[float] = []
+        if base_quarters and len(base_quarters) >= 4:
+            for i in range(4):
+                bq = base_quarters[i] or {}
+                bh = bq.get('home')
+                ba = bq.get('away')
+                if _is_num(bh) and _is_num(ba):
+                    try:
+                        bhf = float(bh)
+                        baf = float(ba)
+                        bt = bhf + baf
+                        if bt > 0:
+                            base_totals.append(bt)
+                            base_home_shares.append(bhf / bt)
+                        else:
+                            base_totals.append(0.0)
+                            base_home_shares.append(0.5)
+                    except Exception:
+                        base_totals.append(0.0)
+                        base_home_shares.append(0.5)
+                else:
+                    base_totals.append(0.0)
+                    base_home_shares.append(0.5)
+
+        use_base = len(base_totals) == 4 and sum(base_totals) > 0
+        if use_base:
+            weights = [bt / sum(base_totals) for bt in base_totals]
+        else:
+            # Default scoring distribution (deterministic)
+            weights = [0.24, 0.26, 0.24, 0.26]
+
+        # Quarter totals
+        q_totals = [st * w for w in weights]
+        # Ensure exact total by adjusting last quarter
+        q_totals[3] = st - sum(q_totals[:3])
+
+        # Home split
+        if use_base:
+            q_home = [q_totals[i] * base_home_shares[i] for i in range(4)]
+        else:
+            home_share = sh / st
+            q_home = [qt * home_share for qt in q_totals]
+
+        # Ensure exact home total by adjusting last quarter
+        q_home[3] = sh - sum(q_home[:3])
+        q_away = [q_totals[i] - q_home[i] for i in range(4)]
+
+        out: List[Dict[str, Any]] = []
+        for i in range(4):
+            out.append({
+                'label': f'Q{i+1}',
+                'home': round(float(q_home[i]), 1),
+                'away': round(float(q_away[i]), 1),
+                'total': round(float(q_totals[i]), 1),
+            })
+        return out
+    except Exception:
+        return None
 
 
 def _read_current_week_marker() -> Optional[tuple[int, int]]:
@@ -994,6 +1967,74 @@ def _auto_advance_current_week_marker() -> Dict[str, Any]:
         # Optional: apply injury-based adjustment to predicted points
         try:
             out = _injury_adjust_predictions(out)
+        except Exception:
+            pass
+        # Blend margin/total toward market and optionally apply to team points (defaults on)
+        try:
+            bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.10')
+            bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.20')
+            apply_pts_flag = os.environ.get('RECS_MARKET_BLEND_APPLY_POINTS', '1')
+            bm = float(bm_raw) if bm_raw not in (None, '') else 0.0
+            bt = float(bt_raw) if bt_raw not in (None, '') else 0.0
+            bm = max(0.0, min(1.0, bm)); bt = max(0.0, min(1.0, bt))
+            apply_pts = str(apply_pts_flag).strip().lower() in {'1','true','yes','on'}
+            if (bm > 0.0 or bt > 0.0) and not out.empty:
+                rows = []
+                for _, rr in out.iterrows():
+                    try:
+                        # Skip finals
+                        is_final_now = False
+                        hs = rr.get('home_score'); as_ = rr.get('away_score')
+                        if (hs is not None and not (isinstance(hs, float) and pd.isna(hs))) and (as_ is not None and not (isinstance(as_, float) and pd.isna(as_))):
+                            is_final_now = True
+                        ph = rr.get('pred_home_points'); pa = rr.get('pred_away_points')
+                        margin = None
+                        if ph is not None and pa is not None and not (pd.isna(ph) or pd.isna(pa)):
+                            margin = float(ph) - float(pa)
+                        total_pred = rr.get('pred_total_cal') if 'pred_total_cal' in out.columns else rr.get('pred_total')
+                        m_spread = rr.get('market_spread_home') if 'market_spread_home' in out.columns else rr.get('spread_home')
+                        if m_spread is None:
+                            m_spread = rr.get('close_spread_home')
+                        m_total = rr.get('market_total') if 'market_total' in out.columns else rr.get('total')
+                        if m_total is None:
+                            m_total = rr.get('close_total')
+                        if not is_final_now:
+                            # Blend margin toward market-implied (-spread_home)
+                            try:
+                                if bm > 0.0 and (margin is not None) and (m_spread is not None) and pd.notna(m_spread):
+                                    ms = float(m_spread); mmkt = -ms
+                                    margin = (1.0 - bm) * float(margin) + bm * mmkt
+                            except Exception:
+                                pass
+                            # Blend total toward market total
+                            try:
+                                if bt > 0.0 and (total_pred is not None) and (m_total is not None) and pd.notna(m_total):
+                                    total_pred = (1.0 - bt) * float(total_pred) + bt * float(m_total)
+                            except Exception:
+                                pass
+                            # Optionally apply blended margin/total to team points
+                            try:
+                                if apply_pts and (margin is not None) and (total_pred is not None):
+                                    th = 0.5 * (float(total_pred) + float(margin))
+                                    ta = float(total_pred) - th
+                                    if not (pd.isna(th) or pd.isna(ta)):
+                                        rr['pred_home_points'] = th
+                                        rr['pred_away_points'] = ta
+                            except Exception:
+                                pass
+                            # Write back blended margin/total
+                            try:
+                                if margin is not None:
+                                    rr['pred_margin'] = float(margin)
+                                if total_pred is not None:
+                                    rr['pred_total'] = float(total_pred)
+                                    rr['pred_total_cal'] = float(total_pred)
+                            except Exception:
+                                pass
+                    except Exception:
+                        pass
+                    rows.append(rr)
+                out = pd.DataFrame(rows)
         except Exception:
             pass
         return out
@@ -2991,10 +4032,21 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 if keep:
                     out_base = out_base.merge(wx[keep], on=[c for c in ['game_id','date','home_team','away_team'] if c in out_base.columns and c in wx.columns], how='left', suffixes=('', '_wx'))
                     # Prefer non-null base, then fill from wx
-                    for c in ['wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']:
-                        cwx = f"{c}_wx"
-                        if c in out_base.columns and cwx in out_base.columns:
-                            out_base[c] = out_base[c].where(out_base[c].notna(), out_base[cwx])
+                    numeric_wx_cols = {'wx_temp_f', 'wx_wind_mph', 'wx_precip_pct'}
+                    try:
+                        _ctx = pd.option_context('future.no_silent_downcasting', True)
+                    except Exception:
+                        _ctx = contextlib.nullcontext()
+                    with _ctx:
+                        for c in ['wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']:
+                            cwx = f"{c}_wx"
+                            if c in out_base.columns and cwx in out_base.columns:
+                                if c in numeric_wx_cols:
+                                    out_base[c] = pd.to_numeric(out_base[c], errors='coerce')
+                                    out_base[cwx] = pd.to_numeric(out_base[cwx], errors='coerce')
+                                    out_base[c] = out_base[c].fillna(out_base[cwx])
+                                else:
+                                    out_base[c] = out_base[c].fillna(out_base[cwx])
                     drop_wx = [c for c in out_base.columns if c.endswith('_wx')]
                     if drop_wx:
                         out_base = out_base.drop(columns=drop_wx)
@@ -3197,6 +4249,58 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                         _log_once('missing_market_total', f"Games missing total data after normalization: {missing_total}")
                 except Exception:
                     pass
+            except Exception:
+                pass
+            # Apply default market blending on existing predictions (even if we don't run model inference)
+            try:
+                bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.10')
+                bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.20')
+                apply_pts_flag = os.environ.get('RECS_MARKET_BLEND_APPLY_POINTS', '1')
+                bm = float(bm_raw) if bm_raw not in (None, '') else 0.0
+                bt = float(bt_raw) if bt_raw not in (None, '') else 0.0
+                bm = max(0.0, min(1.0, bm)); bt = max(0.0, min(1.0, bt))
+                apply_pts = str(apply_pts_flag).strip().lower() in {'1','true','yes','on'}
+                if (bm > 0.0 or bt > 0.0) and not out_base.empty:
+                    rows = []
+                    for _, rr in out_base.iterrows():
+                        try:
+                            # Skip finals
+                            is_final_now = False
+                            hs = rr.get('home_score'); as_ = rr.get('away_score')
+                            if (hs is not None and not (isinstance(hs, float) and pd.isna(hs))) and (as_ is not None and not (isinstance(as_, float) and pd.isna(as_))):
+                                is_final_now = True
+                            ph = rr.get('pred_home_points'); pa = rr.get('pred_away_points')
+                            margin = None
+                            if ph is not None and pa is not None and not (pd.isna(ph) or pd.isna(pa)):
+                                margin = float(ph) - float(pa)
+                            total_pred = rr.get('pred_total_cal') if 'pred_total_cal' in out_base.columns else rr.get('pred_total')
+                            m_spread = rr.get('market_spread_home') if 'market_spread_home' in out_base.columns else rr.get('spread_home')
+                            if m_spread is None:
+                                m_spread = rr.get('close_spread_home')
+                            m_total = rr.get('market_total') if 'market_total' in out_base.columns else rr.get('total')
+                            if m_total is None:
+                                m_total = rr.get('close_total')
+                            if not is_final_now:
+                                if bm > 0.0 and (margin is not None) and (m_spread is not None) and pd.notna(m_spread):
+                                    ms = float(m_spread); mmkt = -ms
+                                    margin = (1.0 - bm) * float(margin) + bm * mmkt
+                                if bt > 0.0 and (total_pred is not None) and (m_total is not None) and pd.notna(m_total):
+                                    total_pred = (1.0 - bt) * float(total_pred) + bt * float(m_total)
+                                if apply_pts and (margin is not None) and (total_pred is not None):
+                                    th = 0.5 * (float(total_pred) + float(margin))
+                                    ta = float(total_pred) - th
+                                    if not (pd.isna(th) or pd.isna(ta)):
+                                        rr['pred_home_points'] = th
+                                        rr['pred_away_points'] = ta
+                                if margin is not None:
+                                    rr['pred_margin'] = float(margin)
+                                if total_pred is not None:
+                                    rr['pred_total'] = float(total_pred)
+                                    rr['pred_total_cal'] = float(total_pred)
+                        except Exception:
+                            pass
+                        rows.append(rr)
+                    out_base = pd.DataFrame(rows)
             except Exception:
                 pass
             # If predictions disabled, return enriched odds-only frame now
@@ -3693,6 +4797,73 @@ def _clamp_prob_to_band(p: float, anchor: Optional[float], band: float) -> float
         return p
 
 
+def _conf_method_for_market(market: str, override: Optional[str] = None) -> str:
+    """Return which EV source to use for confidence tiers.
+
+    Methods:
+      - "model": use EV from model-derived probabilities (default)
+      - "sim": use EV from Monte Carlo probabilities when available, else fallback to model
+      - "combo": blend model and simulation EV (simple average when both present)
+
+    Resolution order (case-insensitive):
+      1) Explicit override argument (if provided and valid)
+      2) Env RECS_CONF_METHOD_<MARKET> (e.g., RECS_CONF_METHOD_ML, _ATS, _TOTAL)
+      3) Env RECS_CONF_METHOD
+      4) Fallback "model"
+    """
+    allowed = {"model", "sim", "combo"}
+    # Explicit override (e.g., query param in web context)
+    try:
+        if override is not None:
+            v = str(override).strip().lower()
+            if v in allowed:
+                return v
+    except Exception:
+        pass
+    # Env per-market then global
+    key = f"RECS_CONF_METHOD_{str(market or '').upper()}"
+    try:
+        raw = os.environ.get(key) or os.environ.get("RECS_CONF_METHOD")
+        if raw is not None:
+            v = str(raw).strip().lower()
+            if v in allowed:
+                return v
+    except Exception:
+        pass
+    return "model"
+
+
+def _choose_conf_ev(ev_model: Optional[float], ev_sim: Optional[float], method: str) -> Optional[float]:
+    """Select the EV to feed into confidence tiering based on method.
+
+    - model: use model EV only
+    - sim: use simulation-based EV when present, else model
+    - combo: simple average of model and simulation EV when both present; otherwise
+      fallback to whichever is available.
+    """
+    try:
+        m = str(method or "").strip().lower()
+    except Exception:
+        m = "model"
+    # Normalize method
+    if m not in {"model", "sim", "combo"}:
+        m = "model"
+    # Nothing to combine
+    if ev_model is None and ev_sim is None:
+        return None
+    if m == "model":
+        return ev_model
+    if m == "sim":
+        return ev_sim if ev_sim is not None else ev_model
+    # combo
+    if ev_model is not None and ev_sim is not None:
+        try:
+            return 0.5 * float(ev_model) + 0.5 * float(ev_sim)
+        except Exception:
+            return ev_model
+    return ev_model if ev_model is not None else ev_sim
+
+
 def _implied_probs_from_moneylines(ml_home: Optional[float], ml_away: Optional[float]) -> tuple[Optional[float], Optional[float]]:
     """Return de-vig implied win probs from American odds for home and away."""
     try:
@@ -3921,7 +5092,20 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             # Skip upcoming ML rec if gates fail; allow finals to be graded/displayed regardless
             pass
         elif (pass_p_gate_ml or is_final):
-            conf = _conf_from_ev(model_winner_ev)
+            # Confidence EV can optionally incorporate simulation-based EV
+            ev_conf_ml = model_winner_ev
+            try:
+                ev_ml_mc = None
+                # Derive simulation EV for the selected side when MC probs and odds are available
+                if p_sel_ml_mc is not None and rec_model_winner is not None:
+                    dec_sel = dec_home if rec_model_winner == home else dec_away
+                    if dec_sel is not None:
+                        ev_ml_mc = _ev_from_prob_and_decimal(p_sel_ml_mc, dec_sel)
+                method_ml = _conf_method_for_market("ML")
+                ev_conf_ml = _choose_conf_ev(model_winner_ev, ev_ml_mc, method_ml)
+            except Exception:
+                pass
+            conf = _conf_from_ev(ev_conf_ml)
             ml_result = None
             if is_final and actual_margin is not None:
                 if actual_margin == 0:
@@ -3939,8 +5123,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                 "prob_home_win": p_home_eff,
                 "prob_selected_mc": p_sel_ml_mc,
                 "prob_home_win_mc": prob_home_win_mc,
+                "confidence_ev_units": ev_conf_ml,
+                "confidence_method": method_ml if 'method_ml' in locals() else None,
                 "confidence": conf,
-                "sort_weight": (_tier_to_num(conf), model_winner_ev or -999),
+                "sort_weight": (_tier_to_num(conf), ev_conf_ml if ev_conf_ml is not None else (model_winner_ev or -999)),
                 "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
                 "result": ml_result,
             })
@@ -4085,8 +5271,20 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     # Skip upcoming ATS rec if gates fail; allow finals for grading
                     pass
                 else:
-                    # Confidence is based on this market's EV only
-                    conf = _conf_from_ev(e)
+                    # Confidence EV can optionally incorporate simulation-based EV
+                    ev_conf_ats = e
+                    try:
+                        ev_ats_mc = None
+                        if p_sel_ats_mc is not None:
+                            # Use the same selected side odds for MC-based EV
+                            dec_sel_sp = dec_home_sp if sel_is_home else dec_away_sp
+                            if dec_sel_sp is not None:
+                                ev_ats_mc = _ev_from_prob_and_decimal(p_sel_ats_mc, dec_sel_sp)
+                        method_ats = _conf_method_for_market("ATS")
+                        ev_conf_ats = _choose_conf_ev(e, ev_ats_mc, method_ats)
+                    except Exception:
+                        pass
+                    conf = _conf_from_ev(ev_conf_ats)
                     # Grade if final
                     result = None
                     if is_final and actual_margin is not None and sp is not None:
@@ -4108,8 +5306,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                         "prob_home_cover": p_home_cover,
                         "prob_selected_mc": p_sel_ats_mc,
                         "prob_home_cover_mc": prob_home_cover_mc,
+                        "confidence_ev_units": ev_conf_ats,
+                        "confidence_method": method_ats if 'method_ats' in locals() else None,
                         "confidence": conf,
-                        "sort_weight": (_tier_to_num(conf), e or -999),
+                        "sort_weight": (_tier_to_num(conf), ev_conf_ats if ev_conf_ats is not None else (e or -999)),
                         "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
                         "result": result,
                     })
@@ -4239,8 +5439,19 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     # Skip upcoming TOTAL rec if gates fail; allow finals for grading
                     pass
                 else:
-                    # Confidence is based on this market's EV only
-                    conf = _conf_from_ev(e)
+                    # Confidence EV can optionally incorporate simulation-based EV
+                    ev_conf_total = e
+                    try:
+                        ev_total_mc = None
+                        if p_sel_total_mc is not None:
+                            dec_sel_tot = dec_over if sel_is_over else dec_under
+                            if dec_sel_tot is not None:
+                                ev_total_mc = _ev_from_prob_and_decimal(p_sel_total_mc, dec_sel_tot)
+                        method_total = _conf_method_for_market("TOTAL")
+                        ev_conf_total = _choose_conf_ev(e, ev_total_mc, method_total)
+                    except Exception:
+                        pass
+                    conf = _conf_from_ev(ev_conf_total)
                     # Grade if final
                     result = None
                     if is_final and actual_total is not None and m_total is not None and not pd.isna(m_total):
@@ -4270,8 +5481,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                     "prob_over_total": p_over,
                     "prob_selected_mc": p_sel_total_mc,
                     "prob_over_total_mc": prob_over_total_mc,
+                    "confidence_ev_units": ev_conf_total,
+                    "confidence_method": method_total if 'method_total' in locals() else None,
                     "confidence": conf,
-                    "sort_weight": (_tier_to_num(conf), e or -999),
+                    "sort_weight": (_tier_to_num(conf), ev_conf_total if ev_conf_total is not None else (e or -999)),
                     "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
                     "result": result,
                 })
@@ -5723,8 +6936,49 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
     and exposes it for programmatic or API consumption.
     """
     cards: List[Dict[str, Any]] = []
+    # Confidence methods for card display (env-driven; shared across all games)
+    conf_method_ml = _conf_method_for_market("ML")
+    conf_method_ats = _conf_method_for_market("ATS")
+    conf_method_total = _conf_method_for_market("TOTAL")
     assets = _load_team_assets()
     stad_map = _load_stadium_meta_map()
+    # Load sim probabilities once per (season, week) pair.
+    sim_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+    sim_q_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+    sim_d_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+    props_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+    props_by_gid_by_sw: Dict[tuple[int, int], Dict[str, pd.DataFrame]] = {}
+    try:
+        if view_df is not None and not view_df.empty and {'season','week'}.issubset(view_df.columns):
+            sw = view_df[['season','week']].dropna().drop_duplicates()
+            for _, rr in sw.iterrows():
+                try:
+                    s_i = int(pd.to_numeric(rr.get('season'), errors='coerce'))
+                    w_i = int(pd.to_numeric(rr.get('week'), errors='coerce'))
+                except Exception:
+                    continue
+                sim_df_by_sw[(s_i, w_i)] = _get_sim_probs_df(s_i, w_i, view_df=view_df)
+                sim_q_df_by_sw[(s_i, w_i)] = _load_sim_quarters_df(s_i, w_i)
+                sim_d_df_by_sw[(s_i, w_i)] = _load_sim_drives_df(s_i, w_i)
+                props_df_by_sw[(s_i, w_i)] = _load_player_props_cache_df(s_i, w_i)
+                try:
+                    pdf = props_df_by_sw.get((s_i, w_i))
+                    if pdf is not None and not pdf.empty and 'game_id' in pdf.columns:
+                        by_gid: Dict[str, pd.DataFrame] = {}
+                        for gid, gdf in pdf.groupby(pdf['game_id'].astype(str), dropna=False):
+                            try:
+                                by_gid[str(gid)] = gdf
+                            except Exception:
+                                continue
+                        props_by_gid_by_sw[(s_i, w_i)] = by_gid
+                except Exception:
+                    props_by_gid_by_sw[(s_i, w_i)] = {}
+    except Exception:
+        sim_df_by_sw = {}
+        sim_q_df_by_sw = {}
+        sim_d_df_by_sw = {}
+        props_df_by_sw = {}
+        props_by_gid_by_sw = {}
     if view_df is not None and not view_df.empty:
         # Load authoritative lines.csv once for display overrides (spread/total)
         lines_by_key: Dict[tuple, Dict[str, Any]] = {}
@@ -5762,6 +7016,196 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 view_df['pred_away_points'] = view_df['pred_away_score']
         except Exception:
             pass
+
+        # Optional: attach top prop edges per game (from edges_player_props_*.csv)
+        prop_edges_by_match: Dict[tuple[str, str], List[Dict[str, Any]]] = {}
+        try:
+            season0 = None
+            week0 = None
+            try:
+                if 'season' in view_df.columns and view_df['season'].notna().any():
+                    season0 = int(pd.to_numeric(view_df['season'], errors='coerce').dropna().iloc[0])
+                if 'week' in view_df.columns and view_df['week'].notna().any():
+                    week0 = int(pd.to_numeric(view_df['week'], errors='coerce').dropna().iloc[0])
+            except Exception:
+                season0 = week0 = None
+            edges_df = _load_edges_player_props_df(season0, week0)
+            if edges_df is not None and not edges_df.empty:
+                try:
+                    from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+                except Exception:
+                    _norm_team = None
+                edf = edges_df.copy()
+                # Normalize game team names to align with weekly view
+                for col in ('home_team', 'away_team'):
+                    if col in edf.columns:
+                        try:
+                            if _norm_team is not None:
+                                edf[col] = edf[col].astype(str).apply(_norm_team)
+                            else:
+                                edf[col] = edf[col].astype(str).str.strip()
+                        except Exception:
+                            pass
+
+                def _as_float(x: Any) -> Optional[float]:
+                    try:
+                        if x is None or (isinstance(x, float) and pd.isna(x)):
+                            return None
+                        if pd.isna(x):
+                            return None
+                        return float(x)
+                    except Exception:
+                        return None
+
+                def _implied_prob_from_american(odds: Any) -> Optional[float]:
+                    try:
+                        if odds is None or (isinstance(odds, float) and pd.isna(odds)) or pd.isna(odds):
+                            return None
+                        o = float(odds)
+                        if o == 0:
+                            return None
+                        if o > 0:
+                            return 100.0 / (o + 100.0)
+                        return abs(o) / (abs(o) + 100.0)
+                    except Exception:
+                        return None
+
+                # Keep only positive-EV sides and take top N per game
+                try:
+                    top_n = int(os.environ.get('CARD_TOP_PROP_EDGES', '5'))
+                except Exception:
+                    top_n = 5
+                top_n = max(0, min(25, top_n))
+
+                # Default: ignore ladder/alt props and highlight only standard lines.
+                try:
+                    include_ladders = str(os.environ.get('CARD_PROP_EDGES_INCLUDE_LADDERS', '0')).strip().lower() in {'1','true','yes','on'}
+                except Exception:
+                    include_ladders = False
+
+                for _, er in edf.iterrows():
+                    try:
+                        ht = er.get('home_team')
+                        at = er.get('away_team')
+                        if ht is None or at is None:
+                            continue
+                        ht_s = str(ht)
+                        at_s = str(at)
+
+                        over_ev = _as_float(er.get('over_ev'))
+                        under_ev = _as_float(er.get('under_ev'))
+
+                        # If only one side has EV populated, treat that as the evaluated side
+                        best_side = None
+                        best_ev = None
+                        if over_ev is not None and under_ev is not None:
+                            if over_ev >= under_ev:
+                                best_side, best_ev = 'Over', over_ev
+                            else:
+                                best_side, best_ev = 'Under', under_ev
+                        elif over_ev is not None:
+                            best_side, best_ev = 'Over', over_ev
+                        elif under_ev is not None:
+                            best_side, best_ev = 'Under', under_ev
+
+                        if best_ev is None or not (best_ev > 0):
+                            continue
+
+                        # Defensive: Bovada occasionally labels "Rushing + Receiving Yards" such that it matches
+                        # the generic "Receiving Yards" substring. If we detect an RB receiving-yards line that
+                        # is clearly in rush+rec territory, skip it to avoid showing nonsense on cards.
+                        try:
+                            pos0 = str(er.get('position') or '').strip().upper()
+                            mk0 = str(er.get('market_key') or '').strip().lower()
+                            mkt0 = str(er.get('market') or '').strip().lower()
+                            line0 = _as_float(er.get('line'))
+                            proj0 = _as_float(er.get('proj'))
+                            if pos0 == 'RB' and mk0 == 'rec_yards' and 'receiving' in mkt0 and 'rush' not in mkt0:
+                                if line0 is not None and proj0 is not None and line0 >= 40.0 and proj0 <= 25.0:
+                                    continue
+                        except Exception:
+                            pass
+
+                        is_ladder = er.get('is_ladder')
+                        try:
+                            is_ladder_bool = bool(is_ladder) if is_ladder is not None and not (isinstance(is_ladder, float) and pd.isna(is_ladder)) else False
+                        except Exception:
+                            is_ladder_bool = False
+
+                        if (not include_ladders) and is_ladder_bool:
+                            continue
+
+                        price = er.get('over_price') if best_side == 'Over' else er.get('under_price')
+
+                        proj_v = _as_float(er.get('proj'))
+                        line_v = _as_float(er.get('line'))
+                        edge_raw = _as_float(er.get('edge'))
+                        edge_side = None
+                        if edge_raw is not None:
+                            edge_side = float(edge_raw) if best_side == 'Over' else float(-edge_raw)
+
+                        implied_p = _implied_prob_from_american(price)
+                        prob_edge = None
+                        try:
+                            mk = str(er.get('market_key') or '').strip().lower()
+                            if mk in {'any_td', '2+ touchdowns', '2+td', '2plus_td'} and proj_v is not None and implied_p is not None:
+                                prob_edge = float(proj_v) - float(implied_p)
+                        except Exception:
+                            prob_edge = None
+
+                        out_row = {
+                            'player': er.get('player'),
+                            'team': er.get('team'),
+                            'position': er.get('position'),
+                            'market': er.get('market'),
+                            'market_key': er.get('market_key'),
+                            'line': line_v,
+                            'proj': proj_v,
+                            'edge': edge_raw,
+                            'edge_side': edge_side,
+                            'implied_prob': implied_p,
+                            'prob_edge': prob_edge,
+                            'side': best_side,
+                            'price': price,
+                            'ev_units': float(best_ev),
+                            'ev_pct': float(best_ev) * 100.0,
+                            'is_ladder': is_ladder_bool,
+                        }
+                        prop_edges_by_match.setdefault((ht_s, at_s), []).append(out_row)
+                    except Exception:
+                        continue
+
+                if top_n > 0:
+                    for k in list(prop_edges_by_match.keys()):
+                        # Prefer non-ladder edges when available.
+                        # Then sort by stat edge magnitude when available; fallback to TD prob edge; fallback to EV.
+                        def _score(d: Dict[str, Any]) -> float:
+                            try:
+                                if d.get('edge_side') is not None and pd.notna(d.get('edge_side')):
+                                    return abs(float(d.get('edge_side')))
+                            except Exception:
+                                pass
+                            try:
+                                if d.get('prob_edge') is not None and pd.notna(d.get('prob_edge')):
+                                    return abs(float(d.get('prob_edge')))
+                            except Exception:
+                                pass
+                            try:
+                                return abs(float(d.get('ev_units') or 0.0))
+                            except Exception:
+                                return 0.0
+
+                        prop_edges_by_match[k].sort(
+                            key=lambda d: (
+                                bool(d.get('is_ladder')),
+                                -_score(d),
+                            )
+                        )
+                        prop_edges_by_match[k] = prop_edges_by_match[k][:top_n]
+                else:
+                    prop_edges_by_match = {}
+        except Exception:
+            prop_edges_by_match = {}
         for _, r in view_df.iterrows():
             def g(key: str, *alts: str, default=None):
                 for k in (key, *alts):
@@ -5776,10 +7220,14 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             # Normalize model team scores
             ph = g("pred_home_points", "pred_home_score")
             pa = g("pred_away_points", "pred_away_score")
+            # Capture raw model values prior to any weather or market blend adjustments
+            ph_raw = ph
+            pa_raw = pa
             margin = None
             winner = None
             # Prefer calibrated total if present
             total_pred = g("pred_total_cal", "pred_total")
+            total_model_raw = total_pred
             # Weather-aware tweak for upcoming outdoor games: small downward adjustment for high precip/wind
             try:
                 # Only apply to non-final games with a model total
@@ -5796,6 +7244,7 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                     if roof_ctx is not None and not (isinstance(roof_ctx, float) and pd.isna(roof_ctx)):
                         srf = str(roof_ctx).strip().lower()
                         is_dome_like = srf in {"dome","indoor","closed","retractable-closed"}
+                    weather_adj_val = None
                     if not is_dome_like:
                         precip_ctx = g("wx_precip_pct", "precip_pct")
                         wind_ctx = g("wx_wind_mph", "wind_mph")
@@ -5813,6 +7262,7 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                                 adj += -0.10 * over
                         except Exception:
                             pass
+                        weather_adj_val = adj
                         try:
                             tp = float(total_pred)
                             total_pred = max(0.0, tp + adj)
@@ -5823,6 +7273,7 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             if ph is not None and pa is not None and pd.notna(ph) and pd.notna(pa):
                 try:
                     margin = float(ph) - float(pa)
+                    margin_raw = float(ph_raw) - float(pa_raw) if (ph_raw is not None and pa_raw is not None and pd.notna(ph_raw) and pd.notna(pa_raw)) else None
                     if margin > 0:
                         winner = g("home_team")
                     elif margin < 0:
@@ -5870,6 +7321,7 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                     bt = float(bt_raw) if bt_raw not in (None, "") else 0.0
                     bm = max(0.0, min(1.0, bm))
                     bt = max(0.0, min(1.0, bt))
+                    mmkt = None
                     # Blend only when we have both sides of the signal
                     if bm > 0.0 and (margin is not None) and (m_spread is not None) and pd.notna(m_spread):
                         try:
@@ -5907,6 +7359,62 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                     edge_spread = float(margin) + float(m_spread)
                 if total_pred is not None and m_total is not None and pd.notna(m_total):
                     edge_total = float(total_pred) - float(m_total)
+            except Exception:
+                pass
+
+            # Attach simulation means and probabilities (if available)
+            sim_margin = None
+            sim_total = None
+            prob_home_win_mc = None
+            prob_home_cover_mc = None
+            prob_over_total_mc = None
+            sim_home_pts = None
+            sim_away_pts = None
+            combo_margin = None
+            combo_total = None
+            combo_home_pts = None
+            combo_away_pts = None
+            try:
+                season_i = int(g('season')) if g('season') is not None and not (isinstance(g('season'), float) and pd.isna(g('season'))) else None
+                week_i = int(g('week')) if g('week') is not None and not (isinstance(g('week'), float) and pd.isna(g('week'))) else None
+                gid = g('game_id')
+                mc_probs = _get_mc_probs_for_game(season_i, week_i, gid) if '_get_mc_probs_for_game' in globals() else {}
+                prob_home_win_mc = mc_probs.get('prob_home_win_mc')
+                prob_home_cover_mc = mc_probs.get('prob_home_cover_mc')
+                prob_over_total_mc = mc_probs.get('prob_over_total_mc')
+                # Load mean margin/total from sim_probs.csv if present
+                df_mc = _load_sim_probs_df(season_i, week_i) if '_load_sim_probs_df' in globals() else None
+                if df_mc is not None and not df_mc.empty and gid is not None:
+                    try:
+                        row_mc = df_mc[df_mc['game_id'].astype(str) == str(gid)]
+                        if not row_mc.empty:
+                            rmc = row_mc.iloc[0]
+                            if pd.notna(rmc.get('pred_margin')):
+                                sim_margin = float(rmc.get('pred_margin'))
+                            if pd.notna(rmc.get('pred_total')):
+                                sim_total = float(rmc.get('pred_total'))
+                    except Exception:
+                        pass
+                # Derive simulation points if both means present
+                try:
+                    if sim_margin is not None and sim_total is not None:
+                        sim_home_pts = 0.5 * (float(sim_total) + float(sim_margin))
+                        sim_away_pts = float(sim_total) - float(sim_home_pts)
+                except Exception:
+                    sim_home_pts = None; sim_away_pts = None
+                # Combo view: simple average of raw model means and simulation means (if available)
+                try:
+                    m_raw = margin_raw if 'margin_raw' in locals() else None
+                    t_raw = total_model_raw
+                    if m_raw is not None and sim_margin is not None:
+                        combo_margin = 0.5 * (float(m_raw) + float(sim_margin))
+                    if t_raw is not None and sim_total is not None:
+                        combo_total = 0.5 * (float(t_raw) + float(sim_total))
+                    if combo_margin is not None and combo_total is not None:
+                        combo_home_pts = 0.5 * (float(combo_total) + float(combo_margin))
+                        combo_away_pts = float(combo_total) - float(combo_home_pts)
+                except Exception:
+                    combo_margin = combo_total = combo_home_pts = combo_away_pts = None
             except Exception:
                 pass
 
@@ -5953,6 +7461,8 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             away = g("away_team")
             a_home = assets.get(str(home), {}) if home else {}
             a_away = assets.get(str(away), {}) if away else {}
+            home_abbr = a_home.get('abbr') if isinstance(a_home, dict) else None
+            away_abbr = a_away.get('abbr') if isinstance(a_away, dict) else None
 
             def logo_url(asset: Dict[str, Any]) -> Optional[str]:
                 # If a custom logo provided, prefer it; else fallback to a generic placeholder
@@ -6144,11 +7654,15 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
             # Placeholder for weather delta if available in future
             weather_text = f"Weather: {' • '.join(wt_parts)}" if wt_parts else None
 
-            # Total diff (model vs actual) if both present
+            # Total diff (displayed total vs actual) if both present.
+            # Prefer simulation total when available, else fall back to model/blended total.
             total_diff = None
             try:
-                if total_pred is not None and actual_total is not None:
-                    total_diff = abs(float(total_pred) - float(actual_total))
+                if actual_total is not None:
+                    if sim_total is not None:
+                        total_diff = abs(float(sim_total) - float(actual_total))
+                    elif total_pred is not None:
+                        total_diff = abs(float(total_pred) - float(actual_total))
             except Exception:
                 total_diff = None
 
@@ -6225,6 +7739,53 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 "display_total": m_total,
                 "pred_margin": margin,
                 "pred_winner": winner,
+                # Explain block: model vs market vs blend context
+                "explain": {
+                    "model": {
+                        "home_points": ph_raw,
+                        "away_points": pa_raw,
+                        "margin": margin_raw if 'margin_raw' in locals() else None,
+                        "total": total_model_raw
+                    },
+                    "market": {
+                        "spread_home": m_spread,
+                        "total": m_total,
+                        "implied_home_margin": mmkt if 'mmkt' in locals() else None
+                    },
+                    "blend": {
+                        "alpha_margin": bm if 'bm' in locals() else None,
+                        "beta_total": bt if 'bt' in locals() else None,
+                        "apply_points": apply_pts if 'apply_pts' in locals() else None,
+                        "margin_final": margin,
+                        "total_final": total_pred,
+                        "home_points_final": ph,
+                        "away_points_final": pa
+                    },
+                    "simulation": {
+                        "home_points": sim_home_pts,
+                        "away_points": sim_away_pts,
+                        "margin": sim_margin,
+                        "total": sim_total,
+                        "prob_home_win_mc": prob_home_win_mc,
+                        "prob_home_cover_mc": prob_home_cover_mc,
+                        "prob_over_total_mc": prob_over_total_mc
+                    },
+                    "combo": {
+                        "home_points": combo_home_pts,
+                        "away_points": combo_away_pts,
+                        "margin": combo_margin,
+                        "total": combo_total
+                    },
+                    "features": {
+                        "off_ppg_diff": g("off_ppg_diff"),
+                        "def_ppg_diff": g("def_ppg_diff"),
+                        "net_margin_diff": g("net_margin_diff"),
+                        "rest_days_diff": g("rest_days_diff"),
+                        "def_pressure_avg_ema": g("def_pressure_avg_ema"),
+                        "inj_starters_out_diff": g("inj_starters_out_diff"),
+                        "weather_adjustment_total": weather_adj_val if 'weather_adj_val' in locals() else None
+                    }
+                },
                 # Confidence (overall per-game)
                 "game_confidence": g("game_confidence"),
                 "edge_spread": edge_spread,
@@ -6244,6 +7805,8 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 "away_color2": a_away.get("secondary"),
                 "home_logo": logo_url(a_home),
                 "away_logo": logo_url(a_away),
+                "home_abbr": home_abbr,
+                "away_abbr": away_abbr,
                 # Periods
                 "quarters": quarters,
                 "half1_total": half1,
@@ -6299,6 +7862,778 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
 
             # Compute recommendations and attach to last card
             c = cards[-1]
+
+            # --- Simulation-first additions (recs + quarter flow + prop edges + recap) ---
+            # Attach top prop edges for this matchup
+            try:
+                c['top_prop_edges'] = prop_edges_by_match.get((str(home), str(away)), [])
+            except Exception:
+                c['top_prop_edges'] = []
+
+            # Heuristic quarter-by-quarter flow using simulation mean points
+            try:
+                sim_quarters = None
+                # Prefer MC-derived per-quarter means if available (sim_quarters.csv)
+                try:
+                    ssw = None
+                    try:
+                        ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
+                    except Exception:
+                        ssw = None
+                    qdf = sim_q_df_by_sw.get(ssw) if ssw else None
+                    gid = str(c.get('game_id')) if c.get('game_id') is not None else None
+                    if qdf is not None and not qdf.empty and gid and 'game_id' in qdf.columns:
+                        qr = qdf[qdf['game_id'].astype(str) == gid]
+                        if not qr.empty:
+                            r0 = qr.iloc[0]
+                            sim_quarters = [
+                                {'label': 'Q1', 'home': float(r0.get('home_q1')) if pd.notna(r0.get('home_q1')) else None, 'away': float(r0.get('away_q1')) if pd.notna(r0.get('away_q1')) else None},
+                                {'label': 'Q2', 'home': float(r0.get('home_q2')) if pd.notna(r0.get('home_q2')) else None, 'away': float(r0.get('away_q2')) if pd.notna(r0.get('away_q2')) else None},
+                                {'label': 'Q3', 'home': float(r0.get('home_q3')) if pd.notna(r0.get('home_q3')) else None, 'away': float(r0.get('away_q3')) if pd.notna(r0.get('away_q3')) else None},
+                                {'label': 'Q4', 'home': float(r0.get('home_q4')) if pd.notna(r0.get('home_q4')) else None, 'away': float(r0.get('away_q4')) if pd.notna(r0.get('away_q4')) else None},
+                            ]
+                except Exception:
+                    sim_quarters = None
+
+                # Fallback to heuristic scaling if no MC quarter artifact
+                if not sim_quarters:
+                    sim_quarters = _derive_sim_quarters(sim_home_pts, sim_away_pts, quarters)
+                    flow_prefix = 'Sim Qs (heuristic): '
+                else:
+                    flow_prefix = 'Sim Qs: '
+
+                c['sim_quarters'] = sim_quarters
+                if sim_quarters:
+                    parts = []
+                    for qq in sim_quarters:
+                        try:
+                            if qq.get('home') is None or qq.get('away') is None:
+                                continue
+                            parts.append(f"{qq.get('label')} {float(qq.get('away')):.1f}-{float(qq.get('home')):.1f}")
+                        except Exception:
+                            continue
+                    c['sim_flow_text'] = (flow_prefix + " | ".join(parts)) if parts else None
+                else:
+                    c['sim_flow_text'] = None
+            except Exception:
+                c['sim_quarters'] = None
+                c['sim_flow_text'] = None
+
+            # Drive-level timeline (optional sim_drives.csv)
+            try:
+                sim_drives = None
+                sim_drive_recap = None
+                sim_key_drives = None
+                try:
+                    ssw = None
+                    try:
+                        ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
+                    except Exception:
+                        ssw = None
+                    ddf = sim_d_df_by_sw.get(ssw) if ssw else None
+                    gid = str(c.get('game_id')) if c.get('game_id') is not None else None
+                    if ddf is not None and not ddf.empty and gid and 'game_id' in ddf.columns:
+                        sub = ddf[ddf['game_id'].astype(str) == gid].copy()
+                        if not sub.empty:
+                            if 'drive_no' in sub.columns:
+                                try:
+                                    sub['drive_no'] = pd.to_numeric(sub['drive_no'], errors='coerce')
+                                except Exception:
+                                    pass
+                                try:
+                                    sub = sub.sort_values(['drive_no'])
+                                except Exception:
+                                    pass
+
+                            def _f(v: Any) -> Optional[float]:
+                                try:
+                                    if v is None or (isinstance(v, float) and pd.isna(v)) or pd.isna(v):
+                                        return None
+                                    return float(v)
+                                except Exception:
+                                    return None
+
+                            sim_drives = []
+                            for _, dr in sub.iterrows():
+                                try:
+                                    sim_drives.append({
+                                        'drive_no': int(_f(dr.get('drive_no')) or 0),
+                                        'quarter': int(_f(dr.get('quarter')) or 0),
+                                        'poss_team': (str(dr.get('poss_team')) if dr.get('poss_team') is not None and not pd.isna(dr.get('poss_team')) else None),
+                                        'drive_sec_mean': _f(dr.get('drive_sec_mean')),
+                                        'drive_sec_p25': _f(dr.get('drive_sec_p25')),
+                                        'drive_sec_p75': _f(dr.get('drive_sec_p75')),
+                                        'drive_outcome_mode': (str(dr.get('drive_outcome_mode')) if dr.get('drive_outcome_mode') is not None and not pd.isna(dr.get('drive_outcome_mode')) else None),
+                                        'p_drive_score': _f(dr.get('p_drive_score')),
+                                        'p_drive_td': _f(dr.get('p_drive_td')),
+                                        'p_drive_fg': _f(dr.get('p_drive_fg')),
+                                        'p_drive_punt': _f(dr.get('p_drive_punt')),
+                                        'p_drive_int': _f(dr.get('p_drive_int')),
+                                        'p_drive_fumble': _f(dr.get('p_drive_fumble')),
+                                        'p_drive_downs': _f(dr.get('p_drive_downs')),
+                                        'p_drive_missed_fg': _f(dr.get('p_drive_missed_fg')),
+                                        'p_drive_end_half': _f(dr.get('p_drive_end_half')),
+                                        'home_score_mean': _f(dr.get('home_score_mean')),
+                                        'away_score_mean': _f(dr.get('away_score_mean')),
+                                        'home_score_drive_mean': _f(dr.get('home_score_drive_mean')),
+                                        'away_score_drive_mean': _f(dr.get('away_score_drive_mean')),
+                                        'p_home_lead': _f(dr.get('p_home_lead')),
+                                        'p_tie': _f(dr.get('p_tie')),
+                                        'p_away_lead': _f(dr.get('p_away_lead')),
+                                        'drives_total': int(_f(dr.get('drives_total')) or 0),
+                                    })
+                                except Exception:
+                                    continue
+                except Exception:
+                    sim_drives = None
+
+                # Keep cards light: cap at 40 rows (still scrollable in UI if desired)
+                if sim_drives and len(sim_drives) > 40:
+                    sim_drives = sim_drives[:40]
+                c['sim_drives'] = sim_drives
+
+                # Annotate drives with a compact "why it mattered" explanation
+                try:
+                    if sim_drives and home and away:
+                        dlist = [d for d in sim_drives if isinstance(d, dict)]
+                        prev_p: Optional[float] = None
+                        prev_h: Optional[float] = None
+                        prev_a: Optional[float] = None
+                        saw_points = False
+
+                        def _as_f(x: Any) -> Optional[float]:
+                            try:
+                                if x is None or pd.isna(x):
+                                    return None
+                                return float(x)
+                            except Exception:
+                                return None
+
+                        for dd in dlist:
+                            try:
+                                p = _as_f(dd.get('p_home_lead'))
+                                dp = (p - prev_p) if (p is not None and prev_p is not None) else None
+                                if p is not None:
+                                    prev_p = p
+                                dd['p_home_lead_delta'] = dp
+
+                                # Expected points on the drive (best-effort)
+                                h_drive = _as_f(dd.get('home_score_drive_mean'))
+                                a_drive = _as_f(dd.get('away_score_drive_mean'))
+                                h_tot = _as_f(dd.get('home_score_mean'))
+                                a_tot = _as_f(dd.get('away_score_mean'))
+                                if h_drive is None and h_tot is not None and prev_h is not None:
+                                    h_drive = h_tot - prev_h
+                                if a_drive is None and a_tot is not None and prev_a is not None:
+                                    a_drive = a_tot - prev_a
+                                if h_tot is not None:
+                                    prev_h = h_tot
+                                if a_tot is not None:
+                                    prev_a = a_tot
+
+                                poss = dd.get('poss_team')
+                                ep_poss: Optional[float] = None
+                                if poss is not None:
+                                    ps = str(poss).upper().strip()
+                                    if str(home).upper().strip() == ps:
+                                        ep_poss = h_drive
+                                    elif str(away).upper().strip() == ps:
+                                        ep_poss = a_drive
+
+                                outcome = str(dd.get('drive_outcome_mode') or '').strip()
+
+                                why_parts: List[str] = []
+                                if outcome in {'TD', 'FG'}:
+                                    if not saw_points:
+                                        why_parts.append('First points')
+                                    why_parts.append(f"{outcome} drive")
+                                    saw_points = True
+                                elif outcome in {'INT', 'Fumble', 'Downs'}:
+                                    why_parts.append(f"{outcome} turnover")
+                                elif outcome in {'Missed FG'}:
+                                    why_parts.append('Missed FG')
+                                elif outcome in {'End Half'}:
+                                    why_parts.append('End-half possession')
+
+                                if ep_poss is not None and pd.notna(ep_poss):
+                                    if abs(ep_poss) >= 0.25:
+                                        why_parts.append(f"{ep_poss:+.1f} exp pts")
+
+                                if dp is not None and pd.notna(dp):
+                                    if abs(dp) >= 0.10:
+                                        why_parts.append(f"{dp*100:+.0f}pp P(Home lead)")
+                                dd['why'] = " • ".join([w for w in why_parts if w]) if why_parts else None
+                            except Exception:
+                                dd['why'] = dd.get('why')
+                except Exception:
+                    pass
+
+                # Build a smaller "key drives" list for recap display (scoring drives + big swing)
+                try:
+                    sim_key_drives = None
+                    if sim_drives:
+                        dlist = [d for d in sim_drives if isinstance(d, dict)]
+                        # Biggest swing in P(Home lead)
+                        swing_drive = None
+                        swing_dp = None
+                        prev_p = None
+                        for dd in dlist:
+                            try:
+                                p = dd.get('p_home_lead')
+                                if p is None or pd.isna(p):
+                                    continue
+                                p = float(p)
+                                if prev_p is not None:
+                                    dp = p - prev_p
+                                    if swing_dp is None or abs(dp) > abs(swing_dp):
+                                        swing_dp = dp
+                                        swing_drive = dd
+                                prev_p = p
+                            except Exception:
+                                continue
+
+                        scoring = [dd for dd in dlist if str(dd.get('drive_outcome_mode') or '').strip() in {'TD','FG'}]
+                        key: List[Dict[str, Any]] = []
+                        if swing_drive is not None:
+                            key.append(swing_drive)
+                        # include up to first 5 scoring drives
+                        for dd in scoring[:5]:
+                            key.append(dd)
+                        # include final drive with score means
+                        for dd in reversed(dlist):
+                            if dd.get('home_score_mean') is not None and dd.get('away_score_mean') is not None:
+                                key.append(dd)
+                                break
+                        # de-dupe by drive_no
+                        seen_dn: set[int] = set()
+                        outk: List[Dict[str, Any]] = []
+                        for dd in key:
+                            try:
+                                dn = int(dd.get('drive_no') or 0)
+                            except Exception:
+                                dn = 0
+                            if dn <= 0:
+                                continue
+                            if dn in seen_dn:
+                                continue
+                            seen_dn.add(dn)
+                            outk.append(dd)
+                        # If still empty, show the first few drives
+                        if not outk:
+                            outk = dlist[:8]
+                        sim_key_drives = outk[:12]
+                except Exception:
+                    sim_key_drives = None
+                c['sim_key_drives'] = sim_key_drives
+
+                # Derive a compact "key moments" recap from the drive timeline
+                try:
+                    if sim_drives:
+                        dlist = [d for d in sim_drives if isinstance(d, dict)]
+
+                        def _last_where(pred):
+                            for dd in reversed(dlist):
+                                try:
+                                    if pred(dd):
+                                        return dd
+                                except Exception:
+                                    continue
+                            return None
+
+                        def _score_str(dd: Dict[str, Any]) -> Optional[str]:
+                            try:
+                                ah = dd.get('away_score_mean')
+                                hh = dd.get('home_score_mean')
+                                if ah is None or hh is None or pd.isna(ah) or pd.isna(hh):
+                                    return None
+                                return f"{away} {float(ah):.1f}–{home} {float(hh):.1f}"
+                            except Exception:
+                                return None
+
+                        end_q1 = _last_where(lambda dd: int(dd.get('quarter') or 0) == 1)
+                        halftime = _last_where(lambda dd: int(dd.get('quarter') or 0) <= 2 and int(dd.get('quarter') or 0) > 0)
+                        end_q3 = _last_where(lambda dd: int(dd.get('quarter') or 0) <= 3 and int(dd.get('quarter') or 0) > 0)
+                        final_d = _last_where(lambda dd: (dd.get('away_score_mean') is not None) and (dd.get('home_score_mean') is not None))
+
+                        # Biggest swing in P(Home lead)
+                        swing_drive = None
+                        swing_pp = None
+                        prev_p = None
+                        for dd in dlist:
+                            try:
+                                p = dd.get('p_home_lead')
+                                if p is None or pd.isna(p):
+                                    continue
+                                p = float(p)
+                                if prev_p is not None:
+                                    dp = p - prev_p
+                                    if swing_pp is None or abs(dp) > abs(swing_pp):
+                                        swing_pp = dp
+                                        swing_drive = dd
+                                prev_p = p
+                            except Exception:
+                                continue
+
+                        parts: List[str] = []
+                        s1 = _score_str(end_q1) if end_q1 else None
+                        if s1:
+                            parts.append(f"Q1 {s1}")
+                        sh = _score_str(halftime) if halftime else None
+                        if sh:
+                            parts.append(f"HT {sh}")
+                        s3 = _score_str(end_q3) if end_q3 else None
+                        if s3:
+                            parts.append(f"Q3 {s3}")
+                        sf = _score_str(final_d) if final_d else None
+                        if sf:
+                            parts.append(f"Final {sf}")
+
+                        swing_txt = None
+                        if swing_drive is not None and swing_pp is not None and pd.notna(swing_pp):
+                            try:
+                                dn = int(float(swing_drive.get('drive_no') or 0))
+                            except Exception:
+                                dn = 0
+                            swing_txt = f"Big swing D{dn} ({swing_pp*100:+.0f}pp P(Home lead))" if dn > 0 else f"Big swing ({swing_pp*100:+.0f}pp P(Home lead))"
+
+                        # Keep recap short: show Q1/HT plus swing plus Final when available
+                        key_parts: List[str] = []
+                        for lab in ("Q1", "HT"):
+                            for ptxt in parts:
+                                if ptxt.startswith(lab + " "):
+                                    key_parts.append(ptxt)
+                                    break
+                        if swing_txt:
+                            key_parts.append(swing_txt)
+                        if sf:
+                            key_parts.append(f"Final {sf}")
+                        # De-dupe while preserving order
+                        seen = set()
+                        key_parts = [x for x in key_parts if not (x in seen or seen.add(x))]
+                        sim_drive_recap = " • ".join(key_parts[:4]) if key_parts else None
+                except Exception:
+                    sim_drive_recap = None
+
+                c['sim_drive_recap'] = sim_drive_recap
+            except Exception:
+                c['sim_drives'] = None
+                c['sim_key_drives'] = None
+                c['sim_drive_recap'] = None
+
+            # Sim-based recommendations: compute EV directly from MC probabilities + market prices
+            c['sim_rec_winner_side'] = None
+            c['sim_rec_winner_ev'] = None
+            c['sim_rec_winner_conf'] = None
+            c['sim_rec_spread_side'] = None
+            c['sim_rec_spread_ev'] = None
+            c['sim_rec_spread_conf'] = None
+            c['sim_rec_total_side'] = None
+            c['sim_rec_total_ev'] = None
+            c['sim_rec_total_conf'] = None
+            try:
+                # Moneyline
+                if prob_home_win_mc is not None and home and away:
+                    p_h = float(prob_home_win_mc)
+                    ml_h = g('moneyline_home')
+                    ml_a = g('moneyline_away')
+                    dec_h = _american_to_decimal(ml_h) if ml_h is not None and not pd.isna(ml_h) else None
+                    dec_a = _american_to_decimal(ml_a) if ml_a is not None and not pd.isna(ml_a) else None
+                    ev_h = _ev_from_prob_and_decimal(p_h, dec_h) if dec_h is not None else None
+                    ev_a = _ev_from_prob_and_decimal(1.0 - p_h, dec_a) if dec_a is not None else None
+                    # Choose by EV when possible, else by probability
+                    if ev_h is not None or ev_a is not None:
+                        cand = [(home, ev_h), (away, ev_a)]
+                        cand = [(s, e) for s, e in cand if e is not None]
+                        if cand:
+                            s, e = max(cand, key=lambda t: t[1])
+                            c['sim_rec_winner_side'] = s
+                            c['sim_rec_winner_ev'] = e
+                            c['sim_rec_winner_conf'] = _conf_from_ev(e) if e is not None else None
+                    else:
+                        c['sim_rec_winner_side'] = home if p_h >= 0.5 else away
+
+                # Spread
+                if prob_home_cover_mc is not None and home and away:
+                    p_hc = float(prob_home_cover_mc)
+                    sh_price = g('spread_home_price')
+                    sa_price = g('spread_away_price')
+                    dec_sh = _american_to_decimal(sh_price) if sh_price is not None and not pd.isna(sh_price) else (1.0 + 100.0/110.0)
+                    dec_sa = _american_to_decimal(sa_price) if sa_price is not None and not pd.isna(sa_price) else (1.0 + 100.0/110.0)
+                    ev_sh = _ev_from_prob_and_decimal(p_hc, dec_sh)
+                    ev_sa = _ev_from_prob_and_decimal(1.0 - p_hc, dec_sa)
+                    s, e = max([(home, ev_sh), (away, ev_sa)], key=lambda t: t[1])
+                    c['sim_rec_spread_side'] = s
+                    c['sim_rec_spread_ev'] = e
+                    c['sim_rec_spread_conf'] = _conf_from_ev(e) if e is not None else None
+
+                # Total
+                if prob_over_total_mc is not None:
+                    p_over = float(prob_over_total_mc)
+                    to_price = g('total_over_price')
+                    tu_price = g('total_under_price')
+                    dec_o = _american_to_decimal(to_price) if to_price is not None and not pd.isna(to_price) else (1.0 + 100.0/110.0)
+                    dec_u = _american_to_decimal(tu_price) if tu_price is not None and not pd.isna(tu_price) else (1.0 + 100.0/110.0)
+                    ev_o = _ev_from_prob_and_decimal(p_over, dec_o)
+                    ev_u = _ev_from_prob_and_decimal(1.0 - p_over, dec_u)
+                    s, e = max([('Over', ev_o), ('Under', ev_u)], key=lambda t: t[1])
+                    c['sim_rec_total_side'] = s
+                    c['sim_rec_total_ev'] = e
+                    c['sim_rec_total_conf'] = _conf_from_ev(e) if e is not None else None
+            except Exception:
+                pass
+
+            # Narrative recap (short, simulation-forward)
+            try:
+                recap_parts: List[str] = []
+                if sim_margin is not None and sim_total is not None and home and away:
+                    if float(sim_margin) > 0:
+                        sim_w = home
+                    elif float(sim_margin) < 0:
+                        sim_w = away
+                    else:
+                        sim_w = 'Tie'
+                    recap_parts.append(f"Sim: {sim_w} by {abs(float(sim_margin)):.1f}, total {float(sim_total):.1f}.")
+                # MC probabilities (best-effort)
+                pbits = []
+                if prob_home_win_mc is not None:
+                    try:
+                        pbits.append(f"ML(H) {float(prob_home_win_mc)*100:.0f}%")
+                    except Exception:
+                        pass
+                if prob_home_cover_mc is not None:
+                    try:
+                        pbits.append(f"ATS(H) {float(prob_home_cover_mc)*100:.0f}%")
+                    except Exception:
+                        pass
+                if prob_over_total_mc is not None:
+                    try:
+                        pbits.append(f"Over {float(prob_over_total_mc)*100:.0f}%")
+                    except Exception:
+                        pass
+                if pbits:
+                    recap_parts.append("MC: " + " | ".join(pbits) + ".")
+
+                # Top prop edges teaser
+                try:
+                    tp = c.get('top_prop_edges') or []
+                    if tp:
+                        top2 = tp[:2]
+                        tparts = []
+                        for rr in top2:
+                            try:
+                                pl = rr.get('player')
+                                mk = rr.get('market') or rr.get('market_key')
+                                side = rr.get('side')
+                                linev = rr.get('line')
+                                evp = rr.get('ev_pct')
+                                if pl and mk and side and linev is not None and evp is not None:
+                                    tparts.append(f"{pl} {side} {mk} {float(linev):.1f} ({float(evp):.1f}% EV)")
+                            except Exception:
+                                continue
+                        if tparts:
+                            recap_parts.append("Props: " + "; ".join(tparts) + ".")
+                except Exception:
+                    pass
+
+                c['sim_recap'] = " ".join([p for p in recap_parts if p]) if recap_parts else None
+            except Exception:
+                c['sim_recap'] = None
+
+            # Game story (1–2 paragraphs) + simulated boxscore + sim-based top props
+            try:
+                # Simulated boxscore: pick leaders from player_props cache when available
+                sim_box = None
+                sim_top_props = None
+                try:
+                    ssw = None
+                    try:
+                        ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
+                    except Exception:
+                        ssw = None
+                    gid = str(c.get('game_id')) if c.get('game_id') is not None else None
+                    pdf = props_by_gid_by_sw.get(ssw, {}).get(gid) if (ssw and gid) else None
+                    if pdf is not None and not pdf.empty and 'team' in pdf.columns:
+                        def _t(df: pd.DataFrame, team_code: str) -> pd.DataFrame:
+                            try:
+                                return df[df['team'].astype(str).str.upper() == str(team_code).upper()].copy()
+                            except Exception:
+                                return df.iloc[0:0].copy()
+
+                        def _pick_row(df: pd.DataFrame, where_mask: Any, sort_cols: List[str]) -> Optional[pd.Series]:
+                            try:
+                                subx = df[where_mask].copy()
+                                if subx is None or subx.empty:
+                                    return None
+                                for ccol in sort_cols:
+                                    if ccol in subx.columns:
+                                        subx[ccol] = pd.to_numeric(subx[ccol], errors='coerce')
+                                have = [c for c in sort_cols if c in subx.columns]
+                                if have:
+                                    subx = subx.sort_values(have, ascending=[False] * len(have))
+                                return subx.iloc[0]
+                            except Exception:
+                                return None
+
+                        def _fmt_qb(r: Optional[pd.Series]) -> Optional[Dict[str, Any]]:
+                            if r is None:
+                                return None
+                            try:
+                                return {
+                                    'player': r.get('player'),
+                                    'pass_yards': r.get('pass_yards'),
+                                    'pass_tds': r.get('pass_tds'),
+                                    'interceptions': r.get('interceptions'),
+                                }
+                            except Exception:
+                                return None
+
+                        def _fmt_skill(r: Optional[pd.Series], kind: str) -> Optional[Dict[str, Any]]:
+                            if r is None:
+                                return None
+                            try:
+                                outx = {'player': r.get('player'), 'position': r.get('position')}
+                                if kind == 'rush':
+                                    outx.update({'rush_yards': r.get('rush_yards'), 'rush_attempts': r.get('rush_attempts'), 'rush_tds': r.get('rush_tds')})
+                                elif kind == 'rec':
+                                    outx.update({'rec_yards': r.get('rec_yards'), 'receptions': r.get('receptions'), 'rec_tds': r.get('rec_tds')})
+                                return outx
+                            except Exception:
+                                return None
+
+                        def _fmt_passer(r: Optional[pd.Series]) -> Optional[Dict[str, Any]]:
+                            if r is None:
+                                return None
+                            try:
+                                return {
+                                    'player': r.get('player'),
+                                    'position': r.get('position'),
+                                    'completions': r.get('completions'),
+                                    'pass_attempts': r.get('pass_attempts'),
+                                    'pass_yards': r.get('pass_yards'),
+                                    'pass_tds': r.get('pass_tds'),
+                                    'interceptions': r.get('interceptions'),
+                                }
+                            except Exception:
+                                return None
+
+                        def _build_ranked_box(tdf: pd.DataFrame) -> Dict[str, Any]:
+                            """Return ranked passers/rushers/receivers for one team.
+
+                            Uses soft thresholds so we include everyone who plausibly impacted the game,
+                            while keeping the list bounded for UI readability.
+                            """
+                            try:
+                                out_team: Dict[str, Any] = {
+                                    'passers': [],
+                                    'rushers': [],
+                                    'receivers': [],
+                                }
+                                if tdf is None or tdf.empty:
+                                    return out_team
+
+                                dfx = tdf.copy()
+                                # Drop unnamed players early
+                                try:
+                                    if 'player' in dfx.columns:
+                                        dfx = dfx[dfx['player'].notna() & (dfx['player'].astype(str).str.strip() != '')].copy()
+                                except Exception:
+                                    pass
+
+                                # Coerce likely numeric columns
+                                for ccol in [
+                                    'pass_yards','pass_tds','interceptions','pass_attempts','completions',
+                                    'rush_yards','rush_attempts','rush_tds',
+                                    'rec_yards','receptions','rec_tds','targets',
+                                    'any_td_prob'
+                                ]:
+                                    if ccol in dfx.columns:
+                                        dfx[ccol] = pd.to_numeric(dfx[ccol], errors='coerce')
+
+                                def _nonzero_row(df: pd.DataFrame, cols: List[str]) -> pd.Series:
+                                    """True if any of the given stat cols is non-zero (or non-null for floats)."""
+                                    try:
+                                        if df is None or df.empty:
+                                            return pd.Series(False, index=df.index)
+                                        have = [c for c in cols if c in df.columns]
+                                        if not have:
+                                            return pd.Series(True, index=df.index)
+                                        m = pd.Series(False, index=df.index)
+                                        for c in have:
+                                            s = pd.to_numeric(df[c], errors='coerce').fillna(0)
+                                            m = m | (s.abs() > 0)
+                                        return m
+                                    except Exception:
+                                        return pd.Series(True, index=df.index)
+
+                                pos = dfx.get('position', pd.Series('', index=dfx.index)).astype(str).str.upper() if 'position' in dfx.columns else pd.Series('', index=dfx.index)
+
+                                # PASS
+                                qb = dfx[pos.eq('QB')].copy()
+                                if qb is None or qb.empty:
+                                    qb = dfx[dfx.get('pass_yards', pd.Series(np.nan, index=dfx.index)).fillna(0) > 0].copy()
+                                # Remove all-zero passing lines
+                                try:
+                                    qb = qb[_nonzero_row(qb, ['pass_attempts','pass_yards','pass_tds','interceptions'])].copy()
+                                except Exception:
+                                    pass
+                                if qb is not None and not qb.empty:
+                                    mask = pd.Series(True, index=qb.index)
+                                    try:
+                                        mask = (
+                                            (qb.get('pass_attempts', pd.Series(np.nan, index=qb.index)).fillna(0) >= 10) |
+                                            (qb.get('pass_yards', pd.Series(np.nan, index=qb.index)).fillna(0) >= 80) |
+                                            (qb.get('pass_tds', pd.Series(np.nan, index=qb.index)).fillna(0) >= 0.5) |
+                                            (qb.get('interceptions', pd.Series(np.nan, index=qb.index)).fillna(0) >= 0.5)
+                                        )
+                                    except Exception:
+                                        mask = pd.Series(True, index=qb.index)
+                                    qsub = qb[mask].copy()
+                                    if qsub.empty:
+                                        qsub = qb.copy()
+                                    sort_cols = [c for c in ['pass_yards','pass_tds','pass_attempts','any_td_prob'] if c in qsub.columns]
+                                    if sort_cols:
+                                        qsub = qsub.sort_values(sort_cols, ascending=[False] * len(sort_cols))
+                                    qsub = qsub.head(3)
+                                    out_team['passers'] = [x for x in [_fmt_passer(r) for _, r in qsub.iterrows()] if x and x.get('player')]
+
+                                # RUSH
+                                rsub = dfx[pos.isin(['RB','QB','WR','TE'])].copy()
+                                if rsub is not None and not rsub.empty:
+                                    try:
+                                        rsub = rsub[_nonzero_row(rsub, ['rush_attempts','rush_yards','rush_tds'])].copy()
+                                    except Exception:
+                                        pass
+                                    try:
+                                        mask = (
+                                            (rsub.get('rush_attempts', pd.Series(np.nan, index=rsub.index)).fillna(0) >= 4) |
+                                            (rsub.get('rush_yards', pd.Series(np.nan, index=rsub.index)).fillna(0) >= 18) |
+                                            (rsub.get('rush_tds', pd.Series(np.nan, index=rsub.index)).fillna(0) >= 0.25) |
+                                            (rsub.get('any_td_prob', pd.Series(np.nan, index=rsub.index)).fillna(0) >= 0.30)
+                                        )
+                                    except Exception:
+                                        mask = pd.Series(True, index=rsub.index)
+                                    rr = rsub[mask].copy()
+                                    if rr.empty:
+                                        rr = rsub.copy()
+                                    sort_cols = [c for c in ['rush_yards','rush_attempts','rush_tds','any_td_prob'] if c in rr.columns]
+                                    if sort_cols:
+                                        rr = rr.sort_values(sort_cols, ascending=[False] * len(sort_cols))
+                                    rr = rr.head(7)
+                                    out_team['rushers'] = [x for x in [_fmt_skill(r, 'rush') for _, r in rr.iterrows()] if x and x.get('player')]
+
+                                # REC
+                                csub = dfx[pos.isin(['WR','TE','RB'])].copy()
+                                if csub is not None and not csub.empty:
+                                    try:
+                                        csub = csub[_nonzero_row(csub, ['targets','receptions','rec_yards','rec_tds'])].copy()
+                                    except Exception:
+                                        pass
+                                    try:
+                                        mask = (
+                                            (csub.get('targets', pd.Series(np.nan, index=csub.index)).fillna(0) >= 4) |
+                                            (csub.get('receptions', pd.Series(np.nan, index=csub.index)).fillna(0) >= 3) |
+                                            (csub.get('rec_yards', pd.Series(np.nan, index=csub.index)).fillna(0) >= 28) |
+                                            (csub.get('rec_tds', pd.Series(np.nan, index=csub.index)).fillna(0) >= 0.25) |
+                                            (csub.get('any_td_prob', pd.Series(np.nan, index=csub.index)).fillna(0) >= 0.30)
+                                        )
+                                    except Exception:
+                                        mask = pd.Series(True, index=csub.index)
+                                    cr = csub[mask].copy()
+                                    if cr.empty:
+                                        cr = csub.copy()
+                                    sort_cols = [c for c in ['rec_yards','receptions','rec_tds','targets','any_td_prob'] if c in cr.columns]
+                                    if sort_cols:
+                                        cr = cr.sort_values(sort_cols, ascending=[False] * len(sort_cols))
+                                    cr = cr.head(9)
+                                    out_team['receivers'] = [x for x in [_fmt_skill(r, 'rec') for _, r in cr.iterrows()] if x and x.get('player')]
+                                return out_team
+                            except Exception:
+                                return {'passers': [], 'rushers': [], 'receivers': []}
+
+                        sim_box = {'home': None, 'away': None}
+                        for side, tm in [('away', away), ('home', home)]:
+                            tdf = _t(pdf, tm)
+                            if tdf is None or tdf.empty:
+                                continue
+                            pos = tdf.get('position', pd.Series('', index=tdf.index)).astype(str).str.upper() if 'position' in tdf.columns else pd.Series('', index=tdf.index)
+                            qb_row = _pick_row(tdf, pos.eq('QB'), ['pass_yards','pass_tds','any_td_prob'])
+                            rush_row = _pick_row(tdf, pos.isin(['RB','QB','WR','TE']), ['rush_yards','rush_attempts','any_td_prob'])
+                            rec_row = _pick_row(tdf, pos.isin(['WR','TE','RB']), ['rec_yards','receptions','any_td_prob'])
+                            ranked = _build_ranked_box(tdf)
+                            sim_box[side] = {
+                                'team': tm,
+                                'qb': _fmt_qb(qb_row),
+                                'rush': _fmt_skill(rush_row, 'rush'),
+                                'rec': _fmt_skill(rec_row, 'rec'),
+                                'passers': ranked.get('passers') if isinstance(ranked, dict) else [],
+                                'rushers': ranked.get('rushers') if isinstance(ranked, dict) else [],
+                                'receivers': ranked.get('receivers') if isinstance(ranked, dict) else [],
+                            }
+
+                        # Sim-based "top props": any-time TD probability leaders
+                        try:
+                            sim_top_props = []
+                            dfp = pdf.copy()
+                            if 'any_td_prob' in dfp.columns:
+                                dfp['any_td_prob'] = pd.to_numeric(dfp['any_td_prob'], errors='coerce')
+                                top_td = dfp.dropna(subset=['any_td_prob']).sort_values('any_td_prob', ascending=False).head(6)
+                                for _, rr in top_td.iterrows():
+                                    sim_top_props.append({
+                                        'player': rr.get('player'),
+                                        'team': rr.get('team'),
+                                        'position': rr.get('position'),
+                                        'any_td_prob': float(rr.get('any_td_prob')) if pd.notna(rr.get('any_td_prob')) else None,
+                                        'rush_yards': rr.get('rush_yards'),
+                                        'rec_yards': rr.get('rec_yards'),
+                                    })
+                        except Exception:
+                            sim_top_props = None
+                except Exception:
+                    sim_box = None
+                    sim_top_props = None
+
+                c['sim_boxscore'] = sim_box
+                c['sim_top_props'] = sim_top_props
+
+                # Attach defense boxscore line derived from simulated drives
+                try:
+                    sim_def = _defense_from_sim_drives(c.get('sim_drives'), home=home, away=away)
+                    c['sim_defense'] = sim_def
+                    if sim_def and isinstance(sim_def, dict) and sim_box and isinstance(sim_box, dict):
+                        for side in ('home', 'away'):
+                            try:
+                                if sim_box.get(side) is None:
+                                    continue
+                                if isinstance(sim_box.get(side), dict):
+                                    sim_box[side]['def'] = sim_def.get(side)
+                            except Exception:
+                                continue
+                except Exception:
+                    c['sim_defense'] = None
+
+                # Sportswriter-style recap (prefers sim drives + boxscore leaders)
+                c['sim_story'] = _sportswriter_game_story(
+                    home=home,
+                    away=away,
+                    sim_home_pts=sim_home_pts,
+                    sim_away_pts=sim_away_pts,
+                    sim_margin=sim_margin,
+                    sim_total=sim_total,
+                    prob_home_win_mc=prob_home_win_mc,
+                    market_spread_home=(float(c.get('market_spread_home')) if c.get('market_spread_home') is not None and not (isinstance(c.get('market_spread_home'), float) and pd.isna(c.get('market_spread_home'))) else None),
+                    market_total=(float(c.get('market_total')) if c.get('market_total') is not None and not (isinstance(c.get('market_total'), float) and pd.isna(c.get('market_total'))) else None),
+                    top_prop_edges=c.get('top_prop_edges'),
+                    sim_quarters=c.get('sim_quarters'),
+                    sim_drives=c.get('sim_drives'),
+                    sim_key_drives=c.get('sim_key_drives'),
+                    sim_boxscore=sim_box,
+                    sim_top_props=sim_top_props,
+                )
+            except Exception:
+                c['sim_story'] = None
+                c['sim_boxscore'] = None
+                c['sim_top_props'] = None
+
             # Winner EV
             try:
                 p_home = float(wp_home) if (wp_home is not None and pd.notna(wp_home)) else None
@@ -6415,8 +8750,21 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                         winner_side, winner_ev = None, None
             c["rec_winner_side"] = winner_side
             c["rec_winner_ev"] = winner_ev
-            # Confidence for this market should reflect EV only; do not inherit game-level confidence
-            c["rec_winner_conf"] = _conf_from_ev(winner_ev) if winner_ev is not None else None
+            # Confidence EV can optionally incorporate simulation-based EV for cards
+            ev_conf_ml = winner_ev
+            try:
+                ev_ml_mc_card = None
+                if winner_side is not None and prob_home_win_mc is not None:
+                    dec_sel_card = dec_home if winner_side == home else dec_away
+                    if dec_sel_card is not None:
+                        p_sel_ml_mc_card = float(prob_home_win_mc) if winner_side == home else float(1.0 - float(prob_home_win_mc))
+                        ev_ml_mc_card = _ev_from_prob_and_decimal(p_sel_ml_mc_card, dec_sel_card)
+                ev_conf_ml = _choose_conf_ev(winner_ev, ev_ml_mc_card, conf_method_ml)
+            except Exception:
+                pass
+            c["rec_winner_conf"] = _conf_from_ev(ev_conf_ml) if ev_conf_ml is not None else None
+            c["rec_winner_conf_ev"] = ev_conf_ml
+            c["conf_method_ml"] = conf_method_ml
             # Difference flag (may be always False if force_align)
             c["rec_winner_differs"] = False
 
@@ -6459,8 +8807,22 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                     spread_side, spread_ev = s, e
             c["rec_spread_side"] = spread_side
             c["rec_spread_ev"] = spread_ev
-            # Confidence for this market should reflect EV only; do not inherit game-level confidence
-            c["rec_spread_conf"] = _conf_from_ev(spread_ev) if spread_ev is not None else None
+            # Confidence EV can optionally incorporate simulation-based EV for cards (ATS)
+            ev_conf_ats = spread_ev
+            try:
+                ev_ats_mc_card = None
+                if spread_side is not None and prob_home_cover_mc is not None:
+                    sel_is_home_card = (spread_side == (home or "Home"))
+                    dec_sel_sp_card = dec_home_sp if sel_is_home_card else dec_away_sp
+                    if dec_sel_sp_card is not None:
+                        p_sel_ats_mc_card = float(prob_home_cover_mc) if sel_is_home_card else float(1.0 - float(prob_home_cover_mc))
+                        ev_ats_mc_card = _ev_from_prob_and_decimal(p_sel_ats_mc_card, dec_sel_sp_card)
+                ev_conf_ats = _choose_conf_ev(spread_ev, ev_ats_mc_card, conf_method_ats)
+            except Exception:
+                pass
+            c["rec_spread_conf"] = _conf_from_ev(ev_conf_ats) if ev_conf_ats is not None else None
+            c["rec_spread_conf_ev"] = ev_conf_ats
+            c["conf_method_ats"] = conf_method_ats
 
             # Total EV using actual prices when available (fallback to -110)
             ev_over = ev_under = None
@@ -6498,8 +8860,22 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                     total_side, total_ev = s, e
             c["rec_total_side"] = total_side
             c["rec_total_ev"] = total_ev
-            # Confidence for this market should reflect EV only; do not inherit game-level confidence
-            c["rec_total_conf"] = _conf_from_ev(total_ev) if total_ev is not None else None
+            # Confidence EV can optionally incorporate simulation-based EV for cards (TOTAL)
+            ev_conf_total = total_ev
+            try:
+                ev_total_mc_card = None
+                if total_side is not None and prob_over_total_mc is not None:
+                    sel_is_over_card = (str(total_side).startswith("Over"))
+                    dec_sel_tot_card = dec_over if sel_is_over_card else dec_under
+                    if dec_sel_tot_card is not None:
+                        p_sel_total_mc_card = float(prob_over_total_mc) if sel_is_over_card else float(1.0 - float(prob_over_total_mc))
+                        ev_total_mc_card = _ev_from_prob_and_decimal(p_sel_total_mc_card, dec_sel_tot_card)
+                ev_conf_total = _choose_conf_ev(total_ev, ev_total_mc_card, conf_method_total)
+            except Exception:
+                pass
+            c["rec_total_conf"] = _conf_from_ev(ev_conf_total) if ev_conf_total is not None else None
+            c["rec_total_conf_ev"] = ev_conf_total
+            c["conf_method_total"] = conf_method_total
     return cards
 
 
@@ -6525,6 +8901,10 @@ def index():
         fast_mode: bool = (on_render or disable_on_request)
     else:
         fast_mode = (fast_qs.lower() in {"1","true","yes","y"})
+
+    # Season-to-date summary is expensive; keep it opt-in via ?s2d=1
+    s2d_qs = str(request.args.get('s2d', '0')).strip().lower()
+    compute_s2d: bool = (s2d_qs in {'1','true','yes','y','on'})
     try:
         if request.args.get("season"):
             season_param = int(request.args.get("season"))
@@ -6720,107 +9100,134 @@ def index():
     except Exception:
         accuracy_week = None
 
-    # --- Season-to-date accuracy summary (always compute when season/week known) ---
+    # --- Season-to-date accuracy summary (opt-in via ?s2d=1) ---
     accuracy_s2d = None
     try:
-        if season_param is not None and week_param is not None:
-            # Aggregate recommendations across weeks 1..week_param (cap to 25 for safety)
-            all_recs_s2d: List[Dict[str, Any]] = []
-            max_weeks = int(min(max(week_param, 1), 25))
-            for wk in range(1, max_weeks + 1):
+        if compute_s2d and season_param is not None and week_param is not None:
+            # Cache key includes fast_mode since it affects whether we derive from market.
+            cache_key = (int(season_param), int(week_param), bool(fast_mode))
+            try:
+                ttl_s = int(os.environ.get('INDEX_S2D_CACHE_TTL_S', '900'))
+            except Exception:
+                ttl_s = 900
+            now = time.time()
+            hit = _accuracy_s2d_cache.get(cache_key)
+            fresh_hit = False
+            if hit is not None:
                 try:
-                    vw = _build_week_view(df, games_df, season_param, wk)
+                    t_cached, val = hit
+                    fresh_hit = isinstance(t_cached, (int, float)) and (now - float(t_cached)) <= float(ttl_s)
+                    if fresh_hit:
+                        accuracy_s2d = val
+                except Exception:
+                    fresh_hit = False
+
+            if not fresh_hit:
+                # Aggregate recommendations across weeks 1..week_param (cap to 25 for safety)
+                all_recs_s2d: List[Dict[str, Any]] = []
+                max_weeks = int(min(max(week_param, 1), 25))
+                for wk in range(1, max_weeks + 1):
                     try:
-                        vw = _attach_model_predictions(vw)
-                    except Exception:
-                        pass
-                    if not fast_mode:
+                        vw = _build_week_view(df, games_df, season_param, wk)
                         try:
-                            vw = _derive_predictions_from_market(vw)
+                            vw = _attach_model_predictions(vw)
                         except Exception:
                             pass
-                except Exception:
-                    vw = None
-                if vw is None:
-                    continue
-                for _, row in vw.iterrows():
-                    try:
-                        recs = _compute_recommendations_for_row(row)
-                        all_recs_s2d.extend(recs)
+                        if not fast_mode:
+                            try:
+                                vw = _derive_predictions_from_market(vw)
+                            except Exception:
+                                pass
                     except Exception:
+                        vw = None
+                    if vw is None:
                         continue
+                    for _, row in vw.iterrows():
+                        try:
+                            recs = _compute_recommendations_for_row(row)
+                            all_recs_s2d.extend(recs)
+                        except Exception:
+                            continue
 
-            groups_s2d: Dict[str, List[Dict[str, Any]]] = {"High": [], "Medium": [], "Low": [], "": []}
-            for r in all_recs_s2d:
-                c = r.get("confidence") or ""
-                if c not in groups_s2d:
-                    groups_s2d[c] = []
-                groups_s2d[c].append(r)
+                groups_s2d: Dict[str, List[Dict[str, Any]]] = {"High": [], "Medium": [], "Low": [], "": []}
+                for r in all_recs_s2d:
+                    c = r.get("confidence") or ""
+                    if c not in groups_s2d:
+                        groups_s2d[c] = []
+                    groups_s2d[c].append(r)
 
-            stake_map = {"High": 100.0, "Medium": 50.0, "Low": 25.0}
-            def american_profit(stake: float, odds: Any) -> Optional[float]:
+                stake_map = {"High": 100.0, "Medium": 50.0, "Low": 25.0}
+
+                def american_profit(stake: float, odds: Any) -> Optional[float]:
+                    try:
+                        if odds is None or (isinstance(odds, float) and pd.isna(odds)):
+                            odds = -110  # fallback
+                        o = float(odds)
+                        if o > 0:
+                            return stake * (o / 100.0)
+                        else:
+                            return stake * (100.0 / abs(o))
+                    except Exception:
+                        return None
+
+                def tier_metrics(tier: str) -> Dict[str, Any]:
+                    items = groups_s2d.get(tier, [])
+                    done = [x for x in items if x.get('result') in {'Win','Loss','Push'}]
+                    wins = sum(1 for x in done if x.get('result') == 'Win')
+                    losses = sum(1 for x in done if x.get('result') == 'Loss')
+                    pushes = sum(1 for x in done if x.get('result') == 'Push')
+                    played = wins + losses  # exclude pushes from accuracy denominator
+                    acc = (wins / played * 100.0) if played > 0 else None
+                    stake_total = 0.0
+                    profit_total = 0.0
+                    for x in done:
+                        stake = stake_map.get(tier, 25.0)
+                        res = x.get('result')
+                        odds_val = x.get('odds')
+                        if res == 'Win':
+                            prof = american_profit(stake, odds_val)
+                            if prof is None:
+                                prof = stake * (100.0 / 110.0)
+                            profit_total += prof
+                            stake_total += stake
+                        elif res == 'Loss':
+                            profit_total -= stake
+                            stake_total += stake
+                        elif res == 'Push':
+                            # Stake returned; no profit, but do not add to stake turnover
+                            stake_total += 0.0
+                    roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
+                    return {
+                        'tier': tier,
+                        'total': len(items),
+                        'resolved': len(done),
+                        'wins': wins,
+                        'losses': losses,
+                        'pushes': pushes,
+                        'accuracy_pct': acc,
+                        'roi_pct': roi_pct,
+                        'stake_total': stake_total,
+                        'profit_total': profit_total,
+                    }
+
+                accuracy_s2d = {t: tier_metrics(t) for t in ['High','Medium','Low']}
+                overall = {'tier': 'Overall','total':0,'resolved':0,'wins':0,'losses':0,'pushes':0,'accuracy_pct':None,'roi_pct':None,'stake_total':0.0,'profit_total':0.0}
+                for t in ['High','Medium','Low']:
+                    m = accuracy_s2d.get(t, {})
+                    for k in ['total','resolved','wins','losses','pushes','stake_total','profit_total']:
+                        overall[k] += m.get(k, 0) or 0
+                played_overall = overall['wins'] + overall['losses']
+                if played_overall > 0:
+                    overall['accuracy_pct'] = overall['wins'] / played_overall * 100.0
+                if overall['stake_total'] > 0:
+                    overall['roi_pct'] = overall['profit_total'] / overall['stake_total'] * 100.0
+                accuracy_s2d['Overall'] = overall
+
+                # Save cache
                 try:
-                    if odds is None or (isinstance(odds, float) and pd.isna(odds)):
-                        odds = -110  # fallback
-                    o = float(odds)
-                    if o > 0:
-                        return stake * (o / 100.0)
-                    else:
-                        return stake * (100.0 / abs(o))
+                    _accuracy_s2d_cache[cache_key] = (time.time(), accuracy_s2d)
                 except Exception:
-                    return None
-            def tier_metrics(tier: str) -> Dict[str, Any]:
-                items = groups_s2d.get(tier, [])
-                done = [x for x in items if x.get('result') in {'Win','Loss','Push'}]
-                wins = sum(1 for x in done if x.get('result') == 'Win')
-                losses = sum(1 for x in done if x.get('result') == 'Loss')
-                pushes = sum(1 for x in done if x.get('result') == 'Push')
-                played = wins + losses  # exclude pushes from accuracy denominator
-                acc = (wins / played * 100.0) if played > 0 else None
-                stake_total = 0.0
-                profit_total = 0.0
-                for x in done:
-                    stake = stake_map.get(tier, 25.0)
-                    res = x.get('result')
-                    odds_val = x.get('odds')
-                    if res == 'Win':
-                        prof = american_profit(stake, odds_val)
-                        if prof is None:
-                            prof = stake * (100.0/110.0)
-                        profit_total += prof
-                        stake_total += stake
-                    elif res == 'Loss':
-                        profit_total -= stake
-                        stake_total += stake
-                    elif res == 'Push':
-                        # Stake returned; no profit, but do not add to stake turnover
-                        stake_total += 0.0
-                roi_pct = (profit_total / stake_total * 100.0) if stake_total > 0 else None
-                return {
-                    'tier': tier,
-                    'total': len(items),
-                    'resolved': len(done),
-                    'wins': wins,
-                    'losses': losses,
-                    'pushes': pushes,
-                    'accuracy_pct': acc,
-                    'roi_pct': roi_pct,
-                    'stake_total': stake_total,
-                    'profit_total': profit_total,
-                }
-
-            accuracy_s2d = {t: tier_metrics(t) for t in ['High','Medium','Low']}
-            overall = {'tier': 'Overall','total':0,'resolved':0,'wins':0,'losses':0,'pushes':0,'accuracy_pct':None,'roi_pct':None,'stake_total':0.0,'profit_total':0.0}
-            for t in ['High','Medium','Low']:
-                m = accuracy_s2d.get(t, {})
-                for k in ['total','resolved','wins','losses','pushes','stake_total','profit_total']:
-                    overall[k] += m.get(k, 0) or 0
-            played_overall = overall['wins'] + overall['losses']
-            if played_overall > 0:
-                overall['accuracy_pct'] = overall['wins'] / played_overall * 100.0
-            if overall['stake_total'] > 0:
-                overall['roi_pct'] = overall['profit_total'] / overall['stake_total'] * 100.0
-            accuracy_s2d['Overall'] = overall
+                    pass
     except Exception:
         accuracy_s2d = None
 

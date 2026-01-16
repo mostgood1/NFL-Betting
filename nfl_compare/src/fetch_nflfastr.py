@@ -106,6 +106,16 @@ def fetch_games(seasons: Iterable[int]) -> pd.DataFrame:
             pbp = pd.concat(pbp_list, ignore_index=True)
             qdf = _quarterly_scores_from_pbp(pbp)
             out = out.merge(qdf, on="game_id", how="left")
+            # If home/away scores are missing, fill from quarter sums
+            try:
+                for side in ("home","away"):
+                    qcols = [f"{side}_q{i}" for i in [1,2,3,4]]
+                    if set(qcols).issubset(set(out.columns)):
+                        ssum = out[qcols].sum(axis=1)
+                        base = pd.to_numeric(out.get(f"{side}_score"), errors="coerce")
+                        out[f"{side}_score"] = base.where(base.notna(), ssum)
+            except Exception:
+                pass
     except Exception as e:
         print(f"Quarterly scoring enrichment failed: {e}")
     return out
@@ -331,6 +341,163 @@ def fetch_team_week_stats(seasons: Iterable[int]) -> pd.DataFrame:
     out["qb_adj"] = pd.NA
     out["sos"] = pd.NA
 
+    # --- Deeper team stats: sack rates (offense allowed / defense generated) ---
+    try:
+        d_sack = pbp.copy()
+        d_sack["is_pass"] = pd.to_numeric(d_sack.get("pass"), errors="coerce").fillna(0).astype(int)
+        d_sack["is_sack"] = pd.to_numeric(d_sack.get("sack"), errors="coerce").fillna(0).astype(int)
+        # Offense: per posteam/week
+        off_sack = (
+            d_sack[d_sack["posteam"].notna()]
+                  .groupby(["season","week","posteam"], dropna=True)
+                  .agg(pass_plays=("is_pass","sum"), sacks=("is_sack","sum"))
+                  .reset_index()
+        )
+        off_sack["off_dropbacks"] = off_sack["pass_plays"] + off_sack["sacks"]
+        off_sack["off_sack_rate"] = np.where(off_sack["off_dropbacks"]>0, off_sack["sacks"] / off_sack["off_dropbacks"], np.nan)
+        off_sack = off_sack.rename(columns={"posteam":"team"})
+        # Defense: per defteam/week
+        def_sack = (
+            d_sack[d_sack["defteam"].notna()]
+                  .groupby(["season","week","defteam"], dropna=True)
+                  .agg(def_pass_plays=("is_pass","sum"), def_sacks=("is_sack","sum"))
+                  .reset_index()
+        )
+        def_sack["def_dropbacks"] = def_sack["def_pass_plays"] + def_sack["def_sacks"]
+        def_sack["def_sack_rate"] = np.where(def_sack["def_dropbacks"]>0, def_sack["def_sacks"] / def_sack["def_dropbacks"], np.nan)
+        def_sack = def_sack.rename(columns={"defteam":"team"})
+        # Merge into out
+        out = out.merge(off_sack[["season","week","team","off_sack_rate"]], on=["season","week","team"], how="left")
+        out = out.merge(def_sack[["season","week","team","def_sack_rate"]], on=["season","week","team"], how="left")
+    except Exception:
+        # If any failure, ensure columns exist
+        if "off_sack_rate" not in out.columns: out["off_sack_rate"] = pd.NA
+        if "def_sack_rate" not in out.columns: out["def_sack_rate"] = pd.NA
+
+    # --- Red-zone pass rates (offense and defense allowed) ---
+    try:
+        rz = pbp.copy()
+        rz["yardline_100"] = pd.to_numeric(rz.get("yardline_100"), errors="coerce")
+        rz["is_rz"] = (rz["yardline_100"] <= 20).astype(int)
+        rz["is_pass"] = pd.to_numeric(rz.get("pass"), errors="coerce").fillna(0).astype(int)
+        rz["is_rush"] = pd.to_numeric(rz.get("rush"), errors="coerce").fillna(0).astype(int)
+        # Offense: posteam
+        off_rz = (
+            rz[(rz["posteam"].notna()) & (rz["is_rz"]==1)]
+              .groupby(["season","week","posteam"], dropna=True)
+              .agg(rz_pass=("is_pass","sum"), rz_rush=("is_rush","sum"))
+              .reset_index()
+        )
+        off_rz["off_rz_pass_rate"] = np.where((off_rz["rz_pass"]+off_rz["rz_rush"])>0, off_rz["rz_pass"]/(off_rz["rz_pass"]+off_rz["rz_rush"]), np.nan)
+        off_rz = off_rz.rename(columns={"posteam":"team"})
+        # Defense: defteam
+        def_rz = (
+            rz[(rz["defteam"].notna()) & (rz["is_rz"]==1)]
+              .groupby(["season","week","defteam"], dropna=True)
+              .agg(rz_pass_a=("is_pass","sum"), rz_rush_a=("is_rush","sum"))
+              .reset_index()
+        )
+        def_rz["def_rz_pass_rate"] = np.where((def_rz["rz_pass_a"]+def_rz["rz_rush_a"])>0, def_rz["rz_pass_a"]/(def_rz["rz_pass_a"]+def_rz["rz_rush_a"]), np.nan)
+        def_rz = def_rz.rename(columns={"defteam":"team"})
+        # Merge
+        out = out.merge(off_rz[["season","week","team","off_rz_pass_rate"]], on=["season","week","team"], how="left")
+        out = out.merge(def_rz[["season","week","team","def_rz_pass_rate"]], on=["season","week","team"], how="left")
+    except Exception:
+        if "off_rz_pass_rate" not in out.columns: out["off_rz_pass_rate"] = pd.NA
+        if "def_rz_pass_rate" not in out.columns: out["def_rz_pass_rate"] = pd.NA
+
+    # --- Defense-vs-position multipliers (WR/TE/RB): share and YPT ---
+    try:
+        rec = pbp.copy()
+        rec["is_pass"] = pd.to_numeric(rec.get("pass"), errors="coerce").fillna(0).astype(int)
+        # Receiver plays and yards
+        if "yards_gained" in rec.columns:
+            rec["yg"] = pd.to_numeric(rec.get("yards_gained"), errors="coerce").fillna(0.0)
+        elif "receiving_yards" in rec.columns:
+            rec["yg"] = pd.to_numeric(rec.get("receiving_yards"), errors="coerce").fillna(0.0)
+        else:
+            rec["yg"] = 0.0
+        rec = rec[rec["is_pass"]==1]
+        # Identify receiver id/name
+        rid_col = None
+        for c in ["receiver_player_id","receiver_id"]:
+            if c in rec.columns:
+                rid_col = c; break
+        rname_col = None
+        for c in ["receiver_player_name","receiver_name","receiver"]:
+            if c in rec.columns:
+                rname_col = c; break
+        # Import season rosters for position mapping
+        pos_map = pd.DataFrame()
+        try:
+            import nfl_data_py as nfl  # type: ignore
+            ros_list = []
+            for s in seasons:
+                try:
+                    rr = nfl.import_season_rosters([int(s)])
+                    ros_list.append(rr)
+                except Exception:
+                    pass
+            if ros_list:
+                ros = pd.concat(ros_list, ignore_index=True)
+                # Position and ids
+                pid_col = None
+                for c in ["gsis_id","player_id","nfl_id","pfr_id"]:
+                    if c in ros.columns:
+                        pid_col = c; break
+                pcol = "position" if "position" in ros.columns else ("depth_chart_position" if "depth_chart_position" in ros.columns else None)
+                pos_map = ros[[pid_col or "player_id", pcol or "position", "display_name" if "display_name" in ros.columns else ("player_name" if "player_name" in ros.columns else None)]].copy()
+                pos_map = pos_map.rename(columns={pid_col or "player_id":"rid", pcol or "position":"pos", ("display_name" if "display_name" in ros.columns else ("player_name" if "player_name" in ros.columns else "player")):"rname"})
+                pos_map["rid"] = pos_map["rid"].astype(str)
+                pos_map["rname"] = pos_map["rname"].astype(str)
+        except Exception:
+            pos_map = pd.DataFrame(columns=["rid","pos","rname"])
+        # Build receiver position mapping join by id then fallback by name
+        rec["rid"] = rec[rid_col].astype(str) if rid_col else ""
+        rec["rname"] = rec[rname_col].astype(str) if rname_col else ""
+        if not pos_map.empty:
+            rec = rec.merge(pos_map[["rid","pos","rname"]], on=["rid","rname"], how="left")
+        else:
+            rec["pos"] = pd.NA
+        rec["pos"] = rec["pos"].astype(str).str.upper()
+        rec["group"] = np.where(rec["pos"].str.startswith("WR"),"WR", np.where(rec["pos"].str.startswith("TE"),"TE", np.where(rec["pos"].str.startswith("RB")|rec["pos"].str.startswith("HB"),"RB","OTHER")))
+        rec = rec[rec["group"].isin(["WR","TE","RB"])]
+        if rec.empty:
+            raise RuntimeError("empty receiver group after mapping")
+        # Aggregates by defense team
+        g = rec.groupby(["season","week","defteam","group"], dropna=True).agg(tg=("group","count"), yg=("yg","sum")).reset_index()
+        # League averages per week across teams
+        lg = g.groupby(["season","week","group"], dropna=True).agg(tg=("tg","sum"), yg=("yg","sum")).reset_index()
+        lg["ypt"] = np.where(lg["tg"].gt(0), lg["yg"]/lg["tg"], np.nan)
+        # Defense shares and ypt
+        d = g.merge(g.groupby(["season","week","defteam"], dropna=True)["tg"].sum().rename(columns={"tg":"tot"}).reset_index(), on=["season","week","defteam"], how="left")
+        d["share"] = np.where(d["tot"].gt(0), d["tg"]/d["tot"], 0.0)
+        d["ypt"] = np.where(d["tg"].gt(0), d["yg"]/d["tg"], np.nan)
+        m = d.merge(lg.rename(columns={"tg":"lg_tg","yg":"lg_yg","ypt":"lg_ypt"}), on=["season","week","group"], how="left")
+        # Multipliers
+        share_w = 0.5; ypt_w = 0.3
+        m["share_mult"] = 1.0 + share_w * (m["share"] - (m["lg_tg"] / m.groupby(["season","week"]).transform("sum")["lg_tg"]))
+        m["ypt_mult"] = 1.0 + ypt_w * np.where(np.isfinite(m["lg_ypt"]) & (m["lg_ypt"]>0), (m["ypt"] - m["lg_ypt"]) / m["lg_ypt"], 0.0)
+        m["share_mult"] = m["share_mult"].clip(lower=0.90, upper=1.10)
+        m["ypt_mult"] = m["ypt_mult"].clip(lower=0.95, upper=1.05)
+        m = m.rename(columns={"defteam":"team"})
+        m["team"] = m["team"].astype(str).apply(_norm_team)
+        # Pivot multipliers into columns per group
+        piv_share = m.pivot_table(index=["season","week","team"], columns="group", values="share_mult").reset_index()
+        piv_ypt = m.pivot_table(index=["season","week","team"], columns="group", values="ypt_mult").reset_index()
+        # Ensure columns exist
+        for gcol in ["WR","TE","RB"]:
+            if gcol not in piv_share.columns: piv_share[gcol] = np.nan
+            if gcol not in piv_ypt.columns: piv_ypt[gcol] = np.nan
+        piv_share = piv_share.rename(columns={"WR":"def_wr_share_mult","TE":"def_te_share_mult","RB":"def_rb_share_mult"})
+        piv_ypt = piv_ypt.rename(columns={"WR":"def_wr_ypt_mult","TE":"def_te_ypt_mult","RB":"def_rb_ypt_mult"})
+        out = out.merge(piv_share[["season","week","team","def_wr_share_mult","def_te_share_mult","def_rb_share_mult"]], on=["season","week","team"], how="left")
+        out = out.merge(piv_ypt[["season","week","team","def_wr_ypt_mult","def_te_ypt_mult","def_rb_ypt_mult"]], on=["season","week","team"], how="left")
+    except Exception:
+        for c in ["def_wr_share_mult","def_te_share_mult","def_rb_share_mult","def_wr_ypt_mult","def_te_ypt_mult","def_rb_ypt_mult"]:
+            if c not in out.columns:
+                out[c] = pd.NA
+
     # Reorder columns
     out = out[[
         "season",
@@ -342,6 +509,10 @@ def fetch_team_week_stats(seasons: Iterable[int]) -> pd.DataFrame:
         "pace_secs_play",
         "pass_rate",
         "rush_rate",
+        "off_sack_rate","def_sack_rate",
+        "off_rz_pass_rate","def_rz_pass_rate",
+        "def_wr_share_mult","def_te_share_mult","def_rb_share_mult",
+        "def_wr_ypt_mult","def_te_ypt_mult","def_rb_ypt_mult",
         "qb_adj",
         "sos",
     ]]

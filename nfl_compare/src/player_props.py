@@ -138,6 +138,43 @@ def _ema_blend_weight(default: float = 0.5) -> float:
         return default
 
 
+# --- Team stats lookup (prior-week), to bias sacks and red-zone tendencies ---
+@lru_cache(maxsize=8)
+def _team_stats_for_week(season: int, week: int) -> pd.DataFrame:
+    """Return a small table of prior-week team stats for the given season/week.
+    Columns: season, week, team, off_sack_rate, def_sack_rate, off_rz_pass_rate, def_rz_pass_rate
+    """
+    try:
+        fp = DATA_DIR / "team_stats.csv"
+        if not fp.exists():
+            return pd.DataFrame(columns=["season","week","team","off_sack_rate","def_sack_rate","off_rz_pass_rate","def_rz_pass_rate"])
+        ts = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame(columns=["season","week","team","off_sack_rate","def_sack_rate","off_rz_pass_rate","def_rz_pass_rate"])
+    need = ["season","week","team","off_sack_rate","def_sack_rate","off_rz_pass_rate","def_rz_pass_rate"]
+    ts = ts[[c for c in need if c in ts.columns]].copy()
+    if ts.empty:
+        return pd.DataFrame(columns=need)
+    # Normalize types
+    for c in ["season","week"]:
+        if c in ts.columns:
+            ts[c] = pd.to_numeric(ts[c], errors="coerce")
+    # Prior-week rows only
+    ts = ts[ts["season"] == int(season)]
+    ts = ts[ts["week"] <= int(week) - 1]
+    if ts.empty:
+        return pd.DataFrame(columns=need)
+    # Keep last observed per team up to prior week
+    ts = ts.sort_values(["team","week"]).groupby("team", as_index=False).last()
+    # Normalize team names
+    try:
+        from .team_normalizer import normalize_team_name
+        ts["team"] = ts["team"].astype(str).apply(normalize_team_name)
+    except Exception:
+        ts["team"] = ts["team"].astype(str)
+    return ts
+
+
 # --- Reconciliation-driven calibration helpers ---
 def _calib_weight(env_key: str, default: float) -> float:
     try:
@@ -762,11 +799,20 @@ def _def_pos_tendencies(season: int, until_week: int) -> pd.DataFrame:
     Multipliers are small (≈0.9..1.1 for shares, 0.95..1.05 for YPT).
     """
     fp = DATA_DIR / f"pbp_{int(season)}.parquet"
-    if not fp.exists():
-        return pd.DataFrame(columns=['team','pos','share_mult','ypt_mult'])
-    try:
-        df = pd.read_parquet(fp)
-    except Exception:
+    df = None
+    # Prefer local parquet cache if available; fall back to nfl_data_py import
+    if fp.exists():
+        try:
+            df = pd.read_parquet(fp)
+        except Exception:
+            df = None
+    if df is None or (isinstance(df, pd.DataFrame) and df.empty):
+        try:
+            import nfl_data_py as nfl  # type: ignore
+            df = nfl.import_pbp_data([int(season)])
+        except Exception:
+            df = None
+    if df is None or (isinstance(df, pd.DataFrame) and df.empty):
         return pd.DataFrame(columns=['team','pos','share_mult','ypt_mult'])
     if df is None or df.empty:
         return pd.DataFrame(columns=['team','pos','share_mult','ypt_mult'])
@@ -1896,6 +1942,11 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     qb_priors = _qb_passing_priors(int(season))
     # Load QB rush priors once for Week 1 rush share blending
     qb_rush_priors = _qb_rush_rate_priors(int(season))
+    # League and scaling knobs for red-zone and pressure effects
+    league_rz_pass_rate = _cfg_float('LEAGUE_RZ_PASS_RATE', 0.52, 0.30, 0.80)
+    rz_share_w = _cfg_float('PROPS_RZ_SHARE_W', 0.20, 0.0, 0.50)
+    rz_td_w = _cfg_float('PROPS_RZ_TD_W', 0.30, 0.0, 0.60)
+    pressure_ypt_w = _cfg_float('PROPS_PRESSURE_YPT_W', 0.12, 0.0, 0.50)
 
     rows: List[Dict] = []
     for _, tr in teams.iterrows():
@@ -1908,6 +1959,15 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         split = _split_tds(tr)
         rush_tds = split["rush_tds"]
         pass_tds = split["pass_tds"]
+        # Team RZ pass tendency: tilt pass vs rush TD split while preserving total expected TDs
+        try:
+            pt = float(pass_tds); rt = float(rush_tds); tot = float(pt + rt)
+            if tot > 0.0 and np.isfinite(rz_td_mult):
+                pt_adj = float(np.clip(pt * rz_td_mult, 0.0, tot))
+                rt_adj = float(max(tot - pt_adj, 0.0))
+                pass_tds = pt_adj; rush_tds = rt_adj
+        except Exception:
+            pass
         # Week 1 top WR/TE from central stats (for dynamic overrides)
         wk1_wr1_aliases: set = set()
         wk1_te1_aliases: set = set()
@@ -1992,7 +2052,54 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         dropbacks = plays * pass_rate
         if not np.isfinite(dropbacks):
             dropbacks = plays * LEAGUE_PASS_RATE
-        attempts = dropbacks * (1.0 - LEAGUE_SACK_RATE)
+        # Adjust sack rate using prior-week team/offense and opponent/defense signals if available
+        sack_rate = LEAGUE_SACK_RATE
+        # Defaults for downstream scaling
+        def_sr_for_eff = LEAGUE_SACK_RATE
+        rz_td_mult = 1.0
+        rz_share_mult_wrte = 1.0
+        rz_share_mult_rb = 1.0
+        try:
+            ts = _team_stats_for_week(int(season), int(week))
+            if ts is not None and not ts.empty and team and opp:
+                row_team = ts[ts['team'] == normalize_team_name(team)]
+                row_opp = ts[ts['team'] == normalize_team_name(opp)]
+                off_sr = float(row_team['off_sack_rate'].iloc[0]) if (not row_team.empty and pd.notna(row_team.iloc[0].get('off_sack_rate'))) else np.nan
+                def_sr = float(row_opp['def_sack_rate'].iloc[0]) if (not row_opp.empty and pd.notna(row_opp.iloc[0].get('def_sack_rate'))) else np.nan
+                # Red-zone pass rates if available
+                try:
+                    off_rz = float(row_team['off_rz_pass_rate'].iloc[0]) if (not row_team.empty and pd.notna(row_team.iloc[0].get('off_rz_pass_rate'))) else np.nan
+                except Exception:
+                    off_rz = np.nan
+                try:
+                    def_rz = float(row_opp['def_rz_pass_rate'].iloc[0]) if (not row_opp.empty and pd.notna(row_opp.iloc[0].get('def_rz_pass_rate'))) else np.nan
+                except Exception:
+                    def_rz = np.nan
+                cand = []
+                if np.isfinite(off_sr): cand.append(off_sr)
+                if np.isfinite(def_sr): cand.append(def_sr)
+                if cand:
+                    est = float(np.mean(cand))
+                    # Blend with league to avoid extremes; env knob allows tuning
+                    w = _cfg_float('PROPS_SACK_BLEND', 0.6, 0.0, 1.0)
+                    sack_rate = float(np.clip((1-w)*LEAGUE_SACK_RATE + w*est, 0.03, 0.12))
+                # Preserve opponent defensive sack rate for receiving efficiency pressure scaling
+                if np.isfinite(def_sr):
+                    def_sr_for_eff = float(def_sr)
+                # Compute team/opponent red-zone pass tendency multipliers (soft effects)
+                try:
+                    base_rz = float(league_rz_pass_rate)
+                    delta_team = (float(off_rz) - base_rz) if np.isfinite(off_rz) else 0.0
+                    delta_opp = (float(def_rz) - base_rz) if np.isfinite(def_rz) else 0.0
+                    rz_td_mult = float(np.clip(1.0 + rz_td_w * (0.6*delta_team + 0.4*delta_opp), 0.90, 1.10))
+                    rz_base = (0.5*delta_team + 0.5*delta_opp)
+                    rz_share_mult_wrte = float(np.clip(1.0 + rz_share_w * rz_base, 0.90, 1.10))
+                    rz_share_mult_rb = float(np.clip(1.0 - rz_share_w * rz_base, 0.90, 1.10))
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        attempts = dropbacks * (1.0 - sack_rate)
         if not np.isfinite(attempts) or attempts < 0.0:
             attempts = max(0.0, plays * LEAGUE_PASS_RATE * (1.0 - LEAGUE_SACK_RATE))
         rush_att = plays * rush_rate
@@ -3944,6 +4051,19 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         if t_sum > 1.0:
             depth.loc[recv_mask, 't_eff'] = depth.loc[recv_mask, 't_eff'] / t_sum
 
+        # Scale effective target shares by team/opponent red-zone pass tendency (soft effect)
+        try:
+            if recv_mask.any():
+                for pos_k, mult in {'WR': rz_share_mult_wrte, 'TE': rz_share_mult_wrte, 'RB': rz_share_mult_rb}.items():
+                    m = (depth['pos_up'] == pos_k) & recv_mask
+                    if m.any() and np.isfinite(mult):
+                        depth.loc[m, 't_eff'] = depth.loc[m, 't_eff'] * float(mult)
+                s = float(pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0).sum())
+                if s > 1.0:
+                    depth.loc[recv_mask, 't_eff'] = pd.to_numeric(depth.loc[recv_mask, 't_eff'], errors='coerce').fillna(0.0) / s
+        except Exception:
+            pass
+
         # Final hard cap enforcement after defense multipliers and overrides
         try:
             caps_final = {
@@ -4299,6 +4419,13 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                     ypt_eff = ypt_eff * float(def_ypt_mult[pos_up])
                 except Exception:
                     pass
+            # Pressure effect on YPT from opponent sack rate (soft downward scaling under high pressure)
+            try:
+                sr_delta = float(def_sr_for_eff - LEAGUE_SACK_RATE)
+                scale_press = float(np.clip(1.0 - pressure_ypt_w * sr_delta, 0.85, 1.10))
+                ypt_eff *= scale_press
+            except Exception:
+                pass
             pl_rec = pl_targets * cr_eff
             pl_rec_yards = pl_targets * ypt_eff * eff
 
@@ -4458,6 +4585,12 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
                 # Apply small global QB passing tweaks
                 py *= qb_py_mult
                 ptd *= qb_ptd_mult
+                # Tilt QB pass TDs by red-zone pass tendency (soft)
+                try:
+                    if np.isfinite(rz_td_mult):
+                        ptd = ptd * float(rz_td_mult)
+                except Exception:
+                    pass
                 # Final clamps for sanity
                 patt = float(np.clip(patt, 20.0, 48.0))
                 py = float(np.clip(py, 150.0, 370.0))

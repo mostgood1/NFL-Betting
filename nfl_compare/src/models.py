@@ -1,11 +1,15 @@
 from dataclasses import dataclass
-from typing import Tuple, Dict, Optional, List, Union
+from typing import Tuple, Dict, Optional, List, Union, Any
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, roc_auc_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LogisticRegression
+from sklearn.isotonic import IsotonicRegression
+import json
+import os
+from pathlib import Path
 
 # Try to import XGBoost; gracefully fall back to sklearn if unavailable or broken
 try:
@@ -20,19 +24,47 @@ TARGETS = {
     'home_margin': 'reg',
     'total_points': 'reg',
     'home_win': 'clf',
+    'home_cover': 'clf',
+    'over_total': 'clf',
 }
 
 FEATURES = [
     # Core diffs
     'elo_diff', 'off_epa_diff', 'def_epa_diff', 'pace_secs_play_diff',
     'pass_rate_diff', 'rush_rate_diff', 'qb_adj_diff', 'sos_diff',
+    # EMA diffs (season-to-date; included when available)
+    'off_epa_ema_diff','def_epa_ema_diff','pace_secs_play_ema_diff','pass_rate_ema_diff','rush_rate_ema_diff',
+    'off_sack_rate_ema_diff','def_sack_rate_ema_diff','off_rz_pass_rate_ema_diff','def_rz_pass_rate_ema_diff',
+    # Deeper team stats
+    'off_sack_rate_diff', 'def_sack_rate_diff',
+    'off_rz_pass_rate_diff', 'def_rz_pass_rate_diff',
+    'def_wr_share_mult_diff', 'def_te_share_mult_diff', 'def_rb_share_mult_diff',
+    'def_wr_ypt_mult_diff', 'def_te_ypt_mult_diff', 'def_rb_ypt_mult_diff',
     # Team ratings diffs (EMA-based priors; attached when available)
     'off_ppg_diff', 'def_ppg_diff', 'net_margin_diff',
+    # Pressure aggregates (avg of defensive sack rates; optional)
+    'def_pressure_avg_ema','def_pressure_avg',
     # Market anchors
     'spread_home', 'total',
     # Injury diffs (new; safe to ignore when models expect old shape)
     'inj_qb_out_diff', 'inj_wr1_out_diff', 'inj_te1_out_diff', 'inj_rb1_out_diff',
-    'inj_wr_top2_out_diff', 'inj_starters_out_diff'
+    'inj_wr_top2_out_diff', 'inj_starters_out_diff',
+    # Playoff/context features
+    'is_postseason', 'neutral_site_flag', 'rest_days_diff',
+    # Weather features (numeric)
+    'wx_temp_f','wx_wind_mph','wx_precip_pct','roof_closed_flag','roof_open_flag','wind_open'
+    ,
+    # Phase A diffs (optional; used when present)
+    'ppd_diff','td_per_drive_diff','fg_per_drive_diff','avg_start_fp_diff','yards_per_drive_diff','seconds_per_drive_diff','drives_diff',
+    'rzd_off_eff_diff','rzd_def_eff_diff','rzd_off_td_rate_diff','rzd_def_td_rate_diff',
+    'explosive_pass_rate_diff','explosive_run_rate_diff',
+    'penalty_rate_diff','turnover_adj_rate_diff',
+    'fg_acc_diff','punt_epa_diff','kick_return_epa_diff','touchback_rate_diff',
+    # Officiating crew and NOAA additions
+    'crew_penalty_rate','crew_dpi_rate','crew_pace_adj',
+    'wx_gust_mph','wx_dew_point_f',
+    # Phase A totals heuristic delta
+    'phase_a_total_delta'
 ]
 
 
@@ -73,6 +105,34 @@ class TrainedModels:
     """
     regressors: Dict[str, Union[object, List[object]]]
     classifiers: Dict[str, Optional[Union[object, List[object]]]]
+    calibrators: Dict[str, Optional[Any]]
+
+
+_SIGMA_CACHE: Optional[Dict[str, float]] = None
+
+def _load_sigma_calibration() -> Dict[str, float]:
+    global _SIGMA_CACHE
+    if _SIGMA_CACHE is not None:
+        return _SIGMA_CACHE
+    # Default fallbacks if file not present
+    out = {"ats_sigma": 9.0, "total_sigma": 10.0}
+    try:
+        base = Path(__file__).resolve().parents[1] / 'data' / 'sigma_calibration.json'
+        if base.exists():
+            with open(base, 'r', encoding='utf-8') as f:
+                js = json.load(f)
+            for k in ("ats_sigma","total_sigma"):
+                v = js.get(k)
+                if v is not None:
+                    out[k] = float(v)
+    except Exception:
+        pass
+    _SIGMA_CACHE = out
+    return out
+
+def _norm_cdf(x: np.ndarray) -> np.ndarray:
+    # standard normal CDF via error function
+    return 0.5 * (1.0 + np.erf(x / np.sqrt(2.0)))
 
 
 def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, pd.Series]:
@@ -92,6 +152,48 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
     X_train, X_val, ym_train, ym_val, yt_train, yt_val, yh_train, yh_val = train_test_split(
         X, y_margin, y_total, y_homewin, test_size=0.2, random_state=42
     )
+    # Optional ATS / Over targets computed from original df
+    try:
+        spread_full = pd.to_numeric(df.get('spread_home'), errors='coerce') if 'spread_home' in df.columns else None
+        y_cover_full = ((df['home_margin'] + spread_full) > 0).astype(int) if spread_full is not None else None
+    except Exception:
+        y_cover_full = None
+    try:
+        total_full = pd.to_numeric(df.get('total'), errors='coerce') if 'total' in df.columns else None
+        y_over_full = (df['total_points'] > total_full).astype(int) if total_full is not None else None
+    except Exception:
+        y_over_full = None
+    if y_cover_full is not None and y_over_full is not None:
+        # Use the same split indices as the main train/val by re-running with same random_state and shapes
+        X_train_idx, X_val_idx = train_test_split(
+            np.arange(len(X)), test_size=0.2, random_state=42
+        )
+        yc_train = y_cover_full.iloc[X_train_idx]
+        yc_val = y_cover_full.iloc[X_val_idx]
+        yo_train = y_over_full.iloc[X_train_idx]
+        yo_val = y_over_full.iloc[X_val_idx]
+        X_val_clf = X.iloc[X_val_idx].copy()
+    else:
+        yc_train = yc_val = yo_train = yo_val = None
+        X_val_clf = None
+    # Residual modeling vs market lines when available
+    use_residuals = ('spread_home' in X_train.columns) and ('total' in X_train.columns)
+    if use_residuals:
+        try:
+            ym_train_res = ym_train - pd.to_numeric(X_train['spread_home'], errors='coerce').fillna(0)
+            ym_val_res = ym_val - pd.to_numeric(X_val['spread_home'], errors='coerce').fillna(0)
+        except Exception:
+            ym_train_res, ym_val_res = ym_train, ym_val
+            use_residuals = False
+        try:
+            yt_train_res = yt_train - pd.to_numeric(X_train['total'], errors='coerce').fillna(0)
+            yt_val_res = yt_val - pd.to_numeric(X_val['total'], errors='coerce').fillna(0)
+        except Exception:
+            yt_train_res, yt_val_res = yt_train, yt_val
+            use_residuals = False
+    else:
+        ym_train_res, ym_val_res = ym_train, ym_val
+        yt_train_res, yt_val_res = yt_train, yt_val
 
     # Optional simple bagging: train multiple seeds and average at inference
     try:
@@ -105,12 +207,29 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
         regs_margin: List[object] = []
         regs_total: List[object] = []
         clfs_home: List[object] = []
+        clfs_cover: List[object] = []
+        clfs_over: List[object] = []
+        cal_cover: Optional[Any] = None
+        cal_over: Optional[Any] = None
         seeds = [42 + i*17 for i in range(n_ens)]
+        # Class balance helpers for ATS and Over
+        def _spw(y: Optional[pd.Series]) -> float:
+            try:
+                if y is None:
+                    return 1.0
+                y_clean = pd.to_numeric(y, errors='coerce').dropna().astype(int)
+                pos = float(y_clean.sum())
+                neg = float(len(y_clean) - y_clean.sum())
+                return neg / max(pos, 1.0)
+            except Exception:
+                return 1.0
+        spw_cover = _spw(yc_train)
+        spw_over = _spw(yo_train)
         for rs in seeds:
             rm = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=rs)  # type: ignore
             rt = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.07, subsample=0.9, colsample_bytree=0.9, random_state=rs)  # type: ignore
-            rm.fit(X_train, ym_train)
-            rt.fit(X_train, yt_train)
+            rm.fit(X_train, ym_train_res)
+            rt.fit(X_train, yt_train_res)
             regs_margin.append(rm)
             regs_total.append(rt)
             if len(np.unique(yh_train)) > 1:
@@ -120,29 +239,95 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
                 )
                 ch.fit(X_train, yh_train)
                 clfs_home.append(ch)
+            # Train ATS/Over classifiers if targets present
+            if yc_train is not None and len(np.unique(yc_train.dropna())) > 1:
+                cc = XGBClassifier(  # type: ignore
+                    n_estimators=250, max_depth=4, learning_rate=0.08, subsample=0.9, colsample_bytree=0.9,
+                    random_state=rs, objective='binary:logistic', eval_metric='logloss', scale_pos_weight=float(spw_cover)
+                )
+                cc.fit(X_train, yc_train)
+                clfs_cover.append(cc)
+            if yo_train is not None and len(np.unique(yo_train.dropna())) > 1:
+                co = XGBClassifier(  # type: ignore
+                    n_estimators=250, max_depth=4, learning_rate=0.08, subsample=0.9, colsample_bytree=0.9,
+                    random_state=rs, objective='binary:logistic', eval_metric='logloss', scale_pos_weight=float(spw_over)
+                )
+                co.fit(X_train, yo_train)
+                clfs_over.append(co)
+        # Fit isotonic calibrators on validation if we have targets
+        try:
+            if X_val_clf is not None and yc_val is not None and clfs_cover:
+                # Use first estimator to produce validation probs for calibration
+                raw = clfs_cover[0].predict_proba(X_val_clf)[:, 1]
+                cal_cover = IsotonicRegression(out_of_bounds='clip').fit(raw, yc_val)
+            else:
+                cal_cover = None
+        except Exception:
+            cal_cover = None
+        try:
+            if X_val_clf is not None and yo_val is not None and clfs_over:
+                raw = clfs_over[0].predict_proba(X_val_clf)[:, 1]
+                cal_over = IsotonicRegression(out_of_bounds='clip').fit(raw, yo_val)
+            else:
+                cal_over = None
+        except Exception:
+            cal_over = None
         reg_margin = regs_margin if n_ens > 1 else regs_margin[0]
         reg_total = regs_total if n_ens > 1 else regs_total[0]
         clf_home: Optional[Union[object, List[object]]] = (clfs_home if (n_ens > 1 and clfs_home) else (clfs_home[0] if clfs_home else None))
+        clf_cover: Optional[Union[object, List[object]]] = (clfs_cover if (n_ens > 1 and clfs_cover) else (clfs_cover[0] if clfs_cover else None)) if clfs_cover else None
+        clf_over: Optional[Union[object, List[object]]] = (clfs_over if (n_ens > 1 and clfs_over) else (clfs_over[0] if clfs_over else None)) if clfs_over else None
     else:
         # Sklearn fallbacks: relatively light and available across platforms
         regs_margin = []
         regs_total = []
         clfs_home: List[object] = []
+        clfs_cover: List[object] = []
+        clfs_over: List[object] = []
         seeds = [42 + i*17 for i in range(n_ens)]
+        cal_cover: Optional[Any] = None
+        cal_over: Optional[Any] = None
         for rs in seeds:
             rm = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=rs, n_jobs=-1)
             rt = RandomForestRegressor(n_estimators=300, max_depth=8, random_state=rs, n_jobs=-1)
-            rm.fit(X_train, ym_train)
-            rt.fit(X_train, yt_train)
+            rm.fit(X_train, ym_train_res)
+            rt.fit(X_train, yt_train_res)
             regs_margin.append(rm)
             regs_total.append(rt)
             if len(np.unique(yh_train)) > 1:
                 ch = LogisticRegression(max_iter=1000, solver='lbfgs')
                 ch.fit(X_train, yh_train)
                 clfs_home.append(ch)
+            if yc_train is not None and len(np.unique(yc_train.dropna())) > 1:
+                cc = LogisticRegression(max_iter=1000, solver='lbfgs', class_weight='balanced')
+                cc.fit(X_train, yc_train)
+                clfs_cover.append(cc)
+            if yo_train is not None and len(np.unique(yo_train.dropna())) > 1:
+                co = LogisticRegression(max_iter=1000, solver='lbfgs', class_weight='balanced')
+                co.fit(X_train, yo_train)
+                clfs_over.append(co)
+        # Fit isotonic calibrators on validation if we have targets
+        try:
+            if X_val_clf is not None and yc_val is not None and clfs_cover:
+                raw = clfs_cover[0].predict_proba(X_val_clf)[:, 1]
+                cal_cover = IsotonicRegression(out_of_bounds='clip').fit(raw, yc_val)
+            else:
+                cal_cover = None
+        except Exception:
+            cal_cover = None
+        try:
+            if X_val_clf is not None and yo_val is not None and clfs_over:
+                raw = clfs_over[0].predict_proba(X_val_clf)[:, 1]
+                cal_over = IsotonicRegression(out_of_bounds='clip').fit(raw, yo_val)
+            else:
+                cal_over = None
+        except Exception:
+            cal_over = None
         reg_margin = regs_margin if n_ens > 1 else regs_margin[0]
         reg_total = regs_total if n_ens > 1 else regs_total[0]
         clf_home = (clfs_home if (n_ens > 1 and clfs_home) else (clfs_home[0] if clfs_home else None))
+        clf_cover = (clfs_cover if (n_ens > 1 and clfs_cover) else (clfs_cover[0] if clfs_cover else None)) if clfs_cover else None
+        clf_over = (clfs_over if (n_ens > 1 and clfs_over) else (clfs_over[0] if clfs_over else None)) if clfs_over else None
 
     # basic metrics (safe)
     def _avg_pred(est_or_list, Xn):
@@ -154,8 +339,23 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
         except Exception:
             return np.zeros(len(Xn))
 
-    ym_pred = _avg_pred(reg_margin, X_val)
-    yt_pred = _avg_pred(reg_total, X_val)
+    ym_pred_res = _avg_pred(reg_margin, X_val)
+    yt_pred_res = _avg_pred(reg_total, X_val)
+    # Reconstruct absolute predictions if residuals were used
+    if use_residuals:
+        try:
+            spread_val = pd.to_numeric(X_val['spread_home'], errors='coerce').fillna(0)
+        except Exception:
+            spread_val = 0
+        try:
+            total_val = pd.to_numeric(X_val['total'], errors='coerce').fillna(0)
+        except Exception:
+            total_val = 0
+        ym_pred = ym_pred_res + spread_val
+        yt_pred = yt_pred_res + total_val
+    else:
+        ym_pred = ym_pred_res
+        yt_pred = yt_pred_res
     try:
         mae_margin = float(mean_absolute_error(ym_val, ym_pred))
     except Exception:
@@ -182,7 +382,8 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
 
     models = TrainedModels(
         regressors={'home_margin': reg_margin, 'total_points': reg_total},
-        classifiers={'home_win': clf_home}
+        classifiers={'home_win': clf_home, 'home_cover': clf_cover, 'over_total': clf_over},
+        calibrators={'home_cover': cal_cover, 'over_total': cal_over}
     )
     return models
 
@@ -205,6 +406,25 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
         df['pred_total'] = np.mean(preds_t, axis=0)
     else:
         df['pred_total'] = reg_t.predict(Xt)
+
+    # If residual modeling was used in training (detected by presence of market anchors in X),
+    # reconstruct absolute predictions by adding market anchors when present.
+    try:
+        if 'spread_home' in Xm.columns:
+            df['pred_margin'] = pd.to_numeric(df.get('pred_margin'), errors='coerce') + pd.to_numeric(Xm['spread_home'], errors='coerce').fillna(0)
+    except Exception:
+        pass
+    try:
+        if 'total' in Xt.columns:
+            df['pred_total'] = pd.to_numeric(df.get('pred_total'), errors='coerce') + pd.to_numeric(Xt['total'], errors='coerce').fillna(0)
+    except Exception:
+        pass
+    # Apply Phase A totals delta if present
+    try:
+        if 'phase_a_total_delta' in df.columns:
+            df['pred_total'] = pd.to_numeric(df.get('pred_total'), errors='coerce') + pd.to_numeric(df.get('phase_a_total_delta'), errors='coerce').fillna(0)
+    except Exception:
+        pass
     # Classifier
     clf = models.classifiers.get('home_win')
     if clf is not None:
@@ -219,9 +439,92 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
         # tuned slope roughly for NFL margins
         df['prob_home_win'] = 1 / (1 + np.exp(-df['pred_margin'] / 7.5))
 
+    # ATS and Over classifiers (optional)
+    clf_cov = models.classifiers.get('home_cover')
+    if clf_cov is not None:
+        Xcov = _select_X(df, clf_cov[0] if isinstance(clf_cov, list) else clf_cov, FEATURES)
+        try:
+            if isinstance(clf_cov, list):
+                probs = [c.predict_proba(Xcov)[:, 1] for c in clf_cov]
+                df['prob_home_cover'] = np.mean(probs, axis=0)
+            else:
+                df['prob_home_cover'] = clf_cov.predict_proba(Xcov)[:, 1]
+        except Exception:
+            pass
+        # Apply isotonic calibration if available
+        try:
+            cal = models.calibrators.get('home_cover') if hasattr(models, 'calibrators') else None
+            if cal is not None and 'prob_home_cover' in df.columns:
+                phc = pd.to_numeric(df['prob_home_cover'], errors='coerce').astype(float)
+                df['prob_home_cover'] = np.clip(cal.predict(phc.values), 0.0, 1.0)
+        except Exception:
+            pass
+    clf_over = models.classifiers.get('over_total')
+    if clf_over is not None:
+        Xovr = _select_X(df, clf_over[0] if isinstance(clf_over, list) else clf_over, FEATURES)
+        try:
+            if isinstance(clf_over, list):
+                probs = [c.predict_proba(Xovr)[:, 1] for c in clf_over]
+                df['prob_over_total'] = np.mean(probs, axis=0)
+            else:
+                df['prob_over_total'] = clf_over.predict_proba(Xovr)[:, 1]
+        except Exception:
+            pass
+        # Apply isotonic calibration if available
+        try:
+            cal = models.calibrators.get('over_total') if hasattr(models, 'calibrators') else None
+            if cal is not None and 'prob_over_total' in df.columns:
+                pov = pd.to_numeric(df['prob_over_total'], errors='coerce').astype(float)
+                df['prob_over_total'] = np.clip(cal.predict(pov.values), 0.0, 1.0)
+        except Exception:
+            pass
+
+    # Optional parametric probability using calibrated sigma, blended with classifier
+    try:
+        blend_p_ats = float(os.environ.get('GAME_PROB_BLEND_PARAM_ATS', '0.20'))
+    except Exception:
+        blend_p_ats = 0.20
+    try:
+        blend_p_tot = float(os.environ.get('GAME_PROB_BLEND_PARAM_TOTAL', '0.20'))
+    except Exception:
+        blend_p_tot = 0.20
+    try:
+        sig = _load_sigma_calibration()
+    except Exception:
+        sig = {"ats_sigma": 9.0, "total_sigma": 10.0}
+    # ATS parametric prob: P(margin + spread_home > 0)
+    if blend_p_ats and ('spread_home' in df.columns):
+        try:
+            m_pred = pd.to_numeric(df.get('pred_margin'), errors='coerce')
+            spr = pd.to_numeric(df.get('spread_home'), errors='coerce')
+            z = (m_pred + spr) / max(1e-6, float(sig.get('ats_sigma', 9.0)))
+            p_param = _norm_cdf(z.values)
+            if 'prob_home_cover' in df.columns:
+                df['prob_home_cover'] = (1.0 - blend_p_ats) * pd.to_numeric(df['prob_home_cover'], errors='coerce').astype(float) + blend_p_ats * p_param
+            else:
+                df['prob_home_cover'] = p_param
+        except Exception:
+            pass
+    # Totals parametric prob: P(total_points > market_total)
+    if blend_p_tot and ('total' in df.columns):
+        try:
+            t_pred = pd.to_numeric(df.get('pred_total'), errors='coerce')
+            t_mkt = pd.to_numeric(df.get('total'), errors='coerce')
+            zt = (t_pred - t_mkt) / max(1e-6, float(sig.get('total_sigma', 10.0)))
+            p_param_t = _norm_cdf(zt.values)
+            if 'prob_over_total' in df.columns:
+                df['prob_over_total'] = (1.0 - blend_p_tot) * pd.to_numeric(df['prob_over_total'], errors='coerce').astype(float) + blend_p_tot * p_param_t
+            else:
+                df['prob_over_total'] = p_param_t
+        except Exception:
+            pass
+
     # implied team scores using spread/total-like system
     df['pred_home_score'] = np.maximum(0, (df['pred_total'] + df['pred_margin']) / 2)
     df['pred_away_score'] = np.maximum(0, df['pred_total'] - df['pred_home_score'])
+    # Backward-compatible aliases expected by card logic
+    df['pred_home_points'] = df['pred_home_score']
+    df['pred_away_points'] = df['pred_away_score']
 
     # quarters/halves heuristic split (pace + pass rate influence)
     pace = df.get('pace_secs_play_diff', pd.Series(0, index=df.index)).fillna(0)

@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from .schemas import GameRow, TeamStatRow, LineRow
 import json
@@ -31,6 +32,41 @@ def load_lines() -> pd.DataFrame:
     if not fp.exists():
         return pd.DataFrame(columns=LineRow.model_fields.keys())
     df = pd.read_csv(fp)
+
+    # Defensive cleanup: some feeds/snapshots occasionally contain bad open lines.
+    # When close_* exists, treat it as the more reliable reference and fix obvious outliers.
+    try:
+        for c in ("spread_home", "close_spread_home", "total", "close_total"):
+            if c in df.columns:
+                df[c] = pd.to_numeric(df[c], errors="coerce")
+
+        if "total" in df.columns and "close_total" in df.columns:
+            total = df["total"]
+            close_total = df["close_total"]
+            # Totals outside plausible NFL range or wildly different from close are treated as bad.
+            bad_total = (
+                total.notna()
+                & close_total.notna()
+                & (((total < 30.0) | (total > 70.0)) | ((total - close_total).abs() >= 15.0))
+            )
+            df.loc[bad_total, "total"] = close_total.loc[bad_total]
+
+        if "spread_home" in df.columns and "close_spread_home" in df.columns:
+            spread = df["spread_home"]
+            close_spread = df["close_spread_home"]
+            # Large jumps or sign flips are usually feed errors (keyed to wrong side).
+            bad_spread = (
+                spread.notna()
+                & close_spread.notna()
+                & (
+                    ((spread - close_spread).abs() >= 10.0)
+                    | ((np.sign(spread) != np.sign(close_spread)) & ((spread - close_spread).abs() >= 2.0))
+                )
+            )
+            df.loc[bad_spread, "spread_home"] = close_spread.loc[bad_spread]
+    except Exception:
+        pass
+
     return df
 
 def load_predictions() -> pd.DataFrame:
@@ -45,6 +81,102 @@ def load_predictions() -> pd.DataFrame:
     except Exception:
         return pd.DataFrame()
     return df
+
+# --- Extended team/context loaders (optional, degrade gracefully) ---
+def load_pfr_drive_stats() -> pd.DataFrame:
+    """Load team drive-level efficiency.
+    Expected columns (per team-week or team-season):
+      season, week, team, drives, points, points_per_drive, td_per_drive, fg_per_drive,
+      avg_start_fp, yards_per_drive, seconds_per_drive
+    """
+    fp = DATA_DIR / "pfr_drive_stats.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_redzone_splits() -> pd.DataFrame:
+    """Load red-zone offense/defense splits (inside 20/10).
+    Expected columns: season, week, team, rzd_off_eff, rzd_def_eff, rzd_off_play_mix_run,
+      rzd_off_play_mix_pass, rzd_def_td_rate, rzd_off_td_rate
+    """
+    fp = DATA_DIR / "redzone_splits.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_explosive_rates() -> pd.DataFrame:
+    """Load explosive play rates derived from pbp (e.g., 20+ yards).
+    Expected columns: season, week, team, explosive_pass_rate, explosive_run_rate
+    """
+    fp = DATA_DIR / "explosive_rates.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_penalties_stats() -> pd.DataFrame:
+    """Load team penalty rates and turnover-adjusted rates.
+    Expected columns: season, week, team, penalty_rate, off_holding_rate, dpi_drawn_rate,
+      turnover_adj_rate, int_rate_adj, fumble_rate_adj
+    """
+    fp = DATA_DIR / "penalties_stats.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_special_teams() -> pd.DataFrame:
+    """Load special teams performance.
+    Expected columns: season, week, team, fg_acc, punt_epa, kick_return_epa, touchback_rate
+    """
+    fp = DATA_DIR / "special_teams.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_officiating_crews() -> pd.DataFrame:
+    """Load officiating crew tendencies.
+    Expected columns: season, week, game_id or matchup keys, crew_name, crew_penalty_rate, crew_dpi_rate, crew_pace_adj
+    """
+    fp = DATA_DIR / "officiating_crews.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
+
+def load_weather_noaa() -> pd.DataFrame:
+    """Optional NOAA-derived weather augmentations.
+    Expected columns: game_id, wx_gust_mph, wx_dew_point_f
+    """
+    fp = DATA_DIR / "weather_noaa.csv"
+    if not fp.exists():
+        return pd.DataFrame()
+    try:
+        d = pd.read_csv(fp)
+    except Exception:
+        return pd.DataFrame()
+    return d
 
 
 # --- Real betting lines JSON support (for daily_updater) ---
