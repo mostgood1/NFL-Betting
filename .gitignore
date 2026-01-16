@@ -56,7 +56,11 @@ logs/
 !nfl_compare/data/ladder_options_*.csv
 !nfl_compare/data/current_week.json
 # Optional but recommended: include per-date weather and odds snapshots used by the app
-!nfl_compare/data/weather_*.csv
+*.backup
+*.backup.*
+*.csv.backup
+*.backup.csv
+!nfl_compare/data/weather_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].csv
 !nfl_compare/data/real_betting_lines_*.json
 
 # Allow committing precomputed player props caches for deployment
@@ -70,3 +74,6 @@ logs/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Local analysis outputs
+reports/
