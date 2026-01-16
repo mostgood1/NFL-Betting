@@ -397,8 +397,7 @@
                       <div class="box-team">
                         {% if g.away_logo %}<img src="{{ g.away_logo }}" alt="{{ g.away_team }}" class="team-logo" />{% endif %}
                         <div class="team-stack">
-                          <div class="team-abbr dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
-                          <div class="team-full">{{ g.away_team }}</div>
+                          <div class="team-abbr dynamic-color" title="{{ g.away_team }}" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
                         </div>
                       </div>
                     </td>
@@ -423,8 +422,7 @@
                       <div class="box-team">
                         {% if g.home_logo %}<img src="{{ g.home_logo }}" alt="{{ g.home_team }}" class="team-logo" />{% endif %}
                         <div class="team-stack">
-                          <div class="team-abbr dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
-                          <div class="team-full">{{ g.home_team }}</div>
+                          <div class="team-abbr dynamic-color" title="{{ g.home_team }}" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
                         </div>
                       </div>
                     </td>
@@ -738,8 +736,7 @@
                             <div class="boxteam-left">
                               {% if g.away_logo %}<img class="team-logo" src="{{ g.away_logo }}" alt="{{ g.away_team }}" loading="lazy" />{% endif %}
                               <div class="mockbox-teamname">
-                                <div class="abbr dynamic-color" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
-                                <div class="full">{{ g.away_team }}</div>
+                                <div class="abbr dynamic-color" title="{{ g.away_team }}" data-color="{{ g.away_color|default('#e6edf7', true) }}" data-color2="{{ g.away_color2|default('', true) }}">{{ g.away_abbr or g.away_team }}</div>
                               </div>
                             </div>
                             <div class="mockbox-pts">{% if away_pts is number %}<span class="k">Sim pts</span> {{ '%.1f' % away_pts }}{% endif %}</div>
@@ -750,8 +747,7 @@
                             <div class="boxteam-left">
                               {% if g.home_logo %}<img class="team-logo" src="{{ g.home_logo }}" alt="{{ g.home_team }}" loading="lazy" />{% endif %}
                               <div class="mockbox-teamname">
-                                <div class="abbr dynamic-color" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
-                                <div class="full">{{ g.home_team }}</div>
+                                <div class="abbr dynamic-color" title="{{ g.home_team }}" data-color="{{ g.home_color|default('#e6edf7', true) }}" data-color2="{{ g.home_color2|default('', true) }}">{{ g.home_abbr or g.home_team }}</div>
                               </div>
                             </div>
                             <div class="mockbox-pts">{% if home_pts is number %}<span class="k">Sim pts</span> {{ '%.1f' % home_pts }}{% endif %}</div>

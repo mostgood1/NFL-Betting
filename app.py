@@ -846,6 +846,18 @@ def _sportswriter_game_story(
         if not home or not away:
             return None
 
+        # Deterministic variety: pick phrase variants based on matchup context.
+        def _pick(opts: List[str], *, salt: str) -> str:
+            try:
+                import hashlib
+
+                s = f"{away}|{home}|{salt}|{sim_away_pts}|{sim_home_pts}|{sim_margin}|{sim_total}".encode("utf-8")
+                h = hashlib.md5(s).hexdigest()
+                idx = int(h[:8], 16) % max(1, len(opts))
+                return opts[idx]
+            except Exception:
+                return opts[0] if opts else ""
+
         def f(x: Any) -> Optional[float]:
             try:
                 if x is None or (isinstance(x, float) and pd.isna(x)) or pd.isna(x):
@@ -879,13 +891,41 @@ def _sportswriter_game_story(
         ptxt = f" (P({home}) {p_home*100:.0f}%)" if p_home is not None else ""
 
         if leader is None:
-            opener = f"The sims see this one landing right on the number: {scoreline}." + ptxt
+            opener = _pick(
+                [
+                    f"The sims see this one landing right on the number: {scoreline}." + ptxt,
+                    f"This projects as a true coin-flip on the sim sheet: {scoreline}." + ptxt,
+                    f"A near pick’em in the sim universe: {scoreline}." + ptxt,
+                ],
+                salt="opener_even",
+            )
         elif tight:
-            opener = f"A one-score type game in the sim universe: {leader} squeaks it out, {scoreline}." + ptxt
+            opener = _pick(
+                [
+                    f"A one-score type game in the sim universe: {leader} squeaks it out, {scoreline}." + ptxt,
+                    f"Nail-biter territory: {leader} edges it, {scoreline}." + ptxt,
+                    f"This stays tight all the way — {leader} by a hair, {scoreline}." + ptxt,
+                ],
+                salt="opener_tight",
+            )
         elif comfy:
-            opener = f"The sims lean toward a comfortable {leader} win: {scoreline}." + ptxt
+            opener = _pick(
+                [
+                    f"The sims lean toward a comfortable {leader} win: {scoreline}." + ptxt,
+                    f"The sim median favors {leader} with breathing room: {scoreline}." + ptxt,
+                    f"The script reads like a clear {leader} advantage: {scoreline}." + ptxt,
+                ],
+                salt="opener_comfy",
+            )
         else:
-            opener = f"The sims give {leader} the edge: {scoreline}." + ptxt
+            opener = _pick(
+                [
+                    f"The sims give {leader} the edge: {scoreline}." + ptxt,
+                    f"Slight lean in the sim outcomes: {leader} comes out on top, {scoreline}." + ptxt,
+                    f"The projection nudges toward {leader}: {scoreline}." + ptxt,
+                ],
+                salt="opener_lean",
+            )
         if tot is not None:
             opener += f" Total: {tot:.1f}."
 
@@ -900,19 +940,51 @@ def _sportswriter_game_story(
                 if abs(dmar) >= 2.0:
                     if dmar < 0:
                         market_bits.append(
-                            f"The market is pricier on {home} (about {implied_home_margin:+.1f}) than the sims ({mar:+.1f}) — that leaves room for a {away} cover."
+                            _pick(
+                                [
+                                    f"The market is pricier on {home} (about {implied_home_margin:+.1f}) than the sims ({mar:+.1f}) — that leaves room for a {away} cover.",
+                                    f"Spread-wise, the book leans more {home} (≈{implied_home_margin:+.1f}) than the sim mean ({mar:+.1f}); that opens a lane toward {away} against the number.",
+                                    f"The spread gap favors {away}: market implies {home} by ~{implied_home_margin:+.1f}, sims have it {mar:+.1f}.",
+                                ],
+                                salt="market_spread_away_cover",
+                            )
                         )
                     else:
                         market_bits.append(
-                            f"The sims are more bullish on {home} ({mar:+.1f}) than the market (about {implied_home_margin:+.1f})."
+                            _pick(
+                                [
+                                    f"The sims are more bullish on {home} ({mar:+.1f}) than the market (about {implied_home_margin:+.1f}).",
+                                    f"The sim margin likes {home} more than the spread does (sim {mar:+.1f} vs market ~{implied_home_margin:+.1f}).",
+                                    f"There’s daylight on the spread: sims {mar:+.1f}, market implies {home} {implied_home_margin:+.1f}.",
+                                ],
+                                salt="market_spread_home_edge",
+                            )
                         )
             if mt is not None and tot is not None:
                 dt = float(tot) - float(mt)
                 if abs(dt) >= 3.0:
                     if dt > 0:
-                        market_bits.append(f"On the total, the sim mean sits {dt:+.1f} above market ({tot:.1f} vs {mt:.1f}) — track-meet profile.")
+                        market_bits.append(
+                            _pick(
+                                [
+                                    f"On the total, the sim mean sits {dt:+.1f} above market ({tot:.1f} vs {mt:.1f}) — track-meet profile.",
+                                    f"Totals lean fast: sims {tot:.1f} vs market {mt:.1f} ({dt:+.1f}) — more shootout than slog.",
+                                    f"The number runs hot in the sims: {tot:.1f} projected vs {mt:.1f} posted ({dt:+.1f}).",
+                                ],
+                                salt="market_total_over",
+                            )
+                        )
                     else:
-                        market_bits.append(f"On the total, the sim mean sits {dt:+.1f} below market ({tot:.1f} vs {mt:.1f}) — lower-scoring shape.")
+                        market_bits.append(
+                            _pick(
+                                [
+                                    f"On the total, the sim mean sits {dt:+.1f} below market ({tot:.1f} vs {mt:.1f}) — lower-scoring shape.",
+                                    f"The sim total comes in under the market: {tot:.1f} vs {mt:.1f} ({dt:+.1f}).",
+                                    f"Sims point to a quieter scoreboard than the posted total (sim {tot:.1f} vs market {mt:.1f}, {dt:+.1f}).",
+                                ],
+                                salt="market_total_under",
+                            )
+                        )
         except Exception:
             market_bits = []
 
@@ -950,43 +1022,56 @@ def _sportswriter_game_story(
                 s3 = _score_str(end_q3) if end_q3 else None
 
                 if s1:
-                    flow_bits.append(f"After one: {s1}.")
+                    flow_bits.append(_pick([f"After one: {s1}.", f"End of Q1: {s1}.", f"First quarter: {s1}."], salt="flow_q1"))
                 if sh:
-                    flow_bits.append(f"At halftime: {sh}.")
+                    flow_bits.append(_pick([f"At halftime: {sh}.", f"At the break: {sh}.", f"Halftime check: {sh}."], salt="flow_half"))
                 if s3:
-                    flow_bits.append(f"Through three: {s3}.")
+                    flow_bits.append(_pick([f"Through three: {s3}.", f"After three: {s3}.", f"Heading to the fourth: {s3}."], salt="flow_q3"))
 
-                # Biggest swing in P(Home lead)
-                swing_drive = None
-                swing_dp = None
-                prev_p = None
-                for dd in dlist:
-                    try:
-                        p = f(dd.get('p_home_lead'))
-                        if p is None:
+                # Biggest swing in P(Home lead) - omit if we're going to narrate key drives
+                if not sim_key_drives:
+                    swing_drive = None
+                    swing_dp = None
+                    prev_p = None
+                    for dd in dlist:
+                        try:
+                            p = f(dd.get('p_home_lead'))
+                            if p is None:
+                                continue
+                            if prev_p is not None:
+                                dp = p - prev_p
+                                if swing_dp is None or abs(dp) > abs(swing_dp):
+                                    swing_dp = dp
+                                    swing_drive = dd
+                            prev_p = p
+                        except Exception:
                             continue
-                        if prev_p is not None:
-                            dp = p - prev_p
-                            if swing_dp is None or abs(dp) > abs(swing_dp):
-                                swing_dp = dp
-                                swing_drive = dd
-                        prev_p = p
-                    except Exception:
-                        continue
-                if swing_drive is not None and swing_dp is not None:
-                    try:
-                        dn = int(f(swing_drive.get('drive_no')) or 0)
-                        qn = int(f(swing_drive.get('quarter')) or 0)
-                        poss = swing_drive.get('poss_team')
-                        outc = swing_drive.get('drive_outcome_mode')
-                        if dn > 0:
-                            lead_side = home if swing_dp > 0 else away
-                            swing_txt = f"The biggest momentum flip hits in Q{qn} (Drive {dn}), swinging toward {lead_side} ({swing_dp*100:+.0f}pp win-prob tilt)."
-                            if poss and outc:
-                                swing_txt = f"{poss}’s {outc} on Drive {dn} is the swing moment (Q{qn}, {swing_dp*100:+.0f}pp)."
-                            flow_bits.append(swing_txt)
-                    except Exception:
-                        pass
+                    if swing_drive is not None and swing_dp is not None:
+                        try:
+                            dn = int(f(swing_drive.get('drive_no')) or 0)
+                            qn = int(f(swing_drive.get('quarter')) or 0)
+                            poss = swing_drive.get('poss_team')
+                            outc = swing_drive.get('drive_outcome_mode')
+                            if dn > 0:
+                                lead_side = home if swing_dp > 0 else away
+                                swing_txt = _pick(
+                                    [
+                                        f"The biggest momentum flip hits in Q{qn} (Drive {dn}), swinging toward {lead_side} ({swing_dp*100:+.0f}pp win-prob tilt).",
+                                        f"Drive {dn} (Q{qn}) is the swing point: {swing_dp*100:+.0f}pp toward {lead_side}.",
+                                    ],
+                                    salt="swing_generic",
+                                )
+                                if poss and outc:
+                                    swing_txt = _pick(
+                                        [
+                                            f"{poss}’s {outc} on Drive {dn} is the swing moment (Q{qn}, {swing_dp*100:+.0f}pp).",
+                                            f"Swing drive: {poss} {outc} (Drive {dn}, Q{qn}) — {swing_dp*100:+.0f}pp.",
+                                        ],
+                                        salt="swing_poss",
+                                    )
+                                flow_bits.append(swing_txt)
+                        except Exception:
+                            pass
 
                 # Scoring drive counts by team (very high-level)
                 try:
@@ -1230,16 +1315,6 @@ def _sportswriter_game_story(
                         if outc in {'TD','FG'}:
                             first_score = dd
                             break
-                    if first_score is not None:
-                        poss = first_score.get('poss_team')
-                        outc = first_score.get('drive_outcome_mode')
-                        dn = int(f(first_score.get('drive_no')) or 0)
-                        why = str(first_score.get('why') or '').strip()
-                        if poss and outc and dn > 0:
-                            frag = f"Early tone-setter: {poss} posts the first points (Drive {dn}, {outc})."
-                            if why:
-                                frag += f" {why}."
-                            p2_parts.append(frag)
 
                     # Biggest leverage swing drive
                     swing = None
@@ -1255,16 +1330,55 @@ def _sportswriter_game_story(
                                 swing_dp = dp
                                 swing = dd
                         prev_p = p
-                    if swing is not None and swing_dp is not None and abs(swing_dp) >= 0.08:
-                        dn = int(f(swing.get('drive_no')) or 0)
+
+                    first_dn = int(f(first_score.get('drive_no')) or 0) if first_score else 0
+                    swing_dn = int(f(swing.get('drive_no')) or 0) if swing else 0
+
+                    if first_score is not None:
+                        poss = first_score.get('poss_team')
+                        outc = first_score.get('drive_outcome_mode')
+                        dn = first_dn
+                        why = str(first_score.get('why') or '').strip()
+                        if poss and outc and dn > 0:
+                            frag = _pick(
+                                [
+                                    f"Early tone-setter: {poss} posts the first points (Drive {dn}, {outc}).",
+                                    f"First strike: {poss} draws first blood on Drive {dn} ({outc}).",
+                                    f"Opening statement: {poss} gets on the board first (Drive {dn}, {outc}).",
+                                ],
+                                salt="first_points",
+                            )
+                            if why:
+                                frag += f" {why}."
+                            # If the first-points drive is also the leverage pivot, don't narrate it twice.
+                            if swing_dn and swing_dn == first_dn and swing_dp is not None and abs(swing_dp) >= 0.08:
+                                qn = int(f(swing.get('quarter')) or 0)
+                                frag = frag.rstrip('.') + f" It also registers as the biggest leverage pivot ({swing_dp*100:+.0f}pp in P(Home lead), Q{qn})."
+                            p2_parts.append(frag)
+
+                    # Leverage drive (only if distinct from first points)
+                    if swing is not None and swing_dp is not None and abs(swing_dp) >= 0.08 and (not first_dn or swing_dn != first_dn):
+                        dn = swing_dn
                         qn = int(f(swing.get('quarter')) or 0)
                         poss = swing.get('poss_team')
                         outc = swing.get('drive_outcome_mode')
                         why = str(swing.get('why') or '').strip()
                         if dn > 0:
-                            base = f"Leverage moment: Drive {dn} in Q{qn} swings the game state ({swing_dp*100:+.0f}pp in P(Home lead))."
+                            base = _pick(
+                                [
+                                    f"Leverage moment: Drive {dn} in Q{qn} swings the game state ({swing_dp*100:+.0f}pp in P(Home lead)).",
+                                    f"The pivot point shows up on Drive {dn} (Q{qn}): {swing_dp*100:+.0f}pp in P(Home lead).",
+                                ],
+                                salt="leverage_generic",
+                            )
                             if poss and outc:
-                                base = f"Leverage moment: {poss}’s {outc} (Drive {dn}, Q{qn}) is the biggest probability pivot ({swing_dp*100:+.0f}pp)."
+                                base = _pick(
+                                    [
+                                        f"Leverage moment: {poss}’s {outc} (Drive {dn}, Q{qn}) is the biggest probability pivot ({swing_dp*100:+.0f}pp).",
+                                        f"Biggest swing: {poss} {outc} (Drive {dn}, Q{qn}) — {swing_dp*100:+.0f}pp.",
+                                    ],
+                                    salt="leverage_poss",
+                                )
                             if why:
                                 base += f" {why}."
                             p2_parts.append(base)
