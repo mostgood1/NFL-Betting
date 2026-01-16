@@ -7,6 +7,7 @@ from typing import Optional, Dict, Any, List
 from datetime import datetime
 import pandas as pd
 from flask import Flask, jsonify, render_template, request, g
+from urllib.parse import urlencode
 
 BASE_DIR = Path(__file__).resolve().parent
 _ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
@@ -7044,7 +7045,14 @@ def publish_page():
     return render_template("publish.html", recs=out_recs, groups_by_market=groups_by_market, have_data=len(out_recs) > 0, week=week_i or None, min_conf=min_conf, per_market=n), 200
 
 
-def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
+def _build_cards(
+    view_df: pd.DataFrame,
+    *,
+    include_sim_quarters: bool = True,
+    include_sim_drives: bool = True,
+    include_props: bool = True,
+    include_prop_edges: bool = True,
+) -> List[Dict[str, Any]]:
     """Construct card dictionaries from a weekly view DataFrame.
     This encapsulates the display and reconciliation logic used by the index view
     and exposes it for programmatic or API consumption.
@@ -7058,10 +7066,10 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
     stad_map = _load_stadium_meta_map()
     # Load sim probabilities once per (season, week) pair.
     sim_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
-    sim_q_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
-    sim_d_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
-    props_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {}
-    props_by_gid_by_sw: Dict[tuple[int, int], Dict[str, pd.DataFrame]] = {}
+    sim_q_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_sim_quarters else {}
+    sim_d_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_sim_drives else {}
+    props_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_props else {}
+    props_by_gid_by_sw: Dict[tuple[int, int], Dict[str, pd.DataFrame]] = {} if include_props else {}
     try:
         if view_df is not None and not view_df.empty and {'season','week'}.issubset(view_df.columns):
             sw = view_df[['season','week']].dropna().drop_duplicates()
@@ -7072,21 +7080,24 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 except Exception:
                     continue
                 sim_df_by_sw[(s_i, w_i)] = _get_sim_probs_df(s_i, w_i, view_df=view_df)
-                sim_q_df_by_sw[(s_i, w_i)] = _load_sim_quarters_df(s_i, w_i)
-                sim_d_df_by_sw[(s_i, w_i)] = _load_sim_drives_df(s_i, w_i)
-                props_df_by_sw[(s_i, w_i)] = _load_player_props_cache_df(s_i, w_i)
-                try:
-                    pdf = props_df_by_sw.get((s_i, w_i))
-                    if pdf is not None and not pdf.empty and 'game_id' in pdf.columns:
-                        by_gid: Dict[str, pd.DataFrame] = {}
-                        for gid, gdf in pdf.groupby(pdf['game_id'].astype(str), dropna=False):
-                            try:
-                                by_gid[str(gid)] = gdf
-                            except Exception:
-                                continue
-                        props_by_gid_by_sw[(s_i, w_i)] = by_gid
-                except Exception:
-                    props_by_gid_by_sw[(s_i, w_i)] = {}
+                if include_sim_quarters:
+                    sim_q_df_by_sw[(s_i, w_i)] = _load_sim_quarters_df(s_i, w_i)
+                if include_sim_drives:
+                    sim_d_df_by_sw[(s_i, w_i)] = _load_sim_drives_df(s_i, w_i)
+                if include_props:
+                    props_df_by_sw[(s_i, w_i)] = _load_player_props_cache_df(s_i, w_i)
+                    try:
+                        pdf = props_df_by_sw.get((s_i, w_i))
+                        if pdf is not None and not pdf.empty and 'game_id' in pdf.columns:
+                            by_gid: Dict[str, pd.DataFrame] = {}
+                            for gid, gdf in pdf.groupby(pdf['game_id'].astype(str), dropna=False):
+                                try:
+                                    by_gid[str(gid)] = gdf
+                                except Exception:
+                                    continue
+                            props_by_gid_by_sw[(s_i, w_i)] = by_gid
+                    except Exception:
+                        props_by_gid_by_sw[(s_i, w_i)] = {}
     except Exception:
         sim_df_by_sw = {}
         sim_q_df_by_sw = {}
@@ -7134,6 +7145,8 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
         # Optional: attach top prop edges per game (from edges_player_props_*.csv)
         prop_edges_by_match: Dict[tuple[str, str], List[Dict[str, Any]]] = {}
         try:
+            if not include_prop_edges:
+                raise RuntimeError('prop edges disabled')
             season0 = None
             week0 = None
             try:
@@ -8034,302 +8047,303 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 c['sim_flow_text'] = None
 
             # Drive-level timeline (optional sim_drives.csv)
-            try:
-                sim_drives = None
-                sim_drive_recap = None
-                sim_key_drives = None
+            if include_sim_drives:
                 try:
-                    ssw = None
-                    try:
-                        ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
-                    except Exception:
-                        ssw = None
-                    ddf = sim_d_df_by_sw.get(ssw) if ssw else None
-                    gid = str(c.get('game_id')) if c.get('game_id') is not None else None
-                    if ddf is not None and not ddf.empty and gid and 'game_id' in ddf.columns:
-                        sub = ddf[ddf['game_id'].astype(str) == gid].copy()
-                        if not sub.empty:
-                            if 'drive_no' in sub.columns:
-                                try:
-                                    sub['drive_no'] = pd.to_numeric(sub['drive_no'], errors='coerce')
-                                except Exception:
-                                    pass
-                                try:
-                                    sub = sub.sort_values(['drive_no'])
-                                except Exception:
-                                    pass
-
-                            def _f(v: Any) -> Optional[float]:
-                                try:
-                                    if v is None or (isinstance(v, float) and pd.isna(v)) or pd.isna(v):
-                                        return None
-                                    return float(v)
-                                except Exception:
-                                    return None
-
-                            sim_drives = []
-                            for _, dr in sub.iterrows():
-                                try:
-                                    sim_drives.append({
-                                        'drive_no': int(_f(dr.get('drive_no')) or 0),
-                                        'quarter': int(_f(dr.get('quarter')) or 0),
-                                        'poss_team': (str(dr.get('poss_team')) if dr.get('poss_team') is not None and not pd.isna(dr.get('poss_team')) else None),
-                                        'drive_sec_mean': _f(dr.get('drive_sec_mean')),
-                                        'drive_sec_p25': _f(dr.get('drive_sec_p25')),
-                                        'drive_sec_p75': _f(dr.get('drive_sec_p75')),
-                                        'drive_outcome_mode': (str(dr.get('drive_outcome_mode')) if dr.get('drive_outcome_mode') is not None and not pd.isna(dr.get('drive_outcome_mode')) else None),
-                                        'p_drive_score': _f(dr.get('p_drive_score')),
-                                        'p_drive_td': _f(dr.get('p_drive_td')),
-                                        'p_drive_fg': _f(dr.get('p_drive_fg')),
-                                        'p_drive_punt': _f(dr.get('p_drive_punt')),
-                                        'p_drive_int': _f(dr.get('p_drive_int')),
-                                        'p_drive_fumble': _f(dr.get('p_drive_fumble')),
-                                        'p_drive_downs': _f(dr.get('p_drive_downs')),
-                                        'p_drive_missed_fg': _f(dr.get('p_drive_missed_fg')),
-                                        'p_drive_end_half': _f(dr.get('p_drive_end_half')),
-                                        'home_score_mean': _f(dr.get('home_score_mean')),
-                                        'away_score_mean': _f(dr.get('away_score_mean')),
-                                        'home_score_drive_mean': _f(dr.get('home_score_drive_mean')),
-                                        'away_score_drive_mean': _f(dr.get('away_score_drive_mean')),
-                                        'p_home_lead': _f(dr.get('p_home_lead')),
-                                        'p_tie': _f(dr.get('p_tie')),
-                                        'p_away_lead': _f(dr.get('p_away_lead')),
-                                        'drives_total': int(_f(dr.get('drives_total')) or 0),
-                                    })
-                                except Exception:
-                                    continue
-                except Exception:
                     sim_drives = None
-
-                # Keep cards light: cap at 40 rows (still scrollable in UI if desired)
-                if sim_drives and len(sim_drives) > 40:
-                    sim_drives = sim_drives[:40]
-                c['sim_drives'] = sim_drives
-
-                # Annotate drives with a compact "why it mattered" explanation
-                try:
-                    if sim_drives and home and away:
-                        dlist = [d for d in sim_drives if isinstance(d, dict)]
-                        prev_p: Optional[float] = None
-                        prev_h: Optional[float] = None
-                        prev_a: Optional[float] = None
-                        saw_points = False
-
-                        def _as_f(x: Any) -> Optional[float]:
-                            try:
-                                if x is None or pd.isna(x):
-                                    return None
-                                return float(x)
-                            except Exception:
-                                return None
-
-                        for dd in dlist:
-                            try:
-                                p = _as_f(dd.get('p_home_lead'))
-                                dp = (p - prev_p) if (p is not None and prev_p is not None) else None
-                                if p is not None:
-                                    prev_p = p
-                                dd['p_home_lead_delta'] = dp
-
-                                # Expected points on the drive (best-effort)
-                                h_drive = _as_f(dd.get('home_score_drive_mean'))
-                                a_drive = _as_f(dd.get('away_score_drive_mean'))
-                                h_tot = _as_f(dd.get('home_score_mean'))
-                                a_tot = _as_f(dd.get('away_score_mean'))
-                                if h_drive is None and h_tot is not None and prev_h is not None:
-                                    h_drive = h_tot - prev_h
-                                if a_drive is None and a_tot is not None and prev_a is not None:
-                                    a_drive = a_tot - prev_a
-                                if h_tot is not None:
-                                    prev_h = h_tot
-                                if a_tot is not None:
-                                    prev_a = a_tot
-
-                                poss = dd.get('poss_team')
-                                ep_poss: Optional[float] = None
-                                if poss is not None:
-                                    ps = str(poss).upper().strip()
-                                    if str(home).upper().strip() == ps:
-                                        ep_poss = h_drive
-                                    elif str(away).upper().strip() == ps:
-                                        ep_poss = a_drive
-
-                                outcome = str(dd.get('drive_outcome_mode') or '').strip()
-
-                                why_parts: List[str] = []
-                                if outcome in {'TD', 'FG'}:
-                                    if not saw_points:
-                                        why_parts.append('First points')
-                                    why_parts.append(f"{outcome} drive")
-                                    saw_points = True
-                                elif outcome in {'INT', 'Fumble', 'Downs'}:
-                                    why_parts.append(f"{outcome} turnover")
-                                elif outcome in {'Missed FG'}:
-                                    why_parts.append('Missed FG')
-                                elif outcome in {'End Half'}:
-                                    why_parts.append('End-half possession')
-
-                                if ep_poss is not None and pd.notna(ep_poss):
-                                    if abs(ep_poss) >= 0.25:
-                                        why_parts.append(f"{ep_poss:+.1f} exp pts")
-
-                                if dp is not None and pd.notna(dp):
-                                    if abs(dp) >= 0.10:
-                                        why_parts.append(f"{dp*100:+.0f}pp P(Home lead)")
-                                dd['why'] = " • ".join([w for w in why_parts if w]) if why_parts else None
-                            except Exception:
-                                dd['why'] = dd.get('why')
-                except Exception:
-                    pass
-
-                # Build a smaller "key drives" list for recap display (scoring drives + big swing)
-                try:
+                    sim_drive_recap = None
                     sim_key_drives = None
-                    if sim_drives:
-                        dlist = [d for d in sim_drives if isinstance(d, dict)]
-                        # Biggest swing in P(Home lead)
-                        swing_drive = None
-                        swing_dp = None
-                        prev_p = None
-                        for dd in dlist:
-                            try:
-                                p = dd.get('p_home_lead')
-                                if p is None or pd.isna(p):
-                                    continue
-                                p = float(p)
-                                if prev_p is not None:
-                                    dp = p - prev_p
-                                    if swing_dp is None or abs(dp) > abs(swing_dp):
-                                        swing_dp = dp
-                                        swing_drive = dd
-                                prev_p = p
-                            except Exception:
-                                continue
+                    try:
+                        ssw = None
+                        try:
+                            ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
+                        except Exception:
+                            ssw = None
+                        ddf = sim_d_df_by_sw.get(ssw) if ssw else None
+                        gid = str(c.get('game_id')) if c.get('game_id') is not None else None
+                        if ddf is not None and not ddf.empty and gid and 'game_id' in ddf.columns:
+                            sub = ddf[ddf['game_id'].astype(str) == gid].copy()
+                            if not sub.empty:
+                                if 'drive_no' in sub.columns:
+                                    try:
+                                        sub['drive_no'] = pd.to_numeric(sub['drive_no'], errors='coerce')
+                                    except Exception:
+                                        pass
+                                    try:
+                                        sub = sub.sort_values(['drive_no'])
+                                    except Exception:
+                                        pass
 
-                        scoring = [dd for dd in dlist if str(dd.get('drive_outcome_mode') or '').strip() in {'TD','FG'}]
-                        key: List[Dict[str, Any]] = []
-                        if swing_drive is not None:
-                            key.append(swing_drive)
-                        # include up to first 5 scoring drives
-                        for dd in scoring[:5]:
-                            key.append(dd)
-                        # include final drive with score means
-                        for dd in reversed(dlist):
-                            if dd.get('home_score_mean') is not None and dd.get('away_score_mean') is not None:
-                                key.append(dd)
-                                break
-                        # de-dupe by drive_no
-                        seen_dn: set[int] = set()
-                        outk: List[Dict[str, Any]] = []
-                        for dd in key:
-                            try:
-                                dn = int(dd.get('drive_no') or 0)
-                            except Exception:
-                                dn = 0
-                            if dn <= 0:
-                                continue
-                            if dn in seen_dn:
-                                continue
-                            seen_dn.add(dn)
-                            outk.append(dd)
-                        # If still empty, show the first few drives
-                        if not outk:
-                            outk = dlist[:8]
-                        sim_key_drives = outk[:12]
-                except Exception:
-                    sim_key_drives = None
-                c['sim_key_drives'] = sim_key_drives
+                                def _f(v: Any) -> Optional[float]:
+                                    try:
+                                        if v is None or (isinstance(v, float) and pd.isna(v)) or pd.isna(v):
+                                            return None
+                                        return float(v)
+                                    except Exception:
+                                        return None
 
-                # Derive a compact "key moments" recap from the drive timeline
-                try:
-                    if sim_drives:
-                        dlist = [d for d in sim_drives if isinstance(d, dict)]
+                                sim_drives = []
+                                for _, dr in sub.iterrows():
+                                    try:
+                                        sim_drives.append({
+                                            'drive_no': int(_f(dr.get('drive_no')) or 0),
+                                            'quarter': int(_f(dr.get('quarter')) or 0),
+                                            'poss_team': (str(dr.get('poss_team')) if dr.get('poss_team') is not None and not pd.isna(dr.get('poss_team')) else None),
+                                            'drive_sec_mean': _f(dr.get('drive_sec_mean')),
+                                            'drive_sec_p25': _f(dr.get('drive_sec_p25')),
+                                            'drive_sec_p75': _f(dr.get('drive_sec_p75')),
+                                            'drive_outcome_mode': (str(dr.get('drive_outcome_mode')) if dr.get('drive_outcome_mode') is not None and not pd.isna(dr.get('drive_outcome_mode')) else None),
+                                            'p_drive_score': _f(dr.get('p_drive_score')),
+                                            'p_drive_td': _f(dr.get('p_drive_td')),
+                                            'p_drive_fg': _f(dr.get('p_drive_fg')),
+                                            'p_drive_punt': _f(dr.get('p_drive_punt')),
+                                            'p_drive_int': _f(dr.get('p_drive_int')),
+                                            'p_drive_fumble': _f(dr.get('p_drive_fumble')),
+                                            'p_drive_downs': _f(dr.get('p_drive_downs')),
+                                            'p_drive_missed_fg': _f(dr.get('p_drive_missed_fg')),
+                                            'p_drive_end_half': _f(dr.get('p_drive_end_half')),
+                                            'home_score_mean': _f(dr.get('home_score_mean')),
+                                            'away_score_mean': _f(dr.get('away_score_mean')),
+                                            'home_score_drive_mean': _f(dr.get('home_score_drive_mean')),
+                                            'away_score_drive_mean': _f(dr.get('away_score_drive_mean')),
+                                            'p_home_lead': _f(dr.get('p_home_lead')),
+                                            'p_tie': _f(dr.get('p_tie')),
+                                            'p_away_lead': _f(dr.get('p_away_lead')),
+                                            'drives_total': int(_f(dr.get('drives_total')) or 0),
+                                        })
+                                    except Exception:
+                                        continue
+                    except Exception:
+                        sim_drives = None
 
-                        def _last_where(pred):
-                            for dd in reversed(dlist):
+                    # Keep cards light: cap at 40 rows (still scrollable in UI if desired)
+                    if sim_drives and len(sim_drives) > 40:
+                        sim_drives = sim_drives[:40]
+                    c['sim_drives'] = sim_drives
+
+                    # Annotate drives with a compact "why it mattered" explanation
+                    try:
+                        if sim_drives and home and away:
+                            dlist = [d for d in sim_drives if isinstance(d, dict)]
+                            prev_p: Optional[float] = None
+                            prev_h: Optional[float] = None
+                            prev_a: Optional[float] = None
+                            saw_points = False
+
+                            def _as_f(x: Any) -> Optional[float]:
                                 try:
-                                    if pred(dd):
-                                        return dd
+                                    if x is None or pd.isna(x):
+                                        return None
+                                    return float(x)
+                                except Exception:
+                                    return None
+
+                            for dd in dlist:
+                                try:
+                                    p = _as_f(dd.get('p_home_lead'))
+                                    dp = (p - prev_p) if (p is not None and prev_p is not None) else None
+                                    if p is not None:
+                                        prev_p = p
+                                    dd['p_home_lead_delta'] = dp
+
+                                    # Expected points on the drive (best-effort)
+                                    h_drive = _as_f(dd.get('home_score_drive_mean'))
+                                    a_drive = _as_f(dd.get('away_score_drive_mean'))
+                                    h_tot = _as_f(dd.get('home_score_mean'))
+                                    a_tot = _as_f(dd.get('away_score_mean'))
+                                    if h_drive is None and h_tot is not None and prev_h is not None:
+                                        h_drive = h_tot - prev_h
+                                    if a_drive is None and a_tot is not None and prev_a is not None:
+                                        a_drive = a_tot - prev_a
+                                    if h_tot is not None:
+                                        prev_h = h_tot
+                                    if a_tot is not None:
+                                        prev_a = a_tot
+
+                                    poss = dd.get('poss_team')
+                                    ep_poss: Optional[float] = None
+                                    if poss is not None:
+                                        ps = str(poss).upper().strip()
+                                        if str(home).upper().strip() == ps:
+                                            ep_poss = h_drive
+                                        elif str(away).upper().strip() == ps:
+                                            ep_poss = a_drive
+
+                                    outcome = str(dd.get('drive_outcome_mode') or '').strip()
+
+                                    why_parts: List[str] = []
+                                    if outcome in {'TD', 'FG'}:
+                                        if not saw_points:
+                                            why_parts.append('First points')
+                                        why_parts.append(f"{outcome} drive")
+                                        saw_points = True
+                                    elif outcome in {'INT', 'Fumble', 'Downs'}:
+                                        why_parts.append(f"{outcome} turnover")
+                                    elif outcome in {'Missed FG'}:
+                                        why_parts.append('Missed FG')
+                                    elif outcome in {'End Half'}:
+                                        why_parts.append('End-half possession')
+
+                                    if ep_poss is not None and pd.notna(ep_poss):
+                                        if abs(ep_poss) >= 0.25:
+                                            why_parts.append(f"{ep_poss:+.1f} exp pts")
+
+                                    if dp is not None and pd.notna(dp):
+                                        if abs(dp) >= 0.10:
+                                            why_parts.append(f"{dp*100:+.0f}pp P(Home lead)")
+                                    dd['why'] = " • ".join([w for w in why_parts if w]) if why_parts else None
+                                except Exception:
+                                    dd['why'] = dd.get('why')
+                    except Exception:
+                        pass
+
+                    # Build a smaller "key drives" list for recap display (scoring drives + big swing)
+                    try:
+                        sim_key_drives = None
+                        if sim_drives:
+                            dlist = [d for d in sim_drives if isinstance(d, dict)]
+                            # Biggest swing in P(Home lead)
+                            swing_drive = None
+                            swing_dp = None
+                            prev_p = None
+                            for dd in dlist:
+                                try:
+                                    p = dd.get('p_home_lead')
+                                    if p is None or pd.isna(p):
+                                        continue
+                                    p = float(p)
+                                    if prev_p is not None:
+                                        dp = p - prev_p
+                                        if swing_dp is None or abs(dp) > abs(swing_dp):
+                                            swing_dp = dp
+                                            swing_drive = dd
+                                    prev_p = p
                                 except Exception:
                                     continue
-                            return None
 
-                        def _score_str(dd: Dict[str, Any]) -> Optional[str]:
-                            try:
-                                ah = dd.get('away_score_mean')
-                                hh = dd.get('home_score_mean')
-                                if ah is None or hh is None or pd.isna(ah) or pd.isna(hh):
-                                    return None
-                                return f"{away} {float(ah):.1f}–{home} {float(hh):.1f}"
-                            except Exception:
+                            scoring = [dd for dd in dlist if str(dd.get('drive_outcome_mode') or '').strip() in {'TD','FG'}]
+                            key: List[Dict[str, Any]] = []
+                            if swing_drive is not None:
+                                key.append(swing_drive)
+                            # include up to first 5 scoring drives
+                            for dd in scoring[:5]:
+                                key.append(dd)
+                            # include final drive with score means
+                            for dd in reversed(dlist):
+                                if dd.get('home_score_mean') is not None and dd.get('away_score_mean') is not None:
+                                    key.append(dd)
+                                    break
+                            # de-dupe by drive_no
+                            seen_dn: set[int] = set()
+                            outk: List[Dict[str, Any]] = []
+                            for dd in key:
+                                try:
+                                    dn = int(dd.get('drive_no') or 0)
+                                except Exception:
+                                    dn = 0
+                                if dn <= 0:
+                                    continue
+                                if dn in seen_dn:
+                                    continue
+                                seen_dn.add(dn)
+                                outk.append(dd)
+                            # If still empty, show the first few drives
+                            if not outk:
+                                outk = dlist[:8]
+                            sim_key_drives = outk[:12]
+                    except Exception:
+                        sim_key_drives = None
+                    c['sim_key_drives'] = sim_key_drives
+
+                    # Derive a compact "key moments" recap from the drive timeline
+                    try:
+                        if sim_drives:
+                            dlist = [d for d in sim_drives if isinstance(d, dict)]
+
+                            def _last_where(pred):
+                                for dd in reversed(dlist):
+                                    try:
+                                        if pred(dd):
+                                            return dd
+                                    except Exception:
+                                        continue
                                 return None
 
-                        end_q1 = _last_where(lambda dd: int(dd.get('quarter') or 0) == 1)
-                        halftime = _last_where(lambda dd: int(dd.get('quarter') or 0) <= 2 and int(dd.get('quarter') or 0) > 0)
-                        end_q3 = _last_where(lambda dd: int(dd.get('quarter') or 0) <= 3 and int(dd.get('quarter') or 0) > 0)
-                        final_d = _last_where(lambda dd: (dd.get('away_score_mean') is not None) and (dd.get('home_score_mean') is not None))
+                            def _score_str(dd: Dict[str, Any]) -> Optional[str]:
+                                try:
+                                    ah = dd.get('away_score_mean')
+                                    hh = dd.get('home_score_mean')
+                                    if ah is None or hh is None or pd.isna(ah) or pd.isna(hh):
+                                        return None
+                                    return f"{away} {float(ah):.1f}–{home} {float(hh):.1f}"
+                                except Exception:
+                                    return None
 
-                        # Biggest swing in P(Home lead)
-                        swing_drive = None
-                        swing_pp = None
-                        prev_p = None
-                        for dd in dlist:
-                            try:
-                                p = dd.get('p_home_lead')
-                                if p is None or pd.isna(p):
+                            end_q1 = _last_where(lambda dd: int(dd.get('quarter') or 0) == 1)
+                            halftime = _last_where(lambda dd: int(dd.get('quarter') or 0) <= 2 and int(dd.get('quarter') or 0) > 0)
+                            final_d = _last_where(lambda dd: (dd.get('away_score_mean') is not None) and (dd.get('home_score_mean') is not None))
+
+                            # Biggest swing in P(Home lead)
+                            swing_drive = None
+                            swing_pp = None
+                            prev_p = None
+                            for dd in dlist:
+                                try:
+                                    p = dd.get('p_home_lead')
+                                    if p is None or pd.isna(p):
+                                        continue
+                                    p = float(p)
+                                    if prev_p is not None:
+                                        dp = p - prev_p
+                                        if swing_pp is None or abs(dp) > abs(swing_pp):
+                                            swing_pp = dp
+                                            swing_drive = dd
+                                    prev_p = p
+                                except Exception:
                                     continue
-                                p = float(p)
-                                if prev_p is not None:
-                                    dp = p - prev_p
-                                    if swing_pp is None or abs(dp) > abs(swing_pp):
-                                        swing_pp = dp
-                                        swing_drive = dd
-                                prev_p = p
-                            except Exception:
-                                continue
 
-                        parts: List[str] = []
-                        s1 = _score_str(end_q1) if end_q1 else None
-                        if s1:
-                            parts.append(f"Q1 {s1}")
-                        sh = _score_str(halftime) if halftime else None
-                        if sh:
-                            parts.append(f"HT {sh}")
-                        s3 = _score_str(end_q3) if end_q3 else None
-                        if s3:
-                            parts.append(f"Q3 {s3}")
-                        sf = _score_str(final_d) if final_d else None
-                        if sf:
-                            parts.append(f"Final {sf}")
+                            parts: List[str] = []
+                            s1 = _score_str(end_q1) if end_q1 else None
+                            if s1:
+                                parts.append(f"Q1 {s1}")
+                            sh = _score_str(halftime) if halftime else None
+                            if sh:
+                                parts.append(f"HT {sh}")
+                            sf = _score_str(final_d) if final_d else None
+                            if sf:
+                                parts.append(f"Final {sf}")
 
-                        swing_txt = None
-                        if swing_drive is not None and swing_pp is not None and pd.notna(swing_pp):
-                            try:
-                                dn = int(float(swing_drive.get('drive_no') or 0))
-                            except Exception:
-                                dn = 0
-                            swing_txt = f"Big swing D{dn} ({swing_pp*100:+.0f}pp P(Home lead))" if dn > 0 else f"Big swing ({swing_pp*100:+.0f}pp P(Home lead))"
+                            swing_txt = None
+                            if swing_drive is not None and swing_pp is not None and pd.notna(swing_pp):
+                                try:
+                                    dn = int(float(swing_drive.get('drive_no') or 0))
+                                except Exception:
+                                    dn = 0
+                                swing_txt = f"Big swing D{dn} ({swing_pp*100:+.0f}pp P(Home lead))" if dn > 0 else f"Big swing ({swing_pp*100:+.0f}pp P(Home lead))"
 
-                        # Keep recap short: show Q1/HT plus swing plus Final when available
-                        key_parts: List[str] = []
-                        for lab in ("Q1", "HT"):
-                            for ptxt in parts:
-                                if ptxt.startswith(lab + " "):
-                                    key_parts.append(ptxt)
-                                    break
-                        if swing_txt:
-                            key_parts.append(swing_txt)
-                        if sf:
-                            key_parts.append(f"Final {sf}")
-                        # De-dupe while preserving order
-                        seen = set()
-                        key_parts = [x for x in key_parts if not (x in seen or seen.add(x))]
-                        sim_drive_recap = " • ".join(key_parts[:4]) if key_parts else None
+                            # Keep recap short: show Q1/HT plus swing plus Final when available
+                            key_parts: List[str] = []
+                            for lab in ("Q1", "HT"):
+                                for ptxt in parts:
+                                    if ptxt.startswith(lab + " "):
+                                        key_parts.append(ptxt)
+                                        break
+                            if swing_txt:
+                                key_parts.append(swing_txt)
+                            if sf:
+                                key_parts.append(f"Final {sf}")
+                            # De-dupe while preserving order
+                            seen = set()
+                            key_parts = [x for x in key_parts if not (x in seen or seen.add(x))]
+                            sim_drive_recap = " • ".join(key_parts[:4]) if key_parts else None
+                    except Exception:
+                        sim_drive_recap = None
+
+                    c['sim_drive_recap'] = sim_drive_recap
                 except Exception:
-                    sim_drive_recap = None
-
-                c['sim_drive_recap'] = sim_drive_recap
-            except Exception:
+                    c['sim_drives'] = None
+                    c['sim_key_drives'] = None
+                    c['sim_drive_recap'] = None
+            else:
                 c['sim_drives'] = None
                 c['sim_key_drives'] = None
                 c['sim_drive_recap'] = None
@@ -8459,6 +8473,8 @@ def _build_cards(view_df: pd.DataFrame) -> List[Dict[str, Any]]:
                 sim_box = None
                 sim_top_props = None
                 try:
+                    if not include_props:
+                        raise RuntimeError('props disabled')
                     ssw = None
                     try:
                         ssw = (int(pd.to_numeric(c.get('season'), errors='coerce')), int(pd.to_numeric(c.get('week'), errors='coerce')))
@@ -9016,6 +9032,14 @@ def index():
     else:
         fast_mode = (fast_qs.lower() in {"1","true","yes","y"})
 
+    # Lite mode: skip drive timeline + props artifacts to keep cards fast and smaller.
+    # Default to lite on Render (or when fast_mode) unless explicitly overridden via ?lite=
+    lite_qs = request.args.get('lite')
+    if lite_qs is None:
+        lite_mode: bool = bool(on_render or fast_mode)
+    else:
+        lite_mode = (str(lite_qs).strip().lower() in {'1','true','yes','y','on'})
+
     # Season-to-date summary is expensive; keep it opt-in via ?s2d=1
     s2d_qs = str(request.args.get('s2d', '0')).strip().lower()
     compute_s2d: bool = (s2d_qs in {'1','true','yes','y','on'})
@@ -9069,7 +9093,30 @@ def index():
         view_df = pd.DataFrame()
 
     # Build cards via helper
-    cards: List[Dict[str, Any]] = _build_cards(view_df)
+    cards: List[Dict[str, Any]] = _build_cards(
+        view_df,
+        include_sim_quarters=True,
+        include_sim_drives=(not lite_mode),
+        include_props=(not lite_mode),
+        include_prop_edges=(not lite_mode),
+    )
+
+    # Build toggle URLs preserving other query params
+    def _url_with(**updates: Any) -> str:
+        try:
+            args = {k: v for k, v in request.args.items()}
+        except Exception:
+            args = {}
+        for k, v in updates.items():
+            if v is None:
+                args.pop(k, None)
+            else:
+                args[k] = str(v)
+        qs = urlencode(args)
+        return '/' + (('?' + qs) if qs else '')
+
+    url_lite = _url_with(lite=1)
+    url_full = _url_with(lite=0)
 
     # Sanitize numerics to avoid Jinja formatting errors on pandas NA in templates
     def _safe_num(v):
@@ -9354,6 +9401,9 @@ def index():
         sort=sort_param,
         total_rows=len(cards),
         fast_mode=fast_mode,
+        lite_mode=lite_mode,
+        url_lite=url_lite,
+        url_full=url_full,
         show_week_summary=(str(request.args.get('week_summary','0')).lower() in {'1','true','yes','y'}),
         accuracy_week=accuracy_week,
         accuracy_s2d=accuracy_s2d,
@@ -9437,7 +9487,15 @@ def api_cards():
     view_df = _derive_predictions_from_market(view_df)
     if view_df is None:
         view_df = pd.DataFrame()
-    cards: List[Dict[str, Any]] = _build_cards(view_df)
+    lite_qs = str(request.args.get('lite', '0')).strip().lower()
+    lite_mode = (lite_qs in {'1','true','yes','y','on'})
+    cards: List[Dict[str, Any]] = _build_cards(
+        view_df,
+        include_sim_quarters=True,
+        include_sim_drives=(not lite_mode),
+        include_props=(not lite_mode),
+        include_prop_edges=(not lite_mode),
+    )
     # Sorting
     def _dt_key(card: Dict[str, Any]):
         try:

@@ -191,6 +191,14 @@
   .props-compact{border-top:none!important;padding-top:0!important;margin-top:0!important}
   .full-panel{margin-top:10px}
 
+  /* --- Collapsible sections (details/summary) --- */
+  details.collapsible{margin-top:8px}
+  details.collapsible > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
+  details.collapsible > summary::-webkit-details-marker{display:none}
+  details.collapsible > summary:before{content:'▸';color:var(--muted);font-size:12px;line-height:1;transform:translateY(-1px)}
+  details.collapsible[open] > summary:before{content:'▾'}
+  details.collapsible .panel-body{margin-top:8px}
+
   .table-scroll{overflow:auto}
   .mockbox-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--pill-br);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;background:rgba(0,0,0,.08);font-size:12px}
   body.light .mockbox-table{background:rgba(0,0,0,.02)}
@@ -282,6 +290,15 @@
   </div>
     <h1>NFL Betting – Cards (Boxscore UI)</h1>
     <div class="meta">{{ total_rows }} rows {{ '(filtered)' if season or week else '' }}</div>
+    {% if url_lite and url_full %}
+      <div class="meta">
+        View: {% if lite_mode %}<strong>Lite</strong>{% else %}<strong>Full</strong>{% endif %}
+        &nbsp;•&nbsp; <a href="{{ url_full }}">Full</a> | <a href="{{ url_lite }}">Lite</a>
+      </div>
+      {% if lite_mode %}
+        <div class="meta">Lite mode hides drives + props for speed.</div>
+      {% endif %}
+    {% endif %}
     {% if accuracy_s2d %}
       <div class="cards-summary">
         {% set overall = accuracy_s2d.get('Overall') %}
@@ -584,8 +601,9 @@
               {% endif %}
 
               {% if g.sim_key_drives %}
-                <div class="muted-tiny drive-mt">Key drives (Sim){% if g.sim_key_drives|length > 0 %} • {{ g.sim_key_drives|length }}{% endif %}</div>
-                <div class="drive-scroll">
+                <details class="collapsible">
+                  <summary class="muted-tiny drive-mt">Key drives (Sim){% if g.sim_key_drives|length > 0 %} • {{ g.sim_key_drives|length }}{% endif %}</summary>
+                  <div class="drive-scroll">
                   <table class="box-table">
                     <thead>
                       <tr>
@@ -650,12 +668,14 @@
                       {% endfor %}
                     </tbody>
                   </table>
-                </div>
+                  </div>
+                </details>
               {% endif %}
 
               {% if g.sim_drives %}
-                <div class="muted-tiny drive-mt op-75">All drives (Sim){% if g.sim_drives|length > 0 %} • showing {{ (g.sim_drives|length) }}{% endif %}</div>
-                <div class="drive-scroll">
+                <details class="collapsible">
+                  <summary class="muted-tiny drive-mt op-75">All drives (Sim){% if g.sim_drives|length > 0 %} • showing {{ (g.sim_drives|length) }}{% endif %}</summary>
+                  <div class="drive-scroll">
                   <table class="box-table">
                     <thead>
                       <tr>
@@ -713,12 +733,14 @@
                       {% endfor %}
                     </tbody>
                   </table>
-                </div>
+                  </div>
+                </details>
               {% endif %}
             </div>
 
-            <div class="panel full-panel">
-              <div class="section-title mt0">Simulated Boxscore (Mock)</div>
+            <details class="panel full-panel collapsible">
+              <summary class="section-title mt0">Simulated Boxscore (Mock)</summary>
+              <div class="panel-body">
               {% if g.sim_boxscore and (g.sim_boxscore.away or g.sim_boxscore.home) %}
                 {% set away = g.sim_boxscore.away %}
                 {% set home = g.sim_boxscore.home %}
@@ -902,10 +924,17 @@
               {% else %}
                 <div class="muted-small">No cached player-props found for this week/game.</div>
               {% endif %}
-            </div>
+              </div>
+            </details>
 
             <div class="two-col">
-              <div class="panel">
+              <details class="panel collapsible">
+                <summary class="section-title mt0">
+                  Props
+                  {% if g.sim_top_props %} • {{ g.sim_top_props|length }} sim{% endif %}
+                  {% if g.top_prop_edges %} • {{ g.top_prop_edges|length }} edges{% endif %}
+                </summary>
+                <div class="panel-body">
                 <div class="section-title mt0">Top Props (Sim)</div>
                 {% if g.sim_top_props %}
                   <div class="props props-compact props-table">
@@ -967,7 +996,8 @@
                 {% else %}
                   <div class="muted-small">No prop edges for this matchup.</div>
                 {% endif %}
-              </div>
+                </div>
+              </details>
             </div>
 
             <div class="chips">
