@@ -7589,9 +7589,21 @@ def _build_cards(
                 # Load existing artifacts first
                 sim_df_by_sw[(s_i, w_i)] = _get_sim_probs_df(s_i, w_i, view_df=view_df, force_compute=bool(allow_sim_compute))
                 if include_sim_quarters:
-                    sim_q_df_by_sw[(s_i, w_i)] = _load_sim_quarters_df(s_i, w_i)
+                    qdf0 = _load_sim_quarters_df(s_i, w_i)
+                    if (qdf0 is None or (isinstance(qdf0, pd.DataFrame) and qdf0.empty)) and allow_sim_compute:
+                        try:
+                            qdf0 = _sim_quarters_compute_cache.get((s_i, w_i))
+                        except Exception:
+                            pass
+                    sim_q_df_by_sw[(s_i, w_i)] = qdf0
                 if include_sim_drives:
-                    sim_d_df_by_sw[(s_i, w_i)] = _load_sim_drives_df(s_i, w_i)
+                    ddf0 = _load_sim_drives_df(s_i, w_i)
+                    if (ddf0 is None or (isinstance(ddf0, pd.DataFrame) and ddf0.empty)) and allow_sim_compute:
+                        try:
+                            ddf0 = _sim_drives_compute_cache.get((s_i, w_i))
+                        except Exception:
+                            pass
+                    sim_d_df_by_sw[(s_i, w_i)] = ddf0
                 if include_props:
                     props_df_by_sw[(s_i, w_i)] = _load_player_props_cache_df(s_i, w_i)
                     try:
