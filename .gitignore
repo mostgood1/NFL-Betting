@@ -29,7 +29,7 @@ secrets/
 nfl_compare/data/*.csv
 nfl_compare/data/*.parquet
 nfl_compare/data/*.json
-nfl_compare/data/backtests/
+nfl_compare/data/backtests/*
 nfl_compare/models/
 logs/
 
@@ -70,6 +70,14 @@ logs/
 # Allow committing precomputed player props caches for deployment
 !nfl_compare/data/player_props_*.csv
 !nfl_compare/data/player_props_vs_actuals_*.csv
+
+# Allow committing minimal sim artifacts for the currently published week (keeps Render rich without on-demand compute)
+!nfl_compare/data/backtests/2025_wk20/
+nfl_compare/data/backtests/2025_wk20/*
+!nfl_compare/data/backtests/2025_wk20/sim_probs.csv
+!nfl_compare/data/backtests/2025_wk20/sim_quarters.csv
+!nfl_compare/data/backtests/2025_wk20/sim_drives.csv
+!nfl_compare/data/backtests/2025_wk20/sim_summary.json
 
 # Notebooks
 *.ipynb_checkpoints/

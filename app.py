@@ -878,6 +878,8 @@ def _load_current_week_override() -> Optional[tuple[int, int]]:
 # We cache per (season, week) to keep IO minimal.
 _sim_probs_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
 _sim_probs_compute_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_quarters_compute_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_drives_compute_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
 _sim_probs_mtime_cache: dict[tuple[int, int], float] = {}
 
 # Optional quarter-score artifact (sim_quarters.csv)
@@ -1973,20 +1975,93 @@ def _compute_sim_probs_df_from_view_df(season: int, week: int, view_df: pd.DataF
         # Attach missing features used by the sim engine (non-fatal)
         df = _attach_sim_features_to_view_df(df)
 
-        # Compute probabilities using the shared engine
+        # Compute probabilities using the shared engine (aligned draw path)
         try:
             n_sims = int(os.environ.get("SIM_N_SIMS_ON_REQUEST", "1000"))
             n_sims = max(200, min(20000, n_sims))
         except Exception:
             n_sims = 1000
-        from nfl_compare.src.sim_engine import simulate_mc_probs
-        df_mc = simulate_mc_probs(df, n_sims=n_sims, data_dir=DATA_DIR)
+        from nfl_compare.src.sim_engine import compute_margin_total_draws, simulate_mc_probs
+        draws_by_game = compute_margin_total_draws(df, n_sims=n_sims, data_dir=DATA_DIR)
+        df_mc = simulate_mc_probs(df, n_sims=n_sims, data_dir=DATA_DIR, draws_by_game=draws_by_game)
         return df_mc
     except Exception:
         return None
 
 
-def _get_sim_probs_df(season: Optional[int], week: Optional[int], view_df: Optional[pd.DataFrame] = None) -> Optional[pd.DataFrame]:
+def _compute_sim_artifacts_bundle_from_view_df(
+    season: int,
+    week: int,
+    view_df: pd.DataFrame,
+    *,
+    include_quarters: bool,
+    include_drives: bool,
+    props_df: Optional[pd.DataFrame] = None,
+) -> tuple[Optional[pd.DataFrame], Optional[pd.DataFrame], Optional[pd.DataFrame]]:
+    """Compute sim_probs + optionally sim_quarters/sim_drives from the same underlying draws.
+
+    This is used for Full mode when precomputed artifacts are missing.
+    """
+    try:
+        if view_df is None or view_df.empty:
+            return (None, None, None)
+
+        # Filter to this season/week only
+        df = view_df.copy()
+        if "season" in df.columns:
+            df = df[pd.to_numeric(df["season"], errors="coerce") == int(season)]
+        if "week" in df.columns:
+            df = df[pd.to_numeric(df["week"], errors="coerce") == int(week)]
+        if df.empty:
+            return (None, None, None)
+
+        # Attach missing features used by the sim engine (non-fatal)
+        df = _attach_sim_features_to_view_df(df)
+
+        # Determine sim count; keep Render defaults modest unless explicitly overridden
+        try:
+            n_sims = int(os.environ.get("SIM_N_SIMS_ON_REQUEST", ""))
+        except Exception:
+            n_sims = 0
+        if not (n_sims and n_sims > 0):
+            try:
+                on_render = str(os.environ.get("RENDER", "")).strip().lower() in {"1", "true", "yes", "on"}
+            except Exception:
+                on_render = False
+            n_sims = 600 if on_render else 1000
+        n_sims = max(200, min(20000, int(n_sims)))
+
+        # Use deterministic seed per (season, week) so refreshes are stable within a deploy
+        try:
+            seed = (int(season) * 1000 + int(week) * 17) % 2_147_483_647
+        except Exception:
+            seed = None
+
+        from nfl_compare.src.sim_engine import compute_margin_total_draws, simulate_drive_timeline, simulate_mc_probs, simulate_quarter_means
+
+        draws_by_game = compute_margin_total_draws(df, n_sims=n_sims, seed=seed, data_dir=DATA_DIR)
+        probs_df = simulate_mc_probs(df, n_sims=n_sims, seed=seed, data_dir=DATA_DIR, draws_by_game=draws_by_game)
+
+        quarters_df = None
+        if include_quarters:
+            quarters_df = simulate_quarter_means(df, n_sims=n_sims, seed=seed, data_dir=DATA_DIR, draws_by_game=draws_by_game)
+
+        drives_df = None
+        if include_drives:
+            drives_df = simulate_drive_timeline(df, props_df=props_df, n_sims=n_sims, seed=seed, data_dir=DATA_DIR, draws_by_game=draws_by_game)
+
+        return (probs_df, quarters_df, drives_df)
+    except Exception:
+        return (None, None, None)
+
+
+def _get_sim_probs_df(
+    season: Optional[int],
+    week: Optional[int],
+    view_df: Optional[pd.DataFrame] = None,
+    *,
+    force_compute: bool = False,
+) -> Optional[pd.DataFrame]:
     """Return sim_probs DataFrame.
 
     Priority:
@@ -2005,9 +2080,13 @@ def _get_sim_probs_df(season: Optional[int], week: Optional[int], view_df: Optio
         if key in _sim_probs_compute_cache:
             return _sim_probs_compute_cache[key]
         if view_df is None:
-            _sim_probs_compute_cache[key] = None
             return None
-        dfc = _compute_sim_probs_df_from_view_df(s, w, view_df)
+
+        # Allow forced compute in Full mode even if SIM_COMPUTE_ON_REQUEST is off.
+        if force_compute:
+            dfc, _, _ = _compute_sim_artifacts_bundle_from_view_df(s, w, view_df, include_quarters=False, include_drives=False)
+        else:
+            dfc = _compute_sim_probs_df_from_view_df(s, w, view_df)
         _sim_probs_compute_cache[key] = dfc
         return dfc
     except Exception:
@@ -7479,6 +7558,7 @@ def _build_cards(
     include_sim_drives: bool = True,
     include_props: bool = True,
     include_prop_edges: bool = True,
+    allow_sim_compute: bool = False,
 ) -> List[Dict[str, Any]]:
     """Construct card dictionaries from a weekly view DataFrame.
     This encapsulates the display and reconciliation logic used by the index view
@@ -7506,7 +7586,8 @@ def _build_cards(
                     w_i = int(pd.to_numeric(rr.get('week'), errors='coerce'))
                 except Exception:
                     continue
-                sim_df_by_sw[(s_i, w_i)] = _get_sim_probs_df(s_i, w_i, view_df=view_df)
+                # Load existing artifacts first
+                sim_df_by_sw[(s_i, w_i)] = _get_sim_probs_df(s_i, w_i, view_df=view_df, force_compute=bool(allow_sim_compute))
                 if include_sim_quarters:
                     sim_q_df_by_sw[(s_i, w_i)] = _load_sim_quarters_df(s_i, w_i)
                 if include_sim_drives:
@@ -7525,6 +7606,44 @@ def _build_cards(
                             props_by_gid_by_sw[(s_i, w_i)] = by_gid
                     except Exception:
                         props_by_gid_by_sw[(s_i, w_i)] = {}
+
+                # If Full mode and week artifacts are missing, compute them on-demand (aligned draws).
+                try:
+                    if allow_sim_compute:
+                        key = (s_i, w_i)
+                        need_probs = sim_df_by_sw.get(key) is None
+                        need_q = include_sim_quarters and (sim_q_df_by_sw.get(key) is None)
+                        need_d = include_sim_drives and (sim_d_df_by_sw.get(key) is None)
+                        if need_probs or need_q or need_d:
+                            pdf_for_drives = props_df_by_sw.get(key) if include_props else None
+                            probs_df, quarters_df, drives_df = _compute_sim_artifacts_bundle_from_view_df(
+                                s_i,
+                                w_i,
+                                view_df,
+                                include_quarters=bool(include_sim_quarters),
+                                include_drives=bool(include_sim_drives),
+                                props_df=pdf_for_drives,
+                            )
+                            if probs_df is not None and not probs_df.empty:
+                                sim_df_by_sw[key] = probs_df
+                                try:
+                                    _sim_probs_compute_cache[key] = probs_df
+                                except Exception:
+                                    pass
+                            if include_sim_quarters and quarters_df is not None and not quarters_df.empty:
+                                sim_q_df_by_sw[key] = quarters_df
+                                try:
+                                    _sim_quarters_compute_cache[key] = quarters_df
+                                except Exception:
+                                    pass
+                            if include_sim_drives and drives_df is not None and not drives_df.empty:
+                                sim_d_df_by_sw[key] = drives_df
+                                try:
+                                    _sim_drives_compute_cache[key] = drives_df
+                                except Exception:
+                                    pass
+                except Exception:
+                    pass
     except Exception:
         sim_df_by_sw = {}
         sim_q_df_by_sw = {}
@@ -9537,10 +9656,10 @@ def index():
         fast_mode = (fast_qs.lower() in {"1","true","yes","y"})
 
     # Lite mode: skip drive timeline + props artifacts to keep cards fast and smaller.
-    # Default to lite on Render (or when fast_mode) unless explicitly overridden via ?lite=
+    # Default is Full mode (including on Render) so the main page is always rich unless explicitly set via ?lite=1.
     lite_qs = request.args.get('lite')
     if lite_qs is None:
-        lite_mode: bool = bool(on_render or fast_mode)
+        lite_mode = False
     else:
         lite_mode = (str(lite_qs).strip().lower() in {'1','true','yes','y','on'})
 
@@ -9603,6 +9722,7 @@ def index():
         include_sim_drives=(not lite_mode),
         include_props=(not lite_mode),
         include_prop_edges=(not lite_mode),
+        allow_sim_compute=(not lite_mode),
     )
 
     # Build toggle URLs preserving other query params
@@ -9999,6 +10119,7 @@ def api_cards():
         include_sim_drives=(not lite_mode),
         include_props=(not lite_mode),
         include_prop_edges=(not lite_mode),
+        allow_sim_compute=(not lite_mode),
     )
     # Sorting
     def _dt_key(card: Dict[str, Any]):
