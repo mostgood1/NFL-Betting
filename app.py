@@ -9728,13 +9728,15 @@ def index():
         view_df = pd.DataFrame()
 
     # Build cards via helper
+    # Local is the only source of sim artifact computation; Render should be shipped-only.
+    allow_sim_compute = (not lite_mode) and (not on_render)
     cards: List[Dict[str, Any]] = _build_cards(
         view_df,
         include_sim_quarters=True,
         include_sim_drives=(not lite_mode),
         include_props=(not lite_mode),
         include_prop_edges=(not lite_mode),
-        allow_sim_compute=(not lite_mode),
+        allow_sim_compute=allow_sim_compute,
     )
 
     # Build toggle URLs preserving other query params
@@ -10125,13 +10127,16 @@ def api_cards():
         view_df = pd.DataFrame()
     lite_qs = str(request.args.get('lite', '0')).strip().lower()
     lite_mode = (lite_qs in {'1','true','yes','y','on'})
+    # Local is the only source of sim artifact computation; Render should be shipped-only.
+    on_render = str(os.environ.get("RENDER", "")).strip() != ""
+    allow_sim_compute = (not lite_mode) and (not on_render)
     cards: List[Dict[str, Any]] = _build_cards(
         view_df,
         include_sim_quarters=True,
         include_sim_drives=(not lite_mode),
         include_props=(not lite_mode),
         include_prop_edges=(not lite_mode),
-        allow_sim_compute=(not lite_mode),
+        allow_sim_compute=allow_sim_compute,
     )
     # Sorting
     def _dt_key(card: Dict[str, Any]):

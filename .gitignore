@@ -71,13 +71,28 @@ logs/
 !nfl_compare/data/player_props_*.csv
 !nfl_compare/data/player_props_vs_actuals_*.csv
 
-# Allow committing minimal sim artifacts for the currently published week (keeps Render rich without on-demand compute)
-!nfl_compare/data/backtests/2025_wk20/
-nfl_compare/data/backtests/2025_wk20/*
-!nfl_compare/data/backtests/2025_wk20/sim_probs.csv
-!nfl_compare/data/backtests/2025_wk20/sim_quarters.csv
-!nfl_compare/data/backtests/2025_wk20/sim_drives.csv
-!nfl_compare/data/backtests/2025_wk20/sim_summary.json
+# Allow committing shipped sim artifacts for exact season/week folders.
+# IMPORTANT: this intentionally excludes variant folders like 2025_wk17_blend_*.
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/
+nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_probs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_quarters.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_drives.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_summary.json
+
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/
+nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_probs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_quarters.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_drives.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_summary.json
+
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/
+nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_probs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_quarters.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_drives.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_summary.json
 
 # Notebooks
 *.ipynb_checkpoints/

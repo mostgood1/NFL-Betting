@@ -1,0 +1,14 @@
+{
+  "season": 2025,
+  "start_week": 8,
+  "end_week": 8,
+  "n_games": 13,
+  "n_ml_probs": 13,
+  "n_ats_probs": 13,
+  "n_total_probs": 13,
+  "ats_sigma": 9.0,
+  "total_sigma": 17.679575982655393,
+  "n_sims": 1500,
+  "quarters_enabled": true,
+  "drives_enabled": true
+}

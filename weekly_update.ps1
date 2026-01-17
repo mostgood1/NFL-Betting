@@ -19,7 +19,8 @@ param(
   [switch]$Push,
   [string]$GitRemote = 'origin',
   [string]$GitBranch = '' ,
-  [switch]$NoRetrain
+  [switch]$NoRetrain,
+  [int]$SimNSims = 2000
 )
 
 $ErrorActionPreference = 'Stop'
@@ -163,6 +164,12 @@ Invoke-Step "Props pipeline (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/run_props_pipeline.py | Write-Host
 }
 
+# 4c) Compute shipped sim artifacts for the target week (Render should be shipped-only)
+Invoke-Step "Simulate games (Season=$Season Week=$TargetWeek)" {
+  $outDir = "nfl_compare/data/backtests/${Season}_wk${TargetWeek}"
+  & $venvPy scripts/simulate_games.py --season $Season --start-week $TargetWeek --end-week $TargetWeek --n-sims $SimNSims --out-dir $outDir --quarters --drives | Write-Host
+}
+
 # 5) Reconcile prior week props vs actuals (writes player_props_vs_actuals_*.csv)
 Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
   # Prefer in-package reconciliation (local PBP fallback)
@@ -178,6 +185,12 @@ Invoke-Step "Calibration uplift eval (Season=$Season end=$PriorWeek lookback=8)"
 Invoke-Step "Stage updated data" {
   git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv nfl_compare/data/team_ratings_${Season}_wk${TargetWeek}.csv | Write-Host
   if (Test-Path 'nfl_compare/data/lines.csv') { git add -- nfl_compare/data/lines.csv | Write-Host }
+  # Shipped sim artifacts for the target week
+  $simDir = "nfl_compare/data/backtests/${Season}_wk${TargetWeek}"
+  if (Test-Path (Join-Path $simDir 'sim_probs.csv')) { git add -- (Join-Path $simDir 'sim_probs.csv') | Write-Host }
+  if (Test-Path (Join-Path $simDir 'sim_quarters.csv')) { git add -- (Join-Path $simDir 'sim_quarters.csv') | Write-Host }
+  if (Test-Path (Join-Path $simDir 'sim_drives.csv')) { git add -- (Join-Path $simDir 'sim_drives.csv') | Write-Host }
+  if (Test-Path (Join-Path $simDir 'sim_summary.json')) { git add -- (Join-Path $simDir 'sim_summary.json') | Write-Host }
   # Phase-A team-week feature feeds
   if (Test-Path 'nfl_compare/data/pfr_drive_stats.csv') { git add -- nfl_compare/data/pfr_drive_stats.csv | Write-Host }
   if (Test-Path 'nfl_compare/data/redzone_splits.csv') { git add -- nfl_compare/data/redzone_splits.csv | Write-Host }
