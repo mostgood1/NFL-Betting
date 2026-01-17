@@ -278,7 +278,7 @@
 </head>
 <body>
   <div class="container">
-  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="toggleAllRatings" title="Show/Hide all ratings panels">Hide All Ratings</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
+  <div class="nav"><a href="/">Cards</a> | <a href="/recommendations">Recommendations</a> | <a href="/props">Props</a> | <a href="/props/recommendations">Props Recs</a> | <a href="/reconciliation">Reconciliation</a> | <a href="/api/cards/recon_summary{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Recon Summary</a> | <a href="/roster-validation{% if season or week %}?{% if season %}season={{ season }}{% endif %}{% if season and week %}&{% endif %}{% if week %}week={{ week }}{% endif %}{% endif %}" target="_blank">Roster Validation</a> | <a href="/api/predictions" target="_blank">API</a> | <a href="/api/odds-coverage" target="_blank">Odds Coverage</a> | <a href="/health" target="_blank">Health</a> | <button type="button" class="theme-toggle" id="themeToggle" title="Toggle light/dark">Toggle Theme</button> | <button type="button" class="theme-toggle" id="toggleAllOdds" title="Show/Hide all odds panels">Hide All Odds</button> | <button type="button" class="theme-toggle" id="toggleAllRatings" title="Show/Hide all ratings panels">Hide All Ratings</button> | <button type="button" class="theme-toggle" id="adminRunDU" title="Run daily update (admin)">Run Update</button> | <button type="button" class="theme-toggle" id="adminToggle" title="Show admin panel">Admin Panel</button></div>
   <div id="adminPanel">
     <div class="admin-row">
       <label class="label-sm">Key: <input id="adminKeyInput" type="password" placeholder="ADMIN_KEY" /></label>
@@ -585,6 +585,10 @@
                 <div class="muted-tiny">
                   {% if g.actual_total is not none %}
                     Winner {{ '✓' if g.winner_correct else '✗' if g.winner_correct is not none else '—' }} • ATS {{ '✓' if g.ats_correct else '✗' if g.ats_correct is not none else '—' }} • Total {{ '✓' if g.totals_correct else '✗' if g.totals_correct is not none else '—' }}
+                    <br/>
+                    Model ΔM {{ '%+.1f' % g.model_margin_err if g.model_margin_err is number else '—' }} • ΔT {{ '%+.1f' % g.model_total_err if g.model_total_err is number else '—' }}
+                    &nbsp;•&nbsp;
+                    Sim ΔM {{ '%+.1f' % g.sim_margin_err if g.sim_margin_err is number else '—' }} • ΔT {{ '%+.1f' % g.sim_total_err if g.sim_total_err is number else '—' }}
                   {% else %}
                     Not settled
                   {% endif %}

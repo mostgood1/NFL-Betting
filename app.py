@@ -8055,6 +8055,8 @@ def _build_cards(
             prob_over_total_mc = None
             sim_home_pts = None
             sim_away_pts = None
+            sim_spread_ref = None
+            sim_total_ref = None
             combo_margin = None
             combo_total = None
             combo_home_pts = None
@@ -8068,7 +8070,14 @@ def _build_cards(
                 prob_home_cover_mc = mc_probs.get('prob_home_cover_mc')
                 prob_over_total_mc = mc_probs.get('prob_over_total_mc')
                 # Load mean margin/total from sim_probs.csv if present
-                df_mc = _load_sim_probs_df(season_i, week_i) if '_load_sim_probs_df' in globals() else None
+                df_mc = None
+                try:
+                    if season_i is not None and week_i is not None:
+                        df_mc = sim_df_by_sw.get((season_i, week_i))
+                except Exception:
+                    df_mc = None
+                if df_mc is None:
+                    df_mc = _load_sim_probs_df(season_i, week_i) if '_load_sim_probs_df' in globals() else None
                 if df_mc is not None and not df_mc.empty and gid is not None:
                     try:
                         row_mc = df_mc[df_mc['game_id'].astype(str) == str(gid)]
@@ -8078,6 +8087,10 @@ def _build_cards(
                                 sim_margin = float(rmc.get('pred_margin'))
                             if pd.notna(rmc.get('pred_total')):
                                 sim_total = float(rmc.get('pred_total'))
+                            if pd.notna(rmc.get('spread_ref')):
+                                sim_spread_ref = float(rmc.get('spread_ref'))
+                            if pd.notna(rmc.get('total_ref')):
+                                sim_total_ref = float(rmc.get('total_ref'))
                     except Exception:
                         pass
                 # Derive simulation points if both means present
@@ -8351,6 +8364,95 @@ def _build_cards(
             except Exception:
                 total_diff = None
 
+            # Reconciliation payload for completed games (lightweight; no sim computation).
+            # Uses shipped sim probabilities/means (sim_probs.csv) and final scores.
+            recon = None
+            try:
+                is_final_resolved = (actual_total is not None) and (actual_margin is not None)
+
+                def _outcome_from_diff(diff: Optional[float]) -> Optional[int]:
+                    if diff is None:
+                        return None
+                    if diff > 0:
+                        return 1
+                    if diff < 0:
+                        return 0
+                    return None  # push/tie
+
+                if is_final_resolved:
+                    # Per-game errors (signed: pred - actual)
+                    model_margin_err = (float(margin) - float(actual_margin)) if (margin is not None and actual_margin is not None) else None
+                    model_total_err = (float(total_pred) - float(actual_total)) if (total_pred is not None and actual_total is not None) else None
+                    sim_margin_err = (float(sim_margin) - float(actual_margin)) if (sim_margin is not None and actual_margin is not None) else None
+                    sim_total_err = (float(sim_total) - float(actual_total)) if (sim_total is not None and actual_total is not None) else None
+
+                    # ML outcome (home win)
+                    y_ml = _outcome_from_diff(float(actual_margin) if actual_margin is not None else None)
+                    brier_ml = ((float(prob_home_win_mc) - float(y_ml)) ** 2) if (prob_home_win_mc is not None and y_ml is not None) else None
+
+                    # ATS outcome (home covers) using the sim reference line when available.
+                    ats_line = None
+                    try:
+                        ats_line = float(sim_spread_ref) if sim_spread_ref is not None else (float(m_spread) if (m_spread is not None and pd.notna(m_spread)) else None)
+                    except Exception:
+                        ats_line = None
+                    y_ats = None
+                    if ats_line is not None and actual_margin is not None:
+                        y_ats = _outcome_from_diff(float(actual_margin) + float(ats_line))
+                    brier_ats = ((float(prob_home_cover_mc) - float(y_ats)) ** 2) if (prob_home_cover_mc is not None and y_ats is not None) else None
+
+                    # Total outcome (over) using the sim reference line when available.
+                    total_line = None
+                    try:
+                        total_line = float(sim_total_ref) if sim_total_ref is not None else (float(m_total) if (m_total is not None and pd.notna(m_total)) else None)
+                    except Exception:
+                        total_line = None
+                    y_total = None
+                    if total_line is not None and actual_total is not None:
+                        y_total = _outcome_from_diff(float(actual_total) - float(total_line))
+                    brier_total = ((float(prob_over_total_mc) - float(y_total)) ** 2) if (prob_over_total_mc is not None and y_total is not None) else None
+
+                    recon = {
+                        'is_final': True,
+                        'actual_margin': float(actual_margin),
+                        'actual_total': float(actual_total),
+                        'model': {
+                            'pred_margin': float(margin) if margin is not None else None,
+                            'pred_total': float(total_pred) if total_pred is not None else None,
+                            'err_margin': model_margin_err,
+                            'err_total': model_total_err,
+                        },
+                        'simulation': {
+                            'pred_margin': float(sim_margin) if sim_margin is not None else None,
+                            'pred_total': float(sim_total) if sim_total is not None else None,
+                            'err_margin': sim_margin_err,
+                            'err_total': sim_total_err,
+                            'spread_ref': ats_line,
+                            'total_ref': total_line,
+                            'prob_home_win_mc': float(prob_home_win_mc) if prob_home_win_mc is not None else None,
+                            'prob_home_cover_mc': float(prob_home_cover_mc) if prob_home_cover_mc is not None else None,
+                            'prob_over_total_mc': float(prob_over_total_mc) if prob_over_total_mc is not None else None,
+                        },
+                        'markets': {
+                            'ml': {
+                                'y_home_win': y_ml,
+                                'brier': brier_ml,
+                            },
+                            'ats': {
+                                'line_home': ats_line,
+                                'y_home_cover': y_ats,
+                                'brier': brier_ats,
+                            },
+                            'total': {
+                                'line': total_line,
+                                'y_over': y_total,
+                                'brier': brier_total,
+                            },
+                        },
+                    }
+            except Exception:
+                recon = None
+
             # Roof/surface override for weather context
             roof_val = (ovr.get('roof') if (ovr and ovr.get('roof')) else g("stadium_roof", "roof"))
             surface_val = (ovr.get('surface') if (ovr and ovr.get('surface')) else g("surface"))
@@ -8500,6 +8602,7 @@ def _build_cards(
                 "home_score": actual_home,
                 "away_score": actual_away,
                 "actual_total": actual_total,
+                "actual_margin": actual_margin,
                 "status_text": status_text,
                 # Assessments strings
                 "wp_text": wp_text,
@@ -8518,6 +8621,15 @@ def _build_cards(
                 "pressure_text": pressure_text,
                 "injury_text": injury_text,
                 "total_diff": total_diff,
+                # Reconciliation (only for finals)
+                "recon": recon,
+                "model_margin_err": (recon.get('model', {}).get('err_margin') if recon else None),
+                "model_total_err": (recon.get('model', {}).get('err_total') if recon else None),
+                "sim_margin_err": (recon.get('simulation', {}).get('err_margin') if recon else None),
+                "sim_total_err": (recon.get('simulation', {}).get('err_total') if recon else None),
+                "brier_ml_mc": (recon.get('markets', {}).get('ml', {}).get('brier') if recon else None),
+                "brier_ats_mc": (recon.get('markets', {}).get('ats', {}).get('brier') if recon else None),
+                "brier_total_mc": (recon.get('markets', {}).get('total', {}).get('brier') if recon else None),
                 # Team ratings (EMA-based)
                 "home_off_ppg": g("home_off_ppg"),
                 "home_def_ppg": g("home_def_ppg"),
@@ -10165,6 +10277,349 @@ def api_cards():
         "total_rows": len(cards),
         "cards": cards,
     })
+
+
+@app.route("/api/cards/recon_summary")
+def api_cards_recon_summary():
+    """Aggregate reconciliation metrics for a given (season, week).
+
+    Lightweight and shipped-only:
+    - Uses final scores already in games.csv (via week view)
+    - Uses shipped sim_probs.csv for MC probabilities / sim means
+    - Does NOT compute sims on request
+
+    Query params: season, week
+    """
+    try:
+        df = _load_predictions()
+        games_df = _load_games()
+
+        def _infer_sw() -> tuple[Optional[int], Optional[int]]:
+            season_param: Optional[int] = None
+            week_param: Optional[int] = None
+            try:
+                if request.args.get("season"):
+                    season_param = int(request.args.get("season"))
+                if request.args.get("week"):
+                    week_param = int(request.args.get("week"))
+            except Exception:
+                season_param = week_param = None
+            if season_param is None or week_param is None:
+                try:
+                    src = games_df if (games_df is not None and not games_df.empty) else df
+                    inferred = _infer_current_season_week(src) if (src is not None and not src.empty) else None
+                    if inferred is not None:
+                        if season_param is None:
+                            season_param = int(inferred[0])
+                        if week_param is None:
+                            week_param = int(inferred[1])
+                except Exception:
+                    pass
+            return season_param, week_param
+
+        def _recon_summary_for(season_x: Optional[int], week_x: Optional[int]) -> Dict[str, Any]:
+            view_df = _build_week_view(df, games_df, season_x, week_x)
+            view_df = _attach_model_predictions(view_df)
+            view_df = _derive_predictions_from_market(view_df)
+            if view_df is None:
+                view_df = pd.DataFrame()
+
+            cards: List[Dict[str, Any]] = _build_cards(
+                view_df,
+                include_sim_quarters=False,
+                include_sim_drives=False,
+                include_props=False,
+                include_prop_edges=False,
+                allow_sim_compute=False,
+            )
+            finals = [c for c in cards if isinstance(c, dict) and c.get('recon') is not None]
+
+            def _mean(xs: List[float]) -> Optional[float]:
+                try:
+                    return (sum(xs) / len(xs)) if xs else None
+                except Exception:
+                    return None
+
+            def _mae(xs: List[float]) -> Optional[float]:
+                try:
+                    return (sum(abs(x) for x in xs) / len(xs)) if xs else None
+                except Exception:
+                    return None
+
+            model_margin_errs: List[float] = []
+            model_total_errs: List[float] = []
+            sim_margin_errs: List[float] = []
+            sim_total_errs: List[float] = []
+            brier_ml: List[float] = []
+            brier_ats: List[float] = []
+            brier_total: List[float] = []
+            pushes_ats = 0
+            pushes_total = 0
+            ties_ml = 0
+
+            for c in finals:
+                try:
+                    if isinstance(c.get('model_margin_err'), (int, float)) and not pd.isna(c.get('model_margin_err')):
+                        model_margin_errs.append(float(c.get('model_margin_err')))
+                    if isinstance(c.get('model_total_err'), (int, float)) and not pd.isna(c.get('model_total_err')):
+                        model_total_errs.append(float(c.get('model_total_err')))
+                    if isinstance(c.get('sim_margin_err'), (int, float)) and not pd.isna(c.get('sim_margin_err')):
+                        sim_margin_errs.append(float(c.get('sim_margin_err')))
+                    if isinstance(c.get('sim_total_err'), (int, float)) and not pd.isna(c.get('sim_total_err')):
+                        sim_total_errs.append(float(c.get('sim_total_err')))
+
+                    if isinstance(c.get('brier_ml_mc'), (int, float)) and not pd.isna(c.get('brier_ml_mc')):
+                        brier_ml.append(float(c.get('brier_ml_mc')))
+                    if isinstance(c.get('brier_ats_mc'), (int, float)) and not pd.isna(c.get('brier_ats_mc')):
+                        brier_ats.append(float(c.get('brier_ats_mc')))
+                    if isinstance(c.get('brier_total_mc'), (int, float)) and not pd.isna(c.get('brier_total_mc')):
+                        brier_total.append(float(c.get('brier_total_mc')))
+
+                    r0 = c.get('recon') or {}
+                    mk = r0.get('markets') or {}
+                    try:
+                        ats0 = mk.get('ats') or {}
+                        if ats0.get('line_home') is not None and ats0.get('y_home_cover') is None:
+                            pushes_ats += 1
+                    except Exception:
+                        pass
+                    try:
+                        tot0 = mk.get('total') or {}
+                        if tot0.get('line') is not None and tot0.get('y_over') is None:
+                            pushes_total += 1
+                    except Exception:
+                        pass
+                    try:
+                        ml0 = mk.get('ml') or {}
+                        if ml0.get('y_home_win') is None:
+                            ties_ml += 1
+                    except Exception:
+                        pass
+                except Exception:
+                    continue
+
+            have_sim_probs = False
+            try:
+                have_sim_probs = bool(_load_sim_probs_df(season_x, week_x) is not None)
+            except Exception:
+                have_sim_probs = False
+
+            return {
+                'ok': True,
+                'season': season_x,
+                'week': week_x,
+                'counts': {
+                    'cards': len(cards),
+                    'finals': len(finals),
+                    'brier_ml_n': len(brier_ml),
+                    'brier_ats_n': len(brier_ats),
+                    'brier_total_n': len(brier_total),
+                    'push_ats': pushes_ats,
+                    'push_total': pushes_total,
+                    'ties_ml': ties_ml,
+                },
+                'errors': {
+                    'model_mae_margin': _mae(model_margin_errs),
+                    'model_mae_total': _mae(model_total_errs),
+                    'sim_mae_margin': _mae(sim_margin_errs),
+                    'sim_mae_total': _mae(sim_total_errs),
+                    'model_bias_margin': _mean(model_margin_errs),
+                    'model_bias_total': _mean(model_total_errs),
+                    'sim_bias_margin': _mean(sim_margin_errs),
+                    'sim_bias_total': _mean(sim_total_errs),
+                },
+                'brier': {
+                    'ml_mc': _mean(brier_ml),
+                    'ats_mc': _mean(brier_ats),
+                    'total_mc': _mean(brier_total),
+                },
+                'artifacts': {
+                    'sim_probs_present': have_sim_probs,
+                    'shipped_only': True,
+                },
+            }
+
+        season_param, week_param = _infer_sw()
+        out = _recon_summary_for(season_param, week_param)
+        out['generated_at'] = datetime.utcnow().isoformat() + 'Z'
+        return jsonify(out)
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)}), 500
+
+
+@app.route('/api/cards/recon_summary_range')
+def api_cards_recon_summary_range():
+    """Range variant of recon summary.
+
+    Query params:
+      - season (required)
+      - start_week (optional; default 1)
+      - end_week (optional; default start_week)
+
+    This is shipped-only: does not compute sims.
+    """
+    try:
+        season_raw = request.args.get('season')
+        if not season_raw:
+            return jsonify({'ok': False, 'error': 'season is required'}), 400
+        try:
+            season = int(season_raw)
+        except Exception:
+            return jsonify({'ok': False, 'error': 'invalid season'}), 400
+
+        def _get_int(name: str, default: int) -> int:
+            try:
+                v = request.args.get(name)
+                return int(v) if v not in (None, '') else int(default)
+            except Exception:
+                return int(default)
+
+        start_week = _get_int('start_week', 1)
+        end_week = _get_int('end_week', start_week)
+        if end_week < start_week:
+            start_week, end_week = end_week, start_week
+
+        # Guard rails
+        start_week = max(1, start_week)
+        end_week = max(1, end_week)
+        span = end_week - start_week + 1
+        try:
+            max_span = int(os.environ.get('RECON_RANGE_MAX_WEEKS', '25'))
+        except Exception:
+            max_span = 25
+        if span > max_span:
+            return jsonify({'ok': False, 'error': f'range too large (max {max_span} weeks)'}), 400
+
+        # Reuse the single-week endpoint logic by calling it through the app context helper defined above.
+        # We call the underlying implementation by duplicating minimal access via local request args.
+        df = _load_predictions()
+        games_df = _load_games()
+
+        def _recon_summary_for(season_x: int, week_x: int) -> Dict[str, Any]:
+            view_df = _build_week_view(df, games_df, season_x, week_x)
+            view_df = _attach_model_predictions(view_df)
+            view_df = _derive_predictions_from_market(view_df)
+            if view_df is None:
+                view_df = pd.DataFrame()
+            cards: List[Dict[str, Any]] = _build_cards(
+                view_df,
+                include_sim_quarters=False,
+                include_sim_drives=False,
+                include_props=False,
+                include_prop_edges=False,
+                allow_sim_compute=False,
+            )
+            finals = [c for c in cards if isinstance(c, dict) and c.get('recon') is not None]
+
+            def _mean(xs: List[float]) -> Optional[float]:
+                return (sum(xs) / len(xs)) if xs else None
+
+            def _mae(xs: List[float]) -> Optional[float]:
+                return (sum(abs(x) for x in xs) / len(xs)) if xs else None
+
+            model_margin_errs: List[float] = []
+            model_total_errs: List[float] = []
+            sim_margin_errs: List[float] = []
+            sim_total_errs: List[float] = []
+            brier_ml: List[float] = []
+            brier_ats: List[float] = []
+            brier_total: List[float] = []
+            pushes_ats = 0
+            pushes_total = 0
+            ties_ml = 0
+            for c in finals:
+                try:
+                    if isinstance(c.get('model_margin_err'), (int, float)) and not pd.isna(c.get('model_margin_err')):
+                        model_margin_errs.append(float(c.get('model_margin_err')))
+                    if isinstance(c.get('model_total_err'), (int, float)) and not pd.isna(c.get('model_total_err')):
+                        model_total_errs.append(float(c.get('model_total_err')))
+                    if isinstance(c.get('sim_margin_err'), (int, float)) and not pd.isna(c.get('sim_margin_err')):
+                        sim_margin_errs.append(float(c.get('sim_margin_err')))
+                    if isinstance(c.get('sim_total_err'), (int, float)) and not pd.isna(c.get('sim_total_err')):
+                        sim_total_errs.append(float(c.get('sim_total_err')))
+                    if isinstance(c.get('brier_ml_mc'), (int, float)) and not pd.isna(c.get('brier_ml_mc')):
+                        brier_ml.append(float(c.get('brier_ml_mc')))
+                    if isinstance(c.get('brier_ats_mc'), (int, float)) and not pd.isna(c.get('brier_ats_mc')):
+                        brier_ats.append(float(c.get('brier_ats_mc')))
+                    if isinstance(c.get('brier_total_mc'), (int, float)) and not pd.isna(c.get('brier_total_mc')):
+                        brier_total.append(float(c.get('brier_total_mc')))
+                    r0 = c.get('recon') or {}
+                    mk = r0.get('markets') or {}
+                    ats0 = mk.get('ats') or {}
+                    if ats0.get('line_home') is not None and ats0.get('y_home_cover') is None:
+                        pushes_ats += 1
+                    tot0 = mk.get('total') or {}
+                    if tot0.get('line') is not None and tot0.get('y_over') is None:
+                        pushes_total += 1
+                    ml0 = mk.get('ml') or {}
+                    if ml0.get('y_home_win') is None:
+                        ties_ml += 1
+                except Exception:
+                    continue
+
+            have_sim_probs = False
+            try:
+                have_sim_probs = bool(_load_sim_probs_df(season_x, week_x) is not None)
+            except Exception:
+                have_sim_probs = False
+
+            return {
+                'ok': True,
+                'season': season_x,
+                'week': week_x,
+                'counts': {
+                    'cards': len(cards),
+                    'finals': len(finals),
+                    'brier_ml_n': len(brier_ml),
+                    'brier_ats_n': len(brier_ats),
+                    'brier_total_n': len(brier_total),
+                    'push_ats': pushes_ats,
+                    'push_total': pushes_total,
+                    'ties_ml': ties_ml,
+                },
+                'errors': {
+                    'model_mae_margin': _mae(model_margin_errs),
+                    'model_mae_total': _mae(model_total_errs),
+                    'sim_mae_margin': _mae(sim_margin_errs),
+                    'sim_mae_total': _mae(sim_total_errs),
+                    'model_bias_margin': _mean(model_margin_errs),
+                    'model_bias_total': _mean(model_total_errs),
+                    'sim_bias_margin': _mean(sim_margin_errs),
+                    'sim_bias_total': _mean(sim_total_errs),
+                },
+                'brier': {
+                    'ml_mc': _mean(brier_ml),
+                    'ats_mc': _mean(brier_ats),
+                    'total_mc': _mean(brier_total),
+                },
+                'artifacts': {
+                    'sim_probs_present': have_sim_probs,
+                    'shipped_only': True,
+                },
+            }
+
+        t0 = time.time()
+        by_week: List[Dict[str, Any]] = []
+        for wk in range(int(start_week), int(end_week) + 1):
+            try:
+                by_week.append(_recon_summary_for(int(season), int(wk)))
+            except Exception as e:
+                by_week.append({'ok': False, 'season': int(season), 'week': int(wk), 'error': str(e)})
+
+        elapsed_ms = int((time.time() - t0) * 1000)
+        return jsonify({
+            'ok': True,
+            'season': int(season),
+            'start_week': int(start_week),
+            'end_week': int(end_week),
+            'weeks': len(by_week),
+            'by_week': by_week,
+            'generated_at': datetime.utcnow().isoformat() + 'Z',
+            'timing_ms': elapsed_ms,
+            'shipped_only': True,
+        })
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)}), 500
 
 
 @app.route("/table")
