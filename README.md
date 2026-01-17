@@ -30,16 +30,6 @@ python app.py  # http://localhost:5050
 
 ### Environment variables
 
-- FLASK_ENV=production
-- PYTHONUNBUFFERED=1
-- ODDS_API_KEY=... (for /api/refresh-odds)
-- OPENWEATHER_API_KEY=... (only if you wire weather refresh)
-- LIGHT_DAILY_UPDATE=1 (use light updater module for admin daily updates; reduces memory and runtime)
-- OMP_NUM_THREADS=1 (cap BLAS threads to reduce memory; also set MKL/OPENBLAS/NUMEXPR)
-- MKL_NUM_THREADS=1
-- OPENBLAS_NUM_THREADS=1
-- NUMEXPR_MAX_THREADS=1
-- Optional tuning:
   - RECS_MARKET_BLEND (default 0.50)
   - RECS_MARKET_BAND (default 0.10)
   - RECS_PROB_SHRINK (default 0.50)
@@ -68,9 +58,12 @@ python app.py  # http://localhost:5050
   - Totals calibration (optional; helps align model totals to market while keeping signal):
     - NFL_TOTAL_SCALE (default 1.0) — multiplicative scale applied to model total before blending
     - NFL_TOTAL_SHIFT (default 0.0) — additive shift (points) applied before blending
+
+  - PRED_IGNORE_LOCKED (default 0) — set to 1 to ignore nfl_compare/data/predictions_locked.csv and prefer materialized predictions_week.csv (useful for historical backtests)
     - NFL_MARKET_TOTAL_BLEND (default 0.60) — 0=no market anchor, 1=fully market total
   - NFL_TOTAL_SCALE=1.03
 
+  - `PROB_CALIBRATION_FILE`: Override probability calibration file used by the app (defaults to `nfl_compare/data/prob_calibration.json`).
 #### Game model ensembles
 
 - Set `GAME_MODEL_N_ENSEMBLE` (default 1) to train multiple estimators with different seeds and average their predictions.

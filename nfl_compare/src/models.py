@@ -106,6 +106,8 @@ class TrainedModels:
     regressors: Dict[str, Union[object, List[object]]]
     classifiers: Dict[str, Optional[Union[object, List[object]]]]
     calibrators: Dict[str, Optional[Any]]
+    use_residuals_margin: bool = False
+    use_residuals_total: bool = False
 
 
 _SIGMA_CACHE: Optional[Dict[str, float]] = None
@@ -140,6 +142,24 @@ def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, 
     df['home_win'] = (df['home_margin'] > 0).astype(int)
     # Use all FEATURES (DataFrame to capture names for feature_names_in_)
     X = df[[c for c in FEATURES if c in df.columns]].fillna(0)
+    # Market anchors can be partially missing historically. Dropping them entirely makes the
+    # model blind to market information (which you explicitly want as a guide).
+    # Instead, keep them and impute missing values to robust medians, plus missingness flags.
+    try:
+        if 'total' in X.columns:
+            total_raw = pd.to_numeric(df.get('total'), errors='coerce')
+            total_ok = total_raw.between(20, 70)
+            total_med = float(total_raw[total_ok].median()) if total_ok.any() else 45.0
+            X['total_missing'] = (~total_ok).astype(int)
+            X['total'] = total_raw.where(total_ok, total_med)
+        if 'spread_home' in X.columns:
+            spread_raw = pd.to_numeric(df.get('spread_home'), errors='coerce')
+            spread_ok = spread_raw.notna() & spread_raw.abs().le(30)
+            spread_med = float(spread_raw[spread_ok].median()) if spread_ok.any() else 0.0
+            X['spread_home_missing'] = (~spread_ok).astype(int)
+            X['spread_home'] = spread_raw.where(spread_ok, spread_med)
+    except Exception:
+        pass
     y_margin = df['home_margin']
     y_total = df['total_points']
     y_homewin = df['home_win']
@@ -148,9 +168,12 @@ def _build_frame(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series, 
 
 def train_models(df: pd.DataFrame) -> TrainedModels:
     X, y_margin, y_total, y_homewin = _build_frame(df)
+    # Raw market anchors (do NOT fill missing with 0). Used for residual modeling.
+    spread_line_raw = pd.to_numeric(df.get('spread_home'), errors='coerce') if 'spread_home' in df.columns else pd.Series(index=df.index, dtype=float)
+    total_line_raw = pd.to_numeric(df.get('total'), errors='coerce') if 'total' in df.columns else pd.Series(index=df.index, dtype=float)
     # Single split shared across targets to keep dimensions aligned
-    X_train, X_val, ym_train, ym_val, yt_train, yt_val, yh_train, yh_val = train_test_split(
-        X, y_margin, y_total, y_homewin, test_size=0.2, random_state=42
+    X_train, X_val, ym_train, ym_val, yt_train, yt_val, yh_train, yh_val, spread_train, spread_val, total_train, total_val = train_test_split(
+        X, y_margin, y_total, y_homewin, spread_line_raw, total_line_raw, test_size=0.2, random_state=42
     )
     # Optional ATS / Over targets computed from original df
     try:
@@ -176,24 +199,43 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
     else:
         yc_train = yc_val = yo_train = yo_val = None
         X_val_clf = None
-    # Residual modeling vs market lines when available
-    use_residuals = ('spread_home' in X_train.columns) and ('total' in X_train.columns)
-    if use_residuals:
+    # Residual modeling vs market lines when available.
+    # Guard: if lines are missing historically, treating missing as 0 yields residuals ~+45,
+    # and then adding back a real market total at inference doubles totals.
+    use_residuals_margin = False
+    use_residuals_total = False
+    ym_train_res, ym_val_res = ym_train, ym_val
+    yt_train_res, yt_val_res = yt_train, yt_val
+    try:
+        spread_ok_train = spread_train.notna() & spread_train.abs().le(30)
+        spread_ok_val = spread_val.notna() & spread_val.abs().le(30)
+        use_residuals_margin = bool(spread_ok_train.mean() >= 0.80 and spread_ok_val.mean() >= 0.80)
+    except Exception:
+        use_residuals_margin = False
+    try:
+        total_ok_train = total_train.between(20, 70)
+        total_ok_val = total_val.between(20, 70)
+        use_residuals_total = bool(total_ok_train.mean() >= 0.80 and total_ok_val.mean() >= 0.80)
+    except Exception:
+        use_residuals_total = False
+
+    if use_residuals_margin:
         try:
-            ym_train_res = ym_train - pd.to_numeric(X_train['spread_home'], errors='coerce').fillna(0)
-            ym_val_res = ym_val - pd.to_numeric(X_val['spread_home'], errors='coerce').fillna(0)
+            spread_med = float(pd.to_numeric(spread_train, errors='coerce').dropna().median()) if spread_train.notna().any() else 0.0
+            ym_train_res = ym_train - pd.to_numeric(spread_train, errors='coerce').fillna(spread_med)
+            ym_val_res = ym_val - pd.to_numeric(spread_val, errors='coerce').fillna(spread_med)
         except Exception:
             ym_train_res, ym_val_res = ym_train, ym_val
-            use_residuals = False
+            use_residuals_margin = False
+
+    if use_residuals_total:
         try:
-            yt_train_res = yt_train - pd.to_numeric(X_train['total'], errors='coerce').fillna(0)
-            yt_val_res = yt_val - pd.to_numeric(X_val['total'], errors='coerce').fillna(0)
+            total_med = float(pd.to_numeric(total_train, errors='coerce').dropna().median()) if total_train.notna().any() else 0.0
+            yt_train_res = yt_train - pd.to_numeric(total_train, errors='coerce').fillna(total_med)
+            yt_val_res = yt_val - pd.to_numeric(total_val, errors='coerce').fillna(total_med)
         except Exception:
             yt_train_res, yt_val_res = yt_train, yt_val
-            use_residuals = False
-    else:
-        ym_train_res, ym_val_res = ym_train, ym_val
-        yt_train_res, yt_val_res = yt_train, yt_val
+            use_residuals_total = False
 
     # Optional simple bagging: train multiple seeds and average at inference
     try:
@@ -342,20 +384,20 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
     ym_pred_res = _avg_pred(reg_margin, X_val)
     yt_pred_res = _avg_pred(reg_total, X_val)
     # Reconstruct absolute predictions if residuals were used
-    if use_residuals:
+    ym_pred = ym_pred_res
+    yt_pred = yt_pred_res
+    if use_residuals_margin:
         try:
-            spread_val = pd.to_numeric(X_val['spread_home'], errors='coerce').fillna(0)
+            spread_med = float(pd.to_numeric(spread_train, errors='coerce').dropna().median()) if spread_train.notna().any() else 0.0
+            ym_pred = ym_pred_res + pd.to_numeric(spread_val, errors='coerce').fillna(spread_med)
         except Exception:
-            spread_val = 0
+            pass
+    if use_residuals_total:
         try:
-            total_val = pd.to_numeric(X_val['total'], errors='coerce').fillna(0)
+            total_med = float(pd.to_numeric(total_train, errors='coerce').dropna().median()) if total_train.notna().any() else 0.0
+            yt_pred = yt_pred_res + pd.to_numeric(total_val, errors='coerce').fillna(total_med)
         except Exception:
-            total_val = 0
-        ym_pred = ym_pred_res + spread_val
-        yt_pred = yt_pred_res + total_val
-    else:
-        ym_pred = ym_pred_res
-        yt_pred = yt_pred_res
+            pass
     try:
         mae_margin = float(mean_absolute_error(ym_val, ym_pred))
     except Exception:
@@ -383,13 +425,60 @@ def train_models(df: pd.DataFrame) -> TrainedModels:
     models = TrainedModels(
         regressors={'home_margin': reg_margin, 'total_points': reg_total},
         classifiers={'home_win': clf_home, 'home_cover': clf_cover, 'over_total': clf_over},
-        calibrators={'home_cover': cal_cover, 'over_total': cal_over}
+        calibrators={'home_cover': cal_cover, 'over_total': cal_over},
+        use_residuals_margin=bool(use_residuals_margin),
+        use_residuals_total=bool(use_residuals_total),
     )
     return models
 
 
 def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     df = df_future.copy()
+
+    # If the model was trained with market-anchor imputation / missingness flags,
+    # reproduce the same transformations at inference time.
+    try:
+        req_cols: set[str] = set()
+        for key in ('home_margin', 'total_points'):
+            est = models.regressors.get(key)
+            est0 = est[0] if isinstance(est, list) else est
+            names = getattr(est0, 'feature_names_in_', None)
+            if names is not None:
+                req_cols |= set([str(c) for c in names])
+        for key in ('home_win', 'home_cover', 'over_total'):
+            est = models.classifiers.get(key) if hasattr(models, 'classifiers') else None
+            est0 = est[0] if isinstance(est, list) else est
+            names = getattr(est0, 'feature_names_in_', None) if est0 is not None else None
+            if names is not None:
+                req_cols |= set([str(c) for c in names])
+
+        if ('total' in req_cols) or ('total_missing' in req_cols):
+            total_raw = pd.to_numeric(df.get('total'), errors='coerce')
+            # Prefer close_total if it exists and total is missing
+            try:
+                if 'close_total' in df.columns:
+                    total_raw = total_raw.fillna(pd.to_numeric(df.get('close_total'), errors='coerce'))
+            except Exception:
+                pass
+            total_ok = total_raw.between(20, 70)
+            total_med = float(total_raw[total_ok].median()) if total_ok.any() else 45.0
+            df['total_missing'] = (~total_ok).astype(int)
+            df['total'] = total_raw.where(total_ok, total_med)
+
+        if ('spread_home' in req_cols) or ('spread_home_missing' in req_cols):
+            spread_raw = pd.to_numeric(df.get('spread_home'), errors='coerce')
+            # Prefer close_spread_home if it exists and spread_home is missing
+            try:
+                if 'close_spread_home' in df.columns:
+                    spread_raw = spread_raw.fillna(pd.to_numeric(df.get('close_spread_home'), errors='coerce'))
+            except Exception:
+                pass
+            spread_ok = spread_raw.notna() & spread_raw.abs().le(30)
+            spread_med = float(spread_raw[spread_ok].median()) if spread_ok.any() else 0.0
+            df['spread_home_missing'] = (~spread_ok).astype(int)
+            df['spread_home'] = spread_raw.where(spread_ok, spread_med)
+    except Exception:
+        pass
     # Build X aligned to the margin regressor (assumes all models trained with same features)
     reg_m = models.regressors['home_margin']
     Xm = _select_X(df, reg_m[0] if isinstance(reg_m, list) else reg_m, FEATURES)
@@ -407,18 +496,25 @@ def predict(models: TrainedModels, df_future: pd.DataFrame) -> pd.DataFrame:
     else:
         df['pred_total'] = reg_t.predict(Xt)
 
-    # If residual modeling was used in training (detected by presence of market anchors in X),
-    # reconstruct absolute predictions by adding market anchors when present.
-    try:
-        if 'spread_home' in Xm.columns:
-            df['pred_margin'] = pd.to_numeric(df.get('pred_margin'), errors='coerce') + pd.to_numeric(Xm['spread_home'], errors='coerce').fillna(0)
-    except Exception:
-        pass
-    try:
-        if 'total' in Xt.columns:
-            df['pred_total'] = pd.to_numeric(df.get('pred_total'), errors='coerce') + pd.to_numeric(Xt['total'], errors='coerce').fillna(0)
-    except Exception:
-        pass
+    # If residual modeling was used in training, reconstruct absolute predictions by adding
+    # back market anchors. Do NOT do this unconditionally: if the regressor was trained on
+    # absolute targets, adding anchors here will double-count market lines.
+    if getattr(models, 'use_residuals_margin', False):
+        try:
+            anchor = pd.to_numeric(df.get('spread_home'), errors='coerce')
+            if 'close_spread_home' in df.columns:
+                anchor = anchor.fillna(pd.to_numeric(df.get('close_spread_home'), errors='coerce'))
+            df['pred_margin'] = pd.to_numeric(df.get('pred_margin'), errors='coerce') + anchor.fillna(0)
+        except Exception:
+            pass
+    if getattr(models, 'use_residuals_total', False):
+        try:
+            anchor = pd.to_numeric(df.get('total'), errors='coerce')
+            if 'close_total' in df.columns:
+                anchor = anchor.fillna(pd.to_numeric(df.get('close_total'), errors='coerce'))
+            df['pred_total'] = pd.to_numeric(df.get('pred_total'), errors='coerce') + anchor.fillna(0)
+        except Exception:
+            pass
     # Apply Phase A totals delta if present
     try:
         if 'phase_a_total_delta' in df.columns:

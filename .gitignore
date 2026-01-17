@@ -75,5 +75,13 @@ logs/
 Thumbs.db
 .vscode/
 
+# Local temp files
+.tmp_*
+
+# Scratch one-off scripts/output
+tmp_*.py
+tmp_*.txt
+tmp_*.json
+
 # Local analysis outputs
 reports/

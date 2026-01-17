@@ -37,34 +37,47 @@ def compute_elo(games: pd.DataFrame) -> pd.DataFrame:
     teams = pd.unique(pd.concat([games['home_team'], games['away_team']], ignore_index=True))
     elos = {t: initial_elo() for t in teams}
     rows = []
-    games_sorted = games.sort_values(['season', 'week'])
-    for _, g in games_sorted.iterrows():
-        home, away = g['home_team'], g['away_team']
-        # Coerce scores to floats and handle missing
-        try:
-            hs = float(pd.to_numeric(g.get('home_score'), errors='coerce'))
-        except Exception:
-            hs = float('nan')
-        try:
-            as_ = float(pd.to_numeric(g.get('away_score'), errors='coerce'))
-        except Exception:
-            as_ = float('nan')
-        elo_home, elo_away = elos.get(home, initial_elo()), elos.get(away, initial_elo())
-        rows.append({
-            'game_id': g['game_id'],
-            'elo_home_pre': elo_home,
-            'elo_away_pre': elo_away,
-        })
-        # update after game only if scores are present
-        try:
-            if pd.notna(hs) and pd.notna(as_):
+    # IMPORTANT: avoid within-week leakage. All games in a week should share the
+    # same pre-week ratings; update ratings only after the whole week.
+    sort_cols = ['season', 'week']
+    if 'game_date' in games.columns:
+        sort_cols.append('game_date')
+    elif 'date' in games.columns:
+        sort_cols.append('date')
+    games_sorted = games.sort_values(sort_cols)
+
+    for (season, week), grp in games_sorted.groupby(['season', 'week'], sort=True):
+        # Pre-week elos for every game in this week
+        for _, g in grp.iterrows():
+            home, away = g['home_team'], g['away_team']
+            elo_home, elo_away = elos.get(home, initial_elo()), elos.get(away, initial_elo())
+            rows.append({
+                'game_id': g['game_id'],
+                'elo_home_pre': elo_home,
+                'elo_away_pre': elo_away,
+            })
+
+        # Post-week updates (only for games that have final scores)
+        for _, g in grp.iterrows():
+            home, away = g['home_team'], g['away_team']
+            try:
+                hs = float(pd.to_numeric(g.get('home_score'), errors='coerce'))
+            except Exception:
+                hs = float('nan')
+            try:
+                as_ = float(pd.to_numeric(g.get('away_score'), errors='coerce'))
+            except Exception:
+                as_ = float('nan')
+            if not (pd.notna(hs) and pd.notna(as_)):
+                continue
+            try:
+                elo_home, elo_away = elos.get(home, initial_elo()), elos.get(away, initial_elo())
                 new_home = update_elo(elo_home, elo_away, hs, as_, home=True)
                 new_away = update_elo(elo_away, elo_home, as_, hs, home=False)
                 elos[home] = new_home
                 elos[away] = new_away
-        except Exception:
-            # If any issue occurs, keep previous elos and continue
-            pass
+            except Exception:
+                pass
     return pd.DataFrame(rows)
 
 
@@ -159,32 +172,121 @@ def _attach_team_stats_prior(df: pd.DataFrame, team_stats: pd.DataFrame, side: s
     if metric_col in merged.columns:
         needs_fallback = merged[metric_col].isna().any()
     if needs_fallback:
-        # Prepare asof tables
+        # Prepare asof tables (must keep side-prefixed columns so downstream features
+        # don't silently remain NaN for teams missing an exact prev_week row).
         ts_side = ts.rename(columns={'team': side_team, 'week': 'ts_week'}).copy()
         for c in ['season', 'ts_week']:
             if c in ts_side.columns:
                 ts_side[c] = pd.to_numeric(ts_side[c], errors='coerce')
+
+        # Rename metric columns to match the exact-join schema.
+        rename_asof = {
+            'off_epa': f'{side}_off_epa',
+            'def_epa': f'{side}_def_epa',
+            'off_epa_1h': f'off_epa_1h_{side[0]}',
+            'off_epa_2h': f'off_epa_2h_{side[0]}',
+            'def_epa_1h': f'def_epa_1h_{side[0]}',
+            'def_epa_2h': f'def_epa_2h_{side[0]}',
+            'pace_secs_play': f'{side}_pace_secs_play',
+            'pass_rate': f'{side}_pass_rate',
+            'rush_rate': f'{side}_rush_rate',
+            'off_sack_rate': f'{side}_off_sack_rate',
+            'def_sack_rate': f'{side}_def_sack_rate',
+            'off_rz_pass_rate': f'{side}_off_rz_pass_rate',
+            'def_rz_pass_rate': f'{side}_def_rz_pass_rate',
+            'def_wr_share_mult': f'{side}_def_wr_share_mult',
+            'def_te_share_mult': f'{side}_def_te_share_mult',
+            'def_rb_share_mult': f'{side}_def_rb_share_mult',
+            'def_wr_ypt_mult': f'{side}_def_wr_ypt_mult',
+            'def_te_ypt_mult': f'{side}_def_te_ypt_mult',
+            'def_rb_ypt_mult': f'{side}_def_rb_ypt_mult',
+            'qb_adj': f'{side}_qb_adj',
+            'sos': f'{side}_sos',
+        }
+        ts_side = ts_side.rename(columns={k: v for k, v in rename_asof.items() if k in ts_side.columns})
+
+        # merge_asof is strict about sort order; drop rows with null join keys
+        # (bad rows can exist in snapshots and will otherwise disable the fallback).
+        try:
+            key_mask = pd.Series(True, index=ts_side.index)
+            if 'season' in ts_side.columns:
+                key_mask &= ts_side['season'].notna()
+            if 'ts_week' in ts_side.columns:
+                key_mask &= ts_side['ts_week'].notna()
+            if side_team in ts_side.columns:
+                key_mask &= ts_side[side_team].notna()
+            ts_side = ts_side.loc[key_mask].copy()
+        except Exception:
+            pass
+
         out = merged.copy()
         out['week_for_stats'] = pd.to_numeric(out.get('week'), errors='coerce').fillna(0) - 1
         out['week_for_stats'] = out['week_for_stats'].where(out['week_for_stats'] > 0, 0)
         if 'season' in out.columns:
             out['season'] = pd.to_numeric(out['season'], errors='coerce')
+        # Drop null join keys on the left as well
+        try:
+            left_mask = pd.Series(True, index=out.index)
+            if 'season' in out.columns:
+                left_mask &= out['season'].notna()
+            if 'week_for_stats' in out.columns:
+                left_mask &= out['week_for_stats'].notna()
+            if side_team in out.columns:
+                left_mask &= out[side_team].notna()
+            out = out.loc[left_mask].copy()
+        except Exception:
+            pass
         out = out.sort_values(['season', side_team, 'week_for_stats'], kind='mergesort')
         ts_side = ts_side.sort_values([c for c in ['season', side_team, 'ts_week'] if c in ts_side.columns], kind='mergesort')
         try:
-            merged = pd.merge_asof(
-                out,
-                ts_side,
-                left_on='week_for_stats',
-                right_on='ts_week',
-                by=['season', side_team],
-                direction='backward',
-                allow_exact_matches=True
-            )
-            # Drop helper columns if present
-            drop_cols = [c for c in ['week_for_stats', 'ts_week'] if c in merged.columns]
+            # pandas.merge_asof is very strict about global sort order; with a `by` grouping
+            # it can still raise "keys must be sorted" when multiple teams are present.
+            # Do the asof join per (season, team) group instead.
+            candidate_cols = [
+                f'{side}_off_epa', f'{side}_def_epa',
+                f'off_epa_1h_{side[0]}', f'off_epa_2h_{side[0]}',
+                f'def_epa_1h_{side[0]}', f'def_epa_2h_{side[0]}',
+                f'{side}_pace_secs_play', f'{side}_pass_rate', f'{side}_rush_rate',
+                f'{side}_off_sack_rate', f'{side}_def_sack_rate',
+                f'{side}_off_rz_pass_rate', f'{side}_def_rz_pass_rate',
+                f'{side}_def_wr_share_mult', f'{side}_def_te_share_mult', f'{side}_def_rb_share_mult',
+                f'{side}_def_wr_ypt_mult', f'{side}_def_te_ypt_mult', f'{side}_def_rb_ypt_mult',
+                f'{side}_qb_adj', f'{side}_sos',
+            ]
+
+            out_work = out.copy()
+            out_work['_asof_idx'] = out_work.index
+            parts: list[pd.DataFrame] = []
+            for (s, team), grp in out_work.groupby(['season', side_team], dropna=False):
+                rhs = ts_side[(ts_side['season'] == s) & (ts_side[side_team] == team)].copy()
+                if rhs.empty:
+                    parts.append(grp)
+                    continue
+                grp_sorted = grp.sort_values('week_for_stats', kind='mergesort')
+                rhs_sorted = rhs.sort_values('ts_week', kind='mergesort')
+                joined = pd.merge_asof(
+                    grp_sorted,
+                    rhs_sorted,
+                    left_on='week_for_stats',
+                    right_on='ts_week',
+                    direction='backward',
+                    allow_exact_matches=True,
+                    suffixes=('', '_ts')
+                )
+                for c in candidate_cols:
+                    c_ts = f'{c}_ts'
+                    if c in joined.columns and c_ts in joined.columns:
+                        joined[c] = joined[c].where(joined[c].notna(), joined[c_ts])
+                drop_cols = [c for c in joined.columns if c.endswith('_ts')]
+                parts.append(joined.drop(columns=drop_cols, errors='ignore'))
+
+            merged_asof = pd.concat(parts, axis=0, ignore_index=False)
+            merged_asof = merged_asof.sort_values('_asof_idx', kind='mergesort').drop(columns=['_asof_idx'], errors='ignore')
+
+            drop_cols = [c for c in ['week_for_stats', 'ts_week'] if c in merged_asof.columns]
             if drop_cols:
-                merged = merged.drop(columns=drop_cols)
+                merged_asof = merged_asof.drop(columns=drop_cols)
+            merged = merged_asof
         except Exception:
             pass
 
@@ -315,10 +417,10 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
                     )
                 except Exception:
                     r[f'{c}_ema'] = s
-            # We want EMA as of prior week; so we'll merge on prev_week
-            r['prev_week'] = r['week']
-            # Prepare right frame with only EMA columns
-            keep = ['season','team','prev_week'] + [f'{c}_ema' for c in present]
+            # We want EMA as of prior week (<= week-1). Use an asof join so playoff/byes
+            # can fall back to the last available team-week row.
+            # Prepare right frame with only EMA columns.
+            keep = ['season','team','week'] + [f'{c}_ema' for c in present]
             r = r[keep].drop_duplicates()
             # Align left keys
             l = left.copy()
@@ -327,21 +429,50 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
                 if src_col in l.columns:
                     l[side_team] = l[src_col]
             l[side_team] = l[side_team].astype(str).apply(_norm_team)
-            if 'week' in l.columns:
-                try:
-                    l['prev_week'] = pd.to_numeric(l['week'], errors='coerce') - 1
-                except Exception:
-                    l['prev_week'] = None
+            try:
+                l['__wk_key'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
+                l['__wk_key'] = pd.to_numeric(l['__wk_key'], errors='coerce').fillna(-1)
+            except Exception:
+                l['__wk_key'] = -1
+            try:
+                l['season'] = pd.to_numeric(l.get('season'), errors='coerce')
+            except Exception:
+                pass
             # Rename EMA columns to side-prefixed names
             rename = {f'{c}_ema': f'{side}_{c}_ema' for c in present}
             r = r.rename(columns={'team': side_team})
             r = r.rename(columns=rename)
-            merged = l.merge(r, on=['season', side_team, 'prev_week'], how='left')
+            # Normalize numeric weeks
             try:
-                merged = merged.drop(columns=['prev_week'])
+                r['week'] = pd.to_numeric(r.get('week'), errors='coerce')
+                r['season'] = pd.to_numeric(r.get('season'), errors='coerce')
             except Exception:
                 pass
-            return merged
+            # Avoid `week_x/week_y` collisions during asof join
+            r = r.rename(columns={'week': '__ema_week'})
+            # Sort for merge_asof
+            try:
+                # NOTE: pandas merge_asof enforces global sort by the asof key first.
+                l2 = l.sort_values(['__wk_key', 'season', side_team], kind='mergesort').reset_index(drop=True)
+                r2 = r.sort_values(['__ema_week', 'season', side_team], kind='mergesort').reset_index(drop=True)
+                merged = pd.merge_asof(
+                    l2,
+                    r2,
+                    left_on='__wk_key',
+                    right_on='__ema_week',
+                    by=['season', side_team],
+                    direction='backward',
+                    allow_exact_matches=True,
+                )
+                merged = merged.drop(columns=['__wk_key', '__ema_week'], errors='ignore')
+                return merged
+            except Exception:
+                # Fallback to exact prior-week merge
+                r['prev_week'] = r['__ema_week']
+                l['prev_week'] = l['__wk_key']
+                merged = l.merge(r.drop(columns=['__ema_week'], errors='ignore'), on=['season', side_team, 'prev_week'], how='left')
+                merged = merged.drop(columns=['prev_week', '__wk_key'], errors='ignore')
+                return merged
         except Exception:
             return left
 
@@ -877,25 +1008,140 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         _norm_team_ext = lambda s: str(s)
 
+    def _attach_team_week_asof(
+        base: pd.DataFrame,
+        src: pd.DataFrame,
+        side: str,
+        metric_cols: list[str],
+        rename_map: dict[str, str],
+    ) -> pd.DataFrame:
+        """Attach per-team-week metrics using an asof (<= week-1) fallback.
+
+        This avoids hard failures when optional sources stop before postseason weeks.
+        """
+        if base is None or base.empty or src is None or src.empty:
+            return base
+
+        key = f'{side}_team'
+        key_norm = f'__{key}_norm'
+        target_cols = list(rename_map.values())
+
+        try:
+            r = src.copy()
+            if 'team' in r.columns:
+                r = r.rename(columns={'team': key})
+
+            for c in ['season', 'week']:
+                if c in r.columns:
+                    r[c] = pd.to_numeric(r[c], errors='coerce')
+
+            bring = [c for c in ([key, 'season', 'week'] + list(metric_cols)) if c in r.columns]
+            r = r[bring].copy()
+            if r.empty:
+                return base
+
+            r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
+            r = r.drop(columns=[key], errors='ignore')
+            r = r.rename(columns={k: v for k, v in rename_map.items() if k in r.columns})
+            if 'week' in r.columns:
+                r = r.rename(columns={'week': '__src_week'})
+            if '__src_week' in r.columns:
+                # merge_asof requires identical dtypes on the join key
+                r['__src_week'] = pd.to_numeric(r['__src_week'], errors='coerce').astype(float)
+            r = r.dropna(subset=['season', '__src_week', key_norm])
+            if r.empty:
+                return base
+
+            seasons = set(pd.to_numeric(r['season'], errors='coerce').dropna().astype(int).unique().tolist())
+            if not seasons:
+                return base
+
+            out = base.copy()
+            mask = pd.to_numeric(out.get('season'), errors='coerce').isin(list(seasons))
+            if 'week' in out.columns:
+                mask &= out['week'].notna()
+            if key in out.columns:
+                mask &= out[key].notna()
+            if not mask.any():
+                return out
+
+            l = out.loc[mask].copy()
+            l['season'] = pd.to_numeric(l.get('season'), errors='coerce')
+            l['__wk_key'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
+            # merge_asof requires identical dtypes on the join key
+            l['__wk_key'] = pd.to_numeric(l['__wk_key'], errors='coerce').astype(float)
+            l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
+            l = l.dropna(subset=['season', '__wk_key', key_norm])
+            if l.empty:
+                return out
+
+            # Preserve original row identity through merge_asof (which may reset index)
+            l['_asof_row_id'] = l.index
+
+            parts: list[pd.DataFrame] = []
+            for (s, t), grp in l.groupby(['season', key_norm], dropna=False, sort=False):
+                rhs = r[(r['season'] == s) & (r[key_norm] == t)].copy()
+                if rhs.empty:
+                    parts.append(grp.set_index('_asof_row_id', drop=True))
+                    continue
+                grp_sorted = grp.sort_values('__wk_key', kind='mergesort')
+                # Only keep the asof key + target metric columns to avoid _x/_y suffix collisions
+                rhs_sorted = rhs.sort_values('__src_week', kind='mergesort')
+                keep_rhs = ['__src_week'] + [c for c in target_cols if c in rhs_sorted.columns]
+                rhs_sorted = rhs_sorted[keep_rhs].copy()
+                try:
+                    joined = pd.merge_asof(
+                        grp_sorted,
+                        rhs_sorted,
+                        left_on='__wk_key',
+                        right_on='__src_week',
+                        direction='backward',
+                        allow_exact_matches=True,
+                    )
+                    joined = joined.drop(columns=['__src_week'], errors='ignore')
+                    parts.append(joined.set_index('_asof_row_id', drop=True))
+                except Exception:
+                    # Non-fatal: skip this group rather than dropping the entire block
+                    parts.append(grp.set_index('_asof_row_id', drop=True))
+
+            merged = pd.concat(parts, axis=0, ignore_index=False).sort_index()
+            # Copy newly attached metric columns back
+            for c in target_cols:
+                if c in merged.columns:
+                    out.loc[merged.index, c] = merged[c]
+
+            if key_norm in out.columns:
+                out = out.drop(columns=[key_norm], errors='ignore')
+            return out
+        except Exception:
+            return base
+
+    # Ensure optional source loaders are always available here, even if earlier imports
+    # (e.g., team_ratings wiring) fail or are edited.
     try:
-        drv = load_pfr_drive_stats()
+        from .data_sources import (
+            load_pfr_drive_stats as _load_pfr_drive_stats,
+            load_redzone_splits as _load_redzone_splits,
+            load_explosive_rates as _load_explosive_rates,
+            load_penalties_stats as _load_penalties_stats,
+            load_special_teams as _load_special_teams,
+            load_officiating_crews as _load_officiating_crews,
+            load_weather_noaa as _load_weather_noaa,
+        )
+    except Exception:
+        _load_pfr_drive_stats = lambda: pd.DataFrame()
+        _load_redzone_splits = lambda: pd.DataFrame()
+        _load_explosive_rates = lambda: pd.DataFrame()
+        _load_penalties_stats = lambda: pd.DataFrame()
+        _load_special_teams = lambda: pd.DataFrame()
+        _load_officiating_crews = lambda: pd.DataFrame()
+        _load_weather_noaa = lambda: pd.DataFrame()
+
+    try:
+        drv = _load_pfr_drive_stats()
         if drv is not None and not drv.empty:
             # Expect per team-week; attach prior-week drive metrics to each side
             for side in ['home','away']:
-                key = f'{side}_team'
-                key_norm = f'__{key}_norm'
-                r = drv.copy()
-                if 'team' in r.columns:
-                    r = r.rename(columns={'team': key})
-                # Prefer prior-week attach
-                r['prev_week'] = pd.to_numeric(r.get('week'), errors='coerce')
-                l = df.copy()
-                l['prev_week'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
-                # Normalize team keys (many sources use abbreviations)
-                l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
-                r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                bring = [c for c in [key,'season','prev_week','points_per_drive','td_per_drive','fg_per_drive','avg_start_fp','yards_per_drive','seconds_per_drive','drives'] if c in r.columns]
-                r = r[bring]
                 rename = {
                     'points_per_drive': f'{side}_ppd',
                     'td_per_drive': f'{side}_td_per_drive',
@@ -905,14 +1151,13 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
                     'seconds_per_drive': f'{side}_seconds_per_drive',
                     'drives': f'{side}_drives'
                 }
-                r = r.rename(columns=rename)
-                # Ensure normalized merge key exists on right side
-                if key_norm not in r.columns:
-                    r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                # Avoid duplicating/suffixing the core team column in df.
-                r = r.drop(columns=[key], errors='ignore')
-                df = l.merge(r, on=['season', key_norm, 'prev_week'], how='left')
-                df = df.drop(columns=[key_norm, 'prev_week'], errors='ignore')
+                df = _attach_team_week_asof(
+                    df,
+                    drv,
+                    side,
+                    metric_cols=['points_per_drive','td_per_drive','fg_per_drive','avg_start_fp','yards_per_drive','seconds_per_drive','drives'],
+                    rename_map=rename,
+                )
             # Diffs
             for c in ['ppd','td_per_drive','fg_per_drive','avg_start_fp','yards_per_drive','seconds_per_drive','drives']:
                 hc, ac = f'home_{c}', f'away_{c}'
@@ -921,33 +1166,22 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        rz = load_redzone_splits()
+        rz = _load_redzone_splits()
         if rz is not None and not rz.empty:
             for side in ['home','away']:
-                key = f'{side}_team'
-                key_norm = f'__{key}_norm'
-                r = rz.copy()
-                if 'team' in r.columns:
-                    r = r.rename(columns={'team': key})
-                r['prev_week'] = pd.to_numeric(r.get('week'), errors='coerce')
-                l = df.copy()
-                l['prev_week'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
-                l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
-                r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                bring = [c for c in [key,'season','prev_week','rzd_off_eff','rzd_def_eff','rzd_off_td_rate','rzd_def_td_rate'] if c in r.columns]
-                r = r[bring]
                 rename = {
                     'rzd_off_eff': f'{side}_rzd_off_eff',
                     'rzd_def_eff': f'{side}_rzd_def_eff',
                     'rzd_off_td_rate': f'{side}_rzd_off_td_rate',
                     'rzd_def_td_rate': f'{side}_rzd_def_td_rate',
                 }
-                r = r.rename(columns=rename)
-                if key_norm not in r.columns:
-                    r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                r = r.drop(columns=[key], errors='ignore')
-                df = l.merge(r, on=['season', key_norm, 'prev_week'], how='left')
-                df = df.drop(columns=[key_norm, 'prev_week'], errors='ignore')
+                df = _attach_team_week_asof(
+                    df,
+                    rz,
+                    side,
+                    metric_cols=['rzd_off_eff','rzd_def_eff','rzd_off_td_rate','rzd_def_td_rate'],
+                    rename_map=rename,
+                )
             for c in ['rzd_off_eff','rzd_def_eff','rzd_off_td_rate','rzd_def_td_rate']:
                 hc, ac = f'home_{c}', f'away_{c}'
                 if hc in df.columns and ac in df.columns:
@@ -955,31 +1189,20 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        expl = load_explosive_rates()
+        expl = _load_explosive_rates()
         if expl is not None and not expl.empty:
             for side in ['home','away']:
-                key = f'{side}_team'
-                key_norm = f'__{key}_norm'
-                r = expl.copy()
-                if 'team' in r.columns:
-                    r = r.rename(columns={'team': key})
-                r['prev_week'] = pd.to_numeric(r.get('week'), errors='coerce')
-                l = df.copy()
-                l['prev_week'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
-                l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
-                r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                bring = [c for c in [key,'season','prev_week','explosive_pass_rate','explosive_run_rate'] if c in r.columns]
-                r = r[bring]
                 rename = {
                     'explosive_pass_rate': f'{side}_explosive_pass_rate',
                     'explosive_run_rate': f'{side}_explosive_run_rate',
                 }
-                r = r.rename(columns=rename)
-                if key_norm not in r.columns:
-                    r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                r = r.drop(columns=[key], errors='ignore')
-                df = l.merge(r, on=['season', key_norm, 'prev_week'], how='left')
-                df = df.drop(columns=[key_norm, 'prev_week'], errors='ignore')
+                df = _attach_team_week_asof(
+                    df,
+                    expl,
+                    side,
+                    metric_cols=['explosive_pass_rate','explosive_run_rate'],
+                    rename_map=rename,
+                )
             for c in ['explosive_pass_rate','explosive_run_rate']:
                 hc, ac = f'home_{c}', f'away_{c}'
                 if hc in df.columns and ac in df.columns:
@@ -987,31 +1210,20 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        pen = load_penalties_stats()
+        pen = _load_penalties_stats()
         if pen is not None and not pen.empty:
             for side in ['home','away']:
-                key = f'{side}_team'
-                key_norm = f'__{key}_norm'
-                r = pen.copy()
-                if 'team' in r.columns:
-                    r = r.rename(columns={'team': key})
-                r['prev_week'] = pd.to_numeric(r.get('week'), errors='coerce')
-                l = df.copy()
-                l['prev_week'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
-                l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
-                r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                bring = [c for c in [key,'season','prev_week','penalty_rate','turnover_adj_rate'] if c in r.columns]
-                r = r[bring]
                 rename = {
                     'penalty_rate': f'{side}_penalty_rate',
                     'turnover_adj_rate': f'{side}_turnover_adj_rate',
                 }
-                r = r.rename(columns=rename)
-                if key_norm not in r.columns:
-                    r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                r = r.drop(columns=[key], errors='ignore')
-                df = l.merge(r, on=['season', key_norm, 'prev_week'], how='left')
-                df = df.drop(columns=[key_norm, 'prev_week'], errors='ignore')
+                df = _attach_team_week_asof(
+                    df,
+                    pen,
+                    side,
+                    metric_cols=['penalty_rate','turnover_adj_rate'],
+                    rename_map=rename,
+                )
             for c in ['penalty_rate','turnover_adj_rate']:
                 hc, ac = f'home_{c}', f'away_{c}'
                 if hc in df.columns and ac in df.columns:
@@ -1019,33 +1231,22 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        st = load_special_teams()
+        st = _load_special_teams()
         if st is not None and not st.empty:
             for side in ['home','away']:
-                key = f'{side}_team'
-                key_norm = f'__{key}_norm'
-                r = st.copy()
-                if 'team' in r.columns:
-                    r = r.rename(columns={'team': key})
-                r['prev_week'] = pd.to_numeric(r.get('week'), errors='coerce')
-                l = df.copy()
-                l['prev_week'] = pd.to_numeric(l.get('week'), errors='coerce') - 1
-                l[key_norm] = l.get(key).astype(str).apply(_norm_team_ext)
-                r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                bring = [c for c in [key,'season','prev_week','fg_acc','punt_epa','kick_return_epa','touchback_rate'] if c in r.columns]
-                r = r[bring]
                 rename = {
                     'fg_acc': f'{side}_fg_acc',
                     'punt_epa': f'{side}_punt_epa',
                     'kick_return_epa': f'{side}_kick_return_epa',
                     'touchback_rate': f'{side}_touchback_rate',
                 }
-                r = r.rename(columns=rename)
-                if key_norm not in r.columns:
-                    r[key_norm] = r.get(key).astype(str).apply(_norm_team_ext)
-                r = r.drop(columns=[key], errors='ignore')
-                df = l.merge(r, on=['season', key_norm, 'prev_week'], how='left')
-                df = df.drop(columns=[key_norm, 'prev_week'], errors='ignore')
+                df = _attach_team_week_asof(
+                    df,
+                    st,
+                    side,
+                    metric_cols=['fg_acc','punt_epa','kick_return_epa','touchback_rate'],
+                    rename_map=rename,
+                )
             for c in ['fg_acc','punt_epa','kick_return_epa','touchback_rate']:
                 hc, ac = f'home_{c}', f'away_{c}'
                 if hc in df.columns and ac in df.columns:
@@ -1053,7 +1254,7 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        oc = load_officiating_crews()
+        oc = _load_officiating_crews()
         if oc is not None and not oc.empty:
             # Merge by game_id when present
             if 'game_id' in df.columns and 'game_id' in oc.columns:
@@ -1061,7 +1262,7 @@ def merge_features(games: pd.DataFrame, team_stats: pd.DataFrame, lines: pd.Data
     except Exception:
         pass
     try:
-        noa = load_weather_noaa()
+        noa = _load_weather_noaa()
         if noa is not None and not noa.empty:
             if 'game_id' in df.columns and 'game_id' in noa.columns:
                 df = df.merge(noa[['game_id','wx_gust_mph','wx_dew_point_f']], on='game_id', how='left')

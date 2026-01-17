@@ -167,7 +167,15 @@ def attach_team_ratings_to_view(view: pd.DataFrame, games: Optional[pd.DataFrame
         except Exception:
             r = pd.DataFrame()
         if r is not None and not r.empty:
-            ratings_frames.append(r)
+            # compute_team_ratings_from_games returns rows for multiple weeks <= w;
+            # for attaching to a (season, week) view, keep only the target week to
+            # avoid duplicate (season, week, team) rows that would explode merges.
+            try:
+                r = r[pd.to_numeric(r.get("week"), errors="coerce").eq(w)].copy()
+            except Exception:
+                pass
+            if r is not None and not r.empty:
+                ratings_frames.append(r)
         else:
             # Fallback: load precomputed CSV cache if available
             try:
@@ -178,12 +186,26 @@ def attach_team_ratings_to_view(view: pd.DataFrame, games: Optional[pd.DataFrame
                     for c in ("season","week"):
                         if c in rc.columns:
                             rc[c] = pd.to_numeric(rc[c], errors="coerce")
-                    ratings_frames.append(rc)
+                    try:
+                        rc = rc[pd.to_numeric(rc.get("week"), errors="coerce").eq(w)].copy()
+                    except Exception:
+                        pass
+                    if rc is not None and not rc.empty:
+                        ratings_frames.append(rc)
             except Exception:
                 pass
     if not ratings_frames:
         return v
     R = pd.concat(ratings_frames, ignore_index=True)
+    # Defensive: ensure one row per (season, week, team)
+    try:
+        if {"season", "week", "team"}.issubset(R.columns):
+            R["season"] = pd.to_numeric(R["season"], errors="coerce")
+            R["week"] = pd.to_numeric(R["week"], errors="coerce")
+            R["team"] = R["team"].astype(str)
+            R = R.drop_duplicates(subset=["season", "week", "team"], keep="last")
+    except Exception:
+        pass
     # Normalize team names on both sides to ensure consistent keys
     try:
         from .team_normalizer import normalize_team_name as _norm_team  # type: ignore

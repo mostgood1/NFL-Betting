@@ -276,13 +276,81 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
     If nothing configured, return None.
     """
     try:
+        allow_unsafe = str(os.environ.get('ALLOW_UNSAFE_TOTALS_CALIBRATION', '0')).strip().lower() in {'1','true','yes','y','on'}
+        try:
+            scale_min = float(os.environ.get('TOTALS_CAL_SCALE_MIN', '0.85'))
+            scale_max = float(os.environ.get('TOTALS_CAL_SCALE_MAX', '1.15'))
+            shift_min = float(os.environ.get('TOTALS_CAL_SHIFT_MIN', '-7.0'))
+            shift_max = float(os.environ.get('TOTALS_CAL_SHIFT_MAX', '7.0'))
+            min_n = int(float(os.environ.get('TOTALS_CAL_MIN_N', '80')))
+        except Exception:
+            scale_min, scale_max = 0.85, 1.15
+            shift_min, shift_max = -7.0, 7.0
+            min_n = 80
+
         fp = DATA_DIR / 'totals_calibration.json'
         if fp.exists():
             try:
                 data = json.loads(fp.read_text(encoding='utf-8'))
-                # minimal validation
                 if isinstance(data, dict) and any(k in data for k in ('scale', 'shift', 'market_blend')):
-                    return data
+                    # Parse numerics
+                    out: Dict[str, Any] = dict(data)
+                    try:
+                        if 'scale' in out:
+                            out['scale'] = float(out['scale'])
+                    except Exception:
+                        out.pop('scale', None)
+                    try:
+                        if 'shift' in out:
+                            out['shift'] = float(out['shift'])
+                    except Exception:
+                        out.pop('shift', None)
+                    try:
+                        if 'market_blend' in out:
+                            out['market_blend'] = float(out['market_blend'])
+                    except Exception:
+                        out.pop('market_blend', None)
+
+                    # Optional: minimum sample size gate
+                    n = None
+                    try:
+                        metrics = out.get('metrics')
+                        if isinstance(metrics, dict) and metrics.get('n') is not None:
+                            n = int(float(metrics.get('n')))
+                    except Exception:
+                        n = None
+
+                    # Safety validation (unless explicitly overridden)
+                    if not allow_unsafe:
+                        sc = out.get('scale', 1.0)
+                        sh = out.get('shift', 0.0)
+                        mb = out.get('market_blend', 0.0)
+                        try:
+                            if sc is not None and not (float(scale_min) <= float(sc) <= float(scale_max)):
+                                _log_once('totals-cal-unsafe', f'Ignoring totals_calibration.json: unsafe scale={sc} (allowed {scale_min}..{scale_max})')
+                                return None
+                        except Exception:
+                            return None
+                        try:
+                            if sh is not None and not (float(shift_min) <= float(sh) <= float(shift_max)):
+                                _log_once('totals-cal-unsafe', f'Ignoring totals_calibration.json: unsafe shift={sh} (allowed {shift_min}..{shift_max})')
+                                return None
+                        except Exception:
+                            return None
+                        try:
+                            if mb is not None and not (0.0 <= float(mb) <= 1.0):
+                                _log_once('totals-cal-unsafe', f'Ignoring totals_calibration.json: unsafe market_blend={mb}')
+                                return None
+                        except Exception:
+                            return None
+                        try:
+                            if n is not None and n < int(min_n):
+                                _log_once('totals-cal-unsafe', f'Ignoring totals_calibration.json: metrics.n={n} < {min_n}')
+                                return None
+                        except Exception:
+                            pass
+
+                    return out
             except Exception:
                 pass
         # Env fallback
@@ -305,7 +373,22 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
                     out['market_blend'] = float(b)
             except Exception:
                 pass
-            return out if out else None
+            if not out:
+                return None
+            if not allow_unsafe:
+                sc = float(out.get('scale', 1.0)) if out.get('scale') is not None else 1.0
+                sh = float(out.get('shift', 0.0)) if out.get('shift') is not None else 0.0
+                mb = float(out.get('market_blend', 0.0)) if out.get('market_blend') is not None else 0.0
+                if not (float(scale_min) <= float(sc) <= float(scale_max)):
+                    _log_once('totals-cal-unsafe', f'Ignoring env totals calibration: unsafe scale={sc} (allowed {scale_min}..{scale_max})')
+                    return None
+                if not (float(shift_min) <= float(sh) <= float(shift_max)):
+                    _log_once('totals-cal-unsafe', f'Ignoring env totals calibration: unsafe shift={sh} (allowed {shift_min}..{shift_max})')
+                    return None
+                if not (0.0 <= float(mb) <= 1.0):
+                    _log_once('totals-cal-unsafe', f'Ignoring env totals calibration: unsafe market_blend={mb}')
+                    return None
+            return out
     except Exception:
         pass
     return None
@@ -328,7 +411,17 @@ def _load_prob_calibration() -> Optional[Dict[str, Any]]:
     try:
         if _prob_calibration_cache is not None:
             return _prob_calibration_cache
-        fp = DATA_DIR / 'prob_calibration.json'
+        # Allow overrides (useful for walk-forward/backtest calibrations)
+        fp_env = os.environ.get('PROB_CALIBRATION_FILE')
+        if fp_env:
+            try:
+                fp = Path(str(fp_env).strip())
+                if not fp.is_absolute():
+                    fp = (BASE_DIR / fp).resolve()
+            except Exception:
+                fp = DATA_DIR / 'prob_calibration.json'
+        else:
+            fp = DATA_DIR / 'prob_calibration.json'
         if not fp.exists():
             return None
         data = json.loads(fp.read_text(encoding='utf-8'))
@@ -775,15 +868,19 @@ def _load_current_week_override() -> Optional[tuple[int, int]]:
 # We cache per (season, week) to keep IO minimal.
 _sim_probs_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
 _sim_probs_compute_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_probs_mtime_cache: dict[tuple[int, int], float] = {}
 
 # Optional quarter-score artifact (sim_quarters.csv)
 _sim_quarters_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_quarters_mtime_cache: dict[tuple[int, int], float] = {}
 
 # Optional drive-timeline artifact (sim_drives.csv)
 _sim_drives_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_sim_drives_mtime_cache: dict[tuple[int, int], float] = {}
 
 # Optional weekly player-props cache (player_props_{season}_wk{week}.csv)
 _player_props_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_player_props_mtime_cache: dict[tuple[int, int], float] = {}
 
 
 def _load_player_props_cache_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
@@ -798,24 +895,51 @@ def _load_player_props_cache_df(season: Optional[int], week: Optional[int]) -> O
         if season is None or week is None:
             return None
         key = (int(season), int(week))
-        if key in _player_props_cache:
-            return _player_props_cache[key]
         fp = DATA_DIR / f"player_props_{int(season)}_wk{int(week)}.csv"
-        df = None
+
         if fp.exists():
+            try:
+                mtime = fp.stat().st_mtime
+            except Exception:
+                mtime = None
+            if mtime is not None and key in _player_props_cache and _player_props_mtime_cache.get(key) == mtime:
+                return _player_props_cache[key]
             try:
                 df = pd.read_csv(fp)
             except Exception:
                 df = None
-        if df is None or (isinstance(df, pd.DataFrame) and df.empty):
-            fb = _find_latest_props_cache(prefer_season=int(season), prefer_week=int(week))
-            if fb is not None:
-                fb_fp, _, _ = fb
-                try:
-                    df = pd.read_csv(fb_fp)
-                except Exception:
-                    df = None
-        _player_props_cache[key] = df
+            _player_props_cache[key] = df
+            if mtime is not None:
+                _player_props_mtime_cache[key] = mtime
+            return df
+
+        # Requested file missing: clear any stale cached entry for this (season, week)
+        _player_props_cache.pop(key, None)
+        _player_props_mtime_cache.pop(key, None)
+
+        # Fallback: latest available cache (same season preferred). Do NOT cache under the requested key.
+        fb = _find_latest_props_cache(prefer_season=int(season), prefer_week=int(week))
+        if fb is None:
+            return None
+        fb_fp, fb_season, fb_week = fb
+        fb_key = (int(fb_season), int(fb_week))
+        if not fb_fp.exists():
+            _player_props_cache.pop(fb_key, None)
+            _player_props_mtime_cache.pop(fb_key, None)
+            return None
+        try:
+            fb_mtime = fb_fp.stat().st_mtime
+        except Exception:
+            fb_mtime = None
+        if fb_mtime is not None and fb_key in _player_props_cache and _player_props_mtime_cache.get(fb_key) == fb_mtime:
+            return _player_props_cache[fb_key]
+        try:
+            df = pd.read_csv(fb_fp)
+        except Exception:
+            df = None
+        _player_props_cache[fb_key] = df
+        if fb_mtime is not None:
+            _player_props_mtime_cache[fb_key] = fb_mtime
         return df
     except Exception:
         return None
@@ -1554,15 +1678,35 @@ def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[p
         if season is None or week is None:
             return None
         key = (int(season), int(week))
-        if key in _sim_probs_cache:
-            return _sim_probs_cache[key]
         fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_probs.csv"
         df = None
         if fp.exists():
             try:
+                mtime = float(fp.stat().st_mtime)
+            except Exception:
+                mtime = -1.0
+            try:
+                if key in _sim_probs_cache and _sim_probs_mtime_cache.get(key) == mtime:
+                    return _sim_probs_cache[key]
+            except Exception:
+                pass
+            try:
                 df = pd.read_csv(fp)
             except Exception:
                 df = None
+            # Only cache successful, per-week loads.
+            if df is not None and not df.empty:
+                _sim_probs_cache[key] = df
+                _sim_probs_mtime_cache[key] = mtime
+                return df
+            return None
+
+        # If the file is missing now, don't serve stale cached data.
+        try:
+            _sim_probs_cache.pop(key, None)
+            _sim_probs_mtime_cache.pop(key, None)
+        except Exception:
+            pass
         # Fallback: if per-week sim_probs missing, try latest backtests folder for this season
         if df is None or (isinstance(df, pd.DataFrame) and df.empty):
             try:
@@ -1584,8 +1728,10 @@ def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[p
                         df = None
             except Exception:
                 pass
-        _sim_probs_cache[key] = df
-        return df
+
+        # Important: do NOT cache this fallback under (season, week).
+        # If a per-week sim_probs.csv is generated later, we want it to be picked up immediately.
+        return df if (df is not None and not df.empty) else None
     except Exception:
         return None
 
@@ -1598,17 +1744,35 @@ def _load_sim_quarters_df(season: Optional[int], week: Optional[int]) -> Optiona
         if season is None or week is None:
             return None
         key = (int(season), int(week))
-        if key in _sim_quarters_cache:
-            return _sim_quarters_cache[key]
         fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_quarters.csv"
         df = None
         if fp.exists():
             try:
+                mtime = float(fp.stat().st_mtime)
+            except Exception:
+                mtime = -1.0
+            try:
+                if key in _sim_quarters_cache and _sim_quarters_mtime_cache.get(key) == mtime:
+                    return _sim_quarters_cache[key]
+            except Exception:
+                pass
+            try:
                 df = pd.read_csv(fp)
             except Exception:
                 df = None
-        _sim_quarters_cache[key] = df
-        return df
+            if df is not None and not df.empty:
+                _sim_quarters_cache[key] = df
+                _sim_quarters_mtime_cache[key] = mtime
+                return df
+            return None
+
+        # File missing: don't serve stale cached data.
+        try:
+            _sim_quarters_cache.pop(key, None)
+            _sim_quarters_mtime_cache.pop(key, None)
+        except Exception:
+            pass
+        return None
     except Exception:
         return None
 
@@ -1622,17 +1786,35 @@ def _load_sim_drives_df(season: Optional[int], week: Optional[int]) -> Optional[
         if season is None or week is None:
             return None
         key = (int(season), int(week))
-        if key in _sim_drives_cache:
-            return _sim_drives_cache[key]
         fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_drives.csv"
         df = None
         if fp.exists():
             try:
+                mtime = float(fp.stat().st_mtime)
+            except Exception:
+                mtime = -1.0
+            try:
+                if key in _sim_drives_cache and _sim_drives_mtime_cache.get(key) == mtime:
+                    return _sim_drives_cache[key]
+            except Exception:
+                pass
+            try:
                 df = pd.read_csv(fp)
             except Exception:
                 df = None
-        _sim_drives_cache[key] = df
-        return df
+            if df is not None and not df.empty:
+                _sim_drives_cache[key] = df
+                _sim_drives_mtime_cache[key] = mtime
+                return df
+            return None
+
+        # File missing: don't serve stale cached data.
+        try:
+            _sim_drives_cache.pop(key, None)
+            _sim_drives_mtime_cache.pop(key, None)
+        except Exception:
+            pass
+        return None
     except Exception:
         return None
 
@@ -1642,7 +1824,16 @@ def _get_mc_probs_for_game(season: Optional[int], week: Optional[int], game_id: 
     """
     out: Dict[str, Optional[float]] = {"prob_home_win_mc": None, "prob_home_cover_mc": None, "prob_over_total_mc": None}
     try:
-        df = _load_sim_probs_df(season, week)
+        df = None
+        # Prefer the unified accessor so callers can precompute into the in-process cache
+        # (e.g., SIM_COMPUTE_ON_REQUEST during scripts/backtests).
+        try:
+            if '_get_sim_probs_df' in globals():
+                df = _get_sim_probs_df(season, week)
+        except Exception:
+            df = None
+        if df is None or (isinstance(df, pd.DataFrame) and df.empty):
+            df = _load_sim_probs_df(season, week)
         if df is None or df.empty or 'game_id' not in df.columns:
             return out
         gid = str(game_id) if game_id is not None else None
@@ -1815,6 +2006,8 @@ def _get_sim_probs_df(season: Optional[int], week: Optional[int], view_df: Optio
 
 # --- Optional prop edge artifacts (edges_player_props_*.csv) ---
 _edges_player_props_cache: dict[tuple[int, int], Optional[pd.DataFrame]] = {}
+_edges_player_props_mtime_cache: dict[tuple[int, int], float] = {}
+_edges_player_props_source_cache: dict[tuple[int, int], str] = {}
 
 
 def _load_edges_player_props_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
@@ -1829,20 +2022,43 @@ def _load_edges_player_props_df(season: Optional[int], week: Optional[int]) -> O
         if season is None or week is None:
             return None
         key = (int(season), int(week))
-        if key in _edges_player_props_cache:
+
+        primary = DATA_DIR / f"edges_player_props_{int(season)}_wk{int(week)}.csv"
+        alt = DATA_DIR / f"props_edges_{int(season)}_wk{int(week)}.csv"
+
+        fp: Optional[Path] = None
+        if primary.exists():
+            fp = primary
+        elif alt.exists():
+            fp = alt
+
+        if fp is None:
+            _edges_player_props_cache.pop(key, None)
+            _edges_player_props_mtime_cache.pop(key, None)
+            _edges_player_props_source_cache.pop(key, None)
+            return None
+
+        try:
+            mtime = fp.stat().st_mtime
+        except Exception:
+            mtime = None
+        fp_s = str(fp)
+        if (
+            mtime is not None
+            and key in _edges_player_props_cache
+            and _edges_player_props_mtime_cache.get(key) == mtime
+            and _edges_player_props_source_cache.get(key) == fp_s
+        ):
             return _edges_player_props_cache[key]
-        fp = DATA_DIR / f"edges_player_props_{int(season)}_wk{int(week)}.csv"
-        if not fp.exists():
-            alt = DATA_DIR / f"props_edges_{int(season)}_wk{int(week)}.csv"
-            if alt.exists():
-                fp = alt
-        df = None
-        if fp.exists():
-            try:
-                df = pd.read_csv(fp)
-            except Exception:
-                df = None
+
+        try:
+            df = pd.read_csv(fp)
+        except Exception:
+            df = None
         _edges_player_props_cache[key] = df
+        _edges_player_props_source_cache[key] = fp_s
+        if mtime is not None:
+            _edges_player_props_mtime_cache[key] = mtime
         return df
     except Exception:
         return None
@@ -2086,8 +2302,8 @@ def _auto_advance_current_week_marker() -> Dict[str, Any]:
             pass
         # Blend margin/total toward market and optionally apply to team points (defaults on)
         try:
-            bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.10')
-            bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.20')
+            bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.0')
+            bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.0')
             apply_pts_flag = os.environ.get('RECS_MARKET_BLEND_APPLY_POINTS', '1')
             bm = float(bm_raw) if bm_raw not in (None, '') else 0.0
             bt = float(bt_raw) if bt_raw not in (None, '') else 0.0
@@ -2628,6 +2844,7 @@ def api_admin_fit_calibration_status():
 def _load_predictions() -> pd.DataFrame:
     """Load predictions.csv if present; return empty DataFrame if missing."""
     try:
+        ignore_locked = str(os.environ.get('PRED_IGNORE_LOCKED', '0')).strip().lower() in {"1", "true", "yes", "on"}
         dfs = []
         # Load each source with a tag so we can prioritize later
         if PRED_FILE.exists():
@@ -2644,7 +2861,7 @@ def _load_predictions() -> pd.DataFrame:
                 dfs.append(d1)
             except Exception as e:
                 _log_once('predictions-week-read-fail', f'predictions_week.csv read error: {e}')
-        if LOCKED_PRED_FILE.exists():
+        if (not ignore_locked) and LOCKED_PRED_FILE.exists():
             try:
                 d2 = pd.read_csv(LOCKED_PRED_FILE)
                 d2['pred_source'] = 'locked'
@@ -2667,7 +2884,7 @@ def _load_predictions() -> pd.DataFrame:
                 alt_files = {
                     'pred': alt_dir / 'predictions.csv',
                     'week': alt_dir / 'predictions_week.csv',
-                    'locked': alt_dir / 'predictions_locked.csv',
+                    **({} if ignore_locked else {'locked': alt_dir / 'predictions_locked.csv'}),
                     'synth': alt_dir / 'predictions_synth.csv',
                 }
                 for tag, path in alt_files.items():
@@ -2697,12 +2914,21 @@ def _load_predictions() -> pd.DataFrame:
                         has_finals = pd.Series(False, index=df.index)
                 except Exception:
                     has_finals = pd.Series(False, index=df.index)
-                # Always prefer locked snapshots over any other source to maintain credibility post-game
+                # Prefer locked snapshots *only when finals are present* (post-game credibility).
+                # For upcoming games, week-level predictions should win to avoid stale/partial locked rows
+                # flipping picks or breaking correlation with sims.
                 # Higher is better
-                src_rank = {'locked': 100, 'week': 3, 'pred': 2, 'synth': 0}
+                src_rank = {'week': 3, 'pred': 2, 'synth': 0, **({} if ignore_locked else {'locked': 100})}
                 pred_source = df['pred_source'] if 'pred_source' in df.columns else pd.Series(None, index=df.index)
                 src_priority = pred_source.map(lambda s: src_rank.get(str(s), -1))
-                is_locked = (pred_source == 'locked')
+                if not ignore_locked:
+                    locked_no_finals = (pred_source == 'locked') & (~has_finals)
+                    # Keep locked rows as a last resort if they're the only source for a game_id,
+                    # but don't let them override week/pred for upcoming games.
+                    src_priority = src_priority.where(~locked_no_finals, -1)
+                    is_locked = (pred_source == 'locked') & has_finals
+                else:
+                    is_locked = pd.Series(False, index=df.index)
                 df = df.assign(has_finals=has_finals, src_priority=src_priority, is_locked=is_locked)
                 # Sort by is_locked first (desc), then finals, then source priority; keep first per game_id
                 df = df.sort_values(by=['is_locked','has_finals','src_priority'], ascending=[False, False, False])
@@ -3107,7 +3333,9 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     # Merge by game_id first
     if 'game_id' in merged.columns and 'game_id' in p.columns and not p['game_id'].isna().all():
         try:
-            right_gid = p[['game_id'] + [c for c in pred_cols if c in p.columns]].drop_duplicates()
+            # IMPORTANT: predictions sources can contain multiple rows per game_id (e.g., snapshots).
+            # Deduplicate on the join key to avoid cartesian products.
+            right_gid = p[['game_id'] + [c for c in pred_cols if c in p.columns]].drop_duplicates(subset=['game_id'], keep='last')
             merged = merged.merge(right_gid, on='game_id', how='left')
         except Exception:
             pass
@@ -3116,7 +3344,8 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     team_keys = [c for c in ['season','week','home_team','away_team'] if c in merged.columns and c in p.columns]
     if len(team_keys) == 4:
         try:
-            right_team = p[team_keys + pred_cols].drop_duplicates()
+            # Same rationale as game_id merge: avoid cartesian product on non-unique right keys.
+            right_team = p[team_keys + pred_cols].drop_duplicates(subset=team_keys, keep='last')
             merged_tw = merged.merge(right_team, on=team_keys, how='left', suffixes=('', '_p2'))
             for c in pred_cols:
                 if c in merged_tw.columns and f'{c}_p2' in merged_tw.columns:
@@ -3141,7 +3370,7 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
                     keep.append('away_score')
                 if 'status' in p.columns:
                     keep.append('status')
-                p_scores = p[keep].drop_duplicates()
+                p_scores = p[keep].drop_duplicates(subset=['game_id'], keep='last')
                 # Avoid overwriting: merge with suffixes and fill only where base is null
                 merged_sc = merged.merge(p_scores, on='game_id', how='left', suffixes=('', '_p'))
                 # Coerce numeric for safe null checks
@@ -3296,9 +3525,9 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     # Final safety: ensure one row per game in the weekly view to avoid duplicate cards.
     try:
         if 'game_id' in merged.columns and not merged['game_id'].isna().all():
-            merged = merged.sort_values(['season','week','game_date','date'], axis=0, kind='mergesort') if {
-                'season','week'
-            }.issubset(merged.columns) else merged
+            sort_cols = [c for c in ['season', 'week', 'game_date', 'date'] if c in merged.columns]
+            if sort_cols:
+                merged = merged.sort_values(sort_cols, axis=0, kind='mergesort')
             merged = merged.drop_duplicates(subset=['game_id'], keep='first')
         else:
             # Fallback key when game_id missing: (season, week, home_team, away_team, game_date/date)
@@ -3716,6 +3945,12 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 msk_t2 = out_base['market_total'].isna()
                 if 'close_total' in out_base.columns:
                     out_base.loc[msk_t2 & out_base['close_total'].notna(), 'market_total'] = out_base.loc[msk_t2, 'close_total']
+        except Exception:
+            pass
+
+        # Apply totals calibration early so downstream cards/sims use consistent calibrated totals.
+        try:
+            out_base = _apply_totals_calibration(out_base)
         except Exception:
             pass
         # After enrichment, record disable flag but don't return yet so normalization runs
@@ -4145,7 +4380,11 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 wx_cols = ['game_id','date','home_team','away_team','wx_temp_f','wx_wind_mph','wx_precip_pct','roof','surface','neutral_site']
                 keep = [c for c in wx_cols if c in wx.columns]
                 if keep:
-                    out_base = out_base.merge(wx[keep], on=[c for c in ['game_id','date','home_team','away_team'] if c in out_base.columns and c in wx.columns], how='left', suffixes=('', '_wx'))
+                    if 'game_id' in out_base.columns and 'game_id' in wx.columns:
+                        merge_keys = ['game_id']
+                    else:
+                        merge_keys = [c for c in ['date','home_team','away_team'] if c in out_base.columns and c in wx.columns]
+                    out_base = out_base.merge(wx[keep], on=merge_keys, how='left', suffixes=('', '_wx'))
                     # Prefer non-null base, then fill from wx
                     numeric_wx_cols = {'wx_temp_f', 'wx_wind_mph', 'wx_precip_pct'}
                     try:
@@ -4368,8 +4607,8 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
                 pass
             # Apply default market blending on existing predictions (even if we don't run model inference)
             try:
-                bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.10')
-                bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.20')
+                bm_raw = os.environ.get('RECS_MARKET_BLEND_MARGIN', '0.0')
+                bt_raw = os.environ.get('RECS_MARKET_BLEND_TOTAL', '0.0')
                 apply_pts_flag = os.environ.get('RECS_MARKET_BLEND_APPLY_POINTS', '1')
                 bm = float(bm_raw) if bm_raw not in (None, '') else 0.0
                 bt = float(bt_raw) if bt_raw not in (None, '') else 0.0
@@ -4428,13 +4667,14 @@ def _attach_model_predictions(view_df: pd.DataFrame) -> pd.DataFrame:
         from nfl_compare.src.features import merge_features
         from nfl_compare.src.weather import load_weather_for_games
         from nfl_compare.src.models import predict as model_predict
+        import joblib
 
         # Load base data and models
         games = ds_load_games()
         stats = load_team_stats()
         lines = load_lines()
         try:
-            models = joblib_load(BASE_DIR / 'nfl_compare' / 'models' / 'nfl_models.joblib')
+            models = joblib.load(BASE_DIR / 'nfl_compare' / 'models' / 'nfl_models.joblib')
         except Exception:
             # Models not available; preserve and return the enriched odds/weather frame
             return out_base  # models not available
@@ -5020,7 +5260,11 @@ def _format_game_datetime(date_like: Any, tz: Optional[str]) -> Optional[str]:
         return str(date_like) if date_like is not None else None
 
 
-def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
+def _compute_recommendations_for_row(
+    row: pd.Series,
+    strict_gates: bool = False,
+    line_mode: str = "auto",
+) -> List[Dict[str, Any]]:
     """Compute EV-based recommendations (ML, Spread, Total) for a single game row.
     Returns a list of recommendation dicts with keys: type, selection, odds, ev_units, ev_pct, confidence, sort_weight, and some game metadata.
     """
@@ -5064,15 +5308,29 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             pass
 
     # Moneyline recommendation logic unified with card view: derive winner via predicted margin, flip probability orientation if inconsistent.
-    wp_home = g("pred_home_win_prob", "prob_home_win")
+    wp_home = g("pred_home_win_prob", default=None)
+    wp_home_alt = g("prob_home_win", default=None)
     ml_home = g("moneyline_home")
     ml_away = g("moneyline_away")
     dec_home = _american_to_decimal(ml_home) if ml_home is not None else None
     dec_away = _american_to_decimal(ml_away) if ml_away is not None else None
     try:
-        p_home_raw = float(wp_home) if (wp_home is not None and not pd.isna(wp_home)) else None
+        if wp_home is not None and not pd.isna(wp_home):
+            p_home_raw = float(wp_home)
+        elif wp_home_alt is not None and not pd.isna(wp_home_alt):
+            # Only use prob_home_win as a last resort; some locked/snapshot files have it mis-scaled.
+            p_home_raw = float(wp_home_alt)
+        else:
+            p_home_raw = None
     except Exception:
         p_home_raw = None
+    # Handle percent-like encodings defensively (e.g., 58.2 means 58.2%)
+    try:
+        if p_home_raw is not None and p_home_raw > 1.0:
+            if p_home_raw <= 100.0:
+                p_home_raw = float(p_home_raw) / 100.0
+    except Exception:
+        pass
     # Determine margin-based winner (prefer explicit pred_margin if present else compute from predicted points)
     margin_pred = None
     if 'pred_margin' in row.index and not pd.isna(row.get('pred_margin')):
@@ -5103,6 +5361,39 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         margin_implies_home = (model_winner_by_margin == home)
         if prob_implies_home != margin_implies_home:
             p_home_eff = 1.0 - p_home_eff
+
+    # If probability is missing or looks wildly inconsistent with the predicted margin,
+    # fall back to a margin->win-prob mapping. This protects against mislabeled or
+    # mis-scaled prob columns in locked/snapshot prediction files.
+    try:
+        if margin_pred is not None and not pd.isna(margin_pred):
+            # Logistic mapping: p = sigmoid(margin / scale)
+            # Typical NFL mapping is much less extreme than sigmoid(margin).
+            try:
+                scale = float(os.environ.get('RECS_ML_MARGIN_SCALE', os.environ.get('ML_MARGIN_SCALE', '6.5')))
+            except Exception:
+                scale = 6.5
+            if scale <= 0:
+                scale = 6.5
+            try:
+                p_from_margin = 1.0 / (1.0 + math.exp(-float(margin_pred) / float(scale)))
+            except Exception:
+                p_from_margin = None
+            if p_from_margin is not None:
+                # Clamp to avoid impossible EV explosions near 0/1
+                p_from_margin = max(0.01, min(0.99, float(p_from_margin)))
+                if p_home_eff is None:
+                    p_home_eff = p_from_margin
+                else:
+                    # Replace only when the disagreement is large (default 0.25)
+                    try:
+                        max_diff = float(os.environ.get('RECS_ML_PROB_MAX_MARGIN_DISAGREE', '0.20'))
+                    except Exception:
+                        max_diff = 0.20
+                    if abs(float(p_home_eff) - float(p_from_margin)) > float(max_diff):
+                        p_home_eff = p_from_margin
+    except Exception:
+        pass
     # Optional probability calibration (moneyline) from prob_calibration.json
     try:
         p_home_eff_cal = _apply_prob_calibration(p_home_eff, which='moneyline')
@@ -5119,14 +5410,21 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             except Exception:
                 wp_shrink = 0.35
             p_home_eff = 0.5 + (p_home_eff - 0.5) * (1.0 - float(wp_shrink))
-            # Clamp within a band around market-implied prob when odds present
+            # Clamp within a band around market-implied prob when odds present.
+            # Only do this when market-implied winner matches the model winner; otherwise clamping can
+            # flip sides and de-correlate margin-based picks from rec probabilities.
             mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
-            if mkt_ph is not None:
+            if mkt_ph is not None and model_winner_by_margin is not None:
                 try:
-                    band = float(os.environ.get('RECS_WP_MARKET_BAND', os.environ.get('WP_MARKET_BAND', '0.12')))
+                    mkt_winner = home if float(mkt_ph) >= 0.5 else away
                 except Exception:
-                    band = 0.12
-                p_home_eff = _clamp_prob_to_band(p_home_eff, mkt_ph, band)
+                    mkt_winner = None
+                if mkt_winner is not None and mkt_winner == model_winner_by_margin:
+                    try:
+                        band = float(os.environ.get('RECS_WP_MARKET_BAND', os.environ.get('WP_MARKET_BAND', '0.12')))
+                    except Exception:
+                        band = 0.12
+                    p_home_eff = _clamp_prob_to_band(p_home_eff, mkt_ph, band)
     except Exception:
         pass
     # Compute EV ONLY for margin-based winner (if available); fallback to probability winner if margin missing
@@ -5160,6 +5458,8 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         min_ev_pct_ml = float(os.environ.get('RECS_MIN_EV_PCT_ML', os.environ.get('RECS_MIN_EV_PCT', '2.0')))
     except Exception:
         min_ev_pct_ml = 2.0
+
+    bypass_gates = bool(is_final) and (not bool(strict_gates))
 
     # Grade and append if positive EV and passes ML gates
     if model_winner_ev is not None and model_winner_ev > 0:
@@ -5203,10 +5503,10 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
             pass_p_gate_ml = True if (min_p_ml <= 0.0) else (p_sel_ml_mc >= float(min_p_ml))
         else:
             pass_p_gate_ml = True if (min_p_ml <= 0.0 or p_sel_ml is None) else (p_sel_ml >= float(min_p_ml))
-        if not (pass_prob_gate_ml and pass_ev_gate_ml) and not is_final:
+        if not (pass_prob_gate_ml and pass_ev_gate_ml) and not bypass_gates:
             # Skip upcoming ML rec if gates fail; allow finals to be graded/displayed regardless
             pass
-        elif (pass_p_gate_ml or is_final):
+        elif (pass_p_gate_ml or bypass_gates):
             # Confidence EV can optionally incorporate simulation-based EV
             ev_conf_ml = model_winner_ev
             try:
@@ -5251,9 +5551,23 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     # Prefer close spread for finals; fallback otherwise
     _hs = g("home_score"); _as = g("away_score")
     _is_final = (_hs is not None and not pd.isna(_hs)) and (_as is not None and not pd.isna(_as))
-    spread = g("close_spread_home") if _is_final else g("market_spread_home", "spread_home", "open_spread_home")
-    if spread is None or (isinstance(spread, float) and pd.isna(spread)):
-        spread = g("market_spread_home", "spread_home", "open_spread_home")
+    lm = str(line_mode or "auto").strip().lower()
+    if lm not in {"auto", "open", "close"}:
+        lm = "auto"
+    if lm == "close":
+        spread = g("close_spread_home", default=None)
+        if spread is None or (isinstance(spread, float) and pd.isna(spread)):
+            spread = g("market_spread_home", "spread_home", "open_spread_home")
+    elif lm == "open":
+        # Prefer open/market lines even if the game is final (actionable backtests)
+        spread = g("open_spread_home", "spread_home", "market_spread_home")
+        if spread is None or (isinstance(spread, float) and pd.isna(spread)):
+            spread = g("close_spread_home")
+    else:
+        # auto: prefer close spread for finals; fallback otherwise
+        spread = g("close_spread_home") if _is_final else g("market_spread_home", "spread_home", "open_spread_home")
+        if spread is None or (isinstance(spread, float) and pd.isna(spread)):
+            spread = g("market_spread_home", "spread_home", "open_spread_home")
     try:
         ph = g("pred_home_points", "pred_home_score")
         pa = g("pred_away_points", "pred_away_score")
@@ -5382,7 +5696,7 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                         pass_p_gate_ats = True if (min_p_ats <= 0.0) else (p_sel_ats_mc >= float(min_p_ats))
                     else:
                         pass_p_gate_ats = True if (min_p_ats <= 0.0 or p_sel_ats is None) else (p_sel_ats >= float(min_p_ats))
-                if not (pass_prob_gate_ats and pass_ev_gate_ats and pass_p_gate_ats) and not is_final:
+                if not (pass_prob_gate_ats and pass_ev_gate_ats and pass_p_gate_ats) and not bypass_gates:
                     # Skip upcoming ATS rec if gates fail; allow finals for grading
                     pass
                 else:
@@ -5432,9 +5746,19 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
     # Total at -110
     # Prefer calibrated total if present
     total_pred = g("pred_total_cal", "pred_total")
-    m_total = g("close_total") if _is_final else g("market_total", "total", "open_total")
-    if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
-        m_total = g("market_total", "total", "open_total")
+    if lm == "close":
+        m_total = g("close_total")
+        if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
+            m_total = g("market_total", "total", "open_total")
+    elif lm == "open":
+        # Prefer open/market totals even if the game is final (actionable backtests)
+        m_total = g("open_total", "total", "market_total")
+        if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
+            m_total = g("close_total")
+    else:
+        m_total = g("close_total") if _is_final else g("market_total", "total", "open_total")
+        if m_total is None or (isinstance(m_total, float) and pd.isna(m_total)):
+            m_total = g("market_total", "total", "open_total")
     if total_pred is not None and not pd.isna(total_pred) and m_total is not None and not pd.isna(m_total):
         try:
             edge_t = float(total_pred) - float(m_total)
@@ -5550,7 +5874,7 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                         pass_p_gate_total = True if (min_p_total <= 0.0) else (p_sel_total_mc >= float(min_p_total))
                     else:
                         pass_p_gate_total = True if (min_p_total <= 0.0 or p_sel_total is None) else (p_sel_total >= float(min_p_total))
-                if not (pass_prob_gate_total and pass_ev_gate_total and pass_p_gate_total) and not is_final:
+                if not (pass_prob_gate_total and pass_ev_gate_total and pass_p_gate_total) and not bypass_gates:
                     # Skip upcoming TOTAL rec if gates fail; allow finals for grading
                     pass
                 else:
@@ -5586,23 +5910,23 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
                                     result = "Win" if picked_ou == actual_ou else "Loss"
                         except Exception:
                             result = None
-                recs.append({
-                    "type": "TOTAL",
-                    "selection": s,
-                    "odds": -110,
-                    "ev_units": e,
-                    "ev_pct": e * 100.0 if e is not None else None,
-                    "prob_selected": p_sel_total,
-                    "prob_over_total": p_over,
-                    "prob_selected_mc": p_sel_total_mc,
-                    "prob_over_total_mc": prob_over_total_mc,
-                    "confidence_ev_units": ev_conf_total,
-                    "confidence_method": method_total if 'method_total' in locals() else None,
-                    "confidence": conf,
-                    "sort_weight": (_tier_to_num(conf), ev_conf_total if ev_conf_total is not None else (e or -999)),
-                    "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
-                    "result": result,
-                })
+                    recs.append({
+                        "type": "TOTAL",
+                        "selection": s,
+                        "odds": -110,
+                        "ev_units": e,
+                        "ev_pct": e * 100.0 if e is not None else None,
+                        "prob_selected": p_sel_total,
+                        "prob_over_total": p_over,
+                        "prob_selected_mc": p_sel_total_mc,
+                        "prob_over_total_mc": prob_over_total_mc,
+                        "confidence_ev_units": ev_conf_total,
+                        "confidence_method": method_total if 'method_total' in locals() else None,
+                        "confidence": conf,
+                        "sort_weight": (_tier_to_num(conf), ev_conf_total if ev_conf_total is not None else (e or -999)),
+                        "season": season, "week": week, "game_date": game_date, "home_team": home, "away_team": away,
+                        "result": result,
+                    })
 
     # Apply global filtering to reduce noise
     try:
@@ -5616,7 +5940,7 @@ def _compute_recommendations_for_row(row: pd.Series) -> List[Dict[str, Any]]:
         evp = r.get('ev_pct')
         if evp is not None and evp >= min_ev_pct:
             filtered.append(r)
-        elif is_final and include_completed:
+        elif is_final and include_completed and not bool(strict_gates):
             filtered.append(r)
     # Ensure every passing pick has a visible confidence tier; only floor when none computed
     for r in filtered:
@@ -7441,9 +7765,9 @@ def _build_cards(
                 #   RECS_MARKET_BLEND_MARGIN in [0,1] to blend model margin with -spread_home
                 #   RECS_MARKET_BLEND_TOTAL in [0,1] to blend model total with market total
                 try:
-                    # Default local blend: margin=0.10, total=0.20 if envs unset
-                    bm_raw = os.environ.get("RECS_MARKET_BLEND_MARGIN", "0.10")
-                    bt_raw = os.environ.get("RECS_MARKET_BLEND_TOTAL", "0.20")
+                    # Default: blending OFF unless explicitly enabled via env vars
+                    bm_raw = os.environ.get("RECS_MARKET_BLEND_MARGIN", "0.0")
+                    bt_raw = os.environ.get("RECS_MARKET_BLEND_TOTAL", "0.0")
                     bm = float(bm_raw) if bm_raw not in (None, "") else 0.0
                     bt = float(bt_raw) if bt_raw not in (None, "") else 0.0
                     bm = max(0.0, min(1.0, bm))
@@ -8597,6 +8921,8 @@ def _build_cards(
 
                                 pos = dfx.get('position', pd.Series('', index=dfx.index)).astype(str).str.upper() if 'position' in dfx.columns else pd.Series('', index=dfx.index)
 
+                                import numpy as np
+
                                 # PASS
                                 qb = dfx[pos.eq('QB')].copy()
                                 if qb is None or qb.empty:
@@ -8769,6 +9095,13 @@ def _build_cards(
                 p_home = float(wp_home) if (wp_home is not None and pd.notna(wp_home)) else None
             except Exception:
                 p_home = None
+
+            # Defensive: tolerate percent-style encodings (e.g., 62.5 means 62.5%)
+            try:
+                if p_home is not None and p_home > 1.0 and p_home <= 100.0:
+                    p_home = float(p_home) / 100.0
+            except Exception:
+                pass
             ml_home = g("moneyline_home")
             ml_away = g("moneyline_away")
             dec_home = _american_to_decimal(ml_home) if ml_home is not None else None
@@ -8782,6 +9115,34 @@ def _build_cards(
             if p_home is not None:
                 # RAW model probability (no blending)
                 p_home_eff = p_home
+
+            # Guardrail: if win-prob and point-margin strongly disagree, prefer a margin-derived probability.
+            # This avoids pathological EV values when upstream prob columns are stale/misaligned.
+            try:
+                c['debug_p_home_from_margin'] = None
+                c['debug_p_home_replaced_by_margin'] = False
+                if p_home_eff is not None:
+                    # Clamp to plausible range
+                    p_home_eff = max(0.01, min(0.99, float(p_home_eff)))
+                if p_home_eff is not None and margin is not None and pd.notna(margin):
+                    try:
+                        scale = float(os.environ.get('RECS_ML_MARGIN_SCALE', '6.5'))
+                    except Exception:
+                        scale = 6.5
+                    if scale <= 0:
+                        scale = 6.5
+                    p_from_margin = 1.0 / (1.0 + math.exp(-float(margin) / float(scale)))
+                    p_from_margin = max(0.01, min(0.99, float(p_from_margin)))
+                    c['debug_p_home_from_margin'] = p_from_margin
+                    try:
+                        max_diff = float(os.environ.get('RECS_ML_PROB_MAX_MARGIN_DISAGREE', '0.20'))
+                    except Exception:
+                        max_diff = 0.20
+                    if abs(float(p_home_eff) - float(p_from_margin)) > float(max_diff):
+                        p_home_eff = p_from_margin
+                        c['debug_p_home_replaced_by_margin'] = True
+            except Exception:
+                pass
             # Derive model winner strictly from predicted point margin when available
             # (earlier we computed 'margin' = pred_home_points - pred_away_points when possible)
             model_winner_by_margin = None
@@ -8808,6 +9169,46 @@ def _build_cards(
                     c['debug_prob_flipped_to_match_margin'] = True
                 else:
                     c['debug_prob_flipped_to_match_margin'] = False
+
+            # Optional probability calibration (moneyline) from prob_calibration.json
+            try:
+                p_home_eff_cal = _apply_prob_calibration(p_home_eff, which='moneyline')
+                if p_home_eff_cal is not None:
+                    p_home_eff = p_home_eff_cal
+                    c['debug_p_home_calibrated'] = True
+                else:
+                    c['debug_p_home_calibrated'] = False
+            except Exception:
+                c['debug_p_home_calibrated'] = False
+
+            # For upcoming games, shrink and clamp ML prob toward market to avoid overconfident EV
+            try:
+                c['debug_p_home_pre_shrink'] = p_home_eff
+                if p_home_eff is not None and not is_final:
+                    try:
+                        wp_shrink = float(os.environ.get('RECS_WP_SHRINK', os.environ.get('WP_SHRINK', '0.35')))
+                    except Exception:
+                        wp_shrink = 0.35
+                    p_home_eff = 0.5 + (float(p_home_eff) - 0.5) * (1.0 - float(wp_shrink))
+                    mkt_ph, _ = _implied_probs_from_moneylines(ml_home, ml_away)
+                    # Only clamp toward market if market-implied winner matches the model margin winner.
+                    if mkt_ph is not None and model_winner_by_margin is not None:
+                        try:
+                            mkt_winner = home if float(mkt_ph) >= 0.5 else away
+                        except Exception:
+                            mkt_winner = None
+                        if mkt_winner is not None and mkt_winner == model_winner_by_margin:
+                            try:
+                                band = float(os.environ.get('RECS_WP_MARKET_BAND', os.environ.get('WP_MARKET_BAND', '0.12')))
+                            except Exception:
+                                band = 0.12
+                            p_home_eff = _clamp_prob_to_band(float(p_home_eff), float(mkt_ph), float(band))
+                # Final clamp
+                if p_home_eff is not None:
+                    p_home_eff = max(0.01, min(0.99, float(p_home_eff)))
+                c['debug_p_home_post_shrink'] = p_home_eff
+            except Exception:
+                pass
 
             # Compute EV ONLY for the margin-based winner side (if probability present)
             model_winner_prob = None
@@ -11316,7 +11717,7 @@ def api_props_recommendations():
         except Exception:
             selected_abbrs = None
         # Build schedule map: team_abbr -> (home_team, away_team, event)
-        sched_map: Dict[str, Tuple[str, str, str]] = {}
+        sched_map = {}
         try:
             gdf = games_df.copy() if (games_df is not None and not games_df.empty) else pd.DataFrame()
             if not gdf.empty:

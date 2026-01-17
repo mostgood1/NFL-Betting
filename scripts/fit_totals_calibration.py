@@ -225,6 +225,24 @@ def fit_totals_calibration(df: pd.DataFrame) -> Optional[FitResult]:
     x = work["pred_total"].to_numpy()
     y = work["actual_total"].to_numpy()
     a, b = _fit_scale_shift(x, y)
+
+    # Safety clamp: prevent extreme calibrations from destabilizing sims/UI.
+    # Override by setting ALLOW_UNSAFE_TOTALS_CALIBRATION=1.
+    allow_unsafe = str(os.environ.get('ALLOW_UNSAFE_TOTALS_CALIBRATION', '0')).strip().lower() in {'1','true','yes','y','on'}
+    try:
+        scale_min = float(os.environ.get('TOTALS_CAL_SCALE_MIN', '0.85'))
+        scale_max = float(os.environ.get('TOTALS_CAL_SCALE_MAX', '1.15'))
+        shift_min = float(os.environ.get('TOTALS_CAL_SHIFT_MIN', '-7.0'))
+        shift_max = float(os.environ.get('TOTALS_CAL_SHIFT_MAX', '7.0'))
+    except Exception:
+        scale_min, scale_max = 0.85, 1.15
+        shift_min, shift_max = -7.0, 7.0
+    if not allow_unsafe:
+        try:
+            a = float(np.clip(float(a), float(scale_min), float(scale_max)))
+            b = float(np.clip(float(b), float(shift_min), float(shift_max)))
+        except Exception:
+            a, b = 1.0, 0.0
     y_adj = a * x + b
 
     # Grid-search market_blend using only rows with market_total

@@ -79,7 +79,11 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     # Build a quick map for stadium attributes by team
     stad_map = {}
     if not stad.empty and "team" in stad.columns:
-        stad_map = stad.set_index(stad["team"].astype(str).str.strip()).to_dict(orient="index")
+        try:
+            from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+        except Exception:
+            _norm_team = lambda s: str(s)
+        stad_map = stad.assign(_k=stad["team"].astype(str).map(lambda x: _norm_team(str(x)).strip())).set_index("_k").to_dict(orient="index")
 
     # group by date for weather file loads (pandas groupby drops NaN keys)
     if date_col is None:
@@ -93,14 +97,20 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     for date_str, gdf in games.loc[date_key.notna()].groupby(date_key[date_key.notna()]):
         wdf = load_weather_for_date(str(date_str))
         # Normalize join keys
-        if not wdf.empty:
-            wdf["home_team"] = wdf["home_team"].astype(str).str.strip()
+        try:
+            from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+        except Exception:
+            _norm_team = lambda s: str(s)
+        if not wdf.empty and "home_team" in wdf.columns:
+            wdf["home_team"] = wdf["home_team"].astype(str).map(lambda x: _norm_team(str(x)).strip())
         for _, row in gdf.iterrows():
+            ht = _norm_team(str(row.get("home_team", ""))).strip()
+            at = _norm_team(str(row.get("away_team", ""))).strip()
             r = {
                 "game_id": row.get("game_id"),
                 "date": row.get(date_col) if date_col else row.get("date"),
-                "home_team": row.get("home_team"),
-                "away_team": row.get("away_team"),
+                "home_team": ht,
+                "away_team": at,
                 WeatherCols.temp_f: pd.NA,
                 WeatherCols.wind_mph: pd.NA,
                 WeatherCols.precip_pct: pd.NA,
@@ -110,7 +120,6 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
                 WeatherCols.surface: pd.NA,
                 "neutral_site": pd.NA,
             }
-            ht = str(row.get("home_team", "")).strip()
             if not wdf.empty:
                 m = wdf[wdf["home_team"] == ht]
                 if not m.empty:
@@ -132,12 +141,18 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
     # Also include any games where date_key was NaN (stadium meta only).
     missing_date_games = games.loc[date_key.isna()]
     if not missing_date_games.empty:
+        try:
+            from .team_normalizer import normalize_team_name as _norm_team  # type: ignore
+        except Exception:
+            _norm_team = lambda s: str(s)
         for _, row in missing_date_games.iterrows():
+            ht = _norm_team(str(row.get("home_team", ""))).strip()
+            at = _norm_team(str(row.get("away_team", ""))).strip()
             r = {
                 "game_id": row.get("game_id"),
                 "date": row.get(date_col) if date_col else row.get("date"),
-                "home_team": row.get("home_team"),
-                "away_team": row.get("away_team"),
+                "home_team": ht,
+                "away_team": at,
                 WeatherCols.temp_f: pd.NA,
                 WeatherCols.wind_mph: pd.NA,
                 WeatherCols.precip_pct: pd.NA,
@@ -147,7 +162,6 @@ def load_weather_for_games(games: pd.DataFrame) -> pd.DataFrame:
                 WeatherCols.surface: pd.NA,
                 "neutral_site": pd.NA,
             }
-            ht = str(row.get("home_team", "")).strip()
             if ht in stad_map:
                 r[WeatherCols.roof] = stad_map[ht].get("roof")
                 r[WeatherCols.surface] = stad_map[ht].get("surface")

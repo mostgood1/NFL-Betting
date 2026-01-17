@@ -13,6 +13,11 @@ import sys
 
 import pandas as pd
 
+# Ensure repo root is on sys.path so `nfl_compare` is importable when running from scripts/
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 # Local imports
 from nfl_compare.src.data_sources import load_games, load_team_stats, load_lines
 from nfl_compare.src.weather import load_weather_for_games

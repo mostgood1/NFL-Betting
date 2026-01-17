@@ -118,6 +118,7 @@ Checklist:
 | `DISABLE_ON_REQUEST_PREDICTIONS` | Skip on-demand model attachment | Default true on Render |
 | `RENDER` | Deployment flag (truthy on Render) | Used to gate expensive ops |
 | `ADMIN_TOKEN` | Protect admin endpoints | Required for sensitive routes |
+| `PRED_IGNORE_LOCKED` | Ignore `predictions_locked.csv` when loading predictions | Default 0; set 1 for historical backtests/debug |
 | `CARD_PROP_EDGES_INCLUDE_LADDERS` | Include ladder/alt player props in game card highlights | Default 0 (off); set to 1 to include |
 | `INJURY_BASELINE_WEEK` | Baseline week to define "starter" identity for injury features | Default 1; higher values shift baseline later in season |
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
@@ -152,6 +153,7 @@ Checklist:
 | `SIM_MEAN_TOTAL_K_DEFPPG` | Adjustment to total mean per 5 PPG vs league average defensive PPG | Default -0.40 |
 | `SIM_MEAN_TOTAL_K_PRESSURE` | Adjustment to total mean per 0.05 above baseline combined defensive sack rate | Default -0.80 |
 | `SIM_PRESSURE_BASELINE` | Baseline defensive sack rate used for pressure adjustments | Default 0.065 |
+| `PROB_CALIBRATION_FILE` | Override probability calibration file used by `_apply_prob_calibration` | Default `nfl_compare/data/prob_calibration.json` |
 | `SIM_MEAN_MARGIN_K_RATING` | Adjustment to margin mean per 1.0 of EMA net margin differential (home-away) | Default 0.08 |
 | `SIM_CORR_MARGIN_TOTAL` | Correlation between simulated margin and total draws | Default 0.10 (range -0.3–0.3) |
 | `SIM_COMPUTE_ON_REQUEST` | Allow Flask app to compute sim_probs when missing | Default 0 (off); set 1 for local/debug only |
@@ -162,6 +164,7 @@ Checklist:
 | `SIM_DRIVES_PER_TEAM_MAX` | Maximum drives per team clamp (drive timeline) | Default 16 |
 | `SIM_DRIVE_TIME_MULT_SIGMA` | Lognormal sigma for per-drive duration multiplier (drive timeline) | Default 0.45 |
 | `SIM_DRIVE_TIME_CAP_SEC` | Upper cap for simulated drive TOP seconds (drive timeline) | Default 780 |
+| `SIM_DRIVE_MODE_SCORE_MIN` | Minimum `p_drive_score` to label a drive as TD/FG in `drive_outcome_mode` (drive timeline) | Default 0.28 |
 | `SIM_MEAN_MARGIN_K_NEUTRAL` | Neutral-site adjustment to margin mean | Default 0.0 (off) |
 | `SIM_MEAN_TOTAL_K_PRECIP` | Precip adjustment to total mean (points per 100% precip) | Default 0.0 (off) |
 | `SIM_MEAN_TOTAL_K_COLD` | Cold adjustment to total mean (points per 10F below `SIM_COLD_TEMP_F`) | Default 0.0 (off) |

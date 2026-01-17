@@ -13,10 +13,17 @@ Usage:
 import argparse
 import json
 from pathlib import Path
+import sys
 from typing import Optional, Dict
+import os
 
 import numpy as np
 import pandas as pd
+
+# Ensure repo root is on sys.path so `nfl_compare` is importable when running from scripts/
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from nfl_compare.src.data_sources import load_games, load_team_stats, load_lines
 from nfl_compare.src.features import merge_features
@@ -110,28 +117,62 @@ def simulate(
 
     if df_train.empty or df_eval.empty:
         return pd.DataFrame(), pd.DataFrame()
-    # Optional: use cached predictions to avoid retraining
+    # Optional: use cached predictions to avoid retraining.
+    # Default behavior: if a materialized week predictions artifact exists, use it as the cache
+    # so simulations are seeded from the same means the Flask UI consumes.
     pred: pd.DataFrame
     _use_cache = False
     try:
         import os as _os
         if pred_cache_fp is None:
             pred_cache_fp = _os.environ.get('SIM_PRED_CACHE_FP')
+        if pred_cache_fp is None:
+            default_week_fp = DATA_DIR / 'predictions_week.csv'
+            if default_week_fp.exists():
+                pred_cache_fp = str(default_week_fp)
         _use_cache = bool(_os.environ.get('SIM_USE_PRED_CACHE')) or bool(pred_cache_fp)
     except Exception:
         _use_cache = bool(pred_cache_fp)
     if _use_cache and pred_cache_fp:
         try:
             cache = pd.read_csv(Path(pred_cache_fp))
+            # Narrow cache to the requested window if possible; if it doesn't cover the window,
+            # fall back to training so we don't silently simulate on missing means.
+            try:
+                if {'season','week'}.issubset(cache.columns):
+                    cache['season'] = pd.to_numeric(cache['season'], errors='coerce')
+                    cache['week'] = pd.to_numeric(cache['week'], errors='coerce')
+                    cache = cache[(cache['season'] == int(season)) & (cache['week'] >= int(start_week)) & (cache['week'] <= int(end_week))]
+            except Exception:
+                pass
             # Accept either margin_pred/total_pred or pred_margin/pred_total
             pm_col = 'margin_pred' if 'margin_pred' in cache.columns else ('pred_margin' if 'pred_margin' in cache.columns else None)
             pt_col = 'total_pred' if 'total_pred' in cache.columns else ('pred_total' if 'pred_total' in cache.columns else None)
-            key_cols = [c for c in ['season','week','game_id'] if c in cache.columns]
-            if pm_col and pt_col and key_cols:
-                pred = df_eval[key_cols].copy()
-                pred = pred.merge(cache[key_cols + [pm_col, pt_col]], on=key_cols, how='left')
-                # Normalize names
-                pred = pred.rename(columns={pm_col: 'pred_margin', pt_col: 'pred_total'})
+            if (cache is not None) and (not cache.empty) and pm_col and pt_col:
+                # Prefer game_id-only join to avoid dtype mismatches on season/week across sources.
+                if ('game_id' in df_eval.columns) and ('game_id' in cache.columns):
+                    left = df_eval[['game_id']].copy()
+                    right = cache[['game_id', pm_col, pt_col]].drop_duplicates(subset=['game_id']).copy()
+                    left['game_id'] = left['game_id'].astype(str)
+                    right['game_id'] = right['game_id'].astype(str)
+                    pred = left.merge(right, on='game_id', how='left')
+                    pred = pred.rename(columns={pm_col: 'pred_margin', pt_col: 'pred_total'})
+                    # Attach season/week if present on df_eval (helps downstream joins)
+                    for c in ['season','week']:
+                        if c in df_eval.columns:
+                            pred[c] = df_eval[c].values
+                else:
+                    # Fallback: join by season/week/game_id when available, else season/week/home/away
+                    key_cols = [c for c in ['season','week','game_id'] if c in df_eval.columns and c in cache.columns]
+                    if not key_cols:
+                        key_cols = [c for c in ['season','week','home_team','away_team'] if c in df_eval.columns and c in cache.columns]
+                    if key_cols:
+                        pred = df_eval[key_cols].copy()
+                        pred = pred.merge(cache[key_cols + [pm_col, pt_col]], on=key_cols, how='left')
+                        pred = pred.rename(columns={pm_col: 'pred_margin', pt_col: 'pred_total'})
+                    else:
+                        models = train_models(df_train)
+                        pred = model_predict(models, df_eval).copy()
             else:
                 # Fallback: no viable cache match, train models
                 models = train_models(df_train)
@@ -164,6 +205,47 @@ def simulate(
             if drop_p:
                 merged = merged.drop(columns=drop_p)
             df_eval = merged
+    except Exception:
+        pass
+
+    # Force-seed simulation means from the materialized predictions cache when available.
+    # This keeps sims aligned with the Flask UI's materialized artifacts even when model training
+    # is possible locally.
+    try:
+        if pred_cache_fp is None:
+            pred_cache_fp = str(DATA_DIR / 'predictions_week.csv')
+        cache_fp = Path(str(pred_cache_fp)) if pred_cache_fp else None
+        if cache_fp and cache_fp.exists() and ('game_id' in df_eval.columns):
+            cache = pd.read_csv(cache_fp)
+            if {'season','week'}.issubset(cache.columns):
+                cache['season'] = pd.to_numeric(cache['season'], errors='coerce')
+                cache['week'] = pd.to_numeric(cache['week'], errors='coerce')
+                cache = cache[(cache['season'] == int(season)) & (cache['week'] >= int(start_week)) & (cache['week'] <= int(end_week))]
+            if (not cache.empty) and {'game_id','pred_margin','pred_total'}.issubset(cache.columns):
+                means = cache[['game_id','pred_margin','pred_total']].drop_duplicates(subset=['game_id']).copy()
+                means['game_id'] = means['game_id'].astype(str)
+                tmp = df_eval.copy()
+                tmp['game_id'] = tmp['game_id'].astype(str)
+                tmp = tmp.merge(means, on='game_id', how='left', suffixes=('', '_cache'))
+                # Overwrite means where cache provided values.
+                if 'pred_margin_cache' in tmp.columns:
+                    tmp['pred_margin'] = pd.to_numeric(tmp['pred_margin_cache'], errors='coerce').where(tmp['pred_margin_cache'].notna(), pd.to_numeric(tmp.get('pred_margin'), errors='coerce'))
+                if 'pred_total_cache' in tmp.columns:
+                    tmp['pred_total'] = pd.to_numeric(tmp['pred_total_cache'], errors='coerce').where(tmp['pred_total_cache'].notna(), pd.to_numeric(tmp.get('pred_total'), errors='coerce'))
+                drop_cols = [c for c in ['pred_margin_cache','pred_total_cache'] if c in tmp.columns]
+                if drop_cols:
+                    tmp = tmp.drop(columns=drop_cols)
+                df_eval = tmp
+    except Exception:
+        pass
+
+    # Align SIM market-blend env vars with RECS_* when SIM_* are unset.
+    # This helps keep simulation means correlated with the (optionally) market-blended card means.
+    try:
+        if not os.environ.get('SIM_MARKET_BLEND_MARGIN') and os.environ.get('RECS_MARKET_BLEND_MARGIN'):
+            os.environ['SIM_MARKET_BLEND_MARGIN'] = str(os.environ.get('RECS_MARKET_BLEND_MARGIN'))
+        if not os.environ.get('SIM_MARKET_BLEND_TOTAL') and os.environ.get('RECS_MARKET_BLEND_TOTAL'):
+            os.environ['SIM_MARKET_BLEND_TOTAL'] = str(os.environ.get('RECS_MARKET_BLEND_TOTAL'))
     except Exception:
         pass
 

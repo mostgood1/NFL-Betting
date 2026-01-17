@@ -62,7 +62,44 @@ def _extract_bovada_main_game_lines(df: pd.DataFrame) -> pd.DataFrame:
         b = b[b['period'].astype(str).str.upper().eq('G')]
     # Remove alternates
     if 'is_alternate' in b.columns:
-        b = b[(b['is_alternate'] == False) | b['is_alternate'].isna()]
+        try:
+            alt = b['is_alternate']
+            # Handle bools, 0/1, and strings like 'true'/'false'
+            alt_s = alt.astype(str).str.strip().str.lower()
+            is_alt = alt_s.isin({'1','true','t','yes','y','on'})
+            # If original is a real boolean series, respect it too
+            try:
+                is_alt = is_alt | (alt == True)  # noqa: E712
+            except Exception:
+                pass
+            b = b[~is_alt].copy()
+        except Exception:
+            b = b[(b['is_alternate'] == False) | b['is_alternate'].isna()]  # noqa: E712
+
+    def _pick_one_per_matchup(d: pd.DataFrame, line_col: str = 'line') -> pd.DataFrame:
+        """Pick a single representative row per (home_team, away_team).
+
+        When multiple rows exist (often due to multiple prices/snapshots), select
+        the row whose line is closest to the median line for that matchup.
+        """
+        if d is None or d.empty:
+            return d
+        if not {'home_team','away_team'}.issubset(d.columns):
+            return d
+        out = d.copy()
+        if line_col in out.columns:
+            out[line_col] = pd.to_numeric(out[line_col], errors='coerce')
+            try:
+                med = out.groupby(['home_team','away_team'])[line_col].transform('median')
+                out['__dl'] = (out[line_col] - med).abs()
+            except Exception:
+                out['__dl'] = 0.0
+            out = out.sort_values(['home_team','away_team','__dl'], kind='mergesort')
+            out = out.drop_duplicates(subset=['home_team','away_team'], keep='first')
+            out = out.drop(columns=['__dl'])
+        else:
+            out = out.drop_duplicates(subset=['home_team','away_team'], keep='first')
+        return out
     # Spread
     spread = None
     try:
@@ -74,6 +111,7 @@ def _extract_bovada_main_game_lines(df: pd.DataFrame) -> pd.DataFrame:
             sp_home = sp
         sp_home = sp_home.rename(columns={'line':'spread_home', 'price_home':'spread_home_price', 'price_away':'spread_away_price'})
         spread = sp_home[['home_team','away_team','spread_home','spread_home_price','spread_away_price']]
+        spread = _pick_one_per_matchup(spread, line_col='spread_home')
     except Exception:
         spread = None
     # Total
@@ -84,6 +122,7 @@ def _extract_bovada_main_game_lines(df: pd.DataFrame) -> pd.DataFrame:
         # Drop variant keys like team_total
         tt = tt[tt['market_key'].astype(str).str.lower().eq('total')]
         total = tt[['home_team','away_team','total','total_over_price','total_under_price']]
+        total = _pick_one_per_matchup(total, line_col='total')
     except Exception:
         total = None
     # Moneyline
@@ -92,6 +131,7 @@ def _extract_bovada_main_game_lines(df: pd.DataFrame) -> pd.DataFrame:
         ml = b[b['market_key'].astype(str).str.lower().eq('moneyline')].copy()
         ml = ml.rename(columns={'price_home':'moneyline_home', 'price_away':'moneyline_away'})
         money = ml[['home_team','away_team','moneyline_home','moneyline_away']]
+        money = _pick_one_per_matchup(money, line_col='moneyline_home')
     except Exception:
         money = None
 
@@ -145,9 +185,25 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
             for col in ('home_team','away_team'):
                 if col in lines.columns:
                     lines[col] = lines[col].astype(str).apply(_norm_team)
+            # If season/week are provided and present in lines.csv, filter to that window.
+            try:
+                if season is not None and 'season' in lines.columns:
+                    lines['season'] = pd.to_numeric(lines['season'], errors='coerce')
+                    lines = lines[lines['season'] == int(season)]
+                if week is not None and 'week' in lines.columns:
+                    lines['week'] = pd.to_numeric(lines['week'], errors='coerce')
+                    lines = lines[lines['week'] == int(week)]
+            except Exception:
+                pass
             # Select main columns if present
             keep = [c for c in ['home_team','away_team','spread_home','total','moneyline_home','moneyline_away','spread_home_price','spread_away_price','total_over_price','total_under_price'] if c in lines.columns]
-            lines_main = lines[keep].drop_duplicates() if keep else pd.DataFrame()
+            lines_main = lines[keep].copy() if keep else pd.DataFrame()
+            # Ensure a single row per matchup; otherwise merging on home/away can explode rows.
+            if not lines_main.empty:
+                try:
+                    lines_main = lines_main.drop_duplicates(subset=['home_team','away_team'], keep='last')
+                except Exception:
+                    lines_main = lines_main.drop_duplicates()
         else:
             lines_main = pd.DataFrame()
     except Exception:

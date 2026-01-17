@@ -110,6 +110,22 @@ Invoke-Step "Fetch team-week stats ($Season)" {
   & $venvPy -m nfl_compare.src.fetch_nflfastr --seasons $Season --only-stats | Write-Host
 }
 
+# 2b) Build Phase-A team-week feeds from pbp up through TargetWeek (incl. playoffs)
+Invoke-Step "Build Phase-A features (Season=$Season EndWeek=$TargetWeek)" {
+  & $venvPy scripts/build_phase_a_features.py --season $Season --end-week $TargetWeek | Write-Host
+}
+
+# 2c) Backfill per-date weather snapshots (Open-Meteo) and materialize NOAA-like game weather features
+Invoke-Step "Backfill weather + build NOAA features (Season=$Season Week=$TargetWeek)" {
+  & $venvPy scripts/backfill_weather_open_meteo.py --season $Season --weeks $TargetWeek | Write-Host
+  & $venvPy scripts/build_weather_noaa.py --season $Season --week $TargetWeek | Write-Host
+}
+
+# 2d) Materialize officiating crew feature placeholders for the target week
+Invoke-Step "Build officiating crews (Season=$Season Week=$TargetWeek)" {
+  & $venvPy scripts/build_officiating_crews.py --season $Season --week $TargetWeek | Write-Host
+}
+
 # 3) Retrain models (unless disabled)
 if (-not $NoRetrain.IsPresent) {
   Invoke-Step "Retrain models" {
@@ -162,6 +178,15 @@ Invoke-Step "Calibration uplift eval (Season=$Season end=$PriorWeek lookback=8)"
 Invoke-Step "Stage updated data" {
   git add -- nfl_compare/data/games.csv nfl_compare/data/team_stats.csv nfl_compare/data/player_props_${Season}_wk${TargetWeek}.csv nfl_compare/data/player_props_vs_actuals_${Season}_wk${PriorWeek}.csv nfl_compare/data/team_ratings_${Season}_wk${TargetWeek}.csv | Write-Host
   if (Test-Path 'nfl_compare/data/lines.csv') { git add -- nfl_compare/data/lines.csv | Write-Host }
+  # Phase-A team-week feature feeds
+  if (Test-Path 'nfl_compare/data/pfr_drive_stats.csv') { git add -- nfl_compare/data/pfr_drive_stats.csv | Write-Host }
+  if (Test-Path 'nfl_compare/data/redzone_splits.csv') { git add -- nfl_compare/data/redzone_splits.csv | Write-Host }
+  if (Test-Path 'nfl_compare/data/explosive_rates.csv') { git add -- nfl_compare/data/explosive_rates.csv | Write-Host }
+  if (Test-Path 'nfl_compare/data/penalties_stats.csv') { git add -- nfl_compare/data/penalties_stats.csv | Write-Host }
+  if (Test-Path 'nfl_compare/data/special_teams.csv') { git add -- nfl_compare/data/special_teams.csv | Write-Host }
+  # Optional: crew + NOAA augmentations
+  if (Test-Path 'nfl_compare/data/officiating_crews.csv') { git add -- nfl_compare/data/officiating_crews.csv | Write-Host }
+  if (Test-Path 'nfl_compare/data/weather_noaa.csv') { git add -- nfl_compare/data/weather_noaa.csv | Write-Host }
   $todayJson = (Get-ChildItem -Path (Join-Path (Join-Path $PSScriptRoot 'nfl_compare') 'data') -Filter "real_betting_lines_*.json" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
   if ($todayJson) { git add -- $todayJson.FullName | Write-Host }
   if (Test-Path 'nfl_compare/data/predictions.csv') { git add -- nfl_compare/data/predictions.csv | Write-Host }

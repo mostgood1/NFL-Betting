@@ -201,7 +201,8 @@ def build_special_teams(pbp: pd.DataFrame) -> pd.DataFrame:
 def main():
     ap = argparse.ArgumentParser(description="Build Phase A team-week features from nfl-data-py pbp")
     ap.add_argument("--season", type=int, required=True)
-    ap.add_argument("--end-week", type=int, default=17)
+    # Include postseason by default (NFL uses weeks up through ~22 incl. Super Bowl)
+    ap.add_argument("--end-week", type=int, default=22)
     args = ap.parse_args()
 
     seasons = [args.season]

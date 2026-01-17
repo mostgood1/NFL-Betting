@@ -40,6 +40,18 @@ def _load_sigma_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
 def _load_totals_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
     fp = data_dir / "totals_calibration.json"
     try:
+        allow_unsafe = str(os.environ.get('ALLOW_UNSAFE_TOTALS_CALIBRATION', '0')).strip().lower() in {'1','true','yes','y','on'}
+        try:
+            scale_min = float(os.environ.get('TOTALS_CAL_SCALE_MIN', '0.85'))
+            scale_max = float(os.environ.get('TOTALS_CAL_SCALE_MAX', '1.15'))
+            shift_min = float(os.environ.get('TOTALS_CAL_SHIFT_MIN', '-7.0'))
+            shift_max = float(os.environ.get('TOTALS_CAL_SHIFT_MAX', '7.0'))
+            min_n = int(float(os.environ.get('TOTALS_CAL_MIN_N', '80')))
+        except Exception:
+            scale_min, scale_max = 0.85, 1.15
+            shift_min, shift_max = -7.0, 7.0
+            min_n = 80
+
         if fp.exists():
             with open(fp, "r", encoding="utf-8") as f:
                 j = json.load(f)
@@ -49,6 +61,25 @@ def _load_totals_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
                     out["scale"] = float(j["scale"])
                 if "shift" in j:
                     out["shift"] = float(j["shift"])
+                if not allow_unsafe:
+                    try:
+                        sc = float(out.get('scale', 1.0))
+                        sh = float(out.get('shift', 0.0))
+                        if not (float(scale_min) <= sc <= float(scale_max)):
+                            return {}
+                        if not (float(shift_min) <= sh <= float(shift_max)):
+                            return {}
+                        # Optional metrics.n gate
+                        try:
+                            metrics = j.get('metrics')
+                            if isinstance(metrics, dict) and metrics.get('n') is not None:
+                                n = int(float(metrics.get('n')))
+                                if n < int(min_n):
+                                    return {}
+                        except Exception:
+                            pass
+                    except Exception:
+                        return {}
                 return out
     except Exception:
         pass
@@ -180,8 +211,34 @@ def _compute_game_means_and_lines(
     except Exception:
         pass
     try:
-        if np.isfinite(t_mu) and np.isfinite(t_line) and 0.0 < float(blend_total) <= 1.0:
-            t_mu = (1.0 - float(blend_total)) * float(t_mu) + float(blend_total) * float(t_line)
+        if np.isfinite(t_mu) and np.isfinite(t_line):
+            eff_blend_total = float(blend_total) if np.isfinite(float(blend_total)) else 0.0
+
+            # Adaptive market pull for totals on upcoming games.
+            # This prevents extreme model totals (often from missing/unstable features) from drifting far from market.
+            # Defaults: off for finals; on for upcoming with large deltas.
+            try:
+                hs = _coerce_float(row.get("home_score"))
+                a_s = _coerce_float(row.get("away_score"))
+                is_final = np.isfinite(hs) and np.isfinite(a_s)
+            except Exception:
+                is_final = False
+
+            pull_max = _env_f("SIM_TOTAL_MARKET_PULL_MAX_BLEND", 0.75)
+            pull_start = _env_f("SIM_TOTAL_MARKET_PULL_START", 6.0)
+            pull_delta_at_max = _env_f("SIM_TOTAL_MARKET_PULL_DELTA_AT_MAX", 14.0)
+
+            pull_blend = 0.0
+            if (not is_final) and pull_max > 0:
+                delta = abs(float(t_mu) - float(t_line))
+                if delta > float(pull_start):
+                    denom = max(1e-9, float(pull_delta_at_max) - float(pull_start))
+                    frac = min(1.0, max(0.0, (delta - float(pull_start)) / denom))
+                    pull_blend = float(pull_max) * float(frac)
+
+            eff_blend_total = max(0.0, min(1.0, max(eff_blend_total, pull_blend)))
+            if eff_blend_total > 0:
+                t_mu = (1.0 - eff_blend_total) * float(t_mu) + eff_blend_total * float(t_line)
     except Exception:
         pass
 
@@ -231,7 +288,9 @@ def _compute_game_means_and_lines(
             if np.isfinite(def_diff):
                 def_avg = 22.0 + (def_diff / 2.0)
         if np.isfinite(t_mu) and np.isfinite(def_avg):
-            t_mu = float(t_mu) + float(k_mean_total_defppg) * ((def_avg - 22.0) / 5.0)
+            # home_def_ppg / away_def_ppg are points allowed (higher = worse defense).
+            # Bad defenses should increase totals; good defenses should decrease totals.
+            t_mu = float(t_mu) + float(k_mean_total_defppg) * ((22.0 - def_avg) / 5.0)
     except Exception:
         pass
     try:
@@ -270,8 +329,10 @@ def _compute_game_means_and_lines(
 
     # Realism clamps
     try:
-        delta_t_max = _env_f("SIM_TOTAL_DELTA_MAX", 10.0)
-        t_min = _env_f("SIM_TOTAL_MEAN_MIN", 30.0)
+        # Default: do NOT silently anchor model totals toward market.
+        # Use SIM_TOTAL_DELTA_MAX > 0 to enable market-anchoring clamps.
+        delta_t_max = _env_f("SIM_TOTAL_DELTA_MAX", 0.0)
+        t_min = _env_f("SIM_TOTAL_MEAN_MIN", 20.0)
         t_max = _env_f("SIM_TOTAL_MEAN_MAX", 62.0)
         if np.isfinite(t_mu):
             if np.isfinite(t_line) and delta_t_max > 0:
@@ -280,7 +341,8 @@ def _compute_game_means_and_lines(
     except Exception:
         pass
     try:
-        delta_m_max = _env_f("SIM_MARGIN_DELTA_MAX", 10.0)
+        # Default: do NOT silently anchor model margins toward market.
+        delta_m_max = _env_f("SIM_MARGIN_DELTA_MAX", 0.0)
         m_abs_max = _env_f("SIM_MARGIN_MEAN_ABS_MAX", 20.0)
         if np.isfinite(m_mu):
             m_anchor = -float(s) if np.isfinite(s) else 0.0
@@ -766,6 +828,124 @@ def _allocate_quarter_plays_to_drives(
     return drive_points
 
 
+def _valid_team_scores(max_points: int = 90) -> set[int]:
+    """Return the set of team point totals reachable by {2,3,6,7,8} scoring plays."""
+    max_points = int(max(0, max_points))
+    allowed = (2, 3, 6, 7, 8)
+    reachable = {0}
+    for p in range(1, max_points + 1):
+        ok = False
+        for a in allowed:
+            if p - a >= 0 and (p - a) in reachable:
+                ok = True
+                break
+        if ok:
+            reachable.add(p)
+    return reachable
+
+
+def _valid_game_totals(max_total: int = 90) -> set[int]:
+    team = _valid_team_scores(max_points=max_total)
+    totals: set[int] = set()
+    for h in team:
+        for a in team:
+            s = h + a
+            if 0 <= s <= int(max_total):
+                totals.add(int(s))
+    return totals
+
+
+def _nearest_in_set(x: int, vals: set[int]) -> int:
+    if not vals:
+        return int(x)
+    if int(x) in vals:
+        return int(x)
+    # Deterministic nearest; ties -> smaller.
+    best = None
+    best_d = None
+    xi = int(x)
+    for v in vals:
+        d = abs(int(v) - xi)
+        if best is None or d < best_d or (d == best_d and int(v) < int(best)):
+            best = int(v)
+            best_d = int(d)
+    return int(best) if best is not None else int(x)
+
+
+def _make_valid_score_pair(total: int, home_guess: int, away_guess: int, valid_team: set[int]) -> tuple[int, int]:
+    """Return (home, away) such that home+away==total and both are valid team scores.
+
+    Chooses the pair closest to the provided guesses.
+    """
+    t = int(total)
+    hg = int(home_guess)
+    ag = int(away_guess)
+    best_pair: tuple[int, int] | None = None
+    best_cost: tuple[int, int] | None = None
+    for h in valid_team:
+        if h < 0 or h > t:
+            continue
+        a = t - int(h)
+        if a not in valid_team:
+            continue
+        # Primary: minimize deviation from guessed scores.
+        dev = abs(int(h) - hg) + abs(int(a) - ag)
+        # Secondary: minimize deviation from guessed margin.
+        dev_m = abs((int(h) - int(a)) - (hg - ag))
+        cost = (int(dev), int(dev_m))
+        if best_pair is None or cost < best_cost:
+            best_pair = (int(h), int(a))
+            best_cost = cost
+    if best_pair is not None:
+        return best_pair
+    # Fallback: clamp into a valid team score and preserve total.
+    h2 = _nearest_in_set(hg, valid_team)
+    h2 = int(max(0, min(t, h2)))
+    a2 = int(t - h2)
+    if a2 not in valid_team:
+        a2 = _nearest_in_set(a2, valid_team)
+        a2 = int(max(0, min(t, a2)))
+        h2 = int(t - a2)
+    return (int(h2), int(a2))
+
+
+def _force_realistic_final_scores(total_i: np.ndarray, home_i: np.ndarray, away_i: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Adjust integer final scores so both teams and game total are reachable by football scoring plays."""
+    if total_i is None or home_i is None or away_i is None:
+        return total_i, home_i, away_i
+    try:
+        max_total = int(np.nanmax(total_i)) if len(total_i) else 90
+    except Exception:
+        max_total = 90
+    max_total = int(max(0, min(120, max_total)))
+    valid_team = _valid_team_scores(max_points=max_total)
+    valid_tot = _valid_game_totals(max_total=max_total)
+
+    t_out = np.array(total_i, dtype=int, copy=True)
+    h_out = np.array(home_i, dtype=int, copy=True)
+    a_out = np.array(away_i, dtype=int, copy=True)
+    for j in range(len(t_out)):
+        t = int(t_out[j])
+        h = int(h_out[j])
+        a = int(a_out[j])
+        # Ensure non-negative and consistent sum.
+        t = int(max(0, t))
+        h = int(max(0, h))
+        a = int(max(0, a))
+        if h + a != t:
+            # Preserve total; adjust away.
+            a = int(max(0, t - h))
+        # Snap total to a reachable total if needed (rare tail case).
+        if t not in valid_tot:
+            t = _nearest_in_set(t, valid_tot)
+        # Find best reachable (home, away) pair.
+        h2, a2 = _make_valid_score_pair(t, h, a, valid_team)
+        t_out[j] = int(t)
+        h_out[j] = int(h2)
+        a_out[j] = int(a2)
+    return t_out, h_out, a_out
+
+
 def _interleave_possessions(home_drives: int, away_drives: int, start_home: bool) -> list[str]:
     """Return a possession sequence like ['home','away',...] of total length home_drives+away_drives."""
     seq: list[str] = []
@@ -1108,7 +1288,8 @@ def simulate_drive_timeline(
                 totals = rng.normal(loc=t_mu if np.isfinite(t_mu) else 44.0, scale=eff_total_sigma, size=int(n_sims))
 
         total_i = np.clip(np.rint(totals), 0, 90).astype(int)
-        home_i = np.rint((totals + margins) / 2.0).astype(int)
+        # Derive team scores from the integer total for consistency.
+        home_i = np.rint((total_i.astype(float) + margins) / 2.0).astype(int)
         away_i = total_i - home_i
         neg_away = away_i < 0
         if np.any(neg_away):
@@ -1118,6 +1299,9 @@ def simulate_drive_timeline(
         if np.any(neg_home):
             away_i[neg_home] = total_i[neg_home]
             home_i[neg_home] = 0
+
+        # Force (total, home, away) into reachable football score combinations (TD/FG/safety).
+        total_i, home_i, away_i = _force_realistic_final_scores(total_i, home_i, away_i)
 
         # Simulate drive sequences
         seq = _interleave_possessions(drives_home, drives_away, start_home=bool(rng.random() < 0.45))
@@ -1253,6 +1437,7 @@ def simulate_drive_timeline(
             p_fg = float(np.mean(pts_drive == 3))
             # Treat 6/7/8 as TD-family.
             p_td = float(np.mean(pts_drive >= 6))
+            p_safety = float(np.mean(pts_drive == 2))
 
             p_punt = float(np.mean(drive_out[:, d] == 0))
             p_int = float(np.mean(drive_out[:, d] == 1))
@@ -1269,22 +1454,38 @@ def simulate_drive_timeline(
                 dur_p75 = np.nan
             p_noscore = float(max(0.0, 1.0 - p_score))
 
+            # Mode selection for UI: if scoring is plausibly in play, show the most likely scoring outcome
+            # (TD/FG/Safety). Otherwise, show the most likely no-score outcome.
             mode = "No score"
             try:
-                best = max(
-                    [
-                        (p_td, "TD"),
-                        (p_fg, "FG"),
-                        (p_punt, "Punt"),
-                        (p_int, "INT"),
-                        (p_fum, "Fumble"),
-                        (p_downs, "Downs"),
-                        (p_missfg, "Missed FG"),
-                        (p_end, "End Half"),
-                    ],
-                    key=lambda x: x[0],
-                )
-                mode = best[1] if best and best[1] else "No score"
+                score_floor = _env_f("SIM_DRIVE_MODE_SCORE_MIN", 0.28)
+            except Exception:
+                score_floor = 0.28
+            try:
+                if p_score >= float(score_floor):
+                    best_score = max(
+                        [
+                            (p_td, "TD"),
+                            (p_fg, "FG"),
+                            (p_safety, "Safety"),
+                        ],
+                        key=lambda x: x[0],
+                    )
+                    mode = best_score[1] if best_score and best_score[1] else "Score"
+                else:
+                    best_ns = max(
+                        [
+                            (p_punt, "Punt"),
+                            (p_int, "INT"),
+                            (p_fum, "Fumble"),
+                            (p_downs, "Downs"),
+                            (p_missfg, "Missed FG"),
+                            (p_end, "End Half"),
+                            (p_noscore, "No score"),
+                        ],
+                        key=lambda x: x[0],
+                    )
+                    mode = best_ns[1] if best_ns and best_ns[1] else "No score"
             except Exception:
                 mode = "No score"
             pts_mean = float(np.mean(pts_drive))
@@ -1306,6 +1507,7 @@ def simulate_drive_timeline(
                     "p_drive_score": p_score,
                     "p_drive_fg": p_fg,
                     "p_drive_td": p_td,
+                    "p_drive_safety": p_safety,
                     "p_drive_punt": p_punt,
                     "p_drive_int": p_int,
                     "p_drive_fumble": p_fum,
@@ -1548,7 +1750,8 @@ def simulate_quarter_means(
                 totals = rng.normal(loc=t_mu if np.isfinite(t_mu) else 44.0, scale=eff_total_sigma, size=int(n_sims))
 
         total_i = np.clip(np.rint(totals), 0, 90).astype(int)
-        home_i = np.rint((totals + margins) / 2.0).astype(int)
+        # Derive team scores from the integer total for consistency.
+        home_i = np.rint((total_i.astype(float) + margins) / 2.0).astype(int)
         away_i = total_i - home_i
         # Clamp negatives while preserving total.
         neg_away = away_i < 0
@@ -1559,6 +1762,9 @@ def simulate_quarter_means(
         if np.any(neg_home):
             away_i[neg_home] = total_i[neg_home]
             home_i[neg_home] = 0
+
+        # Force (total, home, away) into reachable football score combinations (TD/FG/safety).
+        total_i, home_i, away_i = _force_realistic_final_scores(total_i, home_i, away_i)
 
         home_q_sum = np.zeros(4, dtype=float)
         away_q_sum = np.zeros(4, dtype=float)

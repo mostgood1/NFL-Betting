@@ -391,6 +391,61 @@
             <div class="venue">{{ g.venue_text }}</div>
             <div class="status">{{ g.status_text }}</div>
 
+            <div class="chips">
+              {% if g.prediction_source %}
+                <span class="chip" title="Prediction source">Src {{ g.prediction_source }}</span>
+              {% endif %}
+              {% if g.weather_text %}
+                <span class="chip">{{ g.weather_text }}</span>
+              {% endif %}
+              {% if g.stadium_roof %}
+                <span class="chip">Roof {{ g.stadium_roof }}</span>
+              {% endif %}
+              {% if g.rest_text %}
+                <span class="chip" title="Rest-days differential">{{ g.rest_text }}</span>
+              {% endif %}
+              {% if g.pressure_text %}
+                <span class="chip" title="Combined defensive pressure">{{ g.pressure_text }}</span>
+              {% endif %}
+              {% if g.conf_method_ml or g.conf_method_ats or g.conf_method_total %}
+                <span class="chip" title="Confidence EV source per market">
+                  Conf
+                  {% if g.conf_method_ml %} ML {{ g.conf_method_ml|capitalize }}{% endif %}
+                  {% if g.conf_method_ats %}{% if g.conf_method_ml %} &middot;{% endif %} ATS {{ g.conf_method_ats|capitalize }}{% endif %}
+                  {% if g.conf_method_total %}{% if g.conf_method_ml or g.conf_method_ats %} &middot;{% endif %} Tot {{ g.conf_method_total|capitalize }}{% endif %}
+                </span>
+              {% endif %}
+              {% if g.injury_text %}
+                <span class="chip" title="Injury starters summary">{{ g.injury_text }}</span>
+              {% endif %}
+              <span class="chip explain-toggle" role="button" tabindex="0">Show Explain</span>
+              <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
+              <span class="chip ratings-toggle" role="button" tabindex="0">Show Ratings</span>
+            </div>
+
+            {# Quick picks: prefer sim picks when present, else model picks #}
+            {% set ml_side = (g.sim_rec_winner_side if g.sim_rec_winner_side else g.rec_winner_side) %}
+            {% set ml_ev = (g.sim_rec_winner_ev if g.sim_rec_winner_ev is not none else g.rec_winner_ev) %}
+            {% set ml_conf = (g.sim_rec_winner_conf if g.sim_rec_winner_conf else g.rec_winner_conf) %}
+            {% set ats_side = (g.sim_rec_spread_side if g.sim_rec_spread_side else g.rec_spread_side) %}
+            {% set ats_ev = (g.sim_rec_spread_ev if g.sim_rec_spread_ev is not none else g.rec_spread_ev) %}
+            {% set ats_conf = (g.sim_rec_spread_conf if g.sim_rec_spread_conf else g.rec_spread_conf) %}
+            {% set tot_side = (g.sim_rec_total_side if g.sim_rec_total_side else g.rec_total_side) %}
+            {% set tot_ev = (g.sim_rec_total_ev if g.sim_rec_total_ev is not none else g.rec_total_ev) %}
+            {% set tot_conf = (g.sim_rec_total_conf if g.sim_rec_total_conf else g.rec_total_conf) %}
+
+            <div class="recs">
+              <span class="badge {% if ml_conf=='High' %}b-high{% elif ml_conf=='Medium' %}b-med{% elif ml_conf=='Low' %}b-low{% endif %}">
+                ML: {{ ml_side or '—' }}{% if ml_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (ml_ev*100) }}%)</span>{% endif %}{% if ml_conf %}<span class="muted"> • {{ ml_conf }}</span>{% endif %}
+              </span>
+              <span class="badge {% if ats_conf=='High' %}b-high{% elif ats_conf=='Medium' %}b-med{% elif ats_conf=='Low' %}b-low{% endif %}">
+                ATS: {{ ats_side or '—' }}{% if ats_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (ats_ev*100) }}%)</span>{% endif %}{% if ats_conf %}<span class="muted"> • {{ ats_conf }}</span>{% endif %}
+              </span>
+              <span class="badge {% if tot_conf=='High' %}b-high{% elif tot_conf=='Medium' %}b-med{% elif tot_conf=='Low' %}b-low{% endif %}">
+                Total: {{ tot_side or '—' }}{% if tot_ev is not none %}<span class="muted"> (EV {{ '%.1f' % (tot_ev*100) }}%)</span>{% endif %}{% if tot_conf %}<span class="muted"> • {{ tot_conf }}</span>{% endif %}
+              </span>
+            </div>
+
             {% set exs = g.explain.simulation if g.explain %}
             {% set exk = g.explain.market if g.explain %}
             {% set qsrc = (g.sim_quarters if g.sim_quarters else g.quarters) %}
@@ -472,12 +527,25 @@
 
             <div class="simbar">
               <div class="simitem">
+                <div class="k">Model (Final)</div>
+                <div class="v">
+                  {% if g.pred_total is number %}
+                    Total {{ '%.1f' % g.pred_total }}{% if g.pred_margin is number %} • Margin {{ '%+.1f' % g.pred_margin }}{% endif %}
+                  {% else %}
+                    —
+                  {% endif %}
+                </div>
+                <div class="muted-tiny">
+                  {% if g.edge_spread is number %}ATS edge {{ '%+.1f' % g.edge_spread }}{% else %}ATS edge —{% endif %}
+                  &nbsp;•&nbsp;
+                  {% if g.edge_total is number %}Total edge {{ '%+.1f' % g.edge_total }}{% else %}Total edge —{% endif %}
+                </div>
+              </div>
+              <div class="simitem">
                 <div class="k">Simulation</div>
                 <div class="v">
                   {% if exs and exs.total is number %}
                     Total {{ '%.1f' % exs.total }} • Margin {{ '%+.1f' % exs.margin if exs.margin is number else '—' }}
-                  {% elif g.pred_total is number %}
-                    Total {{ '%.1f' % g.pred_total }}
                   {% else %}
                     —
                   {% endif %}
@@ -998,38 +1066,6 @@
                 {% endif %}
                 </div>
               </details>
-            </div>
-
-            <div class="chips">
-              {% if g.prediction_source %}
-                <span class="chip" title="Prediction source">Src {{ g.prediction_source }}</span>
-              {% endif %}
-              {% if g.weather_text %}
-                <span class="chip">{{ g.weather_text }}</span>
-              {% endif %}
-              {% if g.stadium_roof %}
-                <span class="chip">Roof {{ g.stadium_roof }}</span>
-              {% endif %}
-              {% if g.rest_text %}
-                <span class="chip" title="Rest-days differential">{{ g.rest_text }}</span>
-              {% endif %}
-              {% if g.pressure_text %}
-                <span class="chip" title="Combined defensive pressure">{{ g.pressure_text }}</span>
-              {% endif %}
-              {% if g.conf_method_ml or g.conf_method_ats or g.conf_method_total %}
-                <span class="chip" title="Confidence EV source per market">
-                  Conf
-                  {% if g.conf_method_ml %} ML {{ g.conf_method_ml|capitalize }}{% endif %}
-                  {% if g.conf_method_ats %}{% if g.conf_method_ml %} &middot;{% endif %} ATS {{ g.conf_method_ats|capitalize }}{% endif %}
-                  {% if g.conf_method_total %}{% if g.conf_method_ml or g.conf_method_ats %} &middot;{% endif %} Tot {{ g.conf_method_total|capitalize }}{% endif %}
-                </span>
-              {% endif %}
-              {% if g.injury_text %}
-                <span class="chip" title="Injury starters summary">{{ g.injury_text }}</span>
-              {% endif %}
-              <span class="chip explain-toggle" role="button" tabindex="0">Show Explain</span>
-              <span class="chip odds-toggle" role="button" tabindex="0">Show Odds</span>
-              <span class="chip ratings-toggle" role="button" tabindex="0">Show Ratings</span>
             </div>
 
             <div class="ratings explain">
