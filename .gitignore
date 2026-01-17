@@ -47,7 +47,11 @@ logs/
 !nfl_compare/data/lines.csv
 !nfl_compare/data/games.csv
 !nfl_compare/data/team_stats.csv
-# Props recommendations inputs (precomputed)
+!nfl_compare/data/weather_noaa.csv
+!nfl_compare/data/officiating_crews.csv
+!nfl_compare/data/prob_calibration.json
+!nfl_compare/data/sigma_calibration.json
+!nfl_compare/data/totals_calibration.json
 !nfl_compare/data/edges_player_props_*.csv
 !nfl_compare/data/props_edges_*.csv
 !nfl_compare/data/bovada_player_props_*.csv

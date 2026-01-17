@@ -187,6 +187,10 @@ Invoke-Step "Stage updated data" {
   # Optional: crew + NOAA augmentations
   if (Test-Path 'nfl_compare/data/officiating_crews.csv') { git add -- nfl_compare/data/officiating_crews.csv | Write-Host }
   if (Test-Path 'nfl_compare/data/weather_noaa.csv') { git add -- nfl_compare/data/weather_noaa.csv | Write-Host }
+  # Optional: calibration artifacts (small JSON; used by runtime if present)
+  if (Test-Path 'nfl_compare/data/prob_calibration.json') { git add -- nfl_compare/data/prob_calibration.json | Write-Host }
+  if (Test-Path 'nfl_compare/data/sigma_calibration.json') { git add -- nfl_compare/data/sigma_calibration.json | Write-Host }
+  if (Test-Path 'nfl_compare/data/totals_calibration.json') { git add -- nfl_compare/data/totals_calibration.json | Write-Host }
   $todayJson = (Get-ChildItem -Path (Join-Path (Join-Path $PSScriptRoot 'nfl_compare') 'data') -Filter "real_betting_lines_*.json" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
   if ($todayJson) { git add -- $todayJson.FullName | Write-Host }
   if (Test-Path 'nfl_compare/data/predictions.csv') { git add -- nfl_compare/data/predictions.csv | Write-Host }

@@ -1,0 +1,22 @@
+{
+  "moneyline": {
+    "xs": [
+      0.0,
+      1.0
+    ],
+    "ys": [
+      0.0,
+      1.0
+    ],
+    "method": "identity"
+  },
+  "ats": null,
+  "total": null,
+  "meta": {
+    "generated_at": "2026-01-16T23:52:21.520358Z",
+    "season": 2025,
+    "end_week": 20,
+    "lookback": 6,
+    "rows": 4
+  }
+}
