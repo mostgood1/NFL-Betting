@@ -136,12 +136,22 @@ def _inject_global_template_context():
 
 
 # --- Ultra-light health endpoints (always fast, minimal IO) ---
+def _build_info() -> dict:
+    """Return minimal build metadata useful for deployment parity checks."""
+    return {
+        'render': str(os.environ.get('RENDER', '')).strip().lower() in {'1', 'true', 'yes', 'y'},
+        'render_git_commit': os.environ.get('RENDER_GIT_COMMIT') or None,
+        'git_commit': os.environ.get('GIT_COMMIT') or os.environ.get('COMMIT_SHA') or None,
+        'python_version': sys.version.split(' ', 1)[0],
+        'nfl_data_dir_env': os.environ.get('NFL_DATA_DIR') or None,
+    }
+
 @app.route('/api/ping')
 def api_ping():
     return jsonify({'ok': True, 'ts': int(time.time())})
 
 
-@app.route('/health')
+@app.route('/healthz')
 def health_root():
     return jsonify({'status': 'ok'})
 
@@ -3041,6 +3051,7 @@ def api_health_data():
     """Lightweight data presence/status report for debugging deployments."""
     try:
         status = {}
+        status['build'] = _build_info()
         core_files = {
             'predictions.csv': PRED_FILE,
             'predictions_week.csv': PRED_WEEK_FILE,
@@ -3053,7 +3064,9 @@ def api_health_data():
             info = {'exists': path.exists()}
             try:
                 if path.exists() and path.is_file():
-                    info['size_bytes'] = path.stat().st_size
+                    st = path.stat()
+                    info['size_bytes'] = st.st_size
+                    info['mtime_utc'] = datetime.utcfromtimestamp(st.st_mtime).isoformat() + 'Z'
                     if name.endswith('.csv'):
                         # Read only header + first row for speed
                         import csv as _csv
@@ -6031,7 +6044,11 @@ def _compute_recommendations_for_row(
 
 @app.route("/health")
 def health():
-    return {"status": "ok", "have_predictions": PRED_FILE.exists()}, 200
+    return {
+        "status": "ok",
+        "have_predictions": PRED_FILE.exists(),
+        "build": _build_info(),
+    }, 200
 
 
 @app.route('/favicon.ico')
