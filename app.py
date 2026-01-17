@@ -3087,6 +3087,92 @@ def api_health_data():
             'games_rows': 0 if games_df is None else len(games_df),
             'predictions_rows': 0 if preds_df is None else len(preds_df)
         }
+
+        # Optional artifacts (these drive extra features but shouldn't break the app)
+        optional_files = {
+            'weather_noaa.csv': DATA_DIR / 'weather_noaa.csv',
+            'officiating_crews.csv': DATA_DIR / 'officiating_crews.csv',
+            'team_stats.csv': DATA_DIR / 'team_stats.csv',
+            'totals_calibration.json': DATA_DIR / 'totals_calibration.json',
+            'sigma_calibration.json': DATA_DIR / 'sigma_calibration.json',
+            'prob_calibration.json': DATA_DIR / 'prob_calibration.json',
+            'nfl_models.joblib': (BASE_DIR / 'nfl_compare' / 'models' / 'nfl_models.joblib'),
+        }
+        opt_status: Dict[str, Any] = {}
+        for name, path in optional_files.items():
+            try:
+                exists = path.exists()
+                info = {'exists': exists}
+                if exists and path.is_file():
+                    st = path.stat()
+                    info['size_bytes'] = st.st_size
+                    info['mtime_utc'] = datetime.utcfromtimestamp(st.st_mtime).isoformat() + 'Z'
+                opt_status[name] = info
+            except Exception as e:  # noqa: BLE001
+                opt_status[name] = {'exists': False, 'error': str(e)}
+        status['optional_files'] = opt_status
+
+        # Weather snapshot presence check for the latest season/week in games.csv
+        try:
+            wx = {
+                'snapshot_files_count': 0,
+                'latest_snapshot': None,
+                'target_season': None,
+                'target_week': None,
+                'target_dates': [],
+                'missing_snapshots_for_target_dates': [],
+            }
+            if games_df is not None and not games_df.empty:
+                # Best-effort: choose max season, then max week within that season
+                if 'season' in games_df.columns:
+                    gs = games_df.copy()
+                    gs['season'] = pd.to_numeric(gs['season'], errors='coerce')
+                    gs['week'] = pd.to_numeric(gs['week'], errors='coerce') if 'week' in gs.columns else None
+                    season_max = int(gs['season'].max()) if gs['season'].notna().any() else None
+                    week_max = None
+                    if season_max is not None and 'week' in gs.columns and gs['week'] is not None:
+                        w = gs.loc[gs['season'] == season_max, 'week']
+                        week_max = int(w.max()) if w.notna().any() else None
+                    wx['target_season'] = season_max
+                    wx['target_week'] = week_max
+                    if season_max is not None and week_max is not None:
+                        target = gs[(gs['season'] == season_max) & (gs['week'] == week_max)].copy()
+                        date_col = 'game_date' if 'game_date' in target.columns else ('date' if 'date' in target.columns else None)
+                        if date_col is not None:
+                            dates = (
+                                target[date_col]
+                                .dropna()
+                                .astype(str)
+                                .map(lambda s: s[:10])
+                                .unique()
+                                .tolist()
+                            )
+                            dates = sorted([d for d in dates if len(d) == 10])
+                            wx['target_dates'] = dates
+                            missing = []
+                            for d in dates:
+                                p = DATA_DIR / f'weather_{d}.csv'
+                                if not p.exists():
+                                    missing.append(d)
+                            wx['missing_snapshots_for_target_dates'] = missing
+
+            # Overall snapshot file inventory (lightweight glob)
+            try:
+                snaps = sorted(DATA_DIR.glob('weather_????-??-??.csv'))
+                wx['snapshot_files_count'] = len(snaps)
+                if snaps:
+                    st = snaps[-1].stat()
+                    wx['latest_snapshot'] = {
+                        'file': snaps[-1].name,
+                        'mtime_utc': datetime.utcfromtimestamp(st.st_mtime).isoformat() + 'Z',
+                        'size_bytes': st.st_size,
+                    }
+            except Exception:
+                pass
+            status['weather_snapshots'] = wx
+        except Exception as e:  # noqa: BLE001
+            status['weather_snapshots'] = {'error': str(e)}
+
         status['data_dir'] = str(DATA_DIR)
         return jsonify(status)
     except Exception as e:
