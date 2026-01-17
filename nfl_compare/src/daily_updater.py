@@ -317,8 +317,12 @@ def _infer_current_season_week(games: pd.DataFrame) -> Tuple[int, int, Optional[
 
 
 def _update_finals_for_current_week(season: int, week: int) -> int:
-    """Fetch updated finals/scores for current week using nfl_data_py schedules.
+    """Fetch updated finals/scores for a given week using nfl_data_py schedules.
     Returns number of games updated.
+
+    Notes:
+    - We treat placeholder 0-0 rows as "missing" so they can be backfilled later.
+    - We only touch games whose date is <= today.
     """
     try:
         # Lazy import so environments without the package still work
@@ -342,6 +346,20 @@ def _update_finals_for_current_week(season: int, week: int) -> int:
     local = _load_games()
     before = local.copy()
 
+    def _both_zero(prev_hs, prev_as) -> bool:
+        try:
+            if pd.isna(prev_hs) or pd.isna(prev_as):
+                return False
+            return float(prev_hs) == 0.0 and float(prev_as) == 0.0
+        except Exception:
+            return False
+
+    def _is_nonzero(x) -> bool:
+        try:
+            return pd.notna(x) and float(x) != 0.0
+        except Exception:
+            return False
+
     # Merge by game_id when available, else by (date, home, away)
     updated = 0
     if 'game_id' in local.columns and 'game_id' in played.columns:
@@ -355,9 +373,18 @@ def _update_finals_for_current_week(season: int, week: int) -> int:
                 # Only update if new info appears (was NA before)
                 prev_hs = m.at[gid, 'home_score'] if 'home_score' in m.columns else pd.NA
                 prev_as = m.at[gid, 'away_score'] if 'away_score' in m.columns else pd.NA
-                if (pd.isna(prev_hs) and pd.notna(hs)) or (pd.isna(prev_as) and pd.notna(as_)):
-                    m.at[gid, 'home_score'] = hs
-                    m.at[gid, 'away_score'] = as_
+                prev_00 = _both_zero(prev_hs, prev_as)
+                new_has_real = _is_nonzero(hs) or _is_nonzero(as_)
+                should_update = (
+                    (pd.isna(prev_hs) and pd.notna(hs))
+                    or (pd.isna(prev_as) and pd.notna(as_))
+                    or (prev_00 and new_has_real)
+                )
+                if should_update:
+                    if pd.notna(hs):
+                        m.at[gid, 'home_score'] = hs
+                    if pd.notna(as_):
+                        m.at[gid, 'away_score'] = as_
                     updated += 1
         local = m.reset_index()
     else:
@@ -365,10 +392,23 @@ def _update_finals_for_current_week(season: int, week: int) -> int:
         local['date'] = pd.to_datetime(local.get('date'), errors='coerce').dt.date
         played_lk = played[key_cols + ['home_score','away_score']].copy()
         local = local.merge(played_lk, on=key_cols, how='left', suffixes=('', '_new'))
+        # If both old scores were 0-0 and new has real values, treat as missing and overwrite.
+        prev_00 = False
+        try:
+            prev_hs = pd.to_numeric(local.get('home_score'), errors='coerce')
+            prev_as = pd.to_numeric(local.get('away_score'), errors='coerce')
+            prev_00 = prev_hs.notna() & prev_as.notna() & (prev_hs == 0.0) & (prev_as == 0.0)
+        except Exception:
+            prev_00 = False
+
         for c in ['home_score','away_score']:
             nc = f'{c}_new'
             if nc in local.columns:
-                newly = local[c].isna() & local[nc].notna()
+                newly = (local[c].isna() & local[nc].notna())
+                try:
+                    newly = newly | (prev_00 & local[nc].notna() & (pd.to_numeric(local[nc], errors='coerce') != 0.0))
+                except Exception:
+                    pass
                 updated += int(newly.sum())
                 local.loc[newly, c] = local.loc[newly, nc]
         drop = [c for c in local.columns if c.endswith('_new')]
@@ -417,9 +457,12 @@ def main() -> None:
     season, cur_week, up_week = _infer_current_season_week(games)
     print(f"Season {season} — current week {cur_week} — upcoming week {up_week}")
 
-    # 1) Finals for current week
-    updated = _update_finals_for_current_week(season, cur_week)
-    print(f"Finals updated for {updated} game(s) in current week.")
+    # 1) Finals backfill for current + previous week (avoid getting stuck with 0-0 placeholders)
+    weeks_to_update = sorted({int(cur_week), max(1, int(cur_week) - 1)})
+    total_updated = 0
+    for w in weeks_to_update:
+        total_updated += _update_finals_for_current_week(season, int(w))
+    print(f"Finals updated for {total_updated} game(s) across weeks {weeks_to_update}.")
 
     # Reload in case games.csv changed
     games = _load_games()
