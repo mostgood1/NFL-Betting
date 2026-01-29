@@ -1,0 +1,54 @@
+{
+  "backtest_dir": "C:/Users/mostg/OneDrive/Coding/NFL-Betting/nfl_compare/data/backtests/2025_wk18",
+  "data_dir": "C:/Users/mostg/OneDrive/Coding/NFL-Betting/nfl_compare/data",
+  "inputs": {
+    "player_props": {
+      "cols": 31,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\player_props_2025_wk18.csv",
+      "rows": 461,
+      "sha256": "519dbaa82598cab5481253374495b1105153f1c54ed21ad9264d78bd3fbabf84"
+    },
+    "sim_probs_scenarios": {
+      "cols": 25,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\sim_probs_scenarios.csv",
+      "rows": 368,
+      "sha256": "ba1ad3d09a38b9a43e86f2f7bed09c009ff24bfd18832406360efdbe8311eee5"
+    },
+    "sim_scenarios_meta": {
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\sim_scenarios_meta.json",
+      "sha256": "79fdf7fb95170af7dfb6dac27f2e96e96805c465fba0ae6df57df49199dddedb"
+    }
+  },
+  "outputs": {
+    "player_props_scenarios_csv": {
+      "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\player_props_scenarios__simulate_scenarios_v2.csv",
+      "cols": 37,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\player_props_scenarios.csv",
+      "rows": 10603,
+      "sha256": "cced9ac35a1c8df4cb55f1af205406d2d08fe6df35f3380ff413ac929c207b76"
+    },
+    "player_props_scenarios_summary_csv": {
+      "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\player_props_scenarios_summary__simulate_scenarios_v2.csv",
+      "cols": 16,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk18\\player_props_scenarios_summary.csv",
+      "rows": 736,
+      "sha256": "700fc7f88ab41636fb3bed8b2dfa7bf18904161fb47b8dd42e8af7d0cc928549"
+    }
+  },
+  "scaling": {
+    "baseline_scenario_id_requested": "v2_baseline",
+    "baseline_scenario_id_used": "v2_baseline",
+    "points_eps": 1.0,
+    "td_clip_hi": 1.6,
+    "td_clip_lo": 0.5,
+    "td_power": 1.0,
+    "vol_clip_hi": 1.3,
+    "vol_clip_lo": 0.7,
+    "vol_power": 0.55,
+    "yds_clip_hi": 1.4,
+    "yds_clip_lo": 0.6,
+    "yds_power": 0.7
+  },
+  "season": 2025,
+  "week": 18
+}

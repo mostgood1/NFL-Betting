@@ -21,6 +21,8 @@ import argparse
 import os
 from pathlib import Path
 import json
+import hashlib
+from datetime import datetime
 from typing import Optional
 
 import pandas as pd
@@ -67,19 +69,74 @@ def load_predictions() -> pd.DataFrame:
     # Try to read main predictions from data/predictions_week.csv or nfl_compare/data...
     # Reuse app conventions without importing heavy Flask modules
     cand = [
-        BASE_DIR / "data" / "predictions_week.csv",
         DATA_DIR / "predictions_week.csv",
-        BASE_DIR / "data" / "predictions.csv",
+        BASE_DIR / "data" / "predictions_week.csv",
         DATA_DIR / "predictions.csv",
+        BASE_DIR / "data" / "predictions.csv",
     ]
     for fp in cand:
         if fp.exists():
             try:
                 df = pd.read_csv(fp)
+                if df is None or df.empty:
+                    continue
                 return df
             except Exception:
                 continue
     return pd.DataFrame()
+
+
+def load_predictions_with_source() -> tuple[pd.DataFrame, Optional[Path]]:
+    """Load predictions and return (df, source_path)."""
+    cand = [
+        DATA_DIR / "predictions_week.csv",
+        BASE_DIR / "data" / "predictions_week.csv",
+        DATA_DIR / "predictions.csv",
+        BASE_DIR / "data" / "predictions.csv",
+    ]
+    for fp in cand:
+        if fp.exists():
+            try:
+                df = pd.read_csv(fp)
+                if df is None or df.empty:
+                    continue
+                return df, fp
+            except Exception:
+                continue
+    return pd.DataFrame(), None
+
+
+def _utc_now_iso() -> str:
+    return datetime.utcnow().isoformat(timespec="seconds") + "Z"
+
+
+def _sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> Optional[str]:
+    try:
+        h = hashlib.sha256()
+        with path.open("rb") as f:
+            while True:
+                b = f.read(chunk_size)
+                if not b:
+                    break
+                h.update(b)
+        return h.hexdigest()
+    except Exception:
+        return None
+
+
+def _csv_rows_cols(fp: Path) -> tuple[Optional[int], Optional[list[str]]]:
+    try:
+        df = pd.read_csv(fp)
+        return int(df.shape[0]), list(df.columns)
+    except Exception:
+        return None, None
+
+
+def _atomic_write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.replace(path)
 
 
 def _load_team_assets() -> dict:
@@ -134,6 +191,7 @@ def main() -> int:
     ap.add_argument("--week", type=int, required=True)
     ap.add_argument("--game-csv", type=str, default=None, help="Override path to bovada_game_props CSV")
     ap.add_argument("--out", type=str, default=None, help="Output CSV path")
+    ap.add_argument("--meta-out", type=str, default=None, help="Optional JSON sidecar for provenance")
     args = ap.parse_args()
 
     season = args.season
@@ -145,10 +203,13 @@ def main() -> int:
         print(f"Input not found: {in_fp}")
         return 2
     gdf = pd.read_csv(in_fp)
-    pdf = load_predictions()
+    pdf, pred_src = load_predictions_with_source()
     if pdf is None or pdf.empty:
         print("WARNING: predictions not found; EVs may be missing")
         pdf = pd.DataFrame()
+        pred_src = None
+    else:
+        print(f"Loaded predictions from: {pred_src}")
 
     # Normalize join keys
     for c in ("season","week"):
@@ -565,6 +626,47 @@ def main() -> int:
     out_fp.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(out_fp, index=False)
     print(f"Wrote {out_fp} with {len(out)} rows.")
+
+    if args.meta_out:
+        try:
+            meta_fp = Path(args.meta_out)
+            in_rows, in_cols = _csv_rows_cols(in_fp)
+            out_rows_n = int(out.shape[0])
+            payload = {
+                "created_utc": _utc_now_iso(),
+                "season": int(season),
+                "week": int(week),
+                "inputs": {
+                    "game_csv": {
+                        "path": str(in_fp),
+                        "sha256": _sha256_file(in_fp),
+                        "rows": in_rows,
+                        "cols": in_cols,
+                    },
+                    "predictions": {
+                        "path": str(pred_src) if pred_src else None,
+                        "sha256": _sha256_file(pred_src) if pred_src else None,
+                        "rows": int(pdf.shape[0]) if pdf is not None else None,
+                        "cols": list(pdf.columns) if pdf is not None else None,
+                    },
+                },
+                "params": {
+                    "NFL_ATS_SIGMA": float(ats_sigma),
+                    "NFL_TOTAL_SIGMA": float(total_sigma),
+                },
+                "outputs": {
+                    "edges_csv": {
+                        "path": str(out_fp),
+                        "sha256": _sha256_file(out_fp),
+                        "rows": out_rows_n,
+                        "cols": list(out.columns),
+                    }
+                },
+            }
+            _atomic_write_json(meta_fp, payload)
+            print(f"Wrote meta sidecar: {meta_fp}")
+        except Exception as e:
+            print("WARNING: failed writing meta sidecar:", e)
     return 0
 
 

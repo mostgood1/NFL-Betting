@@ -1,4 +1,5 @@
 import sys
+import json
 from pathlib import Path
 import argparse
 import pandas as pd
@@ -23,14 +24,33 @@ args = parser.parse_args()
 pred_df = _load_predictions()
 games_df = _load_games()
 
-# Determine season/week
-season_i = args.season
+
+def _read_current_week() -> tuple[int | None, int | None]:
+    try:
+        cw = ROOT / "nfl_compare" / "data" / "current_week.json"
+        if not cw.exists():
+            return None, None
+        obj = json.loads(cw.read_text(encoding="utf-8"))
+        s = obj.get("season")
+        w = obj.get("week")
+        return (int(s) if s is not None else None), (int(w) if w is not None else None)
+    except Exception:
+        return None, None
+
+# Determine season/week (prefer current_week.json when args not provided)
+cw_season, cw_week = _read_current_week()
+
+season_i = args.season if args.season is not None else cw_season
+week_i = args.week if args.week is not None else cw_week
+
 if season_i is None:
     if games_df is not None and not games_df.empty and 'season' in games_df.columns and not games_df['season'].isna().all():
         season_i = int(games_df['season'].max())
     elif pred_df is not None and not pred_df.empty and 'season' in pred_df.columns and not pred_df['season'].isna().all():
         season_i = int(pred_df['season'].max())
-week_i = args.week or 1
+
+if week_i is None:
+    week_i = 1
 
 view = _build_week_view(pred_df, games_df, season_i, week_i)
 view = _attach_model_predictions(view)

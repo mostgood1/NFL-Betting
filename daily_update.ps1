@@ -92,11 +92,89 @@ if ($env:DAILY_UPDATE_RUN_BACKTESTS) {
   if ($env:DAILY_UPDATE_RUN_BACKTESTS -match '^(1|true|yes|on)$') { $RunBacktests = $true }
 }
 
+# Build week manifest toggle (defaults ON)
+$BuildManifest = $true
+if ($env:DAILY_UPDATE_BUILD_MANIFEST) {
+  if ($env:DAILY_UPDATE_BUILD_MANIFEST -match '^(0|false|no|off)$') { $BuildManifest = $false }
+  elseif ($env:DAILY_UPDATE_BUILD_MANIFEST -match '^(1|true|yes|on)$') { $BuildManifest = $true }
+}
+
+# Scenario simulation + player-props scenario artifacts (defaults ON)
+$RunScenarioSims = $true
+if ($env:DAILY_UPDATE_RUN_SCENARIOS) {
+  if ($env:DAILY_UPDATE_RUN_SCENARIOS -match '^(0|false|no|off)$') { $RunScenarioSims = $false }
+  elseif ($env:DAILY_UPDATE_RUN_SCENARIOS -match '^(1|true|yes|on)$') { $RunScenarioSims = $true }
+}
+$ScenarioSet = 'v2'
+if ($env:DAILY_UPDATE_SCENARIO_SET) { $ScenarioSet = [string]$env:DAILY_UPDATE_SCENARIO_SET }
+$ScenarioNSims = 2000
+try {
+  if ($env:DAILY_UPDATE_SCENARIO_N_SIMS) {
+    $tmp = 0
+    if ([int]::TryParse([string]$env:DAILY_UPDATE_SCENARIO_N_SIMS, [ref]$tmp) -and $tmp -ge 200) {
+      $ScenarioNSims = [int]$tmp
+    }
+  }
+} catch { }
+$ScenarioDrives = $false
+if ($env:DAILY_UPDATE_SCENARIO_DRIVES) {
+  if ($env:DAILY_UPDATE_SCENARIO_DRIVES -match '^(1|true|yes|on)$') { $ScenarioDrives = $true }
+  elseif ($env:DAILY_UPDATE_SCENARIO_DRIVES -match '^(0|false|no|off)$') { $ScenarioDrives = $false }
+}
+$ScenarioIncludePrior = $true
+if ($env:DAILY_UPDATE_SCENARIOS_INCLUDE_PRIOR) {
+  if ($env:DAILY_UPDATE_SCENARIOS_INCLUDE_PRIOR -match '^(0|false|no|off)$') { $ScenarioIncludePrior = $false }
+  elseif ($env:DAILY_UPDATE_SCENARIOS_INCLUDE_PRIOR -match '^(1|true|yes|on)$') { $ScenarioIncludePrior = $true }
+}
+$RunPropsScenarios = $true
+if ($env:DAILY_UPDATE_RUN_PROPS_SCENARIOS) {
+  if ($env:DAILY_UPDATE_RUN_PROPS_SCENARIOS -match '^(0|false|no|off)$') { $RunPropsScenarios = $false }
+  elseif ($env:DAILY_UPDATE_RUN_PROPS_SCENARIOS -match '^(1|true|yes|on)$') { $RunPropsScenarios = $true }
+}
+$EvalPropsScenarios = $true
+if ($env:DAILY_UPDATE_EVAL_PROPS_SCENARIOS) {
+  if ($env:DAILY_UPDATE_EVAL_PROPS_SCENARIOS -match '^(0|false|no|off)$') { $EvalPropsScenarios = $false }
+  elseif ($env:DAILY_UPDATE_EVAL_PROPS_SCENARIOS -match '^(1|true|yes|on)$') { $EvalPropsScenarios = $true }
+}
+$PropsScenariosBaselineId = ''
+if ($env:DAILY_UPDATE_PROPS_SCENARIOS_BASELINE_ID) { $PropsScenariosBaselineId = [string]$env:DAILY_UPDATE_PROPS_SCENARIOS_BASELINE_ID }
+
+function Resolve-ScenarioBaselineId {
+  param([string]$ScenarioSetName)
+  # Allow explicit override
+  if ($PropsScenariosBaselineId) { return $PropsScenariosBaselineId }
+  $ss = ($ScenarioSetName | ForEach-Object { $_.ToLower().Trim() })
+  if ($ss -eq 'v2') { return 'v2_baseline' }
+  if ($ss -eq 'v1') { return 'v1_baseline' }
+  # Safe fallback; simulate_player_props_scenarios will also infer if needed
+  return 'baseline'
+}
+
 # nflfastR stats fetch toggle (defaults ON)
 $FetchNflfastRStats = $true
 if ($env:DAILY_UPDATE_FETCH_NFLFASTR) {
   if ($env:DAILY_UPDATE_FETCH_NFLFASTR -match '^(0|false|no|off)$') { $FetchNflfastRStats = $false }
 }
+
+# Weekly rosters/actives caches (nfl_data_py) (defaults ON)
+# Helps guarantee week-accurate rosters locally and avoids flaky/hanging network calls on cache miss.
+$FetchRosterCaches = $true
+if ($env:DAILY_UPDATE_FETCH_ROSTERS) {
+  if ($env:DAILY_UPDATE_FETCH_ROSTERS -match '^(0|false|no|off)$') { $FetchRosterCaches = $false }
+  elseif ($env:DAILY_UPDATE_FETCH_ROSTERS -match '^(1|true|yes|on)$') { $FetchRosterCaches = $true }
+}
+$RefreshRosterCaches = $false
+if ($env:DAILY_UPDATE_REFRESH_ROSTERS) {
+  if ($env:DAILY_UPDATE_REFRESH_ROSTERS -match '^(1|true|yes|on)$') { $RefreshRosterCaches = $true }
+  elseif ($env:DAILY_UPDATE_REFRESH_ROSTERS -match '^(0|false|no|off)$') { $RefreshRosterCaches = $false }
+}
+$RosterCacheTimeoutSec = 30
+try {
+  if ($env:DAILY_UPDATE_ROSTER_TIMEOUT_SEC) {
+    $tmp = 0
+    if ([int]::TryParse([string]$env:DAILY_UPDATE_ROSTER_TIMEOUT_SEC, [ref]$tmp) -and $tmp -ge 5) { $RosterCacheTimeoutSec = [int]$tmp }
+  }
+} catch { }
 
 # Defaults: reconciliation ON unless explicitly disabled
 $ReconcilePropsFinal = $true
@@ -156,11 +234,54 @@ try {
   Write-Log "Auto-advance failed: $($_.Exception.Message)"
 }
 
+# Prefetch roster caches for the active season (best-effort)
+try {
+  if ($FetchRosterCaches) {
+    $cur = Resolve-CurrentWeek
+    if ($null -ne $cur -and $cur.Season) {
+      $Season = [int]$cur.Season
+      $args = @('scripts/fetch_rosters_cache.py','--season',$Season,'--timeout-sec',$RosterCacheTimeoutSec)
+      if ($RefreshRosterCaches) { $args += '--refresh' }
+      Write-Log ("Prefetch roster caches (scripts/fetch_rosters_cache.py --season {0}{1} --timeout-sec {2})" -f $Season, ($(if ($RefreshRosterCaches) { ' --refresh' } else { '' })), $RosterCacheTimeoutSec)
+      & $Python @args | Tee-Object -FilePath $LogFile -Append | Out-Null
+      Write-Log ("roster_cache prefetch exit code: {0}" -f $LASTEXITCODE)
+    } else {
+      Write-Log 'Prefetch roster caches skipped (unable to resolve current season)'
+    }
+  } else {
+    Write-Log 'Prefetch roster caches disabled via DAILY_UPDATE_FETCH_ROSTERS'
+  }
+} catch {
+  Write-Log ("Prefetch roster caches failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
+}
+
+# Determinism: set a stable SIM_SEED for this run unless explicitly provided.
+# Disable via DAILY_UPDATE_SET_SIM_SEED=0/false/off.
+try {
+  $SetSeed = $true
+  if ($env:DAILY_UPDATE_SET_SIM_SEED) {
+    if ($env:DAILY_UPDATE_SET_SIM_SEED -match '^(0|false|no|off)$') { $SetSeed = $false }
+  }
+  if ($SetSeed -and (-not $env:SIM_SEED -or ($env:SIM_SEED | ForEach-Object { $_.ToString().Trim() }) -eq '')) {
+    $cur = Resolve-CurrentWeek
+    if ($cur -and $cur.Season -and $cur.Week) {
+      $seedVal = ([int]$cur.Season * 100) + [int]$cur.Week
+      $env:SIM_SEED = [string]$seedVal
+      Write-Log ("SIM_SEED not set; defaulting to {0} (season*100+week)" -f $env:SIM_SEED)
+    }
+  } else {
+    if ($env:SIM_SEED) { Write-Log ("SIM_SEED={0}" -f $env:SIM_SEED) }
+  }
+} catch {
+  Write-Log ("SIM_SEED defaulting failed: {0}" -f $_.Exception.Message)
+}
+
 # Augment schedule with playoff games (idempotent)
 try {
   $cur = Resolve-CurrentWeek
   $SeasonForAug = $null
-  if ($cur -ne $null -and $cur.Season) { $SeasonForAug = [int]$cur.Season }
+  if ($null -ne $cur -and $cur.Season) { $SeasonForAug = [int]$cur.Season }
   if (-not $SeasonForAug -and $env:CURRENT_SEASON) { [int]::TryParse($env:CURRENT_SEASON, [ref]$SeasonForAug) | Out-Null }
   if ($SeasonForAug) {
     Write-Log ("Augmenting playoff schedule (scripts/augment_playoffs_schedule.py --season {0})" -f $SeasonForAug)
@@ -371,7 +492,7 @@ try {
   }
   if ($ExportRecs) {
     $cur = Resolve-CurrentWeek
-    if ($cur -ne $null -and $cur.Season -and $cur.Week) {
+    if ($cur -and $cur.Season -and $cur.Week) {
       $Season = [int]$cur.Season
       $Week = [int]$cur.Week
       Write-Log ("Export upcoming recommendations (scripts/export_upcoming_recs.py --season {0} --week {1} with floors/conf)" -f $Season, $Week)
@@ -428,7 +549,16 @@ try {
     if ($null -eq $cur) { throw 'Unable to resolve current week for calibration' }
     $Season = [int]$cur.Season
     $Week = [int]$cur.Week
-    $CalibWeeks = 4
+    # Use a larger lookback to stabilize totals calibration (reduces overfit).
+    $CalibWeeks = 8
+    try {
+      if ($env:DAILY_UPDATE_TOTALS_CAL_WEEKS) {
+        $tmp = 0
+        if ([int]::TryParse([string]$env:DAILY_UPDATE_TOTALS_CAL_WEEKS, [ref]$tmp) -and $tmp -ge 1) {
+          $CalibWeeks = [int]$tmp
+        }
+      }
+    } catch { }
     $btFlag = if ($RunBacktests) { '--run-backtests' } else { '' }
     $PropsEndWeek = [int]([Math]::Max(1, $Week - 1))
     Write-Log ("Totals calibration (scripts/retune_midseason.py --season {0} --week {1} --calib-weeks {2} {3} --props-end-week {4})" -f $Season, $Week, $CalibWeeks, $btFlag, $PropsEndWeek)
@@ -453,7 +583,16 @@ try {
   if ($null -eq $cur) { throw 'Unable to resolve current week for sigma calibration' }
   $Season = [int]$cur.Season
   $Week = [int]$cur.Week
-  $Lookback = 4
+  # Default sigma lookback for stability (override via DAILY_UPDATE_SIGMA_LOOKBACK)
+  $Lookback = 6
+  try {
+    if ($env:DAILY_UPDATE_SIGMA_LOOKBACK) {
+      $tmp = 0
+      if ([int]::TryParse([string]$env:DAILY_UPDATE_SIGMA_LOOKBACK, [ref]$tmp) -and $tmp -ge 1) {
+        $Lookback = [int]$tmp
+      }
+    }
+  } catch { }
   Write-Log ("Sigma calibration (scripts/fit_sigma_calibration.py --season {0} --week {1} --lookback {2})" -f $Season, $Week, $Lookback)
   & $Python scripts/fit_sigma_calibration.py --season $Season --week $Week --lookback $Lookback | Tee-Object -FilePath $LogFile -Append
   $SigExit = $LASTEXITCODE
@@ -473,7 +612,16 @@ try {
   if ($null -eq $cur) { throw 'Unable to resolve current week for probability calibration' }
   $Season = [int]$cur.Season
   $Week = [int]$cur.Week
-  $Lookback = 6
+  # Default probability lookback for stability (override via DAILY_UPDATE_PROB_LOOKBACK)
+  $Lookback = 8
+  try {
+    if ($env:DAILY_UPDATE_PROB_LOOKBACK) {
+      $tmp = 0
+      if ([int]::TryParse([string]$env:DAILY_UPDATE_PROB_LOOKBACK, [ref]$tmp) -and $tmp -ge 1) {
+        $Lookback = [int]$tmp
+      }
+    }
+  } catch { }
   Write-Log ("Probability calibration (scripts/fit_prob_calibration.py --season {0} --end-week {1} --lookback {2})" -f $Season, $Week, $Lookback)
   & $Python scripts/fit_prob_calibration.py --season $Season --end-week $Week --lookback $Lookback | Tee-Object -FilePath $LogFile -Append
   $ProbExit = $LASTEXITCODE
@@ -494,6 +642,64 @@ try {
   }
 } catch {
   Write-Log ("Probability calibration step failed: {0}" -f $_.Exception.Message)
+  if ($FailOnPipeline) { exit 1 }
+}
+
+# Publish a versioned calibration bundle snapshot for provenance
+try {
+  $PublishCalBundle = $true
+  try {
+    $PublishCalBundle = -not ("0", "false", "no", "off").Contains(($env:DAILY_UPDATE_PUBLISH_CAL_BUNDLE | ForEach-Object { $_.ToLower().Trim() }))
+  } catch {
+    $PublishCalBundle = $true
+  }
+  if ($PublishCalBundle) {
+    $cur = Resolve-CurrentWeek
+    if ($null -eq $cur) { throw 'Unable to resolve current week for calibration bundle publish' }
+    $Season = [int]$cur.Season
+    $Week = [int]$cur.Week
+    # Keep bundle metadata aligned with the fitter steps above.
+    $SigmaLookback = 6
+    $ProbLookback = 8
+    try {
+      if ($env:DAILY_UPDATE_SIGMA_LOOKBACK) {
+        $tmp = 0
+        if ([int]::TryParse([string]$env:DAILY_UPDATE_SIGMA_LOOKBACK, [ref]$tmp) -and $tmp -ge 1) {
+          $SigmaLookback = [int]$tmp
+        }
+      }
+    } catch { }
+    try {
+      if ($env:DAILY_UPDATE_PROB_LOOKBACK) {
+        $tmp = 0
+        if ([int]::TryParse([string]$env:DAILY_UPDATE_PROB_LOOKBACK, [ref]$tmp) -and $tmp -ge 1) {
+          $ProbLookback = [int]$tmp
+        }
+      }
+    } catch { }
+    # Match the totals calibration lookback (or override via env)
+    $TotalsWeeks = 8
+    try {
+      if ($env:DAILY_UPDATE_TOTALS_CAL_WEEKS) {
+        $tmp2 = 0
+        if ([int]::TryParse([string]$env:DAILY_UPDATE_TOTALS_CAL_WEEKS, [ref]$tmp2) -and $tmp2 -ge 1) {
+          $TotalsWeeks = [int]$tmp2
+        }
+      }
+    } catch { }
+    Write-Log ("Publish calibration bundle (scripts/publish_calibration_bundle.py --season {0} --week {1})" -f $Season, $Week)
+    & $Python scripts/publish_calibration_bundle.py --season $Season --week $Week --sigma-lookback $SigmaLookback --prob-lookback $ProbLookback --totals-weeks $TotalsWeeks | Tee-Object -FilePath $LogFile -Append
+    $PubExit = $LASTEXITCODE
+    Write-Log "publish_calibration_bundle exit code: $PubExit"
+    if ($PubExit -ne 0 -and $FailOnPipeline) {
+      Write-Log 'FailOnPipeline is set; exiting due to calibration bundle publish failure'
+      exit $PubExit
+    }
+  } else {
+    Write-Log 'Calibration bundle publish disabled via DAILY_UPDATE_PUBLISH_CAL_BUNDLE'
+  }
+} catch {
+  Write-Log ("Calibration bundle publish step failed: {0}" -f $_.Exception.Message)
   if ($FailOnPipeline) { exit 1 }
 }
 
@@ -639,6 +845,90 @@ try {
     } catch {
       Write-Log "Recon games failed: $($_.Exception.Message)"
     }
+  }
+
+  # Scenario sims + player-props scenario artifacts (+ prior-week accuracy eval)
+  if ($RunScenarioSims) {
+    try {
+      $cur = Resolve-CurrentWeek
+      if ($null -eq $cur) { throw 'Unable to resolve current week for scenarios' }
+      $Season = [int]$cur.Season
+      $Week = [int]$cur.Week
+      $PriorWeek = [Math]::Max(1, $Week - 1)
+      $WeeksToRun = @($Week)
+      if ($ScenarioIncludePrior -and $PriorWeek -ne $Week) { $WeeksToRun += $PriorWeek }
+
+      foreach ($Wrun in $WeeksToRun) {
+        $OutDir = Join-Path (Join-Path $Root 'nfl_compare/data/backtests') ("{0}_wk{1}" -f $Season, $Wrun)
+        $BaselineId = Resolve-ScenarioBaselineId -ScenarioSetName $ScenarioSet
+
+        Write-Log ("Scenarios: simulate_scenarios.py (Season={0} Week={1} Set={2} N={3} Drives={4})" -f $Season, $Wrun, $ScenarioSet, $ScenarioNSims, $ScenarioDrives)
+        $args = @('scripts/simulate_scenarios.py','--season',$Season,'--week',$Wrun,'--n-sims',$ScenarioNSims,'--scenario-set',$ScenarioSet,'--out-dir',$OutDir)
+        if ($ScenarioDrives) { $args += '--drives' }
+        & $Python @args | Tee-Object -FilePath $LogFile -Append
+        $ScExit = $LASTEXITCODE
+        Write-Log "simulate_scenarios exit code: $ScExit"
+        if ($ScExit -ne 0 -and $FailOnPipeline) {
+          Write-Log 'FailOnPipeline is set; exiting due to simulate_scenarios failure'
+          exit $ScExit
+        }
+
+        if ($RunPropsScenarios) {
+          Write-Log ("Scenarios: simulate_player_props_scenarios.py (Season={0} Week={1} baseline={2})" -f $Season, $Wrun, $BaselineId)
+          & $Python scripts/simulate_player_props_scenarios.py --season $Season --week $Wrun --baseline-scenario-id $BaselineId --out-dir $OutDir | Tee-Object -FilePath $LogFile -Append
+          $PpsExit = $LASTEXITCODE
+          Write-Log "simulate_player_props_scenarios exit code: $PpsExit"
+          if ($PpsExit -ne 0 -and $FailOnPipeline) {
+            Write-Log 'FailOnPipeline is set; exiting due to simulate_player_props_scenarios failure'
+            exit $PpsExit
+          }
+        } else {
+          Write-Log 'Scenarios: player-props scenarios disabled via DAILY_UPDATE_RUN_PROPS_SCENARIOS'
+        }
+      }
+
+      if ($EvalPropsScenarios -and $ScenarioIncludePrior) {
+        $BtDir = Join-Path (Join-Path $Root 'nfl_compare/data/backtests') ("{0}_wk{1}" -f $Season, $PriorWeek)
+        $ActualsFp = Join-Path (Join-Path $Root 'nfl_compare/data') ("player_props_vs_actuals_{0}_wk{1}.csv" -f $Season, $PriorWeek)
+        if (Test-Path $ActualsFp) {
+          Write-Log ("Scenarios: evaluate props scenarios vs actuals (Season={0} Week={1})" -f $Season, $PriorWeek)
+          & $Python scripts/player_props_scenarios_accuracy.py --season $Season --week $PriorWeek --out-dir $BtDir | Tee-Object -FilePath $LogFile -Append
+          $EvalExit = $LASTEXITCODE
+          Write-Log "player_props_scenarios_accuracy exit code: $EvalExit"
+          if ($EvalExit -ne 0 -and $FailOnPipeline) {
+            Write-Log 'FailOnPipeline is set; exiting due to props scenario evaluation failure'
+            exit $EvalExit
+          }
+        } else {
+          Write-Log ("Scenarios: skip props scenario eval (missing {0})" -f $ActualsFp)
+        }
+      } else {
+        if (-not $EvalPropsScenarios) { Write-Log 'Scenarios: props scenario eval disabled via DAILY_UPDATE_EVAL_PROPS_SCENARIOS' }
+      }
+    } catch {
+      Write-Log ("Scenarios step failed: {0}" -f $_.Exception.Message)
+      if ($FailOnPipeline) { exit 1 }
+    }
+  } else {
+    Write-Log 'Scenarios: disabled via DAILY_UPDATE_RUN_SCENARIOS'
+  }
+
+  # Build shipped-only provenance manifests (current week + prior week)
+  if ($BuildManifest) {
+    try {
+      $cur = Resolve-CurrentWeek
+      if ($null -eq $cur) { throw 'Unable to resolve current week for manifest' }
+      $Season = [int]$cur.Season
+      $Week = [int]$cur.Week
+      $PriorWeek = [Math]::Max(1, $Week - 1)
+      Write-Log "Manifest: build week manifests (Season=$Season Week=$Week and Week=$PriorWeek)"
+      & $Python scripts/build_week_manifest.py --season $Season --week $Week | Tee-Object -FilePath $LogFile -Append | Out-Null
+      & $Python scripts/build_week_manifest.py --season $Season --week $PriorWeek | Tee-Object -FilePath $LogFile -Append | Out-Null
+    } catch {
+      Write-Log "Manifest build failed: $($_.Exception.Message)"
+    }
+  } else {
+    Write-Log 'Manifest: disabled via DAILY_UPDATE_BUILD_MANIFEST'
   }
 
 Write-Log 'Completed successfully'

@@ -72,6 +72,52 @@ function Resolve-CurrentWeek {
 $venvPy = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
 if (-not (Test-Path $venvPy)) { $venvPy = "python" }
 
+# Scenario simulation defaults (can be overridden via env)
+$ScenarioSet = 'v2'
+if ($env:WEEKLY_UPDATE_SCENARIO_SET) { $ScenarioSet = [string]$env:WEEKLY_UPDATE_SCENARIO_SET }
+$ScenarioNSims = 2000
+try {
+  if ($env:WEEKLY_UPDATE_SCENARIO_N_SIMS) {
+    $tmp = 0
+    if ([int]::TryParse([string]$env:WEEKLY_UPDATE_SCENARIO_N_SIMS, [ref]$tmp) -and $tmp -ge 200) { $ScenarioNSims = [int]$tmp }
+  }
+} catch { }
+$ScenarioDrives = $false
+if ($env:WEEKLY_UPDATE_SCENARIO_DRIVES) {
+  if ($env:WEEKLY_UPDATE_SCENARIO_DRIVES -match '^(1|true|yes|on)$') { $ScenarioDrives = $true }
+  elseif ($env:WEEKLY_UPDATE_SCENARIO_DRIVES -match '^(0|false|no|off)$') { $ScenarioDrives = $false }
+}
+$PropsScenariosBaselineId = ''
+if ($env:WEEKLY_UPDATE_PROPS_SCENARIOS_BASELINE_ID) { $PropsScenariosBaselineId = [string]$env:WEEKLY_UPDATE_PROPS_SCENARIOS_BASELINE_ID }
+
+# Weekly rosters/actives caches (nfl_data_py) (defaults ON)
+$FetchRosterCaches = $true
+if ($env:WEEKLY_UPDATE_FETCH_ROSTERS) {
+  if ($env:WEEKLY_UPDATE_FETCH_ROSTERS -match '^(0|false|no|off)$') { $FetchRosterCaches = $false }
+  elseif ($env:WEEKLY_UPDATE_FETCH_ROSTERS -match '^(1|true|yes|on)$') { $FetchRosterCaches = $true }
+}
+$RefreshRosterCaches = $false
+if ($env:WEEKLY_UPDATE_REFRESH_ROSTERS) {
+  if ($env:WEEKLY_UPDATE_REFRESH_ROSTERS -match '^(1|true|yes|on)$') { $RefreshRosterCaches = $true }
+  elseif ($env:WEEKLY_UPDATE_REFRESH_ROSTERS -match '^(0|false|no|off)$') { $RefreshRosterCaches = $false }
+}
+$RosterCacheTimeoutSec = 30
+try {
+  if ($env:WEEKLY_UPDATE_ROSTER_TIMEOUT_SEC) {
+    $tmp = 0
+    if ([int]::TryParse([string]$env:WEEKLY_UPDATE_ROSTER_TIMEOUT_SEC, [ref]$tmp) -and $tmp -ge 5) { $RosterCacheTimeoutSec = [int]$tmp }
+  }
+} catch { }
+
+function Resolve-ScenarioBaselineId {
+  param([string]$ScenarioSetName)
+  if ($PropsScenariosBaselineId) { return $PropsScenariosBaselineId }
+  $ss = ($ScenarioSetName | ForEach-Object { $_.ToLower().Trim() })
+  if ($ss -eq 'v2') { return 'v2_baseline' }
+  if ($ss -eq 'v1') { return 'v1_baseline' }
+  return 'baseline'
+}
+
 # Derive defaults for Season/Weeks if not provided
 if ($Season -le 0 -or $PriorWeek -le 0 -or $TargetWeek -le 0) {
   $cur = Resolve-CurrentWeek
@@ -149,6 +195,17 @@ Invoke-Step "Fetch odds + seed lines (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/seed_lines_for_week.py --season $Season --week $TargetWeek | Write-Host
 }
 
+# 3bb) Prefetch roster caches for the season (best-effort)
+if ($FetchRosterCaches) {
+  Invoke-Step "Fetch roster caches (Season=$Season)" {
+    $args = @('scripts/fetch_rosters_cache.py','--season',$Season,'--timeout-sec',$RosterCacheTimeoutSec)
+    if ($RefreshRosterCaches) { $args += '--refresh' }
+    & $venvPy @args | Write-Host
+  }
+} else {
+  Write-Host "[SKIP] Fetch roster caches (WEEKLY_UPDATE_FETCH_ROSTERS=0)" -ForegroundColor Yellow
+}
+
 # 3c) Build weekly depth chart BEFORE generating props (ensures latest starters/actives)
 Invoke-Step "Build depth chart (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/build_depth_chart.py $Season $TargetWeek | Write-Host
@@ -170,10 +227,32 @@ Invoke-Step "Simulate games (Season=$Season Week=$TargetWeek)" {
   & $venvPy scripts/simulate_games.py --season $Season --start-week $TargetWeek --end-week $TargetWeek --n-sims $SimNSims --out-dir $outDir --quarters --drives | Write-Host
 }
 
+# 4d) Scenario simulation artifacts + player-props scenarios for the target week
+Invoke-Step "Scenario sims + props scenarios (Season=$Season Week=$TargetWeek)" {
+  $outDir = "nfl_compare/data/backtests/${Season}_wk${TargetWeek}"
+  $baselineId = Resolve-ScenarioBaselineId -ScenarioSetName $ScenarioSet
+  $args = @('scripts/simulate_scenarios.py','--season',$Season,'--week',$TargetWeek,'--n-sims',$ScenarioNSims,'--scenario-set',$ScenarioSet,'--out-dir',$outDir)
+  if ($ScenarioDrives) { $args += '--drives' }
+  & $venvPy @args | Write-Host
+  & $venvPy scripts/simulate_player_props_scenarios.py --season $Season --week $TargetWeek --baseline-scenario-id $baselineId --out-dir $outDir | Write-Host
+}
+
 # 5) Reconcile prior week props vs actuals (writes player_props_vs_actuals_*.csv)
 Invoke-Step "Reconcile props vs actuals (Season=$Season Week=$PriorWeek)" {
   # Prefer in-package reconciliation (local PBP fallback)
   & $venvPy -c "from nfl_compare.src.reconciliation import reconcile_props, summarize_errors; import pandas as pd; m=reconcile_props($Season,$PriorWeek); s=summarize_errors(m); fp=f'nfl_compare/data/player_props_vs_actuals_{Season}_wk{PriorWeek}.csv'; m.to_csv(fp, index=False); print(f'Wrote {fp} ({len(m)} rows)'); print(s.to_string(index=False))" | Write-Host
+}
+
+# 5c) Evaluate scenario-adjusted props vs actuals for the prior week (if artifacts exist)
+Invoke-Step "Eval props scenarios accuracy (Season=$Season Week=$PriorWeek)" {
+  $outDir = "nfl_compare/data/backtests/${Season}_wk${PriorWeek}"
+  # Generate prior-week scenario sims + props scenarios if missing, then evaluate
+  $baselineId = Resolve-ScenarioBaselineId -ScenarioSetName $ScenarioSet
+  $args = @('scripts/simulate_scenarios.py','--season',$Season,'--week',$PriorWeek,'--n-sims',$ScenarioNSims,'--scenario-set',$ScenarioSet,'--out-dir',$outDir)
+  if ($ScenarioDrives) { $args += '--drives' }
+  & $venvPy @args | Write-Host
+  & $venvPy scripts/simulate_player_props_scenarios.py --season $Season --week $PriorWeek --baseline-scenario-id $baselineId --out-dir $outDir | Write-Host
+  & $venvPy scripts/player_props_scenarios_accuracy.py --season $Season --week $PriorWeek --out-dir $outDir | Write-Host
 }
 
 # 5b) Evaluate calibration uplift on recent weeks (quick summary for reports)
@@ -191,6 +270,31 @@ Invoke-Step "Stage updated data" {
   if (Test-Path (Join-Path $simDir 'sim_quarters.csv')) { git add -- (Join-Path $simDir 'sim_quarters.csv') | Write-Host }
   if (Test-Path (Join-Path $simDir 'sim_drives.csv')) { git add -- (Join-Path $simDir 'sim_drives.csv') | Write-Host }
   if (Test-Path (Join-Path $simDir 'sim_summary.json')) { git add -- (Join-Path $simDir 'sim_summary.json') | Write-Host }
+
+  # Scenario sim artifacts (set/versioned plus default filenames)
+  $scenarioFiles = @(
+    'sim_probs_scenarios.csv','sim_scenarios_meta.json','sim_scenarios.json',
+    'sim_scenario_inputs.csv','sim_scenario_deltas.csv','sim_scenario_summary.csv',
+    'sim_drives_scenarios.csv','sim_drives_scenarios_summary.csv'
+  )
+  foreach ($f in $scenarioFiles) {
+    $p = Join-Path $simDir $f
+    if (Test-Path $p) { git add -- $p | Write-Host }
+  }
+  # Archive copies (set slugged)
+  Get-ChildItem -Path $simDir -Filter 'sim_*__*.csv' -ErrorAction SilentlyContinue | ForEach-Object { git add -- $_.FullName | Write-Host }
+  Get-ChildItem -Path $simDir -Filter 'sim_*__*.json' -ErrorAction SilentlyContinue | ForEach-Object { git add -- $_.FullName | Write-Host }
+
+  # Player-props scenario artifacts + evaluation
+  $ppsFiles = @(
+    'player_props_scenarios.csv','player_props_scenarios_summary.csv','player_props_scenarios_meta.json',
+    'player_props_scenarios_accuracy.csv','player_props_scenarios_accuracy_by_position.csv',
+    'player_props_scenarios_coverage.csv','player_props_scenarios_top_errors.csv','player_props_scenarios_accuracy.md'
+  )
+  foreach ($f in $ppsFiles) {
+    $p = Join-Path $simDir $f
+    if (Test-Path $p) { git add -- $p | Write-Host }
+  }
   # Phase-A team-week feature feeds
   if (Test-Path 'nfl_compare/data/pfr_drive_stats.csv') { git add -- nfl_compare/data/pfr_drive_stats.csv | Write-Host }
   if (Test-Path 'nfl_compare/data/redzone_splits.csv') { git add -- nfl_compare/data/redzone_splits.csv | Write-Host }

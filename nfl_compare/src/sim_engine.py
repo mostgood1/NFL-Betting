@@ -8,7 +8,37 @@ from typing import Any, Dict, Optional, Tuple
 import numpy as np
 import pandas as pd
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+_ENV_DATA_DIR = os.environ.get("NFL_DATA_DIR")
+DATA_DIR = Path(_ENV_DATA_DIR) if _ENV_DATA_DIR else (Path(__file__).resolve().parents[1] / "data")
+
+
+def _calib_dir(data_dir: Path) -> Path:
+    p = os.environ.get("NFL_CALIB_DIR")
+    if p:
+        try:
+            out = Path(str(p).strip())
+            if not out.is_absolute():
+                out = out.resolve()
+            return out
+        except Exception:
+            pass
+
+    # Fallback: deterministic shipped pin via calibration_active.json
+    try:
+        active_fp = data_dir / "calibration_active.json"
+        if active_fp.exists():
+            active = json.loads(active_fp.read_text(encoding="utf-8"))
+            if isinstance(active, dict):
+                bundle_dir = active.get("bundle_dir")
+                if bundle_dir:
+                    out = Path(str(bundle_dir).strip())
+                    if not out.is_absolute():
+                        out = (data_dir / out).resolve()
+                    if out.exists():
+                        return out
+    except Exception:
+        pass
+    return data_dir
 
 
 def _env_f(name: str, default: float) -> float:
@@ -19,7 +49,7 @@ def _env_f(name: str, default: float) -> float:
 
 
 def _load_sigma_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
-    fp = data_dir / "sigma_calibration.json"
+    fp = _calib_dir(data_dir) / "sigma_calibration.json"
     try:
         if fp.exists():
             with open(fp, "r", encoding="utf-8") as f:
@@ -38,7 +68,7 @@ def _load_sigma_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
 
 
 def _load_totals_calibration(data_dir: Path = DATA_DIR) -> Dict[str, float]:
-    fp = data_dir / "totals_calibration.json"
+    fp = _calib_dir(data_dir) / "totals_calibration.json"
     try:
         allow_unsafe = str(os.environ.get('ALLOW_UNSAFE_TOTALS_CALIBRATION', '0')).strip().lower() in {'1','true','yes','y','on'}
         try:
@@ -397,6 +427,20 @@ def compute_margin_total_draws(
     cold_threshold_f = _env_f("SIM_COLD_TEMP_F", 45.0)
 
     rho = _env_f("SIM_CORR_MARGIN_TOTAL", 0.10)
+    if seed is None:
+        try:
+            env_seed = os.environ.get("SIM_SEED")
+            if env_seed is not None and str(env_seed).strip() != "":
+                seed = int(float(str(env_seed).strip()))
+        except Exception:
+            seed = None
+    if seed is None:
+        try:
+            env_seed = os.environ.get("SIM_SEED")
+            if env_seed is not None and str(env_seed).strip() != "":
+                seed = int(float(str(env_seed).strip()))
+        except Exception:
+            seed = None
     rng = np.random.default_rng(seed)
 
     # Deterministic ordering: sort by game_id string when present.
@@ -505,6 +549,13 @@ def simulate_mc_probs(
 
     df = view_df.copy()
 
+    # Deterministic ordering: ensure stable RNG consumption regardless of input row order.
+    if "game_id" in df.columns:
+        try:
+            df = df.assign(_gid_sort=df["game_id"].astype(str)).sort_values(["_gid_sort"]).drop(columns=["_gid_sort"])
+        except Exception:
+            pass
+
     spread_ref, total_ref = _spread_total_refs(df)
     df["spread_ref"] = spread_ref
     df["total_ref"] = total_ref
@@ -539,6 +590,13 @@ def simulate_mc_probs(
     k_mean_total_cold = _env_f("SIM_MEAN_TOTAL_K_COLD", 0.0)  # points per 10F below cold_threshold
     cold_threshold_f = _env_f("SIM_COLD_TEMP_F", 45.0)
 
+    if seed is None:
+        try:
+            env_seed = os.environ.get("SIM_SEED")
+            if env_seed is not None and str(env_seed).strip() != "":
+                seed = int(float(str(env_seed).strip()))
+        except Exception:
+            seed = None
     rng = np.random.default_rng(seed)
 
     rows: list[dict[str, Any]] = []
@@ -1231,6 +1289,9 @@ def simulate_drive_timeline(
         if np.isfinite(t_mu) and np.isfinite(temp_f) and temp_f < float(cold_threshold_f):
             units = (float(cold_threshold_f) - float(temp_f)) / 10.0
             t_mu = float(t_mu) + float(k_mean_total_cold) * float(units)
+
+        margins = None
+        totals = None
 
         # Realism clamps
         delta_t_max = _env_f("SIM_TOTAL_DELTA_MAX", 10.0)

@@ -126,6 +126,8 @@ We support a simple global totals calibration to offset/scale model totals and o
 
 - Config file: `nfl_compare/data/totals_calibration.json` with keys `{scale, shift, market_blend}`
 - Env overrides: `NFL_TOTAL_SCALE`, `NFL_TOTAL_SHIFT`, `NFL_MARKET_TOTAL_BLEND`
+- Optional: set `NFL_CALIB_DIR` to load calibration files from a different directory (shipped-only bundles).
+- If `nfl_compare/data/calibration_active.json` exists (written by the daily pipeline), the app will prefer its `bundle_dir` automatically when `NFL_CALIB_DIR` is not set.
 
 When present, the app adds `pred_total_cal` to the weekly view and prefers it for O/U edge and EV.
 
@@ -170,6 +172,36 @@ Quick run (evaluate through previous week):
 ```
 
 The daily automation can run these when `DAILY_UPDATE_RUN_BACKTESTS=1`.
+
+### Daily update (scenario artifacts)
+
+The PowerShell automation `daily_update.ps1` can optionally produce deterministic scenario artifacts (game-level, drive-level, and scenario-adjusted player props) under:
+
+- `nfl_compare/data/backtests/<season>_wk<week>/`
+  - `sim_probs_scenarios.csv`, `sim_scenarios_meta.json`, optional `sim_drives_scenarios.csv`
+  - `player_props_scenarios.csv` (+ summary/meta)
+  - prior-week eval outputs (if actuals exist): `player_props_scenarios_accuracy*.csv` and `.md`
+
+Key toggles:
+
+- `DAILY_UPDATE_RUN_SCENARIOS` (default 1)
+- `DAILY_UPDATE_SCENARIO_SET` (default `v2`), `DAILY_UPDATE_SCENARIO_N_SIMS` (default 2000)
+- `DAILY_UPDATE_SCENARIO_DRIVES` (default 0)
+- `DAILY_UPDATE_SCENARIOS_INCLUDE_PRIOR` (default 1)
+- `DAILY_UPDATE_RUN_PROPS_SCENARIOS` (default 1)
+- `DAILY_UPDATE_EVAL_PROPS_SCENARIOS` (default 1)
+
+Roster cache (week-accurate rosters/actives):
+
+- `DAILY_UPDATE_FETCH_ROSTERS` (default 1) — prefetch nfl_data_py seasonal/weekly rosters into `nfl_compare/data/external/nfl_data_py/`
+- `DAILY_UPDATE_REFRESH_ROSTERS` (default 0) — overwrite roster caches (useful if data source updates)
+- `DAILY_UPDATE_ROSTER_TIMEOUT_SEC` (default 30)
+
+Weekly automation equivalents:
+
+- `WEEKLY_UPDATE_FETCH_ROSTERS` (default 1)
+- `WEEKLY_UPDATE_REFRESH_ROSTERS` (default 0)
+- `WEEKLY_UPDATE_ROSTER_TIMEOUT_SEC` (default 30)
 
 ### Team-level Ratings
 Lightweight team ratings (offense/defense/net margin) are computed as exponential moving averages of finalized games and attached to the weekly view and model features. They provide a stable prior signal and are aligned to avoid leakage (for week W, ratings use weeks < W).

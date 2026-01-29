@@ -1,0 +1,61 @@
+scenario_id,scenario_label,abs_error_sum,game_id,team,player,player_id,position,rec_yards,rec_yards_act,targets,targets_act,rush_yards,rush_yards_act,pass_yards,pass_yards_act,pick
+v2_baseline,Baseline,202.21,2025_19_GB_CHI,Green Bay Packers,Jordan Love,00-0036264,QB,0.0,0.0,0.0,0.0,10.6,0.0,155.7,323.0,baseline
+v2_baseline,Baseline,200.59,2025_19_GB_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,15.3,1.0,197.7,361.0,baseline
+v2_baseline,Baseline,133.70000000000002,2025_19_HOU_PIT,Houston Texans,Christian Kirk,00-0034775,WR,20.5,144.0,4.23,9.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,121.07999999999998,2025_19_HOU_PIT,Pittsburgh Steelers,Aaron Rodgers,00-0023459,QB,0.0,0.0,0.0,0.0,7.4,0.0,256.7,146.0,baseline
+v2_baseline,Baseline,118.88000000000001,2025_19_GB_CHI,Chicago Bears,Colston Loveland,00-0040126,TE,31.8,137.0,6.38,16.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,115.08000000000001,2025_19_BUF_JAX,Buffalo Bills,Josh Allen,00-0034857,QB,0.0,0.0,0.0,0.0,42.1,20.0,196.1,273.0,baseline
+v2_baseline,Baseline,112.91,2025_19_GB_CHI,Green Bay Packers,Romeo Doubs,00-0037816,WR,22.2,124.0,4.9,11.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,106.96000000000001,2025_19_LA_CAR,Carolina Panthers,Jalen Coker,00-0039491,WR,37.7,134.0,7.38,14.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,104.96999999999998,2025_19_LAC_NE,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,1.0,28.5,9.0,197.8,268.0,baseline
+v2_baseline,Baseline,98.91,2025_19_SF_PHI,San Francisco 49ers,Demarcus Robinson,00-0032775,WR,18.2,111.0,4.36,7.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,97.14,2025_19_SF_PHI,Philadelphia Eagles,Saquon Barkley,00-0034844,RB,24.2,25.0,5.84,7.0,29.5,106.0,0.0,0.0,baseline
+v2_baseline,Baseline,95.97,2025_19_LA_CAR,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,10.0,0.0,192.4,264.0,baseline
+v2_baseline,Baseline,93.0,2025_19_GB_CHI,Green Bay Packers,Matthew Golden,00-0040667,WR,0.0,84.0,0.0,5.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,89.24,2025_19_BUF_JAX,Jacksonville Jaguars,Parker Washington,00-0038606,WR,32.2,107.0,5.29,12.0,0.0,2.0,0.0,0.0,baseline
+v2_baseline,Baseline,86.01,2025_19_LAC_NE,Los Angeles Chargers,Omarion Hampton,00-0040666,RB,28.3,0.0,6.11,0.0,35.5,-1.0,0.0,0.0,baseline
+v2_baseline,Baseline,82.18,2025_19_LA_CAR,Los Angeles Rams,Puka Nacua,00-0039075,WR,57.8,111.0,9.47,18.0,0.0,14.0,0.0,0.0,baseline
+v2_baseline,Baseline,81.93,2025_19_LA_CAR,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,13.1,2.0,245.2,304.0,baseline
+v2_baseline,Baseline,81.17999999999999,2025_19_HOU_PIT,Houston Texans,Woody Marks,00-0040583,RB,23.5,0.0,4.59,1.0,64.3,112.0,0.0,0.0,baseline
+v2_baseline,Baseline,80.89000000000001,2025_19_SF_PHI,San Francisco 49ers,Brock Purdy,00-0037834,QB,0.0,0.0,0.0,0.0,10.5,14.0,189.2,262.0,baseline
+v2_baseline,Baseline,80.71,2025_19_SF_PHI,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,19.7,66.0,4.78,8.0,25.6,48.0,0.0,0.0,baseline
+v2_baseline,Baseline,79.88000000000001,2025_19_LAC_NE,New England Patriots,Rhamondre Stevenson,00-0036875,RB,22.8,75.0,4.53,4.0,72.7,53.0,0.0,0.0,baseline
+v2_baseline,Baseline,77.71000000000001,2025_19_BUF_JAX,Buffalo Bills,James Cook III,nan,RB,30.0,5.0,3.91,3.0,95.3,46.0,0.0,0.0,baseline
+v2_baseline,Baseline,77.18,2025_19_HOU_PIT,Houston Texans,C.J. Stroud,00-0039163,QB,0.0,0.0,0.0,0.0,19.3,0.0,199.0,250.0,baseline
+v2_baseline,Baseline,66.18,2025_19_LAC_NE,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,12.8,7.0,211.8,159.0,baseline
+v2_baseline,Baseline,63.22999999999999,2025_19_BUF_JAX,Jacksonville Jaguars,Trevor Lawrence,00-0036971,QB,0.0,0.0,0.0,0.0,12.9,3.0,255.6,207.0,baseline
+v2_baseline,Baseline,60.720000000000006,2025_19_GB_CHI,Green Bay Packers,Emanuel Wilson,00-0038797,RB,10.7,0.0,2.3,0.0,38.2,3.0,0.0,0.0,baseline
+v2_baseline,Baseline,58.0,2025_19_HOU_PIT,Houston Texans,Nick Chubb,00-0034791,RB,0.0,0.0,0.0,0.0,0.0,48.0,0.0,0.0,baseline
+v2_baseline,Baseline,55.39,2025_19_BUF_JAX,Jacksonville Jaguars,Brian Thomas Jr.,00-0039893,WR,63.9,21.0,10.53,2.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,53.699999999999996,2025_19_BUF_JAX,Jacksonville Jaguars,Bhayshul Tuten,00-0040719,RB,24.1,0.0,3.72,0.0,31.0,51.0,0.0,0.0,baseline
+v2_baseline,Baseline,53.18,2025_19_BUF_JAX,Buffalo Bills,Khalil Shakir,00-0037261,WR,40.6,82.0,7.08,12.0,0.0,0.0,0.0,0.0,baseline
+v2_spread_home_plus3,Spread home +3.0,211.8637292793216,2025_19_GB_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,14.45995011836431,1.0,186.84523780396236,361.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,193.29260425793197,2025_19_GB_CHI,Green Bay Packers,Jordan Love,00-0036264,QB,0.0,0.0,0.0,0.0,11.177752048550245,0.0,164.18641452445974,323.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,132.44265440474575,2025_19_HOU_PIT,Houston Texans,Christian Kirk,00-0034775,WR,21.498453388579293,144.0,4.391046181505155,9.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,121.07386796844844,2025_19_GB_CHI,Chicago Bears,Colston Loveland,00-0040126,TE,30.05401397150229,137.0,6.103111746425804,16.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,113.57273396914022,2025_19_LAC_NE,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,1.0,27.190630752190817,9.0,188.71251799239803,268.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,111.36403044094972,2025_19_GB_CHI,Green Bay Packers,Romeo Doubs,00-0037816,WR,23.41000900734108,124.0,5.108644702582392,11.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,109.42850471409245,2025_19_LA_CAR,Carolina Panthers,Jalen Coker,00-0039491,WR,35.7387606489449,134.0,7.076627359869082,14.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,107.3454433201092,2025_19_BUF_JAX,Buffalo Bills,Josh Allen,00-0034857,QB,0.0,0.0,0.0,0.0,44.04717214555895,20.0,205.16984460199785,273.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,106.80019553153619,2025_19_LA_CAR,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,9.479777360462837,0.0,182.39091641530496,264.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,100.62247927276557,2025_19_SF_PHI,Philadelphia Eagles,Saquon Barkley,00-0034844,RB,22.83481396359451,25.0,5.579545095999703,7.0,27.83582693909248,106.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,100.02641520475774,2025_19_HOU_PIT,Pittsburgh Steelers,Aaron Rodgers,00-0023459,QB,0.0,0.0,0.0,0.0,6.810021975343228,0.0,236.23414068521708,146.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,97.68706005667484,2025_19_SF_PHI,San Francisco 49ers,Demarcus Robinson,00-0032775,WR,19.14375020240123,111.0,4.5366715922247245,7.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,93.0,2025_19_GB_CHI,Green Bay Packers,Matthew Golden,00-0040667,WR,0.0,84.0,0.0,5.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,90.76457100469601,2025_19_BUF_JAX,Jacksonville Jaguars,Parker Washington,00-0038606,WR,30.93977729554263,107.0,5.126635220997382,12.0,0.0,2.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,89.68719110066579,2025_19_LAC_NE,Los Angeles Chargers,Omarion Hampton,00-0040666,RB,29.58209538072219,0.0,6.326453429068591,0.0,37.10828219136529,-1.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,84.38801318293274,2025_19_BUF_JAX,Buffalo Bills,James Cook III,nan,RB,31.387533595410176,5.0,4.051398777405257,3.0,99.70773172141966,46.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,79.2072646327766,2025_19_LA_CAR,Los Angeles Rams,Puka Nacua,00-0039075,WR,60.24307457352964,111.0,9.78310160526092,18.0,0.0,14.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,78.81134895049827,2025_19_HOU_PIT,Houston Texans,Woody Marks,00-0040583,RB,24.644568518615287,0.0,4.764752239505594,1.0,67.4317342871048,112.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,77.67254345976905,2025_19_SF_PHI,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,20.721531812489243,66.0,4.973690415328941,8.0,26.92747281216877,48.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,76.68120633307002,2025_19_LAC_NE,New England Patriots,Rhamondre Stevenson,00-0036875,RB,21.75250460175265,75.0,4.365656221806253,4.0,69.35995984857097,53.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,75.13585021733269,2025_19_LAC_NE,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,13.379887663365515,7.0,221.3953286797513,159.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,71.02959106641654,2025_19_LA_CAR,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,13.653707213031804,2.0,255.56404646071744,304.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,69.38347315697102,2025_19_SF_PHI,San Francisco 49ers,Brock Purdy,00-0037834,QB,0.0,0.0,0.0,0.0,11.044471270616096,14.0,199.0108537524348,262.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,67.39518067481094,2025_19_HOU_PIT,Houston Texans,C.J. Stroud,00-0039163,QB,0.0,0.0,0.0,0.0,20.240007336564894,0.0,208.6923036257209,250.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,64.0589144362451,2025_19_GB_CHI,Green Bay Packers,Emanuel Wilson,00-0038797,RB,11.283202539574305,0.0,2.3979352685590816,0.0,40.28208757119051,3.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,58.0,2025_19_HOU_PIT,Houston Texans,Nick Chubb,00-0034791,RB,0.0,0.0,0.0,0.0,0.0,48.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,53.550055095836356,2025_19_BUF_JAX,Jacksonville Jaguars,Bhayshul Tuten,00-0040719,RB,23.15678983921048,0.0,3.605119663914983,0.0,29.78674211682675,51.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,52.37988220693162,2025_19_BUF_JAX,Jacksonville Jaguars,Brian Thomas Jr.,00-0039893,WR,61.39912326662031,21.0,10.20481453253354,2.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,51.64909594944229,2025_19_BUF_JAX,Jacksonville Jaguars,Trevor Lawrence,00-0036971,QB,0.0,0.0,0.0,0.0,12.39512817119565,3.0,245.59649306648123,207.0,best_mae_mean
+v2_spread_home_plus3,Spread home +3.0,50.8602881506074,2025_19_BUF_JAX,Buffalo Bills,Khalil Shakir,00-0037261,WR,42.47779546578844,82.0,7.336036660877039,12.0,0.0,0.0,0.0,0.0,best_mae_mean

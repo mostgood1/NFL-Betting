@@ -1,0 +1,30 @@
+{
+  "schema_version": "1",
+  "name": "simulate_scenarios_grid_small_v1",
+  "scenarios": [
+    {
+      "scenario_id": "gsmall_baseline",
+      "label": "Baseline (grid-small)"
+    },
+    {
+      "scenario_id": "gsmall_market_blend_10_20",
+      "label": "Market blend m=0.10 t=0.20",
+      "sim_market_blend_margin": 0.10,
+      "sim_market_blend_total": 0.20
+    }
+  ],
+  "grid": {
+    "prefix": "gsmall",
+    "max_scenarios": 200,
+    "truncate": false,
+    "axes": [
+      {"field": "wind_open_add_mph", "alias": "wind", "values": [0, 10, 20]},
+      {"field": "wx_precip_add_pct", "alias": "precip", "values": [0, 25]},
+      {"field": "wx_temp_add_f", "alias": "temp", "values": [0, -15]},
+      {"field": "home_inj_starters_add", "alias": "hinj", "values": [0, 1]},
+      {"field": "away_inj_starters_add", "alias": "ainj", "values": [0, 1]}
+    ],
+    "id_template": "{prefix}_w{wind_id}_p{precip_id}_t{temp_id}_h{hinj_id}_a{ainj_id}",
+    "label_template": "Wind {wind} Precip {precip}% Temp {temp}F HInj {hinj} AInj {ainj}"
+  }
+}

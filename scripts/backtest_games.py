@@ -13,18 +13,23 @@ Usage:
 """
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
 import numpy as np
 import pandas as pd
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from nfl_compare.src.data_sources import load_games, load_team_stats, load_lines
 from nfl_compare.src.features import merge_features
 from nfl_compare.src.models import train_models, predict as model_predict
 from nfl_compare.src.weather import load_weather_for_games
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "nfl_compare" / "data"
+DATA_DIR = ROOT / "nfl_compare" / "data"
 
 
 def _mae(y_true: pd.Series, y_pred: pd.Series) -> float:

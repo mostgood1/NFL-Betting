@@ -445,6 +445,15 @@ def compute_td_likelihood(season: Optional[int] = None, week: Optional[int] = No
     if out.empty:
         return out
 
+    # Defensive dedupe: upstream merges can create duplicate game rows (e.g., multiple
+    # weather snapshots or prediction variants). We only want one row per team-game.
+    try:
+        dedup_cols = [c for c in ["season", "week", "game_id", "team", "opponent", "is_home"] if c in out.columns]
+        if dedup_cols:
+            out = out.drop_duplicates(subset=dedup_cols, keep="first").copy()
+    except Exception:
+        pass
+
     # Create a normalized score (0-100) for ranking
     try:
         # rank by td_likelihood; scale to 0-100

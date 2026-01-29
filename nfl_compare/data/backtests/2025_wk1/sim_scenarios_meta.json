@@ -1,0 +1,57 @@
+{
+  "baseline_scenario_id": "v2_baseline",
+  "created_utc": "2026-01-18T20:57:36.782124+00:00",
+  "inputs": {
+    "predictions_week_csv": {
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
+      "sha256": "e43c04652428746d5a7c43dcfb020a8ec97cfc74c7de868064e12969d2eb4547"
+    }
+  },
+  "n_sims": 200,
+  "output": {
+    "archive": {
+      "sim_probs_scenarios_csv": "nfl_compare\\data\\backtests\\2025_wk1\\sim_probs_scenarios__set_v2.csv",
+      "sim_scenarios_json": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenarios__set_v2.json"
+    },
+    "sim_probs_scenarios_csv": {
+      "cols": 25,
+      "path": "nfl_compare\\data\\backtests\\2025_wk1\\sim_probs_scenarios.csv",
+      "rows": 368,
+      "sha256": "666a736068b5d4211f3156dd7f7f0a22ec75f856d8abb0d9ee42393e7d3c232d"
+    },
+    "sim_scenario_deltas_csv": {
+      "archive": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenario_deltas__set_v2.csv",
+      "cols": 18,
+      "path": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenario_deltas.csv",
+      "rows": 368,
+      "sha256": "7b614e97e93e84e9aabb095ec7a1258babd53961fbef1d5831f018442234202e"
+    },
+    "sim_scenario_inputs_csv": {
+      "cols": 49,
+      "path": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenario_inputs.csv",
+      "rows": 368,
+      "sha256": "4c8c66ffc762912ca2f8948a622bcfa2642cb39af4e4ca673c0ce0a74c8111e5"
+    },
+    "sim_scenario_summary_csv": {
+      "archive": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenario_summary__set_v2.csv",
+      "cols": 14,
+      "path": "nfl_compare\\data\\backtests\\2025_wk1\\sim_scenario_summary.csv",
+      "rows": 23,
+      "sha256": "bf681c734e8b9a1edb33e35bd01995a81b883d00f159a0bbe2a25a1a15267e45"
+    }
+  },
+  "scenario_config": {
+    "has_grid": false,
+    "name": "simulate_scenarios_v2 (explicit)",
+    "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\scenarios\\simulate_scenarios_v2.json",
+    "scenario_count": 23,
+    "schema_version": "1",
+    "sha256": "962f9b82417e583f04a1c8a1013ee465a59851e67992e1a48bd729bde9be3a9f"
+  },
+  "scenario_set": "set:v2",
+  "scenario_set_slug": "set_v2",
+  "season": 2025,
+  "seed": null,
+  "seed_strategy": "seed + sha256(scenario_id)[:8] when seed is provided (or SIM_SEED env)",
+  "week": 1
+}

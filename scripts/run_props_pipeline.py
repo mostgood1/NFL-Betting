@@ -11,6 +11,8 @@ Outputs go under nfl_compare/data for the inferred week.
 from __future__ import annotations
 
 import json
+import hashlib
+from datetime import datetime
 from pathlib import Path
 import subprocess
 import sys
@@ -27,6 +29,39 @@ def run(cmd: list[str]) -> int:
     print("$", " ".join(cmd))
     proc = subprocess.run(cmd, cwd=str(ROOT))
     return proc.returncode
+
+
+def _utc_now_iso() -> str:
+    return datetime.utcnow().isoformat(timespec="seconds") + "Z"
+
+
+def _sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> Optional[str]:
+    try:
+        h = hashlib.sha256()
+        with path.open("rb") as f:
+            while True:
+                b = f.read(chunk_size)
+                if not b:
+                    break
+                h.update(b)
+        return h.hexdigest()
+    except Exception:
+        return None
+
+
+def _csv_rows_cols(fp: Path) -> tuple[Optional[int], Optional[list[str]]]:
+    try:
+        df = pd.read_csv(fp)
+        return int(df.shape[0]), list(df.columns)
+    except Exception:
+        return None, None
+
+
+def _atomic_write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.replace(path)
 
 
 def _csv_has_data(fp: Path) -> bool:
@@ -75,9 +110,12 @@ def main() -> int:
     oddsapi_csv = DATA_DIR / f"oddsapi_player_props_{season}_wk{week}.csv"  # market lines fetched from OddsAPI
     edges_csv = DATA_DIR / f"edges_player_props_{season}_wk{week}.csv"
     ladders_csv = DATA_DIR / f"ladder_options_{season}_wk{week}.csv"
+    edges_meta_json = DATA_DIR / f"edges_player_props_{season}_wk{week}.json"
+    ladders_meta_json = DATA_DIR / f"ladder_options_{season}_wk{week}.json"
     # Game props artifacts
     game_bov_csv = DATA_DIR / f"bovada_game_props_{season}_wk{week}.csv"
     game_edges_csv = DATA_DIR / f"edges_game_props_{season}_wk{week}.csv"
+    game_meta_json = DATA_DIR / f"game_props_market_source_{season}_wk{week}.json"
 
     # 0) Refresh depth chart and player props for this week
     # Rebuild weekly depth chart to capture latest actives/injuries
@@ -131,11 +169,15 @@ def main() -> int:
     ])
     if rc != 0:
         print(f"WARNING: fetch_oddsapi_props exited with {rc} for players.")
-    # Determine source CSV for edges/ladders: prefer OddsAPI if it has data; else fall back to Bovada scrape
-    props_source_csv = oddsapi_csv
-    if not _csv_has_data(props_source_csv):
+    oddsapi_rc = int(rc)
+
+    # Determine source CSV for edges: prefer OddsAPI if it has data; else fall back to Bovada scrape
+    edges_source_csv = oddsapi_csv
+    bovada_rc: Optional[int] = None
+    bov_p_csv = DATA_DIR / f"bovada_player_props_{season}_wk{week}.csv"
+
+    if not _csv_has_data(edges_source_csv):
         print("INFO: OddsAPI player props missing/empty; attempting Bovada player props as fallback…")
-        bov_p_csv = DATA_DIR / f"bovada_player_props_{season}_wk{week}.csv"
         rc_b = run([
             sys.executable,
             "scripts/fetch_bovada_props.py",
@@ -143,11 +185,18 @@ def main() -> int:
             "--week", str(week),
             "--out", str(bov_p_csv),
         ])
+        bovada_rc = int(rc_b)
         if rc_b == 0 and _csv_has_data(bov_p_csv):
             print(f"INFO: Using Bovada player props fallback: {bov_p_csv.name}")
-            props_source_csv = bov_p_csv
+            edges_source_csv = bov_p_csv
         else:
             print("WARNING: Bovada player props fallback failed or empty. Edges and ladders may be empty.")
+
+    # Determine source CSV for ladders: prefer Bovada if present (it has explicit ladders/alts),
+    # otherwise use whatever we used for edges.
+    ladders_source_csv = edges_source_csv
+    if _csv_has_data(bov_p_csv):
+        ladders_source_csv = bov_p_csv
 
     # 2) Join edges
     rc = run([
@@ -156,8 +205,9 @@ def main() -> int:
         "--season", str(season),
         "--week", str(week),
         # The join script expects --bovada=<csv>; it accepts any props CSV with the expected columns
-        "--bovada", str(props_source_csv),
+        "--bovada", str(edges_source_csv),
         "--out", str(edges_csv),
+        "--meta-out", str(edges_meta_json),
     ])
     if rc != 0:
         print("WARNING: props_edges_join failed. Continuing pipeline; ladders may still generate if Bovada CSV is readable.")
@@ -168,8 +218,9 @@ def main() -> int:
         "scripts/gen_ladder_options.py",
         "--season", str(season),
         "--week", str(week),
-        "--bovada", str(props_source_csv),
+        "--bovada", str(ladders_source_csv),
         "--out", str(ladders_csv),
+        "--meta-out", str(ladders_meta_json),
         "--synthesize",
         "--max-rungs", "6",
         "--yard-step", "10",
@@ -177,6 +228,50 @@ def main() -> int:
     ])
     if rc != 0:
         print("WARNING: gen_ladder_options failed. Continuing to game props.")
+
+    # 3b) Record which market props source(s) were used (for reproducibility/debug)
+    try:
+        meta_path = DATA_DIR / f"player_props_market_source_{season}_wk{week}.json"
+
+        def _file_entry(fp: Path) -> dict:
+            has_data = _csv_has_data(fp)
+            rows, cols = _csv_rows_cols(fp) if has_data else (None, None)
+            return {
+                "path": fp.name,
+                "exists": fp.exists(),
+                "has_data": bool(has_data),
+                "sha256": _sha256_file(fp) if fp.exists() else None,
+                "rows": rows,
+                "cols": cols,
+            }
+
+        payload = {
+            "created_utc": _utc_now_iso(),
+            "season": int(season),
+            "week": int(week),
+            "oddsapi": {"return_code": oddsapi_rc, **_file_entry(oddsapi_csv)},
+            "bovada": {"return_code": bovada_rc, **_file_entry(bov_p_csv)},
+            "used": {
+                "edges_source": edges_source_csv.name,
+                "ladders_source": ladders_source_csv.name,
+            },
+            "sidecars": {
+                "edges_meta": {
+                    "path": edges_meta_json.name,
+                    "exists": edges_meta_json.exists(),
+                    "sha256": _sha256_file(edges_meta_json) if edges_meta_json.exists() else None,
+                },
+                "ladders_meta": {
+                    "path": ladders_meta_json.name,
+                    "exists": ladders_meta_json.exists(),
+                    "sha256": _sha256_file(ladders_meta_json) if ladders_meta_json.exists() else None,
+                },
+            },
+        }
+        _atomic_write_json(meta_path, payload)
+        print("Wrote props source meta:", meta_path)
+    except Exception as e:
+        print("WARNING: failed writing props source meta:", e)
 
     # 4) Fetch Bovada GAME props
     rc = run([
@@ -216,6 +311,7 @@ def main() -> int:
         "--week", str(week),
         "--game-csv", str(game_bov_csv),
         "--out", str(game_edges_csv),
+        "--meta-out", str(game_meta_json),
     ])
     if rc != 0:
         print("WARNING: game_props_edges_join failed.")
@@ -225,9 +321,24 @@ def main() -> int:
     print(" -", predictions_csv)
     print(" -", edges_csv)
     print(" -", ladders_csv)
-    print(" -", props_source_csv)
+    print(" - edges source:", edges_source_csv)
+    print(" - ladders source:", ladders_source_csv)
     print(" -", game_bov_csv)
     print(" -", game_edges_csv)
+
+    # 6) Build reproducibility manifest (best-effort)
+    try:
+        rc = run([
+            sys.executable,
+            "scripts/build_week_manifest.py",
+            "--season", str(season),
+            "--week", str(week),
+        ])
+        if rc != 0:
+            print(f"WARNING: build_week_manifest failed with rc={rc}")
+    except Exception as e:
+        print(f"WARNING: build_week_manifest exception: {e}")
+
     return 0
 
 

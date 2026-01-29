@@ -1,0 +1,61 @@
+scenario_id,scenario_label,abs_error_sum,game_id,team,player,player_id,position,rec_yards,rec_yards_act,targets,targets_act,rush_yards,rush_yards_act,pass_yards,pass_yards_act,pick
+v2_baseline,Baseline,232.67,2025_07_IND_LAC,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,20.1,7.0,229.8,420.0,baseline
+v2_baseline,Baseline,158.58,2025_07_PHI_MIN,Philadelphia Eagles,DeVonta Smith,00-0036912,WR,32.5,183.0,7.23,11.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,151.89,2025_07_CAR_NYJ,New York Jets,Justin Fields,00-0036945,QB,0.0,0.0,0.0,0.0,27.2,15.0,163.6,46.0,baseline
+v2_baseline,Baseline,151.48,2025_07_LV_KC,Las Vegas Raiders,Geno Smith,00-0030565,QB,0.0,0.0,0.0,0.0,17.8,0.0,183.6,67.0,baseline
+v2_baseline,Baseline,146.98000000000002,2025_07_ATL_SF,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,27.9,72.0,5.83,8.0,44.1,129.0,0.0,0.0,baseline
+v2_baseline,Baseline,141.83,2025_07_PHI_MIN,Philadelphia Eagles,Jalen Hurts,00-0036389,QB,0.0,0.0,0.0,0.0,22.0,-5.0,227.9,326.0,baseline
+v2_baseline,Baseline,141.82,2025_07_MIA_CLE,Miami Dolphins,Tua Tagovailoa,00-0036212,QB,0.0,0.0,0.0,0.0,6.8,0.0,223.8,100.0,baseline
+v2_baseline,Baseline,138.15,2025_07_MIA_CLE,Cleveland Browns,Dillon Gabriel,00-0040704,QB,0.0,0.0,0.0,0.0,1.7,0.0,233.0,116.0,baseline
+v2_baseline,Baseline,128.20999999999998,2025_07_TB_DET,Detroit Lions,Jahmyr Gibbs,00-0039139,RB,26.7,82.0,5.33,3.0,66.7,136.0,0.0,0.0,baseline
+v2_baseline,Baseline,126.95,2025_07_PIT_CIN,Cincinnati Bengals,Ja'Marr Chase,00-0036900,WR,58.0,161.0,10.63,25.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,126.45,2025_07_IND_LAC,Los Angeles Chargers,Oronde Gadsden II,00-0040189,TE,42.1,164.0,7.62,10.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,105.0,2025_07_LV_KC,Kansas City Chiefs,Brashard Smith,00-0040078,RB,0.0,42.0,0.0,5.0,0.0,39.0,0.0,0.0,baseline
+v2_baseline,Baseline,105.0,2025_07_NE_TEN,New England Patriots,Brandon Smith,00-0036775,WR,0.0,42.0,0.0,5.0,0.0,39.0,0.0,0.0,baseline
+v2_baseline,Baseline,104.47999999999999,2025_07_NYG_DEN,Denver Broncos,Bo Nix,00-0039732,QB,0.0,0.0,0.0,0.0,20.0,27.0,204.3,279.0,baseline
+v2_baseline,Baseline,103.86999999999999,2025_07_PHI_MIN,Minnesota Vikings,Jordan Addison,00-0038994,WR,32.7,128.0,8.11,12.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,102.92999999999999,2025_07_PIT_CIN,Pittsburgh Steelers,Pat Freiermuth,00-0036894,TE,13.2,111.0,3.64,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,101.94,2025_07_HOU_SEA,Houston Texans,Nick Chubb,00-0034791,RB,28.1,-5.0,4.86,3.0,69.0,16.0,0.0,0.0,baseline
+v2_baseline,Baseline,100.66,2025_07_TB_DET,Tampa Bay Buccaneers,Baker Mayfield,00-0034855,QB,0.0,0.0,0.0,0.0,18.6,0.0,178.5,228.0,baseline
+v2_baseline,Baseline,99.25,2025_07_PIT_CIN,Cincinnati Bengals,Chase Brown,00-0038597,RB,30.4,-8.0,5.76,4.0,51.9,108.0,0.0,0.0,baseline
+v2_baseline,Baseline,98.63,2025_07_IND_LAC,Los Angeles Chargers,Keenan Allen,00-0030279,WR,34.2,119.0,7.0,14.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,97.23,2025_07_WAS_DAL,Dallas Cowboys,Javonte Williams,00-0036997,RB,30.2,2.0,5.74,4.0,56.7,116.0,0.0,0.0,baseline
+v2_baseline,Baseline,95.3,2025_07_CAR_NYJ,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,27.1,0.0,198.1,138.0,baseline
+v2_baseline,Baseline,93.92,2025_07_MIA_CLE,Cleveland Browns,Quinshon Judkins,00-0040784,RB,29.3,0.0,6.21,0.0,42.2,84.0,0.0,0.0,baseline
+v2_baseline,Baseline,92.85999999999999,2025_07_NO_CHI,Chicago Bears,D'Andre Swift,00-0036275,RB,23.2,14.0,5.28,2.0,51.4,124.0,0.0,0.0,baseline
+v2_baseline,Baseline,92.25,2025_07_NO_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,23.7,0.0,225.8,172.0,baseline
+v2_baseline,Baseline,91.85,2025_07_IND_LAC,Indianapolis Colts,Daniel Jones,00-0035710,QB,0.0,0.0,0.0,0.0,33.6,0.0,238.4,288.0,baseline
+v2_baseline,Baseline,88.0,2025_07_HOU_SEA,Houston Texans,Jaylin Noel,00-0040138,WR,0.0,77.0,0.0,7.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,83.65,2025_07_NYG_DEN,Denver Broncos,Marvin Mims Jr.,00-0038976,WR,20.5,85.0,4.85,7.0,0.0,13.0,0.0,0.0,baseline
+v2_baseline,Baseline,82.8,2025_07_HOU_SEA,Seattle Seahawks,Jaxon Smith-Njigba,00-0038543,WR,49.2,123.0,8.49,15.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,82.6,2025_07_PHI_MIN,Philadelphia Eagles,A.J. Brown,00-0035676,WR,43.3,121.0,9.6,6.0,0.0,0.0,0.0,0.0,baseline
+v2_spread_home_minus3,Spread home -3.0,221.01411993883528,2025_07_IND_LAC,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,21.10275154325899,7.0,241.2642937632296,420.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,162.08802351309947,2025_07_CAR_NYJ,New York Jets,Justin Fields,00-0036945,QB,0.0,0.0,0.0,0.0,28.444277186607025,15.0,171.08396131356284,46.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,160.09101980480202,2025_07_PHI_MIN,Philadelphia Eagles,DeVonta Smith,00-0036912,WR,31.32803614554406,183.0,7.024347775083726,11.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,147.9540843396388,2025_07_PHI_MIN,Philadelphia Eagles,Jalen Hurts,00-0036389,QB,0.0,0.0,0.0,0.0,21.206670621599056,-5.0,219.68182884829204,326.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,147.1652678992869,2025_07_MIA_CLE,Cleveland Browns,Dillon Gabriel,00-0040704,QB,0.0,0.0,0.0,0.0,1.7567029896534525,0.0,240.7716450525026,116.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,143.1135649056812,2025_07_ATL_SF,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,29.119741267316265,72.0,6.029339319726114,8.0,46.02797813220958,129.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,133.93006780939635,2025_07_LV_KC,Las Vegas Raiders,Geno Smith,00-0030565,QB,0.0,0.0,0.0,0.0,16.455595042217524,0.0,169.73299155905266,67.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,125.90026311065023,2025_07_MIA_CLE,Miami Dolphins,Tua Tagovailoa,00-0036212,QB,0.0,0.0,0.0,0.0,6.387464801607353,0.0,210.22273861760672,100.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,124.77360477170576,2025_07_TB_DET,Detroit Lions,Jahmyr Gibbs,00-0039139,RB,27.62505514237593,82.0,5.47456239703368,3.0,69.01090554293914,136.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,123.86425381842407,2025_07_IND_LAC,Los Angeles Chargers,Oronde Gadsden II,00-0040189,TE,44.20029054583101,164.0,7.917122244528218,10.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,123.26517533782837,2025_07_PIT_CIN,Cincinnati Bengals,Ja'Marr Chase,00-0036900,WR,60.99647359640748,161.0,11.059159638068788,25.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,107.6079685153518,2025_07_TB_DET,Tampa Bay Buccaneers,Baker Mayfield,00-0034855,QB,0.0,0.0,0.0,0.0,17.878773354855596,0.0,171.5785507441787,228.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,105.0,2025_07_LV_KC,Kansas City Chiefs,Brashard Smith,00-0040078,RB,0.0,42.0,0.0,5.0,0.0,39.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,105.0,2025_07_NE_TEN,New England Patriots,Brandon Smith,00-0036775,WR,0.0,42.0,0.0,5.0,0.0,39.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,103.77575359373445,2025_07_PIT_CIN,Pittsburgh Steelers,Pat Freiermuth,00-0036894,TE,12.574079146034068,111.0,3.503681231216796,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,103.47190185111276,2025_07_NO_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,24.63478231275665,0.0,234.7060694607785,172.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,103.02840126383742,2025_07_IND_LAC,Indianapolis Colts,Daniel Jones,00-0035710,QB,0.0,0.0,0.0,0.0,31.90666342808108,0.0,226.38537384686103,288.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,101.56609674854464,2025_07_PHI_MIN,Minnesota Vikings,Jordan Addison,00-0038994,WR,34.47637866108145,128.0,8.45418539243222,12.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,99.05771253177542,2025_07_PIT_CIN,Cincinnati Bengals,Chase Brown,00-0038597,RB,31.97056547122047,-8.0,5.992545579988355,4.0,54.581327235406,108.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,96.48828039491384,2025_07_IND_LAC,Los Angeles Chargers,Keenan Allen,00-0030279,WR,35.9061742676347,119.0,7.272946943792326,14.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,96.03825900494773,2025_07_WAS_DAL,Dallas Cowboys,Javonte Williams,00-0036997,RB,31.406083350970228,2.0,5.919355270051629,4.0,58.964401523179205,116.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,95.49609932056765,2025_07_HOU_SEA,Houston Texans,Nick Chubb,00-0034791,RB,26.54885215721488,-5.0,4.6479356475177775,3.0,65.19113163159525,16.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,93.40667915490303,2025_07_MIA_CLE,Cleveland Browns,Quinshon Judkins,00-0040784,RB,30.27729270402715,0.0,6.372173208202035,0.0,43.60756833139747,84.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,92.42632716187873,2025_07_NYG_DEN,Denver Broncos,Bo Nix,00-0039732,QB,0.0,0.0,0.0,0.0,20.972372417817496,27.0,214.2327842480057,279.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,91.59527179071176,2025_07_NO_CHI,Chicago Bears,D'Andre Swift,00-0036275,RB,24.1150611669179,14.0,5.442948478427035,2.0,53.42733379222328,124.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,88.0,2025_07_HOU_SEA,Houston Texans,Jaylin Noel,00-0040138,WR,0.0,77.0,0.0,7.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,85.87261742483233,2025_07_ATL_SF,Atlanta Falcons,Michael Penix Jr.,00-0039917,QB,0.0,0.0,0.0,0.0,8.336388434200538,0.0,178.5136971599495,241.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,85.2318533511825,2025_07_PIT_CIN,Pittsburgh Steelers,Jaylen Warren,00-0037228,RB,18.67060236835362,31.0,4.726119462987492,5.0,56.011807105060846,127.0,0.0,0.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,85.14767610235742,2025_07_CAR_NYJ,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,26.018847882624733,0.0,190.19681791689888,138.0,best_mae_mean
+v2_spread_home_minus3,Spread home -3.0,84.40813024906384,2025_07_PIT_CIN,Pittsburgh Steelers,Aaron Rodgers,00-0023459,QB,0.0,0.0,0.0,0.0,7.620654027899436,0.0,178.22804607749805,249.0,best_mae_mean

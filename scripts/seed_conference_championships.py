@@ -15,13 +15,22 @@ import argparse
 import json
 from pathlib import Path
 import os
+import sys
 from typing import Dict, Tuple, Optional
 import pandas as pd
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 DATA_DIR = Path(os.environ.get("NFL_DATA_DIR")) if os.environ.get("NFL_DATA_DIR") else (BASE_DIR / "nfl_compare" / "data")
 GAMES_FP = DATA_DIR / "games.csv"
+
+try:
+    from nfl_compare.src.team_normalizer import normalize_team_name as _norm_team
+except Exception:
+    def _norm_team(s: str) -> str:  # type: ignore
+        return str(s or "").strip()
 
 
 def _read_csv_safe(fp: Path) -> pd.DataFrame:
@@ -68,14 +77,14 @@ def _winner(row: pd.Series) -> Optional[str]:
     except Exception:
         return None
     if hs > as_:
-        return str(row.get("home_team"))
+        return _norm_team(str(row.get("home_team")))
     if as_ > hs:
-        return str(row.get("away_team"))
+        return _norm_team(str(row.get("away_team")))
     return None
 
 
 def _conference_of(team: str, seeds: Dict[str, Dict[str, int]]) -> Optional[str]:
-    t = str(team)
+    t = _norm_team(str(team))
     for conf in ("AFC", "NFC"):
         if t in seeds.get(conf, {}):
             return conf
@@ -84,6 +93,8 @@ def _conference_of(team: str, seeds: Dict[str, Dict[str, int]]) -> Optional[str]
 
 def _host_by_seed(team_a: str, team_b: str, seeds: Dict[str, Dict[str, int]]) -> Tuple[str, str]:
     # Higher seed (lower number) hosts
+    team_a = _norm_team(str(team_a))
+    team_b = _norm_team(str(team_b))
     conf = _conference_of(team_a, seeds) or _conference_of(team_b, seeds)
     if not conf:
         # Fallback: keep alphabetical host

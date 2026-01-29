@@ -30,7 +30,10 @@ projection column is missing for a market, it will skip that row with a note.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, Dict, List, Tuple
 
@@ -260,6 +263,25 @@ def load_predictions(season: int, week: int, base_dir: Optional[Path] = None) ->
     return df
 
 
+def _sha256_file(path: Path) -> Optional[str]:
+    try:
+        if not path.exists() or not path.is_file():
+            return None
+        h = hashlib.sha256()
+        with path.open("rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return None
+
+
+def _write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, sort_keys=True)
+
+
 def load_bovada(path: Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"Bovada CSV not found: {path}")
@@ -372,9 +394,53 @@ def compute_edges(
     bovada_csv: Path,
     out_csv: Path,
     base_dir: Optional[Path] = None,
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
+) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     preds = load_predictions(season, week, base_dir)
+    raw_rows: Optional[int] = None
+    raw_cols: Optional[list[str]] = None
+    try:
+        raw_df = pd.read_csv(bovada_csv)
+        raw_rows = int(raw_df.shape[0])
+        raw_cols = list(raw_df.columns)
+    except Exception:
+        pass
+
     bov = load_bovada(bovada_csv)
+
+    meta: dict = {
+        "season": int(season),
+        "week": int(week),
+        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "inputs": {
+            "bovada_csv": str(bovada_csv),
+            # Raw file stats (pre-normalization/dedupe)
+            "raw_rows": raw_rows,
+            "raw_cols": raw_cols,
+            # Normalized stats used for join
+            "bovada_rows": int(len(bov)),
+            "bovada_cols": int(bov.shape[1]),
+        },
+        "predictions": {
+            "player_props_csv": str((Path(base_dir) if base_dir else Path('nfl_compare/data')) / f"player_props_{season}_wk{week}.csv"),
+            "rows": int(len(preds)),
+            "cols": int(preds.shape[1]),
+        },
+        "params": {
+            "data_dir": str(base_dir) if base_dir is not None else "nfl_compare/data",
+            "sigmas": {
+                # Keep both env raw values and parsed floats for debugging
+                "PROPS_SIGMA_REC_YARDS": os.getenv("PROPS_SIGMA_REC_YARDS", "17.0"),
+                "PROPS_SIGMA_RUSH_YARDS": os.getenv("PROPS_SIGMA_RUSH_YARDS", "14.0"),
+                "PROPS_SIGMA_PASS_YARDS": os.getenv("PROPS_SIGMA_PASS_YARDS", "35.0"),
+                "PROPS_SIGMA_RECEPTIONS": os.getenv("PROPS_SIGMA_RECEPTIONS", "1.3"),
+                "PROPS_SIGMA_PASS_ATTEMPTS": os.getenv("PROPS_SIGMA_PASS_ATTEMPTS", "3.5"),
+                "PROPS_SIGMA_RUSH_ATTEMPTS": os.getenv("PROPS_SIGMA_RUSH_ATTEMPTS", "3.0"),
+                "PROPS_SIGMA_RUSH_REC_YARDS": os.getenv("PROPS_SIGMA_RUSH_REC_YARDS", "20.0"),
+                "PROPS_SIGMA_PASS_RUSH_YARDS": os.getenv("PROPS_SIGMA_PASS_RUSH_YARDS", "38.0"),
+                "PROPS_SIGMA_TARGETS": os.getenv("PROPS_SIGMA_TARGETS", "2.2"),
+            },
+        },
+    }
 
     p_pcol = pick_first_col(preds, PLAYER_COL_CANDIDATES)
     if not p_pcol:
@@ -712,7 +778,27 @@ def compute_edges(
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     out_df.to_csv(out_csv, index=False)
 
-    return merged, out_df
+    # Fill remaining meta fields that depend on output
+    meta["output"] = {
+        "edges_csv": str(out_csv),
+        "rows": int(len(out_df)),
+        "cols": int(out_df.shape[1]),
+    }
+    try:
+        meta["stats"] = {
+            "rows_with_proj": int(pd.to_numeric(merged.get("proj"), errors="coerce").notna().sum()) if "proj" in merged.columns else 0,
+        }
+    except Exception:
+        pass
+    try:
+        # Which projection column would be used per market key (based on prediction columns)
+        meta["projection_columns"] = {
+            k: choose_proj_col(preds, k) for k in sorted(set(PROJ_COLS.keys()))
+        }
+    except Exception:
+        pass
+
+    return merged, out_df, meta
 
 
 def main():
@@ -722,10 +808,11 @@ def main():
     ap.add_argument("--bovada", type=str, required=True, help="Path to Bovada player props CSV")
     ap.add_argument("--out", type=str, required=True, help="Path to write edges CSV")
     ap.add_argument("--data-dir", type=str, default="nfl_compare/data", help="Base directory for predictions data")
+    ap.add_argument("--meta-out", type=str, default=None, help="Optional path to write provenance JSON sidecar")
     args = ap.parse_args()
 
     try:
-        merged, out_df = compute_edges(
+        merged, out_df, meta = compute_edges(
             season=args.season,
             week=args.week,
             bovada_csv=Path(args.bovada),
@@ -741,6 +828,19 @@ def main():
         return 1
 
     print(f"Wrote {args.out} with {len(out_df)} rows.")
+
+    # Optional provenance sidecar
+    if args.meta_out:
+        try:
+            meta_path = Path(args.meta_out)
+            meta["inputs"]["bovada_sha256"] = _sha256_file(Path(args.bovada))
+            preds_path = Path(args.data_dir) / f"player_props_{args.season}_wk{args.week}.csv"
+            meta["predictions"]["player_props_sha256"] = _sha256_file(preds_path)
+            meta["output"]["edges_sha256"] = _sha256_file(Path(args.out))
+            _write_json(meta_path, meta)
+            print(f"Wrote meta {meta_path}")
+        except Exception as e:
+            print(f"WARN: failed to write meta-out: {e}")
     # Show quick top-10 preview
     preview_cols = [c for c in ["player", "team", "market", "line", "proj", "edge", "over_price", "over_ev", "under_price", "under_ev", "rank_score"] if c in out_df.columns]
     try:

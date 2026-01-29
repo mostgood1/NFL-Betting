@@ -1,0 +1,79 @@
+{
+  "schema_version": "1",
+  "name": "simulate_scenarios_opponent_v1",
+  "baseline_scenario_id": "opp_baseline",
+  "scenarios": [
+    {
+      "scenario_id": "opp_baseline",
+      "label": "Baseline (opponent set)"
+    },
+
+    {
+      "scenario_id": "opp_pressure_spike",
+      "label": "Pressure spike +0.04 (only when sack_rate columns present)",
+      "home_def_sack_rate_add": 0.04,
+      "away_def_sack_rate_add": 0.04,
+      "apply_when": [
+        {"field": "home_def_sack_rate_ema", "op": "notnull"},
+        {"field": "away_def_sack_rate_ema", "op": "notnull"}
+      ],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_defenses_stronger",
+      "label": "Both defenses +3 def PPG (stronger -> total -)",
+      "home_def_ppg_add": -3.0,
+      "away_def_ppg_add": -3.0,
+      "apply_when": [
+        {"field": "home_def_ppg", "op": "notnull"},
+        {"field": "away_def_ppg", "op": "notnull"}
+      ],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_defenses_weaker",
+      "label": "Both defenses -3 def PPG (weaker -> total +)",
+      "home_def_ppg_add": 3.0,
+      "away_def_ppg_add": 3.0,
+      "apply_when": [
+        {"field": "home_def_ppg", "op": "notnull"},
+        {"field": "away_def_ppg", "op": "notnull"}
+      ],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_short_week_home",
+      "label": "Home short-week disadvantage (rest diff -4 days)",
+      "rest_days_diff_add": -4.0,
+      "apply_when": [{"field": "rest_days_diff", "op": "notnull"}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_short_week_away",
+      "label": "Away short-week disadvantage (rest diff +4 days)",
+      "rest_days_diff_add": 4.0,
+      "apply_when": [{"field": "rest_days_diff", "op": "notnull"}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_elo_home_plus150",
+      "label": "Home Elo +150 (diff)",
+      "elo_diff_add": 150.0,
+      "apply_when": [{"field": "elo_diff", "op": "notnull"}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "opp_elo_home_minus150",
+      "label": "Home Elo -150 (diff)",
+      "elo_diff_add": -150.0,
+      "apply_when": [{"field": "elo_diff", "op": "notnull"}],
+      "apply_when_mode": "all"
+    }
+  ]
+}

@@ -224,11 +224,11 @@ def fit_totals_calibration(df: pd.DataFrame) -> Optional[FitResult]:
         return None
     x = work["pred_total"].to_numpy()
     y = work["actual_total"].to_numpy()
-    a, b = _fit_scale_shift(x, y)
+    a_raw, b_raw = _fit_scale_shift(x, y)
 
     # Safety clamp: prevent extreme calibrations from destabilizing sims/UI.
-    # Override by setting ALLOW_UNSAFE_TOTALS_CALIBRATION=1.
-    allow_unsafe = str(os.environ.get('ALLOW_UNSAFE_TOTALS_CALIBRATION', '0')).strip().lower() in {'1','true','yes','y','on'}
+    # Note: we always write clamped (safe) values to disk; raw fit params are
+    # returned separately for diagnostics.
     try:
         scale_min = float(os.environ.get('TOTALS_CAL_SCALE_MIN', '0.85'))
         scale_max = float(os.environ.get('TOTALS_CAL_SCALE_MAX', '1.15'))
@@ -237,12 +237,11 @@ def fit_totals_calibration(df: pd.DataFrame) -> Optional[FitResult]:
     except Exception:
         scale_min, scale_max = 0.85, 1.15
         shift_min, shift_max = -7.0, 7.0
-    if not allow_unsafe:
-        try:
-            a = float(np.clip(float(a), float(scale_min), float(scale_max)))
-            b = float(np.clip(float(b), float(shift_min), float(shift_max)))
-        except Exception:
-            a, b = 1.0, 0.0
+    try:
+        a = float(np.clip(float(a_raw), float(scale_min), float(scale_max)))
+        b = float(np.clip(float(b_raw), float(shift_min), float(shift_max)))
+    except Exception:
+        a, b = 1.0, 0.0
     y_adj = a * x + b
 
     # Grid-search market_blend using only rows with market_total
@@ -262,7 +261,26 @@ def fit_totals_calibration(df: pd.DataFrame) -> Optional[FitResult]:
             if mse < mse_best:
                 mse_best, mae_best, mbest = mse, mae, float(alpha)
 
-    return FitResult(scale=float(a), shift=float(b), market_blend=float(mbest), mse=float(mse_best), mae=float(mae_best), n=int(len(work)), weeks_used=sorted(set((int(s), int(w)) for s, w in zip(work.get("season", []), work.get("week", []))) if {"season","week"}.issubset(work.columns) else []))
+    res = FitResult(
+        scale=float(a),
+        shift=float(b),
+        market_blend=float(mbest),
+        mse=float(mse_best),
+        mae=float(mae_best),
+        n=int(len(work)),
+        weeks_used=sorted(
+            set(
+                (int(s), int(w))
+                for s, w in zip(work.get("season", []), work.get("week", []))
+            )
+            if {"season", "week"}.issubset(work.columns)
+            else []
+        ),
+    )
+    # Attach raw fit values for diagnostics (safe values are what get used).
+    setattr(res, "raw_scale", float(a_raw))
+    setattr(res, "raw_shift", float(b_raw))
+    return res
 
 
 def main():
@@ -295,6 +313,8 @@ def main():
     payload = {
         "scale": fit.scale,
         "shift": fit.shift,
+        "raw_scale": getattr(fit, "raw_scale", None),
+        "raw_shift": getattr(fit, "raw_shift", None),
         "market_blend": fit.market_blend,
         "metrics": {
             "mse": fit.mse,

@@ -163,7 +163,7 @@ def api_health_calibration():
         sigma = _load_sigma_calibration() if '_load_sigma_calibration' in globals() else None
         # File metadata
         try:
-            t_fp = DATA_DIR / 'totals_calibration.json'
+            t_fp = _calibration_dir() / 'totals_calibration.json'
             t_meta = None
             if t_fp.exists():
                 st = t_fp.stat()
@@ -175,7 +175,7 @@ def api_health_calibration():
         except Exception:
             t_meta = None  # type: ignore
         try:
-            s_fp = DATA_DIR / 'sigma_calibration.json'
+            s_fp = _calibration_dir() / 'sigma_calibration.json'
             s_meta = None
             if s_fp.exists():
                 st = s_fp.stat()
@@ -191,7 +191,7 @@ def api_health_calibration():
         try:
             pcal = _load_prob_calibration()
             if pcal is not None:
-                p_fp = DATA_DIR / 'prob_calibration.json'
+                p_fp = _calibration_dir() / 'prob_calibration.json'
                 if p_fp.exists():
                     p_meta = {
                         'path': str(p_fp),
@@ -200,7 +200,7 @@ def api_health_calibration():
                     }
         except Exception:
             pcal = None; p_meta = None
-        return jsonify({'ok': True, 'totals_calibration': totals, 'totals_file': t_meta, 'sigma_calibration': sigma, 'sigma_file': s_meta, 'prob_calibration': pcal, 'prob_file': p_meta})
+        return jsonify({'ok': True, 'calibration_dir': str(_calibration_dir()), 'totals_calibration': totals, 'totals_file': t_meta, 'sigma_calibration': sigma, 'sigma_file': s_meta, 'prob_calibration': pcal, 'prob_file': p_meta})
     except Exception as e:
         return jsonify({'ok': False, 'error': str(e)})
 
@@ -278,6 +278,41 @@ def _fit_totals_cal_job(weeks: int = 4, do_push: bool = True) -> None:
 
 
 # --- Totals calibration (global scale/shift, optional market blend) ---
+def _calibration_dir() -> Path:
+    """Directory to load shipped calibration artifacts from.
+
+    Default: DATA_DIR
+    Override: NFL_CALIB_DIR (absolute path or repo-relative path)
+    """
+    p = os.environ.get('NFL_CALIB_DIR')
+    if p:
+        try:
+            out = Path(str(p).strip())
+            if not out.is_absolute():
+                out = (BASE_DIR / out).resolve()
+            return out
+        except Exception:
+            pass
+
+    # If a calibration bundle pointer is present, prefer that.
+    # This enables shipped-only deterministic pinning without requiring env vars.
+    try:
+        active_fp = DATA_DIR / 'calibration_active.json'
+        if active_fp.exists():
+            active = json.loads(active_fp.read_text(encoding='utf-8'))
+            if isinstance(active, dict):
+                bundle_dir = active.get('bundle_dir')
+                if bundle_dir:
+                    out = Path(str(bundle_dir).strip())
+                    if not out.is_absolute():
+                        out = (DATA_DIR / out).resolve()
+                    if out.exists():
+                        return out
+    except Exception:
+        pass
+    return DATA_DIR
+
+
 def _load_totals_calibration() -> Optional[Dict[str, Any]]:
     """Return totals calibration dict if configured.
     Sources (priority):
@@ -298,7 +333,7 @@ def _load_totals_calibration() -> Optional[Dict[str, Any]]:
             shift_min, shift_max = -7.0, 7.0
             min_n = 80
 
-        fp = DATA_DIR / 'totals_calibration.json'
+        fp = _calibration_dir() / 'totals_calibration.json'
         if fp.exists():
             try:
                 data = json.loads(fp.read_text(encoding='utf-8'))
@@ -429,9 +464,9 @@ def _load_prob_calibration() -> Optional[Dict[str, Any]]:
                 if not fp.is_absolute():
                     fp = (BASE_DIR / fp).resolve()
             except Exception:
-                fp = DATA_DIR / 'prob_calibration.json'
+                fp = _calibration_dir() / 'prob_calibration.json'
         else:
-            fp = DATA_DIR / 'prob_calibration.json'
+            fp = _calibration_dir() / 'prob_calibration.json'
         if not fp.exists():
             return None
         data = json.loads(fp.read_text(encoding='utf-8'))
@@ -1683,12 +1718,87 @@ def _defense_from_sim_drives(
         return None
 
 def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[pd.DataFrame]:
-    """Load sim_probs.csv for the given season/week from DATA_DIR/backtests/{season}_wk{week}/sim_probs.csv.
-    Returns a DataFrame or None if missing/invalid. Cached by (season, week).
+    """Load sim_probs.csv for the given season/week.
+
+    Primary: DATA_DIR/backtests/{season}_wk{week}/sim_probs.csv
+    Fallback: DATA_DIR/backtests/{season}_wk{week}/sim_probs_scenarios.csv (baseline-only)
+
+    Returns a DataFrame or None if missing/invalid. Cached by (season, week) for per-week loads.
     """
     try:
         if season is None or week is None:
             return None
+
+        def _coerce_sim_probs_from_scenarios(df: pd.DataFrame) -> Optional[pd.DataFrame]:
+            """Convert sim_probs_scenarios.csv to a sim_probs-like DataFrame (1 row per game)."""
+            try:
+                if df is None or df.empty:
+                    return None
+                if 'game_id' not in df.columns:
+                    return None
+
+                out = df.copy()
+
+                # Prefer a baseline scenario if present.
+                baseline_id = None
+                try:
+                    baseline_id = os.environ.get('SIM_SCENARIO_BASELINE_ID')
+                except Exception:
+                    baseline_id = None
+                if not baseline_id:
+                    try:
+                        baseline_id = os.environ.get('DAILY_UPDATE_PROPS_SCENARIOS_BASELINE_ID')
+                    except Exception:
+                        baseline_id = None
+                baseline_id = str(baseline_id).strip() if baseline_id else None
+
+                if 'scenario_id' in out.columns:
+                    try:
+                        sid = out['scenario_id'].astype(str)
+                        if baseline_id:
+                            out = out[sid == baseline_id]
+                        else:
+                            # Common default: v2_baseline; else first *_baseline found.
+                            if (sid == 'v2_baseline').any():
+                                out = out[sid == 'v2_baseline']
+                            else:
+                                mask = sid.str.contains('baseline', case=False, na=False)
+                                if mask.any():
+                                    # Keep the first baseline-like scenario_id deterministically.
+                                    try:
+                                        first_id = sid[mask].iloc[0]
+                                        out = out[sid == first_id]
+                                    except Exception:
+                                        out = out[mask]
+                    except Exception:
+                        pass
+
+                # Ensure one row per game_id.
+                try:
+                    out = out.sort_values(['game_id'])
+                except Exception:
+                    pass
+                try:
+                    out = out.drop_duplicates(subset=['game_id'], keep='first')
+                except Exception:
+                    pass
+
+                # Keep a stable subset of columns matching sim_probs.csv expectations.
+                want = [
+                    'season', 'week', 'game_id',
+                    'home_team', 'away_team',
+                    'pred_margin', 'pred_total',
+                    'spread_ref', 'total_ref',
+                    'prob_home_win_mc', 'prob_home_cover_mc', 'prob_over_total_mc',
+                    # Optional convenience columns (ignored by callers if absent)
+                    'home_points_mean', 'away_points_mean', 'total_points_mean',
+                ]
+                keep = [c for c in want if c in out.columns]
+                out = out[keep] if keep else out
+                return out if (out is not None and not out.empty) else None
+            except Exception:
+                return None
+
         key = (int(season), int(week))
         fp = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_probs.csv"
         df = None
@@ -1713,6 +1823,26 @@ def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[p
                 return df
             return None
 
+        # Fallback: scenario sims (baseline) if classic sim_probs.csv is missing.
+        try:
+            fp_sc = DATA_DIR / "backtests" / f"{int(season)}_wk{int(week)}" / "sim_probs_scenarios.csv"
+            if fp_sc.exists():
+                try:
+                    df_sc = pd.read_csv(fp_sc)
+                except Exception:
+                    df_sc = None
+                df2 = _coerce_sim_probs_from_scenarios(df_sc) if df_sc is not None else None
+                if df2 is not None and not df2.empty:
+                    # Cache under the requested key (this is still week-specific).
+                    _sim_probs_cache[key] = df2
+                    try:
+                        _sim_probs_mtime_cache[key] = float(fp_sc.stat().st_mtime)
+                    except Exception:
+                        _sim_probs_mtime_cache[key] = -1.0
+                    return df2
+        except Exception:
+            pass
+
         # If the file is missing now, don't serve stale cached data.
         try:
             _sim_probs_cache.pop(key, None)
@@ -1720,24 +1850,32 @@ def _load_sim_probs_df(season: Optional[int], week: Optional[int]) -> Optional[p
         except Exception:
             pass
         # Fallback: if per-week sim_probs missing, try latest backtests folder for this season
+        # (accept either sim_probs.csv or sim_probs_scenarios.csv).
         if df is None or (isinstance(df, pd.DataFrame) and df.empty):
             try:
                 import glob
-                pattern = str(DATA_DIR / "backtests" / f"{int(season)}_wk*" / "sim_probs.csv")
-                files = glob.glob(pattern)
+
+                def _wk_num(p: str) -> int:
+                    try:
+                        name = Path(p).parent.name  # e.g., 2025_wk17
+                        return int(str(name).split('wk')[-1])
+                    except Exception:
+                        return -1
+
+                files: list[str] = []
+                files.extend(glob.glob(str(DATA_DIR / "backtests" / f"{int(season)}_wk*" / "sim_probs.csv")))
+                files.extend(glob.glob(str(DATA_DIR / "backtests" / f"{int(season)}_wk*" / "sim_probs_scenarios.csv")))
                 if files:
-                    # pick the highest week by parsing folder name
-                    def _wk_num(p: str) -> int:
-                        try:
-                            name = Path(p).parent.name  # e.g., 2025_wk17
-                            return int(str(name).split('wk')[-1])
-                        except Exception:
-                            return -1
                     best = max(files, key=_wk_num)
                     try:
-                        df = pd.read_csv(best)
+                        df_raw = pd.read_csv(best)
                     except Exception:
-                        df = None
+                        df_raw = None
+                    if df_raw is not None and not df_raw.empty:
+                        if Path(best).name == 'sim_probs_scenarios.csv':
+                            df = _coerce_sim_probs_from_scenarios(df_raw)
+                        else:
+                            df = df_raw
             except Exception:
                 pass
 
@@ -3191,6 +3329,22 @@ def api_health_data():
                 opt_status[name] = {'exists': False, 'error': str(e)}
         status['optional_files'] = opt_status
 
+        # Latest week manifest (shipped-only provenance)
+        try:
+            from nfl_compare.src.artifacts import latest_manifest_for_week as _latest_manifest
+            inf = _infer_current_season_week(games_df=games_df, preds_df=preds_df)
+            if inf and (inf[0] is not None) and (inf[1] is not None):
+                s0, w0 = int(inf[0]), int(inf[1])
+                mf = _latest_manifest(s0, w0, data_dir=DATA_DIR)
+                status['manifest'] = {
+                    'season': s0,
+                    'week': w0,
+                    'exists': bool(mf is not None),
+                    'path': str(mf).replace('\\', '/') if mf is not None else None,
+                }
+        except Exception:
+            pass
+
         # Weather snapshot presence check for the latest season/week in games.csv
         try:
             wx = {
@@ -3256,6 +3410,32 @@ def api_health_data():
         return jsonify(status)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/artifacts/manifest')
+def api_artifacts_manifest():
+    """Return the shipped week manifest for provenance/reproducibility (no compute)."""
+    try:
+        season = request.args.get('season', type=int)
+        week = request.args.get('week', type=int)
+        if season is None or week is None:
+            games_df = _load_games()
+            preds_df = _load_predictions()
+            inf = _infer_current_season_week(games_df=games_df, preds_df=preds_df)
+            if inf and season is None and inf[0] is not None:
+                season = int(inf[0])
+            if inf and week is None and inf[1] is not None:
+                week = int(inf[1])
+        if season is None or week is None:
+            return jsonify({'ok': False, 'error': 'season/week unresolved'}), 400
+
+        from nfl_compare.src.artifacts import default_week_manifest_path as _mf_path, read_week_manifest as _read_mf
+        fp = _mf_path(int(season), int(week), data_dir=DATA_DIR)
+        if not fp.exists():
+            return jsonify({'ok': True, 'season': int(season), 'week': int(week), 'exists': False, 'manifest': None}), 200
+        return jsonify({'ok': True, 'season': int(season), 'week': int(week), 'exists': True, 'manifest': _read_mf(fp)}), 200
+    except Exception as e:  # noqa: BLE001
+        return jsonify({'ok': False, 'error': str(e)}), 500
 
 
 @app.route('/api/props/teams')
@@ -3498,6 +3678,9 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
     # Do NOT carry market/odds fields from predictions.csv; they'll be joined later from lines.csv.
     core_keys = {
         'season','week','game_id','game_date','date','home_team','away_team','home_score','away_score',
+        # Quarter-by-quarter actuals (when present in games.csv). Never pull from predictions sources.
+        'home_q1','home_q2','home_q3','home_q4',
+        'away_q1','away_q2','away_q3','away_q4',
         # Odds/market fields we explicitly exclude from pred merge to avoid stale leakage
         'spread_home','open_spread_home','close_spread_home',
         'total','open_total','close_total',
@@ -3697,6 +3880,42 @@ def _build_week_view(pred_df: pd.DataFrame, games_df: pd.DataFrame, season: Opti
                             merged = merged_odds
                 except Exception:
                     pass
+    except Exception:
+        pass
+
+    # 2e. Backfill quarter actuals from games.csv (best-effort).
+    # Rationale: the weekly view is sometimes synthesized from lines/predictions and/or merged with
+    # predictions frames that can contain quarter-like fields. For finalized weeks, games.csv is the
+    # source of truth for actual quarter scores.
+    try:
+        if (games_df is not None) and (not getattr(games_df, 'empty', True)) and (merged is not None) and (not getattr(merged, 'empty', True)):
+            qcols = ['home_q1','home_q2','home_q3','home_q4','away_q1','away_q2','away_q3','away_q4']
+            if ('game_id' in merged.columns) and ('game_id' in games_df.columns) and any(c in games_df.columns for c in qcols):
+                try:
+                    gq = _filter_sw(games_df.copy())
+                except Exception:
+                    gq = games_df.copy()
+                keep_q = ['game_id'] + [c for c in qcols if c in gq.columns]
+                if len(keep_q) > 1 and not gq.empty:
+                    gq = gq[keep_q].drop_duplicates(subset=['game_id'], keep='last')
+                    merged_q = merged.merge(gq, on='game_id', how='left', suffixes=('', '_gq'))
+                    for c in [c for c in qcols if c in merged_q.columns and f'{c}_gq' in merged_q.columns]:
+                        try:
+                            merged_q[c] = pd.to_numeric(merged_q[c], errors='coerce')
+                        except Exception:
+                            pass
+                        try:
+                            merged_q[f'{c}_gq'] = pd.to_numeric(merged_q[f'{c}_gq'], errors='coerce')
+                        except Exception:
+                            pass
+                        if c not in merged.columns:
+                            merged_q[c] = merged_q[f'{c}_gq']
+                        else:
+                            merged_q[c] = merged_q[c].where(merged_q[c].notna(), merged_q[f'{c}_gq'])
+                    drop_q = [c for c in merged_q.columns if c.endswith('_gq')]
+                    if drop_q:
+                        merged_q = merged_q.drop(columns=drop_q)
+                    merged = merged_q
     except Exception:
         pass
 
@@ -5116,10 +5335,10 @@ def _load_sigma_calibration() -> Dict[str, float]:
         total = float(total_env) if total_env not in (None, "") else None
     except Exception:
         total = None
-    # If not in env, try file nfl_compare/data/sigma_calibration.json
+    # If not in env, try file sigma_calibration.json
     if ats is None or total is None:
         try:
-            fp = DATA_DIR / 'sigma_calibration.json'
+            fp = _calibration_dir() / 'sigma_calibration.json'
             if fp.exists():
                 import json as _json
                 with open(fp, 'r', encoding='utf-8') as f:
@@ -7577,6 +7796,9 @@ def _build_cards(
     sim_d_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_sim_drives else {}
     props_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_props else {}
     props_by_gid_by_sw: Dict[tuple[int, int], Dict[str, pd.DataFrame]] = {} if include_props else {}
+    # Player props reconciliation caches (projections vs actuals): used for per-game prop accuracy summaries.
+    props_recon_df_by_sw: Dict[tuple[int, int], Optional[pd.DataFrame]] = {} if include_props else {}
+    props_recon_by_gid_by_sw: Dict[tuple[int, int], Dict[str, pd.DataFrame]] = {} if include_props else {}
     try:
         if view_df is not None and not view_df.empty and {'season','week'}.issubset(view_df.columns):
             sw = view_df[['season','week']].dropna().drop_duplicates()
@@ -7618,6 +7840,28 @@ def _build_cards(
                             props_by_gid_by_sw[(s_i, w_i)] = by_gid
                     except Exception:
                         props_by_gid_by_sw[(s_i, w_i)] = {}
+
+                    # Load props reconciliation cache (if present) for per-game error summaries.
+                    try:
+                        recon_fp = DATA_DIR / f"player_props_vs_actuals_{s_i}_wk{w_i}.csv"
+                        rdf = None
+                        if recon_fp.exists():
+                            try:
+                                rdf = pd.read_csv(recon_fp)
+                            except Exception:
+                                rdf = None
+                        props_recon_df_by_sw[(s_i, w_i)] = rdf
+                        by_gid_r: Dict[str, pd.DataFrame] = {}
+                        if rdf is not None and not rdf.empty and 'game_id' in rdf.columns:
+                            for gid, gdf in rdf.groupby(rdf['game_id'].astype(str), dropna=False):
+                                try:
+                                    by_gid_r[str(gid)] = gdf
+                                except Exception:
+                                    continue
+                        props_recon_by_gid_by_sw[(s_i, w_i)] = by_gid_r
+                    except Exception:
+                        props_recon_df_by_sw[(s_i, w_i)] = None
+                        props_recon_by_gid_by_sw[(s_i, w_i)] = {}
 
                 # If Full mode and week artifacts are missing, compute them on-demand (aligned draws).
                 try:
@@ -7662,7 +7906,42 @@ def _build_cards(
         sim_d_df_by_sw = {}
         props_df_by_sw = {}
         props_by_gid_by_sw = {}
+        props_recon_df_by_sw = {}
+        props_recon_by_gid_by_sw = {}
     if view_df is not None and not view_df.empty:
+        # Load drive stats (team-week aggregates) once for shipped-only drive accuracy proxies.
+        drive_stats_by_swt: Dict[tuple[int, int, str], Dict[str, Any]] = {}
+        try:
+            ds_fp = DATA_DIR / 'pfr_drive_stats.csv'
+            if ds_fp.exists():
+                dsd = pd.read_csv(ds_fp)
+                if dsd is not None and not dsd.empty:
+                    # Coerce season/week and normalize team abbreviations
+                    try:
+                        dsd['season'] = pd.to_numeric(dsd.get('season'), errors='coerce')
+                        dsd['week'] = pd.to_numeric(dsd.get('week'), errors='coerce')
+                    except Exception:
+                        pass
+                    for _, rr in dsd.iterrows():
+                        try:
+                            s_i = int(pd.to_numeric(rr.get('season'), errors='coerce'))
+                            w_i = int(pd.to_numeric(rr.get('week'), errors='coerce'))
+                            team = rr.get('team')
+                            if team is None or (isinstance(team, float) and pd.isna(team)):
+                                continue
+                            t = str(team).strip().upper()
+                            if not t or t == 'NONE':
+                                continue
+                            drive_stats_by_swt[(s_i, w_i, t)] = {
+                                'drives': rr.get('drives'),
+                                'seconds_per_drive': rr.get('seconds_per_drive'),
+                                'points_per_drive': rr.get('points_per_drive'),
+                            }
+                        except Exception:
+                            continue
+        except Exception:
+            drive_stats_by_swt = {}
+
         # Load authoritative lines.csv once for display overrides (spread/total)
         lines_by_key: Dict[tuple, Dict[str, Any]] = {}
         try:
@@ -8370,6 +8649,21 @@ def _build_cards(
             try:
                 is_final_resolved = (actual_total is not None) and (actual_margin is not None)
 
+                def _to_float(x: Any) -> Optional[float]:
+                    try:
+                        if x is None or (isinstance(x, float) and pd.isna(x)) or pd.isna(x):
+                            return None
+                        return float(x)
+                    except Exception:
+                        return None
+
+                def _mae_from_errs(errs: List[float]) -> Optional[float]:
+                    try:
+                        v = [abs(float(x)) for x in errs if x is not None and not pd.isna(x)]
+                        return (sum(v) / len(v)) if v else None
+                    except Exception:
+                        return None
+
                 def _outcome_from_diff(diff: Optional[float]) -> Optional[int]:
                     if diff is None:
                         return None
@@ -8379,12 +8673,33 @@ def _build_cards(
                         return 0
                     return None  # push/tie
 
+                def _correct_side_from_pred(pred_diff: Optional[float], actual_diff: Optional[float]) -> Optional[bool]:
+                    """Return correctness for sign-based predictions; None for pushes/ties or missing."""
+                    try:
+                        if pred_diff is None or actual_diff is None:
+                            return None
+                        if pd.isna(pred_diff) or pd.isna(actual_diff):
+                            return None
+                        pdv = float(pred_diff)
+                        adv = float(actual_diff)
+                        if adv == 0:
+                            return None
+                        if pdv == 0:
+                            return None
+                        return (pdv > 0) == (adv > 0)
+                    except Exception:
+                        return None
+
                 if is_final_resolved:
                     # Per-game errors (signed: pred - actual)
                     model_margin_err = (float(margin) - float(actual_margin)) if (margin is not None and actual_margin is not None) else None
                     model_total_err = (float(total_pred) - float(actual_total)) if (total_pred is not None and actual_total is not None) else None
                     sim_margin_err = (float(sim_margin) - float(actual_margin)) if (sim_margin is not None and actual_margin is not None) else None
                     sim_total_err = (float(sim_total) - float(actual_total)) if (sim_total is not None and actual_total is not None) else None
+
+                    # "Blend" view: use the existing combo (avg of raw model and sim means) as the combined signal.
+                    blend_margin_err = (float(combo_margin) - float(actual_margin)) if (combo_margin is not None and actual_margin is not None) else None
+                    blend_total_err = (float(combo_total) - float(actual_total)) if (combo_total is not None and actual_total is not None) else None
 
                     # ML outcome (home win)
                     y_ml = _outcome_from_diff(float(actual_margin) if actual_margin is not None else None)
@@ -8412,6 +8727,241 @@ def _build_cards(
                         y_total = _outcome_from_diff(float(actual_total) - float(total_line))
                     brier_total = ((float(prob_over_total_mc) - float(y_total)) ** 2) if (prob_over_total_mc is not None and y_total is not None) else None
 
+                    # Correctness (winner/ATS/total) for model/sim/blend.
+                    model_ml_correct = _correct_side_from_pred(margin, actual_margin)
+                    sim_ml_correct = _correct_side_from_pred(sim_margin, actual_margin)
+                    blend_ml_correct = _correct_side_from_pred(combo_margin, actual_margin)
+
+                    # ATS correctness uses line; compare sign(margin + line) vs sign(actual_margin + line)
+                    def _ats_correct(margin_pred: Optional[float]) -> Optional[bool]:
+                        try:
+                            if ats_line is None or actual_margin is None:
+                                return None
+                            pred = (float(margin_pred) + float(ats_line)) if margin_pred is not None else None
+                            act = float(actual_margin) + float(ats_line)
+                            return _correct_side_from_pred(pred, act)
+                        except Exception:
+                            return None
+
+                    model_ats_correct = _ats_correct(margin)
+                    sim_ats_correct = _ats_correct(sim_margin)
+                    blend_ats_correct = _ats_correct(combo_margin)
+
+                    # Total correctness uses line; compare sign(total - line)
+                    def _total_correct(total_pred_x: Optional[float]) -> Optional[bool]:
+                        try:
+                            if total_line is None or actual_total is None:
+                                return None
+                            pred = (float(total_pred_x) - float(total_line)) if total_pred_x is not None else None
+                            act = float(actual_total) - float(total_line)
+                            return _correct_side_from_pred(pred, act)
+                        except Exception:
+                            return None
+
+                    model_total_correct = _total_correct(total_pred)
+                    sim_total_correct = _total_correct(sim_total)
+                    blend_total_correct = _total_correct(combo_total)
+
+                    # Quarter-by-quarter accuracy (shipped sim_quarters.csv vs games.csv).
+                    quarters_recon = None
+                    try:
+                        # Actual quarters from games.csv columns in the weekly view.
+                        aq = []
+                        for i in (1, 2, 3, 4):
+                            aq.append({
+                                'q': i,
+                                'home': _to_float(g(f'home_q{i}')),
+                                'away': _to_float(g(f'away_q{i}')),
+                            })
+
+                        # Model quarters if present in the view (optional)
+                        mq_errs: List[float] = []
+                        mq_rows: List[Dict[str, Any]] = []
+                        for i in (1, 2, 3, 4):
+                            phq = _to_float(g(f'pred_home_q{i}'))
+                            paq = _to_float(g(f'pred_away_q{i}'))
+                            ahq = _to_float(g(f'home_q{i}'))
+                            aaq = _to_float(g(f'away_q{i}'))
+                            herr = (phq - ahq) if (phq is not None and ahq is not None) else None
+                            aerr = (paq - aaq) if (paq is not None and aaq is not None) else None
+                            if herr is not None:
+                                mq_errs.append(float(herr))
+                            if aerr is not None:
+                                mq_errs.append(float(aerr))
+                            if (phq is not None) or (paq is not None) or (ahq is not None) or (aaq is not None):
+                                mq_rows.append({'q': i, 'home_pred': phq, 'away_pred': paq, 'home_act': ahq, 'away_act': aaq, 'home_err': herr, 'away_err': aerr})
+
+                        # Simulation quarter means (best-effort)
+                        sq_errs: List[float] = []
+                        sq_rows: List[Dict[str, Any]] = []
+                        try:
+                            season_i2 = int(pd.to_numeric(g('season'), errors='coerce'))
+                            week_i2 = int(pd.to_numeric(g('week'), errors='coerce'))
+                        except Exception:
+                            season_i2 = week_i2 = None
+                        gid2 = str(g('game_id')) if g('game_id') is not None else None
+                        qdf = sim_q_df_by_sw.get((season_i2, week_i2)) if (include_sim_quarters and season_i2 is not None and week_i2 is not None) else None
+                        if qdf is not None and not qdf.empty and gid2 and 'game_id' in qdf.columns:
+                            qr = qdf[qdf['game_id'].astype(str) == gid2]
+                            if not qr.empty:
+                                r0 = qr.iloc[0]
+                                for i in (1, 2, 3, 4):
+                                    sh = _to_float(r0.get(f'home_q{i}'))
+                                    sa = _to_float(r0.get(f'away_q{i}'))
+                                    ah = _to_float(g(f'home_q{i}'))
+                                    aa = _to_float(g(f'away_q{i}'))
+                                    herr = (sh - ah) if (sh is not None and ah is not None) else None
+                                    aerr = (sa - aa) if (sa is not None and aa is not None) else None
+                                    if herr is not None:
+                                        sq_errs.append(float(herr))
+                                    if aerr is not None:
+                                        sq_errs.append(float(aerr))
+                                    sq_rows.append({'q': i, 'home_pred': sh, 'away_pred': sa, 'home_act': ah, 'away_act': aa, 'home_err': herr, 'away_err': aerr})
+                        quarters_recon = {
+                            'actual': aq,
+                            'model': {
+                                'quarters': mq_rows if mq_rows else None,
+                                'mae': _mae_from_errs(mq_errs),
+                                'n': len([x for x in mq_errs if x is not None])
+                            },
+                            'simulation': {
+                                'quarters': sq_rows if sq_rows else None,
+                                'mae': _mae_from_errs(sq_errs),
+                                'n': len([x for x in sq_errs if x is not None])
+                            },
+                        }
+                    except Exception:
+                        quarters_recon = None
+
+                    # Player prop accuracy summary for this game (from player_props_vs_actuals_* cache).
+                    props_recon = None
+                    try:
+                        ssw = None
+                        try:
+                            ssw = (int(pd.to_numeric(g('season'), errors='coerce')), int(pd.to_numeric(g('week'), errors='coerce')))
+                        except Exception:
+                            ssw = None
+                        gidp = str(g('game_id')) if g('game_id') is not None else None
+                        rdf = props_recon_by_gid_by_sw.get(ssw, {}).get(gidp) if (ssw and gidp) else None
+                        if rdf is not None and not rdf.empty:
+                            dfx = rdf.copy()
+                            # Optionally focus on active/offense players when flags exist
+                            try:
+                                if 'is_active' in dfx.columns:
+                                    dfx = dfx[pd.to_numeric(dfx['is_active'], errors='coerce').fillna(1).astype(int) == 1].copy()
+                            except Exception:
+                                pass
+                            try:
+                                if 'position' in dfx.columns:
+                                    dfx = dfx[dfx['position'].astype(str).str.upper().isin(['QB','RB','WR','TE'])].copy()
+                            except Exception:
+                                pass
+
+                            def _mae_col(col: str) -> tuple[Optional[float], int]:
+                                try:
+                                    if col not in dfx.columns:
+                                        return (None, 0)
+                                    s = pd.to_numeric(dfx[col], errors='coerce')
+                                    s = s.dropna()
+                                    if s.empty:
+                                        return (None, 0)
+                                    return (float(s.abs().mean()), int(s.shape[0]))
+                                except Exception:
+                                    return (None, 0)
+
+                            metrics = {}
+                            for col in [
+                                'pass_attempts_err','pass_yards_err','pass_tds_err','interceptions_err',
+                                'rush_attempts_err','rush_yards_err','rush_tds_err',
+                                'targets_err','receptions_err','rec_yards_err','rec_tds_err'
+                            ]:
+                                mae_v, n_v = _mae_col(col)
+                                if mae_v is not None:
+                                    metrics[col.replace('_err','_mae')] = mae_v
+                                    metrics[col.replace('_err','_n')] = n_v
+                            props_recon = {
+                                'rows': int(dfx.shape[0]),
+                                'metrics': metrics,
+                            }
+                    except Exception:
+                        props_recon = None
+
+                    # Drive accuracy (proxy): compare expected total drives from sim_drives.csv vs actual total drives (pfr_drive_stats).
+                    drives_recon = None
+                    try:
+                        season_i3 = int(pd.to_numeric(g('season'), errors='coerce')) if g('season') is not None else None
+                        week_i3 = int(pd.to_numeric(g('week'), errors='coerce')) if g('week') is not None else None
+                        gid3 = str(g('game_id')) if g('game_id') is not None else None
+
+                        # Expected from sim_drives artifact
+                        exp_total_drives = None
+                        exp_avg_drive_sec = None
+                        if include_sim_drives and season_i3 is not None and week_i3 is not None and gid3:
+                            ddf = sim_d_df_by_sw.get((season_i3, week_i3))
+                            if ddf is not None and not ddf.empty and 'game_id' in ddf.columns:
+                                sub = ddf[ddf['game_id'].astype(str) == gid3].copy()
+                                if sub is not None and not sub.empty:
+                                    try:
+                                        if 'drives_total' in sub.columns:
+                                            sdt = pd.to_numeric(sub['drives_total'], errors='coerce').dropna()
+                                            if not sdt.empty:
+                                                exp_total_drives = float(sdt.max())
+                                    except Exception:
+                                        exp_total_drives = None
+                                    try:
+                                        if 'drive_sec_mean' in sub.columns:
+                                            ssec = pd.to_numeric(sub['drive_sec_mean'], errors='coerce').dropna()
+                                            if not ssec.empty:
+                                                exp_avg_drive_sec = float(ssec.mean())
+                                    except Exception:
+                                        exp_avg_drive_sec = None
+
+                        # Actual from pfr_drive_stats (team-week aggregates)
+                        act_home_drives = None
+                        act_away_drives = None
+                        act_total_drives = None
+                        act_home_sec_per_drive = None
+                        act_away_sec_per_drive = None
+                        act_avg_drive_sec = None
+                        try:
+                            if season_i3 is not None and week_i3 is not None:
+                                if home_abbr:
+                                    rrh = drive_stats_by_swt.get((season_i3, week_i3, str(home_abbr).upper()))
+                                    if rrh:
+                                        act_home_drives = _to_float(rrh.get('drives'))
+                                        act_home_sec_per_drive = _to_float(rrh.get('seconds_per_drive'))
+                                if away_abbr:
+                                    rra = drive_stats_by_swt.get((season_i3, week_i3, str(away_abbr).upper()))
+                                    if rra:
+                                        act_away_drives = _to_float(rra.get('drives'))
+                                        act_away_sec_per_drive = _to_float(rra.get('seconds_per_drive'))
+                                if act_home_drives is not None and act_away_drives is not None:
+                                    act_total_drives = float(act_home_drives) + float(act_away_drives)
+                                # Weighted average drive seconds
+                                if (act_home_drives is not None and act_away_drives is not None and act_home_sec_per_drive is not None and act_away_sec_per_drive is not None):
+                                    tot = float(act_home_drives) + float(act_away_drives)
+                                    if tot > 0:
+                                        act_avg_drive_sec = (
+                                            float(act_home_drives) * float(act_home_sec_per_drive) +
+                                            float(act_away_drives) * float(act_away_sec_per_drive)
+                                        ) / tot
+                        except Exception:
+                            pass
+
+                        if (exp_total_drives is not None) or (act_total_drives is not None) or (exp_avg_drive_sec is not None) or (act_avg_drive_sec is not None):
+                            drives_recon = {
+                                'expected_total_drives': exp_total_drives,
+                                'actual_total_drives': act_total_drives,
+                                'err_total_drives': (float(exp_total_drives) - float(act_total_drives)) if (exp_total_drives is not None and act_total_drives is not None) else None,
+                                'expected_avg_drive_sec': exp_avg_drive_sec,
+                                'actual_avg_drive_sec': act_avg_drive_sec,
+                                'err_avg_drive_sec': (float(exp_avg_drive_sec) - float(act_avg_drive_sec)) if (exp_avg_drive_sec is not None and act_avg_drive_sec is not None) else None,
+                                'actual_home_drives': act_home_drives,
+                                'actual_away_drives': act_away_drives,
+                            }
+                    except Exception:
+                        drives_recon = None
+
                     recon = {
                         'is_final': True,
                         'actual_margin': float(actual_margin),
@@ -8421,6 +8971,9 @@ def _build_cards(
                             'pred_total': float(total_pred) if total_pred is not None else None,
                             'err_margin': model_margin_err,
                             'err_total': model_total_err,
+                            'ml_correct': model_ml_correct,
+                            'ats_correct': model_ats_correct,
+                            'total_correct': model_total_correct,
                         },
                         'simulation': {
                             'pred_margin': float(sim_margin) if sim_margin is not None else None,
@@ -8432,6 +8985,18 @@ def _build_cards(
                             'prob_home_win_mc': float(prob_home_win_mc) if prob_home_win_mc is not None else None,
                             'prob_home_cover_mc': float(prob_home_cover_mc) if prob_home_cover_mc is not None else None,
                             'prob_over_total_mc': float(prob_over_total_mc) if prob_over_total_mc is not None else None,
+                            'ml_correct': sim_ml_correct,
+                            'ats_correct': sim_ats_correct,
+                            'total_correct': sim_total_correct,
+                        },
+                        'blend': {
+                            'pred_margin': float(combo_margin) if combo_margin is not None else None,
+                            'pred_total': float(combo_total) if combo_total is not None else None,
+                            'err_margin': blend_margin_err,
+                            'err_total': blend_total_err,
+                            'ml_correct': blend_ml_correct,
+                            'ats_correct': blend_ats_correct,
+                            'total_correct': blend_total_correct,
                         },
                         'markets': {
                             'ml': {
@@ -8449,6 +9014,9 @@ def _build_cards(
                                 'brier': brier_total,
                             },
                         },
+                        'quarters': quarters_recon,
+                        'props': props_recon,
+                        'drives': drives_recon,
                     }
             except Exception:
                 recon = None
@@ -8630,6 +9198,16 @@ def _build_cards(
                 "brier_ml_mc": (recon.get('markets', {}).get('ml', {}).get('brier') if recon else None),
                 "brier_ats_mc": (recon.get('markets', {}).get('ats', {}).get('brier') if recon else None),
                 "brier_total_mc": (recon.get('markets', {}).get('total', {}).get('brier') if recon else None),
+                # Blend/quarters/props/drives convenience fields
+                "blend_margin_err": (recon.get('blend', {}).get('err_margin') if recon else None),
+                "blend_total_err": (recon.get('blend', {}).get('err_total') if recon else None),
+                "sim_quarter_mae": (recon.get('quarters', {}).get('simulation', {}).get('mae') if recon else None),
+                "model_quarter_mae": (recon.get('quarters', {}).get('model', {}).get('mae') if recon else None),
+                "props_mae_rec_yards": (recon.get('props', {}).get('metrics', {}).get('rec_yards_mae') if recon else None),
+                "props_mae_rush_yards": (recon.get('props', {}).get('metrics', {}).get('rush_yards_mae') if recon else None),
+                "props_mae_pass_yards": (recon.get('props', {}).get('metrics', {}).get('pass_yards_mae') if recon else None),
+                "drive_err_total_drives": (recon.get('drives', {}).get('err_total_drives') if recon else None),
+                "drive_err_avg_drive_sec": (recon.get('drives', {}).get('err_avg_drive_sec') if recon else None),
                 # Team ratings (EMA-based)
                 "home_off_ppg": g("home_off_ppg"),
                 "home_def_ppg": g("home_def_ppg"),
@@ -12604,8 +13182,9 @@ def api_props_recommendations():
         if maps is None:
             maps = {"by_key": {}, "by_name": {}, "by_alias_key": {}, "by_alias": {}}
             try:
-                import nfl_data_py as _nfl  # type: ignore
-                ros = _nfl.import_seasonal_rosters([int(season_i)])
+                from nfl_compare.src.roster_cache import get_seasonal_rosters
+
+                ros = get_seasonal_rosters(int(season_i))
             except Exception:
                 ros = None
             if ros is not None and not ros.empty:
@@ -12729,8 +13308,9 @@ def api_props_recommendations():
                     # As a final fallback: try a roster last-name search (team-scoped first)
                     if not url:
                         try:
-                            import nfl_data_py as _nfl  # type: ignore
-                            ros = _nfl.import_seasonal_rosters([int(season_i)])
+                            from nfl_compare.src.roster_cache import get_seasonal_rosters
+
+                            ros = get_seasonal_rosters(int(season_i))
                             if ros is not None and not ros.empty:
                                 name_col = next((cc for cc in [
                                     "player_name","full_name","display_name","player_display_name","name","gsis_name","football_name"

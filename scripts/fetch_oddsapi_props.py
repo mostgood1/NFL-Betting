@@ -25,6 +25,7 @@ Notes:
 """
 from __future__ import annotations
 
+import json
 import argparse
 import os
 from pathlib import Path
@@ -85,6 +86,60 @@ MARKET_STD_MAP: Dict[str, str] = {
     "player_interceptions": "Interceptions",
     "player_anytime_td": "Anytime TD",
 }
+
+
+def _write_text_atomic(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(path)
+
+
+def _stable_props_df(df: pd.DataFrame) -> pd.DataFrame:
+    if df is None or df.empty:
+        return pd.DataFrame(columns=df.columns if df is not None else None)
+
+    out = df.copy()
+    for col in ["player", "team", "market", "book", "event", "game_time", "home_team", "away_team"]:
+        if col in out.columns:
+            out[col] = out[col].astype("string").str.strip()
+
+    for col in ["line", "over_price", "under_price"]:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+
+    if "is_ladder" in out.columns:
+        try:
+            out["is_ladder"] = out["is_ladder"].fillna(False).astype(bool)
+        except Exception:
+            pass
+
+    # Drop exact duplicates and sort deterministically.
+    dedupe_cols = [
+        c
+        for c in [
+            "player",
+            "team",
+            "market",
+            "line",
+            "over_price",
+            "under_price",
+            "book",
+            "event",
+            "game_time",
+            "home_team",
+            "away_team",
+            "is_ladder",
+        ]
+        if c in out.columns
+    ]
+    if dedupe_cols:
+        out = out.drop_duplicates(subset=dedupe_cols, keep="first")
+
+    sort_cols = [c for c in ["market", "player", "team", "line", "book", "event"] if c in out.columns]
+    if sort_cols:
+        out = out.sort_values(sort_cols, kind="mergesort").reset_index(drop=True)
+    return out
 
 
 def _env(name: str, default: Optional[str] = None) -> Optional[str]:
@@ -290,6 +345,30 @@ def main() -> int:
     ap.add_argument("--season", type=int, required=True)
     ap.add_argument("--week", type=int, required=True)
     ap.add_argument("--out", type=str, required=True)
+    ap.add_argument(
+        "--keep-existing-on-empty",
+        action="store_true",
+        default=True,
+        help="If the new fetch parses to 0 rows and an existing output CSV is non-empty, keep the existing file.",
+    )
+    ap.add_argument(
+        "--no-keep-existing-on-empty",
+        action="store_false",
+        dest="keep_existing_on_empty",
+        help="Disable keep-existing-on-empty behavior.",
+    )
+    ap.add_argument(
+        "--save-raw",
+        action="store_true",
+        default=True,
+        help="Write the raw OddsAPI payload to a sidecar *_raw.json next to the CSV.",
+    )
+    ap.add_argument(
+        "--no-save-raw",
+        action="store_false",
+        dest="save_raw",
+        help="Disable writing raw sidecar payload.",
+    )
     args = ap.parse_args()
 
     _load_env()
@@ -301,6 +380,10 @@ def main() -> int:
     masked = f"***{api_key[-6:]}" if len(api_key) >= 6 else "(set)"
     print(f"Using OddsAPI key: {masked}")
     region = os.environ.get("ODDS_API_REGION", "us")
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    raw_path = out_path.with_name(out_path.stem + "_raw.json")
+
     try:
         events = fetch_player_props(api_key=api_key, region=region)
     except HTTPError as he:
@@ -320,6 +403,19 @@ def main() -> int:
         print(f"ERROR fetching OddsAPI player props: {e}")
         return 2
 
+    if args.save_raw:
+        try:
+            payload = {
+                "fetched_utc": datetime.now(tz=timezone.utc).isoformat(),
+                "region": region,
+                "markets": _player_markets(),
+                "events_count": len(events) if isinstance(events, list) else None,
+                "events": events,
+            }
+            _write_text_atomic(raw_path, json.dumps(payload, ensure_ascii=False))
+        except Exception as e:
+            print(f"WARNING: Failed writing raw OddsAPI payload sidecar: {e}")
+
     rows = parse_events_to_rows(events)
     if not rows:
         print("WARNING: No player prop rows parsed from OddsAPI payload.")
@@ -334,9 +430,18 @@ def main() -> int:
     if "team" not in df.columns:
         df["team"] = np.nan
     out_df = df[[c for c in cols if c in df.columns]].copy()
+    out_df = _stable_props_df(out_df)
 
-    out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    # If fetch/parsing yields empty rows, keep previous non-empty CSV for determinism.
+    if len(out_df) == 0 and args.keep_existing_on_empty and out_path.exists():
+        try:
+            prev = pd.read_csv(out_path)
+            if prev is not None and not prev.empty:
+                print(f"WARNING: Parsed 0 rows; keeping existing {out_path} with {len(prev)} rows.")
+                return 0
+        except Exception:
+            pass
+
     out_df.to_csv(out_path, index=False)
     print(f"Wrote {out_path} with {len(out_df)} rows.")
     return 0

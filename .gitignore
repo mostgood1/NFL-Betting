@@ -29,9 +29,16 @@ secrets/
 nfl_compare/data/*.csv
 nfl_compare/data/*.parquet
 nfl_compare/data/*.json
+nfl_compare/data/calibration_bundles/
+nfl_compare/data/manifests/
+nfl_compare/data/external/
+nfl_compare/data/publish/
 nfl_compare/data/backtests/*
 nfl_compare/models/
 logs/
+
+# Legacy top-level data folder (redundant with nfl_compare/data). Keep local-only.
+/data/
 
 # Allow committing the trained model artifact for deployment
 !nfl_compare/models/nfl_models.joblib
@@ -52,12 +59,10 @@ logs/
 !nfl_compare/data/prob_calibration.json
 !nfl_compare/data/sigma_calibration.json
 !nfl_compare/data/totals_calibration.json
-!nfl_compare/data/edges_player_props_*.csv
-!nfl_compare/data/props_edges_*.csv
-!nfl_compare/data/bovada_player_props_*.csv
-!nfl_compare/data/edges_game_props_*.csv
-!nfl_compare/data/bovada_game_props_*.csv
-!nfl_compare/data/ladder_options_*.csv
+
+# NOTE: The following are generated, high-churn operational artifacts.
+# Keep them local-only to reduce repo bloat and noisy diffs.
+# (If you need to ship one for a specific week, temporarily add a single-file allowlist.)
 !nfl_compare/data/current_week.json
 # Optional but recommended: include per-date weather and odds snapshots used by the app
 *.backup
@@ -65,16 +70,35 @@ logs/
 *.csv.backup
 *.backup.csv
 !nfl_compare/data/weather_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].csv
-!nfl_compare/data/real_betting_lines_*.json
 
-# Allow committing precomputed player props caches for deployment
-!nfl_compare/data/player_props_*.csv
-!nfl_compare/data/player_props_vs_actuals_*.csv
+# NOTE: per-date odds snapshots are high-churn and redundant; keep them local-only.
+# If you want to ship a specific snapshot for reproducibility, temporarily override
+# by adding an explicit allowlist entry for that single file.
+
+# NOTE: player props caches + reconciliation outputs are generated artifacts.
+# Keep them local-only to avoid constant churn and large pushes.
+# If you want to ship a specific week for production, temporarily add a single-file allowlist.
 
 # Allow committing shipped sim artifacts for exact season/week folders.
 # IMPORTANT: this intentionally excludes variant folders like 2025_wk17_blend_*.
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/
 nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_probs_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_scenario_inputs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_scenario_deltas.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_scenario_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_scenarios.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_drives_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_drives_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_accuracy.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_accuracy.md
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_accuracy_by_position.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_coverage.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/player_props_scenarios_top_errors.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_probs.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_quarters.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/sim_drives.csv
@@ -82,6 +106,22 @@ nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9]/*
 
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/
 nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_probs_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_scenario_inputs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_scenario_deltas.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_scenario_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_scenarios.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_drives_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_drives_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_accuracy.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_accuracy.md
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_accuracy_by_position.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_coverage.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/player_props_scenarios_top_errors.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_probs.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_quarters.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/sim_drives.csv
@@ -89,6 +129,22 @@ nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9]/*
 
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/
 nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/*
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_probs_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_scenario_inputs.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_scenario_deltas.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_scenario_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_scenarios.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_drives_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_drives_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_summary.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_meta.json
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_accuracy.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_accuracy.md
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_accuracy_by_position.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_coverage.csv
+!nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/player_props_scenarios_top_errors.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_probs.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_quarters.csv
 !nfl_compare/data/backtests/[0-9][0-9][0-9][0-9]_wk[0-9][0-9][0-9]/sim_drives.csv

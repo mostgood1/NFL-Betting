@@ -1,0 +1,61 @@
+scenario_id,scenario_label,abs_error_sum,game_id,team,player,player_id,position,rec_yards,rec_yards_act,targets,targets_act,rush_yards,rush_yards_act,pass_yards,pass_yards_act,pick
+v2_baseline,Baseline,199.65,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Sam Darnold,00-0034869,QB,0.0,0.0,0.0,0.0,21.2,-5.0,188.3,346.0,baseline
+v2_baseline,Baseline,194.46,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,12.4,0.0,202.6,374.0,baseline
+v2_baseline,Baseline,148.22,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Puka Nacua,00-0039075,WR,31.9,165.0,8.16,14.0,0.0,4.0,0.0,0.0,baseline
+v2_baseline,Baseline,127.44000000000001,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Jaxon Smith-Njigba,00-0038543,WR,35.3,153.0,8.35,13.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,110.88,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,0.0,22.5,11.0,181.7,86.0,baseline
+v2_baseline,Baseline,82.28999999999999,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Jarrett Stidham,00-0035264,QB,0.0,0.0,0.0,0.0,13.6,8.0,202.6,133.0,baseline
+v2_baseline,Baseline,68.26,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Davante Adams,00-0031381,WR,22.1,89.0,6.14,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,58.01,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Rhamondre Stevenson,00-0036875,RB,17.4,0.0,4.99,2.0,46.0,71.0,0.0,0.0,baseline
+v2_baseline,Baseline,51.28,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Kyle Williams,00-0040131,WR,23.0,22.0,4.26,3.0,0.0,39.0,0.0,0.0,baseline
+v2_baseline,Baseline,50.629999999999995,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Kenneth Walker III,00-0038134,RB,19.3,49.0,5.17,4.0,47.2,62.0,0.0,0.0,baseline
+v2_baseline,Baseline,44.49,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,TreVeyon Henderson,00-0040734,RB,12.3,0.0,3.11,0.0,26.4,5.0,0.0,0.0,baseline
+v2_baseline,Baseline,38.209999999999994,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Blake Corum,00-0039738,RB,13.7,24.0,3.25,3.0,28.6,55.0,0.0,0.0,baseline
+v2_baseline,Baseline,37.37,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Rashid Shaheed,00-0037545,WR,17.1,51.0,4.19,3.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,37.0,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Jaleel McLaughlin,00-0038794,RB,12.0,2.0,3.23,2.0,29.9,11.0,0.0,0.0,baseline
+v2_baseline,Baseline,36.4,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Colby Parkinson,00-0036244,TE,29.2,62.0,7.43,5.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,25.889999999999997,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Kyren Williams,00-0037840,RB,19.6,22.0,5.23,3.0,51.4,39.0,0.0,0.0,baseline
+v2_baseline,Baseline,25.450000000000003,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Konata Mumpfield,00-0040590,WR,21.5,0.0,4.1,2.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,24.779999999999998,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,AJ Barner,00-0039793,TE,30.7,13.0,7.36,3.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,24.61,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Pat Bryant,00-0040134,WR,20.3,2.0,4.1,1.0,0.0,1.0,0.0,0.0,baseline
+v2_baseline,Baseline,23.91,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Hunter Henry,00-0033090,TE,29.3,12.0,7.37,3.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,23.48,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,RJ Harvey,00-0040730,RB,20.9,22.0,5.19,6.0,53.5,37.0,0.0,0.0,baseline
+v2_baseline,Baseline,22.580000000000002,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Kayshon Boutte,00-0038608,WR,26.0,6.0,6.39,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,20.850000000000005,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Courtland Sutton,00-0034348,WR,33.7,17.0,8.16,5.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,18.839999999999996,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Stefon Diggs,00-0031588,WR,33.3,17.0,8.48,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,16.990000000000002,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Evan Engram,00-0033881,TE,29.0,19.0,7.49,3.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,12.05,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Cooper Kupp,00-0033908,WR,24.8,36.0,6.29,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,6.32,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Tyler Higbee,00-0033110,TE,14.3,12.0,3.84,1.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,6.0,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Elijah Moore,00-0036980,WR,0.0,4.0,0.0,1.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,1.0,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,DeMario Douglas,00-0038621,WR,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Davis Allen,00-0039074,TE,0.0,,0.0,,0.0,,0.0,,baseline
+v2_total_minus3,Total -3.0,206.69138597100158,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Sam Darnold,00-0034869,QB,0.0,0.0,0.0,0.0,20.39502431041312,-5.0,181.15014517220712,346.0,best_mae_mean
+v2_total_minus3,Total -3.0,202.9138356504524,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,11.906841398842326,0.0,194.5424247907625,374.0,best_mae_mean
+v2_total_minus3,Total -3.0,149.89291459363716,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Puka Nacua,00-0039075,WR,30.631309727666952,165.0,7.903907572838381,14.0,0.0,4.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,129.17759403858193,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Jaxon Smith-Njigba,00-0038543,WR,33.95963953573505,153.0,8.099856685856208,13.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,101.56273461997813,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,0.0,21.56935185741968,11.0,174.18449922191803,86.0,best_mae_mean
+v2_total_minus3,Total -3.0,70.62450596225112,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Jarrett Stidham,00-0035264,QB,0.0,0.0,0.0,0.0,12.77939753169484,8.0,190.37543675892456,133.0,best_mae_mean
+v2_total_minus3,Total -3.0,69.13888006682738,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Davante Adams,00-0031381,WR,21.221064106001243,89.0,5.947303002111233,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,59.434206077102886,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Rhamondre Stevenson,00-0036875,RB,16.680298769737885,0.0,4.827099874987112,2.0,44.09734157516912,71.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,53.570549184834775,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Kenneth Walker III,00-0038134,RB,18.567168358064773,49.0,5.015120846212766,4.0,45.407789974127326,62.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,50.25423946793939,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Kyle Williams,00-0040131,WR,22.04867078758456,22.0,4.120930955399818,3.0,0.0,39.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,42.43910629217112,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,TreVeyon Henderson,00-0040734,RB,11.791245682056092,0.0,3.0084730683787404,0.0,25.308039512705754,5.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,40.15875626982783,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Blake Corum,00-0039738,RB,13.155139287430634,24.0,3.14800240339764,3.0,27.462553548942783,55.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,37.82547280700737,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Rashid Shaheed,00-0037545,WR,16.45070357113511,51.0,4.06447898368114,3.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,37.19725600383572,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Colby Parkinson,00-0036244,TE,28.038691035983543,62.0,7.196817802229065,5.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,33.751203171567155,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Jaleel McLaughlin,00-0038794,RB,11.275938998554269,2.0,3.075854738866466,2.0,28.095881338064387,11.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,24.40819255748847,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Konata Mumpfield,00-0040590,WR,20.644926618960486,0.0,3.971326108901637,2.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,23.80648149151229,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Kyren Williams,00-0037840,RB,18.82049124333142,22.0,5.065862329159894,3.0,49.35577805649158,39.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,23.252420091932454,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,AJ Barner,00-0039793,TE,29.53430407215485,13.0,7.139514396155892,3.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,23.083998065613354,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Pat Bryant,00-0040134,WR,19.07513013922097,2.0,3.904335736641644,1.0,0.0,1.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,22.319077193153124,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Hunter Henry,00-0033090,TE,28.08808930766207,12.0,7.12940402377856,3.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,21.19184224480161,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Kayshon Boutte,00-0038608,WR,24.92458436857385,6.0,6.181396433099727,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,21.089187452099537,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,RJ Harvey,00-0040730,RB,19.638927089148684,22.0,4.94231767638296,6.0,50.27189470188778,37.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,18.236761012857627,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Courtland Sutton,00-0034348,WR,31.66659535427324,17.0,7.770580392925809,5.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,17.347076331637307,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,Stefon Diggs,00-0031588,WR,31.92264074898112,17.0,8.203167723424992,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,14.667987250327283,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Evan Engram,00-0033881,TE,27.250185913172817,19.0,7.132554796938028,3.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,12.90629141768774,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Seattle Seahawks,Cooper Kupp,00-0033908,WR,23.85833032538893,36.0,6.101568689106054,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,6.0,2025_21_New_England_Patriots_Denver_Broncos,Denver Broncos,Elijah Moore,00-0036980,WR,0.0,4.0,0.0,1.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,5.562345841687941,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Tyler Higbee,00-0033110,TE,13.731276774471391,12.0,3.7194859166298255,1.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,1.0,2025_21_New_England_Patriots_Denver_Broncos,New England Patriots,DeMario Douglas,00-0038621,WR,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,,2025_21_Los_Angeles_Rams_Seattle_Seahawks,Los Angeles Rams,Davis Allen,00-0039074,TE,0.0,,0.0,,0.0,,0.0,,best_mae_mean

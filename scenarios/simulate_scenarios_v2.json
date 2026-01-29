@@ -1,0 +1,124 @@
+{
+  "schema_version": "1",
+  "name": "simulate_scenarios_v2 (explicit)",
+  "scenarios": [
+    {
+      "scenario_id": "v2_baseline",
+      "label": "Baseline"
+    },
+    {
+      "scenario_id": "v2_wind_plus10",
+      "label": "Wind +10mph (open)",
+      "wind_open_add_mph": 10.0
+    },
+    {
+      "scenario_id": "v2_wind_plus20",
+      "label": "Wind +20mph (open)",
+      "wind_open_add_mph": 20.0
+    },
+    {
+      "scenario_id": "v2_precip_plus25",
+      "label": "Precip +25%",
+      "wx_precip_add_pct": 25.0
+    },
+    {
+      "scenario_id": "v2_precip_plus50",
+      "label": "Precip +50%",
+      "wx_precip_add_pct": 50.0
+    },
+    {
+      "scenario_id": "v2_cold_minus15",
+      "label": "Temp -15F",
+      "wx_temp_add_f": -15.0
+    },
+    {
+      "scenario_id": "v2_inj_home_plus1",
+      "label": "Home starters out +1",
+      "home_inj_starters_add": 1
+    },
+    {
+      "scenario_id": "v2_inj_home_plus2",
+      "label": "Home starters out +2",
+      "home_inj_starters_add": 2
+    },
+    {
+      "scenario_id": "v2_inj_away_plus1",
+      "label": "Away starters out +1",
+      "away_inj_starters_add": 1
+    },
+    {
+      "scenario_id": "v2_inj_away_plus2",
+      "label": "Away starters out +2",
+      "away_inj_starters_add": 2
+    },
+    {
+      "scenario_id": "v2_rest_plus7",
+      "label": "Home rest +7 days (diff)",
+      "rest_days_diff_add": 7.0
+    },
+    {
+      "scenario_id": "v2_rest_minus7",
+      "label": "Home rest -7 days (diff)",
+      "rest_days_diff_add": -7.0
+    },
+    {
+      "scenario_id": "v2_elo_plus100",
+      "label": "Home Elo +100 (diff)",
+      "elo_diff_add": 100.0
+    },
+    {
+      "scenario_id": "v2_elo_minus100",
+      "label": "Home Elo -100 (diff)",
+      "elo_diff_add": -100.0
+    },
+    {
+      "scenario_id": "v2_pressure_plus005",
+      "label": "Home/away pressure +0.05",
+      "home_def_sack_rate_add": 0.05,
+      "away_def_sack_rate_add": 0.05
+    },
+    {
+      "scenario_id": "v2_spread_home_minus3",
+      "label": "Spread home -3.0",
+      "spread_home_add": -3.0
+    },
+    {
+      "scenario_id": "v2_spread_home_plus3",
+      "label": "Spread home +3.0",
+      "spread_home_add": 3.0
+    },
+    {
+      "scenario_id": "v2_total_minus3",
+      "label": "Total -3.0",
+      "total_add": -3.0
+    },
+    {
+      "scenario_id": "v2_total_plus3",
+      "label": "Total +3.0",
+      "total_add": 3.0
+    },
+    {
+      "scenario_id": "v2_sigma_low",
+      "label": "Low volatility",
+      "ats_sigma_override": 9.0,
+      "total_sigma_override": 8.0
+    },
+    {
+      "scenario_id": "v2_sigma_high",
+      "label": "High volatility",
+      "ats_sigma_override": 16.0,
+      "total_sigma_override": 15.0
+    },
+    {
+      "scenario_id": "v2_neutral_site",
+      "label": "Neutral site",
+      "neutral_site_flag": 1
+    },
+    {
+      "scenario_id": "v2_blend_10_20",
+      "label": "Market blend m=0.10 t=0.20",
+      "sim_market_blend_margin": 0.10,
+      "sim_market_blend_total": 0.20
+    }
+  ]
+}

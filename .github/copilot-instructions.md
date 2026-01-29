@@ -114,6 +114,7 @@ Checklist:
 | Variable | Purpose | Notes |
 |----------|---------|-------|
 | `NFL_DATA_DIR` | Override default data directory | Added for deployment flexibility |
+| `SIM_SEED` | Deterministic seed for local simulation artifact generation | If set, sim engine uses it when no explicit seed is passed |
 | `CURRENT_SEASON`, `CURRENT_WEEK` | Force season/week | Overrides inference logic |
 | `DISABLE_ON_REQUEST_PREDICTIONS` | Skip on-demand model attachment | Default true on Render |
 | `RENDER` | Deployment flag (truthy on Render) | Used to gate expensive ops |
@@ -122,6 +123,22 @@ Checklist:
 | `CARD_PROP_EDGES_INCLUDE_LADDERS` | Include ladder/alt player props in game card highlights | Default 0 (off); set to 1 to include |
 | `INJURY_BASELINE_WEEK` | Baseline week to define "starter" identity for injury features | Default 1; higher values shift baseline later in season |
 | Various `RECS_*`, `NFL_*_SIGMA` | Recommendation tuning | Used in EV/edge calculations |
+| `DAILY_UPDATE_BUILD_MANIFEST` | Build per-week `manifests/{season}_wk{week}.json` during `daily_update.ps1` | Default on; set 0 to skip |
+| `DAILY_UPDATE_PUBLISH_CAL_BUNDLE` | Snapshot calibration JSONs into a versioned bundle + write `calibration_active.json` | Default on; set 0 to skip |
+| `DAILY_UPDATE_RUN_SCENARIOS` | Run scenario simulation (`scripts/simulate_scenarios.py`) for current week (and optionally prior week) | Default on; set 0 to skip |
+| `DAILY_UPDATE_SCENARIO_SET` | Scenario set name passed to `simulate_scenarios.py --scenario-set` | Default `v2` |
+| `DAILY_UPDATE_SCENARIO_N_SIMS` | Number of Monte Carlo sims per scenario | Default `2000` (min 200) |
+| `DAILY_UPDATE_SCENARIO_DRIVES` | Also generate drive-level scenario artifacts (`--drives`) | Default `0` (off) |
+| `DAILY_UPDATE_SCENARIOS_INCLUDE_PRIOR` | Also generate scenario artifacts for prior week (enables prior-week eval) | Default on |
+| `DAILY_UPDATE_RUN_PROPS_SCENARIOS` | Generate scenario-adjusted player props (`scripts/simulate_player_props_scenarios.py`) | Default on |
+| `DAILY_UPDATE_PROPS_SCENARIOS_BASELINE_ID` | Override baseline scenario id used for player-props scaling | Default inferred (e.g. `v2_baseline`) |
+| `DAILY_UPDATE_EVAL_PROPS_SCENARIOS` | Evaluate scenario-adjusted props vs actuals for prior week (`scripts/player_props_scenarios_accuracy.py`) | Default on |
+| `DAILY_UPDATE_FETCH_ROSTERS` | Prefetch nfl_data_py seasonal/weekly rosters into local cache (`scripts/fetch_rosters_cache.py`) | Default on; set 0 to skip |
+| `DAILY_UPDATE_REFRESH_ROSTERS` | Force refresh/overwrite roster caches during daily update | Default off |
+| `DAILY_UPDATE_ROSTER_TIMEOUT_SEC` | Timeout (seconds) used when fetching roster caches | Default 30 |
+| `WEEKLY_UPDATE_FETCH_ROSTERS` | Prefetch nfl_data_py rosters into cache during `weekly_update.ps1` | Default on; set 0 to skip |
+| `WEEKLY_UPDATE_REFRESH_ROSTERS` | Force refresh/overwrite roster caches during weekly update | Default off |
+| `WEEKLY_UPDATE_ROSTER_TIMEOUT_SEC` | Timeout (seconds) used when fetching roster caches in weekly update | Default 30 |
 | `RECS_MARKET_BLEND_MARGIN` | Blend model margin toward market-implied margin (-spread_home) for upcoming games | Default 0.0 (off); range 0–1 |
 | `RECS_MARKET_BLEND_TOTAL` | Blend model total toward market total for upcoming games | Default 0.0 (off); range 0–1 |
 | `RECS_UPCOMING_CONF_MIN_ATS` | Minimum confidence tier to publish upcoming ATS picks | Default High; values: Low, Medium, High |
@@ -154,6 +171,7 @@ Checklist:
 | `SIM_MEAN_TOTAL_K_PRESSURE` | Adjustment to total mean per 0.05 above baseline combined defensive sack rate | Default -0.80 |
 | `SIM_PRESSURE_BASELINE` | Baseline defensive sack rate used for pressure adjustments | Default 0.065 |
 | `PROB_CALIBRATION_FILE` | Override probability calibration file used by `_apply_prob_calibration` | Default `nfl_compare/data/prob_calibration.json` |
+| `NFL_CALIB_DIR` | Override directory for shipped calibration artifacts | If set, loads `sigma_calibration.json`, `totals_calibration.json`, and `prob_calibration.json` from this folder. If unset, the app/sim will prefer `nfl_compare/data/calibration_active.json` (its `bundle_dir`) when present |
 | `SIM_MEAN_MARGIN_K_RATING` | Adjustment to margin mean per 1.0 of EMA net margin differential (home-away) | Default 0.08 |
 | `SIM_CORR_MARGIN_TOTAL` | Correlation between simulated margin and total draws | Default 0.10 (range -0.3–0.3) |
 | `SIM_COMPUTE_ON_REQUEST` | Allow Flask app to compute sim_probs when missing | Default 0 (off); set 1 for local/debug only |

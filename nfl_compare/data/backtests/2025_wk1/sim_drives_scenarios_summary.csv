@@ -1,0 +1,145 @@
+scenario_id,game_id,drive_sec_mean,drive_pts_mean,p_drive_score,p_drive_fg,p_drive_td,scenario_label,season,week,home_team,away_team,drives_home,drives_away,drives_total
+gs_baseline,2025_01_ARI_NO,164.49188388300885,2.3113,0.4091,0.18105,0.2063,Baseline (game-state set),2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_baseline,2025_01_BAL_BUF,166.2515135889737,2.5351500000000002,0.43574999999999997,0.18655,0.22995000000000002,Baseline (game-state set),2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_baseline,2025_01_CAR_JAX,163.8291214753336,2.3163,0.40735,0.1774,0.20795,Baseline (game-state set),2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_baseline,2025_01_CIN_CLE,164.0613096279804,2.41505,0.42325,0.1853,0.21545,Baseline (game-state set),2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_baseline,2025_01_DAL_PHI,164.10654500273165,2.4099,0.41174999999999995,0.1719,0.2209,Baseline (game-state set),2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_baseline,2025_01_DET_GB,164.44669675799997,2.45275,0.42515000000000003,0.18409999999999999,0.21975000000000003,Baseline (game-state set),2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_baseline,2025_01_HOU_LA,161.6022730627937,2.2098500000000003,0.3963,0.17370000000000002,0.1975,Baseline (game-state set),2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_baseline,2025_01_KC_LAC,164.19068684604252,2.3499,0.4109,0.1787,0.21139999999999998,Baseline (game-state set),2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_baseline,2025_01_LV_NE,164.30387838709413,2.27425,0.39915,0.17155,0.205,Baseline (game-state set),2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_baseline,2025_01_MIA_IND,165.12129111120845,2.4263,0.42394999999999994,0.18495,0.21800000000000003,Baseline (game-state set),2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_baseline,2025_01_MIN_CHI,163.31894025054208,2.22845,0.3993,0.17735,0.19695000000000001,Baseline (game-state set),2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_baseline,2025_01_NYG_WAS,164.60845447364304,2.3208,0.4069,0.1762,0.2084,Baseline (game-state set),2025,1,Washington Commanders,New York Giants,10,10,20
+gs_baseline,2025_01_PIT_NYJ,160.07514758497103,1.9726,0.36175,0.1618,0.1738,Baseline (game-state set),2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_baseline,2025_01_SF_SEA,163.18927948434532,2.38055,0.41185,0.17880000000000001,0.21284999999999998,Baseline (game-state set),2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_baseline,2025_01_TB_ATL,166.51584725509127,2.441,0.42960000000000004,0.19005,0.21800000000000003,Baseline (game-state set),2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_baseline,2025_01_TEN_DEN,163.51328439781418,2.21145,0.39005,0.16795,0.1992,Baseline (game-state set),2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_blowout_low_var,2025_01_ARI_NO,164.94896783455962,2.2875,0.4035,0.17685,0.207,Likely blowout (|spread|>=10): lower volatility,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_blowout_low_var,2025_01_BAL_BUF,166.18657937500427,2.5391500000000002,0.43384999999999996,0.1835,0.2331,Likely blowout (|spread|>=10): lower volatility,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_blowout_low_var,2025_01_CAR_JAX,165.33013322574942,2.30265,0.40875000000000006,0.18125,0.2065,Likely blowout (|spread|>=10): lower volatility,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_blowout_low_var,2025_01_CIN_CLE,163.81834986943264,2.42565,0.42160000000000003,0.18195,0.22035,Likely blowout (|spread|>=10): lower volatility,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_blowout_low_var,2025_01_DAL_PHI,164.2370423507136,2.4191,0.4224,0.1845,0.21810000000000002,Likely blowout (|spread|>=10): lower volatility,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_blowout_low_var,2025_01_DET_GB,164.50865515410763,2.44555,0.42845000000000005,0.1881,0.22139999999999999,Likely blowout (|spread|>=10): lower volatility,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_blowout_low_var,2025_01_HOU_LA,165.10845781172034,2.24405,0.40655,0.18595,0.1998,Likely blowout (|spread|>=10): lower volatility,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_blowout_low_var,2025_01_KC_LAC,164.5061225858183,2.36895,0.42169999999999996,0.18935,0.21075,Likely blowout (|spread|>=10): lower volatility,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_blowout_low_var,2025_01_LV_NE,163.78655440512097,2.285,0.4096,0.1836,0.20415,Likely blowout (|spread|>=10): lower volatility,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_blowout_low_var,2025_01_MIA_IND,165.9155563663056,2.42445,0.42505,0.18755,0.2189,Likely blowout (|spread|>=10): lower volatility,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_blowout_low_var,2025_01_MIN_CHI,164.73438062003606,2.2421499999999996,0.4034,0.1813,0.20065,Likely blowout (|spread|>=10): lower volatility,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_blowout_low_var,2025_01_NYG_WAS,165.4931033786164,2.3386500000000003,0.4125,0.1825,0.2084,Likely blowout (|spread|>=10): lower volatility,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_blowout_low_var,2025_01_PIT_NYJ,160.85734281472756,1.9599,0.36185,0.16185,0.17495,Likely blowout (|spread|>=10): lower volatility,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_blowout_low_var,2025_01_SF_SEA,163.98747394086783,2.38755,0.42115,0.18865,0.21095000000000003,Likely blowout (|spread|>=10): lower volatility,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_blowout_low_var,2025_01_TB_ATL,166.09995287952404,2.4112999999999998,0.41895,0.17855,0.22174999999999997,Likely blowout (|spread|>=10): lower volatility,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_blowout_low_var,2025_01_TEN_DEN,162.82814842469023,2.21115,0.39594999999999997,0.17575000000000002,0.1954,Likely blowout (|spread|>=10): lower volatility,2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_close_high_var,2025_01_ARI_NO,164.5586975550718,2.3175,0.40970000000000006,0.1803,0.20729999999999998,Close game (|spread|<=3): higher volatility,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_close_high_var,2025_01_BAL_BUF,165.9680913888599,2.5349,0.42785,0.1746,0.23090000000000002,Close game (|spread|<=3): higher volatility,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_close_high_var,2025_01_CAR_JAX,163.5784519111551,2.37515,0.4166,0.18285,0.21284999999999998,Close game (|spread|<=3): higher volatility,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_close_high_var,2025_01_CIN_CLE,164.0438007199483,2.4097999999999997,0.4164,0.17909999999999998,0.2178,Close game (|spread|<=3): higher volatility,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_close_high_var,2025_01_DAL_PHI,165.2551157774937,2.4278,0.42005,0.17945,0.2186,Close game (|spread|<=3): higher volatility,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_close_high_var,2025_01_DET_GB,165.10045647491688,2.4345,0.41405000000000003,0.17245,0.22115,Close game (|spread|<=3): higher volatility,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_close_high_var,2025_01_HOU_LA,162.50423444444425,2.2527,0.39649999999999996,0.1716,0.20005,Close game (|spread|<=3): higher volatility,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_close_high_var,2025_01_KC_LAC,163.71731117548376,2.3642499999999997,0.4048,0.1701,0.21325,Close game (|spread|<=3): higher volatility,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_close_high_var,2025_01_LV_NE,164.2146898345783,2.33765,0.39940000000000003,0.16475,0.21405,Close game (|spread|<=3): higher volatility,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_close_high_var,2025_01_MIA_IND,163.63648098905975,2.40835,0.41459999999999997,0.17255,0.22000000000000003,Close game (|spread|<=3): higher volatility,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_close_high_var,2025_01_MIN_CHI,162.97061619234452,2.2155,0.38515,0.1624,0.19855,Close game (|spread|<=3): higher volatility,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_close_high_var,2025_01_NYG_WAS,165.22860044740105,2.39195,0.40935,0.1732,0.21610000000000001,Close game (|spread|<=3): higher volatility,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_close_high_var,2025_01_PIT_NYJ,158.42077532372747,1.99055,0.3583,0.1558,0.17695,Close game (|spread|<=3): higher volatility,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_close_high_var,2025_01_SF_SEA,164.1859465407827,2.3853,0.41384999999999994,0.1753,0.21869999999999998,Close game (|spread|<=3): higher volatility,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_close_high_var,2025_01_TB_ATL,162.73966093712826,2.42285,0.41435000000000005,0.1769,0.21675,Close game (|spread|<=3): higher volatility,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_close_high_var,2025_01_TEN_DEN,161.6381142983319,2.20445,0.38785,0.1643,0.20074999999999998,Close game (|spread|<=3): higher volatility,2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_dog_chasing,2025_01_ARI_NO,164.69107701163438,2.27595,0.40190000000000003,0.1736,0.20539999999999997,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_dog_chasing,2025_01_BAL_BUF,165.60633336710268,2.5388,0.43725,0.1875,0.23045,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_dog_chasing,2025_01_CAR_JAX,163.96005541098958,2.3411999999999997,0.40955,0.1777,0.21065,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_dog_chasing,2025_01_CIN_CLE,163.3155796886618,2.4038,0.4168,0.178,0.21710000000000002,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_dog_chasing,2025_01_DAL_PHI,166.05391900333535,2.4267,0.42374999999999996,0.18355,0.21665,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_dog_chasing,2025_01_DET_GB,164.60694787144922,2.37565,0.4128,0.17895,0.21355,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_dog_chasing,2025_01_HOU_LA,161.73083653785508,2.2185,0.39695,0.17665,0.19690000000000002,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_dog_chasing,2025_01_KC_LAC,164.55364597751839,2.38605,0.41955,0.1868,0.211,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_dog_chasing,2025_01_LV_NE,163.05321598018392,2.2717,0.4023,0.17335,0.20600000000000002,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_dog_chasing,2025_01_MIA_IND,164.36988407904852,2.3963,0.41855000000000003,0.18375,0.2138,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_dog_chasing,2025_01_MIN_CHI,163.52098361813802,2.26785,0.3976,0.1724,0.2028,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_dog_chasing,2025_01_NYG_WAS,163.21229155475748,2.34345,0.41035000000000005,0.17725,0.2116,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Washington Commanders,New York Giants,10,10,20
+gs_dog_chasing,2025_01_PIT_NYJ,160.25900643961228,1.96935,0.3609,0.15914999999999999,0.17535,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_dog_chasing,2025_01_SF_SEA,165.5714911894168,2.42495,0.42374999999999996,0.18495,0.21680000000000002,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_dog_chasing,2025_01_TB_ATL,164.37607009918247,2.3893,0.42325,0.1882,0.21309999999999998,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_dog_chasing,2025_01_TEN_DEN,160.61022245669804,2.18925,0.3886,0.1661,0.1981,"Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_fav_runs_clock,2025_01_ARI_NO,162.46337825614302,2.2463,0.40095000000000003,0.17695,0.20105,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_fav_runs_clock,2025_01_BAL_BUF,166.09455859756818,2.53085,0.43405000000000005,0.18545,0.2298,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_fav_runs_clock,2025_01_CAR_JAX,165.6166716842476,2.34075,0.4093,0.17415,0.21415,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_fav_runs_clock,2025_01_CIN_CLE,165.08887162532386,2.40515,0.41525,0.17615,0.21785000000000002,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_fav_runs_clock,2025_01_DAL_PHI,164.56162894942688,2.3737500000000002,0.4143,0.17529999999999998,0.2157,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_fav_runs_clock,2025_01_DET_GB,163.4554741405675,2.43675,0.42214999999999997,0.17915,0.22135,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_fav_runs_clock,2025_01_HOU_LA,162.91436772119934,2.25155,0.40275,0.179,0.20095000000000002,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_fav_runs_clock,2025_01_KC_LAC,163.61427223531896,2.3931,0.4201,0.18445,0.2153,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_fav_runs_clock,2025_01_LV_NE,164.81270035112036,2.30225,0.40735,0.1783,0.2083,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_fav_runs_clock,2025_01_MIA_IND,165.18423119595053,2.42135,0.42035,0.18080000000000002,0.221,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_fav_runs_clock,2025_01_MIN_CHI,163.16069438182578,2.252,0.3995,0.17535,0.2003,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_fav_runs_clock,2025_01_NYG_WAS,164.86898335022843,2.3237,0.40919999999999995,0.176,0.20995,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Washington Commanders,New York Giants,10,10,20
+gs_fav_runs_clock,2025_01_PIT_NYJ,160.69052680070325,1.9945499999999998,0.36195,0.16035,0.1759,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_fav_runs_clock,2025_01_SF_SEA,163.938410372988,2.3891999999999998,0.4128,0.17485,0.21705000000000002,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_fav_runs_clock,2025_01_TB_ATL,163.30533388414167,2.4090499999999997,0.4185,0.18355,0.21655000000000002,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_fav_runs_clock,2025_01_TEN_DEN,162.26331502877903,2.19635,0.3874,0.16505,0.1997,"Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_grinder_pace_down,2025_01_ARI_NO,162.429087946718,2.26555,0.40049999999999997,0.17575000000000002,0.20375000000000001,Low-total games (total<=41): pace down -2 points,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_grinder_pace_down,2025_01_BAL_BUF,166.647157284431,2.5812999999999997,0.44195,0.18805,0.2354,Low-total games (total<=41): pace down -2 points,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_grinder_pace_down,2025_01_CAR_JAX,163.4532555616326,2.3198999999999996,0.40599999999999997,0.1766,0.20795,Low-total games (total<=41): pace down -2 points,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_grinder_pace_down,2025_01_CIN_CLE,164.35215191678284,2.4105499999999997,0.4185,0.1783,0.2189,Low-total games (total<=41): pace down -2 points,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_grinder_pace_down,2025_01_DAL_PHI,165.01952157077577,2.3884499999999997,0.4091,0.17165,0.21600000000000003,Low-total games (total<=41): pace down -2 points,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_grinder_pace_down,2025_01_DET_GB,164.76380849127847,2.4177,0.42295,0.18485000000000001,0.2164,Low-total games (total<=41): pace down -2 points,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_grinder_pace_down,2025_01_HOU_LA,162.07838077566154,2.2321999999999997,0.39715,0.1738,0.20185,Low-total games (total<=41): pace down -2 points,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_grinder_pace_down,2025_01_KC_LAC,164.537359681173,2.3737000000000004,0.41805000000000003,0.1862,0.2112,Low-total games (total<=41): pace down -2 points,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_grinder_pace_down,2025_01_LV_NE,162.32080081061878,2.2722,0.4003,0.1705,0.2071,Low-total games (total<=41): pace down -2 points,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_grinder_pace_down,2025_01_MIA_IND,163.5668974524855,2.3941500000000002,0.4205,0.1843,0.21525,Low-total games (total<=41): pace down -2 points,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_grinder_pace_down,2025_01_MIN_CHI,161.83658413403603,2.23345,0.39095,0.16855,0.20074999999999998,Low-total games (total<=41): pace down -2 points,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_grinder_pace_down,2025_01_NYG_WAS,164.58313941405873,2.3423,0.40975,0.17735,0.21080000000000002,Low-total games (total<=41): pace down -2 points,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_grinder_pace_down,2025_01_PIT_NYJ,158.7669969647083,1.9585000000000001,0.3573,0.1588,0.1726,Low-total games (total<=41): pace down -2 points,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_grinder_pace_down,2025_01_SF_SEA,163.640912420774,2.35765,0.41014999999999996,0.1776,0.2109,Low-total games (total<=41): pace down -2 points,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_grinder_pace_down,2025_01_TB_ATL,164.10006617741996,2.4095,0.42074999999999996,0.17955,0.21964999999999998,Low-total games (total<=41): pace down -2 points,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_grinder_pace_down,2025_01_TEN_DEN,161.23861912181053,2.2191,0.39055,0.1684,0.1993,Low-total games (total<=41): pace down -2 points,2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_outdoor_weather_drag,2025_01_ARI_NO,162.84100954455397,2.276,0.40265000000000006,0.1768,0.20425,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_outdoor_weather_drag,2025_01_BAL_BUF,166.57809082427602,2.5610500000000003,0.44365,0.19224999999999998,0.23275,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_outdoor_weather_drag,2025_01_CAR_JAX,162.89042686022842,2.3185,0.4083,0.17809999999999998,0.2081,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_outdoor_weather_drag,2025_01_CIN_CLE,165.03915514538463,2.4240500000000003,0.422,0.18265,0.21939999999999998,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_outdoor_weather_drag,2025_01_DAL_PHI,163.60058718156318,2.3936,0.41340000000000005,0.1733,0.21795,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_outdoor_weather_drag,2025_01_DET_GB,166.0278800795007,2.40515,0.4186500000000001,0.18134999999999998,0.21739999999999998,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_outdoor_weather_drag,2025_01_HOU_LA,164.3537244955567,2.27115,0.40735,0.18025,0.20285000000000003,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_outdoor_weather_drag,2025_01_KC_LAC,164.7503627658129,2.35575,0.41624999999999995,0.18475,0.20939999999999998,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_outdoor_weather_drag,2025_01_LV_NE,163.76903732482552,2.24995,0.40149999999999997,0.1773,0.2004,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_outdoor_weather_drag,2025_01_MIA_IND,164.94092599055872,2.42295,0.41950000000000004,0.17550000000000002,0.22410000000000002,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_outdoor_weather_drag,2025_01_MIN_CHI,163.00578069165118,2.2304500000000003,0.4006,0.1784,0.1994,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_outdoor_weather_drag,2025_01_NYG_WAS,163.78227989522355,2.28085,0.40725,0.18234999999999998,0.20135,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_outdoor_weather_drag,2025_01_PIT_NYJ,159.63364212791902,2.0191,0.36845,0.16515,0.17715,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_outdoor_weather_drag,2025_01_SF_SEA,161.9653929911243,2.36125,0.40635000000000004,0.17004999999999998,0.2172,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_outdoor_weather_drag,2025_01_TB_ATL,164.25007005470235,2.44925,0.4303,0.1907,0.21865,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_outdoor_weather_drag,2025_01_TEN_DEN,163.2457146988295,2.18025,0.3907,0.1737,0.1941,Outdoors + windy (roof_open=1 & wind_open>=15): total -2,2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_shootout_pace_up,2025_01_ARI_NO,165.59108668002344,2.3205999999999998,0.4048999999999999,0.1752,0.20915,High-total games (total>=48): pace up +2 points,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_shootout_pace_up,2025_01_BAL_BUF,166.90304387346907,2.5858999999999996,0.4363,0.17945,0.24,High-total games (total>=48): pace up +2 points,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_shootout_pace_up,2025_01_CAR_JAX,163.7788268635,2.307,0.4104,0.18009999999999998,0.20675,High-total games (total>=48): pace up +2 points,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_shootout_pace_up,2025_01_CIN_CLE,164.67831282622302,2.3844000000000003,0.41505000000000003,0.1786,0.21595,High-total games (total>=48): pace up +2 points,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_shootout_pace_up,2025_01_DAL_PHI,164.83051878497045,2.4072500000000003,0.41555,0.1778,0.21725,High-total games (total>=48): pace up +2 points,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_shootout_pace_up,2025_01_DET_GB,162.7932865813488,2.40915,0.41950000000000004,0.1796,0.2191,High-total games (total>=48): pace up +2 points,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_shootout_pace_up,2025_01_HOU_LA,161.83672156043832,2.2398499999999997,0.3968,0.17350000000000002,0.19995000000000002,High-total games (total>=48): pace up +2 points,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_shootout_pace_up,2025_01_KC_LAC,164.2197976900008,2.38225,0.41665,0.18145,0.21615,High-total games (total>=48): pace up +2 points,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_shootout_pace_up,2025_01_LV_NE,162.7883274043941,2.28415,0.40515,0.17725,0.20400000000000001,High-total games (total>=48): pace up +2 points,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_shootout_pace_up,2025_01_MIA_IND,165.01655785387328,2.4326999999999996,0.42140000000000005,0.18235,0.21964999999999998,High-total games (total>=48): pace up +2 points,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_shootout_pace_up,2025_01_MIN_CHI,162.31345253092428,2.2424,0.3955,0.16985,0.20165000000000002,High-total games (total>=48): pace up +2 points,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_shootout_pace_up,2025_01_NYG_WAS,162.97887457556072,2.3362,0.41285,0.182,0.20845000000000002,High-total games (total>=48): pace up +2 points,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_shootout_pace_up,2025_01_PIT_NYJ,161.23139808937017,1.99295,0.36345,0.16175,0.17835,High-total games (total>=48): pace up +2 points,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_shootout_pace_up,2025_01_SF_SEA,163.5272192674366,2.3409500000000003,0.41355000000000003,0.1812,0.21200000000000002,High-total games (total>=48): pace up +2 points,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_shootout_pace_up,2025_01_TB_ATL,164.046815568615,2.4427499999999998,0.425,0.18375,0.22080000000000002,High-total games (total>=48): pace up +2 points,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_shootout_pace_up,2025_01_TEN_DEN,160.60702154152247,2.1849499999999997,0.38455,0.1674,0.1972,High-total games (total>=48): pace up +2 points,2025,1,Denver Broncos,Tennessee Titans,10,10,20
+gs_strong_defenses_under,2025_01_ARI_NO,163.12661936048093,2.2956499999999997,0.40435,0.17675000000000002,0.20549999999999996,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,New Orleans Saints,Arizona Cardinals,10,10,20
+gs_strong_defenses_under,2025_01_BAL_BUF,164.28281802297423,2.5231500000000002,0.434,0.1835,0.2327,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Buffalo Bills,Baltimore Ravens,10,10,20
+gs_strong_defenses_under,2025_01_CAR_JAX,163.13192182445988,2.3042000000000002,0.40365,0.1748,0.2089,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Jacksonville Jaguars,Carolina Panthers,10,10,20
+gs_strong_defenses_under,2025_01_CIN_CLE,164.2398805987023,2.4163,0.41905000000000003,0.18195,0.2166,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Cleveland Browns,Cincinnati Bengals,10,10,20
+gs_strong_defenses_under,2025_01_DAL_PHI,164.57501422200613,2.4139,0.4197,0.18245,0.21600000000000003,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Philadelphia Eagles,Dallas Cowboys,10,10,20
+gs_strong_defenses_under,2025_01_DET_GB,163.68728474406524,2.4189,0.42135,0.1813,0.22000000000000003,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Green Bay Packers,Detroit Lions,10,10,20
+gs_strong_defenses_under,2025_01_HOU_LA,162.5762824261704,2.19835,0.39445,0.17295,0.1965,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Los Angeles Rams,Houston Texans,10,10,20
+gs_strong_defenses_under,2025_01_KC_LAC,163.58115199522967,2.3785499999999997,0.4154,0.17885,0.21484999999999999,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Los Angeles Chargers,Kansas City Chiefs,10,10,20
+gs_strong_defenses_under,2025_01_LV_NE,162.75220851067283,2.2453,0.39615,0.1724,0.20049999999999998,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,New England Patriots,Las Vegas Raiders,10,10,20
+gs_strong_defenses_under,2025_01_MIA_IND,163.51448304541003,2.39375,0.41675000000000006,0.18205,0.2158,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Indianapolis Colts,Miami Dolphins,10,10,20
+gs_strong_defenses_under,2025_01_MIN_CHI,161.74190339205907,2.23165,0.39675,0.1754,0.19975,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Chicago Bears,Minnesota Vikings,10,10,20
+gs_strong_defenses_under,2025_01_NYG_WAS,163.76929855046566,2.3083,0.4046,0.17375000000000002,0.20750000000000002,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Washington Commanders,New York Giants,10,10,20
+gs_strong_defenses_under,2025_01_PIT_NYJ,160.90591912049132,1.9589500000000002,0.3613,0.16299999999999998,0.17225,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,New York Jets,Pittsburgh Steelers,10,10,20
+gs_strong_defenses_under,2025_01_SF_SEA,164.09683377877943,2.35595,0.4163,0.18385,0.2097,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Seattle Seahawks,San Francisco 49ers,10,10,20
+gs_strong_defenses_under,2025_01_TB_ATL,166.89765174467334,2.43065,0.42445000000000005,0.18414999999999998,0.21960000000000002,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Atlanta Falcons,Tampa Bay Buccaneers,10,10,20
+gs_strong_defenses_under,2025_01_TEN_DEN,164.6235202031982,2.2051000000000003,0.3951,0.1744,0.1964,Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2,2025,1,Denver Broncos,Tennessee Titans,10,10,20

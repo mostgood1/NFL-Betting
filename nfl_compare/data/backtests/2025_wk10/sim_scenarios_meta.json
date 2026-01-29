@@ -1,0 +1,57 @@
+{
+  "baseline_scenario_id": "v2_baseline",
+  "created_utc": "2026-01-18T21:15:16.281200+00:00",
+  "inputs": {
+    "predictions_week_csv": {
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
+      "sha256": "e43c04652428746d5a7c43dcfb020a8ec97cfc74c7de868064e12969d2eb4547"
+    }
+  },
+  "n_sims": 2000,
+  "output": {
+    "archive": {
+      "sim_probs_scenarios_csv": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_probs_scenarios__set_v2.csv",
+      "sim_scenarios_json": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenarios__set_v2.json"
+    },
+    "sim_probs_scenarios_csv": {
+      "cols": 25,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_probs_scenarios.csv",
+      "rows": 322,
+      "sha256": "87b51ea6c966771d8b26280915546a0d7aec06aa00bc482eb99fb69a55bf199e"
+    },
+    "sim_scenario_deltas_csv": {
+      "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenario_deltas__set_v2.csv",
+      "cols": 18,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenario_deltas.csv",
+      "rows": 322,
+      "sha256": "b4cf1a00be1648435ea0dae2e56e6eaff92b5a806b1c550d028e325c5166930f"
+    },
+    "sim_scenario_inputs_csv": {
+      "cols": 49,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenario_inputs.csv",
+      "rows": 322,
+      "sha256": "b172f5a965fdb79b6cb6e53836f84e1acf9617bd772239603fbdf042dc400d1f"
+    },
+    "sim_scenario_summary_csv": {
+      "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenario_summary__set_v2.csv",
+      "cols": 14,
+      "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk10\\sim_scenario_summary.csv",
+      "rows": 23,
+      "sha256": "2138dac4525bf85d4ece51720aae03f172a13c8dcd8fd6ddf707c827d0d86fcd"
+    }
+  },
+  "scenario_config": {
+    "has_grid": false,
+    "name": "simulate_scenarios_v2 (explicit)",
+    "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\scenarios\\simulate_scenarios_v2.json",
+    "scenario_count": 23,
+    "schema_version": "1",
+    "sha256": "962f9b82417e583f04a1c8a1013ee465a59851e67992e1a48bd729bde9be3a9f"
+  },
+  "scenario_set": "set:v2",
+  "scenario_set_slug": "set_v2",
+  "season": 2025,
+  "seed": null,
+  "seed_strategy": "seed + sha256(scenario_id)[:8] when seed is provided (or SIM_SEED env)",
+  "week": 10
+}

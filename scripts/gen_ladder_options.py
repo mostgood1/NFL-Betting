@@ -16,6 +16,9 @@ Notes:
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -140,6 +143,25 @@ def choose_proj_col(preds: pd.DataFrame, key: str) -> Optional[str]:
     return None
 
 
+def _sha256_file(path: Path) -> Optional[str]:
+    try:
+        if not path.exists() or not path.is_file():
+            return None
+        h = hashlib.sha256()
+        with path.open("rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return None
+
+
+def _write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, sort_keys=True)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate ladder options from Bovada props")
     ap.add_argument("--season", type=int, required=True)
@@ -147,6 +169,7 @@ def main() -> int:
     ap.add_argument("--bovada", type=str, required=True)
     ap.add_argument("--out", type=str, required=True)
     ap.add_argument("--base-dir", type=str, default="nfl_compare/data")
+    ap.add_argument("--meta-out", type=str, default=None, help="Optional path to write provenance JSON sidecar")
     ap.add_argument("--filter-event", type=str, default=None, help="Regex to filter event description (optional)")
     ap.add_argument("--synthesize", action="store_true", help="If no explicit ladder rows exist, synthesize ladder rungs from baseline lines.")
     ap.add_argument("--max-rungs", type=int, default=8, help="Maximum number of ladder rungs to generate per player/market when synthesizing.")
@@ -264,6 +287,9 @@ def main() -> int:
         synthesized = pd.DataFrame(rows)
         bov = synthesized.copy()
 
+    had_explicit_ladders = not bov.empty and synthesized.empty
+    did_synthesize = not synthesized.empty
+
     preds = load_predictions(args.season, args.week, Path(args.base_dir))
 
     # Prepare market key for selecting projection column
@@ -298,7 +324,14 @@ def main() -> int:
             continue
         proj_vals.append(r.get(col))
     merged["proj"] = pd.to_numeric(pd.Series(proj_vals), errors="coerce")
-    merged["edge"] = merged["proj"] - merged["line"]
+
+    # Robustness: some weeks/markets may have zero ladderable rows; ensure we never KeyError.
+    if "line" in merged.columns:
+        merged["line"] = pd.to_numeric(merged["line"], errors="coerce")
+        merged["edge"] = merged["proj"] - merged["line"]
+    else:
+        merged["line"] = np.nan
+        merged["edge"] = np.nan
 
     # Tidy columns
     keep_cols = [
@@ -317,6 +350,53 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_df.to_csv(out_path, index=False)
     print(f"Wrote {out_path} with {len(out_df)} rows.")
+
+    if args.meta_out:
+        try:
+            base_dir = Path(args.base_dir)
+            preds_path = base_dir / f"player_props_{args.season}_wk{args.week}.csv"
+            meta = {
+                "season": int(args.season),
+                "week": int(args.week),
+                "generated_utc": datetime.now(timezone.utc).isoformat(),
+                "inputs": {
+                    "bovada_csv": str(Path(args.bovada)),
+                    "bovada_sha256": _sha256_file(Path(args.bovada)),
+                    "bovada_rows": int(len(bov_all)),
+                    "bovada_cols": int(bov_all.shape[1]),
+                    "explicit_ladder_rows": int(len(bov)) if had_explicit_ladders else 0,
+                    "synthesized_rows": int(len(synthesized)) if did_synthesize else 0,
+                },
+                "predictions": {
+                    "player_props_csv": str(preds_path),
+                    "player_props_sha256": _sha256_file(preds_path),
+                    "rows": int(len(preds)),
+                    "cols": int(preds.shape[1]),
+                },
+                "output": {
+                    "ladder_csv": str(out_path),
+                    "ladder_sha256": _sha256_file(out_path),
+                    "rows": int(len(out_df)),
+                    "cols": int(out_df.shape[1]),
+                },
+                "params": {
+                    "base_dir": str(base_dir),
+                    "filter_event": args.filter_event,
+                    "synthesize": bool(args.synthesize),
+                    "max_rungs": int(args.max_rungs),
+                    "yard_step": float(args.yard_step),
+                    "rec_step": float(args.rec_step),
+                },
+                "stats": {
+                    "had_explicit_ladders": bool(had_explicit_ladders),
+                    "did_synthesize": bool(did_synthesize),
+                },
+                "projection_columns": {k: choose_proj_col(preds, k) for k in sorted(PROJ_COLS.keys())},
+            }
+            _write_json(Path(args.meta_out), meta)
+            print(f"Wrote meta {args.meta_out}")
+        except Exception as e:
+            print(f"WARN: failed to write meta-out: {e}")
     return 0
 
 

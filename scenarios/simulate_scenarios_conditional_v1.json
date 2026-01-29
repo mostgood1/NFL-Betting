@@ -1,0 +1,64 @@
+{
+  "schema_version": "1",
+  "name": "simulate_scenarios_conditional_v1",
+  "scenarios": [
+    {
+      "scenario_id": "cond_baseline",
+      "label": "Baseline (conditional set)"
+    },
+
+    {
+      "scenario_id": "cond_wind_open_plus20",
+      "label": "Wind +20mph (outdoors only)",
+      "wind_open_add_mph": 20.0,
+      "apply_when": [{"field": "roof_open_flag", "op": "eq", "value": 1}],
+      "apply_when_mode": "all"
+    },
+    {
+      "scenario_id": "cond_precip_plus50",
+      "label": "Precip +50% (outdoors only)",
+      "wx_precip_add_pct": 50.0,
+      "apply_when": [{"field": "roof_open_flag", "op": "eq", "value": 1}],
+      "apply_when_mode": "all"
+    },
+    {
+      "scenario_id": "cond_cold_minus15_when_cold",
+      "label": "Temp -15F (only when already <= 45F)",
+      "wx_temp_add_f": -15.0,
+      "apply_when": [{"field": "wx_temp_f", "op": "le", "value": 45}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "cond_home_inj_plus2_when_spread_close",
+      "label": "Home starters out +2 (only in close spreads |spread|<=3)",
+      "home_inj_starters_add": 2,
+      "apply_when": [
+        {"field": "spread_home", "op": "ge", "value": -3},
+        {"field": "spread_home", "op": "le", "value": 3}
+      ],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "cond_pressure_plus003_outdoors",
+      "label": "Pressure +0.03 (outdoors only)",
+      "home_def_sack_rate_add": 0.03,
+      "away_def_sack_rate_add": 0.03,
+      "apply_when": [{"field": "roof_open_flag", "op": "eq", "value": 1}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "cond_sigma_high_close_game",
+      "label": "High volatility (close spreads |spread|<=2)",
+      "ats_sigma_override": 16.0,
+      "total_sigma_override": 15.0,
+      "apply_when": [
+        {"field": "spread_home", "op": "ge", "value": -2},
+        {"field": "spread_home", "op": "le", "value": 2}
+      ],
+      "apply_when_mode": "all"
+    }
+  ]
+}

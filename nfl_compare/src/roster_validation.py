@@ -1,10 +1,18 @@
 from __future__ import annotations
 
-"""
-Roster validation report
+"""Roster validation report.
 
-Compares our modeled weekly roster (from player props output) against an external source
-(nfl_data_py rosters + depth charts + weekly rosters). Produces:
+Compares our modeled weekly roster (from player props output) against external sources.
+
+Week-accurate roster/actives are required. To keep runs deterministic and avoid flaky
+network fetches, this module prefers local caches:
+- nfl_compare/data/external/nfl_data_py/seasonal_rosters_{season}.*
+- nfl_compare/data/external/nfl_data_py/weekly_rosters_{season}.*
+
+For depth ordering we prefer the local ESPN snapshot:
+- nfl_compare/data/depth_chart_{season}_wk{week}.csv
+
+Produces:
 - data/roster_validation_summary_{season}_wk{week}.csv: team-level metrics
 - data/roster_validation_details_{season}_wk{week}.csv: per-player matching details
 
@@ -14,6 +22,7 @@ Usage:
 
 import argparse
 from pathlib import Path
+import socket
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
@@ -22,6 +31,8 @@ import pandas as pd
 from .team_normalizer import normalize_team_name
 from .name_normalizer import normalize_name_loose
 from .player_props import compute_player_props, DATA_DIR
+from .depth_charts import load_depth_chart_csv
+from .roster_cache import get_seasonal_rosters, get_weekly_rosters
 try:
     # Use same override mapping as modeling to avoid false negatives when external feeds are wrong
     from .player_props import QB_OVERRIDE_BY_TEAM  # type: ignore
@@ -59,105 +70,50 @@ def _load_external_rosters(season: int, week: int) -> Tuple[pd.DataFrame, pd.Dat
     """Load external data from nfl_data_py: seasonal rosters, depth charts, weekly rosters.
     Returns (rosters, depth_charts, weekly_rosters) with normalized team names.
     """
-    try:
-        import nfl_data_py as nfl  # type: ignore
-    except Exception as e:
-        raise SystemExit(f"Missing nfl_data_py. Install with: pip install nfl-data-py pyarrow\nOriginal error: {e}")
+    # Seasonal rosters (cached locally; fetch-on-miss)
+    ros = get_seasonal_rosters(int(season))
+    if ros is None:
+        ros = pd.DataFrame()
+    ros = ros.copy() if not ros.empty else ros
 
-    # Seasonal rosters
-    try:
-        ros = nfl.import_seasonal_rosters([int(season)])
-    except Exception as e:
-        raise SystemExit(f"import_seasonal_rosters failed: {e}")
-    ros = ros.copy()
-    # Map team and derive a robust player display name
-    tcol = None
-    for c in ["team", "recent_team", "team_abbr", "club_code"]:
-        if c in ros.columns:
-            tcol = c; break
-    if tcol is None:
-        ros["team"] = pd.NA
+    # Local weekly depth chart (ESPN) acts as our week-specific depth ordering.
+    dc = load_depth_chart_csv(int(season), int(week))
+    if dc is None or dc.empty:
+        dch = pd.DataFrame(columns=["team", "player", "player_id", "depth_chart_position", "depth_chart_order", "_nm"])
     else:
-        ros["team"] = ros[tcol].astype(str).apply(normalize_team_name)
-    # Build display name column
-    name_cols = [
-        "player_display_name", "display_name", "full_name", "football_name",
-        "player_name", "name", "gsis_name",
-    ]
-    ros["player"] = pd.NA
-    for c in name_cols:
-        if c in ros.columns:
-            ros["player"] = ros["player"].fillna(ros[c])
-    # Position and depth
-    if "depth_chart_position" not in ros.columns:
-        ros["depth_chart_position"] = pd.NA
-    if "depth_chart_order" not in ros.columns:
-        ros["depth_chart_order"] = pd.NA
-    if "position" not in ros.columns:
-        ros["position"] = pd.NA
-    # ID
-    id_cols = ["gsis_id", "player_id", "nfl_id", "pfr_id", "sportradar_id"]
-    ros["player_id"] = pd.NA
-    for c in id_cols:
-        if c in ros.columns:
-            ros["player_id"] = ros["player_id"].fillna(ros[c])
-    ros["player"] = ros["player"].astype(str)
-    ros["_nm"] = ros["player"].astype(str).map(normalize_name_loose)
-    ros["depth_chart_order"] = pd.to_numeric(ros["depth_chart_order"], errors="coerce")
-
-    # Depth charts (often richer ordering per team/position)
-    try:
-        dch = nfl.import_depth_charts([int(season)])
-        dch = dch.copy()
-    except Exception:
-        dch = pd.DataFrame()
-    if dch is not None and not dch.empty:
-        tcol2 = None
-        for c in ["team", "recent_team", "team_abbr", "club_code"]:
-            if c in dch.columns:
-                tcol2 = c; break
-        dch["team"] = dch[tcol2].astype(str).apply(normalize_team_name) if tcol2 else pd.NA
-        # Harmonize
-        if "pos_abb" in dch.columns and "depth_chart_position" not in dch.columns:
-            dch = dch.rename(columns={"pos_abb": "depth_chart_position"})
-        if "pos_rank" in dch.columns and "depth_chart_order" not in dch.columns:
-            dch = dch.rename(columns={"pos_rank": "depth_chart_order"})
-        dch["depth_chart_order"] = pd.to_numeric(dch.get("depth_chart_order"), errors="coerce")
-        # Name and id
-        dch["player"] = pd.NA
-        for c in name_cols:
-            if c in dch.columns:
-                dch["player"] = dch["player"].fillna(dch[c])
+        dch = dc.copy()
+        dch["team"] = dch.get("team", pd.Series(dtype=object)).astype(str).apply(normalize_team_name)
+        dch["depth_chart_position"] = dch.get("position", pd.Series(dtype=object)).astype(str)
+        dch["depth_chart_order"] = pd.to_numeric(dch.get("depth_rank", pd.Series(dtype=object)), errors="coerce")
+        dch["player"] = dch.get("player", pd.Series(dtype=object)).astype(str)
         dch["player_id"] = pd.NA
-        for c in id_cols:
-            if c in dch.columns:
-                dch["player_id"] = dch["player_id"].fillna(dch[c])
-        dch["player"] = dch["player"].astype(str)
         dch["_nm"] = dch["player"].astype(str).map(normalize_name_loose)
-    else:
-        dch = pd.DataFrame(columns=["team","player","player_id","depth_chart_position","depth_chart_order"])  # empty fallback
+        dch = dch[["team", "player", "player_id", "depth_chart_position", "depth_chart_order", "_nm"]].copy()
 
-    # Weekly rosters for active flags
-    try:
-        wr = nfl.import_weekly_rosters([int(season)])
+    # Weekly rosters for active flags (cached locally; fetch-on-miss)
+    wr = get_weekly_rosters(int(season))
+    if wr is None or wr.empty:
+        wr = pd.DataFrame(columns=["team", "player", "player_id", "is_active", "_nm"])
+    else:
         wr = wr.copy()
-    except Exception:
-        wr = pd.DataFrame()
-    if wr is not None and not wr.empty:
+        # Map team
         tcol3 = None
         for c in ["team", "recent_team", "team_abbr", "club_code"]:
             if c in wr.columns:
-                tcol3 = c; break
+                tcol3 = c
+                break
         wr["team"] = wr[tcol3].astype(str).apply(normalize_team_name) if tcol3 else pd.NA
         # week filter
         if "week" in wr.columns:
             wr["week"] = pd.to_numeric(wr["week"], errors="coerce").fillna(0).astype(int)
             wr = wr[wr["week"] == int(week)].copy()
+
         # active flag
         active_col = None
         for c in ["is_active", "active", "status"]:
             if c in wr.columns:
-                active_col = c; break
+                active_col = c
+                break
         if active_col is not None:
             if active_col == "status":
                 wr["is_active"] = wr["status"].astype(str).str.upper().isin(["ACT", "ACTIVE"]).astype(int)
@@ -165,7 +121,14 @@ def _load_external_rosters(season: int, week: int) -> Tuple[pd.DataFrame, pd.Dat
                 wr["is_active"] = pd.to_numeric(wr[active_col], errors="coerce").fillna(0).astype(int)
         else:
             wr["is_active"] = 1
+
         # Names/ids
+        name_cols = [
+            "player_display_name", "display_name", "full_name", "football_name",
+            "player_name", "name", "gsis_name",
+        ]
+        id_cols = ["gsis_id", "player_id", "nfl_id", "pfr_id", "sportradar_id"]
+
         wr["player"] = pd.NA
         for c in name_cols:
             if c in wr.columns:
@@ -176,10 +139,48 @@ def _load_external_rosters(season: int, week: int) -> Tuple[pd.DataFrame, pd.Dat
                 wr["player_id"] = wr["player_id"].fillna(wr[c])
         wr["player"] = wr["player"].astype(str)
         wr["_nm"] = wr["player"].astype(str).map(normalize_name_loose)
-    else:
-        wr = pd.DataFrame(columns=["team","player","player_id","is_active"])  # empty fallback
+        wr = wr[["team", "player", "player_id", "is_active", "_nm"]].copy()
 
-    return ros, dch, wr
+    # If seasonal rosters are empty (offline / fetch failure), keep the pipeline alive.
+    if ros is None or ros.empty:
+        ros = pd.DataFrame(columns=["team", "player", "player_id", "position", "depth_chart_position", "depth_chart_order", "_nm"])
+    else:
+        # Map team and derive a robust player display name
+        tcol = None
+        for c in ["team", "recent_team", "team_abbr", "club_code"]:
+            if c in ros.columns:
+                tcol = c; break
+        if tcol is None:
+            ros["team"] = pd.NA
+        else:
+            ros["team"] = ros[tcol].astype(str).apply(normalize_team_name)
+        # Build display name column
+        name_cols = [
+            "player_display_name", "display_name", "full_name", "football_name",
+            "player_name", "name", "gsis_name",
+        ]
+        ros["player"] = pd.NA
+        for c in name_cols:
+            if c in ros.columns:
+                ros["player"] = ros["player"].fillna(ros[c])
+        # Position and depth
+        if "depth_chart_position" not in ros.columns:
+            ros["depth_chart_position"] = pd.NA
+        if "depth_chart_order" not in ros.columns:
+            ros["depth_chart_order"] = pd.NA
+        if "position" not in ros.columns:
+            ros["position"] = pd.NA
+        # ID
+        id_cols = ["gsis_id", "player_id", "nfl_id", "pfr_id", "sportradar_id"]
+        ros["player_id"] = pd.NA
+        for c in id_cols:
+            if c in ros.columns:
+                ros["player_id"] = ros["player_id"].fillna(ros[c])
+        ros["player"] = ros["player"].astype(str)
+        ros["_nm"] = ros["player"].astype(str).map(normalize_name_loose)
+        ros["depth_chart_order"] = pd.to_numeric(ros["depth_chart_order"], errors="coerce")
+
+        return ros, dch, wr
 
 
 def _match_props_to_external(props: pd.DataFrame, ros: pd.DataFrame, dch: pd.DataFrame, wr: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:

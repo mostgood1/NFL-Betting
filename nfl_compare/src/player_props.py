@@ -672,9 +672,9 @@ def _team_depth(usage: pd.DataFrame, season: int, team: str) -> pd.DataFrame:
 @lru_cache(maxsize=4)
 def _season_rosters(season: int) -> pd.DataFrame:
     try:
-        import nfl_data_py as nfl  # type: ignore
-        ros = nfl.import_seasonal_rosters([int(season)])
-        return ros if ros is not None else pd.DataFrame()
+        from .roster_cache import get_seasonal_rosters
+
+        return get_seasonal_rosters(int(season))
     except Exception:
         return pd.DataFrame()
 
@@ -913,10 +913,11 @@ def _active_roster(season: int, week: int) -> pd.DataFrame:
     Heuristics handle varying column names across nfl_data_py versions.
     """
     try:
-        import nfl_data_py as nfl  # type: ignore
-        wr = nfl.import_weekly_rosters([int(season)])
+        from .roster_cache import get_weekly_rosters
+
+        wr = get_weekly_rosters(int(season))
     except Exception:
-        return pd.DataFrame(columns=['team','_pid','_nm','is_active','status'])
+        wr = pd.DataFrame()
     if wr is None or wr.empty:
         return pd.DataFrame(columns=['team','_pid','_nm','is_active','status'])
     df = wr.copy()
@@ -1881,6 +1882,15 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
     teams = compute_td_likelihood(season=season, week=week)
     if teams is None or teams.empty:
         return pd.DataFrame(columns=["season","week","team","opponent","player","position"])
+
+    # Defensive dedupe: upstream feature merges can produce duplicate team-game rows.
+    # If we propagate duplicates, later consolidation will incorrectly sum totals (e.g., 4x boxscores).
+    try:
+        dedup_cols = [c for c in ['season','week','game_id','team','opponent','is_home'] if c in teams.columns]
+        if dedup_cols:
+            teams = teams.drop_duplicates(subset=dedup_cols, keep='first').copy()
+    except Exception:
+        pass
 
     # Optional: write per-team depth debug snapshots when investigating issues
     def _dump_depth(team_name: str, stage: str, df: pd.DataFrame):
@@ -4783,10 +4793,21 @@ def compute_player_props(season: int, week: int) -> pd.DataFrame:
         if key_cols:
             num_cols = [c for c in out.columns if c not in key_cols and out[c].dtype.kind in 'fc' and c not in {'is_active'}]
             if num_cols:
-                agg = {c: 'sum' for c in num_cols}
-                # For flags like is_active, take max
+                # Sum only true player-level quantities. Team-context columns should not be summed.
+                team_cols = [c for c in num_cols if str(c).startswith('team_')]
+                prob_cols = [c for c in num_cols if c in {'any_td_prob'}]
+                sum_cols = [c for c in num_cols if c not in set(team_cols + prob_cols)]
+
+                agg: dict = {}
+                for c in sum_cols:
+                    agg[c] = 'sum'
+                for c in team_cols:
+                    agg[c] = 'first'
+                for c in prob_cols:
+                    agg[c] = 'max'
                 if 'is_active' in out.columns:
                     agg['is_active'] = 'max'
+
                 out = out.groupby(key_cols, as_index=False).agg(agg)
     except Exception:
         pass

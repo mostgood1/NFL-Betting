@@ -1,0 +1,61 @@
+scenario_id,scenario_label,abs_error_sum,game_id,team,player,player_id,position,rec_yards,rec_yards_act,targets,targets_act,rush_yards,rush_yards_act,pass_yards,pass_yards_act,pick
+v2_baseline,Baseline,251.92000000000002,2025_03_PIT_NE,Pittsburgh Steelers,Roman Wilson,00-0039739,WR,37.1,0.0,5.44,0.0,0.0,3.0,0.0,160.0,baseline
+v2_baseline,Baseline,191.54,2025_03_ATL_CAR,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,14.8,0.0,281.7,121.0,baseline
+v2_baseline,Baseline,153.84000000000003,2025_03_CIN_MIN,Cincinnati Bengals,Jake Browning,00-0035100,QB,0.0,0.0,0.0,0.0,5.7,3.0,283.6,140.0,baseline
+v2_baseline,Baseline,148.78000000000003,2025_03_DEN_LAC,Denver Broncos,Bo Nix,00-0039732,QB,0.0,0.0,0.0,0.0,27.5,-3.0,262.3,153.0,baseline
+v2_baseline,Baseline,143.29,2025_03_DEN_LAC,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,16.3,2.0,199.0,300.0,baseline
+v2_baseline,Baseline,141.81,2025_03_MIA_BUF,Miami Dolphins,Tua Tagovailoa,00-0036212,QB,0.0,0.0,0.0,0.0,7.5,2.0,279.1,146.0,baseline
+v2_baseline,Baseline,115.0,2025_03_DAL_CHI,Chicago Bears,Luther Burden III,00-0040735,WR,0.0,101.0,0.0,3.0,0.0,7.0,0.0,0.0,baseline
+v2_baseline,Baseline,114.61,2025_03_LV_WAS,Las Vegas Raiders,Tre Tucker,00-0038563,WR,38.6,145.0,8.78,9.0,0.0,4.0,0.0,0.0,baseline
+v2_baseline,Baseline,109.19,2025_03_DET_BAL,Detroit Lions,David Montgomery,00-0035685,RB,12.5,13.0,2.65,1.0,46.7,151.0,0.0,0.0,baseline
+v2_baseline,Baseline,103.60999999999999,2025_03_ARI_SF,Arizona Cardinals,Kyler Murray,00-0035228,QB,0.0,0.0,0.0,0.0,20.2,10.0,243.2,159.0,baseline
+v2_baseline,Baseline,102.07,2025_03_PIT_NE,Pittsburgh Steelers,Aaron Rodgers,00-0023459,QB,0.0,0.0,0.0,0.0,5.8,0.0,220.2,139.0,baseline
+v2_baseline,Baseline,101.34,2025_03_CIN_MIN,Minnesota Vikings,Jordan Mason,00-0037525,RB,22.5,0.0,4.91,0.0,47.2,116.0,0.0,0.0,baseline
+v2_baseline,Baseline,96.42000000000002,2025_03_LA_PHI,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,12.9,0.0,272.6,196.0,baseline
+v2_baseline,Baseline,94.61000000000001,2025_03_DAL_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,17.9,12.0,223.2,298.0,baseline
+v2_baseline,Baseline,91.52999999999999,2025_03_ARI_SF,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,22.4,88.0,4.94,15.0,47.5,52.0,0.0,0.0,baseline
+v2_baseline,Baseline,90.35,2025_03_GB_CLE,Cleveland Browns,Quinshon Judkins,00-0040784,RB,23.5,1.0,5.67,2.0,39.1,94.0,0.0,0.0,baseline
+v2_baseline,Baseline,90.0,2025_03_NYJ_TB,Tampa Bay Buccaneers,Sterling Shepard,00-0032385,WR,0.0,80.0,0.0,6.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,88.35000000000001,2025_03_LV_WAS,Washington Commanders,Deebo Samuel,nan,WR,72.4,11.0,6.66,3.0,0.0,18.0,0.0,0.0,baseline
+v2_baseline,Baseline,82.0,2025_03_LV_WAS,Washington Commanders,Jeremy McNichols,00-0033955,RB,0.0,0.0,0.0,0.0,0.0,78.0,0.0,0.0,baseline
+v2_baseline,Baseline,81.93,2025_03_PIT_NE,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,0.0,26.4,3.0,230.6,268.0,baseline
+v2_baseline,Baseline,78.75999999999999,2025_03_PIT_NE,New England Patriots,Rhamondre Stevenson,00-0036875,RB,22.6,38.0,4.4,3.0,68.0,18.0,0.0,0.0,baseline
+v2_baseline,Baseline,78.23,2025_03_DET_BAL,Baltimore Ravens,Zay Flowers,00-0039064,WR,77.9,13.0,11.39,4.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,76.0,2025_03_ATL_CAR,Carolina Panthers,Trevor Etienne,00-0040644,RB,0.0,0.0,0.0,2.0,0.0,56.0,0.0,0.0,baseline
+v2_baseline,Baseline,75.94999999999999,2025_03_DEN_LAC,Los Angeles Chargers,Omarion Hampton,00-0040666,RB,20.1,59.0,4.28,8.0,45.7,70.0,0.0,0.0,baseline
+v2_baseline,Baseline,74.46999999999997,2025_03_HOU_JAX,Jacksonville Jaguars,Trevor Lawrence,00-0036971,QB,0.0,0.0,0.0,0.0,14.4,0.0,272.4,222.0,baseline
+v2_baseline,Baseline,74.2,2025_03_KC_NYG,New York Giants,Malik Nabers,00-0039337,WR,77.4,13.0,11.81,7.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,74.0,2025_03_DAL_CHI,Dallas Cowboys,KaVontae Turpin,00-0037801,WR,0.0,64.0,0.0,3.0,0.0,4.0,0.0,0.0,baseline
+v2_baseline,Baseline,73.10000000000001,2025_03_LA_PHI,Philadelphia Eagles,A.J. Brown,00-0035676,WR,41.1,109.0,7.34,11.0,0.0,0.0,0.0,0.0,baseline
+v2_baseline,Baseline,72.86,2025_03_HOU_JAX,Jacksonville Jaguars,Travis Etienne Jr.,nan,RB,37.3,0.0,5.17,2.0,81.6,56.0,0.0,0.0,baseline
+v2_baseline,Baseline,71.92999999999999,2025_03_ARI_SF,San Francisco 49ers,Ricky Pearsall,00-0039916,WR,51.4,117.0,8.4,12.0,0.0,0.0,0.0,0.0,baseline
+v2_total_minus3,Total -3.0,249.96702794893824,2025_03_PIT_NE,Pittsburgh Steelers,Roman Wilson,00-0039739,WR,35.45566308249041,0.0,5.24964000833063,0.0,0.0,3.0,0.0,160.0,best_mae_mean
+v2_total_minus3,Total -3.0,175.52793689689287,2025_03_ATL_CAR,Carolina Panthers,Bryce Young,00-0039150,QB,0.0,0.0,0.0,0.0,14.086370583406252,0.0,268.1169319828068,121.0,best_mae_mean
+v2_total_minus3,Total -3.0,150.52156950920846,2025_03_DEN_LAC,Los Angeles Chargers,Justin Herbert,00-0036355,QB,0.0,0.0,0.0,0.0,15.726626291067372,2.0,191.9999160688593,300.0,best_mae_mean
+v2_total_minus3,Total -3.0,141.23758283541648,2025_03_CIN_MIN,Cincinnati Bengals,Jake Browning,00-0035100,QB,0.0,0.0,0.0,0.0,5.475316811160188,3.0,272.4210259026368,140.0,best_mae_mean
+v2_total_minus3,Total -3.0,132.70151079735692,2025_03_DEN_LAC,Denver Broncos,Bo Nix,00-0039732,QB,0.0,0.0,0.0,0.0,26.144192679212303,-3.0,249.368063263905,153.0,best_mae_mean
+v2_total_minus3,Total -3.0,131.0701915117329,2025_03_MIA_BUF,Miami Dolphins,Tua Tagovailoa,00-0036212,QB,0.0,0.0,0.0,0.0,7.2475739516586755,2.0,269.7063853210582,146.0,best_mae_mean
+v2_total_minus3,Total -3.0,116.8857643146671,2025_03_LV_WAS,Las Vegas Raiders,Tre Tucker,00-0038563,WR,36.82498359550206,145.0,8.46117718264792,9.0,0.0,4.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,115.0,2025_03_DAL_CHI,Chicago Bears,Luther Burden III,00-0040735,WR,0.0,101.0,0.0,3.0,0.0,7.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,111.82572276444344,2025_03_DET_BAL,Detroit Lions,David Montgomery,00-0035685,RB,11.9885406815602,13.0,2.5644256738837705,1.0,44.78918798630891,151.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,102.56218556682845,2025_03_CIN_MIN,Minnesota Vikings,Jordan Mason,00-0037525,RB,21.589210723313663,0.0,4.753147130353224,0.0,45.28936649512911,116.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,100.90729749472933,2025_03_DAL_CHI,Chicago Bears,Caleb Williams,00-0039918,QB,0.0,0.0,0.0,0.0,17.230202468712566,12.0,214.84811122998013,298.0,best_mae_mean
+v2_total_minus3,Total -3.0,95.9312321514564,2025_03_ARI_SF,San Francisco 49ers,Christian McCaffrey,00-0033280,RB,21.25566162780392,88.0,4.740602821806159,15.0,45.07338961253063,52.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,92.50680186275345,2025_03_ARI_SF,Arizona Cardinals,Kyler Murray,00-0035228,QB,0.0,0.0,0.0,0.0,19.264994847520622,10.0,231.9429082632186,159.0,best_mae_mean
+v2_total_minus3,Total -3.0,91.64566337748933,2025_03_PIT_NE,New England Patriots,Drake Maye,00-0039851,QB,0.0,0.0,0.0,0.0,25.262109312998657,3.0,220.66069725672315,268.0,best_mae_mean
+v2_total_minus3,Total -3.0,91.27169453755955,2025_03_GB_CLE,Cleveland Browns,Quinshon Judkins,00-0040784,RB,22.297334635879118,1.0,5.440728540357169,2.0,37.09896954310099,94.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,90.58114394828876,2025_03_PIT_NE,Pittsburgh Steelers,Aaron Rodgers,00-0023459,QB,0.0,0.0,0.0,0.0,5.542933851171007,0.0,210.4403506944579,139.0,best_mae_mean
+v2_total_minus3,Total -3.0,90.0,2025_03_NYJ_TB,Tampa Bay Buccaneers,Sterling Shepard,00-0032385,WR,0.0,80.0,0.0,6.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,84.85879978536795,2025_03_LV_WAS,Washington Commanders,Deebo Samuel,nan,WR,69.28116423963151,11.0,6.433520797680792,3.0,0.0,18.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,82.0,2025_03_LV_WAS,Washington Commanders,Jeremy McNichols,00-0033955,RB,0.0,0.0,0.0,0.0,0.0,78.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,80.53244545751191,2025_03_LA_PHI,Los Angeles Rams,Matthew Stafford,00-0026498,QB,0.0,0.0,0.0,0.0,12.256752450291147,0.0,259.0070323991758,196.0,best_mae_mean
+v2_total_minus3,Total -3.0,78.85416489939048,2025_03_DEN_LAC,Los Angeles Chargers,Omarion Hampton,00-0040666,RB,19.39295634665363,59.0,4.161254817360852,8.0,44.09244303691895,70.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,76.21249911074484,2025_03_PIT_NE,New England Patriots,Rhamondre Stevenson,00-0036875,RB,21.625896608854912,38.0,4.250290070214334,3.0,65.0690694425723,18.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,76.0,2025_03_ATL_CAR,Carolina Panthers,Trevor Etienne,00-0040644,RB,0.0,0.0,0.0,2.0,0.0,56.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,75.8834773539203,2025_03_LA_PHI,Philadelphia Eagles,A.J. Brown,00-0035676,WR,38.831379405493465,109.0,7.019741642873135,11.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,75.72291609362694,2025_03_DET_BAL,Baltimore Ravens,Zay Flowers,00-0039064,WR,75.8029600183029,13.0,11.148385912981931,4.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,75.10762103505387,2025_03_ARI_SF,San Francisco 49ers,Ricky Pearsall,00-0039916,WR,48.774152128085774,117.0,8.060944069467963,12.0,0.0,0.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,74.0,2025_03_DAL_CHI,Dallas Cowboys,KaVontae Turpin,00-0037801,WR,0.0,64.0,0.0,3.0,0.0,4.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,72.04326826802215,2025_03_LV_WAS,Las Vegas Raiders,Geno Smith,00-0030565,QB,0.0,0.0,0.0,0.0,10.207961773882694,5.0,228.67742403735343,289.0,best_mae_mean
+v2_total_minus3,Total -3.0,70.61951593739624,2025_03_LA_PHI,Los Angeles Rams,Puka Nacua,00-0039075,WR,58.33834111999042,112.0,9.413952145964714,15.0,0.0,6.0,0.0,0.0,best_mae_mean
+v2_total_minus3,Total -3.0,70.13138316751288,2025_03_HOU_JAX,Houston Texans,Nico Collins,00-0036554,WR,38.27370162932591,104.0,9.010521256063056,11.0,0.0,0.0,0.0,0.0,best_mae_mean

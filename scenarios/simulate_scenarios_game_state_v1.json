@@ -1,0 +1,82 @@
+{
+  "schema_version": "1",
+  "name": "simulate_scenarios_game_state_v1",
+  "baseline_scenario_id": "gs_baseline",
+  "scenarios": [
+    {
+      "scenario_id": "gs_baseline",
+      "label": "Baseline (game-state set)"
+    },
+
+    {
+      "scenario_id": "gs_close_high_var",
+      "label": "Close game (|spread|<=3): higher volatility",
+      "ats_sigma_override": 16.0,
+      "total_sigma_override": 15.0,
+      "apply_when": [{"field": "abs_spread_home", "op": "le", "value": 3}],
+      "apply_when_mode": "all"
+    },
+    {
+      "scenario_id": "gs_blowout_low_var",
+      "label": "Likely blowout (|spread|>=10): lower volatility",
+      "ats_sigma_override": 9.0,
+      "total_sigma_override": 9.0,
+      "apply_when": [{"field": "abs_spread_home", "op": "ge", "value": 10}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "gs_shootout_pace_up",
+      "label": "High-total games (total>=48): pace up +2 points",
+      "pred_total_add": 2.0,
+      "apply_when": [{"field": "total", "op": "ge", "value": 48}],
+      "apply_when_mode": "all"
+    },
+    {
+      "scenario_id": "gs_grinder_pace_down",
+      "label": "Low-total games (total<=41): pace down -2 points",
+      "pred_total_add": -2.0,
+      "apply_when": [{"field": "total", "op": "le", "value": 41}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "gs_fav_runs_clock",
+      "label": "Big favorite (spread<=-7): clock-kill (total -1.5, margin +1)",
+      "pred_total_add": -1.5,
+      "pred_margin_add": 1.0,
+      "apply_when": [{"field": "spread_home", "op": "le", "value": -7}],
+      "apply_when_mode": "all"
+    },
+    {
+      "scenario_id": "gs_dog_chasing",
+      "label": "Big underdog (spread>=+7): chase mode (total +1.5, margin -1)",
+      "pred_total_add": 1.5,
+      "pred_margin_add": -1.0,
+      "apply_when": [{"field": "spread_home", "op": "ge", "value": 7}],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "gs_strong_defenses_under",
+      "label": "Both defenses strong (home_def_ppg<=20 & away_def_ppg<=20): total -2",
+      "pred_total_add": -2.0,
+      "apply_when": [
+        {"field": "home_def_ppg", "op": "le", "value": 20},
+        {"field": "away_def_ppg", "op": "le", "value": 20}
+      ],
+      "apply_when_mode": "all"
+    },
+
+    {
+      "scenario_id": "gs_outdoor_weather_drag",
+      "label": "Outdoors + windy (roof_open=1 & wind_open>=15): total -2",
+      "pred_total_add": -2.0,
+      "apply_when": [
+        {"field": "roof_open_flag", "op": "eq", "value": 1},
+        {"field": "wind_open", "op": "ge", "value": 15}
+      ],
+      "apply_when_mode": "all"
+    }
+  ]
+}
