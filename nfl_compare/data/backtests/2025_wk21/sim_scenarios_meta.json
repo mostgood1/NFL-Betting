@@ -1,6 +1,6 @@
 {
   "baseline_scenario_id": "v2_baseline",
-  "created_utc": "2026-01-29T15:54:51.199669+00:00",
+  "created_utc": "2026-02-02T16:27:30.293078+00:00",
   "inputs": {
     "predictions_week_csv": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
@@ -17,14 +17,14 @@
       "cols": 25,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk21\\sim_probs_scenarios.csv",
       "rows": 46,
-      "sha256": "926446f753201ca4603e8f97bc665e1cf3c39c7b538388270fdb34e0c6e39223"
+      "sha256": "647aa17e270e79228882dcb9b3c1f9203adf2254b993674383f30f290b8ec703"
     },
     "sim_scenario_deltas_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk21\\sim_scenario_deltas__set_v2.csv",
       "cols": 18,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk21\\sim_scenario_deltas.csv",
       "rows": 46,
-      "sha256": "b3f8438742747bf3e9e8f865fcfca624e314d0606349d002f264d9d58544f4e4"
+      "sha256": "ca7e7c3b8487fbac8f8f43459bfe00dde621b286364fd3b7eb63a946224b20cf"
     },
     "sim_scenario_inputs_csv": {
       "cols": 49,
@@ -37,7 +37,7 @@
       "cols": 14,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk21\\sim_scenario_summary.csv",
       "rows": 23,
-      "sha256": "96a6799916e453df94bd9b15f394ab700822f5bd0cbf61846d1c6b5a111019dc"
+      "sha256": "715897f37a8b0b844e8df385321772db34eea7cbf8d8cbcada780f98d8ee1c4f"
     }
   },
   "scenario_config": {
@@ -46,7 +46,7 @@
     "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\scenarios\\simulate_scenarios_v2.json",
     "scenario_count": 23,
     "schema_version": "1",
-    "sha256": "962f9b82417e583f04a1c8a1013ee465a59851e67992e1a48bd729bde9be3a9f"
+    "sha256": "71ef185f87e9868922f4262cc4ba5de9916bbcdecd0f584300deb30de25abf47"
   },
   "scenario_set": "set:v2",
   "scenario_set_slug": "set_v2",

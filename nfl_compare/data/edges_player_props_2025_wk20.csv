@@ -1,0 +1,871 @@
+player,team,market,line,over_price,under_price,is_ladder,event,home_team,away_team,game_time,book,position,market_key,proj,edge,over_ev,under_ev,note,rank_score
+Caleb Williams,CHI,Passing Yards,150.0,-990.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,138.7,0.10096933165176346,,,138.7
+C.J. Stroud,HOU,Passing Yards,125.0,-1550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,138.5,0.06447575642129719,,,138.5
+Drake Maye,NE,Passing Yards,150.0,-1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,135.0,0.0832711932677664,,,135.0
+Matthew Stafford,LAR,Passing Yards,175.0,-1600.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,115.39999999999998,0.06198110789901429,,,115.39999999999998
+Caleb Williams,CHI,Passing Yards,175.0,-500.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,113.69999999999999,0.19930408349492584,,,113.69999999999999
+C.J. Stroud,HOU,Passing Yards,150.0,-660.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,113.5,0.15083381421963504,,,113.5
+Colston Loveland,CHI,Receiving Yards,150.0,2400.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-112.6,-0.9999999995615979,,,112.6
+C.J. Stroud,HOU,Passing Yards,375.0,3200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,-111.5,-0.9761744745714448,,,111.5
+D'Andre Swift,CHI,Rushing Yards,150.0,3200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-110.8,-0.9999999999999597,,,110.8
+Puka Nacua,LAR,Receiving Yards,175.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-110.3,-0.9999999996091862,,,110.3
+Drake Maye,NE,Passing Yards,175.0,-480.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,110.0,0.20732251735536625,,,110.0
+Matthew Stafford,LAR,Passing Yards,400.0,1150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,-109.60000000000002,-0.9891276189457466,,,109.60000000000002
+Davante Adams,LAR,Receiving Yards,150.0,2250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-105.2,-0.9999999928511278,,,105.2
+Blake Corum,LAR,Rushing Yards,125.0,2550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-91.0,-0.9999999989357604,,,91.0
+Matthew Stafford,LAR,Passing Yards,200.0,-730.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,90.39999999999998,0.13141587081301714,,,90.39999999999998
+DeMario Douglas,NE,Receiving Yards,90.0,2550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-90.0,-0.9999984154003457,,,90.0
+Drake Maye,NE,Passing Yards,375.0,2000.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,-90.0,-0.8936560992313984,,,90.0
+Luther Burden III,CHI,Receiving Yards,125.0,1800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-89.9,-0.9999988267305352,,,89.9
+Drake Maye,NE,Rushing Yards,110.0,2550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-89.3,-0.9999999976315961,,,89.3
+Kyren Williams,LAR,Rushing Yards,150.0,3200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-88.9,-0.9999999964473045,,,88.9
+Kyle Monangai,CHI,Rushing Yards,110.0,1800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-88.7,-0.9999999977556796,,,88.7
+Caleb Williams,CHI,Passing Yards,200.0,-260.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,88.69999999999999,0.37681468180334765,,,88.69999999999999
+C.J. Stroud,HOU,Passing Yards,175.0,-340.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,88.5,0.28670702602307746,,,88.5
+Hunter Henry,NE,Receiving Yards,125.0,2550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-88.2,-0.9999971870745724,,,88.2
+Colston Loveland,CHI,Receiving Yards,125.0,1000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-87.6,-0.9999985896216853,,,87.6
+Christian Kirk,HOU,Receiving Yards,125.0,2800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-86.6,-0.9999949196472135,,,86.6
+C.J. Stroud,HOU,Passing Yards,350.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,-86.5,-0.9024335365182006,,,86.5
+Caleb Williams,CHI,Passing Yards,375.0,1800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,-86.30000000000001,-0.8700966604707306,,,86.30000000000001
+D'Andre Swift,CHI,Rushing Yards,125.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-85.8,-0.9999999940146661,,,85.8
+Puka Nacua,LAR,Receiving Yards,150.0,390.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-85.3,-0.9999987184501057,,,85.3
+Drake Maye,NE,Passing Yards,200.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,85.0,0.38938909278579226,,,85.0
+Matthew Stafford,LAR,Passing Yards,375.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,-84.60000000000002,-0.9296070560291884,,,84.60000000000002
+Tyler Higbee,LAR,Receiving Yards,100.0,3200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-83.7,-0.999985975479333,,,83.7
+Xavier Hutchinson,HOU,Receiving Yards,110.0,2200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-82.6,-0.9999864201876727,,,82.6
+TreVeyon Henderson,NE,Rushing Yards,110.0,2250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-80.4,-0.9999998906165924,,,80.4
+Davante Adams,LAR,Receiving Yards,125.0,1000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-80.2,-0.9999868776637516,,,80.2
+DeMario Douglas,NE,Receiving Yards,80.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-80.0,-0.9999816741557628,,,80.0
+Jaylin Noel,HOU,Receiving Yards,80.0,2800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-80.0,-0.9999633483115256,,,80.0
+Drake Maye,NE,Rushing Yards,100.0,1550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-79.3,-0.9999998781984589,,,79.3
+Kyle Monangai,CHI,Rushing Yards,100.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-78.7,-0.9999998721652592,,,78.7
+Blake Corum,LAR,Rushing Yards,110.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-76.0,-0.9999996165533532,,,76.0
+Luther Burden III,CHI,Receiving Yards,110.0,1150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-74.9,-0.999934153665284,,,74.9
+Tyler Higbee,LAR,Receiving Yards,90.0,2000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-73.7,-0.999847156371727,,,73.7
+Hunter Henry,NE,Receiving Yards,110.0,1250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-73.2,-0.9998877330291875,,,73.2
+Colston Loveland,CHI,Receiving Yards,110.0,700.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-72.6,-0.9999220167725356,,,72.6
+Xavier Hutchinson,HOU,Receiving Yards,100.0,1400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-72.6,-0.9998537814485041,,,72.6
+Kayshon Boutte,NE,Receiving Yards,125.0,2250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-72.5,-0.9997648053033967,,,72.5
+Caleb Williams,CHI,Passing Yards,216.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,72.19999999999999,0.8329907232831595,-0.9634255058918553,,72.19999999999999
+Christian Kirk,HOU,Receiving Yards,110.0,1500.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-71.6,-0.9997972932785686,,,71.6
+D'Andre Swift,CHI,Rushing Yards,110.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-70.8,-0.9999980848700478,,,70.8
+TreVeyon Henderson,NE,Rushing Yards,100.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-70.4,-0.9999964174310529,,,70.4
+DeMario Douglas,NE,Receiving Yards,70.0,1100.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-70.0,-0.9997703438298944,,,70.0
+Jaylin Noel,HOU,Receiving Yards,70.0,2000.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-70.0,-0.9995981017023152,,,70.0
+Drake Maye,NE,Rushing Yards,90.0,1150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-69.3,-0.9999953616574004,,,69.3
+Kyle Monangai,CHI,Rushing Yards,90.0,900.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-68.7,-0.9999953793638312,,,68.7
+Drake Maye,NE,Passing Yards,217.5,-125.0,-105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,67.5,0.7515943200238415,-0.9474964846819445,,67.5
+Blake Corum,LAR,Rushing Yards,100.0,900.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-66.0,-0.999987871994287,,,66.0
+DJ Moore,CHI,Receiving Yards,110.0,2000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-65.6,-0.9988036912401221,,,65.6
+Matthew Stafford,LAR,Passing Yards,225.0,-370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,65.39999999999998,0.23109357022710447,,,65.39999999999998
+Davante Adams,LAR,Receiving Yards,110.0,630.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-65.2,-0.9995422384454006,,,65.2
+Drake Maye,NE,Passing Yards,350.0,1150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,-65.0,-0.6044322985415904,,,65.0
+Luther Burden III,CHI,Receiving Yards,100.0,850.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-64.9,-0.9993600302211432,,,64.9
+Kyren Williams,LAR,Rushing Yards,125.0,1100.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-63.9,-0.9999699281300785,,,63.9
+Tyler Higbee,LAR,Receiving Yards,80.0,1150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-63.7,-0.9988817491261741,,,63.7
+Caleb Williams,CHI,Passing Yards,225.0,-140.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,63.69999999999999,0.6553494243784741,,,63.69999999999999
+C.J. Stroud,HOU,Passing Yards,200.0,-175.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,63.5,0.5167163394625492,,,63.5
+Hunter Henry,NE,Receiving Yards,100.0,1000.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-63.2,-0.9988940218594639,,,63.2
+Xavier Hutchinson,HOU,Receiving Yards,90.0,1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-62.6,-0.9984979073543585,,,62.6
+Colston Loveland,CHI,Receiving Yards,100.0,475.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-62.6,-0.9993356128682739,,,62.6
+Jayden Higgins,HOU,Receiving Yards,125.0,1600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-62.0,-0.9977452966718764,,,62.0
+Christian Kirk,HOU,Receiving Yards,100.0,1100.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-61.6,-0.9982563391579491,,,61.6
+C.J. Stroud,HOU,Passing Yards,325.0,900.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,-61.5,-0.6055326884035335,,,61.5
+Caleb Williams,CHI,Passing Yards,350.0,1100.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,-61.30000000000001,-0.5207673096233891,,,61.30000000000001
+D'Andre Swift,CHI,Rushing Yards,100.0,585.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-60.8,-0.9999518302546916,,,60.8
+TreVeyon Henderson,NE,Rushing Yards,90.0,1000.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-60.4,-0.9999119341333434,,,60.4
+Puka Nacua,LAR,Receiving Yards,125.0,185.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-60.3,-0.9994448804186291,,,60.3
+Jaylin Noel,HOU,Receiving Yards,60.0,1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-60.0,-0.9972928503526992,,,60.0
+Drake Maye,NE,Passing Yards,225.0,-130.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,60.0,0.6927325343709881,,,60.0
+DeMario Douglas,NE,Receiving Yards,60.0,775.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-60.0,-0.998177880045086,,,60.0
+Matthew Stafford,LAR,Passing Yards,350.0,475.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,-59.60000000000002,-0.7452899327309737,,,59.60000000000002
+Drake Maye,NE,Rushing Yards,80.0,800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-59.3,-0.9998974781571738,,,59.3
+Kyle Monangai,CHI,Rushing Yards,80.0,685.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-58.7,-0.9998918808021313,,,58.7
+Rhamondre Stevenson,NE,Rushing Yards,110.0,2550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-58.5,-0.9996113167223685,,,58.5
+Rome Odunze,CHI,Receiving Yards,10.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,58.0,0.08298372108268928,,,58.0
+Stefon Diggs,NE,Receiving Yards,125.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-57.599999999999994,-0.994900067890097,,,57.599999999999994
+Kayshon Boutte,NE,Receiving Yards,110.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-57.5,-0.9947895884781222,,,57.5
+Rome Odunze,CHI,Receiving Yards,125.0,2250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-57.0,-0.9906049704734707,,,57.0
+Rhamondre Stevenson,NE,Receiving Yards,80.0,2200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-56.2,-0.9891120494216004,,,56.2
+Blake Corum,LAR,Rushing Yards,90.0,685.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-56.0,-0.99975138075161,,,56.0
+C.J. Stroud,HOU,Passing Yards,207.5,-125.0,-105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,56.0,0.7013612749407958,-0.8930109066818156,,56.0
+DJ Moore,CHI,Receiving Yards,100.0,1350.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-55.6,-0.9922190059941148,,,55.6
+Davante Adams,LAR,Receiving Yards,100.0,475.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-55.2,-0.9966476267444667,,,55.2
+Luther Burden III,CHI,Receiving Yards,90.0,630.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-54.9,-0.9954723519373972,,,54.9
+Tyler Higbee,LAR,Receiving Yards,70.0,850.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-53.7,-0.992475649569456,,,53.7
+Hunter Henry,NE,Receiving Yards,90.0,725.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-53.2,-0.9927747874244003,,,53.2
+Rome Odunze,CHI,Receiving Yards,15.0,-600.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,53.0,0.1656032443285667,,,53.0
+Jayden Higgins,HOU,Receiving Yards,10.0,-1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,53.0,0.08234586973366895,,,53.0
+Colston Loveland,CHI,Receiving Yards,90.0,330.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-52.6,-0.9957559173571779,,,52.6
+Xavier Hutchinson,HOU,Receiving Yards,80.0,850.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-52.6,-0.9906235383472537,,,52.6
+Caleb Williams,CHI,Rushing Yards,70.0,2550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-51.8,-0.9971433070628486,,,51.8
+Christian Kirk,HOU,Receiving Yards,90.0,800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-51.6,-0.9891864449456502,,,51.6
+D'Andre Swift,CHI,Rushing Yards,90.0,375.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-50.8,-0.9993231394830965,,,50.8
+TreVeyon Henderson,NE,Rushing Yards,80.0,675.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-50.4,-0.9987669084262789,,,50.4
+Jaylin Noel,HOU,Receiving Yards,50.0,900.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-50.0,-0.9836515899365312,,,50.0
+DeMario Douglas,NE,Receiving Yards,50.0,530.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-50.0,-0.9897005016600147,,,50.0
+Drake Maye,NE,Rushing Yards,70.0,585.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-49.3,-0.9985298931160318,,,49.3
+Kyren Williams,LAR,Rushing Yards,110.0,635.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-48.9,-0.9982437833240849,,,48.9
+Kyle Monangai,CHI,Rushing Yards,70.0,475.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-48.7,-0.9985507295392586,,,48.7
+Rhamondre Stevenson,NE,Rushing Yards,100.0,1800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-48.5,-0.9949494055824352,,,48.5
+Rome Odunze,CHI,Receiving Yards,20.0,-360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,48.0,0.2747431790085545,,,48.0
+Jayden Higgins,HOU,Receiving Yards,15.0,-650.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,48.0,0.15110588071006592,,,48.0
+Woody Marks,HOU,Rushing Yards,30.0,-1100.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,47.599999999999994,0.09054153171017063,,,47.599999999999994
+Kayshon Boutte,NE,Receiving Yards,100.0,1100.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-47.5,-0.9687750748017987,,,47.5
+Woody Marks,HOU,Rushing Yards,125.0,1150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,-47.400000000000006,-0.9955629214166274,,,47.400000000000006
+Stefon Diggs,NE,Receiving Yards,20.0,-990.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,47.400000000000006,0.09809264239713175,,,47.400000000000006
+Jayden Higgins,HOU,Receiving Yards,110.0,1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-47.0,-0.9629668084719629,,,47.0
+D'Andre Swift,CHI,Receiving Yards,70.0,2250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-46.8,-0.930601553726508,,,46.8
+Rhamondre Stevenson,NE,Receiving Yards,70.0,1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-46.2,-0.9572638452221496,,,46.2
+Blake Corum,LAR,Rushing Yards,80.0,450.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-46.0,-0.9972025862865962,,,46.0
+DJ Moore,CHI,Receiving Yards,90.0,1000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-45.6,-0.959791542705238,,,45.6
+Puka Nacua,LAR,Receiving Yards,110.0,120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-45.3,-0.9915238748825677,,,45.3
+Davante Adams,LAR,Receiving Yards,90.0,340.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-45.2,-0.9827489148711291,,,45.2
+Luther Burden III,CHI,Receiving Yards,80.0,450.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-44.9,-0.977279864885948,,,44.9
+Tyler Higbee,LAR,Receiving Yards,60.0,575.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-43.7,-0.9657349884425901,,,43.7
+Cole Kmet,CHI,Receiving Yards,60.0,2250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-43.6,-0.8786656269371497,,,43.6
+TreVeyon Henderson,NE,Receiving Yards,60.0,3200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-43.2,-0.8177077668327848,,,43.2
+Hunter Henry,NE,Receiving Yards,80.0,500.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-43.2,-0.9668559576059608,,,43.2
+Rome Odunze,CHI,Receiving Yards,25.0,-260.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,43.0,0.37670549938001113,,,43.0
+Jayden Higgins,HOU,Receiving Yards,20.0,-400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,43.0,0.2428591313847323,,,43.0
+Colston Loveland,CHI,Receiving Yards,80.0,225.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-42.6,-0.9801512337067099,,,42.6
+Xavier Hutchinson,HOU,Receiving Yards,70.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-42.6,-0.9587756392370127,,,42.6
+Stefon Diggs,NE,Receiving Yards,110.0,850.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-42.599999999999994,-0.9419805292965364,,,42.599999999999994
+Kayshon Boutte,NE,Receiving Yards,10.0,-660.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,42.5,0.14436462780668208,,,42.5
+Stefon Diggs,NE,Receiving Yards,25.0,-600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,42.400000000000006,0.1593008767093784,,,42.400000000000006
+Rome Odunze,CHI,Receiving Yards,110.0,1150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-42.0,-0.9156931016998269,,,42.0
+Caleb Williams,CHI,Rushing Yards,60.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-41.8,-0.9809031132058302,,,41.8
+Christian Kirk,HOU,Receiving Yards,80.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-41.6,-0.951390775917852,,,41.6
+D'Andre Swift,CHI,Rushing Yards,80.0,270.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-40.8,-0.9934046859329217,,,40.8
+TreVeyon Henderson,NE,Rushing Yards,70.0,450.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-40.4,-0.9892605210474573,,,40.4
+Matthew Stafford,LAR,Passing Yards,250.0,-200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,40.39999999999998,0.31371271146408186,,,40.39999999999998
+DeMario Douglas,NE,Receiving Yards,40.0,330.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-40.0,-0.9599550023820838,,,40.0
+Drake Maye,NE,Passing Yards,325.0,730.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,-40.0,0.050356322130529874,,,40.0
+Jaylin Noel,HOU,Receiving Yards,40.0,600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-40.0,-0.9348104689940898,,,40.0
+Drake Maye,NE,Rushing Yards,60.0,340.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-39.3,-0.989003724586482,,,39.3
+Kyren Williams,LAR,Rushing Yards,100.0,475.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-38.9,-0.9843029289990815,,,38.9
+Kyle Monangai,CHI,Rushing Yards,60.0,280.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-38.7,-0.9891609629756324,,,38.7
+Caleb Williams,CHI,Passing Yards,250.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,38.69999999999999,0.9908222645516058,,,38.69999999999999
+C.J. Stroud,HOU,Passing Yards,225.0,105.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,38.5,0.7718845750599154,,,38.5
+Rhamondre Stevenson,NE,Rushing Yards,90.0,1100.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-38.5,-0.9642428411793453,,,38.5
+Rome Odunze,CHI,Receiving Yards,30.0,-185.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,38.0,0.5209771807841407,,,38.0
+Jayden Higgins,HOU,Receiving Yards,25.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,38.0,0.38222136780032423,,,38.0
+Kyren Williams,LAR,Receiving Yards,60.0,2250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,-37.7,-0.687697847606936,,,37.7
+Woody Marks,HOU,Rushing Yards,40.0,-390.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,37.599999999999994,0.2518636250181142,,,37.599999999999994
+Kayshon Boutte,NE,Receiving Yards,90.0,800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-37.5,-0.8767349283883217,,,37.5
+Kayshon Boutte,NE,Receiving Yards,15.0,-390.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,37.5,0.23920231194024993,,,37.5
+Stefon Diggs,NE,Receiving Yards,30.0,-390.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,37.400000000000006,0.23894182235483508,,,37.400000000000006
+Jayden Higgins,HOU,Receiving Yards,100.0,875.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-37.0,-0.8560895583030923,,,37.0
+D'Andre Swift,CHI,Receiving Yards,60.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-36.8,-0.7947310398229326,,,36.8
+Colby Parkinson,LAR,Receiving Yards,70.0,1550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,-36.7,-0.7453731523658346,,,36.7
+C.J. Stroud,HOU,Passing Yards,300.0,585.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,-36.5,0.017274529645987968,,,36.5
+Rhamondre Stevenson,NE,Rushing Yards,15.0,-1550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,36.5,0.05965654585099704,,,36.5
+Caleb Williams,CHI,Passing Yards,325.0,630.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,-36.30000000000001,0.09379288812057585,,,36.30000000000001
+Rhamondre Stevenson,NE,Receiving Yards,60.0,850.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-36.2,-0.842204012215775,,,36.2
+Blake Corum,LAR,Rushing Yards,70.0,280.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-36.0,-0.9807568179561578,,,36.0
+DJ Moore,CHI,Receiving Yards,80.0,775.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-35.6,-0.8414084312664529,,,35.6
+Puka Nacua,LAR,Receiving Yards,100.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-35.3,-0.9659345962478477,,,35.3
+Davante Adams,LAR,Receiving Yards,80.0,240.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-35.2,-0.9347246027012903,,,35.2
+Drake Maye,NE,Passing Yards,250.0,145.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,35.0,1.0612946278679303,,,35.0
+Luther Burden III,CHI,Receiving Yards,70.0,320.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-34.9,-0.9158356059743568,,,34.9
+Matthew Stafford,LAR,Passing Yards,325.0,270.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,-34.60000000000002,-0.4026851887786228,,,34.60000000000002
+Rome Odunze,CHI,Receiving Yards,33.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,34.5,0.8299151344279825,-0.9603499170366783,,34.5
+DJ Moore,CHI,Receiving Yards,10.0,-660.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,34.4,0.12674686990009892,,,34.4
+Kyle Monangai,CHI,Receiving Yards,50.0,1800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,-33.8,-0.5555361040117394,,,33.8
+Tyler Higbee,LAR,Receiving Yards,50.0,340.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-33.7,-0.895632544300013,,,33.7
+Cole Kmet,CHI,Receiving Yards,50.0,1250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-33.6,-0.6753148500645055,,,33.6
+TreVeyon Henderson,NE,Receiving Yards,50.0,1350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-33.2,-0.6315073978997727,,,33.2
+Hunter Henry,NE,Receiving Yards,70.0,330.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-33.2,-0.8907228835151051,,,33.2
+Jayden Higgins,HOU,Receiving Yards,30.0,-190.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,33.0,0.48645080509418603,,,33.0
+Puka Nacua,LAR,Receiving Yards,97.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-32.8,-0.9498210898522713,0.8193863072435755,,32.8
+Woody Marks,HOU,Rush+Rec Yards,66.5,-125.0,-105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_rec_yards,99.3,32.8,0.7090953497466133,-0.9013997179791308,,32.8
+Colston Loveland,CHI,Receiving Yards,70.0,150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-32.6,-0.9310552764606446,,,32.6
+Xavier Hutchinson,HOU,Receiving Yards,60.0,375.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-32.6,-0.8690050252752247,,,32.6
+Stefon Diggs,NE,Receiving Yards,100.0,630.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-32.599999999999994,-0.7986814072650812,,,32.599999999999994
+Kayshon Boutte,NE,Receiving Yards,20.0,-265.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,32.5,0.33885692653622546,,,32.5
+Woody Marks,HOU,Rushing Yards,110.0,775.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,-32.400000000000006,-0.909647259845673,,,32.400000000000006
+Rome Odunze,CHI,Receiving Yards,100.0,900.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-32.0,-0.7010594458676791,,,32.0
+Caleb Williams,CHI,Rushing Yards,50.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-31.8,-0.8959552910395439,,,31.8
+Christian Kirk,HOU,Receiving Yards,70.0,375.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-31.6,-0.8502511291336884,,,31.6
+Rhamondre Stevenson,NE,Rushing Yards,20.0,-660.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,31.5,0.13743848603358502,,,31.5
+Kyren Williams,LAR,Rushing Yards,30.0,-1600.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,31.1,0.048516465311823354,,,31.1
+D'Andre Swift,CHI,Rushing Yards,70.0,165.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-30.799999999999997,-0.9631558640892285,,,30.799999999999997
+TreVeyon Henderson,NE,Rushing Yards,60.0,270.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-30.4,-0.9446872364621443,,,30.4
+DeMario Douglas,NE,Receiving Yards,30.0,180.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-30.0,-0.8913415067592163,,,30.0
+Jaylin Noel,HOU,Receiving Yards,30.0,400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-30.0,-0.8059669763557435,,,30.0
+DJ Moore,CHI,Receiving Yards,15.0,-380.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,29.4,0.21027236257728266,,,29.4
+Drake Maye,NE,Rushing Yards,50.0,200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-29.3,-0.9454571365194356,,,29.3
+Kyren Williams,LAR,Rushing Yards,90.0,290.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-28.9,-0.9239682623505752,,,28.9
+Kyle Monangai,CHI,Rushing Yards,50.0,180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-28.7,-0.9434897968640277,,,28.7
+Rhamondre Stevenson,NE,Rushing Yards,80.0,800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-28.5,-0.8119942581681574,,,28.5
+Christian Kirk,HOU,Receiving Yards,10.0,-1600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,28.4,0.012135886141292768,,,28.4
+Rome Odunze,CHI,Receiving Yards,40.0,-110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,28.0,0.8140697696503192,,,28.0
+Matthew Stafford,LAR,Rushing Yards,40.0,3300.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,-27.9,-0.2132894292064491,,,27.9
+Matthew Stafford,LAR,Passing Yards,262.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,27.899999999999977,0.47193854464654117,-0.602373327255237,,27.899999999999977
+Kyren Williams,LAR,Receiving Yards,50.0,1150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,-27.7,-0.35483825047165396,,,27.7
+Woody Marks,HOU,Rushing Yards,50.0,-210.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,27.599999999999994,0.4402637822410111,,,27.599999999999994
+Kayshon Boutte,NE,Receiving Yards,80.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-27.5,-0.6431319505137782,,,27.5
+Kayshon Boutte,NE,Receiving Yards,25.0,-195.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,27.5,0.4328386897637717,,,27.5
+Stefon Diggs,NE,Receiving Yards,40.0,-205.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,27.400000000000006,0.40819753390245356,,,27.400000000000006
+Jayden Higgins,HOU,Receiving Yards,90.0,650.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-27.0,-0.5791257138688909,,,27.0
+D'Andre Swift,CHI,Receiving Yards,50.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-26.8,-0.4828717368624903,,,26.8
+Colby Parkinson,LAR,Receiving Yards,60.0,1100.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,-26.700000000000003,-0.3023300534485367,,,26.700000000000003
+Rhamondre Stevenson,NE,Rushing Yards,25.0,-350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,26.5,0.24818629788834234,,,26.5
+Rhamondre Stevenson,NE,Receiving Yards,50.0,525.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-26.2,-0.6147692423812681,,,26.2
+C.J. Stroud,HOU,Rushing Yards,50.0,2550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,-26.0,-0.16139647290817172,,,26.0
+Blake Corum,LAR,Rushing Yards,60.0,180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-26.0,-0.9113928348733162,,,26.0
+DJ Moore,CHI,Receiving Yards,70.0,530.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-25.6,-0.5838932609192258,,,25.6
+Jayden Higgins,HOU,Receiving Yards,37.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,25.5,0.7446647976277869,-0.8750995802364827,,25.5
+Puka Nacua,LAR,Receiving Yards,90.0,-175.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-25.299999999999997,-0.8926016159070331,,,25.299999999999997
+Davante Adams,LAR,Receiving Yards,70.0,165.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-25.200000000000003,-0.8168235087735181,,,25.200000000000003
+Luther Burden III,CHI,Receiving Yards,10.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,25.1,0.007598797147036346,,,25.1
+Jaylin Noel,HOU,Receiving Yards,25.0,275.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-25.0,-0.7348702984626007,,,25.0
+DeMario Douglas,NE,Receiving Yards,25.0,140.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-25.0,-0.8303169910160644,,,25.0
+Luther Burden III,CHI,Receiving Yards,60.0,210.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-24.9,-0.7783481719845526,,,24.9
+Davante Adams,LAR,Receiving Yards,20.0,-1300.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,24.799999999999997,-0.0009458302423454995,,,24.799999999999997
+DJ Moore,CHI,Receiving Yards,20.0,-250.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,24.4,0.294157687689939,,,24.4
+Woody Marks,HOU,Rushing Yards,53.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,24.099999999999994,0.7899469003386812,-0.920381682947377,,24.099999999999994
+Kyle Monangai,CHI,Receiving Yards,40.0,1000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,-23.8,-0.11167674842851827,,,23.8
+Tyler Higbee,LAR,Receiving Yards,40.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-23.7,-0.7550768784590571,,,23.7
+Cole Kmet,CHI,Receiving Yards,40.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-23.6,-0.25720566282695967,,,23.6
+Christian Kirk,HOU,Receiving Yards,15.0,-750.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,23.4,0.037750273990638475,,,23.4
+Colby Parkinson,LAR,Receiving Yards,10.0,-370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,23.299999999999997,0.161977600469209,,,23.299999999999997
+Hunter Henry,NE,Receiving Yards,60.0,210.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-23.200000000000003,-0.7328644593835193,,,23.200000000000003
+TreVeyon Henderson,NE,Receiving Yards,40.0,900.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-23.2,-0.1382724496242551,,,23.2
+Jayden Higgins,HOU,Receiving Yards,40.0,-110.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,23.0,0.7410198685671573,,,23.0
+Colston Loveland,CHI,Receiving Yards,60.0,-110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-22.6,-0.8246383941080467,,,22.6
+Xavier Hutchinson,HOU,Receiving Yards,50.0,225.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-22.6,-0.7014677423506033,,,22.6
+Stefon Diggs,NE,Receiving Yards,90.0,475.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-22.599999999999994,-0.4718275441587597,,,22.599999999999994
+Kayshon Boutte,NE,Receiving Yards,30.0,-140.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,22.5,0.5551491011607562,,,22.5
+Woody Marks,HOU,Rushing Yards,100.0,530.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,-22.400000000000006,-0.6547644622927851,,,22.400000000000006
+Rome Odunze,CHI,Receiving Yards,90.0,685.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-22.0,-0.23217271153812846,,,22.0
+Caleb Williams,CHI,Rushing Yards,40.0,420.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-21.8,-0.6894649134601006,,,21.8
+Hunter Henry,NE,Receiving Yards,15.0,-880.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,21.799999999999997,0.0024292687724921658,,,21.799999999999997
+Christian Kirk,HOU,Receiving Yards,60.0,250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-21.6,-0.6432184446582623,,,21.6
+Rhamondre Stevenson,NE,Rushing Yards,30.0,-225.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,21.5,0.35444943847566246,,,21.5
+Kyren Williams,LAR,Rushing Yards,40.0,-535.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,21.1,0.10871353491219798,,,21.1
+Colston Loveland,CHI,Receiving Yards,58.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-21.1,-0.7994512110224563,0.6690164284137605,,21.1
+Kayshon Boutte,NE,Receiving Yards,31.5,-120.0,-110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,21.0,0.6346723596692022,-0.7931298951927228,,21.0
+D'Andre Swift,CHI,Rushing Yards,60.0,105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-20.799999999999997,-0.8592114219054092,,,20.799999999999997
+TreVeyon Henderson,NE,Rushing Yards,50.0,165.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-20.4,-0.8077730408685526,,,20.4
+Luther Burden III,CHI,Receiving Yards,15.0,-630.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,20.1,0.021382578008081715,,,20.1
+Jaylin Noel,HOU,Receiving Yards,20.0,200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-20.0,-0.6408896818048159,,,20.0
+DeMario Douglas,NE,Receiving Yards,20.0,,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-20.0,,,,20.0
+Stefon Diggs,NE,Receiving Yards,47.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,19.900000000000006,0.643568127723191,-0.7740029103318868,,19.900000000000006
+Davante Adams,LAR,Receiving Yards,25.0,-770.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,19.799999999999997,-0.008052024917596032,,,19.799999999999997
+DJ Moore,CHI,Receiving Yards,25.0,-175.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,19.4,0.37201704059003876,,,19.4
+Drake Maye,NE,Rushing Yards,40.0,105.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-19.3,-0.8277723959486629,,,19.3
+Kyren Williams,LAR,Rushing Yards,80.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-18.9,-0.7344760256877939,,,18.9
+Kyle Monangai,CHI,Rushing Yards,40.0,-105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-18.7,-0.8226821474669402,,,18.7
+DeMario Douglas,NE,Receiving Yards,18.5,-130.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-18.5,-0.7554115888208097,,,18.5
+Rhamondre Stevenson,NE,Rushing Yards,70.0,530.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-18.5,-0.41297071051645573,,,18.5
+Christian Kirk,HOU,Receiving Yards,20.0,-450.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,18.4,0.05166372046794221,,,18.4
+Colby Parkinson,LAR,Receiving Yards,15.0,-215.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,18.299999999999997,0.2587423091022611,,,18.299999999999997
+Rome Odunze,CHI,Receiving Yards,50.0,155.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,18.0,1.180657801438275,,,18.0
+Matthew Stafford,LAR,Rushing Yards,30.0,1700.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,-17.9,0.8094321494346466,,,17.9
+Kyren Williams,LAR,Receiving Yards,40.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,-17.7,0.34007144229371855,,,17.7
+Woody Marks,HOU,Rushing Yards,60.0,-115.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,17.599999999999994,0.6744743008932312,,,17.599999999999994
+Kayshon Boutte,NE,Receiving Yards,70.0,390.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-17.5,-0.2569487534788877,,,17.5
+Stefon Diggs,NE,Receiving Yards,50.0,-120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,17.400000000000006,0.5527805324467855,,,17.400000000000006
+Xavier Hutchinson,HOU,Receiving Yards,10.0,-650.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,17.4,-0.022725539019506025,,,17.4
+Colston Loveland,CHI,Receiving Yards,20.0,-1600.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,17.4,-0.10009310051379505,,,17.4
+Jayden Higgins,HOU,Receiving Yards,80.0,450.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-17.0,-0.12739610337698604,,,17.0
+D'Andre Swift,CHI,Receiving Yards,40.0,500.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-16.8,-0.03088772002457607,,,16.8
+Hunter Henry,NE,Receiving Yards,20.0,-510.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,16.799999999999997,0.0028893820964024375,,,16.799999999999997
+Colby Parkinson,LAR,Receiving Yards,50.0,685.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,-16.700000000000003,0.2792595553431225,,,16.700000000000003
+Rhamondre Stevenson,NE,Receiving Yards,40.0,300.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-16.2,-0.3187602487171992,,,16.2
+Blake Corum,LAR,Rushing Yards,50.0,-105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-16.0,-0.7529282317421014,,,16.0
+C.J. Stroud,HOU,Rushing Yards,40.0,1150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,-16.0,0.5818619309194726,,,16.0
+DJ Moore,CHI,Receiving Yards,60.0,360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-15.600000000000001,-0.17475155327390968,,,15.600000000000001
+Matthew Stafford,LAR,Passing Yards,275.0,-115.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,15.399999999999977,0.25266748663454186,,,15.399999999999977
+Puka Nacua,LAR,Receiving Yards,80.0,-260.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-15.299999999999997,-0.7451475187506407,,,15.299999999999997
+D'Andre Swift,CHI,Rushing Yards,54.5,,-130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-15.299999999999997,,0.5264423024083681,,15.299999999999997
+Davante Adams,LAR,Receiving Yards,60.0,105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-15.200000000000003,-0.6194595779846959,,,15.200000000000003
+Kyle Monangai,CHI,Rushing Yards,36.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-15.2,-0.7404992828340601,0.6100645002253643,,15.2
+Luther Burden III,CHI,Receiving Yards,20.0,-390.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,15.100000000000001,0.021201337536324277,,,15.100000000000001
+DeMario Douglas,NE,Receiving Yards,15.0,-150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-15.0,-0.6853450204381261,,,15.0
+Drake Maye,NE,Passing Yards,300.0,420.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,-15.0,0.7374113686676487,,,15.0
+Jaylin Noel,HOU,Receiving Yards,15.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-15.0,-0.5280175306571891,,,15.0
+Luther Burden III,CHI,Receiving Yards,50.0,140.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-14.899999999999999,-0.5430708894130856,,,14.899999999999999
+DJ Moore,CHI,Receiving Yards,29.5,-110.0,-120.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,14.899999999999999,0.5456245711240453,-0.6509569294127736,,14.899999999999999
+Davante Adams,LAR,Receiving Yards,30.0,-490.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,14.799999999999997,-0.02708941146449312,,,14.799999999999997
+Puka Nacua,LAR,Receiving Yards,50.0,-1300.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,14.700000000000003,-0.1315693600155005,,,14.700000000000003
+TreVeyon Henderson,NE,Rushing Yards,15.0,-1600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,14.600000000000001,-0.09528893251808208,,,14.600000000000001
+DJ Moore,CHI,Receiving Yards,30.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,14.399999999999999,0.44273389867382995,,,14.399999999999999
+D'Andre Swift,CHI,Rushing Yards,25.0,-1550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,14.200000000000003,-0.10072149156433721,,,14.200000000000003
+C.J. Stroud,HOU,Rushing Yards,10.0,-150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,14.0,0.4022412434475714,,,14.0
+Blake Corum,LAR,Rushing Yards,20.0,-1550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,14.0,-0.10437494773348661,,,14.0
+Kyle Monangai,CHI,Receiving Yards,30.0,575.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,-13.8,0.40712746954679524,,,13.8
+Rhamondre Stevenson,NE,Receiving Yards,10.0,-375.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,13.8,0.002613116825786521,,,13.8
+Colby Parkinson,LAR,Receiving Yards,19.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,13.799999999999997,0.4798294287245588,-0.6102642113332546,,13.799999999999997
+Tyler Higbee,LAR,Receiving Yards,30.0,105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-13.7,-0.5691815453981487,,,13.7
+Caleb Williams,CHI,Passing Yards,275.0,220.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,13.699999999999989,1.087231237289828,,,13.699999999999989
+Cole Kmet,CHI,Receiving Yards,30.0,420.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-13.600000000000001,0.10164807263366316,,,13.600000000000001
+C.J. Stroud,HOU,Rushing Yards,10.5,-105.0,-125.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,13.5,0.6254521251171807,-0.6985875690104739,,13.5
+C.J. Stroud,HOU,Passing Yards,250.0,190.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,13.5,0.885422991703922,,,13.5
+Christian Kirk,HOU,Receiving Yards,25.0,-300.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,13.399999999999999,0.046293941273008565,,,13.399999999999999
+Colby Parkinson,LAR,Receiving Yards,20.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,13.299999999999997,0.40939353643997667,,,13.299999999999997
+Hunter Henry,NE,Receiving Yards,50.0,135.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-13.200000000000003,-0.4859713631597919,,,13.200000000000003
+D'Andre Swift,CHI,Receiving Yards,10.0,-225.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,13.2,0.12849303645755528,,,13.2
+Woody Marks,HOU,Receiving Yards,8.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,13.2,0.4915047824508948,-0.5989847514012561,,13.2
+TreVeyon Henderson,NE,Receiving Yards,30.0,530.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-13.2,0.3780342179120473,,,13.2
+Jayden Higgins,HOU,Receiving Yards,50.0,140.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,13.0,0.8666639568380909,,,13.0
+Matthew Stafford,LAR,Rushing Yards,25.0,1350.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,-12.9,1.5869937022856648,,,12.9
+Drake Maye,NE,Passing Attempts,29.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_attempts,42.26,12.759999999999998,0.8693159575054147,-0.9997507401141105,,12.759999999999998
+Xavier Hutchinson,HOU,Receiving Yards,40.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-12.600000000000001,-0.426766939995557,,,12.600000000000001
+Colston Loveland,CHI,Receiving Yards,50.0,-180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-12.600000000000001,-0.643321651552791,,,12.600000000000001
+Stefon Diggs,NE,Receiving Yards,80.0,320.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-12.599999999999994,-0.03696845919253544,,,12.599999999999994
+Kayshon Boutte,NE,Receiving Yards,40.0,120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,12.5,0.6916235711130618,,,12.5
+Blake Corum,LAR,Rushing Yards,46.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-12.5,-0.6523228638858773,0.5218880812771816,,12.5
+Woody Marks,HOU,Rushing Yards,90.0,360.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,-12.400000000000006,-0.13572553102240104,,,12.400000000000006
+Xavier Hutchinson,HOU,Receiving Yards,15.0,-350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,12.399999999999999,-0.013696315075620996,,,12.399999999999999
+Colston Loveland,CHI,Receiving Yards,25.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,12.399999999999999,-0.16894782103593986,,,12.399999999999999
+Kyren Williams,LAR,Receiving Yards,10.0,-150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,12.3,0.27553775743543885,,,12.3
+Rhamondre Stevenson,NE,Rushing Yards,39.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,12.0,0.503723144625549,-0.6341579272342448,,12.0
+Rome Odunze,CHI,Receiving Yards,80.0,530.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-12.0,0.5128231036732825,,,12.0
+DJ Moore,CHI,Rush+Rec Yards,32.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rush_rec_yards,44.4,11.899999999999999,0.35371153799261446,-0.48414632060131024,,11.899999999999999
+Caleb Williams,CHI,Rushing Yards,30.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-11.8,-0.40103748267437767,,,11.8
+Kyren Williams,LAR,Receiving Yards,10.5,-125.0,-105.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,11.8,0.3611524107342394,-0.5240012920662385,,11.8
+Rhamondre Stevenson,NE,Rush+Rec Yards,63.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_rec_yards,75.3,11.799999999999997,0.3505826537217829,-0.48101743633047866,,11.799999999999997
+Hunter Henry,NE,Receiving Yards,25.0,-340.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,11.799999999999997,-0.021393691628978195,,,11.799999999999997
+Woody Marks,HOU,Receiving Yards,10.0,-105.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,11.7,0.47277405998070265,,,11.7
+Christian Kirk,HOU,Receiving Yards,50.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-11.600000000000001,-0.38123024431686003,,,11.600000000000001
+Rhamondre Stevenson,NE,Rushing Yards,40.0,-105.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,11.5,0.5507740480640244,,,11.5
+C.J. Stroud,HOU,Passing Yards,275.0,340.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,263.5,-11.5,0.6334552228125164,,,11.5
+Caleb Williams,CHI,Passing Yards,300.0,370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,288.7,-11.300000000000011,0.7549880713008985,,,11.300000000000011
+TreVeyon Henderson,NE,Receiving Yards,5.5,-120.0,-110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,11.3,0.36928125518588484,-0.5167722161439791,,11.3
+Caleb Williams,CHI,Passing Attempts,32.5,-110.0,-120.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_attempts,43.65,11.149999999999999,0.9077125729090919,-0.9986763596984136,,11.149999999999999
+Kyren Williams,LAR,Rushing Yards,50.0,-255.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,11.100000000000001,0.0943320077573791,,,11.100000000000001
+Kyle Monangai,CHI,Rush+Rec Yards,48.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_rec_yards,37.5,-11.0,-0.4556579768739612,0.32522319426526536,,11.0
+D'Andre Swift,CHI,Rushing Yards,50.0,-170.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-10.799999999999997,-0.6502285434428214,,,10.799999999999997
+Davante Adams,LAR,Receiving Yards,55.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-10.700000000000003,-0.5054256680905782,0.3749908854818824,,10.700000000000003
+TreVeyon Henderson,NE,Rushing Yards,40.0,-120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-10.399999999999999,-0.5805625061927016,,,10.399999999999999
+Luther Burden III,CHI,Receiving Yards,25.0,-280.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,10.100000000000001,-0.01772268368050889,,,10.100000000000001
+Drake Maye,NE,Passing Yards,275.0,250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_yards,285.0,10.0,1.1435803161570268,,,10.0
+DeMario Douglas,NE,Receiving Yards,10.0,-245.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-10.0,-0.6082670249035044,,,10.0
+Jaylin Noel,HOU,Receiving Yards,10.0,-110.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-10.0,-0.46891537368340713,,,10.0
+Kyren Williams,LAR,Rush+Rec Yards,73.5,-120.0,-110.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_rec_yards,83.4,9.900000000000006,0.2644498895334392,-0.4076089758777961,,9.900000000000006
+Matthew Stafford,LAR,Passing Yards,300.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_yards,290.4,-9.600000000000023,-0.09855517865386443,,,9.600000000000023
+TreVeyon Henderson,NE,Rushing Yards,20.0,-710.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,9.600000000000001,-0.14031237332119978,,,9.600000000000001
+Drake Maye,NE,Rushing Yards,30.0,-210.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-9.3,-0.6261492538254355,,,9.3
+D'Andre Swift,CHI,Rushing Yards,30.0,-770.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,9.200000000000003,-0.15886200375465748,,,9.200000000000003
+D'Andre Swift,CHI,Rush+Rec Yards,71.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_rec_yards,62.400000000000006,-9.099999999999994,-0.3932239723925382,0.26278918978384236,,9.099999999999994
+Matthew Stafford,LAR,Passing Attempts,34.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_attempts,43.54,9.04,0.860405667093798,-0.9908404497024937,,9.04
+Blake Corum,LAR,Rushing Yards,25.0,-710.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,9.0,-0.15595535803589233,,,9.0
+C.J. Stroud,HOU,Rushing Yards,15.0,135.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,9.0,0.7386277594038441,,,9.0
+Kyren Williams,LAR,Rushing Yards,70.0,125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-8.899999999999999,-0.4094170036155895,,,8.899999999999999
+Kyle Monangai,CHI,Receiving Yards,25.0,420.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,-8.8,0.5722318092704679,,,8.8
+Rhamondre Stevenson,NE,Receiving Yards,15.0,-225.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,8.8,0.007713386313758841,,,8.8
+D'Andre Swift,CHI,Receiving Yards,14.5,-105.0,-125.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,8.7,0.35806086981292484,-0.4520658750958185,,8.7
+Kyle Monangai,CHI,Rushing Yards,30.0,-220.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-8.7,-0.6114053250538224,,,8.7
+Kyle Monangai,CHI,Receiving Yards,7.5,-125.0,-105.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,8.7,0.25206587509581857,-0.40567991743197246,,8.7
+Tyler Higbee,LAR,Receiving Yards,25.0,-135.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-8.7,-0.4701048586317586,,,8.7
+Cole Kmet,CHI,Receiving Yards,25.0,290.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-8.600000000000001,0.19523152071724437,,,8.600000000000001
+Rhamondre Stevenson,NE,Rushing Yards,60.0,330.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,-8.5,0.16907563773730627,,,8.5
+Jaylin Noel,HOU,Receiving Yards,8.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,0.0,-8.5,-0.42316894933837224,0.29273416672967645,,8.5
+Christian Kirk,HOU,Receiving Yards,30.0,-210.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,8.399999999999999,0.017668667529549487,,,8.399999999999999
+Austin Hooper,NE,Receiving Yards,9.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,17.9,8.399999999999999,0.2888566714995555,-0.4192914541082513,,8.399999999999999
+Woody Marks,HOU,Receiving Yards,30.0,625.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,-8.3,1.2670140557218723,,,8.3
+Colby Parkinson,LAR,Receiving Yards,25.0,125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,8.299999999999997,0.5464439137414878,,,8.299999999999997
+D'Andre Swift,CHI,Receiving Yards,15.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,8.2,0.23340027970365262,,,8.2
+Caleb Williams,CHI,Rushing Yards,10.0,-460.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,8.2,-0.1223019762254614,,,8.2
+TreVeyon Henderson,NE,Receiving Yards,25.0,360.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-8.2,0.4479770629795543,,,8.2
+Rome Odunze,CHI,Receiving Yards,60.0,240.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,8.0,1.315510821995373,,,8.0
+Matthew Stafford,LAR,Rushing Yards,20.0,1000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,-7.9,2.149078361598029,,,7.9
+Kyren Williams,LAR,Receiving Yards,30.0,430.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,-7.699999999999999,0.7240664139634153,,,7.699999999999999
+Woody Marks,HOU,Rushing Yards,70.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,7.599999999999994,0.7659647927974157,,,7.599999999999994
+Kayshon Boutte,NE,Receiving Yards,60.0,280.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,-7.5,0.25226196729026573,,,7.5
+Stefon Diggs,NE,Receiving Yards,60.0,135.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,7.400000000000006,0.5705649789490315,,,7.400000000000006
+Colston Loveland,CHI,Receiving Yards,30.0,-675.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,7.399999999999999,-0.23266328845673828,,,7.399999999999999
+Xavier Hutchinson,HOU,Receiving Yards,20.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,7.399999999999999,-0.0643442678601519,,,7.399999999999999
+Kyren Williams,LAR,Receiving Yards,15.0,120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,7.300000000000001,0.4656140469951927,,,7.300000000000001
+Jayden Higgins,HOU,Receiving Yards,70.0,325.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,-7.0,0.4460877724160842,,,7.0
+Caleb Williams,CHI,Rushing Yards,25.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-6.800000000000001,-0.2787547834296915,,,6.800000000000001
+D'Andre Swift,CHI,Receiving Yards,30.0,270.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-6.800000000000001,0.27493955604180054,,,6.800000000000001
+TreVeyon Henderson,NE,Receiving Yards,10.0,-110.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,6.800000000000001,0.25125968852880076,,,6.800000000000001
+Hunter Henry,NE,Receiving Yards,30.0,-240.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,6.799999999999997,-0.07148586605204083,,,6.799999999999997
+Colby Parkinson,LAR,Receiving Yards,40.0,360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,-6.700000000000003,0.5950366204396962,,,6.700000000000003
+Woody Marks,HOU,Receiving Yards,15.0,170.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,6.699999999999999,0.7637828532201781,,,6.699999999999999
+C.J. Stroud,HOU,Passing Attempts,31.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_attempts,38.17,6.670000000000002,0.8549803190355081,-0.948036655581718,,6.670000000000002
+Cole Kmet,CHI,Receiving Yards,10.0,-140.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,6.399999999999999,0.10865679104861786,,,6.399999999999999
+Tyler Higbee,LAR,Receiving Yards,10.0,-600.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,6.300000000000001,-0.24805081015313735,,,6.300000000000001
+Kyle Monangai,CHI,Rushing Yards,15.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,6.300000000000001,-0.27021815531191345,,,6.300000000000001
+Tyler Higbee,LAR,Receiving Yards,22.5,120.0,-160.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-6.199999999999999,-0.2131359361358413,0.04379358919124643,,6.199999999999999
+Kyle Monangai,CHI,Receiving Yards,10.0,105.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,6.199999999999999,0.31678575867203385,,,6.199999999999999
+Rhamondre Stevenson,NE,Receiving Yards,30.0,165.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-6.199999999999999,-0.052186468527263496,,,6.199999999999999
+C.J. Stroud,HOU,Rushing Yards,30.0,585.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,-6.0,1.2887053606487293,,,6.0
+Blake Corum,LAR,Rushing Yards,40.0,-200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,-6.0,-0.4988236436535629,,,6.0
+TreVeyon Henderson,NE,Rushing Yards,35.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-5.899999999999999,-0.3704779813977844,0.24004319878908853,,5.899999999999999
+Cole Kmet,CHI,Receiving Yards,10.5,-130.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,5.899999999999999,0.12474677216261243,,,5.899999999999999
+Drake Maye,NE,Rushing Yards,15.0,-1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,5.699999999999999,-0.287114161822374,,,5.699999999999999
+DJ Moore,CHI,Receiving Yards,50.0,230.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,-5.600000000000001,0.22404338642278798,,,5.600000000000001
+Luther Burden III,CHI,Rush+Rec Yards,40.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rush_rec_yards,35.1,-5.399999999999999,-0.2641762846745956,0.13374150206589985,,5.399999999999999
+Drake Maye,NE,Rushing Yards,26.0,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-5.300000000000001,-0.3409725191245669,0.21053773651587104,,5.300000000000001
+Puka Nacua,LAR,Receiving Yards,70.0,-390.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,-5.299999999999997,-0.5255673322361588,,,5.299999999999997
+Davante Adams,LAR,Receiving Yards,50.0,-150.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,-5.200000000000003,-0.3669214810807713,,,5.200000000000003
+Luther Burden III,CHI,Receiving Yards,30.0,-210.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,5.100000000000001,-0.08784504343535554,,,5.100000000000001
+Luther Burden III,CHI,Receiving Yards,40.0,-120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,-4.899999999999999,-0.29126391897963283,,,4.899999999999999
+Davante Adams,LAR,Receiving Yards,40.0,-265.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.8,4.799999999999997,-0.15820869183832367,,,4.799999999999997
+Puka Nacua,LAR,Receiving Yards,60.0,-710.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,64.7,4.700000000000003,-0.30533181965392464,,,4.700000000000003
+TreVeyon Henderson,NE,Rushing Yards,25.0,-390.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,4.600000000000001,-0.21001926525532214,,,4.600000000000001
+Stefon Diggs,NE,Receptions,3.0,-725.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,4.54,0.13765857608399037,,,4.54
+DJ Moore,CHI,Receiving Yards,40.0,145.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,4.399999999999999,0.4751800319689512,,,4.399999999999999
+Konata Mumpfield,LAR,Anytime TD,,1900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.2696,,4.3919999999999995,,,4.3919999999999995
+Drake Maye,NE,Rushing Yards,25.0,-320.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,-4.300000000000001,-0.5020803938684922,,,4.300000000000001
+D'Andre Swift,CHI,Rushing Attempts,13.5,105.0,-135.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_attempts,9.35,-4.15,-0.8292732512191794,0.59576951774709,,4.15
+DeMario Douglas,NE,Receptions,4.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-4.0,-0.9929412122708886,,,4.0
+Colston Loveland,CHI,Receptions,8.0,350.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,-4.0,-0.9952941415139257,,,4.0
+Blake Corum,LAR,Rushing Yards,30.0,-440.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,34.0,4.0,-0.24835495407480876,,,4.0
+C.J. Stroud,HOU,Rushing Yards,20.0,230.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,4.0,1.0210900123766251,,,4.0
+Tyler Higbee,LAR,Receptions,6.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,-3.9,-0.9878509177153291,,,3.9
+Puka Nacua,LAR,Receptions,11.0,370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,-3.88,-0.993327525354685,,,3.88
+Kayshon Boutte,NE,Receptions,1.0,-1800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,3.87,0.05401889333605823,,,3.87
+Davante Adams,LAR,Receptions,8.0,580.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,-3.8099999999999996,-0.9885037888536671,,,3.8099999999999996
+Kyle Monangai,CHI,Receiving Yards,20.0,280.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,-3.8000000000000007,0.5639346402538319,,,3.8000000000000007
+Rhamondre Stevenson,NE,Receiving Yards,20.0,-125.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,3.8000000000000007,0.059188854616606,,,3.8000000000000007
+Xavier Hutchinson,HOU,Receptions,6.0,800.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,-3.74,-0.9819291936605068,,,3.74
+Kyle Monangai,CHI,Rushing Yards,25.0,-330.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,-3.6999999999999993,-0.4842868182034231,,,3.6999999999999993
+Tyler Higbee,LAR,Receiving Yards,20.0,-210.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,-3.6999999999999993,-0.3890755336781689,,,3.6999999999999993
+Cole Kmet,CHI,Receiving Yards,20.0,190.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,-3.6000000000000014,0.20682137674913637,,,3.6000000000000014
+Harrison Bryant,HOU,Anytime TD,,3300.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,any_td,0.1341,,3.5594,,,3.5594
+Stefon Diggs,NE,Receptions,4.0,-265.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,3.54,0.37290432004934904,,,3.54
+Rhamondre Stevenson,NE,Receiving Yards,20.5,-135.0,105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,3.3000000000000007,0.0043345016264221825,-0.13276414180898882,,3.3000000000000007
+Woody Marks,HOU,Receiving Yards,25.0,400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,-3.3000000000000007,1.1152094102219787,,,3.3000000000000007
+Kyle Monangai,CHI,Rushing Attempts,8.5,-125.0,-105.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_attempts,5.2,-3.3,-0.755801090296511,0.6875091191046812,,3.3
+Colby Parkinson,LAR,Receiving Yards,30.0,180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,33.3,3.299999999999997,0.6154827302756914,,,3.299999999999997
+Hunter Henry,NE,Receiving Yards,40.0,-125.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-3.200000000000003,-0.2343770143548356,,,3.200000000000003
+Caleb Williams,CHI,Rushing Yards,15.0,-230.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,3.1999999999999993,-0.15290580657041436,,,3.1999999999999993
+D'Andre Swift,CHI,Receiving Yards,20.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,3.1999999999999993,0.3217039627867342,,,3.1999999999999993
+TreVeyon Henderson,NE,Receiving Yards,20.0,260.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,-3.1999999999999993,0.531245971290329,,,3.1999999999999993
+Christian Kirk,HOU,Receptions,7.0,550.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,-3.15,-0.9499835804240163,,,3.15
+Rome Odunze,CHI,Receptions,2.0,-535.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,3.1399999999999997,0.17758755872244508,,,3.1399999999999997
+Xavier Hutchinson,HOU,Receiving Yards,30.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-3.1000000000000014,-0.20047505600538773,0.07004027339669194,,3.1000000000000014
+Woody Marks,HOU,Rushing Attempts,15.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_attempts,18.56,3.0599999999999987,0.5819060040857564,-0.7123407866944522,,3.0599999999999987
+Stefon Diggs,NE,Receptions,4.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,3.04,0.8906077413058393,-0.9822502912540202,,3.04
+Jayden Higgins,HOU,Receptions,2.0,-700.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,3.0199999999999996,0.13132855974737842,,,3.0199999999999996
+DeMario Douglas,NE,Receptions,3.0,220.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-3.0,-0.9663739900359701,,,3.0
+Jayden Higgins,HOU,Receiving Yards,60.0,225.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,63.0,3.0,0.8526230884879028,,,3.0
+Colston Loveland,CHI,Receptions,7.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,-3.0,-0.968475615658722,,,3.0
+Matthew Stafford,LAR,Passing TDs,5.0,1300.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,-2.98,-0.7578522009919706,,,2.98
+Matthew Stafford,LAR,Rushing Yards,15.0,690.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,-2.9000000000000004,2.301798256187953,,,2.9000000000000004
+Tyler Higbee,LAR,Receptions,5.0,430.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,-2.9,-0.9319044894187798,,,2.9
+Rhamondre Stevenson,NE,Receptions,6.0,775.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,-2.89,-0.8853285661804682,,,2.89
+Puka Nacua,LAR,Receptions,10.0,245.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,-2.88,-0.9538844082122068,,,2.88
+Kayshon Boutte,NE,Receptions,2.0,-280.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,2.87,0.33864111217354465,,,2.87
+Davante Adams,LAR,Receptions,7.0,340.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,-2.8099999999999996,-0.9325617076220059,,,2.8099999999999996
+Xavier Hutchinson,HOU,Receptions,5.0,400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,-2.74,-0.9123559672057924,,,2.74
+Hunter Henry,NE,Receptions,7.0,630.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,-2.71,-0.8645695719538727,,,2.71
+Hunter Henry,NE,Receiving Yards,39.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.8,-2.700000000000003,-0.1659106310598223,0.03234274887490879,,2.700000000000003
+Kyren Williams,LAR,Receiving Yards,25.0,290.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,-2.6999999999999993,0.7039254251206488,,,2.6999999999999993
+Rome Odunze,CHI,Receptions,2.5,-110.0,-120.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,2.6399999999999997,0.8687342452935913,-0.961244791115274,,2.6399999999999997
+TreVeyon Henderson,NE,Rushing Attempts,9.5,-130.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_attempts,6.89,-2.6100000000000003,-0.6600419501242297,,,2.6100000000000003
+Xavier Hutchinson,HOU,Receiving Yards,30.0,-115.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,-2.6000000000000014,-0.17884520563068157,,,2.6000000000000014
+Colston Loveland,CHI,Receiving Yards,40.0,-330.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,37.4,-2.6000000000000014,-0.42767999180320226,,,2.6000000000000014
+DJ Moore,CHI,Receptions,2.0,-360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.6,2.5999999999999996,0.24870816473288188,,,2.5999999999999996
+Stefon Diggs,NE,Receiving Yards,70.0,205.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,67.4,-2.5999999999999943,0.33962811220948175,,,2.5999999999999943
+C.J. Stroud,HOU,Rushing Attempts,3.5,110.0,-145.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_attempts,6.07,2.5700000000000003,0.6887894132075362,-0.6691409071784773,,2.5700000000000003
+Luther Burden III,CHI,Receptions,6.0,685.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,3.45,-2.55,-0.8044712465573871,,,2.55
+Stefon Diggs,NE,Receptions,5.0,-120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,2.54,0.7868405370386432,,,2.54
+Kayshon Boutte,NE,Receiving Yards,50.0,185.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,52.5,2.5,0.5916030335258176,,,2.5
+Woody Marks,HOU,Rushing Yards,80.0,235.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,77.6,-2.4000000000000057,0.4470103741627516,,,2.4000000000000057
+Xavier Hutchinson,HOU,Receiving Yards,25.0,-160.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,27.4,2.3999999999999986,-0.0962810585827889,,,2.3999999999999986
+Kayshon Boutte,NE,Receptions,2.5,120.0,-160.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,2.37,1.1248790846826475,-0.9445129602769553,,2.37
+Kyren Williams,LAR,Rushing Attempts,13.5,-120.0,-110.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_attempts,15.86,2.3599999999999994,0.43781272985685893,-0.5881355699335885,,2.3599999999999994
+Kyren Williams,LAR,Receiving Yards,20.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,22.3,2.3000000000000007,0.6614309963664051,,,2.3000000000000007
+Hunter Henry,NE,Receptions,2.0,-1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,2.29,0.0410035408674001,,,2.29
+Christian Kirk,HOU,Receptions,6.0,275.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,-2.15,-0.8159522958041059,,,2.15
+Rome Odunze,CHI,Receptions,3.0,-175.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,2.1399999999999997,0.4930676445265505,,,2.1399999999999997
+Puka Nacua,LAR,Receptions,5.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,2.12,0.0275746963008425,,,2.12
+D'Andre Swift,CHI,Receptions,5.0,680.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,-2.1,-0.585713023857984,,,2.1
+Matthew Stafford,LAR,Rushing Yards,10.0,350.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,2.0999999999999996,1.5182796156660914,,,2.0999999999999996
+DJ Moore,CHI,Receptions,2.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.6,2.0999999999999996,0.7702656634665178,-0.9007004460752136,,2.0999999999999996
+Kyren Williams,LAR,Receptions,5.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,-2.04,-0.47532620304497464,,,2.04
+Colby Parkinson,LAR,Receptions,2.0,-350.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.03,2.0300000000000002,0.20960208520411822,,,2.0300000000000002
+Jayden Higgins,HOU,Receptions,3.0,-225.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,2.0199999999999996,0.3576180812014397,,,2.0199999999999996
+Rome Odunze,CHI,Receiving Yards,70.0,360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,68.0,-2.0,1.084598827449044,,,2.0
+Colston Loveland,CHI,Receptions,6.0,110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,-2.0,-0.8698674040436205,,,2.0
+DeMario Douglas,NE,Receptions,2.0,-140.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-2.0,-0.8937693094233636,,,2.0
+Jayden Higgins,HOU,Receptions,7.0,700.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,-1.9800000000000004,-0.48904215369132853,,,1.9800000000000004
+Matthew Stafford,LAR,Passing TDs,4.0,450.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,-1.98,-0.7003845745993769,,,1.98
+Kyren Williams,LAR,Receptions,1.0,-880.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,1.96,0.040340551546441256,,,1.96
+TreVeyon Henderson,NE,Rush+Rec Yards,44.5,-125.0,-105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_rec_yards,46.400000000000006,1.9000000000000057,-0.031883344229500454,-0.09769266895742013,,1.9000000000000057
+Rhamondre Stevenson,NE,Rushing Attempts,10.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_attempts,12.4,1.9000000000000004,0.4065074640155414,-0.517360342427623,,1.9000000000000004
+Tyler Higbee,LAR,Receptions,4.0,200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,-1.9,-0.7841984072775771,,,1.9
+D'Andre Swift,CHI,Receptions,1.0,-1200.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,1.9,0.005404980405791682,,,1.9
+Rhamondre Stevenson,NE,Receptions,5.0,380.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,-1.8900000000000001,-0.6496264858571072,,,1.8900000000000001
+Puka Nacua,LAR,Receptions,9.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,-1.88,-0.8296458359512473,,,1.88
+Kayshon Boutte,NE,Receptions,3.0,110.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,1.87,0.9421817000388906,,,1.87
+Christian Kirk,HOU,Receptions,2.0,-1400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,1.85,-0.01145385211767505,,,1.85
+Davante Adams,LAR,Receptions,6.0,180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,-1.8099999999999996,-0.7706390596013486,,,1.8099999999999996
+D'Andre Swift,CHI,Receiving Yards,25.0,185.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,23.2,-1.8000000000000007,0.3048378663221585,,,1.8000000000000007
+Caleb Williams,CHI,Rushing Yards,20.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-1.8000000000000007,-0.19207290220871037,,,1.8000000000000007
+TreVeyon Henderson,NE,Receiving Yards,15.0,165.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,16.8,1.8000000000000007,0.4367297032443088,,,1.8000000000000007
+Cole Kmet,CHI,Receptions,4.0,800.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.24,-1.7599999999999998,-0.20896540575757272,,,1.7599999999999998
+Xavier Hutchinson,HOU,Receptions,4.0,180.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,-1.7400000000000002,-0.7469555579360464,,,1.7400000000000002
+Woody Marks,HOU,Receptions,4.0,650.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.27,-1.73,-0.31275641795271836,,,1.73
+Hunter Henry,NE,Receptions,6.0,340.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,-1.71,-0.5855625186532805,,,1.71
+Woody Marks,HOU,Receiving Yards,20.0,275.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,21.7,1.6999999999999993,1.0243543897888587,,,1.6999999999999993
+Blake Corum,LAR,Rushing Attempts,10.5,115.0,-150.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_attempts,8.81,-1.6899999999999995,-0.3838014816412663,0.18899339662113662,,1.6899999999999995
+Caleb Williams,CHI,Passing TDs,4.0,1100.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.36,-1.6400000000000001,0.09103354888384663,,,1.6400000000000001
+Christian Kirk,HOU,Receiving Yards,40.0,-110.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-1.6000000000000014,-0.11703046600547329,,,1.6000000000000014
+DJ Moore,CHI,Receptions,3.0,-120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.6,1.5999999999999996,0.6331249122656952,,,1.5999999999999996
+C.J. Stroud,HOU,Passing TDs,3.0,475.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.43,-1.57,-0.6712929673074135,,,1.57
+Luther Burden III,CHI,Receptions,5.0,340.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,3.45,-1.5499999999999998,-0.48709063725760243,,,1.5499999999999998
+Stefon Diggs,NE,Receptions,6.0,165.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,1.54,1.3370753443718677,,,1.54
+Colby Parkinson,LAR,Receptions,2.5,,-130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.03,1.5300000000000002,,-0.7883768139419929,,1.5300000000000002
+Jayden Higgins,HOU,Receptions,3.5,110.0,-145.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,1.5199999999999996,0.8455737991759394,-0.7952892637047788,,1.5199999999999996
+Rhamondre Stevenson,NE,Rushing Yards,50.0,180.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,51.5,1.5,0.519454093152586,,,1.5
+DeMario Douglas,NE,Receptions,1.5,-150.0,115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-1.5,-0.7928639598190148,0.8827945081665289,,1.5
+Jaylin Noel,HOU,Receptions,1.5,165.0,-220.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-1.5,-0.6706536961122336,0.2737721831147766,,1.5
+Kyle Monangai,CHI,Receptions,3.0,360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,1.53,-1.47,-0.4062498624308787,,,1.47
+Kyren Williams,LAR,Receptions,1.5,-165.0,125.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,1.46,0.3961446093471207,-0.705919570641957,,1.46
+Luther Burden III,CHI,Receptions,2.0,-510.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,3.45,1.4500000000000002,0.03778603919948639,,,1.4500000000000002
+Kyle Williams,NE,Anytime TD,,800.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.2677,,1.4093,,,1.4093
+Cole Kmet,CHI,Receiving Yards,15.0,120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.4,1.3999999999999986,0.17219733798262704,,,1.3999999999999986
+Caleb Williams,CHI,Passing TDs,1.0,-550.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.36,1.3599999999999999,-0.1931159408376805,,,1.3599999999999999
+Caleb Williams,CHI,Rushing Yards,19.5,-125.0,-105.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,18.2,-1.3000000000000007,-0.16658465173440618,0.048411923838906135,,1.3000000000000007
+Kyle Monangai,CHI,Rushing Yards,20.0,-530.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,21.3,1.3000000000000007,-0.36168938093010916,,,1.3000000000000007
+Tyler Higbee,LAR,Receiving Yards,15.0,-330.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,rec_yards,16.3,1.3000000000000007,-0.30877155519737476,,,1.3000000000000007
+Hunter Henry,NE,Receptions,3.0,-300.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,1.29,0.11930169863539286,,,1.29
+Matthew Stafford,LAR,Anytime TD,,2200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,any_td,0.0988,,1.2724,,,1.2724
+Woody Marks,HOU,Receptions,1.0,-500.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.27,1.27,0.0028356583305240157,,,1.27
+Cole Kmet,CHI,Receptions,1.0,-440.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.24,1.2400000000000002,0.018537247250180605,,,1.2400000000000002
+Kyle Monangai,CHI,Receiving Yards,15.0,180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rec_yards,16.2,1.1999999999999993,0.47878433649683383,,,1.1999999999999993
+Rhamondre Stevenson,NE,Receiving Yards,25.0,115.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rec_yards,23.8,-1.1999999999999993,0.014504884475645352,,,1.1999999999999993
+Davante Adams,LAR,Receptions,3.0,-660.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,1.1900000000000004,-0.055751675415225424,,,1.1900000000000004
+Cade Stover,HOU,Anytime TD,,800.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,any_td,0.2423,,1.1806999999999999,,,1.1806999999999999
+Christian Kirk,HOU,Receptions,5.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,-1.15,-0.5295448672290253,,,1.15
+Rome Odunze,CHI,Receptions,4.0,145.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,1.1399999999999997,0.9838526844799635,,,1.1399999999999997
+Puka Nacua,LAR,Receptions,6.0,-480.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,1.12,-0.026652184928070283,,,1.12
+Rhamondre Stevenson,NE,Receptions,2.0,-370.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,1.1099999999999999,0.02054133545597006,,,1.1099999999999999
+Kyren Williams,LAR,Rushing Yards,60.0,-140.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,1.1000000000000014,-0.08917729767799742,,,1.1000000000000014
+D'Andre Swift,CHI,Receptions,4.0,320.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,-1.1,-0.16531945661255543,,,1.1
+TreVeyon Henderson,NE,Receptions,1.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.08,1.08,0.11572719445613533,,,1.08
+Kyren Williams,LAR,Receptions,4.0,370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,-1.04,-0.004279626658035274,,,1.04
+Colby Parkinson,LAR,Receptions,3.0,-110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.03,1.0300000000000002,0.5003724073737367,,,1.0300000000000002
+Drake Maye,NE,Passing TDs,3.0,475.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.97,-1.03,-0.2093512340795043,,,1.03
+Matthew Stafford,LAR,Passing TDs,1.0,-2000.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,1.02,-0.37065047976906595,,,1.02
+Jayden Higgins,HOU,Receptions,4.0,,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,1.0199999999999996,,,,1.0199999999999996
+Rome Odunze,CHI,Anytime TD,,270.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.5445,,1.01465,,,1.01465
+Drake Maye,NE,Rushing Attempts,6.5,-160.0,120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_attempts,5.5,-1.0,-0.39965782220463403,0.38722905160012,,1.0
+C.J. Stroud,HOU,Rushing Yards,25.0,360.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,24.0,-1.0,1.1690303432241986,,,1.0
+Colston Loveland,CHI,Receptions,5.0,-190.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,-1.0,-0.6628701711757194,,,1.0
+DeMario Douglas,NE,Receptions,1.0,-710.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,0.0,-1.0,-0.7480122357646586,,,1.0
+Colston Loveland,CHI,Receptions,3.0,-1400.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,1.0,-0.16522660397763544,,,1.0
+Jayden Higgins,HOU,Receptions,6.0,400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,-0.9800000000000004,0.12735401619581266,,,0.9800000000000004
+Matthew Stafford,LAR,Passing TDs,3.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,-0.98,-0.6630421696541046,,,0.98
+Drake Maye,NE,Passing TDs,1.0,-480.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.97,0.97,-0.2921424594084308,,,0.97
+Colby Parkinson,LAR,Receptions,5.0,500.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.03,-0.9699999999999998,0.36672345515804716,,,0.9699999999999998
+Kyren Williams,LAR,Receptions,2.0,-180.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,0.96,0.1975957536423552,,,0.96
+TreVeyon Henderson,NE,Receptions,3.0,400.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.08,-0.9199999999999999,0.19784088843845704,,,0.9199999999999999
+Tyler Higbee,LAR,Receptions,3.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,-0.8999999999999999,-0.5601302916521433,,,0.8999999999999999
+D'Andre Swift,CHI,Receptions,2.0,-230.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,0.8999999999999999,0.08416182667924454,,,0.8999999999999999
+Nick Chubb,HOU,Anytime TD,,625.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,any_td,0.2607,,0.890075,,,0.890075
+Rhamondre Stevenson,NE,Receptions,4.0,185.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,-0.8900000000000001,-0.29663901476261756,,,0.8900000000000001
+Puka Nacua,LAR,Receptions,8.0,-125.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,-0.8799999999999999,-0.5513907146664176,,,0.8799999999999999
+Kayshon Boutte,NE,Receptions,4.0,280.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,0.8700000000000001,1.8436382654243193,,,0.8700000000000001
+Rome Odunze,CHI,Receptions,6.0,630.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,-0.8600000000000003,0.8551747600607338,,,0.8600000000000003
+Caleb Williams,CHI,Passing TDs,1.5,110.0,-145.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.36,0.8599999999999999,0.43377090512689076,-0.4639536018262339,,0.8599999999999999
+DJ Moore,CHI,Anytime TD,,330.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.4314,,0.8550199999999999,,,0.8550199999999999
+Christian Kirk,HOU,Receptions,3.0,-350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,0.8500000000000001,-0.04420702506312696,,,0.8500000000000001
+Davante Adams,LAR,Receptions,5.0,-115.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,-0.8099999999999996,-0.5015421550174831,,,0.8099999999999996
+D'Andre Swift,CHI,Rushing Yards,40.0,-330.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,39.2,-0.7999999999999972,-0.3781734836986623,,,0.7999999999999972
+Kayshon Boutte,NE,Anytime TD,,390.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.3659,,0.7929100000000001,,,0.7929100000000001
+Hunter Henry,NE,Receptions,3.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,0.79,0.3616122319603091,-0.4920470145690049,,0.79
+Woody Marks,HOU,Receptions,1.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.27,0.77,0.38061200537183804,-0.4924924813491459,,0.77
+Cole Kmet,CHI,Receptions,3.0,340.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.24,-0.7599999999999998,0.22937399360103727,,,0.7599999999999998
+Austin Hooper,NE,Receptions,1.5,155.0,-210.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,2.26,0.7599999999999998,0.837521890072126,-0.5875476861295221,,0.7599999999999998
+Xavier Hutchinson,HOU,Receptions,3.0,-135.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,-0.7400000000000002,-0.5045855836844981,,,0.7400000000000002
+Cole Kmet,CHI,Receptions,1.5,130.0,-170.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.24,0.7400000000000002,0.6454205265278155,-0.5479885988811002,,0.7400000000000002
+Woody Marks,HOU,Receptions,3.0,275.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.27,-0.73,0.07705722192809283,,,0.73
+Hunter Henry,NE,Receptions,5.0,175.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,-0.71,-0.19567974025076318,,,0.71
+Drake Maye,NE,Rushing Yards,20.0,-530.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,rush_yards,20.7,0.6999999999999993,-0.38195953268268934,,,0.6999999999999993
+Drake Maye,NE,Interceptions,0.5,-120.0,-110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,interceptions,1.15,0.6499999999999999,0.2528325894717358,-0.3955116220945346,,0.6499999999999999
+Caleb Williams,CHI,Passing TDs,3.0,360.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.36,-0.6400000000000001,-0.02038699785769571,,,0.6400000000000001
+Rhamondre Stevenson,NE,Receptions,2.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,0.6099999999999999,0.2723282205522104,-0.4027630031609062,,0.6099999999999999
+Matthew Stafford,LAR,Interceptions,0.5,,-130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,interceptions,1.1,0.6000000000000001,,-0.4110742365341671,,0.6000000000000001
+DJ Moore,CHI,Receptions,4.0,205.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.6,0.5999999999999996,1.0672711910010368,,,0.5999999999999996
+Austin Hooper,NE,Anytime TD,,725.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,any_td,0.1937,,0.598025,,,0.598025
+Caleb Williams,CHI,Interceptions,0.5,,-130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,interceptions,1.08,0.5800000000000001,,-0.39917714693587697,,0.5800000000000001
+C.J. Stroud,HOU,Passing TDs,2.0,130.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.43,-0.5700000000000001,-0.6002648037810357,,,0.5700000000000001
+Luther Burden III,CHI,Receptions,4.0,155.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,3.45,-0.5499999999999998,-0.14289509812339762,,,0.5499999999999998
+Stefon Diggs,NE,Receptions,7.0,290.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,0.54,1.5781722840123993,,,0.54
+Kyle Monangai,CHI,Receptions,1.0,-370.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,1.53,0.53,-0.16384433138094784,,,0.53
+Colston Loveland,CHI,Receptions,4.5,-170.0,130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,-0.5,-0.4437028046822379,0.4943992467805741,,0.5
+Cole Kmet,CHI,Anytime TD,,525.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.2377,,0.485625,,,0.485625
+Matthew Stafford,LAR,Passing TDs,2.5,150.0,-200.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,-0.48,-0.17815796099607978,0.006894776597647867,,0.48
+Kyle Monangai,CHI,Receptions,2.0,120.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,1.53,-0.47,-0.21053334577444344,,,0.47
+Drake Maye,NE,Passing TDs,1.5,130.0,-170.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.97,0.47,0.3473702151949868,-0.3421738058891214,,0.47
+Stefon Diggs,NE,Receptions,8.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,7.54,-0.45999999999999996,1.4416578659105215,,,0.45999999999999996
+Luther Burden III,CHI,Receptions,3.0,-170.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,3.45,0.4500000000000002,0.009143186551500981,,,0.4500000000000002
+C.J. Stroud,HOU,Passing TDs,1.0,-420.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.43,0.42999999999999994,-0.48188274796954333,,,0.42999999999999994
+D'Andre Swift,CHI,Anytime TD,,150.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.5678,,0.4194999999999999,,,0.4194999999999999
+C.J. Stroud,HOU,Interceptions,0.5,-125.0,-105.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,interceptions,0.91,0.41000000000000003,0.07545639673945526,-0.21411937212480597,,0.41000000000000003
+Stefon Diggs,NE,Anytime TD,,210.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.4545,,0.40895000000000004,,,0.40895000000000004
+C.J. Stroud,HOU,Anytime TD,,900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,any_td,0.1408,,0.40800000000000014,,,0.40800000000000014
+DJ Moore,CHI,Receptions,5.0,450.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.6,-0.40000000000000036,1.085370302197298,,,0.40000000000000036
+Tyler Higbee,LAR,Receptions,2.5,155.0,-210.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,-0.3999999999999999,-0.03314649625397981,-0.08351930188845236,,0.3999999999999999
+D'Andre Swift,CHI,Receptions,2.5,155.0,-210.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,0.3999999999999999,0.5831464962539796,-0.44029022192107137,,0.3999999999999999
+Kyren Williams,LAR,Rushing Yards,61.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,rush_yards,61.1,-0.3999999999999986,-0.08652445266458181,-0.04391032994411398,,0.3999999999999986
+TreVeyon Henderson,NE,Rushing Yards,30.0,-260.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,rush_yards,29.6,-0.3999999999999986,-0.32347249267108563,,,0.3999999999999986
+Rhamondre Stevenson,NE,Anytime TD,,165.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,any_td,0.5283,,0.3999949999999999,,,0.3999949999999999
+Puka Nacua,LAR,Receptions,7.5,-115.0,-115.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,-0.3799999999999999,-0.2801693641187998,0.149734581510104,,0.3799999999999999
+Caleb Williams,CHI,Passing TDs,2.0,-110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.36,0.3599999999999999,-0.1985510124935828,,,0.3599999999999999
+Christian Kirk,HOU,Receptions,3.5,-145.0,110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,0.3500000000000001,0.024140464103287074,-0.17286029109979956,,0.3500000000000001
+Jayden Higgins,HOU,Anytime TD,,320.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.3207,,0.34694,,,0.34694
+Kyren Williams,LAR,Anytime TD,,115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.6238,,0.34117,,,0.34117
+Woody Marks,HOU,Anytime TD,,155.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,any_td,0.5195,,0.3247249999999998,,,0.3247249999999998
+Luther Burden III,CHI,Anytime TD,,320.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.312,,0.3104000000000001,,,0.3104000000000001
+Davante Adams,LAR,Receptions,4.5,,-130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,-0.3099999999999996,,0.051344912091078054,,0.3099999999999996
+Hunter Henry,NE,Receptions,4.0,-125.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,receptions,4.29,0.29000000000000004,0.05887192531212376,,,0.29000000000000004
+Woody Marks,HOU,Receptions,2.0,-115.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.27,0.27,0.08858311642570249,,,0.27
+Xavier Hutchinson,HOU,Receptions,2.0,-450.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,0.2599999999999998,-0.2920159106855407,,,0.2599999999999998
+Caleb Williams,CHI,Rushing Attempts,4.5,-105.0,-125.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_attempts,4.76,0.2599999999999998,0.04360963365943227,-0.16215717444698874,,0.2599999999999998
+Colston Loveland,CHI,Anytime TD,,200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.4144,,0.24319999999999997,,,0.24319999999999997
+Xavier Hutchinson,HOU,Receptions,2.5,-145.0,110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,2.26,-0.2400000000000002,-0.27891370359633105,0.2037927458982972,,0.2400000000000002
+Cole Kmet,CHI,Receptions,2.0,110.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.24,0.2400000000000002,0.2037927458982972,,,0.2400000000000002
+Colby Parkinson,LAR,Anytime TD,,230.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.3613,,0.19228999999999996,,,0.19228999999999996
+Davante Adams,LAR,Receptions,4.0,-255.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,4.19,0.1900000000000004,-0.22303721289975723,,,0.1900000000000004
+Christian Kirk,HOU,Receptions,4.0,-150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,3.85,-0.1499999999999999,-0.2432164394521394,,,0.1499999999999999
+Rome Odunze,CHI,Receptions,5.0,320.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,5.14,0.13999999999999968,1.2800964796447438,,,0.13999999999999968
+Kayshon Boutte,NE,Receptions,5.0,675.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,4.87,-0.1299999999999999,2.5663342611030258,,,0.1299999999999999
+Puka Nacua,LAR,Receptions,7.0,-240.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,receptions,7.12,0.1200000000000001,-0.2395712836291184,,,0.1200000000000001
+Rhamondre Stevenson,NE,Receptions,3.0,-125.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,3.11,0.10999999999999988,-0.03931045100151698,,,0.10999999999999988
+Christian Kirk,HOU,Receiving Yards,38.5,-120.0,-110.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,38.4,-0.10000000000000142,-0.08763562723214707,-0.04097447081611122,,0.10000000000000142
+Tyler Higbee,LAR,Receptions,2.0,-380.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,2.1,0.10000000000000009,-0.32969562476217373,,,0.10000000000000009
+D'Andre Swift,CHI,Receptions,3.0,130.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.9,-0.10000000000000009,0.07948745008779112,,,0.10000000000000009
+TreVeyon Henderson,NE,Receptions,2.0,175.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,receptions,2.08,0.08000000000000007,0.4424707212352601,,,0.08000000000000007
+C.J. Stroud,HOU,Passing TDs,1.5,145.0,-190.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.43,-0.07000000000000006,0.025274331421807572,-0.11241580260434847,,0.07000000000000006
+Blake Corum,LAR,Anytime TD,,220.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.3313,,0.06015999999999999,,,0.06015999999999999
+Kyle Monangai,CHI,Anytime TD,,215.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.3343,,0.05304500000000001,,,0.05304500000000001
+Kyren Williams,LAR,Receptions,3.0,165.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,2.96,-0.040000000000000036,0.29247599228770715,,,0.040000000000000036
+Colby Parkinson,LAR,Receptions,4.0,220.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.03,0.03000000000000025,0.6294577383988914,,,0.03000000000000025
+Drake Maye,NE,Passing TDs,2.0,120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,pass_tds,1.97,-0.030000000000000027,-0.3065510231226329,,,0.030000000000000027
+Kyle Monangai,CHI,Receptions,1.5,130.0,-170.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,receptions,1.53,0.030000000000000027,0.1711727494742027,-0.2205029216318024,,0.030000000000000027
+Matthew Stafford,LAR,Passing TDs,2.0,-280.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,pass_tds,2.02,0.020000000000000018,-0.5538571788264433,,,0.020000000000000018
+Jayden Higgins,HOU,Receptions,5.0,220.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,receptions,5.02,0.019999999999999574,0.6196394606076095,,,0.019999999999999574
+Hunter Henry,NE,Anytime TD,,195.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,any_td,0.3454,,0.018930000000000002,,,0.018930000000000002
+TreVeyon Henderson (NE) - 1Q,,Anytime TD,,1000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Woody Marks (HOU) - 1Q,,Anytime TD,,800.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Tyler Higbee & Chicago Bears,,Anytime TD,,1050.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+TuTu Atwell,LAR,Anytime TD,,1900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Xavier Hutchinson (HOU) - 1H,,Anytime TD,,900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Tyler Higbee (LAR) - 1H,,Anytime TD,,500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Christian Kirk (HOU) - 1Q,,Anytime TD,,1100.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Christian Kirk (HOU) - 1H,,Anytime TD,,500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Tyler Higbee (LAR) - 1Q,,Anytime TD,,1100.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1H,HOU,Passing Yards,97.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Tyler Higbee & Los Angeles Rams,,Anytime TD,,410.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1Q,CHI,Receiving Yards,0.5,-150.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Under - 1H,CHI,Passing Yards,102.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Matthew Stafford Total Rushing Yards,,Rushing Yards,0.5,130.0,-170.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Under - 1Q,CHI,Passing Yards,48.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Under - 1Q,NE,Rushing Yards,9.5,-110.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+TreVeyon Henderson (NE) - 1H,,Anytime TD,,430.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colby Parkinson (LAR) - 1Q,,Anytime TD,,1100.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1Q,LAR,Rushing Yards,7.5,-110.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Colby Parkinson (LAR) - 1H,,Anytime TD,,460.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colby Parkinson & Los Angeles Rams,,Anytime TD,,310.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Woody Marks & Houston Texans,,Anytime TD,,360.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1H,HOU,Receiving Yards,17.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Colby Parkinson & Chicago Bears,,Anytime TD,,600.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1Q,HOU,Passing Yards,46.5,-110.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Under - 1H,LAR,Rushing Yards,19.5,-120.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Woody Marks & New England Patriots,,Anytime TD,,350.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1Q,NE,Receiving Yards,6.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Under - 1H,CHI,Receiving Yards,15.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Woody Marks (HOU) - 1H,,Anytime TD,,330.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Under - 1H,NE,Rushing Yards,15.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+D.J. Moore (CHI) - 1Q,,Anytime TD,,1200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+TreVeyon Henderson & New England Patriots,,Anytime TD,,320.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+TreVeyon Henderson & Houston Texans,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Puka Nacua & Chicago Bears,,Anytime TD,,480.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+New England Patriots Def/ST (NE) - 1H,,Anytime TD,,1800.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+British Brooks (HOU) - 1Q,,Anytime TD,,12500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Over - 1Q,LAR,Rushing Yards,7.5,-120.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Over - 1Q,NE,Rushing Yards,9.5,-120.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Over - 1Q,CHI,Receiving Yards,0.5,115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Over - 1Q,NE,Receiving Yards,6.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Over - 1Q,CHI,Passing Yards,48.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+British Brooks,HOU,Anytime TD,,3300.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Braxton Berrios (HOU) - 1Q,,Anytime TD,,5000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Braxton Berrios (HOU) - 1H,,Anytime TD,,1700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Over - 1Q,HOU,Passing Yards,46.5,-120.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Over - 1H,LAR,Rushing Yards,19.5,-110.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Over - 1H,NE,Rushing Yards,15.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rush_yards,,,,,projection_missing,0.0
+Over - 1H,CHI,Receiving Yards,15.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Over - 1H,HOU,Receiving Yards,17.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Blake Corum (LAR) - 1Q,,Anytime TD,,1300.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Blake Corum (LAR) - 1H,,Anytime TD,,500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Blake Corum & Los Angeles Rams,,Anytime TD,,350.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Blake Corum & Chicago Bears,,Anytime TD,,900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Over - 1H,CHI,Passing Yards,102.5,-115.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Over - 1H,HOU,Passing Yards,97.5,-115.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,pass_yards,,,,,projection_missing,0.0
+Austin Hooper (NE) - 1Q,,Anytime TD,,5000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Austin Hooper (NE) - 1H,,Anytime TD,,1400.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Olamide Zaccheaus (CHI) - 1Q,,Anytime TD,,6500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Olamide Zaccheaus (CHI) - 1H,,Anytime TD,,1500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Nikola Kalinic,,Anytime TD,,1900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Nick Chubb (HOU) - 1Q,,Anytime TD,,4000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Nick Chubb (HOU) - 1H,,Anytime TD,,1600.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Puka Nacua & Los Angeles Rams,,Anytime TD,,140.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Puka Nacua (LAR) - 1H,,Anytime TD,,155.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Puka Nacua (LAR) - 1Q,,Anytime TD,,460.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rome Odunze (CHI) - 1Q,,Anytime TD,,1100.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Christian Kirk & New England Patriots,,Anytime TD,,500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Christian Kirk & Houston Texans,,Anytime TD,,550.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+CHI Bears D/ST - 1Q,,Anytime TD,,3500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+CHI Bears D/ST - 1H,,Anytime TD,,1600.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Terrance Ferguson (LAR) - 1Q,,Anytime TD,,10000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Terrance Ferguson (LAR) - 1H,,Anytime TD,,2200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Stefon Diggs (NE) - 1Q,,Anytime TD,,850.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Xavier Hutchinson (HOU) - 1Q,,Anytime TD,,1900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Caleb Williams (CHI) - 1Q,,Anytime TD,,1400.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Caleb Williams (CHI) - 1H,,Anytime TD,,650.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Stefon Diggs (NE) - 1H,,Anytime TD,,410.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Stefon Diggs & New England Patriots,,Anytime TD,,340.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Stefon Diggs & Houston Texans,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rome Odunze (CHI) - 1H,,Anytime TD,,500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+C.J. Stroud (HOU) - 1H,,Anytime TD,,1300.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rome Odunze & Los Angeles Rams,,Anytime TD,,500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Cade Stover Total Receptions,,Receptions,1.5,125.0,-165.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Cade Stover Total Receiving Yards,,Receiving Yards,8.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Cade Stover (HOU) - 1Q,,Anytime TD,,3500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Cade Stover (HOU) - 1H,,Anytime TD,,1200.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Cade Stover,HOU,Receiving Yards,,25000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,TE,rec_yards,36.6,,,,,0.0
+Rome Odunze & Chicago Bears,,Anytime TD,,750.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+New England Patriots Def/ST,NE,Anytime TD,,500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rhamondre Stevenson (NE) - 1Q,,Anytime TD,,900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rhamondre Stevenson (NE) - 1H,,Anytime TD,,420.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rhamondre Stevenson & New England Patriots,,Anytime TD,,320.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Rhamondre Stevenson & Houston Texans,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+C.J. Stroud (HOU) - 1Q,,Anytime TD,,3000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+CHI Bears D/ST,,Anytime TD,,600.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Luther Burden III (CHI) - 1H,,Anytime TD,,550.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jahdae Walker (CHI) - 1Q,,Anytime TD,,6500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Devin Duvernay (CHI) - 1Q,,Anytime TD,,12500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Drake Maye & New England Patriots,,Anytime TD,,600.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Drake Maye (NE) - 1H,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Drake Maye (NE) - 1Q,,Anytime TD,,1700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Durham Smythe (CHI) - 1H,,Anytime TD,,3000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Durham Smythe (CHI) - 1Q,,Anytime TD,,10000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Efton Chism,NE,Anytime TD,,1200.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Cole Kmet (CHI) - 1Q,,Anytime TD,,2200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Cole Kmet (CHI) - 1H,,Anytime TD,,1000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Efton Chism (NE) - 1H,,Anytime TD,,2700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Efton Chism (NE) - 1Q,,Anytime TD,,10000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Houston Texans Def/ST,HOU,Anytime TD,,525.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Houston Texans Def/ST (HOU) - 1H,,Anytime TD,,1900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Houston Texans Def/ST (HOU) - 1Q,,Anytime TD,,3000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Hunter Henry & Houston Texans,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Hunter Henry & New England Patriots,,Anytime TD,,340.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Hunter Henry (NE) - 1H,,Anytime TD,,410.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Hunter Henry (NE) - 1Q,,Anytime TD,,900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jack Westover,NE,Anytime TD,,2500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jahdae Walker,CHI,Anytime TD,,800.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jahdae Walker (CHI) - 1H,,Anytime TD,,1500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colston Loveland,CHI,Receptions,4.0,-425.0,,True,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,receptions,4.0,0.0,-0.38235294117647056,,,0.0
+Xavier Smith (LAR) - 1H,,Anytime TD,,2700.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jawhar Jordan (HOU) - 1H,,Anytime TD,,1600.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jawhar Jordan (HOU) - 1Q,,Anytime TD,,4000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,110.0,2200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Drake Maye & Houston Texans,,Anytime TD,,1050.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Devin Duvernay (CHI) - 1H,,Anytime TD,,3300.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,90.0,900.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Colston Loveland & Chicago Bears,,Anytime TD,,550.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+D.J. Moore,CHI,Receiving Yards,,2000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,44.4,,,,,0.0
+D'Ernest Johnson,NE,Anytime TD,,2200.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+D'Andre Swift (CHI) - 1Q,,Anytime TD,,650.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+D'Andre Swift (CHI) - 1H,,Anytime TD,,310.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+D'Andre Swift & Los Angeles Rams,,Anytime TD,,290.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Anytime TD,,255.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,40.5,-115.0,-115.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,4.5,-110.0,-120.0,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz & Houston Texans,,Anytime TD,,460.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz & New England Patriots,,Anytime TD,,440.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+D'Andre Swift & Chicago Bears,,Anytime TD,,420.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz (HOU) - 1H,,Anytime TD,,420.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz (HOU) - 1Q,,Anytime TD,,900.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dare Ogunbowale (HOU) - 1Q,,Anytime TD,,12500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davante Adams & Chicago Bears,,Anytime TD,,470.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davante Adams & Los Angeles Rams,,Anytime TD,,130.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davante Adams (LAR) - 1H,,Anytime TD,,190.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davante Adams (LAR) - 1Q,,Anytime TD,,460.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davis Allen (LAR) - 1H,,Anytime TD,,2200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Davis Allen (LAR) - 1Q,,Anytime TD,,10000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Demario Douglas (NE) - 1H,,Anytime TD,,950.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Demario Douglas (NE) - 1Q,,Anytime TD,,2000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colston Loveland (CHI) - 1Q,,Anytime TD,,900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colston Loveland (CHI) - 1H,,Anytime TD,,400.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Colston Loveland & Los Angeles Rams,,Anytime TD,,370.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,100.0,1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+New England Patriots Def/ST (NE) - 1Q,,Anytime TD,,4000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,80.0,650.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kayshon Boutte & New England Patriots,,Anytime TD,,600.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jaylin Noel (HOU) - 1H,,Anytime TD,,1700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jaylin Noel (HOU) - 1Q,,Anytime TD,,5000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Los Angeles Rams Def/ST (LAR) - 1Q,,Anytime TD,,3500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Los Angeles Rams Def/ST (LAR) - 1H,,Anytime TD,,1500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jordan Whittington (LAR) - 1H,,Anytime TD,,3500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Justin Watson (HOU) - 1H,,Anytime TD,,1700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,70.0,420.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Kyren Williams (LAR) - 1Q,,Anytime TD,,600.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Justin Watson (HOU) - 1Q,,Anytime TD,,5000.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kayshon Boutte & Houston Texans,,Anytime TD,,1050.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kayshon Boutte (NE) - 1H,,Anytime TD,,700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Luther Burden,CHI,Receptions,2.5,-170.0,130.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,receptions,,,,,projection_missing,0.0
+Kayshon Boutte (NE) - 1Q,,Anytime TD,,1500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Konata Mumpfield (LAR) - 1H,,Anytime TD,,3500.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyren Williams (LAR) - 1H,,Anytime TD,,270.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Monangai & Chicago Bears,,Anytime TD,,550.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Monangai & Los Angeles Rams,,Anytime TD,,390.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyren Williams & Los Angeles Rams,,Anytime TD,,180.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyren Williams & Chicago Bears,,Anytime TD,,600.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Monangai (CHI) - 1H,,Anytime TD,,450.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Monangai (CHI) - 1Q,,Anytime TD,,1100.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Williams,NE,Receiving Yards,,7500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,rec_yards,46.5,,,,,0.0
+Luther Burden,CHI,Receiving Yards,38.5,-120.0,-110.0,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jayden Higgins (HOU) - 1Q,,Anytime TD,,1200.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Williams (NE) - 1Q,,Anytime TD,,4500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Luther Burden III,CHI,Receiving Yards,,1200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,rec_yards,35.1,,,,,0.0
+Matthew Stafford,LAR,Rushing Yards,,25000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,rush_yards,12.1,,,,,0.0
+Dalton Schultz,HOU,Receiving Yards,60.0,275.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,50.0,150.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Luther Burden III (CHI) - 1Q,,Anytime TD,,1200.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,3.0,-700.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+D.J. Moore (CHI) - 1H,,Anytime TD,,550.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,,any_td,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,4.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,5.0,-120.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,6.0,165.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,7.0,325.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receptions,8.0,575.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,receptions,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,40.0,-115.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,30.0,-250.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,25.0,-350.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,20.0,-600.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Dalton Schultz,HOU,Receiving Yards,15.0,-1200.0,,True,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,rec_yards,,,,,projection_missing,0.0
+Jayden Higgins & Houston Texans,,Anytime TD,,650.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jayden Higgins & New England Patriots,,Anytime TD,,600.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Jayden Higgins (HOU) - 1H,,Anytime TD,,550.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+Kyle Williams (NE) - 1H,,Anytime TD,,1500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,,any_td,,,,,projection_missing,0.0
+TreVeyon Henderson,NE,Anytime TD,,240.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,any_td,0.2923,,-0.006179999999999963,,,-0.006179999999999963
+Christian Kirk,HOU,Anytime TD,,290.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.2501,,-0.02461000000000002,,,-0.02461000000000002
+Xavier Hutchinson,HOU,Anytime TD,,400.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.1722,,-0.139,,,-0.139
+Puka Nacua,LAR,Anytime TD,,-114.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.4425,,-0.16934210526315785,,,-0.16934210526315785
+Tyler Higbee,LAR,Anytime TD,,320.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.1926,,-0.19108000000000003,,,-0.19108000000000003
+Caleb Williams,CHI,Anytime TD,,310.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,QB,any_td,0.1859,,-0.23781000000000008,,,-0.23781000000000008
+Davante Adams,LAR,Anytime TD,,-117.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.374,,-0.3063418803418803,,,-0.3063418803418803
+Drake Maye,NE,Anytime TD,,330.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,QB,any_td,0.1505,,-0.35285000000000005,,,-0.35285000000000005
+Durham Smythe,CHI,Anytime TD,,1800.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.0,,-1.0,,,-1.0
+Terrance Ferguson,LAR,Anytime TD,,700.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.0,,-1.0,,,-1.0
+Travis Homer,CHI,Anytime TD,,4000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.0,,-1.0,,,-1.0
+Ronnie Rivers,LAR,Anytime TD,,4000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,RB,any_td,0.0,,-1.0,,,-1.0
+Olamide Zaccheaus,CHI,Anytime TD,,800.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Jaylin Noel,HOU,Anytime TD,,1100.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Dare Ogunbowale,HOU,Anytime TD,,2700.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,RB,any_td,0.0,,-1.0,,,-1.0
+Jordan Whittington,LAR,Anytime TD,,1700.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Devin Duvernay,CHI,Anytime TD,,1900.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Demario Douglas,NE,Anytime TD,,500.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Davis Allen,LAR,Anytime TD,,1100.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,TE,any_td,0.0,,-1.0,,,-1.0
+Braxton Berrios,HOU,Anytime TD,,2800.0,,False,Houston Texans @ New England Patriots,Patriots,Texans,1768767000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0
+Xavier Smith,LAR,Anytime TD,,1000.0,,False,Los Angeles Rams @ Chicago Bears,Bears,Rams,1768779000000,Bovada,WR,any_td,0.0,,-1.0,,,-1.0

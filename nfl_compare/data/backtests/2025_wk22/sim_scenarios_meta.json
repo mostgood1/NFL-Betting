@@ -1,6 +1,6 @@
 {
   "baseline_scenario_id": "v2_baseline",
-  "created_utc": "2026-01-29T15:54:42.384102+00:00",
+  "created_utc": "2026-02-02T16:27:21.064334+00:00",
   "inputs": {
     "predictions_week_csv": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
@@ -17,27 +17,27 @@
       "cols": 25,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_probs_scenarios.csv",
       "rows": 23,
-      "sha256": "e510685eb988eb78de7f037fb43f0164e3df565c00e7dd47126acaaa82576a0b"
+      "sha256": "b6ec1875f76788f6bd40dd19da7046fdcd5175e0364e7003c1a8251f7e2abbd2"
     },
     "sim_scenario_deltas_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_deltas__set_v2.csv",
       "cols": 18,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_deltas.csv",
       "rows": 23,
-      "sha256": "984359a8883b92ba032f4afc9d49f47558fe9ac3d65d9eee34fc1e2bf5f93de8"
+      "sha256": "500bf089599594827a0cee5adea4c752adf6f9e7cdb05fc21851c8f51e251a7a"
     },
     "sim_scenario_inputs_csv": {
       "cols": 51,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_inputs.csv",
       "rows": 23,
-      "sha256": "0ff03636b3976f7540bfc06b757a1fc69d859d5c49ac8e4a1c30150ba03591aa"
+      "sha256": "d6bbe8214db0ee5f2d4ffc1e79dbac666afa8d2648d57a04248ba8b9671a6aac"
     },
     "sim_scenario_summary_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_summary__set_v2.csv",
       "cols": 14,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_summary.csv",
       "rows": 23,
-      "sha256": "f4ed951ac00575019e1628ede49dd30451c621f7e0149d513267d7bd5e64376f"
+      "sha256": "e1912cfb389a1b927e99722dad35f7809b8d07f2b62a522ebddbb01e0dc1d97e"
     }
   },
   "scenario_config": {
@@ -46,7 +46,7 @@
     "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\scenarios\\simulate_scenarios_v2.json",
     "scenario_count": 23,
     "schema_version": "1",
-    "sha256": "962f9b82417e583f04a1c8a1013ee465a59851e67992e1a48bd729bde9be3a9f"
+    "sha256": "71ef185f87e9868922f4262cc4ba5de9916bbcdecd0f584300deb30de25abf47"
   },
   "scenario_set": "set:v2",
   "scenario_set_slug": "set_v2",

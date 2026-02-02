@@ -275,7 +275,8 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
     merged['cons_total_under_price'] = merged.apply(lambda r: _median_row(r, tup_candidates), axis=1) if tup_candidates else np.nan
     merged['cons_source_count'] = sources_used
 
-    # Fill market_* fields if missing using consensus, but never overwrite close_* if present
+    # Fill market_* fields if missing using consensus, but never overwrite close_* if present.
+    # Also backfill missing moneylines and market prices when available from consensus.
     try:
         if 'market_spread_home' not in merged.columns:
             merged['market_spread_home'] = np.nan
@@ -285,6 +286,29 @@ def build_consensus_for_view(view_df: pd.DataFrame, season: Optional[int], week:
         merged.loc[m_spread, 'market_spread_home'] = merged.loc[m_spread, 'cons_spread_home']
         m_total = merged['market_total'].isna() & pd.notna(merged['cons_total'])
         merged.loc[m_total, 'market_total'] = merged.loc[m_total, 'cons_total']
+
+        # Moneylines (used by recommendations). Do not overwrite existing lines.
+        if 'moneyline_home' not in merged.columns:
+            merged['moneyline_home'] = np.nan
+        if 'moneyline_away' not in merged.columns:
+            merged['moneyline_away'] = np.nan
+        m_mlh = merged['moneyline_home'].isna() & pd.notna(merged['cons_moneyline_home'])
+        merged.loc[m_mlh, 'moneyline_home'] = merged.loc[m_mlh, 'cons_moneyline_home']
+        m_mla = merged['moneyline_away'].isna() & pd.notna(merged['cons_moneyline_away'])
+        merged.loc[m_mla, 'moneyline_away'] = merged.loc[m_mla, 'cons_moneyline_away']
+
+        # Prices for spread/total (best-effort). These improve EV calcs; keep existing values.
+        for base_col, cons_col in [
+            ('spread_home_price', 'cons_spread_home_price'),
+            ('spread_away_price', 'cons_spread_away_price'),
+            ('total_over_price', 'cons_total_over_price'),
+            ('total_under_price', 'cons_total_under_price'),
+        ]:
+            if base_col not in merged.columns:
+                merged[base_col] = np.nan
+            mm = merged[base_col].isna() & pd.notna(merged.get(cons_col))
+            if mm.any():
+                merged.loc[mm, base_col] = merged.loc[mm, cons_col]
     except Exception:
         pass
 

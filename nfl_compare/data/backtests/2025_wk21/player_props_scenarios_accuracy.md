@@ -15,7 +15,7 @@
 | v2_blend_10_20 | Market blend m=0.10 t=0.20 | 47.0000 | 4.8456 | 0.1247 | 0.1915 |
 | v2_sigma_low | Low volatility | 47.0000 | 4.8493 | 0.1248 | 0.1915 |
 | v2_inj_away_plus2 | Away starters out +2 | 47.0000 | 4.8502 | 0.1247 | 0.1915 |
-| v2_inj_home_plus1 | Home starters out +1 | 47.0000 | 4.8506 | 0.1250 | 0.1915 |
+| v2_inj_home_plus1 | Home starters out +1 | 47.0000 | 4.8507 | 0.1250 | 0.1915 |
 | v2_wind_plus20 | Wind +20mph (open) | 47.0000 | 4.8547 | 0.1249 | 0.1915 |
 | v2_rest_plus7 | Home rest +7 days (diff) | 47.0000 | 4.8559 | 0.1249 | 0.1915 |
 | v2_precip_plus50 | Precip +50% | 47.0000 | 4.8596 | 0.1249 | 0.1915 |
