@@ -1,10 +1,10 @@
 {
   "baseline_scenario_id": "v2_baseline",
-  "created_utc": "2026-02-02T16:27:21.064334+00:00",
+  "created_utc": "2026-02-03T14:16:23.255888+00:00",
   "inputs": {
     "predictions_week_csv": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
-      "sha256": "5cc7e8fdf8f82252f4aebdc953967ce90253354c17bf1391e1c4983188d9b1f7"
+      "sha256": "1f90240f126dc31653670f395a0cab2ec5dbeaa84bf1cf7bc184eab887aa36cd"
     }
   },
   "n_sims": 2000,
@@ -17,27 +17,27 @@
       "cols": 25,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_probs_scenarios.csv",
       "rows": 23,
-      "sha256": "b6ec1875f76788f6bd40dd19da7046fdcd5175e0364e7003c1a8251f7e2abbd2"
+      "sha256": "4dfee41c69bf03afecc0ed8423cc0fcef72a740e049fdb758c94c5e256e8dcce"
     },
     "sim_scenario_deltas_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_deltas__set_v2.csv",
       "cols": 18,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_deltas.csv",
       "rows": 23,
-      "sha256": "500bf089599594827a0cee5adea4c752adf6f9e7cdb05fc21851c8f51e251a7a"
+      "sha256": "a06f9b7f768802076f7bdc51f63f8aa16c8b18d59fe715dcab26a5e4e90a5d99"
     },
     "sim_scenario_inputs_csv": {
       "cols": 51,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_inputs.csv",
       "rows": 23,
-      "sha256": "d6bbe8214db0ee5f2d4ffc1e79dbac666afa8d2648d57a04248ba8b9671a6aac"
+      "sha256": "32c417c62c82fc14f756617249e1849f1f9e1a3d7ae5950ac411144bb0c99761"
     },
     "sim_scenario_summary_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_summary__set_v2.csv",
       "cols": 14,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_summary.csv",
       "rows": 23,
-      "sha256": "e1912cfb389a1b927e99722dad35f7809b8d07f2b62a522ebddbb01e0dc1d97e"
+      "sha256": "867bbdee2835b053831fc507d141700cf74cba82e0b3439bbfacbc63f139551e"
     }
   },
   "scenario_config": {
