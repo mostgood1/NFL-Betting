@@ -256,6 +256,26 @@ def _parse_real_lines_json(blob: Dict[str, Any]) -> pd.DataFrame:
             "total_over_price": total_over_price,
             "total_under_price": total_under_price,
         })
+
+        # Defensive: some feeds occasionally swap home/away vs games.csv.
+        # Emit a swapped orientation row so downstream joins can match either.
+        try:
+            if home and away and str(home).strip().lower() != str(away).strip().lower():
+                rows.append({
+                    "home_team": away,
+                    "away_team": home,
+                    # Spread is from the perspective of the home team; swapping flips the sign.
+                    "spread_home": (-spread_home) if spread_home is not None and not pd.isna(spread_home) else None,
+                    "total": total,
+                    "moneyline_home": ml_away,
+                    "moneyline_away": ml_home,
+                    "spread_home_price": spread_away_price,
+                    "spread_away_price": spread_home_price,
+                    "total_over_price": total_over_price,
+                    "total_under_price": total_under_price,
+                })
+        except Exception:
+            pass
     return pd.DataFrame(rows)
 
 

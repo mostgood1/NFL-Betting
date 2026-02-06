@@ -126,7 +126,38 @@ def main() -> None:
         drop = [c for c in merged.columns if c.endswith('_json')]
         if drop:
             merged = merged.drop(columns=drop)
-        lines_df = merged
+        # Defensive: OddsAPI can sometimes have home/away reversed vs our schedule.
+        # Retry enrichment with swapped teams, flipping spread sign and swapping team-sided prices.
+        try:
+            j_sw = j.copy()
+            j_sw = j_sw.rename(columns={'home_team': 'away_team', 'away_team': 'home_team'})
+            if 'spread_home' in j_sw.columns:
+                j_sw['spread_home'] = pd.to_numeric(j_sw['spread_home'], errors='coerce')
+                j_sw['spread_home'] = -j_sw['spread_home']
+            if 'moneyline_home' in j_sw.columns or 'moneyline_away' in j_sw.columns:
+                mh = j_sw.get('moneyline_home')
+                ma = j_sw.get('moneyline_away')
+                if mh is not None and ma is not None:
+                    j_sw['moneyline_home'], j_sw['moneyline_away'] = ma, mh
+            if 'spread_home_price' in j_sw.columns or 'spread_away_price' in j_sw.columns:
+                ph = j_sw.get('spread_home_price')
+                pa = j_sw.get('spread_away_price')
+                if ph is not None and pa is not None:
+                    j_sw['spread_home_price'], j_sw['spread_away_price'] = pa, ph
+
+            sw_merge_cols = [c for c in cols if c in j_sw.columns]
+            merged2 = merged.merge(j_sw[key+sw_merge_cols], on=key, how='left', suffixes=('', '_sw'))
+            for c in sw_merge_cols:
+                sc = f'{c}_sw'
+                if sc in merged2.columns and c in merged2.columns:
+                    # Only fill missing values from swapped lookup
+                    merged2[c] = merged2[c].where(merged2[c].notna(), merged2[sc])
+            drop2 = [c for c in merged2.columns if c.endswith('_sw')]
+            if drop2:
+                merged2 = merged2.drop(columns=drop2)
+            lines_df = merged2
+        except Exception:
+            lines_df = merged
 
     # Write back
     lines_fp.parent.mkdir(parents=True, exist_ok=True)

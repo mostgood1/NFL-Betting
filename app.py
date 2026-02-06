@@ -1163,7 +1163,36 @@ def _sportswriter_game_story(
         # Flow / momentum
         flow_bits: List[str] = []
         try:
-            if sim_drives:
+            # Prefer quarter-based flow when available so story matches the box score display.
+            # The UI rounds quarters to 0 decimals; do the same here.
+            if sim_quarters:
+                ql = [q for q in sim_quarters if isinstance(q, dict)]
+
+                def _qf(v: Any) -> Optional[float]:
+                    try:
+                        vv = f(v)
+                        return float(vv) if vv is not None else None
+                    except Exception:
+                        return None
+
+                def _qscore_str(away_pts: float, home_pts: float) -> str:
+                    return f"{away} {away_pts:.0f}–{home} {home_pts:.0f}"
+
+                if len(ql) >= 4:
+                    aq = [_qf(ql[i].get('away')) for i in range(4)]
+                    hq = [_qf(ql[i].get('home')) for i in range(4)]
+                    if all(x is not None for x in aq) and all(x is not None for x in hq):
+                        # Round like the UI does (Jinja '%.0f')
+                        aq0 = [float(f"{x:.0f}") for x in aq]  # type: ignore[arg-type]
+                        hq0 = [float(f"{x:.0f}") for x in hq]  # type: ignore[arg-type]
+                        s1 = _qscore_str(aq0[0], hq0[0])
+                        sh = _qscore_str(aq0[0] + aq0[1], hq0[0] + hq0[1])
+                        s3 = _qscore_str(aq0[0] + aq0[1] + aq0[2], hq0[0] + hq0[1] + hq0[2])
+                        flow_bits.append(_pick([f"After one: {s1}.", f"End of Q1: {s1}.", f"First quarter: {s1}."], salt="flow_q1"))
+                        flow_bits.append(_pick([f"At halftime: {sh}.", f"At the break: {sh}.", f"Halftime check: {sh}."], salt="flow_half"))
+                        flow_bits.append(_pick([f"Through three: {s3}.", f"After three: {s3}.", f"Heading to the fourth: {s3}."], salt="flow_q3"))
+
+            if not flow_bits and sim_drives:
                 dlist = [d for d in sim_drives if isinstance(d, dict)]
 
                 def _score_str(dd: Dict[str, Any]) -> Optional[str]:
@@ -9242,6 +9271,8 @@ def _build_cards(
             # Attach top prop edges for this matchup
             try:
                 c['top_prop_edges'] = prop_edges_by_match.get((str(home), str(away)), [])
+                if not c['top_prop_edges']:
+                    c['top_prop_edges'] = prop_edges_by_match.get((str(away), str(home)), [])
             except Exception:
                 c['top_prop_edges'] = []
 
