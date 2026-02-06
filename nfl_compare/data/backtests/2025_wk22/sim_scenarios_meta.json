@@ -1,10 +1,10 @@
 {
   "baseline_scenario_id": "v2_baseline",
-  "created_utc": "2026-02-06T17:16:21.155233+00:00",
+  "created_utc": "2026-02-06T17:56:40.004177+00:00",
   "inputs": {
     "predictions_week_csv": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
-      "sha256": "fe288968e3582f8b673301d618b7e6462000b373d8632c5b502b58c4a67f5c34"
+      "sha256": "ce6677e10a3bd6d9921a869a2a8786b783a00bf76a8760312579a59296ac7305"
     }
   },
   "n_sims": 2000,
@@ -30,7 +30,7 @@
       "cols": 51,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_inputs.csv",
       "rows": 23,
-      "sha256": "0dd1c29dfaffdd1544344c3463bae366daf698ada9f184fcad060fd03bb95a59"
+      "sha256": "baaec991bfd0e5a7ed32075b8d2db3d70c26dbde3f35b05c2f4bd700d1f83206"
     },
     "sim_scenario_summary_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenario_summary__set_v2.csv",
