@@ -199,10 +199,46 @@ def main() -> int:
     in_fp = Path(args.game_csv) if args.game_csv else (DATA_DIR / f"bovada_game_props_{season}_wk{week}.csv")
     out_fp = Path(args.out) if args.out else (DATA_DIR / f"edges_game_props_{season}_wk{week}.csv")
 
+    expected_out_cols = [
+        "event",
+        "game_time",
+        "home_team",
+        "away_team",
+        "market_key",
+        "market_name",
+        "period",
+        "team_side",
+        "line",
+        "price_home",
+        "price_away",
+        "over_price",
+        "under_price",
+        "is_alternate",
+        "price",
+        "threshold",
+        "range_low",
+        "range_high",
+        "range_type",
+        "total_line",
+        "spread_line",
+        "total_side",
+        "winner",
+        "combo",
+        "ht_result",
+        "ft_result",
+        "tie",
+        "side",
+        "ev_units",
+    ]
+
     if not in_fp.exists():
         print(f"Input not found: {in_fp}")
         return 2
-    gdf = pd.read_csv(in_fp)
+    try:
+        gdf = pd.read_csv(in_fp)
+    except pd.errors.EmptyDataError:
+        print(f"WARNING: Input CSV is empty: {in_fp}. Writing empty edges file.")
+        gdf = pd.DataFrame()
     pdf, pred_src = load_predictions_with_source()
     if pdf is None or pdf.empty:
         print("WARNING: predictions not found; EVs may be missing")
@@ -623,6 +659,8 @@ def main() -> int:
             continue
 
     out = pd.DataFrame(out_rows)
+    if out.shape[1] == 0:
+        out = pd.DataFrame(columns=expected_out_cols)
     out_fp.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(out_fp, index=False)
     print(f"Wrote {out_fp} with {len(out)} rows.")
