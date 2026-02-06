@@ -1107,16 +1107,19 @@ def _sportswriter_game_story(
             ms = f(market_spread_home)
             mt = f(market_total)
             if ms is not None and mar is not None:
-                implied_home_margin = -float(ms)  # market implied home margin
-                dmar = float(mar) - implied_home_margin
+                ms_f = float(ms)
+                implied_home_margin = -ms_f  # market implied home margin
+                sim_margin = float(mar)
+                sim_spread_home = -sim_margin  # fair home spread implied by sim margin
+                dmar = sim_margin - implied_home_margin
                 if abs(dmar) >= 2.0:
                     if dmar < 0:
                         market_bits.append(
                             _pick(
                                 [
-                                    f"The market is pricier on {home} (about {implied_home_margin:+.1f}) than the sims ({mar:+.1f}) — that leaves room for a {away} cover.",
-                                    f"Spread-wise, the book leans more {home} (≈{implied_home_margin:+.1f}) than the sim mean ({mar:+.1f}); that opens a lane toward {away} against the number.",
-                                    f"The spread gap favors {away}: market implies {home} by ~{implied_home_margin:+.1f}, sims have it {mar:+.1f}.",
+                                    f"The spread gap favors {away}: market has {home} {ms_f:+.1f}, sims make it {home} {sim_spread_home:+.1f}.",
+                                    f"Against the number, the sims lean away from {home}: market {home} {ms_f:+.1f} vs sim {home} {sim_spread_home:+.1f} — room for a {away} cover.",
+                                    f"Spread-wise: market {home} {ms_f:+.1f}, sim {home} {sim_spread_home:+.1f}. That points toward {away} ATS.",
                                 ],
                                 salt="market_spread_away_cover",
                             )
@@ -1125,9 +1128,9 @@ def _sportswriter_game_story(
                         market_bits.append(
                             _pick(
                                 [
-                                    f"The sims are more bullish on {home} ({mar:+.1f}) than the market (about {implied_home_margin:+.1f}).",
-                                    f"The sim margin likes {home} more than the spread does (sim {mar:+.1f} vs market ~{implied_home_margin:+.1f}).",
-                                    f"There’s daylight on the spread: sims {mar:+.1f}, market implies {home} {implied_home_margin:+.1f}.",
+                                    f"The sims are more bullish on {home} than the market: market {home} {ms_f:+.1f} vs sim {home} {sim_spread_home:+.1f}.",
+                                    f"There’s daylight on the spread: market {home} {ms_f:+.1f}, sim {home} {sim_spread_home:+.1f}.",
+                                    f"Spread check: sims {home} {sim_spread_home:+.1f} vs market {home} {ms_f:+.1f}.",
                                 ],
                                 salt="market_spread_home_edge",
                             )
