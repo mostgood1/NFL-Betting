@@ -3,36 +3,36 @@
   "data_dir": "C:/Users/mostg/OneDrive/Coding/NFL-Betting/nfl_compare/data",
   "inputs": {
     "player_props": {
-      "cols": 27,
+      "cols": 30,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\player_props_2025_wk22.csv",
-      "rows": 24,
-      "sha256": "e2fc79430c31a57d73e196ef5677493bec0097deba0a2f2470a4d75626d728c9"
+      "rows": 26,
+      "sha256": "b5ce66ae548f62c79a703b7555d61df901376c84136a92930bafb70d71339367"
     },
     "sim_probs_scenarios": {
       "cols": 25,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_probs_scenarios.csv",
       "rows": 23,
-      "sha256": "4dfee41c69bf03afecc0ed8423cc0fcef72a740e049fdb758c94c5e256e8dcce"
+      "sha256": "3da21a4342d827a526c430c6fb97993770591659fc3b95fe50ebc7126785c922"
     },
     "sim_scenarios_meta": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\sim_scenarios_meta.json",
-      "sha256": "a9d69c9fd69e7102c3f7f6924732e24621d3cfb578e52a6d6c7a32a480b6ce9d"
+      "sha256": "c5b9693bda2e3365cbf4bcfd2e6ae91aa0434584db5eda15020aac8a9bea6fbf"
     }
   },
   "outputs": {
     "player_props_scenarios_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\player_props_scenarios__simulate_scenarios_v2.csv",
-      "cols": 33,
+      "cols": 36,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\player_props_scenarios.csv",
-      "rows": 552,
-      "sha256": "0cef6cb84d558b91e5983953a0cd0d76898e1000db73e2faa1c693061b85c60d"
+      "rows": 598,
+      "sha256": "3b896acb482eaea555118528700fa7abf87dc3bccaf1d8ce7c8b2f26a79abc6b"
     },
     "player_props_scenarios_summary_csv": {
       "archive": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\player_props_scenarios_summary__simulate_scenarios_v2.csv",
       "cols": 16,
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\backtests\\2025_wk22\\player_props_scenarios_summary.csv",
       "rows": 46,
-      "sha256": "ff00db5bfef06b4817bfb127af4b859239af11bec6d0f5ba1bec183920f5905a"
+      "sha256": "5bdaf65c39bff9aff5a887b662f7c9bc0c626a72b0a22b784ba9b593785dba83"
     }
   },
   "scaling": {
