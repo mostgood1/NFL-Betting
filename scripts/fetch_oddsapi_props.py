@@ -346,6 +346,16 @@ def main() -> int:
     ap.add_argument("--week", type=int, required=True)
     ap.add_argument("--out", type=str, required=True)
     ap.add_argument(
+        "--mode",
+        type=str,
+        default=os.environ.get("ODDSAPI_PROPS_MODE", "per_market"),
+        choices=["per_market", "combined"],
+        help=(
+            "Fetch mode. Default per_market avoids OddsAPI 422s by requesting each market individually. "
+            "Set to combined to attempt a single combined-markets request (may 422; will fall back to per_market)."
+        ),
+    )
+    ap.add_argument(
         "--keep-existing-on-empty",
         action="store_true",
         default=True,
@@ -385,12 +395,17 @@ def main() -> int:
     raw_path = out_path.with_name(out_path.stem + "_raw.json")
 
     try:
-        events = fetch_player_props(api_key=api_key, region=region)
+        if args.mode == "combined":
+            events = fetch_player_props(api_key=api_key, region=region)
+        else:
+            events = fetch_player_props_chunked(api_key=api_key, region=region)
     except HTTPError as he:
         code = getattr(getattr(he, 'response', None), 'status_code', None)
         if code == 422:
-            # Fall back to chunked market requests to salvage available markets
-            print("INFO: OddsAPI 422 on combined request; retrying markets individually…")
+            # If combined mode 422s, fall back to per-market (legacy behavior).
+            # In per_market mode, a 422 here means the underlying endpoint rejected the request.
+            if args.mode == "combined":
+                print("INFO: OddsAPI 422 in combined mode; retrying markets individually…")
             try:
                 events = fetch_player_props_chunked(api_key=api_key, region=region)
             except Exception as e2:
