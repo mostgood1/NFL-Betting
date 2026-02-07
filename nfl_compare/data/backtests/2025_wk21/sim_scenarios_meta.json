@@ -1,10 +1,10 @@
 {
   "baseline_scenario_id": "v2_baseline",
-  "created_utc": "2026-02-06T17:56:49.511912+00:00",
+  "created_utc": "2026-02-07T13:56:33.245276+00:00",
   "inputs": {
     "predictions_week_csv": {
       "path": "C:\\Users\\mostg\\OneDrive\\Coding\\NFL-Betting\\nfl_compare\\data\\predictions_week.csv",
-      "sha256": "ce6677e10a3bd6d9921a869a2a8786b783a00bf76a8760312579a59296ac7305"
+      "sha256": "12ac90954f2d20a6e4b9efc3637a5885664472a30b4e712c4f5ec60f6c610641"
     }
   },
   "n_sims": 2000,
